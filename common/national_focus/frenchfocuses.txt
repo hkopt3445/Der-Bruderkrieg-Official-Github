@@ -40,7 +40,7 @@ focus_tree = {
     icon = GFX_goal_generic_construction2
     text = FRA_start_developing_countryside
     prerequisite = { focus = FRA_BUILD_INDUSTRY }
-    x = -5
+    x = -4
     y = 1
     relative_position_id = FRA_BUILD_INDUSTRY
     cost = 10
@@ -52,14 +52,26 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_INDUSTRY }
 
     completion_reward = {
-    
-      }
+			random_owned_controlled_state = {
+				limit = {
+					has_state_category = rural
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+
+
+    }
   }
 
   focus = {
-    id = FRA_encourage_local_businesses
+    id = FRA_encourage_infrastructure
     icon = GFX_goal_generic_construct_civilian
-    text = FRA_encourage_local_businesses
+    text = FRA_encourage_infrastructure
     prerequisite = { focus = FRA_start_developing_countryside }
 	  x = -1
     y = 1
@@ -73,7 +85,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_INDUSTRY }
 
     completion_reward = {
-      add_research_slot = 1
+      add_ideas = FRA_local_infrastructure
      }
   }
 
@@ -81,10 +93,10 @@ focus_tree = {
     id = FRA_construct_factories
     icon = GFX_goal_generic_construct_civilian
     text = FRA_construct_factories
-    prerequisite = { focus = FRA_encourage_local_businesses }
+    prerequisite = { focus = FRA_encourage_infrastructure }
     x = 0
     y = 1
-    relative_position_id = FRA_encourage_local_businesses
+    relative_position_id = FRA_encourage_infrastructure
     cost = 10
     ai_will_do = {
       factor = 10
@@ -94,7 +106,28 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_INDUSTRY }
 
     completion_reward = {
-
+		random_owned_controlled_state = {
+			limit = {
+				has_state_category = rural
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				has_state_category = rural
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
 
      }
   }
@@ -117,8 +150,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_INDUSTRY }
 
     completion_reward = {
-
-
+			add_ideas = FRA_local_villages
      }
   }
 
@@ -139,7 +171,10 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_INDUSTRY }
 
     completion_reward = {
-
+			swap_ideas = {
+				add_idea = FRA_local_villages_2
+				remove_idea = FRA_local_villages
+			}
 
      }
   }
@@ -162,7 +197,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_INDUSTRY }
 
     completion_reward = {
-
+			add_research_slot = 1
      }
   }
 	focus = {
@@ -182,8 +217,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-
-		 }
+			
+		}
 	}
 	focus = {
 		id = FRA_teach_modern_warfare
