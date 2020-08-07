@@ -1,0 +1,63 @@
+scripted_gui = {
+
+	DB_actual_history_window = {
+		window_name = "DB_history_window"
+		context_type = player_context
+
+		ai_enabled = {
+			always = no
+		}
+
+		visible = {
+			is_ai = no
+			has_variable = opened_template_ui
+			OR = {
+				tag = AUS
+				tag = FRA
+				tag = SOV
+				tag = GER
+				tag = TUR
+				tag = ITA
+			}
+		}
+
+		effects = {
+			DB_history_window_close_button_click = {
+				clear_variable = opened_template_ui
+			}
+
+			DB_history_window_open_faction_menu_button_click = {
+				#clear_variable = opened_template_ui
+				if = {
+					limit = {
+							has_variable = open_DB_history_faction_menu
+					}
+					clear_variable = open_DB_history_faction_menu
+				}
+				else = {
+					set_variable = {
+							var = open_DB_history_faction_menu
+							value = 1
+					}
+				}
+			}
+
+
+			DB_history_window_open_state_menu_button_click = {
+				#clear_variable = opened_template_ui
+				if = {
+					limit = {
+							has_variable = open_DB_history_state_menu
+					}
+					clear_variable = open_DB_history_state_menu
+				}
+				else = {
+					set_variable = {
+							var = open_DB_history_state_menu
+							value = 1
+					}
+				}
+			}
+		}
+	}
+}

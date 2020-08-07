@@ -1,0 +1,1426 @@
+focus_tree = {
+	id = GPU_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = GPU
+		}
+	}
+
+
+continuous_focus_position = { x = 5000, y = 2000 }
+
+	focus = {
+    id = GPU_COMPLIANCE
+    icon = GFX_goal_diplo_austria
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+	mutually_exclusive = { focus = GPU_ASSERT }
+    x = 12
+    y = 0
+    relative_position_id = GFX_focus_generic_industry_1
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_autonomy_score = {
+    value = -400
+	}
+	  }
+  } 
+
+  focus = {
+    id = GPU_STATUS_QUO
+    icon = GFX_focus_generic_diplomatic_treaty
+    prerequisite = { focus = GPU_COMPLIANCE }
+	mutually_exclusive = { focus = GPU_ELECTION }
+    x = -2
+    y = 1
+    relative_position_id = GPU_COMPLIANCE
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+	}
+	  }
+  }
+
+  focus = {
+    id = GPU_ROYALISM
+    icon = GFX_focus_generic_monarchy_1
+    prerequisite = { focus = GPU_STATUS_QUO }
+    x = 0
+    y = 1
+    relative_position_id = GPU_STATUS_QUO
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_ideas = KING_COUNTRY
+	  }
+  }
+
+  focus = {
+    id = GPU_ELECTION
+    icon = GFX_goal_support_democracy
+    prerequisite = { focus = GPU_COMPLIANCE }
+	mutually_exclusive = { focus = GPU_STATUS_QUO }
+    x = 2
+    y = 1
+    relative_position_id = GPU_COMPLIANCE
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = democratic
+    popularity = 0.1
+	}
+	}
+  }
+
+  focus = {
+    id = GPU_REPULICANISM
+    icon = GFX_focus_generic_self_management
+    prerequisite = { focus = GPU_ELECTION }
+    x = 0
+    y = 1
+    relative_position_id = GPU_ELECTION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	set_politics = {
+	ruling_party = democratic
+	}
+	}
+  }
+
+  focus = {
+    id = GPU_ANTI_PAN_GERMAN
+    #icon = GFX_goal_
+    prerequisite = { focus = GPU_ROYALISM }
+    x = 0
+    y = 1
+    relative_position_id = GPU_ROYALISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+		remove_ideas = {
+			Nationalist_Sympathisers
+		}
+	  }
+  }
+
+  focus = {
+    id = GPU_NATION_LIBERTY
+    icon = GFX_focus_generic_anti_fascist_diplomacy
+    prerequisite = { focus = GPU_REPULICANISM }
+    x = 0
+    y = 1
+    relative_position_id = GPU_REPULICANISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+		remove_ideas = {
+			Nationalist_Sympathisers
+		}
+	  }
+  }
+
+  focus = {
+    id = GPU_ANTI_UNITY
+    icon = GFX_goal_
+    prerequisite = { focus = GPU_ANTI_PAN_GERMAN or = GPU_NATION_LIBERTY }
+    x = 2
+    y = 1
+    relative_position_id = GPU_ANTI_PAN_GERMAN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_political_power = 150
+	  }
+  }
+
+  focus = {
+    id = GPU_ASSERT
+    icon = GFX_focus_generic_support_the_left_right
+    prerequisite = { focus =  }
+	mutually_exclusive = { focus = GPU_COMPLIANCE }
+    x = 10
+    y = 0
+    relative_position_id = GPU_COMPLIANCE
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_autonomy_score = {
+    value = 400
+	}
+	}
+  }
+
+  focus = {
+    id = GPU_COMMUNISM
+    icon = GFX_focus_generic_soviet_politics
+    prerequisite = { focus = GPU_ASSERT }
+	mutually_exclusive = { focus = GPU_ALLY_GORING }
+    x = -2
+    y = 1
+    relative_position_id = GPU_ASSERT
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = communism
+    popularity = 0.1
+	}
+	}
+  }
+
+  focus = {
+    id = GPU_BREAK_CHAIN
+    icon = GFX_Attack_Austria
+    prerequisite = { focus = GPU_COMMUNISM }
+    x = 0
+    y = 1
+    relative_position_id = GPU_COMMUNISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+
+		add_popularity = {
+	    ideology = communism
+	    popularity = 0.35
+		}
+	set_politics = {
+	ruling_party = communism
+	}
+	leave_faction = yes
+	FRA = {
+	end_puppet = GPU
+	country_event = sgc-rhi.3
+	}
+	}
+  }
+
+  focus = {
+    id = GPU_LIBERATE_GERMANY
+    icon = GFX_focus_ger_great_red_menace
+    prerequisite = { focus = GPU_BREAK_CHAIN }
+    x = 0
+    y = 1
+    relative_position_id = GPU_BREAK_CHAIN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+		available = {
+			date > 1938.1.1
+		}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_ideas = RED_DAWN
+	create_wargoal = {
+    type = annex_everything
+    target = GPU
+	}
+	create_wargoal = {
+    type = annex_everything
+    target = GER
+	}
+	  }
+  }
+
+  focus = {
+    id = GPU_ALLY_GORING
+    icon = GFX_goal_support_fascism
+    prerequisite = { focus = GPU_ASSERT }
+	mutually_exclusive = { focus = GPU_COMMUNISM }
+    x = 2
+    y = 1
+    relative_position_id = GPU_ASSERT
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = fascism
+    popularity = 0.1
+	}
+	  }
+  }
+
+  focus = {
+    id = GPU_EXPEL_FOREIGN
+    icon = GFX_Attack_Austria
+    prerequisite = { focus = GPU_ALLY_GORING }
+    x = 0
+    y = 1
+    relative_position_id = GPU_ALLY_GORING
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	set_politics = {
+	ruling_party = fascism
+	}
+	leave_faction = yes
+	AUS = {
+	end_puppet = GPU
+	country_event = sgc-rhi.1
+	}
+	  }
+  }
+
+  focus = {
+    id = GPU_UNITY_GUNPOINT
+    icon = GFX_focus_ger_oppose_hitler
+    prerequisite = { focus = GPU_EXPEL_FOREIGN }
+    x = 0
+    y = 1
+    relative_position_id = GPU_EXPEL_FOREIGN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+		available = {
+			date > 1938.1.1
+		}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_ideas = GLEICH
+
+	GER = {country_event = sgc-rhi.2}
+	create_wargoal = {
+    type = annex_everything
+    target = GPU
+	}
+	}
+  }
+
+  focus = {
+    id = GPU_INTERNATIONALISM
+    icon = GFX_goal_
+    prerequisite = { focus = GPU_LIBERATE_GERMANY or = GPU_UNITY_GUNPOINT }
+    x = 0
+    y = 4
+    relative_position_id = GPU_ASSERT
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	 		add_political_power = 200
+			add_stability = 0.05
+	  }
+  }
+
+  focus = {
+    id = GPU_BREAK_EUROPA_CHAIN
+    icon = GFX_goal_
+    prerequisite = { focus = GPU_INTERNATIONALISM }
+    x = 0
+    y = 1
+    relative_position_id = GPU_INTERNATIONALISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+			add_ideas = JUSTIFY_1
+	  }
+  }
+
+  focus = {
+    id = GPU_PAN_GERMAN
+    icon = GFX_focus_ger_reichskommisariats
+    prerequisite = { focus = GPU_BREAK_EUROPA_CHAIN }
+    x = 0
+    y = 1
+    relative_position_id = GPU_BREAK_EUROPA_CHAIN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_war_support = 0.1
+	  }
+  }
+
+  focus = {
+    id = GPU_GERMAN_CENTURY
+    icon = GFX_focus_ger_revive_kaiserreich
+    prerequisite = { focus = GPU_PAN_GERMAN }
+    x = 0
+    y = 1
+    relative_position_id = GPU_PAN_GERMAN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+			swap_ideas = {
+				add_idea = JUSTIFY_2
+				remove_idea = JUSTIFY_1
+			}
+	  }
+  }
+
+	focus = {
+		id = GPU_Form_Germany
+		icon = GFX_United_Germany_Focus
+		text = GPU_Form_Germany
+		prerequisite = { focus = GPU_GERMAN_CENTURY }
+
+		x = 0
+		y = 1
+		relative_position_id = GPU_GERMAN_CENTURY
+		cost = 10
+
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			unlock_decision_category_tooltip = form_germany_category
+		}
+	}
+
+
+	focus = {
+    id = GPU_BUILD_INDUSTRY
+    icon = GFX_goal_generic_construction
+    text = GPU_BOOST_ECONOMY
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+    x = 0
+    y = 0
+    #relative_position_id = ITA_industrial_effort_2
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 0.5
+        uses = 2
+        category = industry
+      }
+    }
+  }
+  focus = {
+    id = GPU_DEV_MUNICH
+    icon = GFX_focus_generic_industry_1
+    text = GPU_DEV_MUNICH
+    prerequisite = { focus = GPU_BUILD_INDUSTRY }
+    x = -1
+    y = 1
+    relative_position_id = GPU_BUILD_INDUSTRY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      52 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+      }
+     }
+  }
+
+	focus = {
+    id = GPU_DEV_BAVARIA
+    icon = GFX_focus_generic_industry_2
+    text = GPU_DEV_BAVARIA
+    prerequisite = { focus = GPU_BUILD_INDUSTRY }
+    x = 1
+    y = 1
+    relative_position_id = GPU_BUILD_INDUSTRY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      65 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+      }
+     }
+  }
+
+	focus = {
+		id = GPU_EXTRA_TECH_SLOT
+		icon = GFX_goal_generic_construct_civ_factory
+		text = GPU_EXTRA_TECH_SLOT
+		prerequisite = { focus = GPU_DEV_MUNICH }
+		prerequisite = { focus = GPU_DEV_BAVARIA }
+		x = 1
+		y = 1
+		relative_position_id = GPU_DEV_MUNICH
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_research_slot = 1
+
+		 }
+	}
+
+  focus = {
+    id = GPU_STRONG_SGC
+    icon = GFX_goal_generic_construct_civ_factory
+    text = GPU_STRONG_SGC
+    prerequisite = { focus = GPU_EXTRA_TECH_SLOT }
+    x = 0
+    y = 1
+    relative_position_id = GPU_EXTRA_TECH_SLOT
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_ideas = {
+        Booming_Economy
+      }
+
+     }
+  }
+
+
+
+	focus = {
+	  id = GPU_mobilize_reserves
+	  icon = GFX_goal_generic_production
+	  text = GPU_mobilize_reserves
+	  x = 0
+	  y = 1
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  prerequisite = {focus = GPU_STRONG_SGC}
+
+	  relative_position_id = GPU_STRONG_SGC
+
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+	  completion_reward = {
+	    add_ideas = {
+	      war_economy
+	    }
+	  }
+	}
+
+	focus = {
+	  id = GPU_military_industry
+	  icon = GFX_goal_generic_construct_mil_factory
+	  text = GPU_military_industry
+	  prerequisite = { focus = GPU_mobilize_reserves }
+	  x = -1
+	  y = 1
+	  relative_position_id = GPU_mobilize_reserves
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    #	Adds a civilian Factory (Warsaw)
+	      50 = {
+	      add_building_construction = {
+	          type = arms_complex
+	          level = 2
+	          instant_build = yes
+
+	      }
+	      add_extra_state_shared_building_slots = 2
+	      }
+	    }
+	  }
+
+	focus = {
+	  id = GPU_military_infrastructure
+	  icon = GFX_goal_generic_construct_infrastructure
+	  text = GPU_military_infrastructure
+	  prerequisite = { focus = GPU_mobilize_reserves }
+	  x = 1
+	  y = 1
+	  relative_position_id = GPU_mobilize_reserves
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    #	Adds a civilian Factory (Warsaw)
+	      every_state = {
+	        limit = {
+	          is_owned_by = GPU
+	        }
+	        add_building_construction = {
+	          type = infrastructure
+	          level = 4
+	          instant_build = yes
+	        }
+	      }
+	    }
+	  }
+
+	focus = {
+	  id = GPU_bavarian_steel
+	  icon = GFX_goal_generic_construct_infrastructure
+	  text = GPU_bavarian_steel
+	  prerequisite = { focus = GPU_military_infrastructure }
+	  x = 0
+	  y = 1
+	  relative_position_id = GPU_military_infrastructure
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    #	Adds a civilian Factory (Warsaw)
+	      add_resource = {
+	        type = steel
+	        amount = 16
+	        state = 60
+	      }
+	    }
+	  }
+
+
+
+	focus = {
+	  id = GPU_fortify_border
+	  icon = GFX_goal_generic_construct_military
+	  text = GPU_fortify_border
+	  prerequisite = { focus = GPU_military_industry }
+	  x = 0
+	  y = 1
+	  relative_position_id = GPU_military_industry
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	  GPU = {
+	    every_owned_state = {
+	        limit = {
+	            any_neighbor_state = {
+	                is_controlled_by = GER
+	            }
+	        }
+	        add_building_construction = {
+	            type = bunker
+	            level = 5
+	            instant_build = yes
+	            province = {
+	                all_provinces = yes
+	                limit_to_border = yes
+	            }
+	        }
+	    }
+	}
+	}
+	  }
+
+
+
+	focus = {
+	  id = GPU_ready_for_war
+	  icon = GFX_Austria_Burning
+	  text = GPU_ready_for_war
+	  prerequisite = { focus = GPU_bavarian_steel }
+	  prerequisite = { focus = GPU_fortify_border }
+
+	  x = 1
+	  y = 1
+	  relative_position_id = GPU_fortify_border
+	  cost = 10
+
+	  available = {
+	    has_war_with  = GER
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_manpower = 50000
+			add_war_support = 0.15
+			add_political_power = 150
+
+	  }
+	}
+
+
+
+	focus = {
+	  id = GPU_ARMY
+	  icon = GFX_goal_generic_axis_build_infantry
+	  text = GPU_ARMY
+	  #prerequisite = { focus = ITA_industrial_effort_2 }
+	  x = 0
+	  y = 6
+	  relative_position_id = GPU_COMPLIANCE
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    army_experience = 20
+	  }
+	}
+
+
+	focus = {
+	  id = GPU_AUSTRIAN_ADVISORS
+	  icon = GFX_goal_generic_construction
+	  text = GPU_AUSTRIAN_ADVISORS
+	  prerequisite = { focus = GPU_ARMY }
+	  mutually_exclusive = {focus = GPU_GERMAN_ADVISORS}
+	  x = -4
+	  y = 1
+	  relative_position_id = GPU_ARMY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	        add_ideas = {
+	          Russian_Advisors
+	        }
+	  }
+	}
+
+	focus = {
+	  id = GPU_FOCUS_ON_BATTLEPLAN
+	  icon = GFX_goal_generic_army_doctrines
+	  text = GPU_FOCUS_ON_BATTLEPLAN
+	  prerequisite = { focus = GPU_AUSTRIAN_ADVISORS }
+	  mutually_exclusive = { focus = GPU_FOCUS_ON_SIZE }
+	  x = -2
+	  y = 1
+	  relative_position_id = GPU_AUSTRIAN_ADVISORS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_grand_battle_plan
+	    }
+	   }
+	}
+
+	focus = {
+	  id = GPU_OUTSMART_GERMANS
+	  icon = GFX_goal_generic_construct_military
+	  text = GPU_OUTSMART_GERMANS
+	  prerequisite = { focus = GPU_FOCUS_ON_BATTLEPLAN }
+	  x = 0
+	  y = 1
+	  relative_position_id = GPU_FOCUS_ON_BATTLEPLAN
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_tech_bonus {
+	      bonus = 0.5
+	      uses = 1
+	      category = cat_grand_battle_plan
+	    }
+	    add_tech_bonus {
+	      bonus = 0.5
+	      uses = 1
+	      category = support_tech
+	    }
+	   }
+	}
+
+
+	focus = {
+	  id = GPU_MASTER_TACTICS
+	  icon = GFX_goal_generic_cavalry
+	  text = GPU_MASTER_TACTICS
+	  prerequisite = { focus = GPU_OUTSMART_GERMANS }
+	  x = 0
+	  y = 1
+	  relative_position_id = GPU_OUTSMART_GERMANS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      add_ideas = {
+	        Tactical_Genius
+	      }
+	    }
+	 }
+
+	 focus = {
+	   id = GPU_FOCUS_ON_SIZE
+	   icon = GFX_focus_generic_manpower
+	   text = GPU_FOCUS_ON_SIZE
+	   prerequisite = { focus = GPU_AUSTRIAN_ADVISORS }
+	   mutually_exclusive = { focus = GPU_FOCUS_ON_BATTLEPLAN }
+	   x = 2
+	   y = 1
+	   relative_position_id = GPU_AUSTRIAN_ADVISORS
+	   cost = 10
+	   ai_will_do = {
+	     factor = 1
+	   }
+
+	   available_if_capitulated = yes
+	   search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	   completion_reward = {
+	     add_tech_bonus {
+	       bonus = 1
+	       uses = 1
+	       category = cat_mass_assault
+	     }
+	    }
+	 }
+
+	 focus = {
+	   id = GPU_CONSCRIPT_THE_MASSES
+	   #sicon = GFX_Conscript_The_Masses
+	   text = GPU_CONSCRIPT_THE_MASSES
+	   prerequisite = { focus = GPU_FOCUS_ON_SIZE }
+	   x = 0
+	   y = 1
+	   relative_position_id = GPU_FOCUS_ON_SIZE
+	   cost = 10
+	   ai_will_do = {
+	     factor = 1
+	   }
+
+	   available_if_capitulated = yes
+	   search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	   completion_reward = {
+	     add_ideas = {
+	       extensive_conscription
+	     }
+	    }
+	 }
+
+	 focus = {
+	   id = GPU_EMPLOY_RUSSIAN_TACTICS
+	   icon = GFX_focus_yug_pan_slavic_congress
+	   text = GPU_EMPLOY_RUSSIAN_TACTICS
+	   prerequisite = { focus = GPU_CONSCRIPT_THE_MASSES }
+	   x = 0
+	   y = 1
+	   relative_position_id = GPU_CONSCRIPT_THE_MASSES
+	   cost = 10
+	   ai_will_do = {
+	     factor = 1
+	   }
+
+	   available_if_capitulated = yes
+	   search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	   completion_reward = {
+	       add_ideas = {
+	         Brave_New_Empire
+	       }
+	     }
+	   }
+
+
+
+	focus = {
+	  id = GPU_GERMAN_ADVISORS
+	  #icon = GFX_goal_generic_construction
+	  text = GPU_GERMAN_ADVISORS
+	  prerequisite = { focus = GPU_ARMY }
+	  mutually_exclusive = { focus = GPU_AUSTRIAN_ADVISORS }
+	  x = 4
+	  y = 1
+	  relative_position_id = GPU_ARMY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	        add_ideas = {
+	          German_Advisors
+	        }
+	  }
+	}
+
+	focus = {
+	  id = GPU_FOCUS_ON_FIREPOWER
+	  icon = GFX_goal_generic_army_artillery2
+	  text = GPU_FOCUS_ON_FIREPOWER
+	  prerequisite = { focus = GPU_GERMAN_ADVISORS }
+	  mutually_exclusive = { focus = GPU_FOCUS_ON_SPEED }
+
+	  x = -2
+	  y = 1
+	  relative_position_id = GPU_GERMAN_ADVISORS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      add_tech_bonus {
+	        bonus = 1
+	        uses = 1
+	        category = cat_superior_firepower
+	      }
+	  }
+	}
+
+
+	focus = {
+	  id = GPU_MAS_CONTRACTS
+	  icon = GFX_goal_generic_allies_build_infantry
+	  text = GPU_MAS_CONTRACTS
+	  prerequisite = { focus = GPU_FOCUS_ON_FIREPOWER }
+	  x = 0
+	  y = 1
+	  relative_position_id = GPU_FOCUS_ON_FIREPOWER
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_tech_bonus {
+	      bonus = 0.5
+	      uses = 1
+	      category = artillery
+	    }
+	    add_tech_bonus {
+	      bonus = 0.5
+	      uses = 1
+	      category = infantry_weapons
+	    }
+	    }
+	  }
+
+	focus = {
+	  id = GPU_MASTER_ARTILLERY
+	  icon = GFX_goal_generic_army_artillery
+	  text = GPU_MASTER_ARTILLERY
+	  prerequisite = { focus = GPU_MAS_CONTRACTS }
+	  x = 0
+	  y = 1
+	  relative_position_id = GPU_MAS_CONTRACTS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Hellsfire
+	    }
+	   }
+	}
+
+
+	  focus = {
+	    id = GPU_FOCUS_ON_SPEED
+	    icon = GFX_goal_generic_army_motorized
+	    text = GPU_FOCUS_ON_SPEED
+	    prerequisite = { focus = GPU_GERMAN_ADVISORS }
+	    mutually_exclusive = { focus = GPU_FOCUS_ON_FIREPOWER }
+
+	    x = 2
+	    y = 1
+	    relative_position_id = GPU_GERMAN_ADVISORS
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_tech_bonus {
+	        bonus = 1
+	        uses = 1
+	        category = cat_mobile_warfare
+	      }
+	   }
+	  }
+
+	  focus = {
+	    id = GPU_TANK_CORP
+	    icon = GFX_goal_generic_army_tanks
+	    text = GPU_TANK_CORP
+	    prerequisite = { focus = GPU_FOCUS_ON_SPEED }
+	    x = 0
+	    y = 1
+	    relative_position_id = GPU_FOCUS_ON_SPEED
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_tech_bonus {
+	        bonus = 1
+	        uses = 1
+	        category = cat_light_armor
+	      }
+	      }
+	    }
+
+	  focus = {
+	    id = GPU_MASTER_GUERRE_ECLAIR
+	    icon = GFX_focus_generic_army_tanks2
+	    text = GPU_MASTER_GUERRE_ECLAIR
+	    prerequisite = { focus = GPU_TANK_CORP }
+	    x = 0
+	    y = 1
+	    relative_position_id = GPU_TANK_CORP
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_ideas = {
+	        Lightning_War
+	      }
+	     }
+	  }
+
+	focus = {
+	  id = GPU_DESTROY_GERMANY
+	  icon = GFX_Austrian_Army
+	  text = GPU_DESTROY_GERMANY
+	  prerequisite = { focus = GPU_MASTER_ARTILLERY focus = GPU_MASTER_TACTICS focus = GPU_MASTER_GUERRE_ECLAIR focus = GPU_EMPLOY_RUSSIAN_TACTICS }
+	  x = -2
+	  y = 1
+	  relative_position_id = GPU_MASTER_ARTILLERY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Army_Future
+	    }
+	    army_experience = 50
+
+	   }
+	}
+
+
+
+		focus = {
+			id = GPU_recover_from_black_monday
+			icon = GFX_goal_generic_construction
+			x = 6
+			y = 0
+			cost = 7
+
+			ai_will_do = {
+				factor = 10
+			}
+			available - {
+				has_country_flag = stocks_crash
+			}
+			relative_position_id = GPU_BUILD_INDUSTRY
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+			completion_reward = {
+				add_stability = 0.05
+				add_political_power = 50
+			}
+		}
+
+		focus = {
+			id = GPU_recovery_stage_1
+			icon = GFX_goal_generic_construct_civ_factory
+			prerequisite = { focus = GPU_recover_from_black_monday }
+			x = 1
+			y = 1
+			relative_position_id = GPU_recover_from_black_monday
+			cost = 7
+
+			ai_will_do = {
+				factor = 10
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+				#	Adds a civilian Factory (Warsaw)
+					swap_ideas = {
+						add_idea = Vienna_Crash_2
+						remove_idea = Vienna_Crash
+					}
+				}
+			}
+
+		focus = {
+			id = GPU_deal_with_riots
+			icon = GFX_goal_generic_construct_civ_factory
+			prerequisite = { focus = GPU_recover_from_black_monday }
+			x = -1
+			y = 1
+			relative_position_id = GPU_recover_from_black_monday
+			cost = 7
+
+			ai_will_do = {
+				factor = 10
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+				#	Adds a civilian Factory (Warsaw)
+					swap_ideas = {
+						add_idea = Riots_Street_2
+						remove_idea = Riots_Street
+					}
+				}
+			}
+
+		focus = {
+			id = GPU_recovery_stage_2
+			icon = GFX_goal_generic_construct_infrastructure
+			prerequisite = { focus = GPU_recovery_stage_1 }
+			x = 0
+			y = 1
+			relative_position_id = GPU_recovery_stage_1
+			cost = 7
+
+			ai_will_do = {
+				factor = 10
+			}
+
+			bypass = {
+
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+			swap_ideas = {
+				add_idea = Vienna_Crash_2
+				remove_idea = Vienna_Crash_3
+			}
+			}
+		}
+
+		focus = {
+			id = GPU_appease_the_rioters
+			icon = GFX_goal_generic_construct_infrastructure
+			prerequisite = { focus = GPU_deal_with_riots }
+			x = 0
+			y = 1
+			relative_position_id = GPU_deal_with_riots
+			cost = 7
+
+			ai_will_do = {
+				factor = 10
+			}
+
+			bypass = {
+
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+			swap_ideas = {
+				add_idea = Riots_Street_3
+				remove_idea = Riots_Street_2
+			}
+			add_timed_idea = {
+				idea = Concessions_Rioters
+				days = 50
+			}
+			}
+		}
+
+		focus = {
+			id = GPU_recovery_stage_3
+			icon = GFX_goal_generic_construct_mil_factory
+			prerequisite = { focus = GPU_recovery_stage_2 }
+			x = 0
+			y = 1
+			relative_position_id = GPU_recovery_stage_2
+			cost = 7
+
+			ai_will_do = {
+				factor = 10
+			}
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+			swap_ideas = {
+				add_idea = Vienna_Crash_3
+				remove_idea = Vienna_Crash_4
+			}
+			}
+
+		}
+
+		focus = {
+			id = GPU_bread_for_all
+			icon = GFX_goal_generic_construct_mil_factory
+			prerequisite = { focus = GPU_appease_the_rioters }
+			x = 0
+			y = 1
+			relative_position_id = GPU_appease_the_rioters
+			cost = 7
+
+			ai_will_do = {
+				factor = 10
+			}
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+			swap_ideas = {
+				add_idea = Riots_Street_4
+				remove_idea = Riots_Street_3
+			}
+			}
+
+		}
+
+		focus = {
+			id = GPU_Recovery_Complete
+			icon = GFX_goal_generic_build_tank
+			prerequisite = { focus = GPU_recovery_stage_3 }
+			prerequisite = { focus = GPU_bread_for_all }
+			x = -1
+			y = 1
+			relative_position_id = GPU_recovery_stage_3
+			cost = 7
+
+			ai_will_do = {
+				factor = 10
+			}
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+				remove_ideas = {
+					Vienna_Crash_4
+					Riots_Street_4
+				}
+				set_country_flag = recovery_complete
+			}
+		}

@@ -1,0 +1,543 @@
+#focus_tree = {
+	id = fob_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = FOB
+		}
+	}
+
+	continuous_focus_position = { x = 3000, y = 2000 }
+
+	#freedom branch
+
+	focus = {
+    id = FOB_PATH_FREEDOM
+    icon = GFX_goal_continuous_boost_freedom
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+    x = 5
+    y = 0
+    #relative_position_id = ITA_industrial_effort_2
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	hidden_effects = {
+	add_ideas = PATH_FREEDOM
+      }
+	  }
+  }
+
+  focus = {
+    id = FOB_3_FACTIONS
+    icon = GFX_focus_generic_self_management
+    prerequisite = { focus = FOB_PATH_FREEDOM }
+    x = 0
+    y = 1
+    relative_position_id = FOB_PATH_FREEDOM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+			add_political_power = 200
+      }
+  }
+
+  focus = {
+    id = FOB_COMMUNISM
+    icon = GFX_goal_support_communism
+    prerequisite = { focus = FOB_3_FACTIONS }
+	mutually_exclusive = { focus = FOB_FALANGISM FOCUS = FOB_DEMOCRACY }
+    x = -3
+    y = 1
+    relative_position_id = FOB_3_FACTIONS
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = communism
+    popularity = 0.25
+	}
+	set_politics = {
+	ruling_party = communism
+	}
+      }
+  }
+
+  focus = {
+    id = FOB_FALANGISM
+    icon = GFX_goal_support_fascism
+    prerequisite = { focus = FOB_3_FACTIONS }
+	mutually_exclusive = { focus = FOB_COMMUNISM FOCUS = FOB_DEMOCRACY }
+    x = 0
+    y = 1
+    relative_position_id = FOB_3_FACTIONS
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = fascism
+    popularity = 0.25
+	}
+	set_politics = {
+	ruling_party = fascism
+	}
+      }
+  }
+
+  focus = {
+    id = FOB_DEMOCRACY
+    icon = GFX_goal_support_democracy
+    prerequisite = { focus = FOB_3_FACTIONS }
+	mutually_exclusive = { focus = FOB_FALANGISM FOCUS = FOB_COMMUNISM }
+    x = 3
+    y = 1
+    relative_position_id = FOB_3_FACTIONS
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = democratic
+    popularity = 0.25
+	}
+	set_politics = {
+	ruling_party = democratic
+	}
+      }
+  }
+
+  focus = {
+    id = FOB_CONTINUE_FREEDOM
+    icon = GFX_goal_continuous_boost_freedom
+    prerequisite = { focus = FOB_COMMUNISM or = FOB_DEMOCRACY or = FOB_FALANGISM }
+    x = 0
+    y = 1
+    relative_position_id = FOB_FALANGISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	hidden_effects = {
+	swap_ideas = {
+	remove_idea = PATH_FREEDOM
+	add_idea = PATH_FREEDOM_2
+	}
+	}
+	}
+  }
+
+  focus = {
+    id = FOB_EMANCIPATION
+    #icon = GFX_focus_spr_torchbearers_of_tomorrow.dds
+    prerequisite = { focus = FOB_CONTINUE_FREEDOM }
+    x = 0
+    y = 1
+    relative_position_id = FOB_CONTINUE_FREEDOM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+	available = {
+
+	}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+		SOV = {
+			release = FOB
+		}
+	remove_ideas = FOB_TARNISHED
+	add_timed_idea = {
+    idea = FOB_TARNISHED_2
+    days = 240
+	}
+	remove_ideas = FOB_RIGA_PETRO
+	}
+  }
+
+  focus = {
+    id = FOB_ANARCHY
+    icon = GFX_goal_
+    prerequisite = { focus = FOB_EMANCIPATION }
+    x = 0
+    y = 1
+    relative_position_id = FOB_EMANCIPATION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+	available = {
+	}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_stability = -0.3
+	start_civil_war = {
+    ideology = neutrality
+    size = 0.3
+    only_own_territory = yes
+    }
+	remove_ideas = FOB_RUS_PATRIOT
+	}
+	}
+
+  focus = {
+    id = FOB_LEGACY
+    icon = GFX_goal_
+    prerequisite = { focus = FOB_ANARCHY }
+    x = 0
+    y = 1
+    relative_position_id = FOB_ANARCHY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+	available = {
+	}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_timed_idea = {
+    idea = FOB_LEGACY
+    days = 150
+	}
+	}
+  }
+
+  #industry branch
+
+  focus = {
+    id = FOB_INDUSTRY_REVITALISATION
+    icon = GFX_goal_generic_construction2
+    #prerequisite = { focus = FOB_COMMUNISM }
+    x = 10
+    y = 0
+    relative_position_id = FOB_PATH_FREEDOM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+		add_tech_bonus {
+			bonus = 0.5
+			uses = 2
+			category = industry
+		}
+	}
+  }
+
+  focus = {
+    id = FOB_CIV_1
+    icon = GFX_goal_generic_construct_civilian
+    prerequisite = { focus = FOB_INDUSTRY_REVITALISATION }
+    x = -3
+    y = 1
+    relative_position_id = FOB_INDUSTRY_REVITALISATION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+	12 = {
+	add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+	}
+	}
+  }
+
+  focus = {
+    id = FOB_INFRA_1
+    icon = GFX_goal_generic_construct_infrastructure
+    prerequisite = { focus = FOB_INDUSTRY_REVITALISATION }
+    x = 0
+    y = 1
+    relative_position_id = FOB_INDUSTRY_REVITALISATION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+	12 = {
+	add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+	}
+	}
+  }
+
+  focus = {
+    id = FOB_MIL_1
+    icon = GFX_goal_generic_construct_mil_factory
+    prerequisite = { focus = FOB_INDUSTRY_REVITALISATION }
+    x = 3
+    y = 1
+    relative_position_id = FOB_INDUSTRY_REVITALISATION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+	11 = {
+	add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+	}
+	}
+  }
+
+  focus = {
+    id = FOB_CIV_2
+    icon = GFX_goal_generic_construction2
+    prerequisite = { focus = FOB_CIV_1 }
+    x = 0
+    y = 1
+    relative_position_id = FOB_CIV_1
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+	12 = {
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	}
+	}
+  }
+
+  focus = {
+    id = FOB_INFRA_2
+    icon = GFX_goal_generic_construct_infrastructure
+    prerequisite = { focus = FOB_INFRA_1 }
+    x = 0
+    y = 1
+    relative_position_id = FOB_INFRA_1
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+	11 = {
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+	}
+	}
+	}
+  }
+
+  focus = {
+    id = FOB_MIL_2
+    icon = goal_generic_construct_military
+    prerequisite = { focus = FOB_MIL_1 }
+    x = 0
+    y = 1
+    relative_position_id = FOB_MIL_1
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+	12 = {
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+	}
+	}
+  }
+
+  focus = {
+    id = FOB_FOREIGN
+    icon = GFX_goal_generic_dangerous_deal
+    #prerequisite = { focus =  }
+    x = -10
+    y = 0
+    relative_position_id = FOB_PATH_FREEDOM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+	available = {
+	is_subject = no
+	}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+  }
+  }
+
+  focus = {
+    id = FOB_WESTERN_EXPAND
+    icon = GFX_goal_
+    prerequisite = { focus = FOB_FOREIGN }
+	mutually_exclusive = { focus = FOB_BEACON or = FOB_HOME_REVOLUTION }
+    x = -3
+    y = 1
+    relative_position_id = FOB_FOREIGN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+	available = {
+	has_completed_focus = FOB_FALANGISM
+	}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_state_claim = 763
+	add_state_claim = 5
+	create_wargoal = {
+    type = annex_everything
+    target = GER
+	}
+	add_ideas = FOB_CONSCRIPT
+  }
+  }
+
+  focus = {
+    id = FOB_BEACON
+    icon = GFX_goal_
+    prerequisite = { focus = FOB_FOREIGN }
+	mutually_exclusive = { focus = FOB_HOME_REVOLUTION or = FOB_WESTERN_EXPAND }
+    x = 0
+    y = 1
+    relative_position_id = FOB_FOREIGN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+	available = {
+	has_completed_focus = FOB_DEMOCRACY
+	}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_ideas = FOB_BEACON
+  }
+  }
+
+  focus = {
+    id = FOB_HOME_REVOLUTION
+    icon = GFX_goal_
+    prerequisite = { focus = FOB_FOREIGN }
+	mutually_exclusive = { focus = FOB_BEACON or = FOB_WESTERN_EXPAND }
+    x = 3
+    y = 1
+    relative_position_id = FOB_FOREIGN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+	available = {
+	has_completed_focus = FOB_COMMUNISM
+	}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_ideas = FOB_HOME_COMMUNISM
+  }
+  }
+  }

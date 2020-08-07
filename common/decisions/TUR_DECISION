@@ -1,0 +1,80 @@
+#put in common/decisions/categories/TUR_decision_categories
+
+TUR_ARAB_REVOLT_CATEGORY = {
+#icon = GFX_insert_here
+#picture = GFX_insert_here
+allowed = {
+original_tag = TUR
+has_country_flag = TUR_REVOLT
+}
+visible = {
+tag = CHI }
+}
+
+#put in tur decision file
+
+TUR_ARAB_REVOLT_CATEGORY = {
+	TUR_ARAB_REVOLT_MISSION = {
+          allowed = { tag = TUR
+		  has_country_flag = TUR_REVOLT }
+		  available = {
+		  not = {
+		  tag = TUR
+		  }
+		  }
+		  visible = {
+		  tag = CHI
+		  }
+          activation = {
+		  tag = TUR
+			   }
+          is_good = no
+          days_mission_timeout = 100
+          timeout_effect = {
+		  hidden_effect = {
+		  set_autonomy = {
+    target = SAU
+    autonomy_state = autonomy_free
+}
+		  IRQ = {
+	set_state_owner = 291
+	set_state_controller = 291
+	set_province_controller = 10106
+	set_province_controller = 3916
+	set_province_controller = 10793
+		  }
+		  LEB = {
+	set_state_owner = 553
+	set_state_controller = 553
+	SYR = {
+	set_state_owner = 554
+	set_province_controller = 4111
+	set_province_controller = 1074
+	set_province_controller = 4486
+	set_province_controller = 2013
+	set_province_controller = 901
+          }
+		  }
+		  TUR = {
+		  declare_war_on = {
+    target = SYR
+    type = annex_everything
+	}
+		  declare_war_on = {
+    target = IRQ
+    type = annex_everything
+	}
+	declare_war_on = {
+    target = SAU
+    type = annex_everything
+	}
+	declare_war_on = {
+    target = LEB
+    type = annex_everything
+	}
+		  }
+		  }
+		  }
+		  }
+     }
+}

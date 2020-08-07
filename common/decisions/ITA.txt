@@ -1,0 +1,101 @@
+ITA_incoming_socialist_revolution = {
+  ITA_incoming_socialist_revolution_decision = {
+
+    priority = 10
+
+    icon = generic_ignite_civil_war
+
+    available = {
+      hidden_trigger = { always = no }
+    }
+
+    days_mission_timeout = 200
+
+    fire_only_once = yes
+
+    activation = {
+      tag = ITA
+    }
+
+    visible = {
+      tag = ITA
+      has_idea = ITA_socialist_revolt
+    }
+
+    cancel_if_not_visible = yes
+
+    is_good = yes
+
+    timeout_effect = {
+      ###copy nehe states
+
+      country_event = italy.522
+    }
+  }
+}
+
+ITA_mafia_decision = {
+  ITA_sabotage_mafia = {
+    available = {
+      tag = ITA
+    }
+    visible = {
+      tag = ITA
+    }
+
+    cost = 0
+    days_remove = 365
+
+    fire_only_once = yes
+
+    remove_effect = {
+
+    }
+  }
+}
+
+ITA_spread_italian_race_decision = {
+  ITA_spread_italian_race_decision_to_FROM = {
+    available = {
+      tag = ITA
+      has_completed_focus = ITA_spread_the_italian_race
+    }
+    visible = {
+      tag = ITA
+      has_completed_focus = ITA_spread_the_italian_race
+      not = { has_wargoal_against = FROM }
+      not = { has_war_with = FROM }
+      FROM = {
+        exists = yes
+        not = { is_subject_of = ROOT }
+      }
+    }
+    target_trigger = {
+      FROM = {
+        exists = yes
+        not = { has_war_with = ROOT }
+        NOT = {
+          has_government = ROOT
+          is_subject_of = ROOT
+        }
+        has_border_with = ITA
+      }
+    }
+    cost = 15
+    days_remove = 10
+    war_with_target_on_remove = yes
+    ai_will_do = {
+      factor = 20
+      modifier = {
+        has_war = yes
+        factor = 0
+      }
+    }
+    remove_effect = {
+      create_wargoal = {
+        type = annex_everything
+        target = FROM
+      }
+    }
+  }
+}

@@ -1,0 +1,449 @@
+######GUI
+
+
+########By Arj
+#####Adapted from Iron Curtain code granted by Swft541
+
+guiTypes = {
+
+  containerWindowType = {
+    name = "DB_expanded_history_window_faction_list"
+    position = {x=1000 y=400}
+    size = { width = 800 height = 315 }
+    moveable = yes
+
+
+    background = {
+      name = "Background"
+      quadTextureSprite = "GFX_tiled_paper_w_frame_bg"
+    }
+
+    buttonType = {
+      name = "exitbutton_DB_expanded_history_window_faction_listing"
+      position = {x=0 y=0}
+      ##Orientation = "UPPER_RIGHT"
+      spriteType = "GFX_closebutton"
+      shortcut = "ESCAPE"
+    }
+
+    buttonType = {
+      name = "DB_expanded_history_window_faction_listing_tech_sharing"
+      position = {x=550 y=20}
+      ##Orientation = "UPPER_RIGHT"
+      spriteType = "GFX_tiled_plain_bg"
+      shortcut = "ESCAPE"
+
+      size = { width =200 height=12 }
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_tech_sharing_text"
+      position = { x = 550 y = 20 }
+      font = "hoi_20b"
+      text = "DB_expanded_history_window_faction_listing_tech_sharing_text_loc"
+      format = center
+      maxwidth = 200
+      maxHeight = 12
+      fixedsize = yes
+    }
+
+    buttonType = {
+      name = "DB_expanded_history_window_faction_listing_join_exercises"
+      position = {x=200 y=20}
+      ##Orientation = "UPPER_RIGHT"
+      spriteType = "GFX_tiled_plain_bg"
+      shortcut = "ESCAPE"
+
+      size = { width =200 height=12 }
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_join_exercises_text"
+      position = { x = 200 y = 20 }
+      font = "hoi_20b"
+      text = "DB_expanded_history_window_faction_listing_join_exercises_text_loc"
+      format = center
+      maxwidth = 200
+      maxHeight = 12
+      fixedsize = yes
+    }
+
+
+
+
+
+    fade_time = 300
+    fade_type = linear
+    moveable = no
+    clipping = yes
+
+    instantTextboxType = {
+      name = "DB_history_window_get_faction_name"
+      position = { x = 0 y = 5 }
+      font = "hoi_36header"
+      text = "DB_history_window_get_faction_name"
+      format = center
+      maxwidth = 800
+      maxHeight = 20
+      fixedsize = yes
+    }
+
+    iconType ={
+      name ="units_icon"
+      spriteType = "GFX_manpower_icon"
+      position = { x= 320 y = 80 }
+      Orientation = "UPPER_LEFT"
+    }
+
+    iconType ={
+      name ="ships_icon"
+      spriteType = "GFX_navy_experience"
+      position = { x= 380 y = 80 }
+      Orientation = "UPPER_LEFT"
+    }
+
+    iconType ={
+      name ="air_icon"
+      spriteType = "GFX_air_experience"
+      position = { x= 440 y = 80 }
+      Orientation = "UPPER_LEFT"
+    }
+
+    iconType ={
+      name ="factory_icon"
+      spriteType = "GFX_industrial_capacity_icon"
+      position = { x= 500 y = 80 }
+      Orientation = "UPPER_LEFT"
+    }
+
+    gridboxtype = { #flags go here ig?
+      name = "DB_expanded_history_menu_faction_flag_grid"
+      position = { x = 0 y = 30 }
+      size = { width = 800 height = 25 }
+      slotsize = { width = 30 height = 18 }
+      max_slots_horizontal = 13
+      max_slots_vertical = 1
+    }
+
+
+
+
+
+
+
+    containerWindowType = {
+      name = "DB_expanded_history_menu_faction_grid"
+      position = {x=0 y=109}
+      size = { width = 800 height = 315 }
+      margin = { top = 10 bottom = 10 }
+      Orientation = upper_left
+      clipping = yes
+
+
+      verticalScrollbar = "right_vertical_slider"
+      #horizontalScrollbar = "bottom_vertical_slider"
+
+      # background is necesarry for scrollbars to work
+      background = {
+        name = "Background"
+        quadTextureSprite ="GFX_tiled_window2_1b_border"
+      }
+
+      background = {
+        name = "Background"
+        quadTextureSprite ="GFX_tiled_generic_overlay_bg1_small"
+        position = { x = -1 y = 0 }
+      }
+
+      # this grid will be dynamically populated
+
+      gridboxtype = {
+        name = "DB_expanded_history_window_faction_listing_grid"
+        position = { x = 0 y = 0 }
+        size = { width = 800 height = 100% }
+        slotsize = { width = 800 height = 25 }
+        max_slots_horizontal = 1
+        add_horizontal = yes
+      }
+    }
+  }
+
+
+
+
+
+  containerWindowType = {
+    name = "DB_expanded_history_menu_faction_flag_entry"
+    position = { x = 300 y = 0}
+    size = { width = 422 height = 100 }
+
+    iconType = {
+      name = "flag"
+      quadTextureSprite = "GFX_shield_small"
+      position = { x = 305 y = 20 }
+      Orientation = upper_left
+      pdx_tooltip = "flag_alignment_tip"
+
+    }
+  }
+
+
+
+
+
+  containerWindowType = {
+    name = "DB_expanded_history_window_faction_listing_entry"
+    position = { x = 0 y = 52}
+    size = { width = 800 height = 70 }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_entry_name"
+      position = { x = 0 y = 0}
+      font = "hoi_20b"
+      text = "[?THIS.GetName]"
+      format = center
+      maxWidth = 300
+      maxHeight = 20
+      fixedsize = yes
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_entry_unit_number"
+      position = { x = 320 y = 0}
+      font = "hoi_20b"
+      text = "[?THIS.num_armies]"
+      format = left
+      maxWidth = 40
+      maxHeight = 20
+      fixedsize = yes
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_entry_ships_number"
+      position = { x = 380 y = 0}
+      font = "hoi_20b"
+      text = "[?THIS.num_of_ships]"
+      format = left
+      maxWidth = 40
+      maxHeight = 20
+      fixedsize = yes
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_entry_planes_number"
+      position = { x = 440 y = 0}
+      font = "hoi_20b"
+      text = "[?THIS.num_deployed_planes]"
+      format = left
+      maxWidth = 40
+      maxHeight = 20
+      fixedsize = yes
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_entry_factory_number"
+      position = { x = 500 y = 0}
+      font = "hoi_20b"
+      text = "[?THIS.num_of_factories]"
+      format = left
+      maxWidth = 40
+      maxHeight = 20
+      fixedsize = yes
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_entry_dockyards_number"
+      position = { x = 560 y = 0}
+      font = "hoi_20b"
+      text = "[?THIS.num_of_naval_factories]"
+      format = left
+      maxWidth = 40
+      maxHeight = 20
+      fixedsize = yes
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_entry_garrison_number"
+      position = { x = 620 y = 0}
+      font = "hoi_20b"
+      text = "[?THIS.garrison_manpower_needed]"
+      format = left
+      maxWidth = 40
+      maxHeight = 20
+      fixedsize = yes
+    }
+
+    instantTextboxType = {
+      name = "DB_expanded_history_window_faction_listing_entry_casualties_number"
+      position = { x = 680 y = 0}
+      font = "hoi_20b"
+      text = "[?THIS.casualties_k]"
+      format = left
+      maxWidth = 40
+      maxHeight = 20
+      fixedsize = yes
+    }
+  }
+
+	containerWindowType = {
+	  name = "DB_expanded_history_window_state_list"
+	  position = {x=1000 y=400}
+	  size = { width = 800 height = 315 }
+	  moveable = yes
+
+
+	  background = {
+	    name = "Background"
+	    quadTextureSprite = "GFX_tiled_paper_w_frame_bg"
+	  }
+
+    buttonType = {
+      name = "exitbutton_DB_expanded_history_window_state_listing"
+      position = {x=0 y=0}
+      ##Orientation = "UPPER_RIGHT"
+      spriteType = "GFX_closebutton"
+      shortcut = "ESCAPE"
+    }
+
+
+
+	  fade_time = 300
+	  fade_type = linear
+	  moveable = no
+	  clipping = yes
+
+	  instantTextboxType = {
+	    name = "DB_history_window_get_state_name"
+	    position = { x = 0 y = 0 }
+	    font = "hoi_36header"
+	    text = "DB_history_window_get_state_name"
+	    format = center
+	    maxwidth = 800
+	    maxHeight = 20
+	    fixedsize = yes
+	  }
+
+
+
+    containerWindowType = {
+	    name = "DB_expanded_history_menu_state_grid_icons"
+	    position = {x=0 y=30}
+	    size = { width = 800 height = 5 }
+	    margin = { top = 10 bottom = 10 }
+	    Orientation = upper_left
+	    clipping = yes
+    }
+
+
+
+	  containerWindowType = {
+	    name = "DB_expanded_history_menu_state_grid"
+	    position = {x=0 y=52}
+	    size = { width = 800 height = 315 }
+	    margin = { top = 10 bottom = 10 }
+	    Orientation = upper_left
+	    clipping = yes
+
+
+	    verticalScrollbar = "right_vertical_slider"
+	  #	horizontalScrollbar = "top_vertical_slider"
+
+	    # background is necesarry for scrollbars to work
+      background = {
+        name = "Background"
+        quadTextureSprite ="GFX_tiled_window2_1b_border"
+      }
+
+      background = {
+        name = "Background"
+        quadTextureSprite ="GFX_tiled_generic_overlay_bg1_small"
+        position = { x = -1 y = 0 }
+      }
+
+	    # this grid will be dynamically populated
+
+	    gridboxtype = {
+	      name = "DB_expanded_history_window_state_listing_grid"
+	      position = { x = 0 y = 0 }
+	      size = { width = 800 height = 100% }
+	      slotsize = { width = 800 height = 25 }
+	      max_slots_horizontal = 1
+	      add_horizontal = yes
+	    }
+	  }
+	}
+
+	containerWindowType = {
+	  name = "DB_expanded_history_window_state_listing_entry"
+	  position = { x = 25 y = 0}
+	  size = { width = 800 height = 70 }
+
+	  instantTextboxType = {
+	    name = "DB_expanded_history_window_state_listing_entry_name"
+	    position = { x = 0 y = 25}
+	    font = "hoi_20b"
+	    text = "[?THIS.GetName]"
+	    format = center
+	    maxWidth = 300
+	    maxHeight = 20
+	    fixedsize = yes
+	  }
+
+	  instantTextboxType = {
+	    name = "DB_expanded_history_window_state_listing_entry_unit_number"
+	    position = { x = 320 y = 25}
+	    font = "hoi_20b"
+	    text = "[?THIS.state_population_k]"
+	    format = left
+	    maxWidth = 40
+	    maxHeight = 20
+	    fixedsize = yes
+
+	    pdx_tooltip = "STATE_POP_TOOLTIP"
+	  }
+
+	  instantTextboxType = {
+	    name = "DB_expanded_history_window_state_listing_entry_mil_factory_number"
+	    position = { x = 380 y = 25}
+	    font = "hoi_20b"
+	    text = "[?THIS.arms_factory_level]"
+	    format = left
+	    maxWidth = 40
+	    maxHeight = 20
+	    fixedsize = yes
+	  }
+
+	  instantTextboxType = {
+	    name = "DB_expanded_history_window_state_listing_entry_civ_factory_number"
+	    position = { x = 440 y = 25}
+	    font = "hoi_20b"
+	    text = "[?THIS.industrial_complex_level]"
+	    format = left
+	    maxWidth = 40
+	    maxHeight = 20
+	    fixedsize = yes
+	  }
+
+	  instantTextboxType = {
+	    name = "DB_expanded_history_window_state_listing_entry_infrastructure_number"
+	    position = { x = 500 y = 25}
+	    font = "hoi_20b"
+	    text = "[?THIS.infrastructure_level]"
+	    format = left
+	    maxWidth = 40
+	    maxHeight = 20
+	    fixedsize = yes
+	  }
+
+	  instantTextboxType = {
+	    name = "DB_expanded_history_window_state_listing_entry_factory_number"
+	    position = { x = 560 y = 25}
+	    font = "hoi_20b"
+	    text = "[?THIS.resistance]"
+	    format = left
+	    maxWidth = 40
+	    maxHeight = 20
+	    fixedsize = yes
+	  }
+	}
+}

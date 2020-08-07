@@ -1,0 +1,703 @@
+add_namespace = italy
+
+country_event = {
+	id = italy.100
+	title = italy.100.t
+	desc = italy.100.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If PAPania selects this option, they will transfer states, no war
+		name = italy.1.a #needs to be localized
+		ai_chance = { factor = 65 } #this factor means the AI will almost always pick this one
+		ITA = {
+		 	transfer_state = 2
+			set_capital = 2
+			}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			ITA = { country_event = italy.200 days = 1 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+		name = italy.1.b #needs to be localized
+		ai_chance = { factor = 35 }
+		hidden_effect = {
+			ITA = { country_event = italy.301 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+country_event = {
+	id = italy.200
+	title = italy.200.t
+	desc = italy.200.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.200.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = italy.301
+	title = italy.301.t
+	desc = italy.301.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.301.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		declare_war_on = {
+			type = take_claimed_state
+			target = PAP
+				}
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = italy.301.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+	}
+}
+
+news_event = {
+	id = italy.300
+	title = italy.300.t
+	desc = italy.300.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.300.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+country_event = {
+	id = italy.400
+	title = italy.400.t
+	desc = italy.400.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If PAPania selects this option, they will transfer states, no war
+		name = italy.400.a #needs to be localized
+		ai_chance = { factor = 53 } #this factor means the AI will almost always pick this one
+		ITA = {
+		 	transfer_state = 735
+			}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			ITA = { country_event = italy.401 days = 1 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+		name = italy.400.b #needs to be localized
+		ai_chance = { factor = 47 }
+		hidden_effect = {
+			ITA = { country_event = italy.402 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+country_event = {
+	id = italy.401
+	title = italy.401.t
+	desc = italy.401.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.401.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = italy.402
+	title = italy.402.t
+	desc = italy.402.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.402.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		declare_war_on = {
+			type = take_claimed_state
+			target = FRA
+				}
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = italy.402.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+		news_event = { id = italy.300 hours = 4 }
+	}
+}
+
+
+
+news_event = {
+	id = italy.2007
+	title = italy.2007.t
+	desc = italy.2007.d
+	picture = GFX_report_event_spr_italian_volunteers.dds
+	is_triggered_only = yes
+
+	trigger = {
+		tag = ITA
+		AND = {
+			has_completed_focus = ITA_plot
+		}
+	}
+
+
+	option = {
+		name = Okay
+	}
+}
+
+country_event = {
+	id = italy.500
+	title = italy.500.t
+	desc = italy.500.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If PAPania selects this option, they will transfer states, no war
+		name = italy.500.a #needs to be localized
+		ai_chance = { factor = 75 } #this factor means the AI will almost always pick this one
+		ITA = {
+		 	transfer_state = 159
+			}
+		AUS = {
+			remove_ideas = {
+				Giovane_Italia
+			}
+		}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			ITA = { country_event = italy.501 days = 1 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+		name = italy.500.b #needs to be localized
+		ai_chance = { factor = 25 }
+		hidden_effect = {
+			ITA = { country_event = italy.502 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+		AUS = {
+			remove_ideas = {
+				Giovane_Italia
+			}
+		}
+	}
+} #Closing Bracket
+
+country_event = {
+	id = italy.501
+	title = italy.501.t
+	desc = italy.501.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.501.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = italy.502
+	title = italy.502.t
+	desc = italy.502.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.502.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		declare_war_on = {
+			type = take_claimed_state
+			target = AUS
+				}
+
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = italy.502.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+		news_event = { id = italy.503  hours = 5 }
+	}
+}
+
+news_event = {
+	id = italy.503
+	title = italy.503.t
+	desc = italy.503.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.503.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+country_event = {
+	id = italy.504
+	title = italy.504.t
+	desc = italy.504.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If PAPania selects this option, they will transfer states, no war
+		name = italy.504.a #needs to be localized
+		ai_chance = { factor = 75 } #this factor means the AI will almost always pick this one
+		ITA = {
+		 	transfer_state = 160
+			}
+		AUS = {
+			remove_ideas = {
+				Giovane_Italia
+			}
+		}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			ITA = { country_event = italy.505 days = 1 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+		name = italy.504.b #needs to be localized
+		ai_chance = { factor = 25 }
+		hidden_effect = {
+			ITA = { country_event = italy.506 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+country_event = {
+	id = italy.505
+	title = italy.505.t
+	desc = italy.505.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.505.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = italy.506
+	title = italy.506.t
+	desc = italy.506.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.506.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		declare_war_on = {
+			type = take_claimed_state
+			target = PAP
+				}
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = italy.502.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+	}
+}
+
+news_event = {
+	id = italy.507
+	title = italy.507.t
+	desc = italy.507.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.507.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+
+country_event = {
+	id = italy.508
+	title = italy.508.t
+	desc = italy.508.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If PAPania selects this option, they will transfer states, no war
+		name = italy.508.a #needs to be localized
+		ai_chance = { factor = 75 } #this factor means the AI will almost always pick this one
+
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			ITA = { country_event = italy.509 days = 1 } #this event just notifies Austria that they got their way
+			set_country_flag = ITA_germany_accepts_unification
+			}
+	}
+
+	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+		name = italy.508.b #needs to be localized
+		ai_chance = { factor = 25 }
+		hidden_effect = {
+			ITA = { country_event = italy.510 days = 1 } #This event will give Austria an event to get a wargoal
+			set_country_flag = ITA_germany_denies_unification
+			}
+	}
+} #Closing Bracket
+
+country_event = {
+	id = italy.509
+	title = italy.509.t
+	desc = italy.509.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.509.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = italy.510
+	title = italy.510.t
+	desc = italy.510.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.510.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		every_state = {
+			limit = {
+				is_owned_by = GER
+			}
+			add_claim_by = ITA
+		}
+	}
+}
+
+
+country_event = {
+	id = italy.511
+	title = italy.511.t
+	desc = italy.511.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.511.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+country_event = {
+	id = italy.512
+	title = italy.512.t
+	desc = italy.512.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.512.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+
+
+country_event = {
+	id = italy.513
+	title = italy.513.t
+	desc = italy.513.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If PAPania selects this option, they will transfer states, no war
+		name = italy.513.a #needs to be localized
+		ai_chance = { factor = 75 } #this factor means the AI will almost always pick this one
+		transfer_state = 458
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			ITA = { country_event = italy.514 days = 1 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+		name = italy.513.b #needs to be localized
+		ai_chance = { factor = 25 }
+		hidden_effect = {
+			ITA = { country_event = italy.515 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+country_event = {
+	id = italy.514
+	title = italy.514.t
+	desc = italy.514.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.514.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = italy.515
+	title = italy.515.t
+	desc = italy.515.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.515.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		create_wargoal = {
+			target = FRA
+			type = annex_everything
+		}
+	}
+}
+
+country_event = {
+	id = italy.516
+	title = italy.516.t
+	desc = italy.516.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.516.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		news_event = {id = italy.517}
+
+		add_ideas = ITA_anti_italian_unification
+	}
+} #Closing Bracket
+
+
+news_event = {
+	id = italy.517
+	title = italy.517.t
+	desc = italy.517.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.517.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+	}
+}
+
+
+country_event = {
+	id = italy.518
+	title = italy.518.t
+	desc = italy.518.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.518.a #needs to be localized
+		ai_chance = { factor = 50 } #this factor means the AI will almost always pick this one
+		PAP = {country_event = italy.100}
+
+
+	}
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.518.a #needs to be localized
+		ai_chance = { factor = 50 } #this factor means the AI will almost always pick this one
+		add_guarantee = PAP
+
+
+	}
+}
+
+country_event = {
+	id = italy.519
+	title = italy.519.t
+	desc = italy.519.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If PAPania selects this option, they will transfer states, no war
+		name = italy.519.a #needs to be localized
+		ai_chance = { factor = 75 } #this factor means the AI will almost always pick this one
+		transfer_state = 447
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			ITA = { country_event = italy.520 days = 1 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+		name = italy.519.b #needs to be localized
+		ai_chance = { factor = 25 }
+		hidden_effect = {
+			ITA = { country_event = italy.521 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+country_event = {
+	id = italy.520
+	title = italy.520.t
+	desc = italy.520.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = italy.520.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = italy.521
+	title = italy.521.t
+	desc = italy.521.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.521.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		create_wargoal = {
+			target = ENG
+			type = annex_everything
+		}
+	}
+}
+
+country_event = {
+	id = italy.522
+	title = italy.522.t
+	desc = italy.522.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.522.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		news_event = italy.523
+	}
+}
+
+news_event = {
+	id = italy.523
+	title = italy.523.t
+	desc = italy.523.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = italy.523.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+}

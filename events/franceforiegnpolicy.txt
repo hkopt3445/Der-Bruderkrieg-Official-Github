@@ -1,0 +1,494 @@
+add_namespace = napoleanfrance
+
+country_event = {
+	id = napoleanfrance.1
+	title = napoleanfrance.1.t
+	desc = napoleanfrance.1.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.1.a
+		ai_chance = { factor = 67 }
+		FRA = {
+			country_event = napoleanfrance.2
+			set_autonomy = {
+				target = ROOT
+				autonomous_state =  autonomy_puppet
+			}
+		}
+	}
+
+	option = {
+		name = napoleanfrance.1.b
+		ai_chance = { factor = 33 }
+		FRA = { country_event = napoleanfrance.3 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = napoleanfrance.2
+	title = napoleanfrance.2.t
+	desc = napoleanfrance.2.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.2.a
+		}
+	}
+
+
+# [Country] Refuses
+country_event = {
+	id = napoleanfrance.3
+	title = napoleanfrance.3.t
+	desc = napoleanfrance.3.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.3.a
+		create_wargoal = {
+			target = FROM
+			type = puppet_wargoal_focus
+		}
+		#news_event = { id = napoleanfrance.30 hours = 5 }
+	}
+}
+
+
+
+
+
+
+
+country_event = {
+	id = napoleanfrance.4
+	title = napoleanfrance.4.t
+	desc = napoleanfrance.4.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.4.a
+		ai_chance = { factor = 67 }
+		FRA = {
+			country_event = napoleanfrance.5
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+
+	option = {
+		name = napoleanfrance.5.b
+		ai_chance = { factor = 33 }
+		FRA = { country_event = napoleanfrance.6 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = napoleanfrance.5
+	title = napoleanfrance.5.t
+	desc = napoleanfrance.5.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.5.a
+		}
+	}
+
+
+# [Country] Refuses
+country_event = {
+	id = napoleanfrance.6
+	title = napoleanfrance.6.t
+	desc = napoleanfrance.6.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.6.a
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+
+
+
+#########Napoleon Events
+
+# Benelux reunification
+country_event = {
+	id = napoleanfrance.7
+	title = napoleanfrance.7.t
+	desc = napoleanfrance.7.d
+	picture = GFX_report_event_generic_sign_treaty3
+
+	is_triggered_only = yes
+
+	# Hurrah
+
+	option = {
+		name = napoleanfrance.7.a
+		FROM = {
+			every_unit_leader = {
+				set_nationality = ROOT
+			}
+		}
+		annex_country = {
+		    target = FROM
+		    transfer_troops = yes
+		}
+
+		FRA = {country_event = {id = napoleanfrance.9}}
+
+		ai_chance = {factor = 1000}
+	}
+
+	option = {
+		name = napoleanfrance.7.b
+		FRA = {country_event = {id = napoleanfrance.8}}
+		ai_chance = {factor = 15}
+	}
+}
+
+country_event = {
+	id = napoleanfrance.8
+	title = napoleanfrance.8.t
+	desc = napoleanfrance.8.d
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	# Damnit
+	option = {
+		name = napoleanfrance.8.a
+		FRA = {
+			create_wargoal = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = napoleanfrance.9
+	title = napoleanfrance.9.t
+	desc = napoleanfrance.9.d
+	picture = GFX_report_event_generic_sign_treaty3
+
+	is_triggered_only = yes
+
+	# Yay! They accepted!
+	option = {
+		name = napoleanfrance.9.a
+
+		BEL = {
+			set_cosmetic_tag = UNL_UNIFIED
+		}
+
+		add_ideas = FRA_benelux_crisis
+	}
+}
+
+
+
+country_event = {
+	id = napoleanfrance.10
+	title = napoleanfrance.10.t
+	desc = napoleanfrance.10.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.10.a
+		ai_chance = { factor = 67 }
+		FRA = {
+			country_event = napoleanfrance.11
+		}
+
+		FRA = {
+			transfer_state = 158
+		}
+	}
+
+	option = {
+		name = napoleanfrance.10.b
+		ai_chance = { factor = 33 }
+		FRA = { country_event = napoleanfrance.12 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = napoleanfrance.11
+	title = napoleanfrance.11.t
+	desc = napoleanfrance.11.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.11.a
+		}
+	}
+
+
+# [Country] Refuses
+country_event = {
+	id = napoleanfrance.12
+	title = napoleanfrance.12.t
+	desc = napoleanfrance.12.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.12.a
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+
+
+
+country_event = {
+	id = napoleanfrance.13
+	title = napoleanfrance.13.t
+	desc = napoleanfrance.13.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.13.a
+		ai_chance = { factor = 67 }
+		FRA = {
+			country_event = napoleanfrance.5
+		}
+
+		FGD = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+
+	option = {
+		name = napoleanfrance.13.b
+		ai_chance = { factor = 33 }
+		FRA = { country_event = napoleanfrance.6 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = napoleanfrance.14
+	title = napoleanfrance.14.t
+	desc = napoleanfrance.14.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.14.a
+		}
+	}
+
+
+# [Country] Refuses
+country_event = {
+	id = napoleanfrance.15
+	title = napoleanfrance.15.t
+	desc = napoleanfrance.15.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.15.a
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+country_event = {
+	id = napoleanfrance.16
+	title = napoleanfrance.16.t
+	desc = napoleanfrance.16.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.16.a
+		ai_chance = { factor = 67 }
+		FRA = {
+			country_event = napoleanfrance.17
+			transfer_state = 3
+		}
+
+		ITA = {
+			country_event = napoleanfrance.17
+			transfer_state = 151
+		}
+	}
+
+	option = {
+		name = napoleanfrance.16.b
+		ai_chance = { factor = 33 }
+		FRA = { country_event = napoleanfrance.18 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = napoleanfrance.17
+	title = napoleanfrance.17.t
+	desc = napoleanfrance.17.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.17.a
+		}
+	}
+
+
+# [Country] Refuses
+country_event = {
+	id = napoleanfrance.18
+	title = napoleanfrance.18.t
+	desc = napoleanfrance.18.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.18.a
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+
+
+
+
+
+country_event = {
+	id = napoleanfrance.20
+	title = napoleanfrance.20.t
+	desc = napoleanfrance.20.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.20.a
+		ai_chance = { factor = 100 }
+		FRA = {
+			add_stability = 0.05
+		}
+
+		news_event = {id = napoleanfrance.21}
+
+		FGD = {
+			annex_country = {
+				target = GER
+				transfer_troops = yes
+			}
+		}
+	}
+
+	option = {
+		name = napoleanfrance.20.b
+		ai_chance = { factor = 100 }
+		FRA = { country_event = napoleanfrance.22 }
+	}
+}
+
+# [Country] Accepts
+news_event = {
+	id = napoleanfrance.21
+	title = napoleanfrance.21.t
+	desc = napoleanfrance.21.d
+	picture = GFX_report_event_soldiers_in_france
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.21.a
+		}
+	}
+
+
+# [Country] Refuses
+country_event = {
+	id = napoleanfrance.22
+	title = napoleanfrance.22.t
+	desc = napoleanfrance.22.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.22.a
+		FRA = {
+			leave_faction = yes
+		}
+	}
+}
+
+
+
+news_event = {
+	id = napoleanfrance.19
+	title = napoleanfrance.19.t
+	desc = napoleanfrance.19.d
+	picture = GFX_report_event_finnish_letter
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.18.a
+	}
+}

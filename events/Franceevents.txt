@@ -1,0 +1,210 @@
+﻿###########################
+# Soviet Events
+###########################
+
+add_namespace = france
+
+
+
+#########Ask to join
+country_event = {
+	id = france.170
+	title = france.170.t
+	desc = france.170.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = france.170.a
+		ai_chance = { factor = 90 }
+		ROOT = {
+			country_event = france.180
+			add_to_faction = FRA
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = "FRA"
+			value = 200
+		}
+	}
+
+	option = {
+		name = france.170.b
+		ai_chance = { factor = 10 }
+		FRA = { country_event = france.190 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = france.180
+	title = france.180.t
+	desc = france.180.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = france.180.a
+		effect_tooltip = {
+			FROM = {
+				add_to_faction = FRA
+			}
+		}
+	}
+}
+
+# [Country] Refuses
+country_event = {
+	id = france.190
+	title = france.190.t
+	desc = france.190.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = france.190.a
+	}
+}
+
+country_event = {
+	id = france.17
+	title = france.17.t
+	desc = france.17.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = france.17.a
+		ai_chance = { factor = 90 }
+		FRA = {
+			country_event = france.18
+			add_to_faction = ROOT
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = "FRA"
+			value = 200
+		}
+	}
+
+	option = {
+		name = france.17.b
+		ai_chance = { factor = 10 }
+		FRA = { country_event = france.19 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = france.18
+	title = france.18.t
+	desc = france.18.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = france.18.a
+		effect_tooltip = {
+			add_to_faction = FROM
+		}
+	}
+}
+
+# [Country] Refuses
+country_event = {
+	id = france.19
+	title = france.19.t
+	desc = france.19.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = france.19.a
+	}
+}
+
+
+
+
+
+
+
+
+country_event = {
+	id = france.200
+	title = france.200.t
+	desc = france.200.desc
+	picture = GFX_report_event_soldiers_in_france
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If Romania selects this option, they will transfer states, no war
+		name = france.200.a #needs to be localized
+		ai_chance = { factor = 65 } #this factor means the AI will almost always pick this one
+		FRA = {
+		 	annex_country = FGD
+			transfer_troops = yes
+			}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			news_event = { id = france.201 hours = 5 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If Romania selects this option, they say no and Austria gets event to get war goal
+		name = france.200.b #needs to be localized
+		ai_chance = { factor = 35 }
+		hidden_effect = {
+			FRA = { country_event = france.202 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+news_event = {
+	id = france.201
+	title = france.201.t
+	desc = france.201.desc
+	picture = GFX_news_event_generic_army
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = france.201 #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = france.202
+	title = france.202.t
+	desc = france.202.desc
+	picture = GFX_report_event_generic_rifles
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = france.202.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		create_wargoal = {
+			type = annex_everything
+			target = FGD
+				}
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = france.202.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+	}
+}

@@ -1,0 +1,213 @@
+add_namespace = southamerica
+
+country_event = {
+	id = southamerica.1
+	title = southamerica.1.t
+	desc = southamerica.1.d
+	picture = GFX_country_event_hungarian_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+
+	}
+
+	mean_time_to_happen = {
+		days = 22
+	}
+
+  option = {
+		ai_chance = {
+		base = 1
+		}
+		name = southamerica.1.a
+		BRA = {
+			declare_war_on = {
+				target = ARG
+				type = annex_everything
+			}
+			create_faction = BRA_1
+			set_country_flag = cisplatine_war
+		}
+		ARG = {
+			create_faction = ARG_1
+		}
+		news_event = {id = southamerica.2}
+
+
+		COL = {country_event = {id = southamerica.3 days = 2}}
+		BOL = {country_event = {id = southamerica.3 days = 2}}
+		PRU = {country_event = {id = southamerica.3 days = 2}}
+		VEN = {country_event = {id = southamerica.3 days = 2}}
+		ECU = {country_event = {id = southamerica.3 days = 2}}
+		CHL = {country_event = {id = southamerica.3 days = 2}}
+		URG = {country_event = {id = southamerica.3 days = 2}}
+	}
+}
+
+news_event = {
+	id = southamerica.2
+	title = southamerica.2.t
+	desc = southamerica.2.d
+	picture = GFX_country_event_hungarian_soldiers
+	major = yes
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	trigger = {
+
+	}
+
+	option = {
+		ai_chance = {
+		base = 1
+		}
+		name = southamerica.2.a
+	}
+
+}
+
+
+
+
+
+
+
+
+country_event = {
+	id = southamerica.3
+	title = southamerica.3.t
+	desc = southamerica.3.d
+	picture = GFX_country_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			OR = {
+				tag = PRU
+				tag = VEN
+				tag = CHL
+				tag = BOL
+				tag = COL
+				tag = URG
+				tag = ECU
+			}
+			BRA = {
+				has_country_flag = cisplatine_war
+			}
+		}
+	}
+
+	option = {
+	IF = {
+		ROOT = {
+				tag = CHL
+			}
+			ai_chance = {
+			factor = 25
+			}
+		}
+		IF = {
+			ROOT = {
+					tag = BOL
+				}
+				ai_chance = {
+				factor = 75
+				}
+			}
+		IF = {
+			ROOT = {
+					tag = VEN
+				}
+				ai_chance = {
+				factor = 75
+				}
+			}
+			name = southamerica.3.a
+
+			ai_chance = {
+				factor = 50
+			}
+
+			set_country_flag = side_chosen
+
+			BRA = {
+				add_to_faction = ROOT
+				country_event = {id = southamerica.4}
+			}
+		}
+	option = {
+			IF = {
+				ROOT = {
+						tag = CHL
+					}
+					ai_chance = {
+					factor = 75
+					}
+				}
+				IF = {
+					ROOT = {
+							tag = BOL
+						}
+						ai_chance = {
+						factor = 25
+						}
+					}
+				IF = {
+					ROOT = {
+							tag = VEN
+						}
+						ai_chance = {
+						factor = 25
+						}
+					}
+
+					ai_chance = {
+						factor = 50
+					}
+			name = southamerica.3.b
+
+			set_country_flag = side_chosen
+
+			ARG = {
+				add_to_faction = ROOT
+				country_event = {id = southamerica.4}
+			}
+		}
+}
+
+
+
+country_event = {
+	id = southamerica.4
+	title = southamerica.4.t
+	desc = southamerica.4.d
+	picture = GFX_country_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			OR = {
+				tag = BRA
+				tag = ARG
+			}
+			FROM = {
+				has_country_flag = side_chosen
+			}
+		}
+	}
+
+  option = {
+		ai_chance = {
+		base = 1
+		}
+		name = southamerica.4.a
+	}
+}
