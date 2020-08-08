@@ -15,7 +15,7 @@ focus_tree = {
     icon = GFX_goal_generic_construction
     text = FRA_BOOST_ECONOMY
     #prerequisite = { focus = ITA_industrial_effort_2 }
-    x = 27
+    x = 23
     y = 0
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 10
@@ -40,7 +40,7 @@ focus_tree = {
     icon = GFX_goal_generic_construction2
     text = FRA_start_developing_countryside
     prerequisite = { focus = FRA_BUILD_INDUSTRY }
-    x = -4
+    x = -3
     y = 1
     relative_position_id = FRA_BUILD_INDUSTRY
     cost = 10
@@ -182,10 +182,10 @@ focus_tree = {
 
   focus = {
     id = FRA_expand_the_sorbonne_university
-    icon = GFX_focus_generic_industry_1
+    icon = GFX_focus_research
     text = FRA_expand_the_sorbonne_university
     prerequisite = { focus = FRA_BUILD_INDUSTRY }
-    x = 4
+    x = 3
     y = 1
     relative_position_id = FRA_BUILD_INDUSTRY
     cost = 10
@@ -202,7 +202,7 @@ focus_tree = {
   }
 	focus = {
 		id = FRA_open_military_academies
-		icon = GFX_focus_generic_industry_2
+		icon = GFX_focus_generic_commonwealth_build_infantry
 		text = FRA_open_military_academies
 		prerequisite = { focus = FRA_expand_the_sorbonne_university }
 		x = -1
@@ -217,12 +217,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			
+			add_ideas = FRA_military_academies
 		}
 	}
 	focus = {
 		id = FRA_teach_modern_warfare
-		icon = GFX_focus_generic_industry_3
+		icon = GFX_goal_generic_army_motorized
 		text = FRA_teach_modern_warfare
 		prerequisite = { focus = FRA_open_military_academies }
 		x = 0
@@ -237,16 +237,19 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-
+			swap_ideas = {
+				add_idea = FRA_military_academies_2
+				remove_idea = FRA_military_academies
+			}
 		 }
 	}
 
 	focus = {
 		id = FRA_open_research_facilities
-		icon = GFX_goal_generic_production
+		icon = GFX_goal_generic_consumer_goods
 		text = FRA_open_research_facilities
 		prerequisite = { focus = FRA_expand_the_sorbonne_university }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = FRA_expand_the_sorbonne_university
 		cost = 10
@@ -258,13 +261,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-
+			add_ideas = FRA_research_facilities
 		}
 	}
 
 	focus = {
 		id = FRA_intellegent_scientists_committee
-		icon = GFX_goal_generic_production
+		icon = GFX_focus_research2
 		text = FRA_intellegent_scientists_committee
 		prerequisite = { focus = FRA_open_research_facilities }
 		x = 0
@@ -281,16 +284,19 @@ focus_tree = {
 		completion_reward = {
 
 		}
+	}
 
   focus = {
     id = FRA_nation_reborn
-    icon = GFX_goal_generic_construct_civ_factory
+    #icon = GFX_goal_generic_construct_civ_factory
     text = FRA_nation_reborn
-    prerequisite = { focus = FRA_STRONG_MAINLAND }
-		prerequisite = { focus = FRA_open_research_facilities }
-    x = -1
+    prerequisite = { focus = FRA_teach_modern_warfare }
+		prerequisite = { focus = FRA_intellegent_scientists_committee }
+		prerequisite = { focus = FRA_modernize_local_villages }
+		prerequisite = { focus = FRA_construct_factories }
+    x = -4
     y = 1
-    relative_position_id = FRA_open_research_facilities
+    relative_position_id = FRA_intellegent_scientists_committee
     cost = 10
     ai_will_do = {
       factor = 1
@@ -300,8 +306,12 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_INDUSTRY }
 
     completion_reward = {
-
-
+			remove_ideas = {
+				FRA_outdated_military_tech
+			}
+			remove_ideas = {
+				FRA_underdeveloped_countryside
+			}
      }
   }
 
@@ -1411,7 +1421,7 @@ focus_tree = {
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_focus_generic_monarchy_2
     text = FRA_CONSERVATIVES_PREVAIL
-    x = 12
+    x = 18
     y = 0
     relative_position_id = FRA_BUILD_INDUSTRY
     cost = 0
@@ -1673,7 +1683,7 @@ focus_tree = {
     id = FRA_LEFTIST_COALITION
     icon = GFX_goal_continuous_boost_freedom
     text = FRA_LEFTIST_COALITION
-    x = 30
+    x = 36
     y = 0
     relative_position_id = FRA_BUILD_INDUSTRY
     cost = 10

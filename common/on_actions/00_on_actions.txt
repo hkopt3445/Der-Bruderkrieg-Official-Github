@@ -1143,6 +1143,13 @@ on_actions = {
 				}
 				abandon_colony_tag = yes
 			}
+
+			save_global_event_target_as = person_being_annexed
+			FROM = {
+				save_global_event_target_as = annexer
+			}
+
+			set_global_flag = DB_on_annex_show
 		}
 	}
 
@@ -1617,69 +1624,6 @@ on_actions = {
 			}
 		}
 
-
-
-		if = {
-			limit = {
-				OR = {
-					AND = {
-						tag = AUS
-						has_war_with = GER
-					}
-					AND = {
-						tag = GER
-						has_war_with = AUS
-					}
-				}
-			}
-			AUS = {
-				set_country_flag = wiltkrieg
-			}
-			news_event = {id = wiltkrieg.1}
-
-			if = {
-				AUS = {
-					NOT = {
-						has_war_with = FRA
-					}
-				}
-				FRA = {country_event = {id = austria.17}}
-			}
-
-			if = {
-				AUS = {
-					NOT = {
-						has_war_with = ENG
-					}
-				}
-				ENG = {country_event = {id = austria.17}}
-			}
-
-			if = {
-				AUS = {
-					NOT = {
-						has_war_with = DEN
-					}
-				}
-				DEN = {country_event = {id = germanyfaction.17}}
-			}
-
-			if = {
-				AND = {
-					GER = {
-							NOT = {
-								has_war_with = SOV
-							}
-					}
-					SOV = {
-						NOT = {
-							is_in_faction_with = FRA
-						}
-					}
-				}
-				SOV = {country_event = {id = germanyfaction.17}}
-			}
-		}
 	}
 	#ROOT = attacking side
 	#FROM = defending side
