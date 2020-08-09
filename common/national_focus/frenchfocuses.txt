@@ -2985,6 +2985,7 @@ focus_tree = {
 		icon = GFX_goal_Dominate_Benelux
 		text = FRA_ANNEX_BENELUX
 		prerequisite = { focus = FRA_NAPOLEON }
+		mutually_exclusive = {focus = FRA_BUFFER_STATE}
 		x = -1
 		y = 1
 		relative_position_id = FRA_NAPOLEON
@@ -3117,6 +3118,7 @@ focus_tree = {
 		icon = GFX_goal_Establish_Buffer_State
 		text = FRA_BUFFER_STATE
 		prerequisite = { focus = FRA_NAPOLEON }
+		mutually_exclusive = {focus = FRA_ANNEX_BENELUX}
 		x = 1
 		y = 1
 		relative_position_id = FRA_NAPOLEON
@@ -3262,6 +3264,8 @@ focus_tree = {
 							limit = {
 									any_neighbor_state = {
 											is_controlled_by = GER
+											is_controlled_by = HAN
+											is_controlled_by = FGD
 									}
 							}
 							add_building_construction = {
@@ -3525,7 +3529,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = {
-				Manego_Campaign
+				FRA_manego_campaign
 			}
 		}
 	}
@@ -3890,6 +3894,8 @@ focus_tree = {
 		text = FRA_JOIN_GERMANY
 		prerequisite = { focus = FRA_DEMAND_LUX }
 		prerequisite = { focus = FRA_DEMAND_HOL }
+		mutually_exclusive = {focus = FRA_JOIN_ITALY}
+		mutually_exclusive = {focus = FRA_GREATER_FRANCE}
 		x = 2
 		y = 1
 		relative_position_id = FRA_DEMAND_LUX
@@ -3925,6 +3931,8 @@ focus_tree = {
 		text = FRA_JOIN_ITALY
 		prerequisite = { focus = FRA_DEMAND_LUX }
 		prerequisite = { focus = FRA_DEMAND_HOL }
+		mutually_exclusive = {focus = FRA_JOIN_GERMANY}
+		mutually_exclusive = {focus = FRA_GREATER_FRANCE}
 		x = 0
 		y = 1
 		relative_position_id = FRA_DEMAND_LUX
@@ -3960,6 +3968,8 @@ focus_tree = {
 		text = FRA_GREATER_FRANCE
 		prerequisite = { focus = FRA_DEMAND_LUX }
 		prerequisite = { focus = FRA_DEMAND_HOL }
+		mutually_exclusive = {focus = FRA_JOIN_GERMANY}
+		mutually_exclusive = {focus = FRA_JOIN_ITALY}
 		x = -2
 		y = 1
 		relative_position_id = FRA_DEMAND_LUX
@@ -4470,6 +4480,7 @@ focus_tree = {
     icon = GFX_goal_Subjugation
     text = FRA_SUBJUGATION
 		prerequisite = { focus = FRA_INFLUENCE_SCANDI }
+		mutually_exclusive = {focus = FRA_COM_ALLIANCE}
     x = -4
     y = 1
     relative_position_id = FRA_INFLUENCE_SCANDI
@@ -4729,6 +4740,7 @@ focus_tree = {
 	  icon = GFX_goal_Communist_Alliance
 	  text = FRA_COM_ALLIANCE
 	  prerequisite = { focus = FRA_INFLUENCE_SCANDI }
+		mutually_exclusive = {focus = FRA_SUBJUGATION}
 	  x = 4
 	  y = 1
 	  relative_position_id = FRA_INFLUENCE_SCANDI

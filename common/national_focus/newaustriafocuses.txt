@@ -467,9 +467,9 @@ focus_tree = {
 	  id = COS_PREP_WAR
 	  icon = GFX_focus_generic_the_giant_wakes
 	  text = COS_PREP_WAR
-	  prerequisite = { focus = COS_KAISER_SPEECH }
+	  #prerequisite = { focus = COS_KAISER_SPEECH }
 	  x = 24
-	  y = 1
+	  y = -3
 	  relative_position_id = COS_KAISER_SPEECH
 	  cost = 10
 	  ai_will_do = {
@@ -477,7 +477,7 @@ focus_tree = {
 	  }
 
 		bypass = {
-			has_country_flag = austria_mobilized
+			tag = AUS
 		}
 
 	  available_if_capitulated = yes
@@ -2693,7 +2693,8 @@ focus_tree = {
     id = COS_non_aggression_with_russia
     icon = GFX_focus_hun_elect_a_king
     text = COS_non_aggression_with_russia
-    prerequisite = { focus = COS_ANNEX_BUCOVINA }
+    prerequisite = { focus = COS_ANNEX_BUCOVINA focus = COS_bulwark_against_expansionism}
+
     x = 4
     y = 1
     relative_position_id = COS_ANNEX_BUCOVINA
@@ -2758,10 +2759,10 @@ focus_tree = {
     id = COS_colonial_ambitions
     icon = GFX_focus_hun_elect_a_king
     text = COS_colonial_ambitions
-    prerequisite = { focus = COS_ANNEX_BUCOVINA }
-    x = -5
+    prerequisite = { focus = COS_CENTRALISM }
+    x = -8
     y = 1
-    relative_position_id = COS_ANNEX_BUCOVINA
+    relative_position_id = COS_CENTRALISM
     cost = 10
     ai_will_do = {
       factor = 20
@@ -2779,7 +2780,7 @@ focus_tree = {
     icon = GFX_focus_hun_elect_a_king
     text = COS_expansion_in_africa
     prerequisite = { focus = COS_colonial_ambitions }
-    x = -2
+    x = -5
     y = 1
     relative_position_id = COS_colonial_ambitions
     cost = 10
@@ -2800,6 +2801,69 @@ focus_tree = {
     icon = GFX_focus_hun_elect_a_king
     text = COS_claim_the_north_african_coast
     prerequisite = { focus = COS_expansion_in_africa }
+    x = -2
+    y = 1
+    relative_position_id = COS_expansion_in_africa
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_demand_tunis
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_demand_tunis
+    prerequisite = { focus = COS_claim_the_north_african_coast }
+    x = 0
+    y = 1
+    relative_position_id = COS_claim_the_north_african_coast
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_north_african_oil
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_north_african_oil
+    prerequisite = { focus = COS_demand_tunis }
+    x = 0
+    y = 1
+    relative_position_id = COS_demand_tunis
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_infrastructure_in_somalia
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_infrastructure_in_somalia
+    prerequisite = { focus = COS_expansion_in_africa }
     x = 0
     y = 1
     relative_position_id = COS_expansion_in_africa
@@ -2817,6 +2881,113 @@ focus_tree = {
   }
 
 	focus = {
+    id = COS_expand_in_somalia
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_expand_in_somalia
+    prerequisite = { focus = COS_infrastructure_in_somalia }
+    x = 0
+    y = 1
+    relative_position_id = COS_infrastructure_in_somalia
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_demand_kenya
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_demand_kenya
+    prerequisite = { focus = COS_expand_in_somalia }
+    x = 0
+    y = 1
+    relative_position_id = COS_expand_in_somalia
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_oil_in_angola
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_oil_in_angola
+    prerequisite = { focus = COS_expansion_in_africa }
+    x = 2
+    y = 1
+    relative_position_id = COS_expansion_in_africa
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_connect_our_territories
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_connect_our_territories
+    prerequisite = { focus = COS_oil_in_angola }
+    x = 0
+    y = 1
+    relative_position_id = COS_oil_in_angola
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_claim_the_greater_congo_basin
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_claim_the_greater_congo_basin
+    prerequisite = { focus = COS_connect_our_territories }
+    x = 0
+    y = 1
+    relative_position_id = COS_connect_our_territories
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+
+
+	focus = {
     id = COS_influence_brazil
     icon = GFX_focus_hun_elect_a_king
     text = COS_influence_brazil
@@ -2825,6 +2996,7 @@ focus_tree = {
     y = 1
     relative_position_id = COS_colonial_ambitions
     cost = 10
+
     ai_will_do = {
       factor = 20
     }
@@ -2859,13 +3031,34 @@ focus_tree = {
   }
 
 	focus = {
-    id = COS_influence_beyiang
+    id = COS_infrastructure_in_qingdao
     icon = GFX_focus_hun_elect_a_king
-    text = COS_influence_beyiang
+    text = COS_infrastructure_in_qingdao
     prerequisite = { focus = COS_colonial_ambitions }
     x = 2
     y = 1
     relative_position_id = COS_colonial_ambitions
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_influence_beyiang
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_influence_beyiang
+    prerequisite = { focus = COS_infrastructure_in_qingdao }
+    x = 1
+    y = 1
+    relative_position_id = COS_infrastructure_in_qingdao
     cost = 10
     ai_will_do = {
       factor = 20
@@ -2900,95 +3093,93 @@ focus_tree = {
     }
   }
 
+	focus = {
+    id = COS_eastern_menace
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_eastern_menace
+    prerequisite = { focus = COS_pact_with_beyaing }
+    x = 0
+    y = 1
+    relative_position_id = COS_pact_with_beyaing
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
 
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
 
 	focus = {
-		id = COS_TO_BARRICADES
-		icon = GFX_goal_support_communism
-		text = COS_TO_BARRICADES
-		prerequisite = { focus = COS_REFORM }
-		mutually_exclusive = { focus = COS_sign_a_new_constitution }
-		x = -2
-		y = 1
-		relative_position_id = COS_REFORM
-		cost = 10
-		ai_will_do = {
-			factor = 20
-		}
+    id = COS_align_indian_congress
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_align_indian_congress
+    prerequisite = { focus = COS_infrastructure_in_qingdao }
+    x = 1
+    y = 1
+    relative_position_id = COS_infrastructure_in_qingdao
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
 
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
 
-		completion_reward = {
-			add_ideas = {
-				Chaos_Vienna
-			}
+    completion_reward = {
 
-			add_popularity = {
-				ideology = communism
-				popularity = 0.2
-			}
-		}
-	}
+    }
+  }
 
 	focus = {
-		id = COS_LONG_LIVE_REV
-		icon = GFX_focus_generic_soviet_politics
-		text = COS_LONG_LIVE_REV
-		prerequisite = { focus = COS_TO_BARRICADES }
-		x = 0
-		y = 1
-		relative_position_id = COS_TO_BARRICADES
-		cost = 10
-		ai_will_do = {
-			factor = 20
-		}
+    id = COS_intervention_india
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_intervention_india
+    prerequisite = { focus = COS_align_indian_congress }
+    x = 0
+    y = 1
+    relative_position_id = COS_align_indian_congress
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
 
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
 
-		completion_reward = {
-			add_stability = 0.1
-			add_war_support = 0.2
-			remove_ideas = {
-				Chaos_Vienna
-			}
+    completion_reward = {
 
-			add_popularity = {
-				ideology = communism
-				popularity = 0.15
-			}
-
-			set_politics = {
-				ruling_party = communism
-			}
-		}
-	}
+    }
+  }
 
 	focus = {
-		id = COS_FORM_INTERNATIONALE
-		icon = GFX_focus_generic_join_comintern
-		text = COS_FORM_INTERNATIONALE
-		desc = "Joe"
-		prerequisite = { focus = COS_LONG_LIVE_REV }
-		x = 0
-		y = 1
-		relative_position_id = COS_LONG_LIVE_REV
-		cost = 10
-		ai_will_do = {
-			factor = 20
-		}
+    id = COS_demand_ceylon
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_demand_ceylon
+    prerequisite = { focus = COS_intervention_india }
+    x = 0
+    y = 1
+    relative_position_id = COS_intervention_india
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
 
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
 
-		completion_reward = {
-			dismantle_faction = yes
-			add_ideas = {
-				Spreader_Revolution
-			}
-		}
-	}
+    completion_reward = {
+
+    }
+  }
+
+
+
+
 
 
 	focus = {
@@ -3098,7 +3289,8 @@ focus_tree = {
     icon = GFX_Abdication
     text = COS_FREE_AUSTRIA
     prerequisite = { focus = COS_CALL_REICHSRAT }
-    x = 0
+		prerequisite = { focus = COS_strengthen_diet }
+    x = -1
     y = 1
     relative_position_id = COS_CALL_REICHSRAT
     cost = 10
@@ -3118,19 +3310,387 @@ focus_tree = {
     }
   }
 
+	focus = {
+    id = COS_REOPEN_DIET
+    icon = GFX_focus_generic_diplomatic_treaty
+    text = COS_REOPEN_DIET
+    prerequisite = { focus = COS_FREE_AUSTRIA }
+		mutually_exclusive = { focus = COS_BAN_CZECHS }
+    x = 2
+    y = 1
+    relative_position_id = COS_FREE_AUSTRIA
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+			remove_ideas = {
+				Autonomism
+			}
+    }
+  }
+
+	focus = {
+    id = COS_PARDON_HUNGARIAN_REVS
+    icon = GFX_focus_generic_concessions
+    text = COS_PARDON_HUNGARIAN_REVS
+    prerequisite = { focus = COS_FREE_AUSTRIA }
+		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
+    x = 0
+    y = 1
+    relative_position_id = COS_FREE_AUSTRIA
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+			remove_ideas = {
+				Autonomism_2
+			}
+
+    }
+  }
+
+	focus = {
+    id = COS_DEAL_WITH_ITALIANS
+    icon = GFX_focus_befriend_italy
+    text = COS_DEAL_WITH_ITALIANS
+    prerequisite = { focus = COS_FREE_AUSTRIA }
+		#mutually_exclusive = { focus = COS_FREE_AUSTRIA }
+    x = -2
+    y = 1
+    relative_position_id = COS_FREE_AUSTRIA
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			remove_ideas = {
+				Autonomism_3
+			}
+    }
+  }
+
+	focus = {
+    id = COS_autonomy_for_czechs
+    icon = GFX_focus_generic_self_management
+    text = COS_autonomy_for_czechs
+    prerequisite = { focus = COS_REOPEN_DIET }
+    x = 0
+    y = 1
+    relative_position_id = COS_REOPEN_DIET
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+	focus = {
+    id = COS_autonomy_for_hungarians
+    icon = GFX_focus_generic_self_management
+    text = COS_autonomy_for_hungarians
+    prerequisite = { focus = COS_PARDON_HUNGARIAN_REVS }
+    x = 0
+    y = 1
+    relative_position_id = COS_PARDON_HUNGARIAN_REVS
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+	focus = {
+    id = COS_autonomy_for_italians
+    icon = GFX_focus_generic_self_management
+    text = COS_autonomy_for_italians
+    prerequisite = { focus = COS_DEAL_WITH_ITALIANS }
+    x = 0
+    y = 1
+    relative_position_id = COS_DEAL_WITH_ITALIANS
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+	focus = {
+		id = COS_FEDERALISM
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		text = COS_FEDERALISM
+		prerequisite = { focus = COS_autonomy_for_czechs }
+		prerequisite = { focus = COS_autonomy_for_hungarians }
+		prerequisite = { focus = COS_autonomy_for_italians }
+
+
+		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
+		x = 0
+		y = 1
+		relative_position_id = COS_autonomy_for_hungarians
+		cost = 15
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+				add_ideas = {
+					Federalism
+				}
+		}
+	}
+
+
+
+	focus = {
+    id = COS_bulwark_against_expansionism
+    icon = GFX_focus_generic_self_management
+    text = COS_bulwark_against_expansionism
+    prerequisite = { focus = COS_FEDERALISM }
+    x = 0
+    y = 1
+    relative_position_id = COS_FEDERALISM
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+
+
+	focus = {
+    id = COS_pacify_the_balkan_states
+    icon = GFX_focus_generic_self_management
+    text = COS_pacify_the_balkan_states
+    prerequisite = { focus = COS_bulwark_against_expansionism }
+    x = 3
+    y = 1
+    relative_position_id = COS_bulwark_against_expansionism
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	###remove cores on Bosnia and vice versa sign non-aggression etc
+    }
+  }
+
+	focus = {
+    id = COS_deal_with_romania
+    icon = GFX_focus_generic_self_management
+    text = COS_deal_with_romania
+    prerequisite = { focus = COS_pacify_the_balkan_states }
+    x = -1
+    y = 1
+    relative_position_id = COS_pacify_the_balkan_states
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	###remove cores on Bosnia and vice versa sign non-aggression etc
+    }
+  }
+
+
+
+	focus = {
+    id = COS_croatia_for_alliance
+    icon = GFX_focus_generic_self_management
+    text = COS_croatia_for_alliance
+    prerequisite = { focus = COS_pacify_the_balkan_states }
+    x = 1
+    y = 1
+    relative_position_id = COS_pacify_the_balkan_states
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_invite_bulgaria_albania
+    icon = GFX_focus_generic_self_management
+    text = COS_invite_bulgaria_albania
+    prerequisite = { focus = COS_deal_with_romania }
+		prerequisite = { focus = COS_croatia_for_alliance }
+    x = 1
+    y = 1
+    relative_position_id = COS_deal_with_romania
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+
+	focus = {
+		id = COS_TO_BARRICADES
+		icon = GFX_goal_support_communism
+		text = COS_TO_BARRICADES
+		prerequisite = { focus = COS_REFORM }
+		mutually_exclusive = { focus = COS_sign_a_new_constitution }
+		x = -2
+		y = 1
+		relative_position_id = COS_REFORM
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Chaos_Vienna
+			}
+
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+		}
+	}
+
+	focus = {
+		id = COS_LONG_LIVE_REV
+		icon = GFX_focus_generic_soviet_politics
+		text = COS_LONG_LIVE_REV
+		prerequisite = { focus = COS_TO_BARRICADES }
+		x = 0
+		y = 1
+		relative_position_id = COS_TO_BARRICADES
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.2
+			remove_ideas = {
+				Chaos_Vienna
+			}
+
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+
+			set_politics = {
+				ruling_party = communism
+			}
+		}
+	}
+
+	focus = {
+		id = COS_FORM_INTERNATIONALE
+		icon = GFX_focus_generic_join_comintern
+		text = COS_FORM_INTERNATIONALE
+		desc = "Joe"
+		prerequisite = { focus = COS_LONG_LIVE_REV }
+		x = 0
+		y = 1
+		relative_position_id = COS_LONG_LIVE_REV
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			dismantle_faction = yes
+			add_ideas = {
+				Spreader_Revolution
+			}
+		}
+	}
+
+
+
 
 
 	focus = {
     id = COS_NAT_REGEN
     icon = GFX_goal_support_fascism
     text = COS_NAT_REGEN
-    prerequisite = { focus = COS_KAISER_SPEECH }
-		mutually_exclusive = { focus = COS_REFORM }
-		mutually_exclusive = { focus = COS_ABSOLUTISM }
+    #prerequisite = { focus = COS_KAISER_SPEECH }
+
 		available = {has_country_flag = nat_regen}
     x = 7
     y = 1
-    relative_position_id = COS_KAISER_SPEECH
+    #relative_position_id = COS_KAISER_SPEECH
     cost = 10
     ai_will_do = {
       factor = 20
@@ -3633,127 +4193,8 @@ focus_tree = {
 
 
 
-	focus = {
-    id = COS_REOPEN_DIET
-    icon = GFX_focus_generic_diplomatic_treaty
-    text = COS_REOPEN_DIET
-    prerequisite = { focus = COS_STATE_OF_EMPIRE }
-		mutually_exclusive = { focus = COS_BAN_CZECHS }
-    x = 2
-    y = 1
-    relative_position_id = COS_STATE_OF_EMPIRE
-    cost = 4
-    ai_will_do = {
-      factor = 20
-    }
 
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
 
-    completion_reward = {
-
-			remove_ideas = {
-				Autonomism
-			}
-    }
-  }
-
-	focus = {
-    id = COS_PARDON_HUNGARIAN_REVS
-    icon = GFX_focus_generic_concessions
-    text = COS_PARDON_HUNGARIAN_REVS
-    prerequisite = { focus = COS_REOPEN_DIET }
-		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
-    x = 0
-    y = 1
-    relative_position_id = COS_REOPEN_DIET
-    cost = 4
-    ai_will_do = {
-      factor = 20
-    }
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-
-			remove_ideas = {
-				Autonomism_2
-			}
-
-    }
-  }
-
-	focus = {
-    id = ITALIAN_AUTONOMY
-    icon = GFX_focus_befriend_italy
-    text = ITALIAN_AUTONOMY
-    prerequisite = { focus = COS_PARDON_HUNGARIAN_REVS }
-		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
-    x = 0
-    y = 1
-    relative_position_id = COS_PARDON_HUNGARIAN_REVS
-    cost = 4
-    ai_will_do = {
-      factor = 20
-    }
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			remove_ideas = {
-				Autonomism_3
-			}
-    }
-  }
-
-	focus = {
-		id = COS_FEDERALISM
-		icon = GFX_focus_generic_anti_fascist_diplomacy
-		text = COS_FEDERALISM
-		prerequisite = { focus = ITALIAN_AUTONOMY }
-		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
-		x = 0
-		y = 1
-		relative_position_id = ITALIAN_AUTONOMY
-		cost = 15
-		ai_will_do = {
-			factor = 20
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-				add_ideas = {
-					Federalism
-				}
-		}
-	}
-
-	focus = {
-    id = COS_UNITED_EMPIRE
-    icon = GFX_goal_generic_national_unity
-    text = COS_UNITED_EMPIRE
-    prerequisite = { focus = COS_FEDERALISM focus = COS_CENTRALISM }
-		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
-    x = -2
-    y = 1
-    relative_position_id = COS_FEDERALISM
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			add_political_power = 150
-			add_stability = 0.1
-    }
-  }
 
 
 
