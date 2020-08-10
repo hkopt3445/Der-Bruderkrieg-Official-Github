@@ -1,0 +1,94 @@
+scripted_gui = {
+
+	DB_expanded_history_window_faction_list = {
+				#parent_window_name = DB_expanded_history_window_faction_list
+				context_type = player_context
+				window_name = "DB_expanded_history_window_faction_list"
+				dynamic_lists = {
+						DB_expanded_history_window_faction_listing_grid = {
+								array = ROOT.faction_members
+								change_scope = yes
+								entry_container = DB_expanded_history_window_faction_listing_entry
+						}
+
+						DB_expanded_history_menu_faction_flag_grid = {
+							array = ROOT.faction_members 
+							change_scope = yes
+							entry_container = DB_expanded_history_menu_faction_flag_entry
+						}
+				}
+
+
+
+				visible = {
+					has_variable = open_DB_history_faction_menu
+				}
+
+				effects = {
+					exitbutton_DB_expanded_history_window_faction_listing_click = {
+						ROOT = {
+							clear_variable = open_DB_history_faction_menu
+						}
+					}
+
+					DB_expanded_history_window_faction_listing_tech_sharing_click = {
+						every_country = {
+							limit = {
+								OR = {
+									is_in_faction_with = ROOT
+									original_tag = ROOT
+								}
+								NOT = {
+									has_idea = technology_sharing_idea
+								}
+							}
+							add_ideas = technology_sharing_idea
+						}
+					}
+
+					DB_expanded_history_window_faction_listing_join_exercises_click = {
+						every_country = {
+							limit = {
+								OR = {
+									is_in_faction_with = ROOT
+									original_tag = ROOT
+								}
+							}
+							army_experience = 10
+						}
+					}
+				}
+			}
+
+
+		DB_expanded_history_window_state_list = {
+					#parent_window_name = DB_expanded_history_window_state_list
+					context_type = player_context
+					window_name = "DB_expanded_history_window_state_list"
+					dynamic_lists = {
+							DB_expanded_history_window_state_listing_grid = {
+									array = ROOT.owned_states
+									change_scope = yes
+									entry_container = DB_expanded_history_window_state_listing_entry
+							}
+					}
+
+					visible = {
+						has_variable = open_DB_history_state_menu
+					}
+
+					effects = {
+						exitbutton_DB_expanded_history_window_state_listing_click = {
+							ROOT = {
+								clear_variable = open_DB_history_state_menu
+							}
+						}
+					}
+			}
+
+
+
+
+
+
+}

@@ -1,0 +1,220 @@
+add_namespace = chinacivilwar
+
+country_event = {
+	id = chinacivilwar.1
+	title = chinacivilwar.1.t
+	desc = chinacivilwar.1.d
+	picture = GFX_country_event_hungarian_soldiers
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+
+	}
+
+  option = {
+		ai_chance = {
+		base = 1
+		}
+		name = chinacivilwar.1.a
+		BEI = {
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+
+			declare_war_on = {
+				target = PRC
+				type = annex_everything
+			}
+
+			create_faction = BEI_1
+		}
+
+		CHI = {
+		declare_war_on = {
+			target = BEI
+			type = annex_everything
+		}
+
+		set_country_flag = china_war
+
+		declare_war_on = {
+			target = PRC
+			type = annex_everything
+		}
+		create_faction = CHI_1
+		}
+
+		news_event = {id = chinacivilwar.4}
+
+		MAN = {country_event = {id = chinacivilwar.5 days = 2}}
+	}
+}
+
+news_event = {
+	id = chinacivilwar.4
+	title = chinacivilwar.4.t
+	desc = chinacivilwar.4.d
+	picture = GFX_country_event_hungarian_soldiers
+	major = yes
+
+  fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+  option = {
+		ai_chance = {
+		base = 1
+		}
+		name = chinacivilwar.4.a
+	}
+}
+
+country_event = {
+	id = chinacivilwar.2
+	title = chinacivilwar.2.t
+	desc = chinacivilwar.2.d
+	picture = GFX_country_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			OR = {
+				tag = XSM
+				tag = YUN
+				tag = GXC
+				tag = SHX
+				tag = SIC
+				tag = SIK
+			}
+			CHI = {
+				has_country_flag = china_war
+			}
+		}
+	}
+
+	option = {
+		IF = {
+			ROOT = {
+					has_country_flag = Join_Beyiang
+					ai_chance = {
+					factor = 75
+					}
+				}
+			}
+			name = chinacivilwar.2.a
+
+			set_country_flag = side_chosen
+			set_country_flag = chose_bei
+
+			BEI = {
+				add_to_faction = ROOT
+				country_event = {id = chinacivilwar.3}
+			}
+		}
+	option = {
+	IF = {
+		ROOT = {
+				has_country_flag = Join_China
+			}
+			ai_chance = {
+			factor = 75
+			}
+		}
+		name = chinacivilwar.2.b
+
+		set_country_flag = side_chosen
+		set_country_flag = chose_china
+
+		CHI = {
+			add_to_faction = ROOT
+			country_event = {id = chinacivilwar.3}
+		}
+	}
+}
+
+country_event = {
+	id = chinacivilwar.3
+	title = chinacivilwar.3.t
+	desc = chinacivilwar.3.d
+	picture = GFX_country_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			OR = {
+				tag = BEI
+				tag = CHI
+			}
+			FROM = {
+				has_country_flag = side_chosen
+			}
+		}
+	}
+
+  option = {
+		ai_chance = {
+		base = 1
+		}
+		name = chinacivilwar.3.a
+	}
+}
+
+
+
+
+
+country_event = {
+	id = chinacivilwar.5
+	title = chinacivilwar.5.t
+	desc = chinacivilwar.5.d
+	picture = GFX_country_event_hungarian_soldiers
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+
+	trigger = {
+		AND = {
+			tag = MAN
+			CHI = {
+				has_country_flag = china_war
+			}
+		}
+	}
+
+  option = {
+		ai_chance = {
+		factor = 50
+		}
+		name = chinacivilwar.5.a
+
+		MAN = {
+			declare_war_on = {
+				target = PRC
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BEI
+				type = annex_everything
+			}
+		}
+	}
+	option = {
+		ai_chance = {
+		factor = 50
+		}
+		name = chinacivilwar.5.b
+	}
+}

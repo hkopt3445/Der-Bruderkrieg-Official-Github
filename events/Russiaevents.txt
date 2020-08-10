@@ -1,0 +1,548 @@
+﻿###########################
+# Soviet Events
+###########################
+
+add_namespace = russia
+
+country_event = {
+	id = russia.senate
+	title = russia.senate.t
+	desc = russia.senate.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = SOV
+		AND = {
+			has_completed_focus = SOV_RUSSIAN_ECONOMY
+		}
+	}
+
+
+	option = {
+		name = rus.senate.1
+		ai_chance = { factor = 40 }
+		set_country_flag = agrarian
+	}
+
+	option = {
+		name = rus.senate.2
+		ai_chance = { factor = 60 }
+		set_country_flag = industrial
+	}
+}
+
+country_event = {
+	id = russia.2
+	title = russia.2.t
+	desc = russia.2.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+			tag = SOV
+			AND = {
+				has_completed_focus = SOV_FASCIST_POLITICS
+			}
+		}
+		option = {
+			name = Okay
+			ai_chance = { factor = 100 }
+		}
+
+	}
+
+country_event = {
+	id = russia.3
+	title = russia.3.t
+	desc = russia.3.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+			tag = SOV
+			AND = {
+				has_completed_focus = SOV_CHEMOV
+			}
+		}
+		option = {
+			name = Okay
+			ai_chance = { factor = 100 }
+			kill_country_leader = yes
+			set_politics = {
+				ruling_party = democratic
+			}
+			create_country_leader = {
+				name = "Anton Chemov"
+				desc = "POLITICS_ALEXANDER_FYODOROVICH_KERENSKY_DESC"
+				picture = "Portrait_Soviet_Generic_1.dds"
+				expire = "1953.3.1"
+				ideology = conservative
+				traits = {
+
+				}
+			}
+		}
+
+	}
+
+country_event = {
+	id = russia.4
+	title = russia.4.t
+	desc = russia.4.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+			tag = SOV
+			AND = {
+				has_completed_focus = SOV_TROTSKY
+			}
+		}
+		option = {
+			name = Okay
+			ai_chance = { factor = 100 }
+		}
+		set_politics = {
+			ruling_party = communism
+		}
+		create_country_leader = {
+			name = "Leon Trotsky"
+			desc = "POLITICS_ALEXANDER_FYODOROVICH_KERENSKY_DESC"
+			picture = "Portrait_Leon_Trotsky.dds"
+			expire = "1953.3.1"
+			ideology = marxism
+			traits = {
+
+			}
+		}
+
+	}
+country_event = {
+	id = russia.47
+	title = russia.47.t
+	desc = russia.47.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+			tag = SOV
+			AND = {
+				has_completed_focus = SOV_ANNEX_BALTICA
+			}
+		}
+		option = {
+			name = sov.b.47
+			ai_chance = { factor = 100 }
+		}
+
+	}
+
+country_event = {
+	id = russia.458
+	title = russia.458.t
+	desc = russia.458.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+			tag = SOV
+			AND = {
+				has_completed_focus = SOV_NORTHERN_WAR
+			}
+		}
+		option = {
+			name = sov.b.458
+			ai_chance = { factor = 100 }
+			declare_war_on = {
+				type = annex_everything
+				target = SWE
+			}
+		}
+
+	}
+
+country_event = {
+	id = russia.457
+	title = russia.457.t
+	desc = russia.457.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+			tag = SOV
+			AND = {
+				has_completed_focus = SOV_OVERRUN_GERMANS
+			}
+		}
+		option = {
+			name = sov.b.457
+			ai_chance = { factor = 100 }
+		}
+
+	}
+
+country_event = {
+	id = russia.456
+	title = russia.456.t
+	desc = russia.456.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+			tag = SOV
+			AND = {
+				has_completed_focus = SOV_STRIKE_AUSTRIANS
+			}
+		}
+		option = {
+			name = sov.b.456
+			ai_chance = { factor = 100 }
+		}
+
+	}
+
+country_event = {
+	id = russia.455
+	title = russia.455.t
+	desc = russia.455.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+			tag = SOV
+			AND = {
+				has_completed_focus = SOV_CRUSH_TURKS
+			}
+		}
+		option = {
+			name = sov.b.455
+			ai_chance = { factor = 100 }
+		}
+
+	}
+
+# Event sent to Romania by national focus. Two choices
+country_event = {
+	id = russia.69
+	title = russia.69.t
+	desc = russia.69.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If Romania selects this option, they will transfer states, no war
+		name = russia.69.a #needs to be localized
+		ai_chance = { factor = 70 } #this factor means the AI will almost always pick this one
+		SOV = {
+		 	transfer_state = 78
+			}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			news_event =  { id = russia.70 hours = 6 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If Romania selects this option, they say no and Austria gets event to get war goal
+		name = russia.69.b #needs to be localized
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			SOV = { country_event = russia.71 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+news_event = {
+	id = russia.70
+	title = russia.70.t
+	desc = russia.70.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = russia.70.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+news_event = {
+	id = russia.71
+	title = russia.71.t
+	desc = russia.71.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = russia.71.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		declare_war_on = {
+			type = take_claimed_state
+			target = ROM
+				}
+		news_event = { id = russia.72 hours = 5 }
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = russia.71.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+	}
+} #Closing Bracket
+
+news_event = {
+	id = russia.72
+	title = russia.72.t
+	desc = russia.72.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = russia.72.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+#########Balkan Subjugation
+country_event = {
+	id = russia.420
+	title = russia.420.t
+	desc = russia.420.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = russia.420.a
+		ai_chance = { factor = 67 }
+		SOV = {
+			country_event = russia.18
+			set_autonomy = {
+				target = ROOT
+				autonomous_state =  autonomy_puppet
+			}
+		}
+	}
+
+	option = {
+		name = russia.420.b
+		ai_chance = { factor = 33 }
+		SOV = { country_event = russia.19 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = russia.18
+	title = russia.18.t
+	desc = russia.18.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = russia.18.a
+		}
+	}
+
+
+# [Country] Refuses
+country_event = {
+	id = russia.19
+	title = russia.19.t
+	desc = russia.19.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = russia.19.a
+		declare_war_on = {
+			target = FROM
+			type = puppet_wargoal_focus
+		}
+		news_event = { id = russia.190 hours = 5 }
+	}
+}
+news_event = {
+	id = russia.190
+	title = russia.190.t
+	desc = russia.190.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = russia.190.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+
+
+country_event = {
+	id = russia.356
+	title = russia.356.t
+	desc = russia.356.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+	tag = SOV
+	AND = {
+		has_completed_focus = SOV_CRISIS_COALITION
+	}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+#########Invite to Russian Faction
+country_event = {
+	id = russia.22
+	title = russia.22.t
+	desc = russia.22.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = russia.22.a
+		ai_chance = { factor = 90 }
+		SOV = {
+			country_event = russia.20
+			add_to_faction = ROOT
+		}
+	}
+
+	option = {
+		name = russia.22.b
+		ai_chance = { factor = 10 }
+		SOV = { country_event = russia.21 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = russia.20
+	title = russia.20.t
+	desc = russia.20.d
+	picture = GFX_report_event_soldiers_in_russia
+
+	is_triggered_only = yes
+
+	option = {
+		name = russia.20.a
+		effect_tooltip = {
+			add_to_faction = FROM
+		}
+	}
+}
+
+# [Country] Refuses
+country_event = {
+	id = russia.21
+	title = russia.21.t
+	desc = russia.21.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = russia.21.a
+	}
+}
+
+
+
+
+
+
+country_event = {
+	id = russia.200
+	title = russia.200.t
+	desc = russia.200.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = SOV
+		AND = {
+			has_completed_focus = SOV_RUSSIAN_ECONOMY
+		}
+	}
+
+
+	option = {
+		name = rus.200.1
+		ai_chance = { factor = 40 }
+		set_country_flag = urp
+	}
+
+	option = {
+		name = rus.200.2
+		ai_chance = { factor = 60 }
+		set_country_flag = menshevik
+	}
+}
+
+country_event = {
+	id = russia.201
+	title = russia.201.t
+	desc = russia.201.d
+	picture = GFX_news_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = SOV
+		AND = {
+			has_completed_focus = SOV_RUSSIAN_ECONOMY
+		}
+	}
+
+
+	option = {
+		name = rus.201.1
+		ai_chance = { factor = 40 }
+		set_country_flag = oktobrist
+	}
+
+	option = {
+		name = rus.201.2
+		ai_chance = { factor = 60 }
+		set_country_flag = bolshevik
+	}
+}

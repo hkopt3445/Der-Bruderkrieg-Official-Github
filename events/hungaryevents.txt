@@ -1,0 +1,62 @@
+add_namespace = hungary
+
+#########Ask to join
+country_event = {
+	id = hungary.170
+	title = hungary.170.t
+	desc = hungary.170.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = hungary.170.a
+		ai_chance = { factor = 35 }
+		ROOT = {
+			country_event = hungary.180
+			add_to_faction = HUN
+		}
+	}
+
+	option = {
+		name = hungary.170.b
+		ai_chance = { factor = 65 }
+		HUN = { country_event = hungary.190 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = hungary.180
+	title = hungary.180.t
+	desc = hungary.180.d
+	picture = GFX_report_event_soldiers_in_hungary
+
+	is_triggered_only = yes
+
+	option = {
+		name = hungary.180.a
+		effect_tooltip = {
+			FROM = {
+				add_to_faction = HUN
+				add_to_faction = CZE
+				add_to_faction = POL
+				add_to_faction = ITF
+			}
+		}
+	}
+}
+
+# [Country] Refuses
+country_event = {
+	id = hungary.190
+	title = hungary.190.t
+	desc = hungary.190.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = hungary.190.a
+	}
+}

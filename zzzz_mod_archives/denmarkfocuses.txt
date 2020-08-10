@@ -1,0 +1,1909 @@
+focus_tree = {
+	id = denmark_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = DEN
+		}
+	}
+
+  focus = {
+    id = DEN_FORM_MINISTRY
+    icon = GFX_focus_generic_self_management
+    text = DEN_FORM_MINISTRY
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+    x = 18
+    y = 0
+    relative_position_id = DEN_BUILD_INDUSTRY
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      remove_idea = {
+				Constitutional_Crisis
+			}
+    }
+  }
+
+	focus = {
+		id = DEN_ROYAL_MINISTRY
+		icon = GFX_focus_generic_monarchy_1
+		text = DEN_ROYAL_MINISTRY
+		prerequisite = { focus = DEN_FORM_MINISTRY }
+		mutually_exclusive = { focus =  DEN_ASSERT_ROYAL_POWER}
+		x = 0
+		y = 1
+		relative_position_id = DEN_FORM_MINISTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_popularity =  {
+				ideology = neutrality
+				popularity = 0.2
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_ASSERT_ROYAL_POWER
+		icon = GFX_focus_rom_royal_dictatorship
+		text = DEN_ASSERT_ROYAL_POWER
+		prerequisite = { focus = DEN_ROYAL_MINISTRY }
+		x = -1
+		y = 1
+		relative_position_id = DEN_ROYAL_MINISTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_war_support = 0.1
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = DEN_DISSOLVE_FOLKETING
+		icon = GFX_focus_generic_strike_at_democracy2
+		text = DEN_DISSOLVE_FOLKETING
+		prerequisite = { focus = DEN_ROYAL_MINISTRY }
+		x = 1
+		y = 1
+		relative_position_id = DEN_ROYAL_MINISTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_OLD_WAY
+		#icon = GFX_goal_generic_construction
+		text = DEN_OLD_WAY
+		prerequisite = { focus = DEN_DISSOLVE_FOLKETING  }
+		prerequisite = { focus = DEN_ASSERT_ROYAL_POWER  }
+		x = -1
+		y = 1
+		relative_position_id = DEN_DISSOLVE_FOLKETING
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Royalism
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_FOLKETING_MINISTRY
+		icon = GFX_goal_support_democracy
+		text = DEN_FOLKETING_MINISTRY
+		prerequisite = { focus = DEN_FORM_MINISTRY }
+		mutually_exclusive = { focus =  DEN_ROYAL_MINISTRY}
+		x = 4
+		y = 1
+		relative_position_id = DEN_FORM_MINISTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_popularity =  {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_CURTAIL_ROYAL_POWER
+		icon = GFX_focus_rom_handle_king
+		text = DEN_CURTAIL_ROYAL_POWER
+		prerequisite = { focus = DEN_FOLKETING_MINISTRY }
+		x = -1
+		y = 1
+		relative_position_id = DEN_FOLKETING_MINISTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = DEN_END_CENSORSHIP
+		icon = GFX_focus_renounce_the_treaty_of_triannon
+		text = DEN_END_CENSORSHIP
+		prerequisite = { focus = DEN_FOLKETING_MINISTRY }
+		x = 1
+		y = 1
+		relative_position_id = DEN_FOLKETING_MINISTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_war_support = 0.1
+			add_popularity =  {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_popularity =  {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_DEMOCRATIC_FUTURE
+		icon = GFX_goal_generic_major_alliance
+		text = DEN_DEMOCRATIC_FUTURE
+		prerequisite = { focus = DEN_END_CENSORSHIP  }
+		prerequisite = { focus = DEN_CURTAIL_ROYAL_POWER  }
+		x = -1
+		y = 1
+		relative_position_id = DEN_END_CENSORSHIP
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Parliamentarism
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_REINTEGRATE_SCHLESWIG_HOLSTIEN
+		#icon = GFX_goal_generic_construction
+		text = DEN_REINTEGRATE_SCHLESWIG_HOLSTIEN
+		prerequisite = { focus = DEN_FORM_MINISTRY }
+		x = -4
+		y = 1
+		relative_position_id = DEN_FORM_MINISTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_war_support = 0.1
+			swap_ideas = {
+				add_idea = Swedish_Occupation_2
+				remove_idea = Swedish_Occupation
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_WAR_WITH_SWEDEN
+		icon = GFX_goal_attack_sweden
+		text = DEN_WAR_WITH_SWEDEN
+		prerequisite = { focus = DEN_REINTEGRATE_SCHLESWIG_HOLSTIEN }
+		x = -1
+		y = 1
+		relative_position_id = DEN_REINTEGRATE_SCHLESWIG_HOLSTIEN
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SWE
+			}
+			remove_idea = {
+				Swedish_Occupation
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_WAR_WITH_NORWAY
+		icon = GFX_Attack_Norway
+		text = DEN_WAR_WITH_NORWAY
+		prerequisite = { focus = DEN_REINTEGRATE_SCHLESWIG_HOLSTIEN }
+		x = 1
+		y = 1
+		relative_position_id = DEN_REINTEGRATE_SCHLESWIG_HOLSTIEN
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = NOR
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_WAR_WITH_GERMANY
+		icon = GFX_focus_attack_germany
+		text = DEN_WAR_WITH_GERMANY
+		prerequisite = { focus = DEN_WAR_WITH_SWEDEN }
+		x = 0
+		y = 1
+		relative_position_id = DEN_WAR_WITH_SWEDEN
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = GER
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_WAR_WITH_FINLAND
+		icon = GFX_Attack_Finland
+		text = DEN_WAR_WITH_FINLAND
+		prerequisite = { focus = DEN_WAR_WITH_NORWAY }
+		x = 0
+		y = 1
+		relative_position_id = DEN_WAR_WITH_NORWAY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FIN
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_MASTERS_OF_THE_BALTIC
+		icon = GFX_Viking_Diplomacy
+		text = DEN_MASTERS_OF_THE_BALTIC
+		prerequisite = { focus = DEN_WAR_WITH_FINLAND }
+		prerequisite = { focus = DEN_WAR_WITH_GERMANY }
+		x = -1
+		y = 1
+		relative_position_id = DEN_WAR_WITH_FINLAND
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Masters_of_Baltic
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_BUILD_INDUSTRY
+		icon = GFX_goal_generic_construction
+		text = DEN_BOOST_ECONOMY
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		x = 0
+		y = 0
+		#relative_position_id = ITA_industrial_effort_2
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_DEV_COPENHAGEN_SCHEME
+		icon = GFX_goal_generic_construct_civilian
+		text = DEN_DEV_COPENHAGEN_SCHEME
+		prerequisite = { focus = DEN_BUILD_INDUSTRY }
+		x = 0
+		y = 1
+		relative_position_id = DEN_BUILD_INDUSTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			37 = {
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+
+								}
+								add_extra_state_shared_building_slots = 2
+					}
+			}
+	}
+
+	focus = {
+		id = DEN_DEV_DENMARK
+		icon = GFX_goal_generic_construct_civilian
+		text = DEN_DEV_DENMARK
+		prerequisite = { focus = DEN_DEV_COPENHAGEN_SCHEME }
+		x = -4
+		y = 1
+		relative_position_id = DEN_DEV_COPENHAGEN_SCHEME
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_research_slot = 1
+		 }
+	}
+
+	focus = {
+		id = DEN_DEV_NORTH_SEA
+		icon = GFX_goal_generic_construct_civilian
+		text = DEN_DEV_NORTH_SEA
+		prerequisite = { focus = DEN_DEV_COPENHAGEN_SCHEME }
+		x = 4
+		y = 1
+		relative_position_id = DEN_DEV_COPENHAGEN_SCHEME
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = excavation_tech
+			}
+		}
+	}
+
+
+	focus = {
+		id = DEN_DEV_SJAELLAND
+		icon = GFX_focus_generic_industry_1
+		text = DEN_DEV_SJAELLAND
+		prerequisite = { focus = DEN_DEV_DENMARK }
+		x = -2
+		y = 1
+		relative_position_id = DEN_DEV_DENMARK
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			37 = {
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+
+								}
+								add_extra_state_shared_building_slots = 2
+			}
+		 }
+	}
+
+	focus = {
+		id = DEN_DEV_JUTLAND
+		icon = GFX_focus_generic_industry_2
+		text = DEN_DEV_JUTLAND
+		prerequisite = { focus = DEN_DEV_DENMARK }
+		x = 2
+		y = 1
+		relative_position_id = DEN_DEV_DENMARK
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			99 = {
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+
+								}
+								add_extra_state_shared_building_slots = 2
+			}
+
+		 }
+	}
+
+	focus = {
+		id = DEN_DEV_HOLSTIEN
+		icon = GFX_focus_generic_industry_3
+		text = DEN_DEV_HOLSTIEN
+		prerequisite = { focus = DEN_DEV_DENMARK }
+		x = 0
+		y = 1
+		relative_position_id = DEN_DEV_DENMARK
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			58 = {
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+
+								}
+								add_extra_state_shared_building_slots = 2
+			}
+
+		 }
+	}
+
+	focus = {
+		id = DEN_STRONG_DENMARK
+		icon = GFX_goal_generic_construct_civ_factory
+		text = DEN_STRONG_DENMARK
+		prerequisite = { focus = DEN_DEV_HOLSTIEN }
+		prerequisite = { focus = DEN_DEV_JUTLAND }
+		prerequisite = { focus = DEN_DEV_SJAELLAND }
+		x = -2
+		y = 1
+		relative_position_id = DEN_DEV_JUTLAND
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			every_state = {
+										limit = {
+												AND = {
+														is_core_of = DEN
+
+												}
+										}
+										add_state_modifier = {
+												modifier = {
+														production_factory_max_efficiency_factor = 0.1
+														production_speed_industrial_complex_factor = 0.15
+												}
+										}
+								}
+						}
+		}
+
+	focus = {
+		id = DEN_DEV_GREENLAND
+		icon = GFX_focus_generic_industry_1
+		text = DEN_DEV_GREENLAND
+		prerequisite = { focus = DEN_DEV_NORTH_SEA }
+		x = -2
+		y = 1
+		relative_position_id = DEN_DEV_NORTH_SEA
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			101 = {
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+
+								}
+								add_extra_state_shared_building_slots = 2
+			}
+		 }
+	}
+	focus = {
+		id = DEN_DEV_ICELAND
+		icon = GFX_focus_generic_industry_2
+		text = DEN_DEV_ICELAND
+		prerequisite = { focus = DEN_DEV_NORTH_SEA }
+		x = 0
+		y = 1
+		relative_position_id = DEN_DEV_NORTH_SEA
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			100 = {
+								add_building_construction = {
+										type = industrial_complex
+										level = 2
+										instant_build = yes
+
+								}
+								add_extra_state_shared_building_slots = 2
+			}
+		 }
+	}
+	focus = {
+		id = DEN_DEV_FAROE
+		icon = GFX_focus_generic_industry_3
+		text = DEN_DEV_FAROE
+		prerequisite = { focus = DEN_DEV_NORTH_SEA }
+		x = 2
+		y = 1
+		relative_position_id = DEN_DEV_NORTH_SEA
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			337 = {
+								add_building_construction = {
+										type = industrial_complex
+										level = 1
+										instant_build = yes
+
+								}
+								add_extra_state_shared_building_slots = 1
+			}
+		 }
+	}
+
+	focus = {
+		id = DEN_STRONG_NORTH_SEA
+		icon = GFX_goal_generic_production
+		text = DEN_STRONG_NORTH_SEA
+		prerequisite = { focus = DEN_DEV_GREENLAND }
+		prerequisite = { focus = DEN_DEV_ICELAND }
+		prerequisite = { focus = DEN_DEV_FAROE }
+		x = 0
+		y = 1
+		relative_position_id = DEN_DEV_ICELAND
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			every_state = {
+										limit = {
+												is_core_of = DEN
+										}
+										add_state_modifier = {
+												modifier = {
+														local_resources_factor = 0.2
+														production_oil_factor = 0.15
+														production_speed_infrastructure_factor = 0.25
+												}
+										}
+								}
+						}
+		}
+
+	focus = {
+		id = DEN_FOR_THE_KING
+		icon = GFX_Viking_Industry
+		text = DEN_FOR_THE_KING
+		prerequisite = { focus = DEN_STRONG_DENMARK }
+		prerequisite = { focus = DEN_STRONG_NORTH_SEA }
+		x = -4
+		y = 1
+		relative_position_id = DEN_STRONG_NORTH_SEA
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_idea = {
+				Booming_Economy
+			}
+
+		 }
+	}
+
+
+
+
+
+
+	####ARMY
+	focus = {
+		id = DEN_DANISH_ARMY
+		icon = GFX_goal_generic_construction
+		text = DEN_DANISH_ARMY
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		x = 0
+		y = 7
+		relative_position_id = DEN_FORM_MINISTRY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			army_experience = 20
+		}
+	}
+
+
+	focus = {
+		id = DEN_DANISH_COMMAND
+		icon = GFX_goal_generic_construction
+		text = DEN_DANISH_COMMAND
+		prerequisite = { focus = DEN_DANISH_ARMY }
+		mutually_exclusive = {focus = DEN_DIVERSE_COMMAND}
+		x = -4
+		y = 1
+		relative_position_id = DEN_DANISH_ARMY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+					add_ideas = {
+						Danish_Command
+					}
+		}
+	}
+
+	focus = {
+		id = DEN_FOCUS_ON_FIREPOWER
+		icon = GFX_goal_generic_construction
+		text = DEN_FOCUS_ON_FIREPOWER
+		prerequisite = { focus = DEN_DANISH_COMMAND }
+		mutually_exclusive = { focus = DEN_FOCUS_ON_SPEED }
+
+		x = 2
+		y = 1
+		relative_position_id = DEN_DANISH_COMMAND
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+				add_tech_bonus {
+					bonus = 1
+					uses = 1
+					category = cat_superior_firepower
+				}
+		}
+	}
+
+
+	focus = {
+		id = DEN_NORMA_CONTRACTS
+		icon = GFX_goal_generic_construction
+		text = DEN_NORMA_CONTRACTS
+		prerequisite = { focus = DEN_FOCUS_ON_FIREPOWER }
+		x = 0
+		y = 1
+		relative_position_id = DEN_FOCUS_ON_FIREPOWER
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+			add_tech_bonus {
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+			}
+			}
+		}
+
+	focus = {
+		id = DEN_MASTER_ARTILLERY
+		icon = GFX_goal_generic_construction
+		text = DEN_MASTER_ARTILLERY
+		prerequisite = { focus = DEN_NORMA_CONTRACTS }
+		x = 0
+		y = 1
+		relative_position_id = DEN_NORMA_CONTRACTS
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = {
+				Hellsfire
+			}
+		 }
+	}
+
+
+		focus = {
+			id = DEN_FOCUS_ON_SPEED
+			icon = GFX_goal_generic_construction
+			text = DEN_FOCUS_ON_SPEED
+			prerequisite = { focus = DEN_DANISH_COMMAND }
+			mutually_exclusive = { focus = DEN_FOCUS_ON_FIREPOWER }
+
+			x = -2
+			y = 1
+			relative_position_id = DEN_DANISH_COMMAND
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+				add_tech_bonus {
+					bonus = 1
+					uses = 1
+					category = cat_mobile_warfare
+				}
+		 }
+		}
+
+		focus = {
+			id = DEN_TANK_CORP
+			icon = GFX_goal_generic_construction
+			text = DEN_TANK_CORP
+			prerequisite = { focus = DEN_FOCUS_ON_SPEED }
+			x = 0
+			y = 1
+			relative_position_id = DEN_FOCUS_ON_SPEED
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+				add_tech_bonus {
+					bonus = 1
+					uses = 1
+					category = cat_light_armor
+				}
+				}
+			}
+
+		focus = {
+			id = DEN_MASTER_BLITZKRIEG
+			icon = GFX_goal_generic_construction
+			text = DEN_MASTER_BLITZKRIEG
+			prerequisite = { focus = DEN_TANK_CORP }
+			x = 0
+			y = 1
+			relative_position_id = DEN_TANK_CORP
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_INDUSTRY }
+
+			completion_reward = {
+				add_ideas = {
+					Lightning_War
+				}
+			 }
+		}
+
+
+	focus = {
+		id = DEN_DIVERSE_COMMAND
+		icon = GFX_goal_generic_construction
+		text = DEN_DIVERSE_COMMAND
+		prerequisite = { focus = DEN_DANISH_ARMY }
+		mutually_exclusive = { focus = DEN_DANISH_COMMAND }
+		x = 4
+		y = 1
+		relative_position_id = DEN_DANISH_ARMY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+					add_ideas = {
+						Diverse_Command
+					}
+		}
+	}
+
+	focus = {
+		id = DEN_FOCUS_ON_BATTLEPLAN
+		icon = GFX_goal_generic_construction
+		text = DEN_FOCUS_ON_BATTLEPLAN
+		prerequisite = { focus = DEN_DIVERSE_COMMAND }
+		mutually_exclusive = { focus = DEN_FOCUS_ON_SIZE }
+		x = -2
+		y = 1
+		relative_position_id = DEN_DIVERSE_COMMAND
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cat_grand_battle_plan
+			}
+		 }
+	}
+
+	focus = {
+		id = DEN_ANKARA_DEPART_OF_DEFENSE
+		icon = GFX_goal_generic_construction
+		text = DEN_ANKARA_DEPART_OF_DEFENSE
+		prerequisite = { focus = DEN_FOCUS_ON_BATTLEPLAN }
+		x = 0
+		y = 1
+		relative_position_id = DEN_FOCUS_ON_BATTLEPLAN
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 0.5
+				uses = 1
+				category = cat_grand_battle_plan
+			}
+			add_tech_bonus {
+				bonus = 0.5
+				uses = 1
+				category = support_tech
+			}
+		 }
+	}
+
+
+	focus = {
+		id = DEN_MASTER_TACTICS
+		icon = GFX_goal_generic_construction
+		text = DEN_MASTER_TACTICS
+		prerequisite = { focus = DEN_ANKARA_DEPART_OF_DEFENSE }
+		x = 0
+		y = 1
+		relative_position_id = DEN_ANKARA_DEPART_OF_DEFENSE
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+				add_ideas = {
+					Tactical_Genius
+				}
+			}
+	 }
+
+	 focus = {
+		 id = DEN_FOCUS_ON_SIZE
+		 icon = GFX_goal_generic_construction
+		 text = DEN_FOCUS_ON_SIZE
+		 prerequisite = { focus = DEN_DIVERSE_COMMAND }
+		 mutually_exclusive = { focus = DEN_FOCUS_ON_BATTLEPLAN }
+		 x = 2
+		 y = 1
+		 relative_position_id = DEN_DIVERSE_COMMAND
+		 cost = 10
+		 ai_will_do = {
+			 factor = 1
+		 }
+
+		 available_if_capitulated = yes
+		 search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		 completion_reward = {
+			 add_tech_bonus {
+				 bonus = 1
+				 uses = 1
+				 category = cat_mass_assault
+			 }
+			}
+	 }
+
+	 focus = {
+		 id = DEN_CONSCRIPT_THE_MASSES
+		 icon = GFX_goal_generic_construction
+		 text = DEN_CONSCRIPT_THE_MASSES
+		 prerequisite = { focus = DEN_FOCUS_ON_SIZE }
+		 x = 0
+		 y = 1
+		 relative_position_id = DEN_FOCUS_ON_SIZE
+		 cost = 10
+		 ai_will_do = {
+			 factor = 1
+		 }
+
+		 available_if_capitulated = yes
+		 search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		 completion_reward = {
+			 add_ideas = {
+				 extensive_conscription
+			 }
+			}
+	 }
+
+	 focus = {
+		 id = DEN_BRAVE_NEW_EMPIRE
+		 icon = GFX_goal_generic_construction
+		 text = DEN_BRAVE_NEW_EMPIRE
+		 prerequisite = { focus = DEN_CONSCRIPT_THE_MASSES }
+		 x = 0
+		 y = 1
+		 relative_position_id = DEN_CONSCRIPT_THE_MASSES
+		 cost = 10
+		 ai_will_do = {
+			 factor = 1
+		 }
+
+		 available_if_capitulated = yes
+		 search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		 completion_reward = {
+				 add_ideas = {
+					 Brave_New_Empire
+				 }
+			 }
+		 }
+
+	focus = {
+		id = DEN_REVITALIZE_ARMY
+		icon = GFX_Viking_Army
+		text = DEN_REVITALIZE_ARMY
+		prerequisite = { focus = DEN_MASTER_ARTILLERY focus = DEN_MASTER_TACTICS focus = DEN_MASTER_BLITZKRIEG focus = DEN_BRAVE_NEW_EMPIRE }
+		x = 2
+		y = 1
+		relative_position_id = DEN_MASTER_ARTILLERY
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = {
+				Army_Future
+			}
+			army_experience = 50
+
+		 }
+	}
+
+
+
+	#############Navy
+	focus = {
+		id = DEN_DANISH_FLEET
+		icon = GFX_goal_generic_construction
+		text = DEN_DANISH_FLEET
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		x = 20
+		y = -5
+		relative_position_id = DEN_DANISH_ARMY
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			navy_experience = 20
+		}
+	}
+
+
+	focus = {
+		id = DEN_BUILD_DOCKYARDS
+		icon = GFX_goal_generic_construction
+		text = DEN_BUILD_DOCKYARDS
+		prerequisite = { focus = DEN_DANISH_FLEET }
+		x = 0
+		y = 1
+		relative_position_id = DEN_DANISH_FLEET
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			37 = {
+				add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_TRUE_NAVY
+		icon = GFX_goal_generic_construction
+		text = DEN_TRUE_NAVY
+		prerequisite = { focus = DEN_BUILD_DOCKYARDS }
+		mutually_exclusive = { focus = DEN_WOLF_PACKS }
+		mutually_exclusive = { focus = DEN_NAVAL_AVIATION }
+		x = -6
+		y = 1
+		relative_position_id = DEN_BUILD_DOCKYARDS
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cat_fleet_in_being
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_CAPITAL_SHIPS
+		icon = GFX_goal_generic_construction
+		text = DEN_CAPITAL_SHIPS
+		prerequisite = { focus = DEN_TRUE_NAVY }
+		x = -2
+		y = 1
+		relative_position_id = DEN_TRUE_NAVY
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = bb_tech
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_PROJECT_Z
+		icon = GFX_goal_generic_construction
+		text = DEN_PROJECT_Z
+		prerequisite = { focus = DEN_TRUE_NAVY }
+		x = 2
+		y = 1
+		relative_position_id = DEN_TRUE_NAVY
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = ca_tech
+			}
+		}
+	}
+
+
+
+	focus = {
+		id = DEN_WOLF_PACKS
+		icon = GFX_goal_generic_construction
+		text = DEN_WOLF_PACKS
+		prerequisite = { focus = DEN_BUILD_DOCKYARDS }
+		mutually_exclusive = { focus = DEN_TRUE_NAVY }
+		mutually_exclusive = { focus = DEN_NAVAL_AVIATION }
+		x = 0
+		y = 1
+		relative_position_id = DEN_BUILD_DOCKYARDS
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cat_trade_interdiction
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_U_BOATS
+		icon = GFX_goal_generic_construction
+		text = DEN_U_BOATS
+		prerequisite = { focus = DEN_WOLF_PACKS }
+		x = -2
+		y = 1
+		relative_position_id = DEN_WOLF_PACKS
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_TRADE_WAR
+		icon = GFX_goal_generic_construction
+		text = DEN_TRADE_WAR
+		prerequisite = { focus = DEN_WOLF_PACKS }
+		x = 2
+		y = 1
+		relative_position_id = DEN_WOLF_PACKS
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_NAVAL_AVIATION
+		icon = GFX_goal_generic_construction
+		text = DEN_NAVAL_AVIATION
+		prerequisite = { focus = DEN_BUILD_DOCKYARDS }
+		mutually_exclusive = { focus = DEN_WOLF_PACKS }
+		mutually_exclusive = { focus = DEN_TRUE_NAVY }
+		x = 6
+		y = 1
+		relative_position_id = DEN_BUILD_DOCKYARDS
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cat_base_strike
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_NAVY_FUTURE
+		icon = GFX_goal_generic_construction
+		text = DEN_NAVY_FUTURE
+		prerequisite = { focus = DEN_NAVAL_AVIATION }
+		x = -2
+		y = 1
+		relative_position_id = DEN_NAVAL_AVIATION
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_DEATH_FROM_ABOVE
+		icon = GFX_goal_generic_construction
+		text = DEN_DEATH_FROM_ABOVE
+		prerequisite = { focus = DEN_NAVAL_AVIATION }
+		x = 2
+		y = 1
+		relative_position_id = DEN_NAVAL_AVIATION
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cv_tech
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_AMPHIBIOUS_ASSAULT
+		icon = GFX_goal_generic_construction
+		text = DEN_AMPHIBIOUS_ASSAULT
+		prerequisite = { focus = DEN_PROJECT_Z }
+		prerequisite = { focus = DEN_CAPITAL_SHIPS }
+		x = -2
+		y = 1
+		relative_position_id = DEN_PROJECT_Z
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			navy_experience = 15
+		}
+	}
+
+	focus = {
+		id = DEN_TRADE_DOMINATION
+		icon = GFX_goal_generic_construction
+		text = DEN_TRADE_DOMINATION
+		prerequisite = { focus = DEN_U_BOATS }
+		prerequisite = { focus = DEN_TRADE_WAR }
+		x = 2
+		y = 1
+		relative_position_id = DEN_U_BOATS
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			navy_experience = 15
+		}
+	}
+
+	focus = {
+		id = DEN_SUPREMACY_OF_NAVAL_AIR
+		icon = GFX_goal_generic_construction
+		text = DEN_SUPREMACY_OF_NAVAL_AIR
+		prerequisite = { focus = DEN_NAVY_FUTURE }
+		prerequisite = { focus = DEN_DEATH_FROM_ABOVE }
+		x = 2
+		y = 1
+		relative_position_id = DEN_NAVY_FUTURE
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			navy_experience = 15
+		}
+	}
+
+	focus = {
+		id = DEN_REFORMED_NAVY
+		icon = GFX_goal_generic_construction
+		text = DEN_REFORMED_NAVY
+		prerequisite = { focus = DEN_AMPHIBIOUS_ASSAULT focus = DEN_TRADE_DOMINATION focus = DEN_SUPREMACY_OF_NAVAL_AIR }
+		x = 0
+		y = 1
+		relative_position_id = DEN_TRADE_DOMINATION
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Reformed_Navy
+			}
+		}
+	}
+
+
+	############AF
+	focus = {
+		id = DEN_BUILD_AIR
+		icon = GFX_goal_generic_construction
+		text = DEN_BUILD_AIR
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		x = 0
+		y = 7
+		relative_position_id = DEN_DANISH_FLEET
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			air_experience = 20
+		}
+	}
+
+
+	focus = {
+		id = DEN_BUILD_AIRFIELDS
+		icon = GFX_goal_generic_construction
+		text = DEN_BUILD_FIELDS
+		prerequisite = { focus = DEN_BUILD_AIR }
+		x = 0
+		y = 1
+		relative_position_id = DEN_BUILD_AIR
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			99 = {
+				add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_BURN_TO_GROUND
+		icon = GFX_goal_generic_construction
+		text = DEN_BURN_TO_GROUND
+		prerequisite = { focus = DEN_BUILD_AIRFIELDS }
+		mutually_exclusive = { focus = DEN_AIRLAND_BATTLE }
+		mutually_exclusive = { focus = ALL_USE_PLANES }
+		x = -6
+		y = 1
+		relative_position_id = DEN_BUILD_AIRFIELDS
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cat_strategic_destruction
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_RAIN_OF_FIRE
+		icon = GFX_goal_generic_construction
+		text = DEN_CAPITAL_SHIPS
+		prerequisite = { focus = DEN_BURN_TO_GROUND }
+		x = -2
+		y = 1
+		relative_position_id = DEN_BURN_TO_GROUND
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cat_strategic_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_RAIN_OF_DEATH
+		icon = GFX_goal_generic_construction
+		text = DEN_RAIN_OF_DEATH
+		prerequisite = { focus = DEN_BURN_TO_GROUND }
+		x = 2
+		y = 1
+		relative_position_id = DEN_BURN_TO_GROUND
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+
+
+
+	focus = {
+		id = DEN_AIRLAND_BATTLE
+		icon = GFX_goal_generic_construction
+		text = DEN_AIRLAND_BATTLE
+		prerequisite = { focus = DEN_BUILD_AIRFIELDS }
+		mutually_exclusive = { focus = DEN_BURN_TO_GROUND }
+		mutually_exclusive = { focus = DEN_ALL_USE_PLANES }
+		x = 0
+		y = 1
+		relative_position_id = DEN_BUILD_AIRFIELDS
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cat_battlefield_support
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_STRAFING
+		icon = GFX_goal_generic_construction
+		text = DEN_STRAFING
+		prerequisite = { focus = DEN_AIRLAND_BATTLE }
+		x = -2
+		y = 1
+		relative_position_id = DEN_AIRLAND_BATTLE
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_ACES
+		icon = GFX_goal_generic_construction
+		text = DEN_ACES
+		prerequisite = { focus = DEN_AIRLAND_BATTLE }
+		x = 2
+		y = 1
+		relative_position_id = DEN_AIRLAND_BATTLE
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_ALL_USE_PLANES
+		icon = GFX_goal_generic_construction
+		text = ALL_USE_PLANES
+		prerequisite = { focus = DEN_BUILD_AIRFIELDS }
+		mutually_exclusive = { focus = DEN_BURN_TO_GROUND }
+		mutually_exclusive = { focus = DEN_AIRLAND_BATTLE }
+		x = 6
+		y = 1
+		relative_position_id = DEN_BUILD_AIRFIELDS
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cat_operational_integrity
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_BOMBERS
+		icon = GFX_goal_generic_construction
+		text = DEN_BOMBERS
+		prerequisite = { focus = DEN_ALL_USE_PLANES }
+		x = -2
+		y = 1
+		relative_position_id = DEN_ALL_USE_PLANES
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_ANTI_TROOP_BOMBS
+		icon = GFX_goal_generic_construction
+		text = DEN_ANTI_TROOP_BOMBS
+		prerequisite = { focus = DEN_ALL_USE_PLANES }
+		x = 2
+		y = 1
+		relative_position_id = DEN_ALL_USE_PLANES
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_RAIN_OF_ANNIHILATION
+		icon = GFX_goal_generic_construction
+		text = DEN_RAIN_OF_ANNIHILATION
+		prerequisite = { focus = DEN_RAIN_OF_FIRE }
+		prerequisite = { focus = DEN_RAIN_OF_DEATH }
+		x = -2
+		y = 1
+		relative_position_id = DEN_RAIN_OF_DEATH
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			air_experience = 15
+		}
+	}
+
+	focus = {
+		id = DEN_DOGFIGHTING
+		icon = GFX_goal_generic_construction
+		text = DEN_DOGFIGHTING
+		prerequisite = { focus = DEN_STRAFING }
+		prerequisite = { focus = DEN_ACES }
+		x = 2
+		y = 1
+		relative_position_id = DEN_STRAFING
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			air_experience = 15
+		}
+	}
+
+	focus = {
+		id = DEN_BOMBS_EVERYWHERE
+		icon = GFX_goal_generic_construction
+		text =  DEN_BOMBS_EVERYWHERE
+		prerequisite = { focus = DEN_BOMBERS }
+		prerequisite = { focus = DEN_ANTI_TROOP_BOMBS }
+		x = 2
+		y = 1
+		relative_position_id = DEN_BOMBERS
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			air_experience = 15
+		}
+	}
+
+	focus = {
+		id = DEN_REFORMED_AIR_FORCE
+		icon = GFX_goal_generic_construction
+		text = DEN_REFORMED_AIR_FORCE
+		prerequisite = { focus = DEN_BOMBS_EVERYWHERE focus = DEN_DOGFIGHTING focus = DEN_RAIN_OF_ANNIHILATION }
+		x = 0
+		y = 1
+		relative_position_id = DEN_DOGFIGHTING
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Reformed_Air_Force
+			}
+		}
+	}
+
+
+}

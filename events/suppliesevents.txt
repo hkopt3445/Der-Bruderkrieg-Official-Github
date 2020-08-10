@@ -1,0 +1,85 @@
+add_namespace = supplies
+
+country_event = {
+  id = supplies.1
+  title = supplies.1.t
+  desc = supplies.1.d
+  picture = GFX_report_event_spr_civil_war_equipment
+
+  is_triggered_only = yes
+
+  trigger = {
+
+  }
+
+
+
+  option = {
+    name = supplies.1.a
+
+    FROM = {
+      IF = {
+        tag = ARA
+        ai_chance = {
+          factor = 25
+        }
+      }
+      IF = {
+        tag = SPR
+        ai_chance = {
+          factor = 75
+        }
+      }
+      add_equipment_to_stockpile = {
+        type = infantry_equipment
+        amount = 1500
+      }
+      add_equipment_to_stockpile = {
+        type = support_equipment
+        amount = 500
+      }
+    }
+  }
+
+  FROM = {country_event = {id = supplies.2}}
+
+  option = {
+  IF = {
+    tag = ARA
+    ai_chance = {
+      factor = 75
+    }
+  }
+  IF = {
+    tag = SPR
+    ai_chance = {
+      factor = 25
+    }
+  }
+    name = supplies.1.b
+  }
+}
+
+
+
+
+country_event = {
+	id = supplies.2
+	title = supplies.2.t
+	desc = supplies.2.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+
+  is_triggered_only = yes
+
+  trigger = {
+
+  }
+
+	option = {
+		ai_chance = {
+		base = 1
+		}
+		name = supplies.2.a
+	}
+
+}

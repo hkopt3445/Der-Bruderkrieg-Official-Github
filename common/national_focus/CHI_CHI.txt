@@ -1,0 +1,3820 @@
+focus_tree = {
+	id = china_focus
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = CHI
+		}
+	}
+	#Focus for Expand Civllian Factories
+	focus = {
+		id = CHI_expand_civllian_factories
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 44
+		y = 3
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_invest_in_chinese_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power= -80
+		}
+	}
+
+	#Focus for Chinese Nationalism
+	focus = {
+		id = CHI_chinese_nationalism
+		icon = GFX_CHI_chinese_nationalism-23108
+		x = 32
+		y = 2
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_countinue_the_three_principles }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_stability> 0.4
+		}
+		completion_reward = {
+			add_political_power= 100
+		}
+	}
+
+	#Focus for The NEW Generalissimos Personal Leadership
+	focus = {
+		id = CHI_the_new_generalissimos_personal_leadership
+		icon = GFX_focus_generic_support_the_left_right
+		x = 24
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_indoctrination_propaganda }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			create_field_marshal = {
+	name = "Wang Jingwei"
+	portrait_path = "gfx/leaders/CHI/portrait_chi_wang_jingwei.dds"
+	traits = {}
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+add_country_leader_trait
+= generallissimo
+		}
+	}
+
+	#Focus for Internal Party Cooperation Council
+	focus = {
+		id = CHI_internal_party_cooperation_council
+		icon = GFX_focus_generic_self_management
+		x = 20
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_push_for_constitutional_reform }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_ideas = CHI_inter_party_coordination_council
+		}
+	}
+
+	#Focus for Finish Current Yuan Reforms
+	focus = {
+		id = CHI_finish_current_yuan_reforms
+		icon = GFX_focus_generic_china1
+		x = 21
+		y = 5
+		cost = 11
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_internal_party_cooperation_council
+		}
+		prerequisite = {
+			focus = CHI_form_legislative_yuan
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_stability> 0.55
+		}
+		completion_reward = {
+			remove_ideas = CHI_ineffective_bureaucracy
+add_political_power = 100
+add_stability= 0.05
+		}
+	}
+
+	#Focus for Form Legislative Yuan
+	focus = {
+		id = CHI_form_legislative_yuan
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 22
+		y = 4
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_construct_executive_yuan }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			swap_ideas = { remove_idea = CHI_executive_yuan add_idea = CHI_legislative_yuan }
+		}
+	}
+
+	#Focus for Set Tax Rates To 55%
+	focus = {
+		id = CHI_set_tax_rates_to_55
+		icon = GFX_focus_mex_privatisation
+		x = 7
+		y = 5
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_nationalise_private_banks }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+CHI_hyper_inflation_level_down = yes
+add_political_power= -150
+add_stabilty= -0.08
+		}
+	}
+
+	#Focus for Nationalise Private Banks
+	focus = {
+		id = CHI_nationalise_private_banks
+		icon = GFX_focus_generic_self_management
+		x = 7
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_enact_higher_taxes_on_income }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power= -120
+		}
+	}
+
+	#Focus for Maintain A Healthy Budget
+	focus = {
+		id = CHI_maintain_a_healthy_budget
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 14
+		y = 2
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_countinue_the_three_principles }
+		mutually_exclusive = { focus = CHI_establish_the_welfare_state }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			NOT = {
+    has_idea = CHI_ineffective_bureaucracy
+}
+		}
+		completion_reward = {
+			add_political_power= 100
+add_stability= -0.05
+CHI_hyper_inflation_level_down = yes
+		}
+	}
+
+	#Focus for Co-operate With Capitalists
+	focus = {
+		id = CHI_cooperate_with_capitalists
+		icon = GFX_focus_mex_privatisation
+		x = 13
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_maintain_a_healthy_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_political_power= -50
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Lower Tariffs On Certain Foreign Goods
+	focus = {
+		id = CHI_lower_tariffs_on_certain_foreign_goods
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 13
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_cooperate_with_capitalists }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_political_power= -75
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Work For Your Bread Programs
+	focus = {
+		id = CHI_work_for_your_bread_programs
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		x = 15
+		y = 3
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_maintain_a_healthy_budget }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			add_political_power= -25
+add_stability= 0.08
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+CHI_hyper_inflation_level_down = yes
+		}
+	}
+
+	#Focus for Overhaul The Healthcare System
+	focus = {
+		id = CHI_overhaul_the_healthcare_system
+		icon = GFX_goal_generic_forceful_treaty
+		x = 0
+		y = 4
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_improve_the_healthcare_system }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_4 }
+NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_political_power= -120
+add_stability= 0.08
+add_war_support= 0.04
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Build More Homes!
+	focus = {
+		id = CHI_build_more_homes
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		x = 2
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_chinese_refugee_and_housing_agency }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 38
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+NOT = { has_idea = CHI_hyper_inflation_4 }
+		}
+		completion_reward = {
+			add_political_power= -50
+add_stability= 0.08
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Continue The Path To 'Democracy'
+	focus = {
+		id = CHI_continue_the_path_to_democracy
+		icon = GFX_CHI_continue_the_path_to_democracy-22244
+		x = 21
+		y = 2
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_countinue_the_three_principles }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = {
+			factor = 45
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = democratic
+popularity = 0.08
+}
+
+add_political_power= 50
+		}
+	}
+
+	#Focus for Establish The Welfare State
+	focus = {
+		id = CHI_establish_the_welfare_state
+		icon = GFX_goal_generic_neutrality_focus
+		x = 2
+		y = 2
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_countinue_the_three_principles }
+		mutually_exclusive = { focus = CHI_maintain_a_healthy_budget }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			NOT = {
+    has_idea = CHI_ineffective_bureaucracy
+}
+		}
+		completion_reward = {
+			add_war_support = 0.05
+add_stability
+= 0.04
+add_political_power
+= 50
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Reinforce KMT Government Authority
+	focus = {
+		id = CHI_reinforce_kmt_government_authority
+		icon = GFX_CHI_reinforce_kmt_government_authority-22269
+		x = 15
+		y = 0
+		cost = 3
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
+		ai_will_do = {
+			factor = 80
+		}
+		completion_reward = {
+			add_political_power= -100
+add_stability= 0.05
+add_war_support
+= 0.05
+		}
+	}
+
+	#Focus for Countinue The Three Principles
+	focus = {
+		id = CHI_countinue_the_three_principles
+		icon = GFX_CHI_countinue_the_three_principles-22243
+		x = 15
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_reinforce_kmt_government_authority }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = {
+			factor = 45
+		}
+		completion_reward = {
+			add_political_power= 50
+add_stability= 0.05
+		}
+	}
+
+	#Focus for Mission To The French
+	focus = {
+		id = CHI_mission_to_the_french
+		icon = GFX_CHI_mission_to_the_french-28269
+		x = 67
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_foreign_diplomacy }
+		mutually_exclusive = { focus = CHI_mission_to_the_british }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_political_power= -50
+add_opinion_modifier= {
+target = FRA
+modifier = small_increase
+}
+FRA = { add_opinion_modifier
+= { target = CHI modifier = small_increase  } }
+		}
+	}
+
+	#Focus for Austrian CAS planes
+	focus = {
+		id = CHI_austrian_cas_planes
+		icon = GFX_goal_generic_air_bomber
+		x = 64
+		y = 5
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_austrian_fighters }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = CAS_equipment
+    amount = 140
+    producer = GER
+}
+add_political_power = -100
+		}
+	}
+
+	#Focus for Austrian Fighters
+	focus = {
+		id = CHI_austrian_fighters
+		icon = GFX_goal_generic_air_fighter2
+		x = 64
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_austrian_trained_army }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = fighter_equipment
+    amount = 150
+    producer = AUS
+}
+add_political_power= -130
+		}
+	}
+
+	#Focus for Approve First Industry Budget
+	focus = {
+		id = CHI_approve_first_industry_budget
+		icon = GFX_focus_generic_industry_1
+		x = 47
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_revive_the_chinese_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_up = yes
+CHI_hyper_inflation_level_up = yes
+add_tech_bonus
+= { bonus = 1 uses = 2 category = industry }
+		}
+	}
+
+	#Focus for Invite Austrian Millitary Advisors
+	focus = {
+		id = CHI_invite_austrian_millitary_advisors
+		icon = GFX_CHI_invite_austrian_millitary_advisors-28227
+		x = 62
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_mission_to_the_austrians }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			swap_ideas = {
+     remove_idea = german_advisors
+     add_idea = austrian_military_advisors
+}
+add_opinion_modifier= {
+target = AUS
+modifier = small_increase
+}
+AUS = { add_opinion_modifier
+= { target = CHI modifier = small_increase  } }
+add_opinion_modifier= {
+target = GER
+modifier = medium_decrease
+}
+GER = { add_opinion_modifier
+= { target = CHI modifier = medium_decrease   } }
+		}
+	}
+
+	#Focus for Austrian Panzers!
+	focus = {
+		id = CHI_austrian_panzers
+		icon = GFX_goal_generic_army_tanks
+		x = 62
+		y = 5
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_austrian_guns }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = light_tank_equipment
+    amount = 200
+    producer = AUS
+}
+add_political_power = -120
+		}
+	}
+
+	#Focus for Giving Falkenhausen Citzenship
+	focus = {
+		id = CHI_giving_falkenhausen_citzenship
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 57
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_mission_to_the_prussians }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			has_opinion= {
+target = GER
+value <-50
+}
+GER = { has_opinion = { target = CHI value < -50 } }
+		}
+		completion_reward = {
+			create_field_marshal = {
+	name = "Alexander von Falkenhausen"
+	gfx = "portrait_chi_alexander_von_falkenhausen.dds"
+	traits = { defensive_doctrine  infantry_officer }
+	skill = 4
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 2
+}
+		}
+	}
+
+	#Focus for Austrian Guns
+	focus = {
+		id = CHI_austrian_guns
+		icon = GFX_goal_generic_military_sphere
+		x = 62
+		y = 4
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_austrian_trained_army }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = AUS
+}
+add_political_power= -125
+		}
+	}
+
+	#Focus for German Guns
+	focus = {
+		id = CHI_german_guns
+		icon = GFX_goal_generic_small_arms
+		x = 57
+		y = 4
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_german_trained_army }
+		ai_will_do = {
+			factor = 38
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = GER
+}
+add_political_power= -125
+		}
+	}
+
+	#Focus for Mission To The Prussians
+	focus = {
+		id = CHI_mission_to_the_prussians
+		icon = GFX_CHI_mission_to_the_prussians-28177
+		x = 58
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_foreign_diplomacy }
+		mutually_exclusive = { focus = CHI_mission_to_the_austrians }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_political_power= 50
+add_opinion_modifier= {
+target = GER
+modifier = small_increase
+}
+GER = { add_opinion_modifier
+= { target = CHI modifier = small_increase  } }
+add_opinion_modifier= {
+target = AUS
+modifier = small_decrease
+}
+AUS = { add_opinion_modifier
+= { target = CHI modifier = small_decrease  } }
+		}
+	}
+
+	#Focus for Combat Illiteracy
+	focus = {
+		id = CHI_combat_illiteracy
+		icon = GFX_goal_generic_scientific_exchange
+		x = 4
+		y = 4
+		cost = 13
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_create_unemployment_assistance_program }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+NOT = { has_idea = CHI_hyper_inflation_4 }
+Has_stability > 0.65
+		}
+		completion_reward = {
+			add_political_power= -100
+add_stability= 0.04
+add_war_support= 0.04
+add_research_slot = 1
+CHI_hyper_inflation_level_up = yes
+remove_ideas = mass_illiteracy
+		}
+	}
+
+	#Focus for Support The PRC
+	focus = {
+		id = CHI_support_the_prc
+		icon = GFX_goal_generic_military_deal
+		x = 31
+		y = 6
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_a_united_front }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			PRC = { exists= yes }
+SHX = { exists= yes }
+PRC = {
+    is_in_faction = yes
+}
+		}
+		completion_reward = {
+			PRC = { create_wargoal = { target = SHX type = annex_everything } }
+		}
+	}
+
+	#Focus for Approve Second Industry Budget
+	focus = {
+		id = CHI_approve_second_industry_budget
+		icon = GFX_focus_generic_industry_2
+		x = 47
+		y = 4
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_expand_civllian_factories
+			focus = CHI_expand_the_mining_commision
+			focus = CHI_expand_the_infanstructure_project
+			focus = CHI_establish_the_hunan_arsenal
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_up = yes
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Expand The Mining Commision
+	focus = {
+		id = CHI_expand_the_mining_commision
+		icon = GFX_goal_generic_oil_refinery
+		x = 50
+		y = 3
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_fund_the_mining_commision }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			random_owned_controlled_state = { add_resource= {
+type = steel
+amount = 10
+} }
+random_owned_controlled_state = { add_resource= {
+type = aluminum
+amount = 8
+} }
+add_political_power = -50
+		}
+	}
+
+	#Focus for Expand The Infanstructure Project
+	focus = {
+		id = CHI_expand_the_infanstructure_project
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 48
+		y = 3
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_start_the_infanstructure_project }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+add_political_power = -80
+		}
+	}
+
+	#Focus for Ban Communism
+	focus = {
+		id = CHI_ban_communism
+		icon = GFX_goal_generic_forceful_treaty
+		x = 20
+		y = 9
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_purge_disloyal_members
+			focus = CHI_purge_the_bureaucracy
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_ideas= communism_banned
+add_stability= -0.07
+add_political_power= -70
+		}
+	}
+
+	#Focus for Deal With The 'Khan'
+	focus = {
+		id = CHI_deal_with_the_khan
+		icon = GFX_goal_generic_major_war
+		x = 35
+		y = 7
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_crush_the_jin_clique
+			focus = CHI_support_the_prc
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			PRC = { exists = no }
+BEI = { exists = no }
+MAN = { exists = no }
+		}
+		completion_reward = {
+			country_event = focuses.3
+		}
+	}
+
+	#Focus for The Great War Of Resistance
+	focus = {
+		id = CHI_the_great_war_of_resistance
+		icon = GFX_focus_generic_china1
+		x = 36
+		y = 0
+		cost = 2
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 41
+		}
+		available = {
+			has_defensive_war= yes
+has_war_with
+= JAP
+		}
+		completion_reward = {
+			add_ideas = CHI_war_of_resistance
+add_political_power
+= 150
+add_stability
+= 0.04
+add_war_support
+= 0.04
+		}
+	}
+
+	#Focus for Cooperation With KMT Nationalists
+	focus = {
+		id = CHI_cooperation_with_kmt_nationalists
+		icon = GFX_goal_tripartite_pact
+		x = 25
+		y = 10
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_coup }
+		mutually_exclusive = { focus = CHI_purge_kmt_members }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			create_field_marshal = {
+	name = "Chiang Kai Shek"
+	portrait_path = "gfx/leaders/CHI/Portrait_China_Chiang_Kai_Shek.dds"
+	traits = {}
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+add_popularity= {
+ideology = neutrality
+popularity = 0.10
+}
+add_stability= -0.05
+add_political_power= 100
+		}
+	}
+
+	#Focus for Purge KMT Members
+	focus = {
+		id = CHI_purge_kmt_members
+		icon = GFX_goal_generic_political_pressure
+		x = 27
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_coup }
+		mutually_exclusive = { focus = CHI_cooperation_with_kmt_nationalists }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = neutrality
+popularity = -0.10
+}
+add_stability= -0.05
+add_political_power= 100
+		}
+	}
+
+	#Focus for Nationalise Healthcare Industry
+	focus = {
+		id = CHI_nationalise_healthcare_industry
+		icon = GFX_focus_generic_self_management
+		x = 0
+		y = 5
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_overhaul_the_healthcare_system }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+NOT = { has_idea = CHI_hyper_inflation_4 }
+NOT = { has_idea = CHI_hyper_inflation_3 }
+		}
+		completion_reward = {
+			add_political_power= -150
+add_stability= 0.08
+add_war_support= 0.06
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Tighten Control On Spending
+	focus = {
+		id = CHI_tighten_control_on_spending
+		icon = GFX_focus_generic_self_management
+		x = 11
+		y = 4
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_enact_austerity }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			add_political_power= -25
+add_stability= -0.07
+add_war_support= -0.06
+CHI_hyper_inflation_level_down = yes
+CHI_hyper_inflation_level_down = yes
+		}
+	}
+
+	#Focus for Push For Constitutional Reform
+	focus = {
+		id = CHI_push_for_constitutional_reform
+		icon = GFX_focus_generic_treaty
+		x = 19
+		y = 3
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_continue_the_path_to_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_stability= 0.04
+add_war_support= 0.04
+add_political_power= 100
+add_popularity= {
+ideology = democratic
+popularity = 0.05
+}
+		}
+	}
+
+	#Focus for Put Our Trust Into Investors
+	focus = {
+		id = CHI_put_our_trust_into_investors
+		icon = GFX_goal_generic_dangerous_deal
+		x = 11
+		y = 7
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_encourage_foreign_investors }
+		mutually_exclusive = { focus = CHI_regulate_the_investors }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power= -100
+
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+		}
+	}
+
+	#Focus for Encourage Foreign Investors
+	focus = {
+		id = CHI_encourage_foreign_investors
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = 10
+		y = 6
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_raise_tariffs_on_competing_foreign_goods
+			focus = CHI_to_the_bone
+		}
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power= -100
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+		}
+	}
+
+	#Focus for Encourage Private Healthcare Investments
+	focus = {
+		id = CHI_encourage_private_healthcare_investments
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 17
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_change_the_healthcare_system }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_political_power= -100
+add_stability= 0.06
+add_war_support= 0.04
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Improve The Healthcare System
+	focus = {
+		id = CHI_improve_the_healthcare_system
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 0
+		y = 3
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_establish_the_welfare_state }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_political_power= -100
+add_stability= 0.07
+add_war_support= 0.05
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Chinese Refugee And Housing Agency
+	focus = {
+		id = CHI_chinese_refugee_and_housing_agency
+		icon = GFX_focus_spa_save_the_alcazar
+		x = 2
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_establish_the_welfare_state }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_war_support = 0.05
+add_stability = 0.08
+add_political_power
+= -50
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Create Unemployment Assistance Program
+	focus = {
+		id = CHI_create_unemployment_assistance_program
+		icon = GFX_goal_tripartite_pact
+		x = 4
+		y = 3
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_establish_the_welfare_state }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_political_power= -50
+add_stability= 0.04
+add_war_support= 0.02
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Change The Healthcare System
+	focus = {
+		id = CHI_change_the_healthcare_system
+		icon = GFX_goal_tripartite_pact
+		x = 17
+		y = 3
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_maintain_a_healthy_budget }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_political_power= -50
+add_stability= 0.05
+add_war_support= 0.02
+
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Fight Poverty
+	focus = {
+		id = CHI_fight_poverty
+		icon = GFX_goal_generic_national_unity
+		x = 0
+		y = 6
+		cost = 13
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_nationalise_healthcare_industry }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+NOT = { has_idea = CHI_hyper_inflation_4 }
+NOT = { has_idea = CHI_hyper_inflation_3 }
+Has_stability > 0.6
+		}
+		completion_reward = {
+			add_stability= 0.08
+add_political_power= -100
+
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+CHI_hyper_inflation_level_up = yes
+remove_ideas = mass_poverty
+		}
+	}
+
+	#Focus for Crusade On Poverty
+	focus = {
+		id = CHI_crusade_on_poverty
+		icon = GFX_goal_generic_secret_weapon
+		x = 15
+		y = 5
+		cost = 12
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_fight_illiteracy }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+Has_stability > 0.55
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_up = yes
+CHI_hyper_inflation_level_up = yes
+add_stability= 0.08
+add_war_support=0.07
+add_political_power= 100
+remove_ideas = mass_poverty
+		}
+	}
+
+	#Focus for Enact Higher Taxes On Income
+	focus = {
+		id = CHI_enact_higher_taxes_on_income
+		icon = GFX_focus_mex_privatisation
+		x = 8
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_establish_the_welfare_state }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 42
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power= -100
+		}
+	}
+
+	#Focus for Forced Land Tax Reforms
+	focus = {
+		id = CHI_forced_land_tax_reforms
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 9
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_enact_higher_taxes_on_income }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power= -100
+		}
+	}
+
+	#Focus for Enact Austerity
+	focus = {
+		id = CHI_enact_austerity
+		icon = GFX_goal_generic_neutrality_focus
+		x = 11
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_maintain_a_healthy_budget }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 36
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			add_political_power= -25
+add_stability= -0.05
+add_war_support= -0.04
+CHI_hyper_inflation_level_down = yes
+		}
+	}
+
+	#Focus for To The Bone
+	focus = {
+		id = CHI_to_the_bone
+		icon = GFX_goal_generic_forceful_treaty
+		x = 11
+		y = 5
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_tighten_control_on_spending }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+CHI_hyper_inflation_level_down = yes
+add_political_power
+= -20
+add_stability
+= -0.08
+		}
+	}
+
+	#Focus for Cut Taxes On Capitalists
+	focus = {
+		id = CHI_cut_taxes_on_capitalists
+		icon = GFX_focus_fra_devalue_the_franc
+		x = 13
+		y = 5
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_lower_tariffs_on_certain_foreign_goods }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_up = yes
+
+add_political_power
+= -70
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+		}
+	}
+
+	#Focus for Encourage Private Investments in Housing
+	focus = {
+		id = CHI_encourage_private_investments_in_housing
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 13
+		y = 6
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_cut_taxes_on_capitalists }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power= -70
+add_stability= 0.08
+		}
+	}
+
+	#Focus for Fight Illiteracy!
+	focus = {
+		id = CHI_fight_illiteracy
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 15
+		y = 4
+		cost = 12
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_work_for_your_bread_programs }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+Has_stability > 0.4
+		}
+		completion_reward = {
+			add_political_power= -40
+add_stability= 0.07
+add_research_slot = 1
+CHI_hyper_inflation_level_up = yes
+remove_ideas = mass_illiteracy
+		}
+	}
+
+	#Focus for Raise Tariffs On Competing Foreign Goods
+	focus = {
+		id = CHI_raise_tariffs_on_competing_foreign_goods
+		icon = GFX_goal_generic_forceful_treaty
+		x = 9
+		y = 5
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_forced_land_tax_reforms }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power
+= -100
+		}
+	}
+
+	#Focus for Regulate The Investors
+	focus = {
+		id = CHI_regulate_the_investors
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = 9
+		y = 7
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_encourage_foreign_investors }
+		mutually_exclusive = { focus = CHI_put_our_trust_into_investors }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power= 120
+
+random_owned_controlled_state
+={ limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+		}
+	}
+
+	#Focus for Seize Land And Wealth From 'Traitors'
+	focus = {
+		id = CHI_seize_land_and_wealth_from_traitors
+		icon = GFX_focus_rom_parties_end
+		x = 7
+		y = 6
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_set_tax_rates_to_55 }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			has_hyper_inflation = yes
+Has_stability > 0.5
+		}
+		completion_reward = {
+			add_political_power= -125
+add_stability= -0.07
+add_war_support= -0.06
+CHI_hyper_inflation_level_down = yes
+CHI_hyper_inflation_level_down = yes
+		}
+	}
+
+	#Focus for Housing For All!
+	focus = {
+		id = CHI_housing_for_all
+		icon = GFX_focus_spa_the_spanish_miracle
+		x = 2
+		y = 5
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_build_more_homes }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+NOT = { has_idea = CHI_hyper_inflation_4 }
+NOT = { has_idea = CHI_hyper_inflation_3 }
+		}
+		completion_reward = {
+			add_political_power= -100
+add_stability= 0.07
+add_war_support= 0.05
+CHI_hyper_inflation_level_up = yes
+CHI_hyper_inflation_level_up = yes
+		}
+	}
+
+	#Focus for Legalise Unions
+	focus = {
+		id = CHI_legalise_unions
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = 6
+		y = 3
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_establish_the_welfare_state }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			NOT = { has_idea = CHI_hyper_inflation_5 }
+		}
+		completion_reward = {
+			add_political_power= -100
+add_stability= 0.04
+add_war_support= 0.04
+add_research_slot = 1
+CHI_hyper_inflation_level_up = yes
+add_popularity= {
+ideology = communism
+popularity = 0.10
+}
+		}
+	}
+
+	#Focus for Construct Executive Yuan
+	focus = {
+		id = CHI_construct_executive_yuan
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		x = 23
+		y = 3
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_continue_the_path_to_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_ideas = CHI_executive_yuan
+add_political_power
+= 100
+		}
+	}
+
+	#Focus for Destruction Of Beiyang!
+	focus = {
+		id = CHI_destruction_of_beiyang
+		icon = GFX_focus_generic_china1
+		x = 33
+		y = 7
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_crush_the_jin_clique
+			focus = CHI_support_the_prc
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			create_wargoal= {
+type = annex_everything
+target = BEI
+}
+		}
+	}
+
+	#Focus for Crush The Jin Clique
+	focus = {
+		id = CHI_crush_the_jin_clique
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 35
+		y = 6
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_eliminate_the_communists }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = {
+			factor = 45
+		}
+		available = {
+			SHX = { exists = yes }
+		}
+		completion_reward = {
+			create_wargoal= {
+type = annex_everything
+target = SHX
+}
+		}
+	}
+
+	#Focus for Ensnare The Southern Warlords
+	focus = {
+		id = CHI_ensnare_the_southern_warlords
+		icon = GFX_CHI_ensnare_the_southern_warlords-23561
+		x = 30
+		y = 3
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_chinese_nationalism }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			YUN = { exists = yes }
+GXC = { exists = yes }
+		}
+		completion_reward = {
+			every_other_country = { limit = { OR = { tag = GXC tag = YUN } } country_event = { id = wtt_china.1 } }
+unlock_decision_category_tooltip = CHI_integrate_the_warlords
+		}
+	}
+
+	#Focus for Deal With The Communists
+	focus = {
+		id = CHI_deal_with_the_communists
+		icon = GFX_goal_support_communism
+		x = 33
+		y = 4
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_chinese_nationalism }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_political_power= 50
+		}
+	}
+
+	#Focus for A United Front
+	focus = {
+		id = CHI_a_united_front
+		icon = GFX_focus_prc_social_democracy
+		x = 31
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_deal_with_the_communists }
+		mutually_exclusive = { focus = CHI_eliminate_the_communists }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 45
+		}
+		available = {
+			is_subject = no
+is_in_faction = no
+		}
+		completion_reward = {
+			add_political_power= -150
+add_stability= -0.05
+add_war_support= -0.05
+add_popularity= {
+ideology = communism
+popularity = 0.08
+}
+CHI = { set_rule = { can_create_factions = yes } create_faction = chinese_united_front } PRC = { country_event = generic.5 }
+		}
+	}
+
+	#Focus for Eliminate The Communists
+	focus = {
+		id = CHI_eliminate_the_communists
+		icon = GFX_goal_generic_attack_allies
+		x = 35
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_deal_with_the_communists }
+		mutually_exclusive = { focus = CHI_a_united_front }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			add_political_power= 50
+add_stability= 0.05
+add_war_support= 0.05
+create_wargoal = { type = annex_everything target = PRC expire = 0 }
+create_wargoal = { type = annex_everything target = SIK expire = 0 }
+		}
+	}
+
+	#Focus for Damn Traitors!
+	focus = {
+		id = CHI_damn_traitors
+		icon = GFX_goal_generic_attack_allies
+		x = 33
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_a_united_front }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			PRC = { is_in_faction = no }
+		}
+		completion_reward = {
+			add_stability= 0.05
+add_political_power= 50
+add_war_support= 0.05
+create_wargoal
+= { type = annex_everything target = PRC }
+complete_national_focus = CHI_crush_the_jin_clique
+		}
+	}
+
+	#Focus for Drum Up Patriotism
+	focus = {
+		id = CHI_drum_up_patriotism
+		icon = GFX_CHI_drum_up_patriotism-23559
+		x = 32
+		y = 3
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_chinese_nationalism }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_stability= 0.05
+add_war_support= 0.10
+		}
+	}
+
+	#Focus for Ensnare The Eastern Warlords
+	focus = {
+		id = CHI_ensnare_the_eastern_warlords
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		x = 30
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_ensnare_the_southern_warlords }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = {
+			factor = 44
+		}
+		available = {
+			XSM = { exists = yes }
+SIC = { exists = yes }
+SIC = { is_subject = no }
+XSM = { is_subject = no }
+		}
+		completion_reward = {
+			every_other_country = { limit = { OR = { tag = SIC tag = XSM } } country_event = { id = wtt_china.1 } }
+unlock_decision_category_tooltip = CHI_integrate_the_warlords
+		}
+	}
+
+	#Focus for Pick A Fight With The Japanese
+	focus = {
+		id = CHI_pick_a_fight_with_the_japanese
+		icon = GFX_focus_attack_japan
+		x = 34
+		y = 8
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_destruction_of_beiyang }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			country_exists= JAP
+		}
+		completion_reward = {
+			create_wargoal= {
+type = annex_everything
+target = MAN
+}
+create_wargoal= {
+type = puppet_wargoal_focus
+target = JAP
+}
+hidden_effect = { news_event = { id = wtt_news.35 days = 1} }
+		}
+	}
+
+	#Focus for Reviewing The KMT Army
+	focus = {
+		id = CHI_reviewing_the_kmt_army
+		icon = GFX_CHI_reviewing_the_kmt_army-28075
+		x = 40
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			army_experience= 20
+		}
+	}
+
+	#Focus for The Bureau of Investigation and Statistics
+	focus = {
+		id = CHI_the_bureau_of_investigation_and_statistics
+		icon = GFX_CHI_the_bureau_of_investigation_and_statistics-23956
+		x = 25
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_continue_the_path_to_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+show_ideas_tooltip = CHI_dai_li
+		}
+	}
+
+	#Focus for German Panzers!
+	focus = {
+		id = CHI_german_panzers
+		icon = GFX_goal_generic_army_tanks
+		x = 57
+		y = 5
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_german_guns }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = light_tank_equipment
+    amount = 170
+    producer = GER
+}
+add_political_power = -100
+		}
+	}
+
+	#Focus for German Trained Army
+	focus = {
+		id = CHI_german_trained_army
+		icon = GFX_goal_rhineland
+		x = 58
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_giving_falkenhausen_citzenship
+		}
+		prerequisite = {
+			focus = CHI_seek_accommodation_with_prussia
+		}
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_tech_bonus = {
+    bonus = 0.5
+    uses = 2
+    category = cat_mobile_warfare
+}
+army_experience = 10
+		}
+	}
+
+	#Focus for German Luftwaffe Fighters
+	focus = {
+		id = CHI_german_luftwaffe_fighters
+		icon = GFX_goal_generic_air_fighter2
+		x = 59
+		y = 4
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_german_trained_army }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = fighter_equipment
+    amount = 120
+    producer = GER
+}
+add_political_power= -120
+		}
+	}
+
+	#Focus for German CAS Planes
+	focus = {
+		id = CHI_german_cas_planes
+		icon = GFX_goal_generic_air_bomber
+		x = 59
+		y = 5
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_german_luftwaffe_fighters }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = CAS_equipment
+    amount = 100
+    producer = GER
+}
+add_political_power = -100
+		}
+	}
+
+	#Focus for Chinese Army Reform
+	focus = {
+		id = CHI_chinese_army_reform
+		icon = GFX_focus_chi_army_reform
+		x = 39
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_reviewing_the_kmt_army }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			army_experience= 15
+add_political_power= -100
+unlock_decision_category_tooltip = CHI_army_reform
+activate_decision = CHI_army_reform
+		}
+	}
+
+	#Focus for The 60 Divisions Plan
+	focus = {
+		id = CHI_the_60_divisions_plan
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 39
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_chinese_army_reform }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			unlock_decision_tooltip = CHI_60_divisions_plan
+activate_decision = CHI_60_divisions_plan
+		}
+	}
+
+	#Focus for The Whampoa Millitary Academy
+	focus = {
+		id = CHI_the_whampoa_millitary_academy
+		icon = GFX_focus_chi_whampoa_military_academy
+		x = 41
+		y = 1
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_reviewing_the_kmt_army }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			every_army_leader = { add_planning = 1 }
+add_ideas = CHI_whampoa_military_academy
+		}
+	}
+
+	#Focus for Assemble The Dare To Die Corps
+	focus = {
+		id = CHI_assemble_the_dare_to_die_corps
+		icon = GFX_goal_generic_special_forces
+		x = 37
+		y = 3
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_force_constription }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			custom_effect_tooltip = CHI_50_cheaper_force_attack
+		}
+	}
+
+	#Focus for Revive The Chinese Industry!
+	focus = {
+		id = CHI_revive_the_chinese_industry
+		icon = GFX_CHI_revive_the_chinese_industry-28179
+		x = 50
+		y = 0
+		cost = 2
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_political_power= 50
+		}
+	}
+
+	#Focus for Reform Millitary Affairs Commision
+	focus = {
+		id = CHI_reform_millitary_affairs_commision
+		icon = GFX_focus_chi_examination_yuan
+		x = 41
+		y = 2
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_whampoa_millitary_academy }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_ideas = CHI_military_affairs_commission
+		}
+	}
+
+	#Focus for Consider Unity Talks
+	focus = {
+		id = CHI_consider_unity_talks
+		icon = GFX_goal_generic_forceful_treaty
+		x = 31
+		y = 7
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_support_the_prc }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			Has_stability > 0.7
+NOT = {
+    has_idea = CHI_ineffective_bureaucracy
+has_idea = mass_poverty
+has_idea = mass_illiteracy
+}
+is_in_faction
+= yes
+is_in_faction_with
+= PRC
+		}
+		completion_reward = {
+			country_event = focuses.1
+		}
+	}
+
+	#Focus for Consider A White Peace
+	focus = {
+		id = CHI_consider_a_white_peace
+		icon = GFX_focus_chi_proclaim_rival_government
+		x = 32
+		y = 8
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_destruction_of_beiyang }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_war_with = BEI
+has_war_with
+= JAP
+BEI = { has_war_with
+= JAP }
+		}
+		completion_reward = {
+			country_event = focuses.6
+		}
+	}
+
+	#Focus for A War Of National Liberation
+	focus = {
+		id = CHI_a_war_of_national_liberation
+		icon = GFX_CHI_a_war_of_national_liberation-26209
+		x = 35
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_great_war_of_resistance }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			swap_ideas = {
+     remove_idea = CHI_war_of_resistance
+     add_idea = CHI_war_of_resistance_2
+}
+		}
+	}
+
+	#Focus for The War Of Anti Imperialism
+	focus = {
+		id = CHI_the_war_of_anti_imperialism
+		icon = GFX_CHI_the_war_of_anti_imperialism-26212
+		x = 35
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_a_war_of_national_liberation }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_ideas = CHI_war_of_national_liberation
+		}
+	}
+
+	#Focus for Establish The Hunan Arsenal
+	focus = {
+		id = CHI_establish_the_hunan_arsenal
+		icon = GFX_focus_generic_tank_production
+		x = 46
+		y = 3
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_expand_arms_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			CHI = { controls_state = 600 }
+		}
+		completion_reward = {
+			602 = { add_extra_state_shared_building_slots = 3 add_building_construction = { type = arms_factory level = 3 instant_build = yes } }
+add_political_power= -100
+		}
+	}
+
+	#Focus for Start A New Financial Policy
+	focus = {
+		id = CHI_start_a_new_financial_policy
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		x = 53
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_revive_the_chinese_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = CHI_t_v_soong
+add_political_power = 50
+		}
+	}
+
+	#Focus for Expand Arms Industry
+	focus = {
+		id = CHI_expand_arms_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 46
+		y = 2
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_approve_first_industry_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power= -50
+		}
+	}
+
+	#Focus for Invest In Chinese Industry
+	focus = {
+		id = CHI_invest_in_chinese_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 44
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_approve_first_industry_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power= -50
+		}
+	}
+
+	#Focus for Force Constription
+	focus = {
+		id = CHI_force_constription
+		icon = GFX_CHI_force_constription-28181
+		x = 37
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_use_scorched_earth_tactics }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_ideas= CHI_forced_conscription
+		}
+	}
+
+	#Focus for Use Scorched Earth Tactics
+	focus = {
+		id = CHI_use_scorched_earth_tactics
+		icon = GFX_goal_continuous_suppression
+		x = 37
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_great_war_of_resistance }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			unlock_decision_tooltip = CHI_scorched_earth_tactics
+		}
+	}
+
+	#Focus for Start The Infanstructure Project
+	focus = {
+		id = CHI_start_the_infanstructure_project
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 48
+		y = 2
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_approve_first_industry_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+add_political_power = -50
+		}
+	}
+
+	#Focus for Fund The Mining Commision
+	focus = {
+		id = CHI_fund_the_mining_commision
+		icon = GFX_goal_generic_construction2
+		x = 50
+		y = 2
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_approve_first_industry_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_industrial_concern
+show_ideas_tooltip = CHI_mining_commission
+		}
+	}
+
+	#Focus for Enforce Price Controls
+	focus = {
+		id = CHI_enforce_price_controls
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		x = 53
+		y = 2
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_start_a_new_financial_policy }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power = -70
+		}
+	}
+
+	#Focus for Price Freezing
+	focus = {
+		id = CHI_price_freezing
+		icon = GFX_focus_generic_self_management
+		x = 52
+		y = 3
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_enforce_price_controls }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			CHI_hyper_inflation_level_down = yes
+add_political_power = -100
+		}
+	}
+
+	#Focus for Create More Munition Factories
+	focus = {
+		id = CHI_create_more_munition_factories
+		icon = GFX_focus_generic_tank_production
+		x = 46
+		y = 5
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_approve_second_industry_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power= -80
+		}
+	}
+
+	#Focus for Second Expansion Of Chinese Industry
+	focus = {
+		id = CHI_second_expansion_of_chinese_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 44
+		y = 5
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_approve_second_industry_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power= -80
+		}
+	}
+
+	#Focus for Create The Grain Tax
+	focus = {
+		id = CHI_create_the_grain_tax
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 54
+		y = 3
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_enforce_price_controls }
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			add_ideas = CHI_grain_tax
+CHI_hyper_inflation_level_down = yes
+		}
+	}
+
+	#Focus for Force Loans
+	focus = {
+		id = CHI_force_loans
+		icon = GFX_goal_generic_forceful_treaty
+		x = 53
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_price_freezing
+			focus = CHI_create_the_grain_tax
+		}
+		search_filters = { FOCUS_FILTER_CHI_INFLATION }
+		ai_will_do = {
+			factor = 32
+		}
+		available = {
+			has_hyper_inflation = yes
+		}
+		completion_reward = {
+			unlock_decision_tooltip = CHI_forced_loans
+CHI_hyper_inflation_level_down = yes
+		}
+	}
+
+	#Focus for II Expand The Infanstructure Project
+	focus = {
+		id = CHI_ii_expand_the_infanstructure_project
+		icon = GFX_goal_generic_construct_civilian
+		x = 48
+		y = 5
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_approve_second_industry_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+add_political_power = -80
+		}
+	}
+
+	#Focus for II Expand The Mining Commision
+	focus = {
+		id = CHI_ii_expand_the_mining_commision
+		icon = GFX_goal_generic_production
+		x = 50
+		y = 5
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_approve_second_industry_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_resource= {
+type = steel
+amount = 12
+state = 613
+}
+add_resource= {
+type = aluminum
+amount = 12
+state = 613
+}
+add_political_power = -80
+		}
+	}
+
+	#Focus for Overhaul Civillian Industry
+	focus = {
+		id = CHI_overhaul_civillian_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 44
+		y = 6
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_second_expansion_of_chinese_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power= -120
+		}
+	}
+
+	#Focus for Build The Nanjing Arsenal
+	focus = {
+		id = CHI_build_the_nanjing_arsenal
+		icon = GFX_focus_generic_tank_production
+		x = 46
+		y = 6
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_create_more_munition_factories }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			600 = { is_owned_by = CHI }
+		}
+		completion_reward = {
+			613 = { add_extra_state_shared_building_slots = 4 add_building_construction = { type = arms_factory level = 4 instant_build = yes } }
+add_political_power= -100
+		}
+	}
+
+	#Focus for Start The Infanstructure Overhaul
+	focus = {
+		id = CHI_start_the_infanstructure_overhaul
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 48
+		y = 6
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_ii_expand_the_infanstructure_project }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_political_power = -120
+random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+random_owned_controlled_state = { limit = { free_building_slots = { building = infrastructure size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 2 add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER }
+		}
+	}
+
+	#Focus for Overhaul The Mining Commision
+	focus = {
+		id = CHI_overhaul_the_mining_commision
+		icon = GFX_goal_generic_construction2
+		x = 50
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_ii_expand_the_mining_commision }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+add_resource = { type = rubber amount = 8 } }
+random_owned_controlled_state = {
+add_resource = { type = rubber amount = 8 } }
+random_owned_controlled_state = {
+add_resource = { type = steel amount = 12 } }
+random_owned_controlled_state = {
+add_resource = { type = aluminium amount = 10 } }
+random_owned_controlled_state = {
+add_resource = { type = tungsten amount = 8 } }
+add_political_power = -110
+		}
+	}
+
+	#Focus for A New Chinese Economy
+	focus = {
+		id = CHI_a_new_chinese_economy
+		icon = GFX_CHI_a_new_chinese_economy-27406
+		x = 47
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_overhaul_civillian_industry
+			focus = CHI_overhaul_the_mining_commision
+			focus = CHI_start_the_infanstructure_overhaul
+			focus = CHI_build_the_nanjing_arsenal
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			remove_ideas = severe_lack_of_industry
+add_political_power = 120
+		}
+	}
+
+	#Focus for Mission To The British
+	focus = {
+		id = CHI_mission_to_the_british
+		icon = GFX_CHI_mission_to_the_british-28285
+		x = 71
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_foreign_diplomacy }
+		mutually_exclusive = { focus = CHI_mission_to_the_french }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_opinion_modifier= {
+target = ENG
+modifier = small_increase
+}
+ENG = { add_opinion_modifier
+= { target = CHI modifier = small_increase  } }
+add_political_power
+= -50
+		}
+	}
+
+	#Focus for Replace The Bureaucracy
+	focus = {
+		id = CHI_replace_the_bureaucracy
+		icon = GFX_goal_generic_forceful_treaty
+		x = 28
+		y = 8
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_enforce_ban_on_communism }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			remove_ideas = PRC_government_corruption
+add_political_power = -100
+		}
+	}
+
+	#Focus for The Coup
+	focus = {
+		id = CHI_the_coup
+		icon = GFX_CHI_the_coup-27719
+		x = 26
+		y = 9
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_empower_the_paramilitaries }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			Fascism > 0.55
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = fascism
+elections_allowed = no
+}
+remove_ideas = CHI_inter_party_coordination_council
+		}
+	}
+
+	#Focus for Empower The Paramilitaries
+	focus = {
+		id = CHI_empower_the_paramilitaries
+		icon = GFX_CHI_empower_the_paramilitaries-28178
+		x = 26
+		y = 8
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_set_up_bsb_paramilitaries }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = fascism
+popularity = 0.05
+}
+add_ideas= militarism_focus
+add_political_power = -110
+add_stability = -0.05
+		}
+	}
+
+	#Focus for Set up BSB Paramilitaries
+	focus = {
+		id = CHI_set_up_bsb_paramilitaries
+		icon = GFX_CHI_set_up_bsb_paramilitaries-27689
+		x = 26
+		y = 7
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_empower_the_blue_shirts }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 29
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = fascism
+popularity = 0.05
+}
+add_ideas= paramilitarism_focus
+add_political_power = -100
+		}
+	}
+
+	#Focus for Drum Up Patriotic Fevour
+	focus = {
+		id = CHI_drum_up_patriotic_fevour
+		icon = GFX_CHI_drum_up_patriotic_fevour-27688
+		x = 24
+		y = 7
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_empower_the_blue_shirts }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_ideas = nationalism
+add_political_power = -80
+		}
+	}
+
+	#Focus for Purge The Bureaucracy
+	focus = {
+		id = CHI_purge_the_bureaucracy
+		icon = GFX_goal_generic_forceful_treaty
+		x = 22
+		y = 8
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_reform_the_yuan }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_stability= -0.07
+add_political_power= -70
+remove_ideas = PRC_government_corruption
+		}
+	}
+
+	#Focus for Purge Disloyal Members
+	focus = {
+		id = CHI_purge_disloyal_members
+		icon = GFX_goal_generic_secret_weapon
+		x = 20
+		y = 8
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_generalissimos_personal_leadership }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_stability= -0.07
+add_political_power= -70
+add_popularity= {
+ideology = neutrality
+popularity = 0.07
+}
+		}
+	}
+
+	#Focus for 'Reform' The Yuan
+	focus = {
+		id = CHI_reform_the_yuan
+		icon = GFX_focus_generic_self_management
+		x = 22
+		y = 7
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_continue_the_peoples_guidance }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_stability= -0.05
+add_political_power= 100
+add_popularity = { ideology = neutrality popularity = 0.08 }
+		}
+	}
+
+	#Focus for Overhaul Education System
+	focus = {
+		id = CHI_overhaul_education_system
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 44
+		y = 7
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_overhaul_civillian_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_research_slot = 1
+add_political_power = -100
+		}
+	}
+
+	#Focus for The Final Showdown
+	focus = {
+		id = CHI_the_final_showdown
+		icon = GFX_CHI_the_final_showdown-27637
+		x = 33
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_consider_a_white_peace
+			focus = CHI_pick_a_fight_with_the_japanese
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			MAN = { exists = no }
+		}
+		completion_reward = {
+			add_political_power= 50
+		}
+	}
+
+	#Focus for The PRC
+	focus = {
+		id = CHI_the_prc
+		icon = GFX_CHI_the_prc-27639
+		x = 32
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_final_showdown }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			PRC = { exists = yes }
+is_in_faction_with = PRC
+		}
+		completion_reward = {
+			remove_from_faction = PRC
+		}
+	}
+
+	#Focus for The Beiyang Government
+	focus = {
+		id = CHI_the_beiyang_government
+		icon = GFX_CHI_the_beiyang_government-27640
+		x = 34
+		y = 10
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_final_showdown }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		available = {
+			BEI = { exists = yes }
+is_in_faction_with = BEI
+		}
+		completion_reward = {
+			remove_from_faction = BEI
+		}
+	}
+
+	#Focus for Destroy The PRC!
+	focus = {
+		id = CHI_destroy_the_prc
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 32
+		y = 11
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_prc }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			create_wargoal= {
+type = annex_everything
+target = PRC
+}
+		}
+	}
+
+	#Focus for Destroy Beiyang!
+	focus = {
+		id = CHI_destroy_beiyang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 34
+		y = 11
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_beiyang_government }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			CHI = {country_event = {id = chinacivilwar.1}}
+		}
+	}
+
+	#Focus for Empower The Blue Shirts
+	focus = {
+		id = CHI_empower_the_blue_shirts
+		icon = GFX_CHI_empower_the_blue_shirts-27641
+		x = 26
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_finish_current_yuan_reforms }
+		mutually_exclusive = {
+			focus = CHI_continue_the_peoples_guidance
+		}
+		mutually_exclusive = {
+			focus = CHI_embrace_the_china_democratic_league
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = fascism
+popularity = 0.05
+}
+add_stability= -0.05
+add_political_power= -50
+		}
+	}
+
+	#Focus for Continue The Peoples Guidance
+	focus = {
+		id = CHI_continue_the_peoples_guidance
+		icon = GFX_CHI_continue_the_peoples_guidance-27642
+		x = 21
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_finish_current_yuan_reforms }
+		mutually_exclusive = {
+			focus = CHI_empower_the_blue_shirts
+		}
+		mutually_exclusive = {
+			focus = CHI_embrace_the_china_democratic_league
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = neutrality
+popularity = 0.08
+}
+add_stability= -0.05
+add_political_power= 100
+add_ideas = neutrality_influence
+		}
+	}
+
+	#Focus for Pro Military Propaganda
+	focus = {
+		id = CHI_pro_military_propaganda
+		icon = GFX_CHI_pro_military_propaganda-27707
+		x = 22
+		y = 10
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_ban_communism
+			focus = CHI_formalise_kmt_paramilitaries
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_ideas= militarism_focus
+add_political_power = -110
+add_stability = -0.05
+		}
+	}
+
+	#Focus for KMT Propaganda
+	focus = {
+		id = CHI_kmt_propaganda
+		icon = GFX_goal_generic_propaganda
+		x = 20
+		y = 10
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_ban_communism
+			focus = CHI_formalise_kmt_paramilitaries
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_ideas= indoctrination_focus
+add_political_power = -100
+		}
+	}
+
+	#Focus for The Generalissimos Personal Leadership
+	focus = {
+		id = CHI_the_generalissimos_personal_leadership
+		icon = GFX_focus_generic_support_the_left_right
+		x = 20
+		y = 7
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_continue_the_peoples_guidance }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			create_field_marshal = {
+	name = "Chiang Kai Shek"
+	portrait_path = "gfx/leaders/CHI/Portrait_China_Chiang_Kai_Shek.dds"
+	traits = {}
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+		}
+	}
+
+	#Focus for Fund Chinese Universities.
+	focus = {
+		id = CHI_fund_chinese_universities
+		icon = GFX_goal_generic_scientific_exchange
+		x = 44
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_expand_civllian_factories }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_research_slot = 1
+add_political_power = -80
+		}
+	}
+
+	#Focus for Embrace The China Democratic League
+	focus = {
+		id = CHI_embrace_the_china_democratic_league
+		icon = GFX_CHI_embrace_the_china_democratic_league-27643
+		x = 16
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_finish_current_yuan_reforms }
+		mutually_exclusive = {
+			focus = CHI_continue_the_peoples_guidance
+			focus = CHI_empower_the_blue_shirts
+			focus = CHI_
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = democratic
+popularity = 0.05
+}
+add_stability= 0.05
+add_political_power= -50
+add_ideas = liberty_ethos_focus
+		}
+	}
+
+	#Focus for Formalise KMT Paramilitaries
+	focus = {
+		id = CHI_formalise_kmt_paramilitaries
+		icon = GFX_CHI_formalise_kmt_paramilitaries-27701
+		x = 22
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_purge_disloyal_members
+			focus = CHI_purge_the_bureaucracy
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = neutrality
+popularity = 0.08
+}
+add_ideas= paramilitarism_focus
+add_political_power = -100
+		}
+	}
+
+	#Focus for Enforce Ban On Communism
+	focus = {
+		id = CHI_enforce_ban_on_communism
+		icon = GFX_goal_generic_forceful_treaty
+		x = 28
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_empower_the_blue_shirts }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_ideas= communism_banned
+add_stability= -0.05
+add_political_power= -50
+		}
+	}
+
+	#Focus for Indoctrination Propaganda
+	focus = {
+		id = CHI_indoctrination_propaganda
+		icon = GFX_goal_generic_propaganda
+		x = 24
+		y = 8
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_drum_up_patriotic_fevour }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_ideas= indoctrination_focus
+add_political_power = -100
+		}
+	}
+
+	#Focus for Build Up Democratic Support
+	focus = {
+		id = CHI_build_up_democratic_support
+		icon = GFX_goal_support_democracy
+		x = 17
+		y = 7
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_embrace_the_china_democratic_league }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_popularity= {
+ideology = democratic
+popularity = 0.1
+}
+add_political_power= -80
+		}
+	}
+
+	#Focus for The Will To Fight For Freedom!
+	focus = {
+		id = CHI_the_will_to_fight_for_freedom
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 17
+		y = 8
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_build_up_democratic_support }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 31
+		}
+		completion_reward = {
+			add_ideas = why_we_fight_focus
+add_popularity= {
+ideology = democratic
+popularity = 0.05
+}
+		}
+	}
+
+	#Focus for Stomp Out Corruption
+	focus = {
+		id = CHI_stomp_out_corruption
+		icon = GFX_goal_generic_forceful_treaty
+		x = 15
+		y = 7
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_embrace_the_china_democratic_league }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			remove_ideas = PRC_government_corruption
+add_political_power = -100
+		}
+	}
+
+	#Focus for Formalise The New Republic Of China
+	focus = {
+		id = CHI_formalise_the_new_republic_of_china
+		icon = GFX_CHI_formalise_the_new_republic_of_china-27700
+		x = 15
+		y = 8
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_stomp_out_corruption }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+			Democratic > 0.60
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = democratic
+elections_allowed = yes
+}
+		}
+	}
+
+	#Focus for Create KMT Nationalist Paramilitaries
+	focus = {
+		id = CHI_create_kmt_nationalist_paramilitaries
+		icon = GFX_CHI_create_kmt_nationalist_paramilitaries-27714
+		x = 17
+		y = 9
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_the_will_to_fight_for_freedom }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_ideas= paramilitarism_focus
+add_political_power = -100
+		}
+	}
+
+	#Focus for Chinas First Democratic Election! (incomplete)
+	focus = {
+		id = CHI_chinas_first_democratic_election_incomplete
+		icon = GFX_CHI_chinas_first_democratic_election_incomplete-27716
+		x = 16
+		y = 10
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_merge_the_kmt_and_cdl
+		}
+		prerequisite = {
+			focus = CHI_create_kmt_nationalist_paramilitaries
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			country_event = focuses.9
+		}
+	}
+
+	#Focus for Merge the KMT And CDL
+	focus = {
+		id = CHI_merge_the_kmt_and_cdl
+		icon = GFX_CHI_merge_the_kmt_and_cdl-27715
+		x = 15
+		y = 9
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_formalise_the_new_republic_of_china }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			set_party_name= {
+    ideology = democratic
+    long_name = CHI_democratic_party_coalition
+    name = KMT-CDL
+}
+add_stability= 0.05
+add_political_power= -100
+add_popularity= {
+ideology = democratic
+popularity = 0.1
+}
+add_popularity= {
+ideology = neutrality
+popularity = 0.1
+}
+		}
+	}
+
+	#Focus for Seek Accommodation With Austria
+	focus = {
+		id = CHI_seek_accommodation_with_austria
+		icon = GFX_CHI_seek_accommodation_with_austria-28226
+		x = 64
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_mission_to_the_austrians }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_political_power= -100
+add_opinion_modifier= {
+target = AUS
+modifier = medium_increase
+}
+AUS = { add_opinion_modifier
+= { target = CHI modifier = medium_increase   } }
+add_opinion_modifier= {
+target = GER
+modifier = medium_decrease
+}
+GER = { add_opinion_modifier
+= { target = CHI modifier = medium_decrease   } }
+		}
+	}
+
+	#Focus for Foreign Diplomacy
+	focus = {
+		id = CHI_foreign_diplomacy
+		icon = GFX_goal_generic_major_alliance
+		x = 67
+		y = 0
+		cost = 4
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	#Focus for Seek Accommodation With Prussia
+	focus = {
+		id = CHI_seek_accommodation_with_prussia
+		icon = GFX_CHI_seek_accommodation_with_prussia-28180
+		x = 59
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_mission_to_the_prussians }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_political_power= -100
+add_opinion_modifier= {
+target = GER
+modifier = medium_increase
+}
+GER = { add_opinion_modifier
+= { target = CHI modifier = medium_increase   } }
+		}
+	}
+
+	#Focus for Mission To The Austrians
+	focus = {
+		id = CHI_mission_to_the_austrians
+		icon = GFX_CHI_mission_to_the_austrians-28182
+		x = 63
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CHI_foreign_diplomacy }
+		mutually_exclusive = { focus = CHI_mission_to_the_prussians }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_political_power= 50
+add_opinion_modifier= {
+target = AUS
+modifier = small_increase
+}
+AUS = { add_opinion_modifier
+= { target = CHI modifier = small_increase  } }
+add_opinion_modifier= {
+target = GER
+modifier = small_decrease
+}
+GER = { add_opinion_modifier
+= { target = CHI modifier = small_decrease  } }
+		}
+	}
+
+	#Focus for Austrian Trained Army
+	focus = {
+		id = CHI_austrian_trained_army
+		icon = GFX_CHI_austrian_trained_army-28263
+		x = 63
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = CHI_invite_austrian_millitary_advisors
+		}
+		prerequisite = {
+			focus = CHI_seek_accommodation_with_austria
+		}
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_tech_bonus = {
+    bonus = 0.5
+    uses = 2
+    category = battlefield_support_tree
+}
+army_experience = 10
+		}
+	}
+
+#End of focuses
+ }

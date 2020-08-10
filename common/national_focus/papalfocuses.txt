@@ -1,0 +1,1067 @@
+focus_tree = {
+	id = papal_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = PAP
+		}
+		}
+
+		continuous_focus_position = { x = 5000 y = 2000 }
+
+	focus = {
+		id = PAP_DEATH
+		icon = GFX_focus_industry
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		x = 0
+		y = 0
+		#relative_position_id = ITA_industrial_effort_2
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			kill_country_leader = yes
+			news_event = { id = PAP.2 hours = 3}
+			weekly_stability = -0.1
+
+			create_country_leader = {
+				name = "Camerlengo Lorenzo Lauri"
+				desc = "POLITICS_BENITO_MUSSOLINI_DESC"
+				picture = "gfx/leaders/Lorenzo_Lauri_Portrait.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PAP_CONCLAVE
+		icon = GFX_focus_industry
+		prerequisite = { focus = PAP_DEATH }
+		x = 0
+		y = 1
+		relative_position_id = PAP_DEATH
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		add_political_power = 100
+		PAP = { country_event = PAP.1 hours = 6 }
+		}
+	}
+
+	focus = {
+			id = PAP_LIBERAL
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CONCLAVE }
+			mutually_exclusive = { focus = PAP_CONSERVATIVE }
+			mutually_exclusive = { focus = PAP_RIOTS }
+			x = 0
+			y = 1
+			relative_position_id = PAP_CONCLAVE
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_popularity = {
+	    ideology = democratic
+	    popularity = 0.1
+		}
+			}
+		}
+
+		focus = {
+			id = PAP_CONSERVATIVE
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CONCLAVE }
+			mutually_exclusive = { focus = PAP_LIBERAL }
+			mutually_exclusive = { focus = PAP_RIOTS }
+			x = -6
+			y = 1
+			relative_position_id = PAP_CONCLAVE
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			NOT = {
+			has_completed_focus = PAP_RIOT
+			}
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+				add_popularity = {
+	    ideology = neutrality
+	    popularity = 0.1
+	}
+			}
+		}
+
+		focus = {
+			id = PAP_SUPREMACY
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CONSERVATIVE }
+			x = -4
+			y = 2
+			relative_position_id = PAP_CONCLAVE
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_stability = 0.1
+			}
+			}
+
+
+		focus = {
+			id = PAP_CARITAS
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_LIBERAL }
+			x = -2
+			y = 2
+			relative_position_id = PAP_CONCLAVE
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_ideas = Catholic_socialism
+			}
+			}
+
+			focus = {
+			id = PAP_WELFARE
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CARITAS }
+			x = 0
+			y = 1
+			relative_position_id = PAP_CARITAS
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			swap_ideas = {
+			remove_idea = Catholic_socialism
+			add_idea = Catholic_socialism_2
+			}
+			}
+			}
+
+		focus = {
+			id = PAP_PDF
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CONSERVATIVE }
+			x = -2
+			y = 1
+			relative_position_id = PAP_CONSERVATIVE
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_ideas = Holy_principle
+			}
+		}
+
+		focus = {
+			id = PAP_AGAINST_COMMUNISM
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_PDF }
+			x = 0
+			y = 1
+			relative_position_id = PAP_PDF
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			swap_ideas = {
+			remove_idea = Holy_principle
+			add_idea = Holy_principle_2
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_NEUTRAL
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_AGAINST_COMMUNISM }
+			mutually_exclusive = { focus = PAP_CRUSADE }
+			x = 0
+			y = 1
+			relative_position_id = PAP_AGAINST_COMMUNISM
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_ideas = neutrality_idea
+			}
+		}
+
+		focus = {
+			id = PAP_CRUSADE_COMMUNISM
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_NEUTRAL }
+			#mutually_exclusive = { }
+			x = 0
+			y = 1
+			relative_position_id = PAP_NEUTRAL
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+	    type = puppet_wargoal_focus
+	    target = SIK
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = MON
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = PRC
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = TAN
+		}
+			}
+		}
+
+		focus = {
+			id = PAP_CRUSADE_DEMOCRACY
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CRUSADE_COMMUNISM }
+			#mutually_exclusive = { }
+			x = 0
+			y = 1
+			relative_position_id = PAP_CRUSADE_COMMUNISM
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = SPR
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = ENG
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = IRE
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = BEL
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = HOL
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = LUX
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = DEN
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = SWE
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = NOR
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = SOV
+		}
+			}
+		}
+
+		focus = {
+			id = PAP_CRUSADE_FASCISM
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CRUSADE_DEMOCRACY }
+			#mutually_exclusive = { }
+			x = 0
+			y = 1
+			relative_position_id = PAP_CRUSADE_DEMOCRACY
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = ITA
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = GER
+		}
+		create_wargoal = {
+	    type = puppet_wargoal_focus
+		target = JAP
+		}
+			}
+		}
+
+		focus = {
+			id = PAP_INQUISITION
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CRUSADE_FASCISM }
+			#mutually_exclusive = { }
+			x = 0
+			y = 1
+			relative_position_id = PAP_CRUSADE_FASCISM
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_ideas = Crusade
+			}
+		}
+
+		focus = {
+			id = PAP_DIVINE_GLORY
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_SUPREMACY }
+			x = 4
+			y = 0
+			relative_position_id = PAP_AGAINST_COMMUNISM
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_ideas = Divine_glory
+			}
+		}
+
+		focus = {
+			id = PAP_CRUSADE
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_DIVINE_GLORY }
+			mutually_exclusive = { focus = PAP_NEUTRAL }
+			x = 0
+			y = 1
+			relative_position_id = PAP_DIVINE_GLORY
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_ideas = Expansion
+			}
+		}
+
+		focus = {
+			id = PAP_TENTH_CRUSADE
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CRUSADE }
+			x = 0
+			y = 1
+			relative_position_id = PAP_CRUSADE
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_faction = "Holy League"
+			declare_war_on = {
+	    target = TUR
+	    type = annex_everything
+		}
+		add_named_threat = {
+	    threat = 8
+	    name = Tenth_Crusade
+	}
+		hidden_effects = {
+		BUL = { country_event = PAP.3 hours = 5 }
+		YUG = { country_event = PAP.3 hours = 5 }
+		GRE = { country_event = PAP.3 hours = 5 }
+		ALB = { country_event = PAP.3 hours = 5 }
+		ROM = { country_event = PAP.3 hours = 5 }
+		FRA = { country_event = PAP.3 hours = 5 }
+		AUS = { country_event = PAP.3 hours = 5 }
+		FGD = { country_event = PAP.3 hours = 5 }
+		GPU = { country_event = PAP.3 hours = 5 }
+		}
+		custom_effect_tooltip = call_crusade
+		}
+		}
+
+		focus = {
+			id = PAP_OUTREMER
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_TENTH_CRUSADE }
+			x = 0
+			y = 1
+			relative_position_id = PAP_TENTH_CRUSADE
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			controls_state = 454
+			controls_state = 553
+			controls_state = 342
+			controls_state = 677
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			PAP = {
+			puppet = ISR
+			puppet = SYR
+			puppet = ANA
+			puppet = ANT
+			puppet = HEJ
+			}
+			ISR = {
+			set_cosmetic_tag = ISR_CRUSADER
+			set_state_owner = 454
+			set_state_controller = 454
+			}
+			SYR = {
+			set_cosmetic_tag = SYR_CRUSADER
+			set_state_owner = 553
+			set_state_controller = 553
+			}
+			ANA = {
+			set_state_owner = 342
+			set_state_controller = 342
+			}
+			ANT = {
+			set_state_owner = 677
+			set_state_controller = 677
+			}
+			HEJ = {
+			add_state_core = 679
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_HEARTLAND
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_OUTREMER }
+			x = 0
+			y = 1
+			relative_position_id = PAP_OUTREMER
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+	    type = annex_everything
+	    target = SAU
+		}
+		create_wargoal = {
+	    type = annex_everything
+	    target = OMA
+		}
+		create_wargoal = {
+	    type = annex_everything
+	    target = YEM
+		}
+
+			}
+		}
+
+		focus = {
+			id = PAP_REFORM_ORDER
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_HEARTLAND }
+			x = 0
+			y = 1
+			relative_position_id = PAP_HEARTLAND
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_ideas = Orders
+			}
+		}
+
+
+		focus = {
+			id = PAP_TEMPORAL_DEMOCRACY
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_LIBERAL }
+			x = 2
+			y = 1
+			relative_position_id = PAP_LIBERAL
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			set_politics = {
+		ruling_party = democratic
+		}
+			}
+		}
+
+		focus = {
+			id = PAP_POPULAR_SOVEREIGNTY
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_TEMPORAL_DEMOCRACY }
+			x = 0
+			y = 1
+			relative_position_id = PAP_TEMPORAL_DEMOCRACY
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			PAP = {country_event = PAP.4 hours = 5}
+			}
+		}
+
+		focus = {
+			id = PAP_LPC
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_POPULAR_SOVEREIGNTY }
+			prerequisite = { focus = PAP_WELFARE }
+			x = -2
+			y = 1
+			relative_position_id = PAP_POPULAR_SOVEREIGNTY
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+			}
+		}
+
+		focus = {
+			id = PAP_DOWN_FASCISTS
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_LPC }
+			x = 0
+			y = 1
+			relative_position_id = PAP_LPC
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			FRA = {
+				country_event = PAP.5
+				hours = 5
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_RIOT
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_CONCLAVE }
+			x = 5
+			y = 1
+			relative_position_id = PAP_CONCLAVE
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			NOT = {
+			has_completed_focus = PAP_LIBERAL
+			has_completed_focus = PAP_CONSERVATIVE
+			}
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_popularity = {
+	    ideology = democratic
+	    popularity = 0.4
+		}
+			add_ideas = {
+				democratic_influence
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_2ND_REPUBLIC
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_RIOT }
+			x =0
+			y = 1
+			relative_position_id = PAP_RIOT
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			set_politics = {
+		ruling_party = democratic
+		}
+		set_cosmetic_tag = PAP_REP
+		add_ideas = Dubious_claim
+			}
+		}
+
+		focus = {
+			id = PAP_SOCII
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_2ND_REPUBLIC }
+			x =0
+			y = 1
+			relative_position_id = PAP_2ND_REPUBLIC
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			ITA = { country_event = PAP.7 hours = 2 }
+			}
+			}
+
+		focus = {
+			id = PAP_IBERIA
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_SOCII }
+			x = -1
+			y = 1
+			relative_position_id = PAP_SOCII
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+				country_exists = ITA
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+	    type = annex_everything
+	    target = SPR
+		}
+		create_wargoal = {
+	    type = annex_everything
+	    target = POR
+		}
+			}
+		}
+
+		focus = {
+			id = PAP_GALLIC
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_IBERIA }
+			x = 0
+			y = 1
+			relative_position_id = PAP_IBERIA
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+			type = annex_everything
+			target = FRA
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_SALT_EARTH
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_GALLIC}
+			x = 0
+			y = 1
+			relative_position_id = PAP_GALLIC
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			add_political_power = 100
+			458 = {
+			remove_building = {
+	    type = infrastructure
+		level = 10
+		}
+		}
+			}
+		}
+
+		focus = {
+			id = PAP_PERSIA
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_SALT_EARTH}
+			x = 0
+			y = 1
+			relative_position_id = PAP_SALT_EARTH
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+			type = annex_everything
+			target = PER
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_BALKANS
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_SOCII }
+			x = 1
+			y = 1
+			relative_position_id = PAP_SOCII
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+			type = annex_everything
+			target = YUG
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = BUL
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = ALB
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = ROM
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_MACEDONIA
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_BALKANS }
+			x = 0
+			y = 1
+			relative_position_id = PAP_BALKANS
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+			type = annex_everything
+			target = GRE
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_MITHRADATIC
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_MACEDONIA }
+			x = 0
+			y = 1
+			relative_position_id = PAP_MACEDONIA
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+			type = annex_everything
+			target = TUR
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_TEUTOBURG
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_MITHRADATIC }
+			x = 0
+			y = 1
+			relative_position_id = PAP_MITHRADATIC
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			create_wargoal = {
+			type = annex_everything
+			target = LUX
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = BEL
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = HOL
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = GER
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = AUS
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = SWI
+			}
+			}
+		}
+
+		focus = {
+			id = PAP_AVA_ROMA
+			icon = GFX_focus_industry
+			prerequisite = { focus = PAP_TEUTOBURG }
+			prerequisite = { focus = PAP_PERSIA }
+			x = -1
+			y = 1
+			relative_position_id = PAP_TEUTOBURG
+			cost = 10
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
+			swap_ideas = {
+			remove_idea = Dubious_claim
+			add_idea = Heir_rome
+			}
+		}
+		}
+
+	}

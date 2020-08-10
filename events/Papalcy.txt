@@ -1,0 +1,292 @@
+add_namespace = PAP
+
+# PAPAL
+
+#conclave event
+country_event = {
+	id = PAP.1
+	title = PAP.1.t
+	desc = PAP.1.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+
+	option = {
+	ai_chance = {
+	base = 1
+	}
+		name = PAP.1.a
+		complete_national_focus = PAP_CONSERVATIVE
+		create_country_leader = {
+			name = "Pope Pius the 12th"
+			desc = "POLITICS_BENITO_MUSSOLINI_DESC"
+			picture = "gfx/leaders/Pius_XII.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {
+
+			}
+		}
+		}
+		option = {
+			ai_chance = {
+			base = 1
+			}
+			name = PAP.1.b
+			complete_national_focus = PAP_LIBERAL
+			create_country_leader = {
+				name = "Elia Dalla Costa"
+				desc = "POLITICS_BENITO_MUSSOLINI_DESC"
+				picture = "gfx/leaders/Elia_Dalla_Costa_Portrait.dds"
+				expire = "1965.1.1"
+				ideology = centrism
+				traits = {
+
+				}
+			}
+		}
+		option = {
+			ai_chance = {
+			base = 1
+			}
+			name = PAP.1.c
+			complete_national_focus = PAP_RIOT
+		}
+
+		create_country_leader = {
+			name = "Papal Council"
+			desc = "POLITICS_BENITO_MUSSOLINI_DESC"
+			picture = "gfx/leaders/Sistene_Chapel.dds"
+			expire = "1965.1.1"
+			ideology = conservative
+			traits = {
+
+			}
+		}
+
+		set_politics = {
+			ruling_party = democratic
+		}
+
+		}
+
+#this one starts the tree
+news_event = {
+	id = PAP.2
+	title = PAP.2.t
+	desc = PAP.2.d
+	picture = GFX_report_event_german_speech
+	mean_time_to_happen = { days = 1 }
+	major = yes
+
+	is_triggered_only = no
+	fire_only_once = yes
+
+	trigger = {
+		tag = PAP
+		AND = {
+			has_completed_focus = PAP_DEATH
+		}
+	}
+
+	option = {
+	ai_chance = {
+	base = 1
+	}
+		name = PAP.2.a
+		complete_national_focus = PAP_DEATH
+		}
+}
+
+
+
+country_event = {
+	id = PAP.3
+	title = PAP.3.t
+	desc = PAP.3.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PAP
+		AND = {
+			has_completed_focus = PAP_TENTH_CRUSADE
+		}
+	}
+
+	option = {
+	ai_chance = {
+	factor = 60
+	}
+	name = PAP.3.a
+	PAP = { add_to_faction = ROOT }
+	ROOT = {
+	declare_war_on = {
+  target = TUR
+  type = annex_everything
+}
+}
+	}
+	option = {
+	ai_chance = {
+	factor = 40
+	}
+	name = PAP.3.b
+	}
+	}
+
+country_event = {
+	id = PAP.4
+	title = PAP.4.t
+	desc = PAP.4.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PAP
+		AND = {
+			has_completed_focus = PAP_POPULAR_SOVEREIGNTY
+		}
+	}
+
+	option = {
+	ai_chance = {
+	base = 1
+	}
+	name = PAP.4.a
+	add_stability = -0.05
+	add_war_support = 0.025
+	add_political_power = 200
+	}
+	option = {
+	ai_chance = {
+	base = 0
+	}
+	name = PAP.4.b
+	add_stability = 0.1
+	add_war_support = -0.1
+	add_political_power = 150
+	}
+	option = {
+	ai_chance = {
+	base = 0
+	}
+	name = PAP.4.c
+	add_stability = -0.05
+	add_war_support = 0.025
+	add_political_power = 200
+	}
+	}
+
+country_event = {
+	id = PAP.5
+	title = PAP.5.t
+	desc = PAP.5.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PAP
+		AND = {
+			has_completed_focus = PAP_DOWN_FASCISTS
+		}
+	}
+
+
+
+	option = {
+	ai_chance = {
+	base = 1
+	}
+	name = PAP.5.a
+	declare_war_on = {
+  target = ITA
+  type = annex_everything
+}
+
+	}
+
+	}
+
+	#declined offer
+country_event = {
+	id = PAP.6
+	title = PAP.6.t
+	desc = PAP.6.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PAP
+		AND = {
+			has_completed_focus = PAP_DOWN_FASCISTS
+		}
+	}
+
+
+	option = {
+	ai_chance = {
+	base = 1
+	}
+	name = PAP.6.a
+	}
+	}
+
+country_event = {
+	id = PAP.7
+	title = PAP.7.t
+	desc = PAP.7.d
+	picture = GFX_report_event_german_speech
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PAP
+		AND = {
+			has_completed_focus = PAP_SOCII
+		}
+	}
+
+	option = {
+	ai_chance = {
+	factor = 30
+	}
+	name = PAP.7.a
+	PAP = {
+	annex_country = {
+  target = ITA
+  transfer_troops = yes
+}
+	}
+	news_event = { id = PAP.8 hours = 4 }
+	}
+	option = {
+	ai_chance = {
+	factor = 70
+	}
+	name = PAP.7.b
+	}
+}
+
+news_event = {
+	id = PAP.8
+	title = PAP.8.t
+	desc = PAP.8.d
+	picture = GFX_report_event_german_speech
+	major = yes
+
+	is_triggered_only = yes
+
+
+
+	option = {
+	ai_chance = {
+	base = 1
+	}
+	name = PAP.8.a
+	}
+	}

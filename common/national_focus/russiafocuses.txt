@@ -1,0 +1,3091 @@
+focus_tree = {
+	id = russia_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = SOV
+		}
+	}
+
+	#####INDUSTRY
+	focus = {
+		id = SOV_RUSSIAN_ECONOMY
+		#text = SOV_RED_AIRFORCE
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 0
+		#relative_position_id = SOV_RUSSIAN_ECONOMY
+		cost = 10
+		ai_will_do = {
+			factor = 60
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			SOV = {country_event = {id = russia.senate hours =  5}} 
+		}
+	}
+
+	focus = {
+  id = SOV_RURALIST_ECONOMY
+	icon = GFX_goal_rural_economy
+	#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_RUSSIAN_ECONOMY }
+	mutually_exclusive = {focus = SOV_2_YEAR_PLAN}
+	x = -8
+	y = 1
+	relative_position_id = SOV_RUSSIAN_ECONOMY
+	available = {has_country_flag = agrarian}
+	cost = 10
+	ai_will_do = {
+		factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = Agrarian-industrial_divide
+	add_idea = sov_agrarianism
+	}
+	}
+	}
+
+	focus = {
+    id = SOV_FEUDAL
+	icon = GFX_goal_feudal
+	#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_RURALIST_ECONOMY }
+	mutually_exclusive = { focus = SOV_UNION }
+	x = -2
+	y = 2
+	relative_position_id = SOV_RURALIST_ECONOMY
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = sov_agrarianism
+	add_idea = feudalism
+	}
+	}
+	}
+
+	focus = {
+    id = SOV_UNION
+	icon = GFX_goal_generic_soviet_construction
+	#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_RURALIST_ECONOMY }
+	mutually_exclusive = { focus = SOV_FEUDAL }
+	x = 2
+	y = 2
+	relative_position_id = SOV_RURALIST_ECONOMY
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = sov_agrarianism
+	add_idea = narodnik_eco
+	}
+	}
+	}
+
+	focus = {
+    id = SOV_LANDLORDISM
+	icon = GFX_goal_landlordism
+	#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_FEUDAL}
+	x = 0
+	y = 1
+	relative_position_id = SOV_FEUDAL
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = feudalism
+	add_idea = feudalism_2
+	}
+	}
+	}
+
+	focus = {
+    id = SOV_EMANCIPATION_NAME
+	icon = GFX_goal_emanc_name
+	#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_LANDLORDISM }
+	x = 0
+	y = 1
+	relative_position_id = SOV_LANDLORDISM
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = feudalism_2
+	add_idea = feudalism_3
+	}
+	}
+	}
+
+	focus = {
+    id = SOV_BACK_TO_PAST
+	icon = GFX_goal_agri
+	#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_EMANCIPATION_NAME }
+	x = 0
+	y = 1
+	relative_position_id = SOV_EMANCIPATION_NAME
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = feudalism_3
+	add_idea = feudalism_4
+	}
+	}
+	}
+
+	focus = {
+    id = SOV_SR_LEADERSHIP
+	icon = GFX_goal_generic_intelligence_exchange
+	#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_UNION }
+	x = 0
+	y = 1
+	relative_position_id = SOV_UNION
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = narodnik_eco
+	add_idea = narodnik_eco_2
+	}
+	}
+	}
+
+	focus = {
+    id = SOV_LEGALIZE_STRIKES
+	icon = GFX_focus_generic_support_the_left_right
+	#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_SR_LEADERSHIP }
+	x = 0
+	y = 1
+	relative_position_id = SOV_SR_LEADERSHIP
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = narodnik_eco_2
+	add_idea = narodnik_eco_3
+	}
+	}
+	}
+
+	focus = {
+    id = SOV_STAY_PRESENT
+		icon = GFX_goal_indu
+		#text = SOV_RED_AIRFORCE
+	prerequisite = { focus = SOV_LEGALIZE_STRIKES }
+	x = 0
+	y = 1
+	relative_position_id = SOV_LEGALIZE_STRIKES
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = narodnik_eco_3
+	add_idea = narodnik_eco_4
+	}
+	}
+	}
+
+	focus = {
+		id = SOV_2_YEAR_PLAN
+		icon = GFX_goal_generic_positive_trade_relations
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_RUSSIAN_ECONOMY }
+		x = 5
+		y = 1
+		relative_position_id = SOV_RUSSIAN_ECONOMY
+		mutually_exclusive = {focus = SOV_RURALIST_ECONOMY}
+		available = {
+			has_country_flag = industrial
+		}
+
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_NATIONALIZE_FARM
+		icon = GFX_focus_prc_agrarian_socialism
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_2_YEAR_PLAN }
+		x = -4
+		y = 1
+		relative_position_id = SOV_2_YEAR_PLAN
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	swap_ideas = {
+		 remove_idea = Agrarian-Industrial_Divide
+		 add_idea = Industrializing
+}
+		}
+	}
+
+	focus = {
+		id = SOV_COLONIZATION_INCENTIVE
+		icon = GFX_focus_generic_manpower
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_NATIONALIZE_FARM }
+		x = -1
+		y = 1
+		relative_position_id = SOV_NATIONALIZE_FARM
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	add_timed_idea = {
+		idea = Colonization
+		days = 365
+}
+		}
+	}
+
+	focus = {
+		id = SOV_FACTORIES_UPON_FARMS
+		icon = GFX_focus_generic_industry_1
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_COLONIZATION_INCENTIVE }
+		x = 0
+		y = 1
+		relative_position_id = SOV_COLONIZATION_INCENTIVE
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	257 = {
+	add_building_construction = {
+		type = arms_factory
+		level = 1
+		instant_build = yes
+}
+}
+264 = {
+	add_building_construction = {
+		type = industrial_complex
+		level = 1
+		instant_build = yes
+}
+}
+		}
+	}
+
+	focus = {
+		id = SOV_BEUREAU_INDUSTRIALIZATION
+		icon = GFX_focus_generic_socialist_science
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_FACTORIES_UPON_FARMS }
+		x = 0
+		y = 1
+		relative_position_id = SOV_FACTORIES_UPON_FARMS
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	206 = {
+	add_building_construction = {
+		type = arms_factory
+		level = 1
+		instant_build = yes
+}
+}
+217 = {
+	add_building_construction = {
+		type = industrial_complex
+		level = 1
+		instant_build = yes
+}
+}
+		}
+	}
+
+	focus = {
+		id = SOV_VIRGIN_LAND_INITIATIVE
+		icon = GFX_goal_tfv_generic_tech_sharing
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_NATIONALIZE_FARM }
+		x = 1
+		y = 1
+		relative_position_id = SOV_NATIONALIZE_FARM
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			unlock_decision_category_tooltip = SOV_virgin_land
+		}
+	}
+
+	focus = {
+		id = SOV_INDUSTRY_SIBERIA
+		icon = GFX_goal_generic_construct_infrastructure
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_VIRGIN_LAND_INITIATIVE }
+		x = 0
+		y = 1
+		relative_position_id = SOV_VIRGIN_LAND_INITIATIVE
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+	579 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	572 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	653 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	403 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	571= {
+	add_extra_state_shared_building_slots = 2
+		}
+	580 = {
+	add_extra_state_shared_building_slots = 2
+		}
+
+	578 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	569 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	568 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	567 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	566= {
+	add_extra_state_shared_building_slots = 2
+		}
+	580 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	564 = {
+	add_extra_state_shared_building_slots = 2
+		}
+
+	516 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	644 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	408 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	655= {
+	add_extra_state_shared_building_slots = 2
+		}
+	562 = {
+	add_extra_state_shared_building_slots = 2
+		}
+
+	574 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	565 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	561 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	657= {
+	add_extra_state_shared_building_slots = 2
+		}
+	560 = {
+	add_extra_state_shared_building_slots = 2
+	}
+	637 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	575 = {
+	add_extra_state_shared_building_slots = 2
+		}
+	}
+	}
+
+	focus = {
+		id = SOV_RUSSIAN_RAILROADS
+		icon = GFX_focus_generic_rubber
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_INDUSTRY_SIBERIA }
+		x = 0
+		y = 1
+		relative_position_id = SOV_INDUSTRY_SIBERIA
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+
+	579 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	572 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	653 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	403 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	571= {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	580 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+
+	578 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	569 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	568 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	567 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	566= {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	580 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	564 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+
+	516 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	644 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	408 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	655= {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	562 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+
+	574 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	565 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	561 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	657= {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	560 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	}
+	637 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+	575 = {
+	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+		}
+		}
+	}
+
+	focus = {
+		id = SOV_INTO_FUTURE
+		icon = GFX_focus_generic_industry_3
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_RUSSIAN_RAILROADS }
+	prerequisite = { focus = SOV_BEUREAU_INDUSTRIALIZATION }
+	prerequisite = { focus = SOV_WELFARE_ECONOMICS OR = SOV_FREE_MARKET_ECONOMY }
+		x = 3
+		y = 1
+		relative_position_id = SOV_RUSSIAN_RAILROADS
+		cost = 20
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	swap_ideas = {
+		 remove_idea = Industrializing_3
+		 add_idea = Industrialized
+}
+		}
+	}
+
+	focus = {
+		id = SOV_URBAN_INDUSTRY
+		icon = GFX_goal_generic_construct_civ_factory
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_2_YEAR_PLAN }
+		x = 4
+		y = 1
+		relative_position_id = SOV_2_YEAR_PLAN
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	swap_ideas = {
+		 remove_idea = Industrializing
+		 add_idea = Industrializing_2
+}
+		}
+	}
+
+	focus = {
+		id = SOV_ARMS_FACTORIES
+		icon = GFX_goal_generic_construct_mil_factory
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_URBAN_INDUSTRY }
+		x = 1
+		y = 1
+		relative_position_id = SOV_URBAN_INDUSTRY
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			219 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+		}
+		add_extra_state_shared_building_slots = 2
+		}
+		}
+	}
+
+	focus = {
+		id = SOV_LAISSEZ_FAIRE
+		icon = GFX_goal_support_democracy
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_ARMS_FACTORIES }
+		mutually_exclusive = { focus = SOV_INDUSTRIAL_DEMOCRACY}
+		x = 0
+		y = 1
+		relative_position_id = SOV_ARMS_FACTORIES
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = Capitalism
+		}
+	}
+
+	focus = {
+		id = SOV_FREE_MARKET_ECONOMY
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_LAISSEZ_FAIRE }
+		x = 0
+		y = 1
+		relative_position_id = SOV_LAISSEZ_FAIRE
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas = {
+				 remove_idea = Capitalism
+				 add_idea = Capitalism_2
+		}
+		}
+	}
+
+	focus = {
+		id = SOV_JOBS_WORKERS
+		icon = GFX_focus_por_workers_of_iberia
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_URBAN_INDUSTRY }
+		x = -1
+		y = 1
+		relative_position_id = SOV_URBAN_INDUSTRY
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = Industrializing_2
+			add_idea = Industrializing_3
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_INDUSTRIAL_DEMOCRACY
+		icon = GFX_focus_generic_the_giant_wakes
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_JOBS_WORKERS }
+		mutually_exclusive = { focus = SOV_LAISSEZ_FAIRE }
+		x = 0
+		y = 1
+		relative_position_id = SOV_JOBS_WORKERS
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	add_ideas = SOVIETIZATION
+		}
+	}
+
+	focus = {
+		id = SOV_WELFARE_ECONOMICS
+		icon = GFX_focus_mex_privatisation
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_INDUSTRIAL_DEMOCRACY }
+		x = 0
+		y = 1
+		relative_position_id = SOV_INDUSTRIAL_DEMOCRACY
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = SOVIETIZATION
+			add_idea = SOVIETIZATION_2
+			}
+		}
+	}
+
+
+  ####ARMY
+  focus = {
+    id = SOV_RUSSIA_ARMY
+    icon = GFX_goal_generic_axis_build_infantry
+    text = SOV_RUSSIA_ARMY
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+    x = 20
+    y = 0
+    relative_position_id = SOV_CRISIS_COALITION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      army_experience = 20
+    }
+  }
+
+
+  focus = {
+    id = SOV_GERMAN_OFFICERS
+    #icon = GFX_goal_generic_construction
+    text = SOV_GERMAN_OFFICERS
+    prerequisite = { focus = SOV_RUSSIA_ARMY }
+    mutually_exclusive = {focus = SOV_RUSSIAN_OFFICERS}
+    x = -4
+    y = 1
+    relative_position_id = SOV_RUSSIA_ARMY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+          add_ideas = {
+            German_Officers
+          }
+    }
+  }
+
+  focus = {
+    id = SOV_FOCUS_ON_FIREPOWER
+    icon = GFX_goal_generic_army_artillery2
+    text = SOV_FOCUS_ON_FIREPOWER
+    prerequisite = { focus = SOV_GERMAN_OFFICERS }
+    mutually_exclusive = { focus = SOV_FOCUS_ON_SPEED }
+
+    x = 2
+    y = 1
+    relative_position_id = SOV_GERMAN_OFFICERS
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+        add_tech_bonus {
+          bonus = 1
+          uses = 1
+          category = cat_superior_firepower
+        }
+    }
+  }
+
+
+  focus = {
+    id = SOV_NAGANT_CONTRACTS
+    icon = GFX_goal_generic_allies_build_infantry
+    text = SOV_NAGANT_CONTRACTS
+    prerequisite = { focus = SOV_FOCUS_ON_FIREPOWER }
+    x = 0
+    y = 1
+    relative_position_id = SOV_FOCUS_ON_FIREPOWER
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 0.5
+        uses = 1
+        category = artillery
+      }
+      add_tech_bonus {
+        bonus = 0.5
+        uses = 1
+        category = infantry_weapons
+      }
+      }
+    }
+
+  focus = {
+    id = SOV_MASTER_ARTILLERY
+    icon = GFX_goal_generic_army_artillery
+    text = SOV_MASTER_ARTILLERY
+    prerequisite = { focus = SOV_NAGANT_CONTRACTS }
+    x = 0
+    y = 1
+    relative_position_id = SOV_NAGANT_CONTRACTS
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_ideas = {
+        Hellsfire
+      }
+     }
+  }
+
+
+    focus = {
+      id = SOV_FOCUS_ON_SPEED
+      icon = GFX_goal_generic_army_motorized
+      text = FOCUS_ON_SPEED
+      prerequisite = { focus = SOV_GERMAN_OFFICERS }
+      mutually_exclusive = { focus = SOV_FOCUS_ON_FIREPOWER }
+
+      x = -2
+      y = 1
+      relative_position_id = SOV_GERMAN_OFFICERS
+      cost = 10
+      ai_will_do = {
+        factor = 1
+      }
+
+      available_if_capitulated = yes
+      search_filters = { FOCUS_FILTER_INDUSTRY }
+
+      completion_reward = {
+        add_tech_bonus {
+          bonus = 1
+          uses = 1
+          category = cat_mobile_warfare
+        }
+     }
+    }
+
+    focus = {
+      id = SOV_TANK_CORP
+      icon = GFX_focus_generic_army_tanks
+      text = SOV_TANK_CORP
+      prerequisite = { focus = SOV_FOCUS_ON_SPEED }
+      x = 0
+      y = 1
+      relative_position_id = SOV_FOCUS_ON_SPEED
+      cost = 10
+      ai_will_do = {
+        factor = 1
+      }
+
+      available_if_capitulated = yes
+      search_filters = { FOCUS_FILTER_INDUSTRY }
+
+      completion_reward = {
+        add_tech_bonus {
+          bonus = 1
+          uses = 1
+          category = cat_light_armor
+        }
+        }
+      }
+
+    focus = {
+      id = SOV_MASTER_BLITSKRIG
+      icon = GFX_focus_generic_army_tanks2
+      text = SOV_MASTER_BLITSKRIG
+      prerequisite = { focus = SOV_TANK_CORP }
+      x = 0
+      y = 1
+      relative_position_id = SOV_TANK_CORP
+      cost = 10
+      ai_will_do = {
+        factor = 1
+      }
+
+      available_if_capitulated = yes
+      search_filters = { FOCUS_FILTER_INDUSTRY }
+
+      completion_reward = {
+        add_ideas = {
+          Lightning_War
+        }
+       }
+    }
+
+
+	focus = {
+    id = SOV_RUSSIAN_OFFICERS
+    icon = GFX_goal_generic_construction
+    text = SOV_RUSSIAN_OFFICERS
+    prerequisite = { focus = SOV_RUSSIA_ARMY }
+    mutually_exclusive = { focus = SOV_GERMAN_OFFICERS }
+    x = 4
+    y = 1
+    relative_position_id = SOV_RUSSIA_ARMY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+          add_ideas = {
+            Russian_Officers
+          }
+    }
+  }
+
+  focus = {
+    id = SOV_FOCUS_ON_BATTLEPLAN
+    icon = GFX_goal_generic_army_doctrines
+    text = SOV_FOCUS_ON_BATTLEPLAN
+    prerequisite = { focus = SOV_RUSSIAN_OFFICERS }
+    mutually_exclusive = { focus = SOV_FOCUS_ON_SIZE }
+    x = -2
+    y = 1
+    relative_position_id = SOV_RUSSIAN_OFFICERS
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cat_grand_battle_plan
+      }
+     }
+  }
+
+  focus = {
+    id = SOV_ANKARA_DEPART_OF_DEFENSE
+    icon = GFX_goal_generic_construct_military
+    text = SOV_ANKARA_DEPART_OF_DEFENSE
+    prerequisite = { focus = SOV_FOCUS_ON_BATTLEPLAN }
+    x = 0
+    y = 1
+    relative_position_id = SOV_FOCUS_ON_BATTLEPLAN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+		available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 0.5
+        uses = 1
+        category = cat_grand_battle_plan
+      }
+      add_tech_bonus {
+        bonus = 0.5
+        uses = 1
+        category = support_tech
+      }
+     }
+  }
+
+
+  focus = {
+    id = SOV_MASTER_TACTICS
+    icon = GFX_goal_generic_cavalry
+    text = SOV_MASTER_TACTICS
+    prerequisite = { focus = SOV_ANKARA_DEPART_OF_DEFENSE }
+    x = 0
+    y = 1
+    relative_position_id = SOV_ANKARA_DEPART_OF_DEFENSE
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+        add_ideas = {
+          Tactical_Genius
+        }
+      }
+   }
+
+	 focus = {
+		 id = SOV_FOCUS_ON_SIZE
+		 icon = GFX_focus_generic_manpower
+		 text = SOV_FOCUS_ON_SIZE
+		 prerequisite = { focus = SOV_RUSSIAN_OFFICERS }
+		 mutually_exclusive = { focus = SOV_FOCUS_ON_BATTLEPLAN }
+		 x = 2
+		 y = 1
+		 relative_position_id = SOV_RUSSIAN_OFFICERS
+		 cost = 10
+		 ai_will_do = {
+			 factor = 1
+		 }
+
+		 available_if_capitulated = yes
+		 search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		 completion_reward = {
+			 add_tech_bonus {
+				 bonus = 1
+				 uses = 1
+				 category = cat_mass_assault
+			 }
+			}
+	 }
+
+	 focus = {
+		 id = SOV_CONSCRIPT_THE_MASSES
+		 icon = GFX_Conscript_The_Masses
+		 text = SOV_CONSCRIPT_THE_MASSES
+		 prerequisite = { focus = SOV_FOCUS_ON_SIZE }
+		 x = 0
+		 y = 1
+		 relative_position_id = SOV_FOCUS_ON_SIZE
+		 cost = 10
+		 ai_will_do = {
+			 factor = 1
+		 }
+
+		 available_if_capitulated = yes
+		 search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		 completion_reward = {
+			 add_ideas = {
+				 extensive_conscription
+			 }
+			}
+	 }
+
+	 focus = {
+		 id = SOV_BRAVE_NEW_EMPIRE
+		 icon = GFX_focus_yug_pan_slavic_congress
+		 text = SOV_BRAVE_NEW_EMPIRE
+		 prerequisite = { focus = SOV_CONSCRIPT_THE_MASSES }
+		 x = 0
+		 y = 1
+		 relative_position_id = SOV_CONSCRIPT_THE_MASSES
+		 cost = 10
+		 ai_will_do = {
+			 factor = 1
+		 }
+
+		 available_if_capitulated = yes
+		 search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		 completion_reward = {
+				 add_ideas = {
+					 Brave_New_Empire
+				 }
+			 }
+		 }
+
+  focus = {
+    id = SOV_FINISH_ARMY_REFORM
+    icon = GFX_Russian_Army
+    text = SOV_FINISH_ARMY_REFORM
+    prerequisite = { focus = SOV_MASTER_ARTILLERY focus = SOV_MASTER_TACTICS focus = SOV_MASTER_BLITSKRIG focus = SOV_BRAVE_NEW_EMPIRE }
+    x = 2
+    y = 1
+    relative_position_id = SOV_MASTER_ARTILLERY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+			unlock_decision_category_tooltip = SOV_army_reform_category
+     }
+  }
+
+
+
+  #############Navy
+  focus = {
+    id = SOV_STRONG_NAVY
+    icon = GFX_Russian_Navy
+    text = SOV_STRONG_NAVY
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+    x = 20
+    y = 0
+    relative_position_id = SOV_RUSSIA_ARMY
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      navy_experience = 20
+    }
+  }
+
+
+  focus = {
+    id = SOV_BUILD_DOCKYARDS
+    icon = GFX_goal_generic_build_navy
+    text = SOV_BUILD_DOCKYARDS
+    prerequisite = { focus = SOV_STRONG_NAVY }
+    x = 0
+    y = 1
+    relative_position_id = SOV_STRONG_NAVY
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      137 = {
+        add_building_construction = {
+            type = dockyard
+            level = 2
+            instant_build = yes
+        }
+        add_extra_state_shared_building_slots = 2
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_TRUE_NAVY
+    icon = GFX_goal_generic_navy_doctrines_tactics
+    text = SOV_TRUE_NAVY
+    prerequisite = { focus = SOV_BUILD_DOCKYARDS }
+    mutually_exclusive = { focus = SOV_WOLF_PACKS }
+    mutually_exclusive = { focus = SOV_NAVAL_AVIATION }
+    x = -6
+    y = 1
+    relative_position_id = SOV_BUILD_DOCKYARDS
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cat_fleet_in_being
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_CAPITAL_SHIPS
+    icon = GFX_goal_generic_navy_battleship
+    text = SOV_CAPITAL_SHIPS
+    prerequisite = { focus = SOV_TRUE_NAVY }
+    x = -2
+    y = 1
+    relative_position_id = SOV_TRUE_NAVY
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = bb_tech
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_PROJECT_Z
+    icon = GFX_focus_generic_navy_battleship2
+    text = SOV_PROJECT_Z
+    prerequisite = { focus = SOV_TRUE_NAVY }
+    x = 2
+    y = 1
+    relative_position_id = SOV_TRUE_NAVY
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = ca_tech
+      }
+    }
+  }
+
+
+
+  focus = {
+    id = SOV_WOLF_PACKS
+    icon = GFX_goal_generic_wolf_pack
+    text = SOV_WOLF_PACKS
+    prerequisite = { focus = SOV_BUILD_DOCKYARDS }
+    mutually_exclusive = { focus = SOV_TRUE_NAVY }
+    mutually_exclusive = { focus = SOV_NAVAL_AVIATION }
+    x = 0
+    y = 1
+    relative_position_id = SOV_BUILD_DOCKYARDS
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cat_trade_interdiction
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_U_BOATS
+    icon = GFX_goal_generic_navy_submarine
+    text = SOV_U_BOATS
+    prerequisite = { focus = SOV_WOLF_PACKS }
+    x = -2
+    y = 1
+    relative_position_id = SOV_WOLF_PACKS
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = ss_tech
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_TRADE_WAR
+    icon = GFX_goal_generic_navy_anti_submarine
+    text = SOV_TRADE_WAR
+    prerequisite = { focus = SOV_WOLF_PACKS }
+    x = 2
+    y = 1
+    relative_position_id = SOV_WOLF_PACKS
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = dd_tech
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_NAVAL_AVIATION
+    icon = GFX_goal_generic_air_naval_bomber
+    text = SOV_NAVAL_AVIATION
+    prerequisite = { focus = SOV_BUILD_DOCKYARDS }
+    mutually_exclusive = { focus = SOV_WOLF_PACKS }
+    mutually_exclusive = { focus = SOV_TRUE_NAVY }
+    x = 6
+    y = 1
+    relative_position_id = SOV_BUILD_DOCKYARDS
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cat_base_strike
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_NAVY_FUTURE
+    icon = GFX_goal_generic_navy_cruiser
+    text = SOV_NAVY_FUTURE
+    prerequisite = { focus = SOV_NAVAL_AVIATION }
+    x = -2
+    y = 1
+    relative_position_id = SOV_NAVAL_AVIATION
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = naval_bomber
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_DEATH_FROM_ABOVE
+    icon = GFX_goal_generic_secret_weapon
+    text = SOV_DEATH_FROM_ABOVE
+    prerequisite = { focus = SOV_NAVAL_AVIATION }
+    x = 2
+    y = 1
+    relative_position_id = SOV_NAVAL_AVIATION
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus = {
+        bonus = 1
+        uses = 1
+        category = cv_tech
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_AMPHIBIOUS_ASSAULT
+    icon = GFX_goal_generic_amphibious_assault
+    text = SOV_AMPHIBIOUS_ASSAULT
+    prerequisite = { focus = SOV_PROJECT_Z }
+    prerequisite = { focus = SOV_CAPITAL_SHIPS }
+    x = -2
+    y = 1
+    relative_position_id = SOV_PROJECT_Z
+    cost = 1
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      navy_experience = 15
+    }
+  }
+
+  focus = {
+    id = SOV_TRADE_DOMINATION
+    icon = GFX_focus_generic_cruiser2
+    text = SOV_TRADE_DOMINATION
+    prerequisite = { focus = SOV_U_BOATS }
+    prerequisite = { focus = SOV_TRADE_WAR }
+    x = 2
+    y = 1
+    relative_position_id = SOV_U_BOATS
+    cost = 1
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      navy_experience = 15
+    }
+  }
+
+  focus = {
+    id = SOV_SUPREMACY_OF_NAVAL_AIR
+    icon = GFX_goal_generic_air_fighter2
+    text = SOV_SUPREMACY_OF_NAVAL_AIR
+    prerequisite = { focus = SOV_NAVY_FUTURE }
+    prerequisite = { focus = SOV_DEATH_FROM_ABOVE }
+    x = 2
+    y = 1
+    relative_position_id = SOV_NAVY_FUTURE
+    cost = 1
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      navy_experience = 15
+    }
+  }
+
+  focus = {
+    id = SOV_REFORMED_NAVY
+    icon = GFX_goal_generic_navy_carrier
+    text = SOV_REFORMED_NAVY
+    prerequisite = { focus = SOV_AMPHIBIOUS_ASSAULT focus = SOV_TRADE_DOMINATION focus = SOV_SUPREMACY_OF_NAVAL_AIR }
+    x = 0
+    y = 1
+    relative_position_id = SOV_TRADE_DOMINATION
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_ideas = {
+        Reformed_Navy
+      }
+    }
+  }
+
+
+  ############AF
+  focus = {
+    id = SOV_RED_AIRFORCE
+    icon = GFX_goal_generic_construction
+    text = SOV_RED_AIRFORCE
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+    x = -10
+    y = 5
+    relative_position_id = SOV_STRONG_NAVY
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      air_experience = 20
+    }
+  }
+
+
+  focus = {
+    id = SOV_BUILD_AIRFIELDS
+    icon = GFX_goal_generic_construction
+    text = SOV_BUILD_FIELDS
+    prerequisite = { focus = SOV_RED_AIRFORCE }
+    x = 0
+    y = 1
+    relative_position_id = SOV_RED_AIRFORCE
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      346 = {
+        add_building_construction = {
+            type = air_base
+            level = 2
+            instant_build = yes
+        }
+        add_extra_state_shared_building_slots = 2
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_BURN_TO_GROUND
+    icon = GFX_goal_generic_construction
+    text = SOV_BURN_TO_GROUND
+    prerequisite = { focus = SOV_BUILD_AIRFIELDS }
+    mutually_exclusive = { focus = SOV_AIRLAND_BATTLE }
+    mutually_exclusive = { focus = ALL_USE_PLANES }
+    x = -6
+    y = 1
+    relative_position_id = SOV_BUILD_AIRFIELDS
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cat_strategic_destruction
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_RAIN_OF_FIRE
+    icon = GFX_goal_generic_construction
+    text = SOV_CAPITAL_SHIPS
+    prerequisite = { focus = SOV_BURN_TO_GROUND }
+    x = -2
+    y = 1
+    relative_position_id = SOV_BURN_TO_GROUND
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cat_strategic_bomber
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_RAIN_OF_DEATH
+    icon = GFX_goal_generic_construction
+    text = SOV_RAIN_OF_DEATH
+    prerequisite = { focus = SOV_BURN_TO_GROUND }
+    x = 2
+    y = 1
+    relative_position_id = SOV_BURN_TO_GROUND
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = tactical_bomber
+      }
+    }
+  }
+
+
+
+  focus = {
+    id = SOV_AIRLAND_BATTLE
+    icon = GFX_goal_generic_construction
+    text = SOV_AIRLAND_BATTLE
+    prerequisite = { focus = SOV_BUILD_AIRFIELDS }
+    mutually_exclusive = { focus = SOV_BURN_TO_GROUND }
+    mutually_exclusive = { focus = SOV_ALL_USE_PLANES }
+    x = 0
+    y = 1
+    relative_position_id = SOV_BUILD_AIRFIELDS
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cat_battlefield_support
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_STRAFING
+    icon = GFX_goal_generic_construction
+    text = SOV_STRAFING
+    prerequisite = { focus = SOV_AIRLAND_BATTLE }
+    x = -2
+    y = 1
+    relative_position_id = SOV_AIRLAND_BATTLE
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = light_fighter
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_ACES
+    icon = GFX_goal_generic_construction
+    text = SOV_ACES
+    prerequisite = { focus = SOV_AIRLAND_BATTLE }
+    x = 2
+    y = 1
+    relative_position_id = SOV_AIRLAND_BATTLE
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus = {
+        bonus = 1
+        uses = 1
+        category = cas_bomber
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_ALL_USE_PLANES
+    icon = GFX_goal_generic_construction
+    text = ALL_USE_PLANES
+    prerequisite = { focus = SOV_BUILD_AIRFIELDS }
+    mutually_exclusive = { focus = SOV_BURN_TO_GROUND }
+    mutually_exclusive = { focus = SOV_AIRLAND_BATTLE }
+    x = 6
+    y = 1
+    relative_position_id = SOV_BUILD_AIRFIELDS
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cat_operational_integrity
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_BOMBERS
+    icon = GFX_goal_generic_construction
+    text = SOV_BOMBERS
+    prerequisite = { focus = SOV_ALL_USE_PLANES }
+    x = -2
+    y = 1
+    relative_position_id = SOV_ALL_USE_PLANES
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = tactical_bomber
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_ANTI_TROOP_BOMBS
+    icon = GFX_goal_generic_construction
+    text = SOV_ANTI_TROOP_BOMBS
+    prerequisite = { focus = SOV_ALL_USE_PLANES }
+    x = 2
+    y = 1
+    relative_position_id = SOV_ALL_USE_PLANES
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 1
+        uses = 1
+        category = cas_bomber
+      }
+    }
+  }
+
+  focus = {
+    id = SOV_RAIN_OF_ANNIHILATION
+    icon = GFX_goal_generic_construction
+    text = SOV_RAIN_OF_ANNIHILATION
+    prerequisite = { focus = SOV_RAIN_OF_FIRE }
+    prerequisite = { focus = SOV_RAIN_OF_DEATH }
+    x = -2
+    y = 1
+    relative_position_id = SOV_RAIN_OF_DEATH
+    cost = 1
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      air_experience = 15
+    }
+  }
+
+  focus = {
+    id = SOV_DOGFIGHTING
+    icon = GFX_goal_generic_construction
+    text = SOV_DOGFIGHTING
+    prerequisite = { focus = SOV_STRAFING }
+    prerequisite = { focus = SOV_ACES }
+    x = 2
+    y = 1
+    relative_position_id = SOV_STRAFING
+    cost = 1
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      air_experience = 15
+    }
+  }
+
+  focus = {
+    id = SOV_BOMBS_EVERYWHERE
+    icon = GFX_goal_generic_construction
+    text =  SOV_BOMBS_EVERYWHERE
+    prerequisite = { focus = SOV_BOMBERS }
+    prerequisite = { focus = SOV_ANTI_TROOP_BOMBS }
+    x = 2
+    y = 1
+    relative_position_id = SOV_BOMBERS
+    cost = 1
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      air_experience = 15
+    }
+  }
+
+  focus = {
+    id = SOV_REFORMED_AIR_FORCE
+    icon = GFX_goal_generic_construction
+    text = SOV_REFORMED_AIR_FORCE
+    prerequisite = { focus = SOV_BOMBS_EVERYWHERE focus = SOV_DOGFIGHTING focus = SOV_RAIN_OF_ANNIHILATION }
+    x = 0
+    y = 1
+    relative_position_id = SOV_DOGFIGHTING
+    cost = 5
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_ideas = {
+        Reformed_Air_Force
+      }
+    }
+  }
+
+	##############
+	focus = {
+    id = SOV_CRISIS_COALITION
+    icon = GFX_focus_generic_self_management
+    text = SOV_CRISIS_COALITION
+    #prerequisite = { focus = SOV_BOMBS_EVERYWHERE focus = SOV_DOGFIGHTING focus = SOV_RAIN_OF_ANNIHILATION }
+    x = 27
+    y = 0
+    relative_position_id = SOV_RUSSIAN_ECONOMY
+    cost = 5
+    ai_will_do = {
+      factor = 20
+    }
+
+		available = {
+			has_completed_focus = SOV_RUSSIAN_ECONOMY
+		}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = -100
+			add_stability = -0.15
+			SOV = { country_event = {id = russia.356 days = 2  }}
+    }
+  }
+
+	focus = {
+    id = SOV_CALL_FOR_ELECTIONS
+    icon = GFX_goal_rus_politics
+    text = SOV_CALL_FOR_ELECTIONS
+    prerequisite = { focus = SOV_CRISIS_COALITION }
+    x = 0
+    y = 1
+    relative_position_id = SOV_CRISIS_COALITION
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+		if = {
+				limit = { has_country_flag = industrial }
+				SOV = { country_event = {id = russia.200 days = 3  }}
+				}
+		if = {
+			limit =
+				{
+					has_country_flag = agrarian
+				}
+				SOV = {country_event = id = { russia.201 days = 3} }
+			}
+		add_stability = -0.1
+  }
+	}
+
+	########URP
+	focus = {
+    id = SOV_URP_VIC
+    icon = GFX_focus_generic_home_defense
+    text = SOV_URP_VIC
+		available = {has_country_flag = urp}
+		prerequisite = { focus = SOV_CALL_FOR_ELECTIONS }
+		mutually_exclusive = { focus = SOV_MENSHEVIK_VIC  focus = SOV_OKTOBRIST_VIC focus = SOV_BOLSHEVIK_VIC }
+    x = -10
+    y = 2
+    relative_position_id = SOV_CALL_FOR_ELECTIONS
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_popularity {
+				ideology = neutrality
+				popularity = 0.1
+			}
+
+			add_popularity {
+				ideology = fascism
+				popularity = 0.1
+			}
+    }
+  }
+
+	focus = {
+    id = SOV_REACTIONARY_POLITICS
+    icon = GFX_focus_generic_monarchy_1
+    text = SOV_REACTIONARY_POLITICS
+    prerequisite = { focus = SOV_URP_VIC }
+		mutually_exclusive = {focus = SOV_FASCIST_POLITICS}
+    x = -2
+    y = 1
+    relative_position_id = SOV_URP_VIC
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_popularity {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			set_politics {
+				ruling_party = neutrality
+			}
+    }
+  }
+
+	focus = {
+    id = SOV_ABOLISH_CONSTITUTION
+    icon = GFX_focus_renounce_the_treaty_of_trianon
+    text = SOV_ABOLISH_CONSTITUTION
+    prerequisite = { focus = SOV_REACTIONARY_POLITICS }
+    x = 0
+    y = 1
+    relative_position_id = SOV_REACTIONARY_POLITICS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			remove_ideas = {
+				Nicholas_the_2nd
+				Legacy_of_1905
+			}
+			add_ideas = {
+				Absolutism
+			}
+    }
+  }
+
+	focus = {
+    id = SOV_OAN
+    icon = GFX_focus_generic_monarchy_2
+    text = SOV_OAN
+    prerequisite = { focus = SOV_ABOLISH_CONSTITUTION }
+    x = 0
+    y = 1
+    relative_position_id = SOV_ABOLISH_CONSTITUTION
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			swap_ideas = {
+				remove_idea = Absolutism
+				add_idea = Absolutism_2
+			}
+    }
+  }
+
+	focus = {
+    id = SOV_FASCIST_POLITICS
+    icon = GFX_goal_support_fascism
+    text = SOV_FASCIST_POLITICS
+    prerequisite = { focus = SOV_URP_VIC }
+		mutually_exclusive = {focus = SOV_REACTIONARY_POLITICS}
+    x = 2
+    y = 1
+    relative_position_id = SOV_URP_VIC
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_popularity {
+				ideology = fascism
+				popularity = 0.25
+			}
+			set_politics {
+				ruling_party = fascism
+			}
+			SOV = { country_event = {id = russia.2 days = 5 }}
+     }
+  }
+
+	focus = {
+    id = SOV_RUSSIAN_SUPREMACY
+    icon = GFX_goal_demand_sudetenland
+    text = SOV_RUSSIAN_SUPREMACY
+    prerequisite = { focus = SOV_FASCIST_POLITICS }
+    x = 0
+    y = 1
+    relative_position_id = SOV_FASCIST_POLITICS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			swap_ideas = {
+				remove_idea = Nicholas_the_2nd
+				add_idea = Nicholas_the_2nd_2
+			}
+    }
+  }
+
+	focus = {
+    id = SOV_LEGALIZE_POGROMS
+    icon = GFX_goal_tripartite_pact
+    text = SOV_LEGALIZE_POGROMS
+    prerequisite = { focus = SOV_RUSSIAN_SUPREMACY }
+    x = 0
+    y = 1
+    relative_position_id = SOV_RUSSIAN_SUPREMACY
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_ideas = {
+				Rule_of_Vozdh
+			}
+    }
+  }
+
+
+
+	focus = {
+    id = SOV_MENSHEVIK_VIC
+    icon = GFX_goal_support_democracy
+    text = SOV_MENSHEVIK_VIC
+    prerequisite = { focus = SOV_CALL_FOR_ELECTIONS }
+		available = {has_country_flag = industrial}
+		mutually_exclusive = { focus = SOV_URP_VIC  focus = SOV_OKTOBRIST_VIC focus = SOV_BOLSHEVIK_VIC }
+    x = -2
+    y = 2
+    relative_position_id = SOV_CALL_FOR_ELECTIONS
+		available = {has_country_flag = menshevik}
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+    }
+  }
+
+	focus = {
+		id = SOV_KERENSKY
+		icon = GFX_goal_generic_occupy_states_coastal
+		text = SOV_KERENSKY
+		prerequisite = { focus = SOV_MENSHEVIK_VIC }
+		x = 0
+		y = 1
+		relative_position_id = SOV_MENSHEVIK_VIC
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+			add_popularity {
+				ideology = democratic
+				popularity = 0.25
+			}
+
+			set_politics = {
+				ruling_party = democratic
+			}
+
+			swap_ideas = {
+				remove_idea = Legacy_of_1905
+				add_idea = Legacy_of_1905_2
+			}
+
+		}
+	}
+
+	focus = {
+		id = SOV_SD_COALITION
+		icon = GFX_focus_generic_diplomatic_treaty
+		text = SOV_SD_COALITION
+		prerequisite = { focus = SOV_KERENSKY }
+		x = 0
+		y = 1
+		relative_position_id = SOV_KERENSKY
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = Nicholas_the_2nd_3
+				remove_idea = Nicholas_the_2nd
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_ELIMINATE_VIOLENCE
+		icon = GFX_goal_continuous_suppression
+		text = SOV_ELIMINATE_VIOLENCE
+		prerequisite = { focus = SOV_SD_COALITION }
+		x = 0
+		y = 1
+		relative_position_id = SOV_SD_COALITION
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+
+
+
+
+	focus = {
+    id = SOV_OKTOBRIST_VIC
+    icon = GFX_focus_generic_anti_fascist_diplomacy
+    text = SOV_OKTOBRIST_VIC
+    prerequisite = { focus = SOV_CALL_FOR_ELECTIONS }
+		available = {has_country_flag = agrarian}
+		mutually_exclusive = { focus = SOV_URP_VIC  focus = SOV_MENSHEVIK_VIC focus = SOV_BOLSHEVIK_VIC }
+    x = 2
+    y = 2
+    relative_position_id = SOV_CALL_FOR_ELECTIONS
+		available = {has_country_flag = oktobrist}
+    cost = 7
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_popularity {
+				ideology = democratic
+				popularity = 0.1
+			}
+    }
+  }
+
+	focus = {
+		id = SOV_CHEMOV
+		icon = GFX_focus_generic_treaty
+		text = SOV_CHEMOV
+		prerequisite = { focus = SOV_OKTOBRIST_VIC }
+		x = 0
+		y = 1
+		relative_position_id = SOV_OKTOBRIST_VIC
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = Legacy_of_1905_3
+				remove_idea = Legacy_of_1905
+			}
+			SOV = { country_event = {id = russia.3 days = 5 }}
+			}
+	}
+
+	focus = {
+		id = SOV_LIBERALISM
+		icon = GFX_goal_generic_consumer_goods
+		text = SOV_LIBERALISM
+		prerequisite = { focus = SOV_CHEMOV }
+		x = 0
+		y = 1
+		relative_position_id = SOV_CHEMOV
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = SOV_ELIMINATE_CENSORSHIP
+		icon = GFX_focus_hol_the_foundations_of_defense
+		text = SOV_ELIMINATE_CENSORSHIP
+		prerequisite = { focus = SOV_LIBERALISM }
+		x = 0
+		y = 1
+		relative_position_id = SOV_LIBERALISM
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 150
+		}
+	}
+
+
+	focus = {
+    id = SOV_BOLSHEVIK_VIC
+    icon = GFX_focus_generic_soviet_politics
+    text = SOV_BOLSHEVIK_VIC
+    prerequisite = { focus = SOV_CALL_FOR_ELECTIONS }
+		available = {has_country_flag = agrarian}
+		mutually_exclusive = { focus = SOV_URP_VIC  focus = SOV_MENSEHVIK_VIC focus = SOV_OKTOBRIST_VIC }
+		available = {has_country_flag = bolshevik}
+    x = 7
+    y = 2
+    relative_position_id = SOV_CALL_FOR_ELECTIONS
+    cost = 7
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      remove_ideas = {
+				Legacy_of_1905
+				Nicholas_the_2nd
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+    }
+  }
+
+	focus = {
+		id = SOV_TROTSKY
+		icon = GFX_focus_fra_loyalty_trotzky
+		text = SOV_TROTSKY
+		prerequisite = { focus = SOV_BOLSHEVIK_VIC }
+		x = 0
+		y = 1
+		relative_position_id = SOV_BOLSHEVIK_VIC
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Chaos_Moscow
+			}
+			SOV = { country_event = {id = russia.4 days = 5 }}
+			}
+	}
+
+	focus = {
+		id = SOV_WORKERS_GOVERNMENT
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		text = SOV_WORKERS_GOVERNMENT
+		prerequisite = { focus = SOV_TROTSKY }
+		x = 0
+		y = 1
+		relative_position_id = SOV_TROTSKY
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = Proliteriat
+				remove_idea = Chaos_Moscow
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_VANGUARDISM
+		icon = GFX_goal_support_fourth_int
+		text = SOV_VANGUARDISM
+		prerequisite = { focus = SOV_WORKERS_GOVERNMENT }
+		x = 0
+		y = 1
+		relative_position_id = SOV_WORKERS_GOVERNMENT
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = SOV_LOOKING_OUTWARDS
+		icon = GFX_focus_usa_focus_on_europe
+		text = SOV_LOOKING_OUTWARDS
+		#prerequisite = { focus = SOV_WORKERS_GOVERNMENT }
+		available = {
+			OR = {
+				has_completed_focus = SOV_REACTIONARY_POLITICS
+				has_completed_focus = SOV_FASCIST_POLITICS
+				has_completed_focus = SOV_KERENSKY
+				has_completed_focus = SOV_CHEMOV
+				has_completed_focus = SOV_TROTSKY
+			}
+		}
+		x = 0
+		y = 9
+		relative_position_id = SOV_CRISIS_COALITION
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_EXPANSIONISM
+		icon = GFX_goal_rus_expand
+		text = SOV_EXPANSIONISM
+		prerequisite = { focus = SOV_LOOKING_OUTWARDS }
+		mutually_exclusive = {
+			AND = {
+				focus = SOV_MANTAIN_CONCERT
+				focus = SOV_DEVOLUTION
+			}
+		}
+		x = -10
+		y = 1
+		relative_position_id = SOV_LOOKING_OUTWARDS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+
+	focus = {
+		id = SOV_WAR_FOR_BESSARABIA
+		icon = GFX_Attack_Romania
+		text = SOV_WAR_FOR_BESSARABIA
+		prerequisite = { focus = SOV_EXPANSIONISM }
+		x = -2
+		y = 1
+		relative_position_id = SOV_EXPANSIONISM
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			78 = {
+				add_claim_by = SOV
+				}
+			ROM = { country_event = id = { russia.69 days = 5 } }
+		}
+	}
+
+
+	focus = {
+		id = SOV_ASSERT_BALKAN_HEG
+		icon = GFX_Attack_Balkans
+		text = SOV_ASSERT_BALKAN_HEG
+		prerequisite = { focus = SOV_WAR_FOR_BESSARABIA }
+		x = 0
+		y = 1
+		relative_position_id = SOV_WAR_FOR_BESSARABIA
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			########SERBIA, BULGARIA, GREECE, ALBANIA get event demand subjugation
+			YUG = { country_event = { id = russia.420 days = 2  }}
+			BUL = { country_event = { id = russia.420 days = 2  }}
+			GRE = { country_event = { id = russia.420 days = 2  }}
+			ALB = { country_event = { id = russia.420 days = 2  }}
+		}
+	}
+
+	focus = {
+		id = SOV_CRUSH_TURKS
+		icon = GFX_Attack_Turkey
+		text = SOV_CRUSH_TURKS
+		prerequisite = { focus = SOV_ASSERT_BALKAN_HEG }
+		x = 0
+		y = 1
+		relative_position_id = SOV_ASSERT_BALKAN_HEG
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			SOV = { country_event = {id = russia.455 days = 2  }}
+		}
+	}
+
+	focus = {
+		id = SOV_ANNEX_BALTICA
+		icon = GFX_goal_generic_occypy_start_war
+		text = SOV_ANNEX_BALTICA
+		prerequisite = { focus = SOV_EXPANSIONISM }
+		x = 2
+		y = 1
+		relative_position_id = SOV_EXPANSIONISM
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			release = FOB
+			declare_war_on = {
+				target = FOB
+				type = annex_everything
+			}
+			SOV = { country_event = {id = russia.47 days = 2 } }
+		}
+	}
+
+	focus = {
+		id = SOV_NORTHERN_WAR
+		icon = GFX_goal_attack_sweden
+		text = SOV_NORTHERN_WAR
+		prerequisite = { focus = SOV_ANNEX_BALTICA }
+		x = 0
+		y = 1
+		relative_position_id = SOV_ANNEX_BALTICA
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			SOV = { country_event = {id = russia.458 days = 2  }}
+		}
+	}
+
+	focus = {
+		id = SOV_OVERRUN_GERMANS
+		icon = GFX_focus_attack_germany
+		text = SOV_OVERRUN_GERMANS
+		prerequisite = { focus = SOV_NORTHERN_WAR }
+		x = 0
+		y = 1
+		relative_position_id = SOV_NORTHERN_WAR
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			SOV = { country_event = {id = russia.457 days = 2  }}
+		}
+	}
+
+
+	focus = {
+		id = SOV_STRIKE_AUSTRIANS
+		icon = GFX_Attack_Austria
+		text = SOV_STRIKE_AUSTRIANS
+		prerequisite = { focus = SOV_OVERRUN_GERMANS focus = SOV_CRUSH_TURKS }
+		x = -2
+		y = 1
+		relative_position_id = SOV_OVERRUN_GERMANS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			SOV = { country_event = {id = russia.456 days = 2  }}
+		}
+	}
+
+	focus = {
+		id = SOV_MOTHERLAND
+		icon = GFX_focus_ger_great_red_menace
+		text = SOV_MOTHERLAND
+		prerequisite = { focus = SOV_STRIKE_AUSTRIANS }
+		x = 0
+		y = 1
+		relative_position_id = SOV_STRIKE_AUSTRIANS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_war_support = 0.2
+		}
+	}
+
+
+
+	focus = {
+		id = SOV_MANTAIN_CONCERT
+		icon = GFX_goal_generic_neutrality_focus
+		text = SOV_MANTAIN_CONCERT
+		prerequisite = { focus = SOV_LOOKING_OUTWARDS }
+		x = 0
+		y = 1
+		relative_position_id = SOV_LOOKING_OUTWARDS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		mutually_exclusive = {
+			AND = {
+				focus = SOV_EXPANSIONISM
+				focus = SOV_DEVOLUTION
+			}
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = SOV_APPEASE_THE_BALTS
+		icon = GFX_goal_diplo_balt
+		text = SOV_APPEASE_THE_BALTS
+		prerequisite = { focus = SOV_MANTAIN_CONCERT }
+		x = 0
+		y = 1
+		relative_position_id = SOV_MANTAIN_CONCERT
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			diplomatic_relation = {
+				country = FOB
+				relation = guarantee
+				active = yes
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_GUARANTEE_THE_BALKANS
+		icon = GFX_goal_generic_alliance
+		text = SOV_GUARANTEE_THE_BALKANS
+		prerequisite = { focus = SOV_APPEASE_THE_BALTS }
+		x = 0
+		y = 1
+		relative_position_id = SOV_APPEASE_THE_BALTS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			give_guarantee = YUG
+			give_guarantee = BUL
+			give_guarantee = ROM
+			give_guarantee = GRE
+			give_guarantee = ALB
+		}
+	}
+
+	focus = {
+		id = SOV_KEEP_THE_PEACE
+		icon = GFX_focus_generic_concessions
+		text = SOV_KEEP_THE_PEACE
+		prerequisite = { focus = SOV_GUARANTEE_THE_BALKANS }
+		x = 0
+		y = 1
+		relative_position_id = SOV_GUARANTEE_THE_BALKANS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = SOV_HOLY_ALLIANCE
+		icon = GFX_goal_diplo_austria
+		text = SOV_HOLY_ALLIANCE
+		prerequisite = { focus = SOV_KEEP_THE_PEACE }
+		x = -2
+		y = 1
+		relative_position_id = SOV_KEEP_THE_PEACE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_faction = "Holy Alliance"
+			AUS = {country_event = { id = russia.22 days = 2 } }
+			GER = {country_event ={ id =  russia.22 days = 2 } }
+		}
+	}
+
+	focus = {
+		id = SOV_ENTENTE
+		icon = GFX_focus_chi_reach_out_to_france
+		text = SOV_ENTENTE
+		prerequisite = { focus = SOV_KEEP_THE_PEACE }
+		x = 2
+		y = 1
+		relative_position_id = SOV_KEEP_THE_PEACE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_faction = "Entente"
+			FRA = {country_event = { id = russia.22 days = 2 } }
+			ENG = {country_event = { id = russia.22 days = 2 } }
+		}
+	}
+
+
+	focus = {
+		id = SOV_PAX_EUROPA
+		icon = GFX_goal_anschluss
+		text = SOV_PAX_EUROPA
+		prerequisite = { focus = SOV_ENTENTE focus = SOV_HOLY_ALLIANCE}
+		x = -2
+		y = 1
+		relative_position_id = SOV_ENTENTE
+		cost = 10LAS
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = SOV_DEVOLUTION
+		icon = GFX_goal_generic_major_alliance
+		text = SOV_DEVOLUTION
+		prerequisite = { focus = SOV_LOOKING_OUTWARDS }
+		x = 10
+		y = 1
+		relative_position_id = SOV_LOOKING_OUTWARDS
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		mutually_exclusive = {
+			AND = {
+				focus = SOV_EXPANSIONISM
+				focus = SOV_MANTAIN_CONCERT
+			}
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = -0.05
+		}
+	}
+
+	focus = {
+		id = SOV_AUTONOMY_UKRAINE
+		icon = GFX_goal_diplo_ukraine
+		text = SOV_AUTONOMY_UKRAINE
+		prerequisite = { focus = SOV_DEVOLUTION }
+		x = -3
+		y = 1
+		relative_position_id = SOV_DEVOLUTION
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			release_puppet = UKR
+		}
+	}
+
+	focus = {
+		id = SOV_AUTONOMY_KAZAKHASTAN
+		icon = GFX_goal_diplo_kazak
+		text = SOV_AUTONOMY_KAZAKHASTAN
+		prerequisite = { focus = SOV_DEVOLUTION }
+		x = 0
+		y = 1
+		relative_position_id = SOV_DEVOLUTION
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			release_puppet = KAZ
+		}
+	}
+
+	focus = {
+		id = SOV_AUTONOMY_FINLAND
+		icon = GFX_focus_invite_finland
+		text = SOV_AUTONOMY_FINLAND
+		prerequisite = { focus = SOV_DEVOLUTION }
+		x = 3
+		y = 1
+		relative_position_id = SOV_DEVOLUTION
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			release = FIN
+		}
+	}
+
+	focus = {
+		id = SOV_PRIMUS_INTER_PARES
+		icon = GFX_focus_generic_coastal_fort
+		text = SOV_PRIMUS_INTER_PARES
+		prerequisite = { focus = SOV_AUTONOMY_UKRAINE focus = SOV_AUTONOMY_FINLAND focus = SOV_AUTONOMY_KAZAKHASTAN }
+		x = 0
+		y = 1
+		relative_position_id = SOV_AUTONOMY_KAZAKHASTAN
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Devolution
+			}
+		}
+	}
+
+	focus = {
+		id = SOV_EMPIRE_ALONE
+		icon = GFX_focus_generic_join_comintern
+		text = SOV_EMPIRE_ALONE
+		prerequisite = { focus = SOV_PRIMUS_INTER_PARES }
+		x = 0
+		y = 1
+		relative_position_id = SOV_PRIMUS_INTER_PARES
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_faction = "Moscow League"
+		}
+	}
+
+
+	focus = {
+		id = SOV_FOR_LIBERATION
+		icon = GFX_focus_YUG_pan_slavic_congress
+		text = SOV_FOR_LIBERATION
+		prerequisite = { focus = SOV_EMPIRE_ALONE }
+		x = 0
+		y = 1
+		relative_position_id = SOV_EMPIRE_ALONE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 150
+		}
+	}
+
+}

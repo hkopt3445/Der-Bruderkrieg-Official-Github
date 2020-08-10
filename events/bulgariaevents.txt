@@ -1,0 +1,284 @@
+add_namespace = bulgariaevents
+
+country_event = {
+	id = bulgariaevents.1
+	title = bulgariaevents.1.t
+	desc = bulgariaevents.1.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = bulgariaevents.1.a
+		ai_chance = { factor = 90 }
+
+		if = {
+			limit = {
+				YUG = {
+					AND = {
+						is_ai = yes
+						NOT = {
+							has_government = democratic
+							is_in_faction_with = BUL
+						}
+					}
+				}
+			}
+			BUL = {country_event = {id = bulgariaevents.2}}
+		}
+	}
+}
+
+country_event = {
+	id = bulgariaevents.2
+	title = bulgariaevents.2.t
+	desc = bulgariaevents.2.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = bulgariaevents.2.a
+		ai_chance = { factor = 50 }
+
+		YUG = {
+			transfer_state = 106
+		}
+	}
+
+	option = {
+		name = bulgariaevents.2.b
+		ai_chance = { factor = 50 }
+		YUG = {
+			create_wargoal = {
+				target = BUL
+				type = take_claimed_state
+			}
+		}
+	}
+}
+
+country_event = {
+	id = bulgariaevents.3
+	title = bulgariaevents.3.t
+	desc = bulgariaevents.3.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = bulgariaevents.3.a
+		ai_chance = { factor = 50 }
+
+		GRE = {
+			transfer_state = 184
+		}
+	}
+}
+
+country_event = {
+	id = bulgariaevents.4
+	title = bulgariaevents.4.t
+	desc = bulgariaevents.4.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = bulgariaevents.4.a
+		ai_chance = { factor = 50 }
+
+		remove_ideas = {
+			Thrace_Problem
+		}
+
+
+		add_political_power = -200
+		add_stability = -0.12
+	}
+}
+
+country_event = {
+	id = bulgariaevents.5
+	title = bulgariaevents.5.t
+	desc = bulgariaevents.5.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = bulgariaevents.5.a
+		ai_chance = { factor = 50 }
+
+		set_country_flag = BUL_tsar_abdicates
+
+		kill_country_leader = yes
+
+		unlock_decision_category_tooltip = BUL_tsar_boris_abdicates
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = {
+	id = bulgariaevents.17
+	title = bulgariaevents.17.t
+	desc = bulgariaevents.17.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = bulgariaevents.17.a
+		ai_chance = { factor = 90 }
+		BUL = {
+			country_event = bulgariaevents.18
+			add_to_faction = ROOT
+		}
+
+	}
+
+	option = {
+		name = bulgariaevents.17.b
+		ai_chance = { factor = 10 }
+		BUL = { country_event = bulgariaevents.19 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = bulgariaevents.18
+	title = bulgariaevents.18.t
+	desc = bulgariaevents.18.d
+	picture = GFX_report_event_soldiers_in_frace
+
+	is_triggered_only = yes
+
+	option = {
+		name = bulgariaevents.18.a
+		effect_tooltip = {
+			add_to_faction = FROM
+		}
+	}
+}
+
+# [Country] Refuses
+country_event = {
+	id = bulgariaevents.19
+	title = bulgariaevents.19.t
+	desc = bulgariaevents.19.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = bulgariaevents.19.a
+	}
+}
+
+
+
+
+
+country_event = {
+	id = bulgariaevents.5432
+	title = bulgariaevents.5432.t
+	desc = bulgariaevents.5432.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = bulgariaevents.5432.a #needs to be localized
+		ai_chance = { factor = 60 } #this factor means the AI will almost always pick this one
+		diplomatic_relation = {
+		country = TUR
+		relation = non_agression_pact
+		active = yes
+		}
+
+	news_event = {id = bulgariaevents.5431}
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = bulgariaevents.1236.b #needs to be localized
+		ai_chance = { factor = 40 } #AI will NOT do
+	}
+}
+
+news_event = {
+	id = bulgariaevents.5431
+	title = bulgariaevents.5431.t
+	desc = bulgariaevents.5431.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bulgariaevents.5431.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+
+
+
+
+country_event = {
+	id = bulgariaevents.69
+	title = bulgariaevents.69.t
+	desc = bulgariaevents.69.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = bulgariaevents.69.a #needs to be localized
+		ai_chance = { factor = 60 } #this factor means the AI will almost always pick this one
+		diplomatic_relation = {
+		country = TUR
+		relation = non_agression_pact
+		active = yes
+		}
+
+	news_event = {id = bulgariaevents.70}
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = bulgariaevents.1236.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+	}
+}
+
+news_event = {
+	id = bulgariaevents.70
+	title = bulgariaevents.70.t
+	desc = bulgariaevents.70.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bulgariaevents.70.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+}

@@ -1,0 +1,85 @@
+add_namespace = vienna
+
+news_event = {
+	id = vienna.2
+	title = vienna.2.t
+	desc = vienna.2.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	major = yes
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+
+	}
+
+	option = {
+		name = vienna.2.a
+	}
+}
+
+country_event = { 
+	id = vienna.1
+	title = vienna.1.t
+	desc = vienna.1.d
+	picture = GFX_report_event_finnish_letter
+
+	mean_time_to_happen = {
+		days = 65
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+
+	}
+
+	option = {
+		name = vienna.1.a
+
+		set_variable = { var = riots_stuff value = -50 }
+    set_variable = { var = industrial_stuff value = -100 }
+
+    set_variable = {riot_stab_factor = riots_stuff}
+    divide_variable = {riot_stab_factor = 200}
+    set_variable = {riot_political_power = riots_stuff}
+    divide_variable = {riot_political_power = 150}
+
+
+    set_variable = {riot_conscription_factor = riots_stuff}
+    divide_variable = {riot_conscription_factor = 250}
+
+		set_variable = {riot_economy_cost_factor = riots_stuff}
+    divide_variable = {riot_economy_cost_factor = 400}
+
+		######Industrial stuff
+		set_variable = {industrial_industrial_capacity_factory = industrial_stuff}
+    divide_variable = {industrial_industrial_capacity_factory = 450}
+
+		set_variable = {industrial_production_speed_buildings_factor = industrial_stuff}
+    divide_variable = {industrial_production_speed_buildings_factor = 400}
+
+		set_variable = {industrial_consumer_goods_factor = industrial_stuff}
+    divide_variable = {industrial_consumer_goods_factor = 250}
+
+
+
+
+
+
+    add_dynamic_modifier = {
+        modifier = riots_modifier
+    }
+
+		add_dynamic_modifier = {
+        modifier = industrial_modifier
+    }
+
+
+		set_country_flag = stocks_crash
+
+		news_event = {id = vienna.2}
+
+	}
+}

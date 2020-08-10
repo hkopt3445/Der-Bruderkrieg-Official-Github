@@ -1,0 +1,782 @@
+focus_tree = {
+	id = Serbia
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = YUG
+		}
+	}
+	#Focus for Civilian Industry
+	focus = {
+		id = YUG_civilian_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 33
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_economic_reforms_2 }
+		ai_will_do = {
+			factor = 1
+		}
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex	
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+
+	#Focus for Serbia Strong
+	focus = {
+		id = YUG_serbia_strong
+		icon = GFX_goal_generic_political_pressure
+		x = 29
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_final_reforms }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas= {YUG_chaos_in_army}
+		}
+	}
+
+	#Focus for Slavic Commune Alliance
+	focus = {
+		id = YUG_slavic_commune_alliance
+		icon = GFX_goal_generic_defence
+		x = 25
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_help_reds_in_russia }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Help reds in russia
+	focus = {
+		id = YUG_help_reds_in_russia
+		icon = GFX_goal_tripartite_pact
+		x = 25
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_put_tito_in_charge }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Put Tito in charge
+	focus = {
+		id = YUG_put_tito_in_charge
+		icon = GFX_goal_generic_political_pressure
+		x = 25
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = YUG_recover_from_civil_war
+		}
+		prerequisite = {
+			focus = YUG_victory_of_the_people
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Victory of the people
+	focus = {
+		id = YUG_victory_of_the_people
+		icon = GFX_goal_generic_propaganda
+		x = 26
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_civil_war }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Recover from civil war
+	focus = {
+		id = YUG_recover_from_civil_war
+		icon = GFX_goal_generic_construction2
+		x = 24
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_civil_war }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Civil war
+	focus = {
+		id = YUG_civil_war
+		icon = GFX_goal_support_communism
+		x = 25
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_arm_the_people }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Arm the people
+	focus = {
+		id = YUG_arm_the_people
+		icon = GFX_focus_secret_rearmament
+		x = 25
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_power_to_the_peasents }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Total Victory!!!
+	focus = {
+		id = YUG_total_victory
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = 19
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_into_europe }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Into europe
+	focus = {
+		id = YUG_into_europe
+		icon = GFX_focus_usa_focus_on_europe
+		x = 19
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_balkan_revolution }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Balkan revolution
+	focus = {
+		id = YUG_balkan_revolution
+		icon = GFX_goal_generic_dangerous_deal
+		x = 19
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_victory_speech }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Victory Speech
+	focus = {
+		id = YUG_victory_speech
+		icon = GFX_focus_por_workers_of_iberia
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_ignite_ze_revolution }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Ignite ze revolution
+	focus = {
+		id = YUG_ignite_ze_revolution
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_military_support }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Military support
+	focus = {
+		id = YUG_military_support
+		icon = GFX_goal_generic_military_deal
+		x = 19
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_total_anarchy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Power to the peasents
+	focus = {
+		id = YUG_power_to_the_peasents
+		icon = GFX_goal_generic_improve_relations
+		x = 25
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_the_unthinkable_option }
+		mutually_exclusive = { focus = YUG_total_anarchy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Army of men
+	focus = {
+		id = YUG_army_of_men
+		icon = GFX_goal_rhineland
+		x = 28
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_continue_reforms }
+		mutually_exclusive = { focus = YUG_army_of_armor }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Invite Romanian generals
+	focus = {
+		id = YUG_invite_romanian_generals
+		icon = GFX_focus_invite_romania
+		x = 30
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_military_reforms }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Invite Polish generals
+	focus = {
+		id = YUG_invite_polish_generals
+		icon = GFX_focus_generic_polish_deal
+		x = 28
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_military_reforms }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Military Reforms
+	focus = {
+		id = YUG_military_reforms
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 29
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 25
+		}
+	}
+
+	#Focus for Proclaim Balkan empire
+	focus = {
+		id = YUG_proclaim_balkan_empire
+		icon = GFX_goal_generic_demand_territory
+		x = 13
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_take_the_south }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Conquest of Balkans
+	focus = {
+		id = YUG_conquest_of_balkans
+		icon = GFX_goal_generic_major_war
+		x = 13
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_military_coup }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Demand north serbia
+	focus = {
+		id = YUG_demand_north_serbia
+		icon = GFX_goal_generic_political_pressure
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_conquest_of_balkans }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Military coup
+	focus = {
+		id = YUG_military_coup
+		icon = GFX_goal_rhineland
+		x = 13
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_serbias_situation }
+		mutually_exclusive = {
+			focus = YUG_coup_the_king
+		}
+		mutually_exclusive = {
+			focus = YUG_keep_the_king
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Balkan Union
+	focus = {
+		id = YUG_balkan_union
+		icon = GFX_goal_generic_major_alliance
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_referendum_to_unite_the_balkans }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Referendum to unite the balkans
+	focus = {
+		id = YUG_referendum_to_unite_the_balkans
+		icon = GFX_goal_generic_propaganda
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_ask_for_north_serbia }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Ask for north Serbia
+	focus = {
+		id = YUG_ask_for_north_serbia
+		icon = GFX_goal_generic_improve_relations
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_install_free_elections }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Install Free elections
+	focus = {
+		id = YUG_install_free_elections
+		icon = GFX_goal_support_democracy
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_coup_the_king }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Undo preavious laws
+	focus = {
+		id = YUG_undo_preavious_laws
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_get_a_sane_king }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Get a sane king
+	focus = {
+		id = YUG_get_a_sane_king
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_purge_the_opposition }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Strengthen the State
+	focus = {
+		id = YUG_strengthen_the_state
+		icon = GFX_goal_generic_political_pressure
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_keep_the_king }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Coup the King
+	focus = {
+		id = YUG_coup_the_king
+		icon = GFX_focus_rom_handle_king
+		x = 9
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_serbias_situation }
+		mutually_exclusive = {
+			focus = YUG_keep_the_king
+		}
+		mutually_exclusive = {
+			focus = YUG_military_coup
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Keep the King
+	focus = {
+		id = YUG_keep_the_king
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 5
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_serbias_situation }
+		mutually_exclusive = {
+			focus = YUG_coup_the_king
+		}
+		mutually_exclusive = {
+			focus = YUG_military_coup
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Serbia's Situation
+	focus = {
+		id = YUG_serbias_situation
+		icon = GFX_goal_generic_demand_territory
+		x = 9
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = YUG_the_unthinkable_option }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 100
+		}
+	}
+
+	#Focus for Economic Reforms
+	focus = {
+		id = YUG_economic_reforms
+		icon = GFX_goal_unknown ##Unfortunately, the tool could not find your icon in the game's files
+		x = 34
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Unthinkable Option
+	focus = {
+		id = YUG_the_unthinkable_option
+		icon = GFX_goal_support_communism
+		x = 22
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = YUG_serbias_situation }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Build up Railways
+	focus = {
+		id = YUG_build_up_railways
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 33
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_economic_reforms }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Military factories
+	focus = {
+		id = YUG_military_factories
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 35
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_economic_reforms_2 }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Economic Reforms 2
+	focus = {
+		id = YUG_economic_reforms_2
+		icon = GFX_goal_generic_production2
+		x = 34
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = YUG_build_up_railways
+		}
+		prerequisite = {
+			focus = YUG_start_ubranization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Start ubranization
+	focus = {
+		id = YUG_start_ubranization
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 35
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_economic_reforms }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Army of armor
+	focus = {
+		id = YUG_army_of_armor
+		icon = GFX_goal_generic_army_tanks
+		x = 30
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_continue_reforms }
+		mutually_exclusive = { focus = YUG_army_of_men }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Economic Boom
+	focus = {
+		id = YUG_economic_boom
+		icon = GFX_goal_generic_construct_civilian
+		x = 34
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = YUG_military_factories
+		}
+		prerequisite = {
+			focus = YUG_civilian_industry
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Purge the opposition
+	focus = {
+		id = YUG_purge_the_opposition
+		icon = GFX_goal_generic_forceful_treaty
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_strengthen_the_state }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Justyfy on Bulgaria
+	focus = {
+		id = YUG_justyfy_on_bulgaria
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_conquest_of_balkans }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Take the south
+	focus = {
+		id = YUG_take_the_south
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = YUG_demand_north_serbia
+		}
+		prerequisite = {
+			focus = YUG_justyfy_on_bulgaria
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Continue reforms
+	focus = {
+		id = YUG_continue_reforms
+		icon = GFX_focus_generic_little_entente
+		x = 29
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = YUG_invite_polish_generals
+		}
+		prerequisite = {
+			focus = YUG_invite_romanian_generals
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Final reforms
+	focus = {
+		id = YUG_final_reforms
+		icon = GFX_goal_generic_army_doctrines
+		x = 29
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = YUG_army_of_men
+			focus = YUG_army_of_armor
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Total anarchy
+	focus = {
+		id = YUG_total_anarchy
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = 19
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = YUG_the_unthinkable_option }
+		mutually_exclusive = { focus = YUG_power_to_the_peasents }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#End of focuses
+ }

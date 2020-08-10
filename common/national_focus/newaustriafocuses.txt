@@ -1,0 +1,4236 @@
+focus_tree = {
+	id = new_austrian_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = COS
+		}
+	}
+
+	continuous_focus_position = { x = 20, y = 2000 }
+
+  focus = {
+    id = COS_BUILD_INDUSTRY
+    icon = GFX_goal_generic_construction
+    text = COS_BOOST_ECONOMY
+    prerequisite = { focus = COS_recover_from_black_monday }
+    x = 0
+    y = 1
+    relative_position_id = COS_recover_from_black_monday
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+		available = {
+			AND = {
+				has_country_flag = stocks_crash
+				has_dynamic_modifier = { modifier = riots_modifier}
+				has_dynamic_modifier = {modifier = industrial_modifier}
+			}
+		}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus = {
+        bonus = 0.5
+        uses = 2
+        category = industry
+      }
+    }
+  }
+
+  focus = {
+    id = COS_HEART_DEV_SCHEME
+    icon = GFX_goal_generic_construction2
+    text = COS_HEART_DEV_SCHEME
+    prerequisite = { focus = COS_BUILD_INDUSTRY }
+    mutually_exclusive = {focus = COS_IMPERIAL_DEV_SCHEME}
+    x = -4
+    y = 1
+    relative_position_id = COS_BUILD_INDUSTRY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      4 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 1
+          }
+
+      152 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+          }
+
+      }
+  }
+
+  focus = {
+    id = COS_IMPERIAL_DEV_SCHEME
+    icon = GFX_goal_generic_construction2
+    text = COS_IMPERIAL_DEV_SCHEME
+    prerequisite = { focus = COS_BUILD_INDUSTRY }
+    mutually_exclusive = {focus = COS_HEART_DEV_SCHEME}
+    x = 4
+    y = 1
+    relative_position_id = COS_BUILD_INDUSTRY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      75 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+
+
+                }
+              add_extra_state_shared_building_slots = 1
+          }
+      84 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 1
+          }
+
+      102 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 1
+          }
+
+     }
+  }
+
+
+  focus = {
+    id = COS_KRUPP_FACTORIES
+    icon = GFX_goal_generic_construct_mil_factory
+    text = COS_KRUPP_FACTORIES
+    prerequisite = { focus = COS_HEART_DEV_SCHEME }
+    x = -2
+    y = 1
+    relative_position_id = COS_HEART_DEV_SCHEME
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      153 = {
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 1
+      }
+      39 = {
+
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 1
+          }
+
+     }
+  }
+
+  focus = {
+    id = COS_VIENNA_CIV_FACTORIES
+    icon = GFX_goal_generic_construct_civilian
+    text = VIENNA_CIV_FACTORIES
+    prerequisite = { focus = COS_HEART_DEV_SCHEME }
+    x = 2
+    y = 1
+    relative_position_id = COS_HEART_DEV_SCHEME
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      4 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+          }
+     }
+  }
+
+  focus = {
+    id = COS_ARBEISBRIGADE
+    icon = GFX_goal_generic_trade
+    text = ARBEISBRIGADE
+    prerequisite = { focus = COS_VIENNA_CIV_FACTORIES }
+    x = 0
+    y = 1
+    relative_position_id = COS_VIENNA_CIV_FACTORIES
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_ideas = {
+        Arbeitsbrigaden
+      }
+     }
+  }
+
+  focus = {
+    id = COS_SALZBURG_ORDER
+    icon = GFX_goal_generic_construction2
+    text = COS_SALZBURG_ORDER
+    prerequisite = { focus = COS_KRUPP_FACTORIES }
+    x = 0
+    y = 1
+    relative_position_id = COS_KRUPP_FACTORIES
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      152 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+          }
+      }
+    }
+
+
+  focus = {
+    id = COS_MODERNIZATION
+    icon = GFX_goal_generic_construct_infrastructure
+    text = COS_MODERNIZATION
+    prerequisite = { focus = COS_ARBEISBRIGADE }
+    prerequisite = { focus = COS_SALZBURG_ORDER }
+    x = -2
+    y = 1
+    relative_position_id = COS_ARBEISBRIGADE
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_research_slot = 1
+     }
+  }
+
+  focus = {
+    id = COS_DEV_PRAGUE
+    icon = GFX_goal_generic_construct_civilian
+    text = COS_DEV_PRAGUE
+    prerequisite = { focus = COS_IMPERIAL_DEV_SCHEME }
+    x = -2
+    y = 1
+    relative_position_id = COS_IMPERIAL_DEV_SCHEME
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      9 = {
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+          }
+
+     }
+  }
+
+  focus = {
+    id = COS_DEV_BUDAPEST
+    icon = GFX_goal_generic_construct_civ_factory
+    text = COS_DEV_BUDAPEST
+    prerequisite = { focus = COS_IMPERIAL_DEV_SCHEME }
+    x = 2
+    y = 1
+    relative_position_id = COS_IMPERIAL_DEV_SCHEME
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      43 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+          }
+
+     }
+  }
+
+  focus = {
+    id = COS_TRANSYLVANIA_ECON_UNION
+    icon = GFX_focus_eng_concessions_to_the_trade_unions
+    text = TRANSYLVANIA_ECON_UNION
+    prerequisite = { focus = COS_DEV_BUDAPEST }
+    x = 0
+    y = 1
+    relative_position_id = COS_DEV_BUDAPEST
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      84 = {
+        add_state_modifier = {
+          modifier = {
+            production_speed_buildings_factor = 0.2
+            industrial_capacity_factory = 0.25
+          }
+        }
+      }
+      76 = {
+        add_state_modifier = {
+          modifier = {
+            production_speed_buildings_factor = 0.2
+            industrial_capacity_factory = 0.25
+          }
+        }
+      }
+     }
+  }
+
+  focus = {
+    id = COS_MORAVIA_ECON_UNION
+    icon = GFX_focus_eng_concessions_to_the_trade_unions
+    text = COS_MORAVIA_ECON_UNION
+    prerequisite = { focus = COS_DEV_PRAGUE }
+    x = 0
+    y = 1
+    relative_position_id = COS_DEV_PRAGUE
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      75 = {
+        add_state_modifier = {
+          modifier = {
+            production_speed_buildings_factor = 0.2
+            industrial_capacity_factory = 0.25
+          }
+        }
+      }
+      9 = {
+        add_state_modifier = {
+          modifier = {
+            production_speed_buildings_factor = 0.2
+            industrial_capacity_factory = 0.25
+          }
+        }
+      }
+     }
+  }
+
+  focus = {
+    id = COS_IMPERIAL_MODERNIZATION
+    icon = GFX_goal_generic_construct_infrastructure
+    text = COS_IMPERIAL_MODERNIZATION
+    prerequisite = { focus = COS_MORAVIA_ECON_UNION }
+    prerequisite = { focus = COS_TRANSYLVANIA_ECON_UNION }
+    x = 2
+    y = 1
+    relative_position_id = COS_MORAVIA_ECON_UNION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_research_slot = 1
+     }
+  }
+
+  focus = {
+    id = GROSS_KAISERWERKE
+    icon = GFX_focus_generic_the_giant_wakes
+    text = GROSS_KAISERWERKE
+    prerequisite = { focus = COS_MODERNIZATION focus = COS_IMPERIAL_MODERNIZATION }
+    x = 4
+    y = 1
+    relative_position_id = COS_MODERNIZATION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_ideas = {
+        Booming_Economy
+      }
+
+     }
+  }
+
+
+	####ARMY
+
+
+	focus = {
+	  id = COS_PREP_WAR
+	  icon = GFX_focus_generic_the_giant_wakes
+	  text = COS_PREP_WAR
+	  #prerequisite = { focus = COS_KAISER_SPEECH }
+	  x = 24
+	  y = -3
+	  relative_position_id = COS_KAISER_SPEECH
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+		bypass = {
+			tag = AUS
+		}
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+
+
+	   }
+	}
+
+	focus = {
+	  id = COS_KAISERLICHE_HEER
+	  icon = GFX_goal_generic_axis_build_infantry
+	  text = COS_KAISERLICHE_HEER
+	  prerequisite = { focus = COS_PREP_WAR }
+	  x = 5
+	  y = 1
+	  relative_position_id = COS_PREP_WAR
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    army_experience = 20
+	    hidden_effect = {
+	    AUS = {country_event = {id =  vienna.1 days = 65}}
+	    SPR = {country_event = {id =  spain.100 days = 5}}
+	    SPS = {country_event = {id =  spain.100 days = 5}}
+	    SPR = {country_event = {id =  spain.100 days = 5}}
+	    ARA = {country_event = {id =  spain.100 days = 5}}
+
+	    #CHI = {country_event = {id =  chinacivilwar.1 days = 153}}
+	    #BEI = {country_event = {id =  chinacivilwar.1 days = 153}}
+
+	    NSI = {country_event = {id = siam.1 days = 112}}
+
+	    BRA = {country_event = {id = southamerica.1 days = 222}}
+	    }
+	  }
+	}
+
+
+	focus = {
+	  id = COS_KRUPP_MAUSER_CONTRACTS
+	  icon = GFX_goal_generic_allies_build_infantry
+	  text = COS_KRUPP_MAUSER_CONTRACTS
+	  prerequisite = { focus = COS_KAISERLICHE_HEER }
+	  x = -4
+	  y = 1
+	  relative_position_id = COS_KAISERLICHE_HEER
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 0.5
+	      uses = 1
+	      category = artillery
+	    }
+	    add_tech_bonus = {
+	      bonus = 0.5
+	      uses = 1
+	      category = infantry_weapons
+	    }
+	    }
+	  }
+
+	  focus = {
+	    id = COS_VIENNA_KRIEGSAKADEMIE
+	    icon = GFX_goal_generic_construct_military
+	    text = VIENNA_KRIEGSAKADEMIE
+	    prerequisite = { focus = COS_KAISERLICHE_HEER }
+	    x = -2
+	    y = 1
+	    relative_position_id = COS_KAISERLICHE_HEER
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_tech_bonus = {
+	        bonus = 0.5
+	        uses = 1
+	        category = cat_grand_battle_plan
+	      }
+	      add_tech_bonus = {
+	        bonus = 0.5
+	        uses = 1
+	        category = support_tech
+	      }
+	     }
+	  }
+
+	  focus = {
+	    id = COS_CONSCRIPT_THE_MASSES
+	    icon = GFX_Conscript_The_Masses
+	    text = COS_CONSCRIPT_THE_MASSES
+	    prerequisite = { focus = COS_KAISERLICHE_HEER }
+	    x = 2
+	    y = 1
+	    relative_position_id = COS_KAISERLICHE_HEER
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_ideas = {
+	        extensive_conscription
+	      }
+	     }
+	  }
+
+	  focus = {
+	    id = COS_PANZER_CORP
+	    icon = GFX_goal_generic_army_tanks
+	    text = COS_PANZER_CORP
+	    prerequisite = { focus = COS_KAISERLICHE_HEER }
+	    x = 4
+	    y = 1
+	    relative_position_id = COS_KAISERLICHE_HEER
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_tech_bonus = {
+	        bonus = 1
+	        uses = 1
+	        category = cat_light_armor
+	      }
+	      }
+	    }
+
+	focus = {
+	  id = COS_AUSTRIAN_COMMAND
+	  icon = GFX_Austrian_Command
+	  text = AUSTRIAN_COMMAND
+	  prerequisite = { focus = COS_PANZER_CORP }
+	  prerequisite = { focus = COS_VIENNA_KRIEGSAKADEMIE }
+	  prerequisite = { focus = COS_KRUPP_MAUSER_CONTRACTS }
+	  prerequisite = { focus = COS_CONSCRIPT_THE_MASSES }
+
+	  mutually_exclusive = {focus = COS_IMPERIAL_MIL}
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_KRUPP_MAUSER_CONTRACTS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	        add_ideas = {
+	          Austrian_Officers
+	        }
+	  }
+	}
+
+	focus = {
+	  id = COS_IMPERIAL_MIL
+	  icon = GFX_Imperial_command
+	  text = COS_IMPERIAL_MIL
+	  prerequisite = { focus = COS_PANZER_CORP }
+	  prerequisite = { focus = COS_VIENNA_KRIEGSAKADEMIE }
+	  prerequisite = { focus = COS_KRUPP_MAUSER_CONTRACTS }
+	  prerequisite = { focus = COS_CONSCRIPT_THE_MASSES }
+	  mutually_exclusive = {focus = COS_AUSTRIAN_COMMAND}
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_PANZER_CORP
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Imperial_Military
+	   }
+	}
+	}
+
+	focus = {
+	  id = COS_FOCUS_ON_FIREPOWER
+	  icon = GFX_goal_generic_army_artillery2
+	  text = FOCUS_ON_FIREPOWER
+	  prerequisite = { focus = COS_AUSTRIAN_COMMAND }
+	  #mutually_exclusive = { focus = COS_FOCUS_ON_BATTLEPLAN }
+
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_AUSTRIAN_COMMAND
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      add_tech_bonus = {
+	        bonus = 1
+	        uses = 1
+	        category = cat_superior_firepower
+	      }
+	  }
+	}
+
+	focus = {
+	  id = COS_FOCUS_ON_BATTLEPLAN
+	  icon = GFX_goal_generic_army_doctrines
+	  text = COS_FOCUS_ON_BATTLEPLAN
+	  prerequisite = { focus = COS_AUSTRIAN_COMMAND }
+	  #mutually_exclusive = { focus = COS_FOCUS_ON_FIREPOWER }
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_AUSTRIAN_COMMAND
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_tech_bonus = = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_grand_battle_plan
+	    }
+	   }
+	}
+
+
+
+
+
+	focus = {
+	  id = COS_MASTER_ARTILLERY
+	  icon = GFX_goal_generic_army_artillery
+	  text = COS_MASTER_ARTILLERY
+	  prerequisite = { focus = COS_FOCUS_ON_FIREPOWER }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_FOCUS_ON_FIREPOWER
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Hellsfire
+	    }
+	   }
+	}
+
+	focus = {
+	  id = COS_MASTER_TACTICS
+	  icon = GFX_goal_generic_cavalry
+	  text = COS_MASTER_TACTICS
+	  prerequisite = { focus = COS_FOCUS_ON_BATTLEPLAN }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_FOCUS_ON_BATTLEPLAN
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      add_ideas = {
+	        Tactical_Genius
+	      }
+	    }
+	  }
+
+	  focus = {
+	    id = COS_FOCUS_ON_SPEED
+	    icon = GFX_goal_generic_army_motorized
+	    text = FOCUS_ON_SPEED
+	    prerequisite = { focus = COS_IMPERIAL_MIL }
+	    #mutually_exclusive = { focus = COS_FOCUS_ON_SIZE }
+
+	    x = -1
+	    y = 1
+	    relative_position_id = COS_IMPERIAL_MIL
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_tech_bonus = {
+	        bonus = 1
+	        uses = 1
+	        category = cat_mobile_warfare
+	      }
+	   }
+	  }
+	  focus = {
+	    id = COS_FOCUS_ON_SIZE
+	    icon = GFX_focus_generic_manpower
+	    text = COS_FOCUS_ON_SIZE
+	    prerequisite = { focus = COS_IMPERIAL_MIL }
+	    #mutually_exclusive = { focus = COS_FOCUS_ON_SPEED }
+	    x = 1
+	    y = 1
+	    relative_position_id = COS_IMPERIAL_MIL
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_tech_bonus = {
+	        bonus = 1
+	        uses = 1
+	        category = cat_mass_assault
+	      }
+	     }
+	  }
+
+	  focus = {
+	    id = COS_MASTER_BLITZKRIEG
+	    icon = GFX_focus_generic_army_tanks2
+	    text = COS_MASTER_BLITZKRIEG
+	    prerequisite = { focus = COS_FOCUS_ON_SPEED }
+	    x = 0
+	    y = 1
+	    relative_position_id = COS_FOCUS_ON_SPEED
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_ideas = {
+	        Lightning_War
+	      }
+	     }
+	  }
+
+	  focus = {
+	    id = COS_BRAVE_NEW_EMPIRE
+	    icon = GFX_focus_yug_pan_slavic_congress
+	    text = COS_BRAVE_NEW_EMPIRE
+	    prerequisite = { focus = COS_FOCUS_ON_SIZE }
+	    x = 0
+	    y = 1
+	    relative_position_id = COS_FOCUS_ON_SIZE
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	        add_ideas = {
+	          Brave_New_Empire
+	        }
+	      }
+	    }
+
+	focus = {
+	  id = COS_REVITALIZE_ARMY
+	  icon = GFX_Austrian_Army
+	  text = COS_REVITALIZE_ARMY
+
+		prerequisite = {focus = COS_BRAVE_NEW_EMPIRE focus = COS_MASTER_BLITZKRIEG focus = COS_MASTER_TACTICS focus = COS_MASTER_ARTILLERY}
+
+
+	  x = 4
+	  y = 1
+	  relative_position_id = COS_MASTER_ARTILLERY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Army_Future
+	    }
+	    army_experience = 50
+
+	   }
+	}
+
+
+
+	#############Navy
+	focus = {
+	  id = COS_KAISER_MARINE
+	  icon = GFX_Austrian_Navy
+	  text = COS_KAISER_MARINE
+	  prerequisite = { focus = COS_PREP_WAR }
+	  x = 19
+	  y = 1
+	  relative_position_id = COS_PREP_WAR
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    navy_experience = 20
+	    hidden_effect = {
+	    AUS = {country_event = {id =  vienna.1 days = 65}}
+	    SPR = {country_event = {id =  spain.100 days = 5}}
+	    SPS = {country_event = {id =  spain.100 days = 5}}
+	    SPR = {country_event = {id =  spain.100 days = 5}}
+	    ARA = {country_event = {id =  spain.100 days = 5}}
+
+	    #CHI = {country_event = {id =  chinacivilwar.1 days = 153}}
+	    #BEI = {country_event = {id =  chinacivilwar.1 days = 153}}
+
+	    NSI = {country_event = {id = siam.1 days = 112}}
+
+	    BRA = {country_event = {id = southamerica.1 days = 222}}
+	    }
+	  }
+	}
+
+
+
+
+	focus = {
+	  id = COS_TRUE_NAVY
+	  icon = GFX_goal_generic_navy_doctrines_tactics
+	  text = COS_TRUE_NAVY
+	  prerequisite = { focus = COS_KAISER_MARINE }
+	  mutually_exclusive = { focus = COS_WOLF_PACKS }
+	  mutually_exclusive = { focus = COS_NAVAL_AVIATION }
+	  x = -4
+	  y = 1
+	  relative_position_id = COS_KAISER_MARINE
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_fleet_in_being
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_CAPITAL_SHIPS
+	  icon = GFX_goal_generic_navy_battleship
+	  text = COS_CAPITAL_SHIPS
+	  prerequisite = { focus = COS_TRUE_NAVY }
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_TRUE_NAVY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = bb_tech
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_PROJECT_Z
+	  icon = GFX_focus_generic_navy_battleship2
+	  text = COS_PROJECT_Z
+	  prerequisite = { focus = COS_TRUE_NAVY }
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_TRUE_NAVY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = ca_tech
+	    }
+	  }
+	}
+
+
+
+	focus = {
+	  id = COS_WOLF_PACKS
+	  icon = GFX_goal_generic_wolf_pack
+	  text = COS_WOLF_PACKS
+	  prerequisite = { focus = COS_KAISER_MARINE }
+	  mutually_exclusive = { focus = COS_TRUE_NAVY }
+	  mutually_exclusive = { focus = COS_NAVAL_AVIATION }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_KAISER_MARINE
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_trade_interdiction
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_U_BOATS
+	  icon = GFX_goal_generic_navy_submarine
+	  text = COS_U_BOATS
+	  prerequisite = { focus = COS_WOLF_PACKS }
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_WOLF_PACKS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = ss_tech
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_TRADE_WAR
+	  icon = GFX_goal_generic_navy_anti_submarine
+	  text = COS_TRADE_WAR
+	  prerequisite = { focus = COS_WOLF_PACKS }
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_WOLF_PACKS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = dd_tech
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_NAVAL_AVIATION
+	  icon = GFX_goal_generic_air_naval_bomber
+	  text = COS_NAVAL_AVIATION
+	  prerequisite = { focus = COS_KAISER_MARINE }
+	  mutually_exclusive = { focus = COS_WOLF_PACKS }
+	  mutually_exclusive = { focus = COS_TRUE_NAVY }
+	  x = 4
+	  y = 1
+	  relative_position_id = COS_KAISER_MARINE
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_base_strike
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_NAVY_FUTURE
+	  icon = GFX_goal_generic_navy_cruiser
+	  text = COS_NAVY_FUTURE
+	  prerequisite = { focus = COS_NAVAL_AVIATION }
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_NAVAL_AVIATION
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = naval_bomber
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_DEATH_FROM_ABOVE
+	  icon = GFX_goal_generic_secret_weapon
+	  text = COS_DEATH_FROM_ABOVE
+	  prerequisite = { focus = COS_NAVAL_AVIATION }
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_NAVAL_AVIATION
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = = {
+	      bonus = 1
+	      uses = 1
+	      category = cv_tech
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_BUILD_DOCKYARDS1
+	  icon = GFX_goal_generic_build_navy
+	  text = COS_BUILD_DOCKYARDS1
+	  prerequisite = { focus = COS_PROJECT_Z focus = COS_CAPITAL_SHIPS }
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_PROJECT_Z
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    103 = {
+	      add_building_construction = {
+	          type = dockyard
+	          level = 2
+	          instant_build = yes
+	      }
+	      add_extra_state_shared_building_slots = 2
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_BUILD_DOCKYARDS2
+	  icon = GFX_goal_generic_build_navy
+	  text = COS_BUILD_DOCKYARDS2
+	  prerequisite = { focus = COS_TRADE_WAR focus = COS_U_BOATS }
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_TRADE_WAR
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    103 = {
+	      add_building_construction = {
+	          type = dockyard
+	          level = 2
+	          instant_build = yes
+	      }
+	      add_extra_state_shared_building_slots = 2
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_BUILD_DOCKYARDS3
+	  icon = GFX_goal_generic_build_navy
+	  text = COS_BUILD_DOCKYARDS3
+	  prerequisite = { focus = COS_DEATH_FROM_ABOVE focus = COS_NAVY_FUTURE}
+		prerequisite = {focus = COS_ALL_USE_PLANES }
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_DEATH_FROM_ABOVE
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    103 = {
+	      add_building_construction = {
+	          type = airfield
+	          level = 2
+	          instant_build = yes
+	      }
+	      add_extra_state_shared_building_slots = 2
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_AMPHIBIOUS_ASSAULT
+	  icon = GFX_goal_generic_amphibious_assault
+	  text = COS_AMPHIBIOUS_ASSAULT
+	  prerequisite = { focus = COS_BUILD_DOCKYARDS1 }
+
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_BUILD_DOCKYARDS1
+	  cost = 1
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    navy_experience = 15
+	  }
+	}
+
+	focus = {
+	  id = COS_TRADE_DOMINATION
+	  icon = GFX_focus_generic_cruiser2
+	  text = COS_TRADE_DOMINATION
+	  prerequisite = { focus = COS_BUILD_DOCKYARDS2 }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_BUILD_DOCKYARDS2
+	  cost = 1
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    navy_experience = 15
+	  }
+	}
+
+	focus = {
+	  id = COS_SUPREMACY_OF_NAVAL_AIR
+	  icon = GFX_goal_generic_air_fighter2
+	  text = COS_SUPREMACY_OF_NAVAL_AIR
+	  prerequisite = { focus = COS_BUILD_DOCKYARDS3 }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_BUILD_DOCKYARDS3
+	  cost = 1
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    navy_experience = 15
+	  }
+	}
+
+	focus = {
+	  id = COS_REFORMED_NAVY
+	  #icon = GFX_goal_generic_navy_carrier
+	  text = COS_REFORMED_NAVY
+	  prerequisite = { focus = COS_AMPHIBIOUS_ASSAULT focus = COS_TRADE_DOMINATION focus = COS_SUPREMACY_OF_NAVAL_AIR }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_TRADE_DOMINATION
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Reformed_Navy
+	    }
+	  }
+	}
+
+
+	############AF
+	focus = {
+	  id = COS_KAISER_AIR
+	  icon = GFX_goal_generic_build_airforce
+	  text = COS_KAISER_AIR
+	  prerequisite = { focus = COS_PREP_WAR }
+	  x = 29
+	  y = 1
+	  relative_position_id = COS_PREP_WAR
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    air_experience = 20
+	    hidden_effect = {
+	    AUS = {country_event = {id =  vienna.1 days = 65}}
+	    SPR = {country_event = {id =  spain.100 days = 5}}
+	    SPS = {country_event = {id =  spain.100 days = 5}}
+	    SPR = {country_event = {id =  spain.100 days = 5}}
+	    ARA = {country_event = {id =  spain.100 days = 5}}
+
+	    #CHI = {country_event = {id =  chinacivilwar.1 days = 153}}
+	    #BEI = {country_event = {id =  chinacivilwar.1 days = 153}}
+
+	    NSI = {country_event = {id = siam.1 days = 112}}
+
+	    BRA = {country_event = {id = southamerica.1 days = 222}}
+	    }
+	  }
+	}
+
+
+	focus = {
+	  id = COS_BUILD_AIRFIELDS
+	  icon = GFX_goal_generic_air_production
+	  text = COS_BUILD_FIELDS
+	  prerequisite = { focus = COS_KAISER_AIR }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_KAISER_AIR
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    random_owned_controlled_state = {
+	      add_building_construction = {
+	          type = air_base
+	          level = 2
+	          instant_build = yes
+	      }
+	      add_extra_state_shared_building_slots = 2
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_BURN_TO_GROUND
+	  icon = GFX_goal_generic_air_bomber
+	  text = COS_BURN_TO_GROUND
+	  prerequisite = { focus = COS_BUILD_AIRFIELDS }
+	  mutually_exclusive = { focus = COS_AIRLAND_BATTLE }
+	  mutually_exclusive = { focus = ALL_USE_PLANES }
+	  x = 2
+	  y = 1
+	  relative_position_id = COS_BUILD_AIRFIELDS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_strategic_destruction
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_RAIN_OF_FIRE
+	  icon = GFX_focus_wonderweapons
+	  text = COS_RAIN_OF_FIRE
+	  prerequisite = { focus = COS_BURN_TO_GROUND }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_BURN_TO_GROUND
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_strategic_bomber
+	    }
+			add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = tactical_bomber
+	    }
+	  }
+	}
+
+
+
+
+
+	focus = {
+	  id = COS_AIRLAND_BATTLE
+	  icon = GFX_goal_generic_air_fighter2
+	  text = COS_AIRLAND_BATTLE
+	  prerequisite = { focus = COS_BUILD_AIRFIELDS }
+	  mutually_exclusive = { focus = COS_BURN_TO_GROUND }
+	  mutually_exclusive = { focus = COS_ALL_USE_PLANES }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_BUILD_AIRFIELDS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_battlefield_support
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_STRAFING
+	  icon = GFX_goal_generic_air_fighter
+	  text = COS_STRAFING
+	  prerequisite = { focus = COS_AIRLAND_BATTLE }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_AIRLAND_BATTLE
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = light_fighter
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_ACES
+	  icon = GFX_goal_generic_construction
+	  text = COS_ACES
+	  prerequisite = { focus = COS_STRAFING }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_STRAFING
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = = {
+	      bonus = 1
+	      uses = 1
+	      category = cas_bomber
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_ALL_USE_PLANES
+	  icon = GFX_goal_generic_air_bomber
+	  text = ALL_USE_PLANES
+	  prerequisite = { focus = COS_BUILD_AIRFIELDS }
+	  mutually_exclusive = { focus = COS_BURN_TO_GROUND }
+	  mutually_exclusive = { focus = COS_AIRLAND_BATTLE }
+	  x = -2
+	  y = 1
+	  relative_position_id = COS_BUILD_AIRFIELDS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_operational_integrity
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_BOMBERS
+	  icon = GFX_goal_generic_air_naval_bomber
+	  text = COS_BOMBERS
+	  prerequisite = { focus = COS_ALL_USE_PLANES }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_ALL_USE_PLANES
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = tactical_bomber
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_ANTI_TROOP_BOMBS
+	  icon = GFX_focus_wonderweapons
+	  text = COS_ANTI_TROOP_BOMBS
+	  prerequisite = { focus = COS_BOMBERS }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_BOMBERS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cas_bomber
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_RAIN_OF_ANNIHILATION
+	  icon = GFX_goal_generic_CAS
+	  text = COS_RAIN_OF_ANNIHILATION
+	  prerequisite = { focus = COS_RAIN_OF_FIRE }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_RAIN_OF_FIRE
+	  cost = 1
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    air_experience = 15
+	  }
+	}
+
+	focus = {
+	  id = COS_DOGFIGHTING
+	  icon = GFX_goal_generic_secret_weapon
+	  text = COS_DOGFIGHTING
+	  prerequisite = { focus = COS_ACES }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_STRAFING
+	  cost = 1
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    air_experience = 15
+	  }
+	}
+
+	focus = {
+	  id = COS_BOMBS_EVERYWHERE
+	  icon = GFX_goal_generic_construction
+	  text =  COS_BOMBS_EVERYWHERE
+	  prerequisite = { focus = COS_ANTI_TROOP_BOMBS }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_BOMBERS
+	  cost = 1
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    air_experience = 15
+	  }
+	}
+
+	focus = {
+	  id = COS_REFORMED_AIR_FORCE
+	  icon = GFX_Austrian_Air_Force
+	  text = COS_REFORMED_AIR_FORCE
+	  prerequisite = { focus = COS_BOMBS_EVERYWHERE focus = COS_DOGFIGHTING focus = COS_RAIN_OF_ANNIHILATION }
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_DOGFIGHTING
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Reformed_Air_Force
+	    }
+	  }
+	}
+
+
+
+
+
+
+
+
+
+	focus = {
+	  id = COS_fortify_austria
+	  icon = GFX_goal_generic_defence
+	  text = COS_fortify_austria
+	  prerequisite = { focus = COS_PREP_WAR }
+	  x = -10
+	  y = 1
+	  relative_position_id = COS_PREP_WAR
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Fortify_austria
+	    }
+	  }
+	}
+
+	focus = {
+	  id = COS_danube_line
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_danube_line
+	  prerequisite = { focus = COS_fortify_austria }
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_fortify_austria
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      AUS = {
+	        every_owned_state = {
+	            limit = {
+	                any_neighbor_state = {
+	                    is_controlled_by = GER
+	                }
+	            }
+	            add_building_construction = {
+	                type = bunker
+	                level = 3
+	                instant_build = yes
+	                province = {
+	                    all_provinces = yes
+	                    limit_to_border = yes
+	                }
+	            }
+	        }
+	    }
+			GPU = {
+				every_owned_state = {
+						limit = {
+								any_neighbor_state = {
+										is_controlled_by = GER
+								}
+						}
+						add_building_construction = {
+								type = bunker
+								level = 3
+								instant_build = yes
+								province = {
+										all_provinces = yes
+										limit_to_border = yes
+								}
+						}
+				}
+		}
+	  }
+	}
+
+
+
+
+
+	focus = {
+	  id = COS_dniester_line
+	  icon = GFX_goal_generic_position_armies
+	  text = COS_dniester_line
+	  prerequisite = { focus = COS_fortify_austria }
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_fortify_austria
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      AUS = {
+	        every_owned_state = {
+	            limit = {
+	                any_neighbor_state = {
+	                    is_controlled_by = ITA
+	                }
+	            }
+	            add_building_construction = {
+	                type = bunker
+	                level = 3
+	                instant_build = yes
+	                province = {
+	                    all_provinces = yes
+	                    limit_to_border = yes
+	                }
+	            }
+	        }
+	    }
+	  }
+	}
+
+
+
+
+
+
+
+	focus = {
+	  id = COS_vienna
+	  icon = GFX_goal_generic_fortify_city
+	  text = COS_vienna
+	  prerequisite = { focus = COS_danube_line focus = COS_dniester_line}
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_danube_line
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      4 = {
+	        add_building_construction = {
+	          type = bunker
+	          level = 7
+	          instant_build = Yes
+	          province = 11666
+	        }
+	      }
+	  }
+	}
+
+
+
+
+	focus = {
+	  id = COS_assume_defensive_positions
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_assume_defensive_positions
+	  prerequisite = { focus = COS_vienna}
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_vienna
+	  cost = 10
+
+	  available = {
+	    OR = {
+	      has_war_with = ITA
+	      has_war_with = GER
+	    }
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      swap_ideas = {
+	        add_idea = Fortify_austria_2
+	        remove_idea = Fortify_austria
+	      }
+	  }
+	}
+
+
+
+
+
+	focus = {
+	  id = COS_mil_industry_1
+	  icon = GFX_goal_generic_construct_mil_factory
+	  text = COS_mil_industry_1
+	  prerequisite = { focus = COS_PREP_WAR}
+	  x = -5
+	  y = 1
+	  relative_position_id = COS_PREP_WAR
+	  cost = 10
+
+	  available = {
+	    has_war_support > 0.25
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	  random_owned_controlled_state = {
+	    limit = {
+	      free_building_slots = {
+	        building = arms_factory
+	        size > 1
+	        include_locked = yes
+	      }
+	    }
+	    add_extra_state_shared_building_slots = 2
+	    add_building_construction = {
+	      type = arms_factory
+	      level = 2
+	      instant_build = yes
+	    }
+	  }
+	  random_owned_controlled_state = {
+	    limit = {
+	      free_building_slots = {
+	        building = arms_factory
+	        size > 1
+	        include_locked = yes
+	      }
+	    }
+	    add_extra_state_shared_building_slots = 2
+	    add_building_construction = {
+	      type = arms_factory
+	      level = 2
+	      instant_build = yes
+	    }
+	  }
+	  }
+	}
+	focus = {
+	  id = COS_mil_industry_2
+	  icon = GFX_goal_generic_construct_mil_factory
+	  text = COS_mil_industry_2
+	  prerequisite = { focus = COS_mil_industry_1}
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_mil_industry_1
+	  cost = 10
+
+	  available = {
+
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	  random_owned_controlled_state = {
+	    limit = {
+	      free_building_slots = {
+	        building = arms_factory
+	        size > 1
+	        include_locked = yes
+	      }
+	    }
+	    add_extra_state_shared_building_slots = 2
+	    add_building_construction = {
+	      type = arms_factory
+	      level = 2
+	      instant_build = yes
+	    }
+	  }
+	  random_owned_controlled_state = {
+	    limit = {
+	      free_building_slots = {
+	        building = arms_factory
+	        size > 1
+	        include_locked = yes
+	      }
+	    }
+	    add_extra_state_shared_building_slots = 2
+	    add_building_construction = {
+	      type = arms_factory
+	      level = 2
+	      instant_build = yes
+	    }
+	  }
+	  }
+	}
+	focus = {
+	  id = COS_mil_infastructure_1
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_mil_infastructure_1
+	  prerequisite = { focus = COS_PREP_WAR}
+	  x = -3
+	  y = 1
+	  relative_position_id = COS_PREP_WAR
+	  cost = 10
+
+	  available = {
+	    has_war_support > 0.25
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	  every_state = {
+	    limit = {
+	      is_owned_by = GER
+	    }
+	    add_building_construction = {
+	      type = infrastructure
+	      level = 6
+	      instant_build = yes
+	    }
+	  }
+	  }
+	}
+
+  focus = {
+	  id = COS_mil_infastructure_2
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_mil_infastructure_2
+	  prerequisite = { focus = COS_mil_infastructure_1}
+	  x = 0
+	  y = 1
+	  relative_position_id = COS_mil_infastructure_1
+	  cost = 10
+
+	  available = {
+
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_resource = {
+	      type = steel
+	      amount = 12
+	      state = 9
+	    }
+	  }
+	}
+
+
+
+
+
+
+
+
+
+
+
+	########political
+
+  focus = {
+	  id = COS_announce_the_kaiser_speech
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_announce_the_kaiser_speech
+	  #prerequisite = { focus = COS_BUILD_INDUSTRY}
+	  x = 30
+	  y = -1
+	  relative_position_id = COS_BUILD_INDUSTRY
+	  cost = 10
+
+	  available = {
+
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+
+	  }
+	}
+
+  focus = {
+	  id = COS_thwart_the_attempt_on_the_kaiser
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_thwart_the_attempt_on_the_kaiser
+	  prerequisite = { focus = COS_announce_the_kaiser_speech}
+	  x = -7
+	  y = 1
+	  relative_position_id = COS_announce_the_kaiser_speech
+	  cost = 10
+
+	  available = {
+
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+
+	  }
+	}
+
+  focus = {
+	  id = COS_fortify_the_route
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_fortify_the_route
+	  prerequisite = { focus = COS_thwart_the_attempt_on_the_kaiser}
+	  x = -1
+	  y = 1
+	  relative_position_id = COS_thwart_the_attempt_on_the_kaiser
+	  cost = 1
+
+	  available = {
+
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+
+	  }
+	}
+
+  focus = {
+	  id = COS_recruit_the_security_guards
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_recruit_the_security_guards
+	  prerequisite = { focus = COS_thwart_the_attempt_on_the_kaiser}
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_thwart_the_attempt_on_the_kaiser
+	  cost = 1
+
+	  available = {
+
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+
+	  }
+	}
+
+
+
+	focus = {
+    id = COS_KAISER_SPEECH
+    icon = GFX_Austrian_Crown
+    text = COS_KAISER_SPEECH
+    prerequisite = { focus = COS_recruit_the_security_guards focus = COS_fortify_the_route }
+    x = -1
+    y = 1
+    relative_position_id = COS_recruit_the_security_guards
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = 120
+			#AUS = { country_event = austria.4 days = 3 }
+			hidden_effect = {
+			AUS = {country_event = {id =  vienna.1 days = 65}}
+			SPR = {country_event = {id =  spain.100 days = 5}}
+			SPS = {country_event = {id =  spain.100 days = 5}}
+			SPR = {country_event = {id =  spain.100 days = 5}}
+			ARA = {country_event = {id =  spain.100 days = 5}}
+
+			#CHI = {country_event = {id =  chinacivilwar.1 days = 153}}
+			#BEI = {country_event = {id =  chinacivilwar.1 days = 153}}
+
+			NSI = {country_event = {id = siam.1 days = 112}}
+
+			BRA = {country_event = {id = southamerica.1 days = 222}}
+			}
+    }
+  }
+
+  focus = {
+	  id = COS_recruit_the_security_guards
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_recruit_the_security_guards
+	  prerequisite = { focus = COS_thwart_the_attempt_on_the_kaiser}
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_thwart_the_attempt_on_the_kaiser
+	  cost = 1
+
+	  available = {
+
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+
+	  }
+	}
+
+
+
+	focus = {
+    id = COS_ABSOLUTISM
+    icon = GFX_focus_generic_monarchy_1
+    text = COS_ABSOLUTISM
+    prerequisite = { focus = COS_KAISER_SPEECH }
+    x = -3
+    y = 1
+    relative_position_id = COS_KAISER_SPEECH
+    cost = 10
+    ai_will_do = {
+      factor = 45
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = -25
+    }
+  }
+
+	focus = {
+    id = COS_AUTOCRACY
+    icon = GFX_focus_generic_monarchy_2
+    text = COS_AUTOCRACY
+    prerequisite = { focus = COS_ABSOLUTISM }
+    x = -1
+    y = 1
+    relative_position_id = COS_ABSOLUTISM
+    cost = 10
+    ai_will_do = {
+      factor = 200
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			swap_ideas {
+				add_idea = Absolutism_2
+				remove_idea = Absolutism
+			}
+    }
+  }
+
+	focus = {
+    id = COS_ALL_HAIL_KAISER
+    icon = GFX_focus_por_reclaim_crown_jewel
+    text = COS_ALL_HAIL_KAISER
+    prerequisite = { focus = COS_AUTOCRACY }
+		prerequisite = { focus = COS_expand_recruitment_imperial_army }
+
+    x = 1
+    y = 1
+    relative_position_id = COS_AUTOCRACY
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = 100
+			add_stability = 0.1
+			add_war_support = 0.1
+    }
+  }
+
+	focus = {
+    id = COS_expand_recruitment_imperial_army
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_expand_recruitment_imperial_army
+    prerequisite = { focus = COS_ABSOLUTISM }
+    x = 1
+    y = 1
+    relative_position_id = COS_ABSOLUTISM
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_ideas = {
+				Kasier_Und_Reich
+			}
+    }
+  }
+
+	focus = {
+    id = COS_BAN_CZECHS
+    icon = GFX_focus_generic_little_entente
+    text = COS_BAN_CZECHS
+    prerequisite = { focus = COS_ALL_HAIL_KAISER }
+    x = -1
+    y = 1
+    relative_position_id = COS_ALL_HAIL_KAISER
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+				add_timed_idea = {idea = Prague_Massacre days = 100}
+				remove_ideas = {Bohemian_Outrage}
+
+				news_event = { id = austria.2 hours = 2}
+    }
+  }
+
+	focus = {
+    id = COS_EXECUTE_BELA_KUN
+    icon = GFX_focus_generic_manpower
+    text = COS_EXECUTE_BELA_KUN
+    prerequisite = { focus = COS_BAN_CZECHS }
+		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
+		prerequisite = { focus = COS_INTERVENE_LOMBARDY }
+
+    x = 1
+    y = 1
+    relative_position_id = COS_BAN_CZECHS
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+		bypass = {
+			has_war_with = HUN
+		}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+				AUS = { country_event =  austria.1 days = 3 }
+				remove_ideas = {
+					Nemetzi_dal
+				}
+    }
+  }
+
+	focus = {
+    id = COS_INTERVENE_LOMBARDY
+    icon = GFX_focus_usa_attack_italy
+    text = COS_INTERVENE_LOMBARDY
+    prerequisite = { focus = COS_ALL_HAIL_KAISER }
+    x = 1
+    y = 1
+    relative_position_id = COS_ALL_HAIL_KAISER
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+				remove_ideas = {
+					Giovane_Italia
+				}
+				add_timed_idea = {
+					idea = Sixty_Days_Milan
+					days = 60 #######NO SHIT SHERLOCK
+				}
+				news_event = { id = austria.3 hours = 2 }
+    }
+  }
+
+	focus = {
+		id = COS_CENTRALISM
+		icon = GFX_focus_generic_self_management
+		text = COS_CENTRALISM
+		prerequisite = { focus = COS_EXECUTE_BELA_KUN }
+		x = 0
+		y = 1
+		relative_position_id = COS_EXECUTE_BELA_KUN
+		cost = 15
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+					add_ideas = Centralism
+		}
+	}
+
+	focus = {
+    id = COS_ANNEX_BUCOVINA
+    icon = GFX_Attack_Romania
+    text = COS_ANNEX_BUCOVINA
+    prerequisite = { focus = COS_CENTRALISM }
+    x = 0
+    y = 1
+    relative_position_id = COS_CENTRALISM
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+				ROM = { country_event = austria.200 days = 3 }
+				}
+    }
+
+	focus = {
+    id = COS_reform_central_powers
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_reform_central_powers
+    prerequisite = { focus = COS_ANNEX_BUCOVINA }
+    x = -1
+    y = 1
+    relative_position_id = COS_ANNEX_BUCOVINA
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_invite_greeks
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_invite_greeks
+    prerequisite = { focus = COS_reform_central_powers }
+    x = 0
+    y = 1
+    relative_position_id = COS_reform_central_powers
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_invite_ottomans
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_invite_ottomans
+    prerequisite = { focus = COS_invite_greeks }
+    x = 0
+    y = 1
+    relative_position_id = COS_invite_greeks
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_claims_on_eastern_krakow
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_claims_on_eastern_krakow
+    prerequisite = { focus = COS_ANNEX_BUCOVINA }
+    x = 1
+    y = 1
+    relative_position_id = COS_ANNEX_BUCOVINA
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_break_swiss
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_break_swiss
+    prerequisite = { focus = COS_claims_on_eastern_krakow }
+    x = 0
+    y = 1
+    relative_position_id = COS_claims_on_eastern_krakow
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_secure_our_southern_flank
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_secure_our_southern_flank
+    prerequisite = { focus = COS_break_swiss }
+    x = 0
+    y = 1
+    relative_position_id = COS_break_swiss
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_non_aggression_with_russia
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_non_aggression_with_russia
+    prerequisite = { focus = COS_ANNEX_BUCOVINA focus = COS_bulwark_against_expansionism}
+
+    x = 4
+    y = 1
+    relative_position_id = COS_ANNEX_BUCOVINA
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_envoy_to_france
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_envoy_to_france
+    prerequisite = { focus = COS_non_aggression_with_russia }
+    x = 0
+    y = 1
+    relative_position_id = COS_non_aggression_with_russia
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_arms_deal_with_america
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_arms_deal_with_america
+    prerequisite = { focus = COS_envoy_to_france }
+    x = 0
+    y = 1
+    relative_position_id = COS_envoy_to_france
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+
+
+	focus = {
+    id = COS_colonial_ambitions
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_colonial_ambitions
+    prerequisite = { focus = COS_CENTRALISM }
+    x = -8
+    y = 1
+    relative_position_id = COS_CENTRALISM
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+	focus = {
+    id = COS_expansion_in_africa
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_expansion_in_africa
+    prerequisite = { focus = COS_colonial_ambitions }
+    x = -5
+    y = 1
+    relative_position_id = COS_colonial_ambitions
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_claim_the_north_african_coast
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_claim_the_north_african_coast
+    prerequisite = { focus = COS_expansion_in_africa }
+    x = -2
+    y = 1
+    relative_position_id = COS_expansion_in_africa
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_demand_tunis
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_demand_tunis
+    prerequisite = { focus = COS_claim_the_north_african_coast }
+    x = 0
+    y = 1
+    relative_position_id = COS_claim_the_north_african_coast
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_north_african_oil
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_north_african_oil
+    prerequisite = { focus = COS_demand_tunis }
+    x = 0
+    y = 1
+    relative_position_id = COS_demand_tunis
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_infrastructure_in_somalia
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_infrastructure_in_somalia
+    prerequisite = { focus = COS_expansion_in_africa }
+    x = 0
+    y = 1
+    relative_position_id = COS_expansion_in_africa
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_expand_in_somalia
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_expand_in_somalia
+    prerequisite = { focus = COS_infrastructure_in_somalia }
+    x = 0
+    y = 1
+    relative_position_id = COS_infrastructure_in_somalia
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_demand_kenya
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_demand_kenya
+    prerequisite = { focus = COS_expand_in_somalia }
+    x = 0
+    y = 1
+    relative_position_id = COS_expand_in_somalia
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_oil_in_angola
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_oil_in_angola
+    prerequisite = { focus = COS_expansion_in_africa }
+    x = 2
+    y = 1
+    relative_position_id = COS_expansion_in_africa
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_connect_our_territories
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_connect_our_territories
+    prerequisite = { focus = COS_oil_in_angola }
+    x = 0
+    y = 1
+    relative_position_id = COS_oil_in_angola
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_claim_the_greater_congo_basin
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_claim_the_greater_congo_basin
+    prerequisite = { focus = COS_connect_our_territories }
+    x = 0
+    y = 1
+    relative_position_id = COS_connect_our_territories
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+
+
+	focus = {
+    id = COS_influence_brazil
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_influence_brazil
+    prerequisite = { focus = COS_colonial_ambitions }
+    x = 0
+    y = 1
+    relative_position_id = COS_colonial_ambitions
+    cost = 10
+
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_invite_brazil
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_invite_brazil
+    prerequisite = { focus = COS_influence_brazil }
+    x = 0
+    y = 1
+    relative_position_id = COS_influence_brazil
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_infrastructure_in_qingdao
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_infrastructure_in_qingdao
+    prerequisite = { focus = COS_colonial_ambitions }
+    x = 2
+    y = 1
+    relative_position_id = COS_colonial_ambitions
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_influence_beyiang
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_influence_beyiang
+    prerequisite = { focus = COS_infrastructure_in_qingdao }
+    x = 1
+    y = 1
+    relative_position_id = COS_infrastructure_in_qingdao
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_pact_with_beyaing
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_pact_with_beyaing
+    prerequisite = { focus = COS_influence_beyiang }
+    x = 0
+    y = 1
+    relative_position_id = COS_influence_beyiang
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_eastern_menace
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_eastern_menace
+    prerequisite = { focus = COS_pact_with_beyaing }
+    x = 0
+    y = 1
+    relative_position_id = COS_pact_with_beyaing
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_align_indian_congress
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_align_indian_congress
+    prerequisite = { focus = COS_infrastructure_in_qingdao }
+    x = 1
+    y = 1
+    relative_position_id = COS_infrastructure_in_qingdao
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_intervention_india
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_intervention_india
+    prerequisite = { focus = COS_align_indian_congress }
+    x = 0
+    y = 1
+    relative_position_id = COS_align_indian_congress
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_demand_ceylon
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_demand_ceylon
+    prerequisite = { focus = COS_intervention_india }
+    x = 0
+    y = 1
+    relative_position_id = COS_intervention_india
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+
+
+
+
+
+	focus = {
+    id = COS_concessions_to_people
+    icon = GFX_focus_generic_support_the_left_right
+    text = COS_concessions_to_people
+    prerequisite = { focus = COS_KAISER_SPEECH }
+		mutually_exclusive = { focus = COS_ABSOLUTISM }
+    x = 2
+    y = 1
+    relative_position_id = COS_KAISER_SPEECH
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = 25
+			remove_ideas = {
+				Absolutism
+			}
+    }
+  }
+
+
+
+	focus = {
+    id = COS_sign_a_new_constitution
+    icon = GFX_goal_support_democracy
+    text = COS_sign_a_new_constitution
+    prerequisite = { focus = COS_concessions_to_people }
+    x = 2
+    y = 1
+    relative_position_id = COS_concessions_to_people
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_ideas = Constitutionalism
+    }
+  }
+
+	focus = {
+    id = COS_CALL_REICHSRAT
+    icon = GFX_focus_generic_self_management
+    text = COS_CALL_REICHSRAT
+    prerequisite = { focus = COS_sign_a_new_constitution }
+    x = 1
+    y = 1
+    relative_position_id = COS_sign_a_new_constitution
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_popularity {
+				ideology = democratic
+				popularity = 0.3
+			}
+
+			set_country_leader_ideology = conservative
+
+			set_politics {
+				ruling_party = democratic
+			}
+
+			add_ideas = {
+				Karl_1
+			}
+    }
+  }
+	focus = {
+    id = COS_strengthen_diet
+    icon = GFX_focus_generic_self_management
+    text = COS_strengthen_diet
+    prerequisite = { focus = COS_sign_a_new_constitution }
+    x = -1
+    y = 1
+    relative_position_id = COS_sign_a_new_constitution
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+	focus = {
+    id = COS_FREE_AUSTRIA
+    icon = GFX_Abdication
+    text = COS_FREE_AUSTRIA
+    prerequisite = { focus = COS_CALL_REICHSRAT }
+		prerequisite = { focus = COS_strengthen_diet }
+    x = -1
+    y = 1
+    relative_position_id = COS_CALL_REICHSRAT
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = 150
+			add_popularity {
+				ideology = democratic
+				popularity = 0.15
+			}
+    }
+  }
+
+	focus = {
+    id = COS_REOPEN_DIET
+    icon = GFX_focus_generic_diplomatic_treaty
+    text = COS_REOPEN_DIET
+    prerequisite = { focus = COS_FREE_AUSTRIA }
+		mutually_exclusive = { focus = COS_BAN_CZECHS }
+    x = 2
+    y = 1
+    relative_position_id = COS_FREE_AUSTRIA
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+			remove_ideas = {
+				Autonomism
+			}
+    }
+  }
+
+	focus = {
+    id = COS_PARDON_HUNGARIAN_REVS
+    icon = GFX_focus_generic_concessions
+    text = COS_PARDON_HUNGARIAN_REVS
+    prerequisite = { focus = COS_FREE_AUSTRIA }
+		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
+    x = 0
+    y = 1
+    relative_position_id = COS_FREE_AUSTRIA
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+			remove_ideas = {
+				Autonomism_2
+			}
+
+    }
+  }
+
+	focus = {
+    id = COS_DEAL_WITH_ITALIANS
+    icon = GFX_focus_befriend_italy
+    text = COS_DEAL_WITH_ITALIANS
+    prerequisite = { focus = COS_FREE_AUSTRIA }
+		#mutually_exclusive = { focus = COS_FREE_AUSTRIA }
+    x = -2
+    y = 1
+    relative_position_id = COS_FREE_AUSTRIA
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			remove_ideas = {
+				Autonomism_3
+			}
+    }
+  }
+
+	focus = {
+    id = COS_autonomy_for_czechs
+    icon = GFX_focus_generic_self_management
+    text = COS_autonomy_for_czechs
+    prerequisite = { focus = COS_REOPEN_DIET }
+    x = 0
+    y = 1
+    relative_position_id = COS_REOPEN_DIET
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+	focus = {
+    id = COS_autonomy_for_hungarians
+    icon = GFX_focus_generic_self_management
+    text = COS_autonomy_for_hungarians
+    prerequisite = { focus = COS_PARDON_HUNGARIAN_REVS }
+    x = 0
+    y = 1
+    relative_position_id = COS_PARDON_HUNGARIAN_REVS
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+	focus = {
+    id = COS_autonomy_for_italians
+    icon = GFX_focus_generic_self_management
+    text = COS_autonomy_for_italians
+    prerequisite = { focus = COS_DEAL_WITH_ITALIANS }
+    x = 0
+    y = 1
+    relative_position_id = COS_DEAL_WITH_ITALIANS
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+	focus = {
+		id = COS_FEDERALISM
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		text = COS_FEDERALISM
+		prerequisite = { focus = COS_autonomy_for_czechs }
+		prerequisite = { focus = COS_autonomy_for_hungarians }
+		prerequisite = { focus = COS_autonomy_for_italians }
+
+
+		#mutually_exclusive = { focus = COS_PARDON_HUNGARIAN_REVS }
+		x = 0
+		y = 1
+		relative_position_id = COS_autonomy_for_hungarians
+		cost = 15
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+				add_ideas = {
+					Federalism
+				}
+		}
+	}
+
+
+
+	focus = {
+    id = COS_bulwark_against_expansionism
+    icon = GFX_focus_generic_self_management
+    text = COS_bulwark_against_expansionism
+    prerequisite = { focus = COS_FEDERALISM }
+    x = 0
+    y = 1
+    relative_position_id = COS_FEDERALISM
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	add_stability = 0.05
+    }
+  }
+
+
+
+	focus = {
+    id = COS_pacify_the_balkan_states
+    icon = GFX_focus_generic_self_management
+    text = COS_pacify_the_balkan_states
+    prerequisite = { focus = COS_bulwark_against_expansionism }
+    x = 3
+    y = 1
+    relative_position_id = COS_bulwark_against_expansionism
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	###remove cores on Bosnia and vice versa sign non-aggression etc
+    }
+  }
+
+	focus = {
+    id = COS_deal_with_romania
+    icon = GFX_focus_generic_self_management
+    text = COS_deal_with_romania
+    prerequisite = { focus = COS_pacify_the_balkan_states }
+    x = -1
+    y = 1
+    relative_position_id = COS_pacify_the_balkan_states
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+    	###remove cores on Bosnia and vice versa sign non-aggression etc
+    }
+  }
+
+
+
+	focus = {
+    id = COS_croatia_for_alliance
+    icon = GFX_focus_generic_self_management
+    text = COS_croatia_for_alliance
+    prerequisite = { focus = COS_pacify_the_balkan_states }
+    x = 1
+    y = 1
+    relative_position_id = COS_pacify_the_balkan_states
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_invite_bulgaria_albania
+    icon = GFX_focus_generic_self_management
+    text = COS_invite_bulgaria_albania
+    prerequisite = { focus = COS_deal_with_romania }
+		prerequisite = { focus = COS_croatia_for_alliance }
+    x = 1
+    y = 1
+    relative_position_id = COS_deal_with_romania
+    cost = 2
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+
+	focus = {
+		id = COS_TO_BARRICADES
+		icon = GFX_goal_support_communism
+		text = COS_TO_BARRICADES
+		prerequisite = { focus = COS_REFORM }
+		mutually_exclusive = { focus = COS_sign_a_new_constitution }
+		x = -2
+		y = 1
+		relative_position_id = COS_REFORM
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Chaos_Vienna
+			}
+
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+		}
+	}
+
+	focus = {
+		id = COS_LONG_LIVE_REV
+		icon = GFX_focus_generic_soviet_politics
+		text = COS_LONG_LIVE_REV
+		prerequisite = { focus = COS_TO_BARRICADES }
+		x = 0
+		y = 1
+		relative_position_id = COS_TO_BARRICADES
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.2
+			remove_ideas = {
+				Chaos_Vienna
+			}
+
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+
+			set_politics = {
+				ruling_party = communism
+			}
+		}
+	}
+
+	focus = {
+		id = COS_FORM_INTERNATIONALE
+		icon = GFX_focus_generic_join_comintern
+		text = COS_FORM_INTERNATIONALE
+		desc = "Joe"
+		prerequisite = { focus = COS_LONG_LIVE_REV }
+		x = 0
+		y = 1
+		relative_position_id = COS_LONG_LIVE_REV
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			dismantle_faction = yes
+			add_ideas = {
+				Spreader_Revolution
+			}
+		}
+	}
+
+
+
+
+
+	focus = {
+    id = COS_NAT_REGEN
+    icon = GFX_goal_support_fascism
+    text = COS_NAT_REGEN
+    #prerequisite = { focus = COS_KAISER_SPEECH }
+
+		available = {has_country_flag = nat_regen}
+    x = 7
+    y = 1
+    #relative_position_id = COS_KAISER_SPEECH
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_stability = -0.20
+
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.2
+			}
+
+			remove_ideas = {
+				Absolutism
+			}
+
+			#gets event Karl caught by Hitler's thugs
+    }
+  }
+
+	focus = {
+    id = COS_EMPOWER_V_FRONT
+    icon = GFX_focus_focus_fra_fascist_threat
+    text = COS_EMPOWER_V_FRONT
+    prerequisite = { focus = COS_NAT_REGEN }
+    x = 0
+    y = 1
+    relative_position_id = COS_NAT_REGEN
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_ideas = {
+				Gleichschalstung
+			}
+
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+
+			set_politics = {
+				ruling_party = fascism
+			}
+    }
+  }
+
+	focus = {
+    id = COS_ABOLISH_MONARCHY
+    icon = GFX_Abdication
+    text = COS_ABOLISH_MONARCHY
+    prerequisite = { focus = COS_EMPOWER_V_FRONT }
+    x = 0
+    y = 1
+    relative_position_id = COS_EMPOWER_V_FRONT
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_popularity = {
+				ideology = fascism
+				popularity = 0.3
+			}
+
+			add_stability = 0.2
+
+			swap_ideas {
+				add_idea = Gleichschalstung_2
+				remove_idea = Gleichschalstung
+			}
+    }
+  }
+
+	focus = {
+    id = COS_RISE_OF_EVIL
+    icon = GFX_focus_generic_support_the_left_right
+    text = COS_RISE_OF_EVIL
+    prerequisite = { focus = COS_ABOLISH_MONARCHY }
+    x = 0
+    y = 1
+    relative_position_id = COS_ABOLISH_MONARCHY
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = 100
+			add_stability = 0.05
+    }
+  }
+
+
+
+	focus = {
+    id = COS_METTERNICH
+    icon = GFX_focus_ger_reichskommisariats
+    text = COS_METTERNICH
+    prerequisite = { focus = COS_expand_recruitment_imperial_army focus = COS_FORM_INTERNATIONALE focus = COS_FREE_AUSTRIA focus = COS_RISE_OF_EVIL }
+    x = 2
+    y = 1
+    relative_position_id = COS_FORM_INTERNATIONALE
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_stability = 0.05
+    }
+  }
+
+	focus = {
+    id = COS_UPHOLD_CONCERT
+    icon = GFX_goal_generic_neutrality_focus
+    text = COS_UPHOLD_CONCERT
+    prerequisite = { focus = COS_METTERNICH }
+    x = 3
+    y = 1
+    relative_position_id = COS_METTERNICH
+		mutually_exclusive = { focus = COS_PATH_OF_AGGRESSION }
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      give_guarantee = ROM
+			give_guarantee = BUL
+			give_guarantee = YUG
+			give_guarantee = POL
+			give_guarantee = GRE
+			give_guarantee = ALB
+    }
+  }
+
+	focus = {
+    id = COS_INVITE_BALKANS
+    icon = GFX_Diplo_Balkans
+    text = COS_INVITE_BALKANS
+    prerequisite = { focus = COS_UPHOLD_CONCERT }
+    x = -2
+    y = 1
+    relative_position_id = COS_UPHOLD_CONCERT
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      YUG = {country_event = {id =  austria.17 days = 3}}
+			BUL = {country_event = {id =  austria.17 days = 3}}
+			ROM = {country_event = {id =  austria.17 days = 3}}
+			GRE = {country_event = {id =  austria.17 days = 3}}
+			ALB = {country_event = {id =  austria.17 days = 3}}
+    }
+  }
+
+	focus = {
+    id = COS_INVITE_SCANDANAVIA
+    icon = GFX_Diplo_Scandinavia
+    text = COS_INVITE_SCANDANAVIA
+		prerequisite = { focus = COS_UPHOLD_CONCERT }
+    x = 2
+    y = 0
+    relative_position_id = COS_INVITE_BALKANS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			NOR = {country_event = {id =  austria.17 days = 3}}
+			SWE = {country_event = {id =  austria.17 days = 3}}
+			DEN = {country_event = {id =  austria.17 days = 3}}
+    }
+  }
+
+	focus = {
+    id = COS_INVITE_BRITAIN
+    icon = GFX_Diplo_Britain
+    text = COS_INVITE_BRITAIN
+		prerequisite = { focus = COS_UPHOLD_CONCERT }
+    x = 2
+    y = 0
+    relative_position_id = COS_INVITE_SCANDANAVIA
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      ENG = {country_event = {id =  austria.17 days = 5}}
+			IRE = {country_event = {id =  austria.17 days = 5}}
+    }
+  }
+
+	focus = {
+    id = COS_FOUNDATIONS_EU
+    icon = GFX_focus_hol_the_foundations_of_defense
+    text = COS_FOUNDATIONS_EU
+    prerequisite = { focus = COS_INVITE_BRITAIN }
+		prerequisite = { focus = COS_INVITE_BALKANS }
+		prerequisite = { focus = COS_INVITE_SCANDANAVIA}
+    x = -2
+    y = 1
+    relative_position_id = COS_INVITE_BRITAIN
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      set_faction_name = COS_EU
+			news_event = { id = austria.666 hours = 4 }
+    }
+  }
+
+	focus = {
+    id = COS_BELLI_GERANT
+    icon = GFX_focus_hol_the_fourth_ally
+    text = COS_BELLI_GERANT
+    prerequisite = { focus = COS_FOUNDATIONS_EU }
+    x = 0
+    y = 1
+    relative_position_id = COS_FOUNDATIONS_EU
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_stability = 0.12
+			add_political_power = 200
+    }
+  }
+
+	focus = {
+    id = COS_PATH_OF_AGGRESSION
+    icon = GFX_goal_generic_major_war
+    text = COS_PATH_OF_AGGRESSION
+    prerequisite = { focus = COS_METTERNICH }
+    x = -1
+    y = 1
+    relative_position_id = COS_METTERNICH
+		mutually_exclusive = { focus = COS_UPHOLD_CONCERT }
+    cost = 10
+    ai_will_do = {
+      factor = 75
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_ideas = {
+				Path_of_Agression
+			}
+			news_event = { id = austria.667 hours = 4 }
+    }
+  }
+
+
+
+	focus = {
+    id = COS_INVADE_BALKANS
+    icon = GFX_Attack_Balkans
+    text = COS_INVADE_BALKANS
+    prerequisite = { focus = COS_PATH_OF_AGGRESSION }
+    x = 0
+    y = 1
+    relative_position_id = COS_PATH_OF_AGGRESSION
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      create_wargoal = {target = ROM type = annex_everything}
+			create_wargoal = {target = YUG type = annex_everything}
+			create_wargoal = {target = BUL type = annex_everything}
+			create_wargoal = {target = ALB type = annex_everything}
+			create_wargoal = {target = GRE type = annex_everything}
+    }
+  }
+
+	focus = {
+    id = COS_FINISH_OFF_THE_GERMANS
+    icon = GFX_focus_attack_germany
+    text = COS_FINISH_OFF_THE_GERMANS
+    prerequisite = { focus = COS_INVADE_BALKANS }
+    x = 0
+    y = 1
+    relative_position_id = COS_INVADE_BALKANS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      create_wargoal = {
+				type = annex_everything
+				target = GER
+			}
+    }
+  }
+
+	focus = {
+    id = COS_FINISH_OFF_THE_TURKS
+    icon = GFX_Attack_Turkey
+    text = COS_FINISH_OFF_THE_TURKS
+    prerequisite = { focus = COS_FINISH_OFF_THE_GERMANS }
+    x = -1
+    y = 1
+    relative_position_id = COS_FINISH_OFF_THE_GERMANS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      create_wargoal = {
+				type = annex_everything
+				target = TUR
+			}
+    }
+  }
+
+	focus = {
+    id = COS_FINISH_OFF_THE_RUSSIANS
+    icon = GFX_Attack_Russia
+    text = COS_FINISH_OFF_THE_RUSSIANS
+    prerequisite = { focus = COS_FINISH_OFF_THE_TURKS }
+    x = 0
+    y = 1
+    relative_position_id = COS_FINISH_OFF_THE_TURKS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      create_wargoal = {
+				type = annex_everything
+				target = SOV
+			}
+    }
+  }
+
+	focus = {
+    id = COS_FINISH_OFF_THE_FRENCH
+    icon = GFX_focus_attack_france
+    text = COS_FINISH_OFF_THE_FRENCH
+    prerequisite = { focus = COS_FINISH_OFF_THE_GERMANS }
+    x = 1
+    y = 1
+    relative_position_id = COS_FINISH_OFF_THE_GERMANS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      create_wargoal = {
+				type = annex_everything
+				target = FRA
+			}
+    }
+  }
+
+	focus = {
+    id = COS_FINISH_OFF_THE_BRITS
+    icon = GFX_focus_attack_britain
+    text = COS_FINISH_OFF_THE_BRITS
+    prerequisite = { focus = COS_FINISH_OFF_THE_FRENCH }
+    x = 0
+    y = 1
+    relative_position_id = COS_FINISH_OFF_THE_FRENCH
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      create_wargoal = {
+				type = annex_everything
+				target = ENG
+			}
+    }
+  }
+
+	focus = {
+    id = COS_SUPERPOWER
+    icon = GFX_focus_chi_army_reform
+    text = COS_SUPERPOWER
+    prerequisite = { focus = COS_FINISH_OFF_THE_BRITS }
+		prerequisite = { focus = COS_FINISH_OFF_THE_RUSSIANS }
+    x = -1
+    y = 1
+    relative_position_id = COS_FINISH_OFF_THE_BRITS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_stability = -0.1
+			add_war_support = 0.15
+    }
+  }
+
+
+	#######
+	focus = {
+    id = COS_STATE_OF_EMPIRE
+    icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
+    text = COS_STATE_OF_EMPIRE
+    prerequisite = { focus = COS_KAISER_SPEECH }
+    x = -17
+    y = 1
+    relative_position_id = COS_KAISER_SPEECH
+    ai_will_do = {
+      factor = 65
+    }
+		available = {
+			has_country_flag = state_of_the_empire
+		}
+
+		bypass = {
+			has_country_flag = state_of_the_empire
+		}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = 25
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+	#######Vienna Stock Market
+
+
+	focus = {
+		id = COS_recover_from_black_monday
+		icon = GFX_goal_generic_construct_infrastructure
+		text = COS_recover_from_black_monday
+		x = 0
+		y = 0
+		cost = 7
+
+		ai_will_do = {
+			factor = 80
+		}
+		available = {
+			has_country_flag = stocks_crash
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+
+			unlock_decision_category_tooltip = COS_stop_riots
+			unlock_decision_category_tooltip = COS_recovery
+		}
+	}
+
+
+
+
+
+}

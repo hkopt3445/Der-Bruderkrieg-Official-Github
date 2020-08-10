@@ -1,0 +1,1215 @@
+focus_tree = {
+	id = fgd_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = FGD
+		}
+	}
+
+
+continuous_focus_position = { x = 5000, y = 2000 }
+
+	focus = {
+    id = FGD_COMPLIANCE
+    icon = GFX_Diplo_France
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+	mutually_exclusive = { focus = FGD_ASSERT }
+    x = 12
+    y = 0
+    relative_position_id = GFX_focus_generic_industry_1
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_autonomy_score = {
+    value = -400
+	}
+	  }
+  }
+
+  focus = {
+    id = FGD_STATUS_QUO
+    icon = GFX_focus_generic_diplomatic_treaty
+    prerequisite = { focus = FGD_COMPLIANCE }
+	mutually_exclusive = { focus = FGD_ELECTION }
+    x = -2
+    y = 1
+    relative_position_id = FGD_COMPLIANCE
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+	}
+	  }
+  }
+
+  focus = {
+    id = FGD_ROYALISM
+    icon = GFX_focus_generic_monarchy_1
+    prerequisite = { focus = FGD_STATUS_QUO }
+    x = 0
+    y = 1
+    relative_position_id = FGD_STATUS_QUO
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_ideas = KING_COUNTRY
+	  }
+  }
+
+  focus = {
+    id = FGD_ELECTION
+    icon = GFX_goal_support_democracy
+    prerequisite = { focus = FGD_COMPLIANCE }
+	mutually_exclusive = { focus = FGD_STATUS_QUO }
+    x = 2
+    y = 1
+    relative_position_id = FGD_COMPLIANCE
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = democratic
+    popularity = 0.1
+	}
+	}
+  }
+
+  focus = {
+    id = FGD_REPULICANISM
+    icon = GFX_focus_generic_self_management
+    prerequisite = { focus = FGD_ELECTION }
+    x = 0
+    y = 1
+    relative_position_id = FGD_ELECTION
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	set_politics = {
+	ruling_party = democratic
+	}
+	}
+  }
+
+  focus = {
+    id = FGD_ANTI_PAN_GERMAN
+    #icon = GFX_goal_
+    prerequisite = { focus = FGD_ROYALISM }
+    x = 0
+    y = 1
+    relative_position_id = FGD_ROYALISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+		remove_ideas = {
+			Nationalist_Sympathisers
+		}
+	  }
+  }
+
+  focus = {
+    id = FGD_NATION_LIBERTY
+    icon = GFX_focus_generic_anti_fascist_diplomacy
+    prerequisite = { focus = FGD_REPULICANISM }
+    x = 0
+    y = 1
+    relative_position_id = FGD_REPULICANISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+		remove_ideas = {
+			Nationalist_Sympathisers
+		}
+	  }
+  }
+
+  focus = {
+    id = FGD_ANTI_UNITY
+    icon = GFX_goal_
+    prerequisite = { focus = FGD_ANTI_PAN_GERMAN or = FGD_NATION_LIBERTY }
+    x = 2
+    y = 1
+    relative_position_id = FGD_ANTI_PAN_GERMAN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_political_power = 150
+	  }
+  }
+
+  focus = {
+    id = FGD_ASSERT
+    icon = GFX_focus_generic_support_the_left_right
+    prerequisite = { focus =  }
+	mutually_exclusive = { focus = FGD_COMPLIANCE }
+    x = 10
+    y = 0
+    relative_position_id = FGD_COMPLIANCE
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_autonomy_score = {
+    value = 400
+	}
+	}
+  }
+
+  focus = {
+    id = FGD_COMMUNISM
+    icon = GFX_goal_support_communism
+    prerequisite = { focus = FGD_ASSERT }
+	mutually_exclusive = { focus = FGD_ALLY_GORING }
+    x = -2
+    y = 1
+    relative_position_id = FGD_ASSERT
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = communism
+    popularity = 0.1
+	}
+	}
+  }
+
+  focus = {
+    id = FGD_BREAK_CHAIN
+    icon = GFX_focus_generic_soviet_politics
+    prerequisite = { focus = FGD_COMMUNISM }
+    x = 0
+    y = 1
+    relative_position_id = FGD_COMMUNISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+
+		add_popularity = {
+	    ideology = communism
+	    popularity = 0.35
+		}
+	set_politics = {
+	ruling_party = communism
+	}
+	leave_faction = yes
+	FRA = {
+	end_puppet = FGD
+	country_event = sgc-rhi.3
+	}
+	}
+  }
+
+  focus = {
+    id = FGD_LIBERATE_GERMANY
+    icon = GFX_focus_ger_great_red_menace
+    prerequisite = { focus = FGD_BREAK_CHAIN }
+    x = 0
+    y = 1
+    relative_position_id = FGD_BREAK_CHAIN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_ideas = RED_DAWN
+	create_wargoal = {
+    type = annex_everything
+    target = GPU
+	}
+	create_wargoal = {
+    type = annex_everything
+    target = GER
+	}
+	  }
+  }
+
+  focus = {
+    id = FGD_ALLY_GORING
+    icon = GFX_goal_support_fascism
+    prerequisite = { focus = FGD_ASSERT }
+	mutually_exclusive = { focus = FGD_COMMUNISM }
+    x = 2
+    y = 1
+    relative_position_id = FGD_ASSERT
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_popularity = {
+    ideology = fascism
+    popularity = 0.1
+	}
+	  }
+  }
+
+  focus = {
+    id = FGD_EXPEL_FOREIGN
+    icon = GFX_focus_attack_france
+    prerequisite = { focus = FGD_ALLY_GORING }
+    x = 0
+    y = 1
+    relative_position_id = FGD_ALLY_GORING
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	set_politics = {
+	ruling_party = fascism
+	}
+	leave_faction = yes
+	FRA = {
+	end_puppet = FGD
+	country_event = sgc-rhi.3
+	}
+	  }
+  }
+
+  focus = {
+    id = FGD_UNITY_GUNPOINT
+    icon = GFX_focus_ger_oppose_hitler
+    prerequisite = { focus = FGD_EXPEL_FOREIGN }
+    x = 0
+    y = 1
+    relative_position_id = FGD_EXPEL_FOREIGN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_ideas = GLEICH
+
+	country_event = sgc-rhi.2
+	create_wargoal = {
+    type = annex_everything
+    target = GPU
+	}
+	}
+  }
+
+  focus = {
+    id = FGD_INTERNATIONALISM
+    icon = GFX_goal_
+    prerequisite = { focus = FGD_LIBERATE_GERMANY or = FGD_UNITY_GUNPOINT }
+    x = 0
+    y = 4
+    relative_position_id = FGD_ASSERT
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_war_support = 0.1
+	  }
+  }
+
+  focus = {
+    id = FGD_BREAK_EUROPA_CHAIN
+    icon = GFX_goal_
+    prerequisite = { focus = FGD_INTERNATIONALISM }
+    x = 0
+    y = 1
+    relative_position_id = FGD_INTERNATIONALISM
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+			add_ideas = JUSTIFY_1
+	  }
+  }
+
+  focus = {
+    id = FGD_PAN_GERMAN
+    icon = GFX_focus_ger_reichskommisariats
+    prerequisite = { focus = FGD_BREAK_EUROPA_CHAIN }
+    x = 0
+    y = 1
+    relative_position_id = FGD_BREAK_EUROPA_CHAIN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+	add_war_support = 0.1
+	  }
+  }
+
+  focus = {
+    id = FGD_GERMAN_CENTURY
+    icon = GFX_focus_ger_revive_kaiserreich
+    prerequisite = { focus = FGD_PAN_GERMAN }
+    x = 0
+    y = 1
+    relative_position_id = FGD_PAN_GERMAN
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+			swap_ideas = {
+				add_idea = JUSTIFY_2
+				remove_idea = JUSTIFY_1
+			}
+	  }
+  }
+
+	focus = {
+		id = FGD_Form_Germany
+		icon = GFX_United_Germany_Focus
+		text = FGD_Form_Germany
+		prerequisite = { focus = FGD_GERMAN_CENTURY }
+
+		x = 0
+		y = 1
+		relative_position_id = FGD_GERMAN_CENTURY
+		cost = 10
+
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			unlock_decision_category_tooltip = form_germany_category
+		}
+	}
+
+
+	focus = {
+    id = FGD_BUILD_INDUSTRY
+    icon = GFX_goal_generic_construction
+    text = FGD_BOOST_ECONOMY
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+    x = 0
+    y = 0
+    #relative_position_id = ITA_industrial_effort_2
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_tech_bonus {
+        bonus = 0.5
+        uses = 2
+        category = industry
+      }
+    }
+  }
+  focus = {
+    id = FGD_DEV_RHINELAND
+    icon = GFX_focus_generic_industry_1
+    text = FGD_DEV_RHINELAND
+    prerequisite = { focus = FGD_BUILD_INDUSTRY }
+    x = -1
+    y = 1
+    relative_position_id = FGD_BUILD_INDUSTRY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      51 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+      }
+     }
+  }
+
+	focus = {
+    id = FGD_DEV_MOSSELAND
+    icon = GFX_focus_generic_industry_2
+    text = FGD_DEV_MOSSELAND
+    prerequisite = { focus = FGD_BUILD_INDUSTRY }
+    x = 1
+    y = 1
+    relative_position_id = FGD_BUILD_INDUSTRY
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      42 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+      }
+     }
+  }
+
+	focus = {
+		id = FGD_EXTRA_TECH_SLOT
+		icon = GFX_goal_generic_construct_civ_factory
+		text = FGD_EXTRA_TECH_SLOT
+		prerequisite = { focus = FGD_DEV_RHINELAND }
+		prerequisite = { focus = FGD_DEV_MOSSELAND }
+		x = 1
+		y = 1
+		relative_position_id = FGD_DEV_RHINELAND
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_research_slot = 1
+
+		 }
+	}
+
+  focus = {
+    id = FGD_STRONG_RHINELND
+    icon = GFX_goal_generic_construct_civ_factory
+    text = FGD_STRONG_RHINELND
+    prerequisite = { focus = FGD_EXTRA_TECH_SLOT }
+    x = 0
+    y = 1
+    relative_position_id = FGD_EXTRA_TECH_SLOT
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+    completion_reward = {
+      add_ideas = {
+        Booming_Economy
+      }
+
+     }
+  }
+
+
+
+	focus = {
+	  id = FGD_mobilize_reserves
+	  icon = GFX_goal_generic_production
+	  text = FGD_mobilize_reserves
+	  x = 0
+	  y = 1
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  prerequisite = {focus = FGD_STRONG_RHINELND}
+
+	  relative_position_id = FGD_STRONG_RHINELND
+
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+	  completion_reward = {
+	    add_ideas = {
+	      war_economy
+	    }
+	  }
+	}
+
+	focus = {
+	  id = FGD_military_industry
+	  icon = GFX_goal_generic_construct_mil_factory
+	  text = FGD_military_industry
+	  prerequisite = { focus = FGD_mobilize_reserves }
+	  x = -1
+	  y = 1
+	  relative_position_id = FGD_mobilize_reserves
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    #	Adds a civilian Factory (Warsaw)
+	      42 = {
+	      add_building_construction = {
+	          type = arms_complex
+	          level = 2
+	          instant_build = yes
+
+	      }
+	      add_extra_state_shared_building_slots = 2
+	      }
+	    }
+	  }
+
+	focus = {
+	  id = FGD_military_infrastructure
+	  icon = GFX_goal_generic_construct_infrastructure
+	  text = FGD_military_infrastructure
+	  prerequisite = { focus = FGD_mobilize_reserves }
+	  x = 1
+	  y = 1
+	  relative_position_id = FGD_mobilize_reserves
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    #	Adds a civilian Factory (Warsaw)
+	      every_state = {
+	        limit = {
+	          is_owned_by = FGD
+	        }
+	        add_building_construction = {
+	          type = infrastructure
+	          level = 4
+	          instant_build = yes
+	        }
+	      }
+	    }
+	  }
+
+	focus = {
+	  id = FGD_rhineland_steel
+	  icon = GFX_goal_generic_construct_infrastructure
+	  text = FGD_rhineland_steel
+	  prerequisite = { focus = FGD_military_infrastructure }
+	  x = 0
+	  y = 1
+	  relative_position_id = FGD_military_infrastructure
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    #	Adds a civilian Factory (Warsaw)
+	      add_resource = {
+	        type = steel
+	        amount = 16
+	        state = 42
+	      }
+	    }
+	  }
+
+
+
+	focus = {
+	  id = FGD_fortify_border
+	  icon = GFX_goal_generic_construct_military
+	  text = FGD_fortify_border
+	  prerequisite = { focus = FGD_military_industry }
+	  x = 0
+	  y = 1
+	  relative_position_id = FGD_military_industry
+	  cost = 10
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	  FGD = {
+	    every_owned_state = {
+	        limit = {
+	            any_neighbor_state = {
+	                is_controlled_by = GER
+	            }
+	        }
+	        add_building_construction = {
+	            type = bunker
+	            level = 5
+	            instant_build = yes
+	            province = {
+	                all_provinces = yes
+	                limit_to_border = yes
+	            }
+	        }
+	    }
+	}
+	}
+	  }
+
+
+
+	focus = {
+	  id = FGD_ready_for_war
+	  icon = GFX_Austria_Burning
+	  text = FGD_ready_for_war
+	  prerequisite = { focus = FGD_rhineland_steel }
+	  prerequisite = { focus = FGD_fortify_border }
+
+	  x = 1
+	  y = 1
+	  relative_position_id = FGD_fortify_border
+	  cost = 10
+
+	  available = {
+	    has_war_with  = AUS
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+		add_manpower = 50000
+		add_war_support = 0.15
+		add_political_power = 150
+
+
+	  }
+	}
+
+
+
+	focus = {
+	  id = FGD_ARMY
+	  icon = GFX_goal_generic_axis_build_infantry
+	  text = FGD_ARMY
+	  #prerequisite = { focus = ITA_industrial_effort_2 }
+	  x = 0
+	  y = 6
+	  relative_position_id = FGD_COMPLIANCE
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+	    army_experience = 20
+	  }
+	}
+
+
+	focus = {
+	  id = FGD_FRENCH_ADVISORS
+	  icon = GFX_goal_generic_construction
+	  text = FGD_FRENCH_ADVISORS
+	  prerequisite = { focus = FGD_ARMY }
+	  mutually_exclusive = {focus = FGD_GERMAN_ADVISORS}
+	  x = -4
+	  y = 1
+	  relative_position_id = FGD_ARMY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	        add_ideas = {
+	          Russian_Advisors
+	        }
+	  }
+	}
+
+	focus = {
+	  id = FGD_FOCUS_ON_BATTLEPLAN
+	  icon = GFX_goal_generic_army_doctrines
+	  text = FGD_FOCUS_ON_BATTLEPLAN
+	  prerequisite = { focus = FGD_FRENCH_ADVISORS }
+	  mutually_exclusive = { focus = FGD_FOCUS_ON_SIZE }
+	  x = -2
+	  y = 1
+	  relative_position_id = FGD_FRENCH_ADVISORS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = cat_grand_battle_plan
+	    }
+	   }
+	}
+
+	focus = {
+	  id = FGD_OUTSMART_GERMANS
+	  icon = GFX_goal_generic_construct_military
+	  text = FGD_OUTSMART_GERMANS
+	  prerequisite = { focus = FGD_FOCUS_ON_BATTLEPLAN }
+	  x = 0
+	  y = 1
+	  relative_position_id = FGD_FOCUS_ON_BATTLEPLAN
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_tech_bonus {
+	      bonus = 0.5
+	      uses = 1
+	      category = cat_grand_battle_plan
+	    }
+	    add_tech_bonus {
+	      bonus = 0.5
+	      uses = 1
+	      category = support_tech
+	    }
+	   }
+	}
+
+
+	focus = {
+	  id = FGD_MASTER_TACTICS
+	  icon = GFX_goal_generic_cavalry
+	  text = FGD_MASTER_TACTICS
+	  prerequisite = { focus = FGD_OUTSMART_GERMANS }
+	  x = 0
+	  y = 1
+	  relative_position_id = FGD_OUTSMART_GERMANS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      add_ideas = {
+	        Tactical_Genius
+	      }
+	    }
+	 }
+
+	 focus = {
+	   id = FGD_FOCUS_ON_SIZE
+	   icon = GFX_focus_generic_manpower
+	   text = FGD_FOCUS_ON_SIZE
+	   prerequisite = { focus = FGD_FRENCH_ADVISORS }
+	   mutually_exclusive = { focus = FGD_FOCUS_ON_BATTLEPLAN }
+	   x = 2
+	   y = 1
+	   relative_position_id = FGD_FRENCH_ADVISORS
+	   cost = 10
+	   ai_will_do = {
+	     factor = 1
+	   }
+
+	   available_if_capitulated = yes
+	   search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	   completion_reward = {
+	     add_tech_bonus {
+	       bonus = 1
+	       uses = 1
+	       category = cat_mass_assault
+	     }
+	    }
+	 }
+
+	 focus = {
+	   id = FGD_CONSCRIPT_THE_MASSES
+	   #sicon = GFX_Conscript_The_Masses
+	   text = FGD_CONSCRIPT_THE_MASSES
+	   prerequisite = { focus = FGD_FOCUS_ON_SIZE }
+	   x = 0
+	   y = 1
+	   relative_position_id = FGD_FOCUS_ON_SIZE
+	   cost = 10
+	   ai_will_do = {
+	     factor = 1
+	   }
+
+	   available_if_capitulated = yes
+	   search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	   completion_reward = {
+	     add_ideas = {
+	       extensive_conscription
+	     }
+	    }
+	 }
+
+	 focus = {
+	   id = FGD_EMPLOY_RUSSIAN_TACTICS
+	   icon = GFX_focus_yug_pan_slavic_congress
+	   text = FGD_EMPLOY_RUSSIAN_TACTICS
+	   prerequisite = { focus = FGD_CONSCRIPT_THE_MASSES }
+	   x = 0
+	   y = 1
+	   relative_position_id = FGD_CONSCRIPT_THE_MASSES
+	   cost = 10
+	   ai_will_do = {
+	     factor = 1
+	   }
+
+	   available_if_capitulated = yes
+	   search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	   completion_reward = {
+	       add_ideas = {
+	         Brave_New_Empire
+	       }
+	     }
+	   }
+
+
+
+	focus = {
+	  id = FGD_GERMAN_ADVISORS
+	  #icon = GFX_goal_generic_construction
+	  text = FGD_GERMAN_ADVISORS
+	  prerequisite = { focus = FGD_ARMY }
+	  mutually_exclusive = { focus = FGD_FRENCH_ADVISORS }
+	  x = 4
+	  y = 1
+	  relative_position_id = FGD_ARMY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	        add_ideas = {
+	          German_Advisors
+	        }
+	  }
+	}
+
+	focus = {
+	  id = FGD_FOCUS_ON_FIREPOWER
+	  icon = GFX_goal_generic_army_artillery2
+	  text = FGD_FOCUS_ON_FIREPOWER
+	  prerequisite = { focus = FGD_GERMAN_ADVISORS }
+	  mutually_exclusive = { focus = FGD_FOCUS_ON_SPEED }
+
+	  x = -2
+	  y = 1
+	  relative_position_id = FGD_GERMAN_ADVISORS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	      add_tech_bonus {
+	        bonus = 1
+	        uses = 1
+	        category = cat_superior_firepower
+	      }
+	  }
+	}
+
+
+	focus = {
+	  id = FGD_MAS_CONTRACTS
+	  icon = GFX_goal_generic_allies_build_infantry
+	  text = FGD_MAS_CONTRACTS
+	  prerequisite = { focus = FGD_FOCUS_ON_FIREPOWER }
+	  x = 0
+	  y = 1
+	  relative_position_id = FGD_FOCUS_ON_FIREPOWER
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_tech_bonus {
+	      bonus = 0.5
+	      uses = 1
+	      category = artillery
+	    }
+	    add_tech_bonus {
+	      bonus = 0.5
+	      uses = 1
+	      category = infantry_weapons
+	    }
+	    }
+	  }
+
+	focus = {
+	  id = FGD_MASTER_ARTILLERY
+	  icon = GFX_goal_generic_army_artillery
+	  text = FGD_MASTER_ARTILLERY
+	  prerequisite = { focus = FGD_MAS_CONTRACTS }
+	  x = 0
+	  y = 1
+	  relative_position_id = FGD_MAS_CONTRACTS
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Hellsfire
+	    }
+	   }
+	}
+
+
+	  focus = {
+	    id = FGD_FOCUS_ON_SPEED
+	    icon = GFX_goal_generic_army_motorized
+	    text = FGD_FOCUS_ON_SPEED
+	    prerequisite = { focus = FGD_GERMAN_ADVISORS }
+	    mutually_exclusive = { focus = FGD_FOCUS_ON_FIREPOWER }
+
+	    x = 2
+	    y = 1
+	    relative_position_id = FGD_GERMAN_ADVISORS
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_tech_bonus {
+	        bonus = 1
+	        uses = 1
+	        category = cat_mobile_warfare
+	      }
+	   }
+	  }
+
+	  focus = {
+	    id = FGD_TANK_CORP
+	    icon = GFX_goal_generic_army_tanks
+	    text = FGD_TANK_CORP
+	    prerequisite = { focus = FGD_FOCUS_ON_SPEED }
+	    x = 0
+	    y = 1
+	    relative_position_id = FGD_FOCUS_ON_SPEED
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_tech_bonus {
+	        bonus = 1
+	        uses = 1
+	        category = cat_light_armor
+	      }
+	      }
+	    }
+
+	  focus = {
+	    id = FGD_MASTER_GUERRE_ECLAIR
+	    icon = GFX_focus_generic_army_tanks2
+	    text = FGD_MASTER_GUERRE_ECLAIR
+	    prerequisite = { focus = FGD_TANK_CORP }
+	    x = 0
+	    y = 1
+	    relative_position_id = FGD_TANK_CORP
+	    cost = 10
+	    ai_will_do = {
+	      factor = 1
+	    }
+
+	    available_if_capitulated = yes
+	    search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	    completion_reward = {
+	      add_ideas = {
+	        Lightning_War
+	      }
+	     }
+	  }
+
+	focus = {
+	  id = FGD_DESTROY_GERMANY
+	  icon = GFX_French_Army
+	  text = FGD_DESTROY_GERMANY
+	  prerequisite = { focus = FGD_MASTER_ARTILLERY focus = FGD_MASTER_TACTICS focus = FGD_MASTER_GUERRE_ECLAIR focus = FGD_EMPLOY_RUSSIAN_TACTICS }
+	  x = -2
+	  y = 1
+	  relative_position_id = FGD_MASTER_ARTILLERY
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+	    add_ideas = {
+	      Army_Future
+	    }
+	    army_experience = 50
+
+	   }
+	}

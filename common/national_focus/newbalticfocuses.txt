@@ -1,0 +1,1469 @@
+focus_tree = {
+	id = baltic_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = FOB
+		}
+	}
+
+	#####INDUSTRY
+
+
+
+  ####ARMY
+
+
+	##############
+	focus = {
+    id = FGD_CRISIS_COALITION
+    icon = GFX_focus_generic_self_management
+    text = FGD_CRISIS_COALITION
+    #prerequisite = { focus = FGD_BOMBS_EVERYWHERE focus = FGD_DOGFIGHTING focus = FGD_RAIN_OF_ANNIHILATION }
+    x = 27
+    y = 0
+    relative_position_id = FGD_BALTIC_ECONOMY
+    cost = 5
+    ai_will_do = {
+      factor = 20
+    }
+
+		available = {
+			has_completed_focus = FGD_BALTIC_ECONOMY
+		}
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = -100
+			add_stability = -0.15
+			#SOV = { country_event = {id = russia.356 days = 2  }}
+    }
+  }
+
+	########URP
+	focus = {
+    id = FGD_RUSSIAN_PATRIOT_VIC
+    icon = GFX_focus_generic_home_defense
+    text = FGD_RUSSIAN_PATRIOT_VIC
+		#prerequisite = { focus = FGD_CRISIS_COALITION }
+		mutually_exclusive = { focus = FGD_DEMOCRATIC_VIC  focus = FGD_OKTOBRIST_VIC focus = FGD_BOLSHEVIK_VIC }
+    x = -10
+    y = 1
+    relative_position_id = FGD_CRISIS_COALITION
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_popularity {
+				ideology = neutrality
+				popularity = 0.1
+			}
+
+			add_popularity {
+				ideology = fascism
+				popularity = 0.1
+			}
+    }
+  }
+
+	focus = {
+    id = FGD_UPHOLD_PYOTOR_RULE
+    icon = GFX_focus_generic_monarchy_1
+    text = FGD_UPHOLD_PYOTOR_RULE
+    prerequisite = { focus = FGD_RUSSIAN_PATRIOT_VIC }
+		mutually_exclusive = {focus = FGD_FASCIST_POLITICS}
+    x = -2
+    y = 1
+    relative_position_id = FGD_RUSSIAN_PATRIOT_VIC
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_popularity {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			set_politics {
+				ruling_party = neutrality
+			}
+    }
+  }
+
+	focus = {
+    id = FGD_ABOLISH_CONSTITUTION
+    icon = GFX_focus_renounce_the_treaty_of_trianon
+    text = FGD_ABOLISH_CONSTITUTION
+    prerequisite = { focus = FGD_UPHOLD_PYOTOR_RULE }
+    x = 0
+    y = 1
+    relative_position_id = FGD_UPHOLD_PYOTOR_RULE
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = FGD_OAN
+    icon = GFX_focus_generic_monarchy_2
+    text = FGD_OAN
+    prerequisite = { focus = FGD_ABOLISH_CONSTITUTION }
+    x = 0
+    y = 1
+    relative_position_id = FGD_ABOLISH_CONSTITUTION
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = FGD_FASCIST_POLITICS
+    icon = GFX_goal_support_fascism
+    text = FGD_FASCIST_POLITICS
+		mutually_exclusive = {focus = FGD_UPHOLD_PYOTOR_RULE}
+    x = 2
+    y = 0
+    relative_position_id = FGD_RUSSIAN_PATRIOT_VIC
+    cost = 4
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_popularity {
+				ideology = fascism
+				popularity = 0.25
+			}
+			set_politics {
+				ruling_party = fascism
+			}
+     }
+  }
+
+	focus = {
+    id = FGD_BALTIC_SUPREMACY
+    icon = GFX_goal_demand_sudetenland
+    text = FGD_BALTIC_SUPREMACY
+    prerequisite = { focus = FGD_FASCIST_POLITICS }
+    x = 0
+    y = 1
+    relative_position_id = FGD_FASCIST_POLITICS
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = FGD_LEGALIZE_POGROMS
+    icon = GFX_goal_tripartite_pact
+    text = FGD_LEGALIZE_POGROMS
+    prerequisite = { focus = FGD_BALTIC_SUPREMACY }
+    x = 0
+    y = 1
+    relative_position_id = FGD_BALTIC_SUPREMACY
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			add_ideas = {
+				Rule_of_Vozdh
+			}
+    }
+  }
+
+
+
+	focus = {
+    id = FGD_DEMOCRATIC_VIC
+    icon = GFX_goal_support_democracy
+    text = FGD_DEMOCRATIC_VIC
+    #prerequisite = { focus = FGD_CRISIS_COALITION }
+		mutually_exclusive = { focus = FGD_RUSSIAN_PATRIOT_VIC  focus = FGD_OKTOBRIST_VIC focus = FGD_BOLSHEVIK_VIC }
+    x = -2
+    y = 1
+    relative_position_id = FGD_CRISIS_COALITION
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+    }
+  }
+
+	focus = {
+		id = FGD_KALINS
+		icon = GFX_goal_generic_occupy_states_coastal
+		text = FGD_KALINS
+		prerequisite = { focus = FGD_DEMOCRATIC_VIC }
+		x = 0
+		y = 1
+		relative_position_id = FGD_DEMOCRATIC_VIC
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+			add_popularity {
+				ideology = democratic
+				popularity = 0.25
+			}
+
+			set_politics = {
+				ruling_party = democratic
+			}
+
+		}
+	}
+
+	focus = {
+		id = FGD_SD_COALITION
+		icon = GFX_focus_generic_diplomatic_treaty
+		text = FGD_SD_COALITION
+		prerequisite = { focus = FGD_KALINS }
+		x = 0
+		y = 1
+		relative_position_id = FGD_KALINS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = Nicholas_the_2nd_3
+				remove_idea = Nicholas_the_2nd
+			}
+		}
+	}
+
+	focus = {
+		id = FGD_ELIMINATE_VIOLENCE
+		icon = GFX_goal_continuous_suppression
+		text = FGD_ELIMINATE_VIOLENCE
+		prerequisite = { focus = FGD_SD_COALITION }
+		x = 0
+		y = 1
+		relative_position_id = FGD_SD_COALITION
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+
+
+
+	focus = {
+		id = FGD_LIBERALISM
+		icon = GFX_goal_generic_consumer_goods
+		text = FGD_LIBERALISM
+		prerequisite = { focus = FGD_ELIMINATE_VIOLENCE }
+		x = 1
+		y = 1
+		relative_position_id = FGD_ELIMINATE_VIOLENCE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = FGD_ELIMINATE_CENSORSHIP
+		icon = GFX_focus_hol_the_foundations_of_defense
+		text = FGD_ELIMINATE_CENSORSHIP
+		prerequisite = { focus = FGD_ELIMINATE_VIOLENCE }
+		x = -1
+		y = 1
+		relative_position_id = FGD_ELIMINATE_VIOLENCE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 150
+		}
+	}
+
+
+	focus = {
+    id = FGD_BOLSHEVIK_VIC
+    icon = GFX_focus_generic_soviet_politics
+    text = FGD_BOLSHEVIK_VIC
+    #prerequisite = { focus = FGD_CRISIS_COALITION }
+		mutually_exclusive = { focus = FGD_RUSSIAN_PATRIOT_VIC  focus = FGD_MENSEHVIK_VIC focus = FGD_OKTOBRIST_VIC }
+    x = 7
+    y = 1
+    relative_position_id = FGD_CRISIS_COALITION
+    cost = 7
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      remove_ideas = {
+
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+    }
+  }
+
+	focus = {
+		id = FGD_KARL_SARES
+		icon = GFX_focus_fra_loyalty_trotzky
+		text = FGD_KARL_SARES
+		prerequisite = { focus = FGD_BOLSHEVIK_VIC }
+		x = 0
+		y = 1
+		relative_position_id = FGD_BOLSHEVIK_VIC
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Chaos_Moscow
+			}
+
+			}
+	}
+
+	focus = {
+		id = FGD_WORKERS_GOVERNMENT
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		text = FGD_WORKERS_GOVERNMENT
+		prerequisite = { focus = FGD_KARL_SARES }
+		x = 0
+		y = 1
+		relative_position_id = FGD_KARL_SARES
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = Proliteriat
+		}
+	}
+
+	focus = {
+		id = FGD_VANGUARDISM
+		icon = GFX_goal_support_fourth_int
+		text = FGD_VANGUARDISM
+		prerequisite = { focus = FGD_WORKERS_GOVERNMENT }
+		x = 0
+		y = 1
+		relative_position_id = FGD_WORKERS_GOVERNMENT
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = FGD_LOOKING_OUTWARDS
+		icon = GFX_focus_usa_focus_on_europe
+		text = FGD_LOOKING_OUTWARDS
+		#prerequisite = { focus = FGD_WORKERS_GOVERNMENT }
+		available = {
+			OR = {
+				has_completed_focus = FGD_UPHOLD_PYOTOR_RULE
+				has_completed_focus = FGD_FASCIST_POLITICS
+				has_completed_focus = FGD_KALINS
+				has_completed_focus = FGD_CHEMOV
+				has_completed_focus = FGD_KARL_SARES
+			}
+		}
+		x = 0
+		y = 9
+		relative_position_id = FGD_CRISIS_COALITION
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+		}
+	}
+
+	focus = {
+		id = FGD_EXPANSIONISM
+		icon = GFX_goal_rus_expand
+		text = FGD_EXPANSIONISM
+		prerequisite = { focus = FGD_LOOKING_OUTWARDS }
+		mutually_exclusive = {
+			AND = {
+				focus = FGD_MANTAIN_CONCERT
+				focus = FGD_DEVOLUTION
+			}
+		}
+		x = -10
+		y = 1
+		relative_position_id = FGD_LOOKING_OUTWARDS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+
+	focus = {
+		id = FGD_WAR_FOR_BESSARABIA
+		icon = GFX_Attack_Romania
+		text = FGD_WAR_FOR_BESSARABIA
+		prerequisite = { focus = FGD_EXPANSIONISM }
+		x = -2
+		y = 1
+		relative_position_id = FGD_EXPANSIONISM
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+
+	focus = {
+		id = FGD_ASSERT_BALKAN_HEG
+		icon = GFX_Attack_Balkans
+		text = FGD_ASSERT_BALKAN_HEG
+		prerequisite = { focus = FGD_WAR_FOR_BESSARABIA }
+		x = 0
+		y = 1
+		relative_position_id = FGD_WAR_FOR_BESSARABIA
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_CRUSH_TURKS
+		icon = GFX_Attack_Turkey
+		text = FGD_CRUSH_TURKS
+		prerequisite = { focus = FGD_ASSERT_BALKAN_HEG }
+		x = 0
+		y = 1
+		relative_position_id = FGD_ASSERT_BALKAN_HEG
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_ANNEX_BALTICA
+		icon = GFX_goal_generic_occypy_start_war
+		text = FGD_ANNEX_BALTICA
+		prerequisite = { focus = FGD_EXPANSIONISM }
+		x = 2
+		y = 1
+		relative_position_id = FGD_EXPANSIONISM
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_NORTHERN_WAR
+		icon = GFX_goal_attack_sweden
+		text = FGD_NORTHERN_WAR
+		prerequisite = { focus = FGD_ANNEX_BALTICA }
+		x = 0
+		y = 1
+		relative_position_id = FGD_ANNEX_BALTICA
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_OVERRUN_GERMANS
+		icon = GFX_focus_attack_germany
+		text = FGD_OVERRUN_GERMANS
+		prerequisite = { focus = FGD_NORTHERN_WAR }
+		x = 0
+		y = 1
+		relative_position_id = FGD_NORTHERN_WAR
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+
+	focus = {
+		id = FGD_STRIKE_AUSTRIANS
+		icon = GFX_Attack_Austria
+		text = FGD_STRIKE_AUSTRIANS
+		prerequisite = { focus = FGD_OVERRUN_GERMANS focus = FGD_CRUSH_TURKS }
+		x = -2
+		y = 1
+		relative_position_id = FGD_OVERRUN_GERMANS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_MOTHERLAND
+		icon = GFX_focus_ger_great_red_menace
+		text = FGD_MOTHERLAND
+		prerequisite = { focus = FGD_STRIKE_AUSTRIANS }
+		x = 0
+		y = 1
+		relative_position_id = FGD_STRIKE_AUSTRIANS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+
+
+	focus = {
+		id = FGD_MANTAIN_CONCERT
+		icon = GFX_goal_generic_neutrality_focus
+		text = FGD_MANTAIN_CONCERT
+		prerequisite = { focus = FGD_LOOKING_OUTWARDS }
+		x = 0
+		y = 1
+		relative_position_id = FGD_LOOKING_OUTWARDS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		mutually_exclusive = {
+			AND = {
+				focus = FGD_EXPANSIONISM
+				focus = FGD_DEVOLUTION
+			}
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = FGD_APPEASE_THE_BALTS
+		icon = GFX_goal_diplo_balt
+		text = FGD_APPEASE_THE_BALTS
+		prerequisite = { focus = FGD_MANTAIN_CONCERT }
+		x = 0
+		y = 1
+		relative_position_id = FGD_MANTAIN_CONCERT
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_GUARANTEE_THE_BALKANS
+		icon = GFX_goal_generic_alliance
+		text = FGD_GUARANTEE_THE_BALKANS
+		prerequisite = { focus = FGD_APPEASE_THE_BALTS }
+		x = 0
+		y = 1
+		relative_position_id = FGD_APPEASE_THE_BALTS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_KEEP_THE_PEACE
+		icon = GFX_focus_generic_concessions
+		text = FGD_KEEP_THE_PEACE
+		prerequisite = { focus = FGD_GUARANTEE_THE_BALKANS }
+		x = 0
+		y = 1
+		relative_position_id = FGD_GUARANTEE_THE_BALKANS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_HOLY_ALLIANCE
+		icon = GFX_goal_diplo_austria
+		text = FGD_HOLY_ALLIANCE
+		prerequisite = { focus = FGD_KEEP_THE_PEACE }
+		x = -2
+		y = 1
+		relative_position_id = FGD_KEEP_THE_PEACE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_ENTENTE
+		icon = GFX_focus_chi_reach_out_to_france
+		text = FGD_ENTENTE
+		prerequisite = { focus = FGD_KEEP_THE_PEACE }
+		x = 2
+		y = 1
+		relative_position_id = FGD_KEEP_THE_PEACE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+
+	focus = {
+		id = FGD_PAX_EUROPA
+		icon = GFX_goal_anschluss
+		text = FGD_PAX_EUROPA
+		prerequisite = { focus = FGD_ENTENTE focus = FGD_HOLY_ALLIANCE}
+		x = -2
+		y = 1
+		relative_position_id = FGD_ENTENTE
+		cost = 10LAS
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+
+	focus = {
+		id = FGD_BALTIC_ECONOMY
+		#text = FGD_RED_AIRFORCE
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 0
+		#relative_position_id = FGD_BALTIC_ECONOMY
+		cost = 10
+		ai_will_do = {
+			factor = 60
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			#SOV = {country_event = {id = russia.senate hours =  5}}
+		}
+	}
+
+	focus = {
+  id = FGD_RURALIST_ECONOMY
+	icon = GFX_goal_rural_economy
+	#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_BALTIC_ECONOMY }
+	mutually_exclusive = {focus = FGD_2_YEAR_PLAN}
+	x = -8
+	y = 1
+	relative_position_id = FGD_BALTIC_ECONOMY
+	available = {has_country_flag = agrarian}
+	cost = 10
+	ai_will_do = {
+		factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = Agrarian-industrial_divide
+	add_idea = FGD_agrarianism
+	}
+	}
+	}
+
+	focus = {
+    id = FGD_FEUDAL
+	icon = GFX_goal_feudal
+	#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_RURALIST_ECONOMY }
+	mutually_exclusive = { focus = FGD_UNION }
+	x = -2
+	y = 2
+	relative_position_id = FGD_RURALIST_ECONOMY
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = FGD_agrarianism
+	add_idea = feudalism
+	}
+	}
+	}
+
+	focus = {
+    id = FGD_UNION
+	icon = GFX_goal_generic_soviet_construction
+	#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_RURALIST_ECONOMY }
+	mutually_exclusive = { focus = FGD_FEUDAL }
+	x = 2
+	y = 2
+	relative_position_id = FGD_RURALIST_ECONOMY
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = FGD_agrarianism
+	add_idea = narodnik_eco
+	}
+	}
+	}
+
+	focus = {
+    id = FGD_LANDLORDISM
+	icon = GFX_goal_landlordism
+	#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_FEUDAL}
+	x = 0
+	y = 1
+	relative_position_id = FGD_FEUDAL
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = feudalism
+	add_idea = feudalism_2
+	}
+	}
+	}
+
+	focus = {
+    id = FGD_EMANCIPATION_NAME
+	icon = GFX_goal_emanc_name
+	#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_LANDLORDISM }
+	x = 0
+	y = 1
+	relative_position_id = FGD_LANDLORDISM
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = feudalism_2
+	add_idea = feudalism_3
+	}
+	}
+	}
+
+	focus = {
+    id = FGD_BACK_TO_PAST
+	icon = GFX_goal_agri
+	#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_EMANCIPATION_NAME }
+	x = 0
+	y = 1
+	relative_position_id = FGD_EMANCIPATION_NAME
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = feudalism_3
+	add_idea = feudalism_4
+	}
+	}
+	}
+
+	focus = {
+    id = FGD_SR_LEADERSHIP
+	icon = GFX_goal_generic_intelligence_exchange
+	#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_UNION }
+	x = 0
+	y = 1
+	relative_position_id = FGD_UNION
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = narodnik_eco
+	add_idea = narodnik_eco_2
+	}
+	}
+	}
+
+	focus = {
+    id = FGD_LEGALIZE_STRIKES
+	icon = GFX_focus_generic_support_the_left_right
+	#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_SR_LEADERSHIP }
+	x = 0
+	y = 1
+	relative_position_id = FGD_SR_LEADERSHIP
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = narodnik_eco_2
+	add_idea = narodnik_eco_3
+	}
+	}
+	}
+
+	focus = {
+    id = FGD_STAY_PRESENT
+		icon = GFX_goal_indu
+		#text = FGD_RED_AIRFORCE
+	prerequisite = { focus = FGD_LEGALIZE_STRIKES }
+	x = 0
+	y = 1
+	relative_position_id = FGD_LEGALIZE_STRIKES
+	cost = 10
+	ai_will_do = {
+	factor = 25
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+	swap_ideas = {
+	remove_idea = narodnik_eco_3
+	add_idea = narodnik_eco_4
+	}
+	}
+	}
+
+	focus = {
+		id = FGD_2_YEAR_PLAN
+		icon = GFX_goal_generic_positive_trade_relations
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_BALTIC_ECONOMY }
+		x = 5
+		y = 1
+		relative_position_id = FGD_BALTIC_ECONOMY
+		mutually_exclusive = {focus = FGD_RURALIST_ECONOMY}
+		available = {
+			has_country_flag = industrial
+		}
+
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = FGD_NATIONALIZE_FARM
+		icon = GFX_focus_prc_agrarian_socialism
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_2_YEAR_PLAN }
+		x = -4
+		y = 1
+		relative_position_id = FGD_2_YEAR_PLAN
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	swap_ideas = {
+		 remove_idea = Agrarian-Industrial_Divide
+		 add_idea = Industrializing
+}
+		}
+	}
+
+	focus = {
+		id = FGD_COLONIZATION_INCENTIVE
+		icon = GFX_focus_generic_manpower
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_NATIONALIZE_FARM }
+		x = -1
+		y = 1
+		relative_position_id = FGD_NATIONALIZE_FARM
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	add_timed_idea = {
+		idea = Colonization
+		days = 365
+}
+		}
+	}
+
+	focus = {
+		id = FGD_FACTORIES_UPON_FARMS
+		icon = GFX_focus_generic_industry_1
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_COLONIZATION_INCENTIVE }
+		x = 0
+		y = 1
+		relative_position_id = FGD_COLONIZATION_INCENTIVE
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = FGD_BEUREAU_INDUSTRIALIZATION
+		icon = GFX_focus_generic_socialist_science
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_FACTORIES_UPON_FARMS }
+		x = 0
+		y = 1
+		relative_position_id = FGD_FACTORIES_UPON_FARMS
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	206 = {
+	add_building_construction = {
+		type = arms_factory
+		level = 1
+		instant_build = yes
+}
+}
+217 = {
+	add_building_construction = {
+		type = industrial_complex
+		level = 1
+		instant_build = yes
+}
+}
+		}
+	}
+
+	focus = {
+		id = FGD_VIRGIN_LAND_INITIATIVE
+		icon = GFX_goal_tfv_generic_tech_sharing
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_NATIONALIZE_FARM }
+		x = 1
+		y = 1
+		relative_position_id = FGD_NATIONALIZE_FARM
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			#unlock_decision_category_tooltip = FGD_virgin_land
+		}
+	}
+
+	focus = {
+		id = FGD_INDUSTRY_SIBERIA
+		icon = GFX_goal_generic_construct_infrastructure
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_VIRGIN_LAND_INITIATIVE }
+		x = 0
+		y = 1
+		relative_position_id = FGD_VIRGIN_LAND_INITIATIVE
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+
+	}
+	}
+
+	focus = {
+		id = FGD_RUSSIAN_RAILROADS
+		icon = GFX_focus_generic_rubber
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_INDUSTRY_SIBERIA }
+		x = 0
+		y = 1
+		relative_position_id = FGD_INDUSTRY_SIBERIA
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_INTO_FUTURE
+		icon = GFX_focus_generic_industry_3
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_RUSSIAN_RAILROADS }
+	prerequisite = { focus = FGD_BEUREAU_INDUSTRIALIZATION }
+	prerequisite = { focus = FGD_WELFARE_ECONOMICS OR = FGD_FREE_MARKET_ECONOMY }
+		x = 3
+		y = 1
+		relative_position_id = FGD_RUSSIAN_RAILROADS
+		cost = 20
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_URBAN_INDUSTRY
+		icon = GFX_goal_generic_construct_civ_factory
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_2_YEAR_PLAN }
+		x = 4
+		y = 1
+		relative_position_id = FGD_2_YEAR_PLAN
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_ARMS_FACTORIES
+		icon = GFX_goal_generic_construct_mil_factory
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_URBAN_INDUSTRY }
+		x = 1
+		y = 1
+		relative_position_id = FGD_URBAN_INDUSTRY
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = FGD_LAISSEZ_FAIRE
+		icon = GFX_goal_support_democracy
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_ARMS_FACTORIES }
+		mutually_exclusive = { focus = FGD_INDUSTRIAL_DEMOCRACY}
+		x = 0
+		y = 1
+		relative_position_id = FGD_ARMS_FACTORIES
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = Capitalism
+		}
+	}
+
+	focus = {
+		id = FGD_FREE_MARKET_ECONOMY
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_LAISSEZ_FAIRE }
+		x = 0
+		y = 1
+		relative_position_id = FGD_LAISSEZ_FAIRE
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas = {
+				 remove_idea = Capitalism
+				 add_idea = Capitalism_2
+		}
+		}
+	}
+
+	focus = {
+		id = FGD_JOBS_WORKERS
+		icon = GFX_focus_por_workers_of_iberia
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_URBAN_INDUSTRY }
+		x = -1
+		y = 1
+		relative_position_id = FGD_URBAN_INDUSTRY
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = Industrializing_2
+			add_idea = Industrializing_3
+			}
+		}
+	}
+
+	focus = {
+		id = FGD_INDUSTRIAL_DEMOCRACY
+		icon = GFX_focus_generic_the_giant_wakes
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_JOBS_WORKERS }
+		mutually_exclusive = { focus = FGD_LAISSEZ_FAIRE }
+		x = 0
+		y = 1
+		relative_position_id = FGD_JOBS_WORKERS
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+	add_ideas = SOVIETIZATION
+		}
+	}
+
+	focus = {
+		id = FGD_WELFARE_ECONOMICS
+		icon = GFX_focus_mex_privatisation
+		#text = FGD_RED_AIRFORCE
+		prerequisite = { focus = FGD_INDUSTRIAL_DEMOCRACY }
+		x = 0
+		y = 1
+		relative_position_id = FGD_INDUSTRIAL_DEMOCRACY
+		cost = 10
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = SOVIETIZATION
+			add_idea = SOVIETIZATION_2
+			}
+		}
+	}
+}

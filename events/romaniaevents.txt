@@ -1,0 +1,208 @@
+add_namespace = romania
+
+country_event = {
+	id = romania.17
+	title = romania.17.t
+	desc = romania.17.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = romania.17.a
+		ai_chance = { factor = 90 }
+		ROM = {
+			country_event = romania.18
+			add_to_faction = ROOT
+		}
+
+	}
+
+	option = {
+		name = romania.17.b
+		ai_chance = { factor = 10 }
+		ROM = { country_event = romania.19 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = romania.18
+	title = romania.18.t
+	desc = romania.18.d
+	picture = GFX_report_event_soldiers_in_frace
+
+	is_triggered_only = yes
+
+	option = {
+		name = romania.18.a
+		effect_tooltip = {
+			add_to_faction = FROM
+		}
+	}
+}
+
+# [Country] Refuses
+country_event = {
+	id = romania.19
+	title = romania.19.t
+	desc = romania.19.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = romania.19.a
+	}
+}
+
+
+
+country_event = {
+	id = romania.200
+	title = romania.200.t
+	desc = romania.200.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If Romania selects this option, they will transfer states, no war
+		name = romania.200.a #needs to be localized
+		ai_chance = { factor = 55 } #this factor means the AI will almost always pick this one
+		ROM = {
+		 	transfer_state = 77
+			}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			news_event = { id = romania.201 hours = 3 } #this event just notifies romania that they got their way
+			}
+	}
+
+	option = { # If Romania selects this option, they say no and romania gets event to get war goal
+		name = romania.200.b #needs to be localized
+		ai_chance = { factor = 45 }
+		hidden_effect = {
+			ROM = { country_event = romania.202 days = 1 } #This event will give romania an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+news_event = {
+	id = romania.201
+	title = romania.201.t
+	desc = romania.201.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania.201.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes romania get war goal
+country_event = {
+	id = romania.202
+	title = romania.202.t
+	desc = romania.202.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = romania.202.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		create_wargoal = {
+			type = take_claimed_state
+			target = BUL
+				}
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = romania.202.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+	}
+}
+
+
+
+
+
+
+country_event = {
+	id = romania.300
+	title = romania.300.t
+	desc = romania.300.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If Romania selects this option, they will transfer states, no war
+		name = romania.300.a #needs to be localized
+		ai_chance = { factor = 40 } #this factor means the AI will almost always pick this one
+		ROM = {
+		 	transfer_state = 77
+			}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			news_event = { id = romania.301 hours = 3 } #this event just notifies romania that they got their way
+			}
+	}
+
+	option = { # If Romania selects this option, they say no and romania gets event to get war goal
+		name = romania.300.b #needs to be localized
+		ai_chance = { factor = 60 }
+		hidden_effect = {
+			ROM = { country_event = romania.302 days = 1 } #This event will give romania an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+news_event = {
+	id = romania.301
+	title = romania.301.t
+	desc = romania.301.desc
+	picture = GFX_report_event_eng_dambuster2
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania.301.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes romania get war goal
+country_event = {
+	id = romania.302
+	title = romania.302.t
+	desc = romania.302.desc
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = romania.302.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		create_wargoal = {
+			type = take_claimed_state
+			target = AUS
+				}
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = romania.302.b #needs to be localized
+		ai_chance = { factor = 0 } #AI will NOT do
+	}
+}
