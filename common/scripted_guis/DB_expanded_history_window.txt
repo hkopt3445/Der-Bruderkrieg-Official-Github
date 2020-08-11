@@ -21,7 +21,7 @@ scripted_gui = {
 
 
 				visible = {
-					has_variable = open_DB_history_faction_menu 
+					has_variable = open_DB_history_faction_menu
 				}
 
 				effects = {
@@ -44,6 +44,8 @@ scripted_gui = {
 							}
 							add_ideas = technology_sharing_idea
 						}
+
+						set_country_flag = {flag = DB_faction_tech_sharing value = 1 days = 150}
 					}
 
 					DB_expanded_history_window_faction_listing_join_exercises_click = {
@@ -55,6 +57,21 @@ scripted_gui = {
 								}
 							}
 							army_experience = 10
+						}
+						set_country_flag = {flag = DB_faction_joint_exercises value = 1 days = 100}
+					}
+				}
+
+				triggers = {
+					DB_expanded_history_window_faction_listing_tech_sharing_click_enabled = {
+						NOT = {
+							has_country_flag = DB_faction_tech_sharing
+						}
+					}
+
+					DB_expanded_history_window_faction_listing_join_exercises_click_enabled = {
+						NOT = {
+							has_country_flag = DB_faction_joint_exercises
 						}
 					}
 				}
@@ -85,49 +102,68 @@ scripted_gui = {
 						}
 
 						DB_expanded_history_window_build_in_every_state_civs_click = {
-							every_state = {
-								limit = {
-										is_owned_by = ROOT
-								}
+							random_owned_controlled_state = {
+
                 add_building_construction = {
                     type = industrial_complex
                     level = 1
-                    instant_build = no
+                    instant_build = yes
 
                 }
                 add_extra_state_shared_building_slots = 1
 
 								}
+
+								set_country_flag = {flag = DB_state_menu_build_civ value = 1 days = 60}
 							}
 							DB_expanded_history_window_build_in_every_state_mils_click = {
-								every_state = {
-									limit = {
-											is_owned_by = ROOT
-									}
+								random_owned_controlled_state = {
+
 	                add_building_construction = {
 	                    type = arms_factory
 	                    level = 1
-	                    instant_build = no
+	                    instant_build = yes
 
 	                }
 	                add_extra_state_shared_building_slots = 1
 
 									}
+									set_country_flag = {flag = DB_state_menu_build_mils value = 1 days = 60}
 								}
 
 								DB_expanded_history_window_build_in_every_state_infrastructure_click = {
-									every_state = {
-										limit = {
-												is_owned_by = ROOT
-										}
+									random_owned_controlled_state = {
+
 		                add_building_construction = {
 		                    type = infrastructure
 		                    level = 1
-		                    instant_build = no
+		                    instant_build = yes
 
 		                }
 										}
+
+										set_country_flag = {flag = DB_state_menu_build_infrastructure value = 1 days = 60}
 									}
+						}
+					}
+
+					triggers = {
+						DB_expanded_history_window_build_in_every_state_civs_click_enabled = {
+							NOT = {
+								has_country_flag = DB_state_menu_build_civ
+							}
+						}
+
+						DB_expanded_history_window_build_in_every_state_mils_click_enabled = {
+							NOT = {
+								has_country_flag = DB_state_menu_build_mils
+							}
+						}
+
+						DB_expanded_history_window_build_in_every_state_infrastructure_click_enabled = {
+							NOT = {
+								has_country_flag = DB_state_menu_build_infrastructure
+							}
 						}
 					}
 			}
