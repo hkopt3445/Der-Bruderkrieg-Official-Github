@@ -12,7 +12,7 @@ scripted_gui = {
 						}
 
 						DB_expanded_history_menu_faction_flag_grid = {
-							array = ROOT.faction_members 
+							array = ROOT.faction_members
 							change_scope = yes
 							entry_container = DB_expanded_history_menu_faction_flag_entry
 						}
@@ -21,7 +21,7 @@ scripted_gui = {
 
 
 				visible = {
-					has_variable = open_DB_history_faction_menu
+					has_variable = open_DB_history_faction_menu 
 				}
 
 				effects = {
@@ -82,6 +82,52 @@ scripted_gui = {
 							ROOT = {
 								clear_variable = open_DB_history_state_menu
 							}
+						}
+
+						DB_expanded_history_window_build_in_every_state_civs_click = {
+							every_state = {
+								limit = {
+										is_owned_by = ROOT
+								}
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = no
+
+                }
+                add_extra_state_shared_building_slots = 1
+
+								}
+							}
+							DB_expanded_history_window_build_in_every_state_mils_click = {
+								every_state = {
+									limit = {
+											is_owned_by = ROOT
+									}
+	                add_building_construction = {
+	                    type = arms_factory
+	                    level = 1
+	                    instant_build = no
+
+	                }
+	                add_extra_state_shared_building_slots = 1
+
+									}
+								}
+
+								DB_expanded_history_window_build_in_every_state_infrastructure_click = {
+									every_state = {
+										limit = {
+												is_owned_by = ROOT
+										}
+		                add_building_construction = {
+		                    type = infrastructure
+		                    level = 1
+		                    instant_build = no
+
+		                }
+										}
+									}
 						}
 					}
 			}

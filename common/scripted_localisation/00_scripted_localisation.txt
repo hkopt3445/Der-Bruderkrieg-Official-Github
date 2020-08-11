@@ -21,7 +21,7 @@ defined_text = { # Country
 		trigger = {
 			original_tag = GER
 			OR = {
-				has_government = communism 
+				has_government = communism
 				has_government = democratic
 			}
 		}
@@ -60,89 +60,7 @@ defined_text = { # Country
 	}
 }
 
-defined_text = { # Country
-	name = DB_history_window_get_desc_scripted_loc
-	text = {
-		trigger = {
-			original_tag = AUS
-		}
-		localization_key = AUSTRIA_GATHERING_STORM_DESC
-	}
-	text = {
-		trigger = {
-			original_tag = GER
-		}
-		localization_key = NORTHGERMANY_GATHERING_STORM_DESC
-	}
-	text = {
-		trigger = {
-			original_tag = SOV
-		}
-		localization_key = RUSSIA_GATHERING_STORM_DESC
-	}
-	text = {
-		trigger = {
-			original_tag = FRA
-		}
-		localization_key = FRENCH_GATHERING_STORM_DESC
-	}
 
-	text = {
-		trigger = {
-			original_tag = ITA
-		}
-		localization_key = ITA_GATHERING_STORM_DESC
-	}
-
-	text = {
-		trigger = {
-			original_tag = TUR
-		}
-		localization_key = OTTOMANS_DESC
-	}
-}
-
-defined_text = { # Country
-	name = DB_history_window_get_title_scripted_loc
-	text = {
-		trigger = {
-			original_tag = AUS
-		}
-		localization_key = AUSTRIA_GET_HISTORY_TITLE
-	}
-	text = {
-		trigger = {
-			original_tag = GER
-		}
-		localization_key = PRUSSIA_GET_HISTORY_TITLE
-	}
-	text = {
-		trigger = {
-			original_tag = SOV
-		}
-		localization_key = RUSSIA_GET_HISTORY_TITLE
-	}
-	text = {
-		trigger = {
-			original_tag = FRA
-		}
-		localization_key = FRANCE_GET_HISTORY_TITLE
-	}
-
-	text = {
-		trigger = {
-			original_tag = ITA
-		}
-		localization_key = ITALY_GET_HISTORY_TITLE
-	}
-
-	text = {
-		trigger = {
-			original_tag = TUR
-		}
-		localization_key = OTTOMANS_GET_HISTORY_TITLE
-	}
-}
 
 defined_text = { # Country
 	name = GetPartyPopLevel
@@ -154,43 +72,43 @@ defined_text = { # Country
 	}
 	text = {
 		trigger = {
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 20 compare = less_than }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.20 compare = less_than }
 			check_variable = { var = ROOT.party_popularity@ruling_party value = 0 compare = greater_than }
 		}
 		localization_key = AUS_GETPOPLEVEL_TEXT_2
 	}
 	text = {
 		trigger = {
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 40 compare = less_than }
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 20 compare = greater_than_or_equals }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.40 compare = less_than }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.20 compare = greater_than_or_equals }
 		}
 		localization_key = AUS_GETPOPLEVEL_TEXT_3
 	}
 	text = {
 		trigger = {
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 60 compare = less_than }
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 40 compare = greater_than_or_equals }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.60 compare = less_than }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.40 compare = greater_than_or_equals }
 		}
 		localization_key = AUS_GETPOPLEVEL_TEXT_4
 	}
 	text = {
 		trigger = {
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 80 compare = less_than }
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 60 compare = greater_than_or_equals }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.80 compare = less_than }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.60 compare = greater_than_or_equals }
 		}
 		localization_key = AUS_GETPOPLEVEL_TEXT_5
 	}
 
 	text = {
 		trigger = {
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 100 compare = less_than }
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 80 compare = greater_than_or_equals }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.100 compare = less_than }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.80 compare = greater_than_or_equals }
 		}
 		localization_key = AUS_GETPOPLEVEL_TEXT_6
 	}
 	text = {
 		trigger = {
-			check_variable = { var = ROOT.party_popularity@ruling_party value = 100 compare = equals }
+			check_variable = { var = ROOT.party_popularity@ruling_party value = 0.100 compare = equals }
 		}
 		localization_key = AUS_GETPOPLEVEL_TEXT_7
 	}
@@ -214,21 +132,6 @@ defined_text = { # for PRC tree
 	}
 }
 
-defined_text = { # get total number of tanks
-	name = GetNumberTanks
-	set_variable = {num_light_tanks = ROOT.num_armies_with_type@light_armor }
-	set_variable = {num_medium_tanks = ROOT.num_armies_with_type@medium_armor }
-	set_variable = {num_heavy_tanks = ROOT.num_armies_with_type@heavy_armor }
-
-	set_variable = {var = num_total_armor value = 0}
-
-	add_to_variable = {var = num_total_armor value = num_light_tanks}
-	add_to_variable = {var = num_total_armor value = num_medium_tanks}
-	add_to_variable = {var = num_total_armor value = num_heavy_tanks}
-	text = {
-		localization_key = GET_TOTAL_ARMOR
-	}
-}
 
 defined_text = { # for shared tree
 	name = GetVietnamOwner

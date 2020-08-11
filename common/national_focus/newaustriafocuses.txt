@@ -50,7 +50,7 @@ focus_tree = {
     text = COS_HEART_DEV_SCHEME
     prerequisite = { focus = COS_BUILD_INDUSTRY }
     mutually_exclusive = {focus = COS_IMPERIAL_DEV_SCHEME}
-    x = -4
+    x = -2
     y = 1
     relative_position_id = COS_BUILD_INDUSTRY
     cost = 10
@@ -91,7 +91,7 @@ focus_tree = {
     text = COS_IMPERIAL_DEV_SCHEME
     prerequisite = { focus = COS_BUILD_INDUSTRY }
     mutually_exclusive = {focus = COS_HEART_DEV_SCHEME}
-    x = 4
+    x = 2
     y = 1
     relative_position_id = COS_BUILD_INDUSTRY
     cost = 10
@@ -142,7 +142,7 @@ focus_tree = {
     icon = GFX_goal_generic_construct_mil_factory
     text = COS_KRUPP_FACTORIES
     prerequisite = { focus = COS_HEART_DEV_SCHEME }
-    x = -2
+    x = -1
     y = 1
     relative_position_id = COS_HEART_DEV_SCHEME
     cost = 10
@@ -182,7 +182,7 @@ focus_tree = {
     icon = GFX_goal_generic_construct_civilian
     text = VIENNA_CIV_FACTORIES
     prerequisite = { focus = COS_HEART_DEV_SCHEME }
-    x = 2
+    x = 1
     y = 1
     relative_position_id = COS_HEART_DEV_SCHEME
     cost = 10
@@ -265,7 +265,7 @@ focus_tree = {
     text = COS_MODERNIZATION
     prerequisite = { focus = COS_ARBEISBRIGADE }
     prerequisite = { focus = COS_SALZBURG_ORDER }
-    x = -2
+    x = -1
     y = 1
     relative_position_id = COS_ARBEISBRIGADE
     cost = 10
@@ -286,7 +286,7 @@ focus_tree = {
     icon = GFX_goal_generic_construct_civilian
     text = COS_DEV_PRAGUE
     prerequisite = { focus = COS_IMPERIAL_DEV_SCHEME }
-    x = -2
+    x = -1
     y = 1
     relative_position_id = COS_IMPERIAL_DEV_SCHEME
     cost = 10
@@ -316,7 +316,7 @@ focus_tree = {
     icon = GFX_goal_generic_construct_civ_factory
     text = COS_DEV_BUDAPEST
     prerequisite = { focus = COS_IMPERIAL_DEV_SCHEME }
-    x = 2
+    x = 1
     y = 1
     relative_position_id = COS_IMPERIAL_DEV_SCHEME
     cost = 10
@@ -419,7 +419,7 @@ focus_tree = {
     text = COS_IMPERIAL_MODERNIZATION
     prerequisite = { focus = COS_MORAVIA_ECON_UNION }
     prerequisite = { focus = COS_TRANSYLVANIA_ECON_UNION }
-    x = 2
+    x = 1
     y = 1
     relative_position_id = COS_MORAVIA_ECON_UNION
     cost = 10
@@ -440,7 +440,7 @@ focus_tree = {
     icon = GFX_focus_generic_the_giant_wakes
     text = GROSS_KAISERWERKE
     prerequisite = { focus = COS_MODERNIZATION focus = COS_IMPERIAL_MODERNIZATION }
-    x = 4
+    x = 2
     y = 1
     relative_position_id = COS_MODERNIZATION
     cost = 10
@@ -467,9 +467,9 @@ focus_tree = {
 	  id = COS_PREP_WAR
 	  icon = GFX_focus_generic_the_giant_wakes
 	  text = COS_PREP_WAR
-	  #prerequisite = { focus = COS_KAISER_SPEECH }
-	  x = 24
-	  y = -3
+	  prerequisite = { focus = COS_KAISER_SPEECH }
+	  x = -50
+	  y = 1
 	  relative_position_id = COS_KAISER_SPEECH
 	  cost = 10
 	  ai_will_do = {
@@ -963,7 +963,7 @@ focus_tree = {
 	  text = COS_TRUE_NAVY
 	  prerequisite = { focus = COS_KAISER_MARINE }
 	  mutually_exclusive = { focus = COS_WOLF_PACKS }
-	  mutually_exclusive = { focus = COS_NAVAL_AVIATION }
+
 	  x = -4
 	  y = 1
 	  relative_position_id = COS_KAISER_MARINE
@@ -1042,7 +1042,7 @@ focus_tree = {
 	  text = COS_WOLF_PACKS
 	  prerequisite = { focus = COS_KAISER_MARINE }
 	  mutually_exclusive = { focus = COS_TRUE_NAVY }
-	  mutually_exclusive = { focus = COS_NAVAL_AVIATION }
+
 	  x = 0
 	  y = 1
 	  relative_position_id = COS_KAISER_MARINE
@@ -1118,8 +1118,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_air_naval_bomber
 	  text = COS_NAVAL_AVIATION
 	  prerequisite = { focus = COS_KAISER_MARINE }
-	  mutually_exclusive = { focus = COS_WOLF_PACKS }
-	  mutually_exclusive = { focus = COS_TRUE_NAVY }
+
 	  x = 4
 	  y = 1
 	  relative_position_id = COS_KAISER_MARINE
@@ -2162,8 +2161,8 @@ focus_tree = {
 	  text = COS_announce_the_kaiser_speech
 	  #prerequisite = { focus = COS_BUILD_INDUSTRY}
 	  x = 30
-	  y = -1
-	  relative_position_id = COS_BUILD_INDUSTRY
+	  y = 0
+	  #relative_position_id = COS_BUILD_INDUSTRY
 	  cost = 10
 
 	  available = {
@@ -2191,7 +2190,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_construct_military
 	  text = COS_thwart_the_attempt_on_the_kaiser
 	  prerequisite = { focus = COS_announce_the_kaiser_speech}
-	  x = -7
+	  x = -11
 	  y = 1
 	  relative_position_id = COS_announce_the_kaiser_speech
 	  cost = 10
@@ -2276,6 +2275,36 @@ focus_tree = {
 	  }
 	}
 
+	focus = {
+	  id = COS_recruit_the_security_guards
+	  icon = GFX_goal_generic_construct_military
+	  text = COS_recruit_the_security_guards
+	  prerequisite = { focus = COS_thwart_the_attempt_on_the_kaiser}
+	  x = 1
+	  y = 1
+	  relative_position_id = COS_thwart_the_attempt_on_the_kaiser
+	  cost = 1
+
+	  available = {
+
+	  }
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+
+	  }
+	}
+
 
 
 	focus = {
@@ -2314,35 +2343,7 @@ focus_tree = {
     }
   }
 
-  focus = {
-	  id = COS_recruit_the_security_guards
-	  icon = GFX_goal_generic_construct_military
-	  text = COS_recruit_the_security_guards
-	  prerequisite = { focus = COS_thwart_the_attempt_on_the_kaiser}
-	  x = 1
-	  y = 1
-	  relative_position_id = COS_thwart_the_attempt_on_the_kaiser
-	  cost = 1
 
-	  available = {
-
-	  }
-
-	  ai_will_do = {
-	    factor = 10
-	  }
-
-	  bypass = {
-
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-	  completion_reward = {
-
-	  }
-	}
 
 
 
@@ -2351,7 +2352,7 @@ focus_tree = {
     icon = GFX_focus_generic_monarchy_1
     text = COS_ABSOLUTISM
     prerequisite = { focus = COS_KAISER_SPEECH }
-    x = -3
+    x = -7
     y = 1
     relative_position_id = COS_KAISER_SPEECH
     cost = 10
@@ -2363,7 +2364,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_political_power = -25
+      add_political_power = 40
     }
   }
 
@@ -2547,8 +2548,8 @@ focus_tree = {
     icon = GFX_Attack_Romania
     text = COS_ANNEX_BUCOVINA
     prerequisite = { focus = COS_CENTRALISM }
-    x = 0
-    y = 1
+    x = 3
+    y = 2
     relative_position_id = COS_CENTRALISM
     cost = 10
     ai_will_do = {
@@ -2580,7 +2581,15 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				set_faction_name = AUS_central_powers
+			}
+			else = {
+				create_faction = AUS_central_powers
+			}
     }
   }
 
@@ -2601,7 +2610,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			GRE = {country_event = austria.17}
     }
   }
 
@@ -2622,7 +2631,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			TUR = {country_event = austria.17}
     }
   }
 
@@ -2664,7 +2673,10 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			create_wargoal = {
+				target = SWI
+				type = annex_everything
+			}
     }
   }
 
@@ -2685,7 +2697,10 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+		create_wargoal = {
+			target = YUG
+			type = annex_everything
+		}
     }
   }
 
@@ -2761,7 +2776,7 @@ focus_tree = {
     text = COS_colonial_ambitions
     prerequisite = { focus = COS_CENTRALISM }
     x = -8
-    y = 1
+    y = 2
     relative_position_id = COS_CENTRALISM
     cost = 10
     ai_will_do = {
@@ -2964,15 +2979,18 @@ focus_tree = {
     }
   }
 
+
+
 	focus = {
-    id = COS_claim_the_greater_congo_basin
+    id = COS_situation_in_americas
     icon = GFX_focus_hun_elect_a_king
-    text = COS_claim_the_greater_congo_basin
-    prerequisite = { focus = COS_connect_our_territories }
+    text = COS_situation_in_americas
+    prerequisite = { focus = COS_colonial_ambitions }
     x = 0
     y = 1
-    relative_position_id = COS_connect_our_territories
+    relative_position_id = COS_colonial_ambitions
     cost = 10
+
     ai_will_do = {
       factor = 20
     }
@@ -2991,10 +3009,10 @@ focus_tree = {
     id = COS_influence_brazil
     icon = GFX_focus_hun_elect_a_king
     text = COS_influence_brazil
-    prerequisite = { focus = COS_colonial_ambitions }
-    x = 0
+    prerequisite = { focus = COS_situation_in_americas }
+    x = -3
     y = 1
-    relative_position_id = COS_colonial_ambitions
+    relative_position_id = COS_situation_in_americas
     cost = 10
 
     ai_will_do = {
@@ -3031,11 +3049,183 @@ focus_tree = {
   }
 
 	focus = {
+    id = COS_prepare_mexican_revolt
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_prepare_mexican_revolt
+    prerequisite = { focus = COS_situation_in_americas }
+    x = 0
+    y = 1
+    relative_position_id = COS_situation_in_americas
+    cost = 10
+
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_invite_maximilian
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_invite_maximilian
+    prerequisite = { focus = COS_prepare_mexican_revolt }
+    x = -1
+    y = 1
+    relative_position_id = COS_prepare_mexican_revolt
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_pan_monarchist_propoganda
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_pan_monarchist_propoganda
+    prerequisite = { focus = COS_prepare_mexican_revolt }
+    x = 1
+    y = 1
+    relative_position_id = COS_prepare_mexican_revolt
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_return_of_the_hapsburgs
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_return_of_the_hapsburgs
+    prerequisite = { focus = COS_pan_monarchist_propoganda }
+		prerequisite = { focus = COS_invite_maximilian }
+    x = -1
+    y = 1
+    relative_position_id = COS_pan_monarchist_propoganda
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_import_oil_from_grand_colombia
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_import_oil_from_grand_colombia
+    prerequisite = { focus = COS_situation_in_americas }
+    x = 3
+    y = 1
+    relative_position_id = COS_situation_in_americas
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_industrial_deal_with_colombia
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_industrial_deal_with_colombia
+    prerequisite = { focus = COS_import_oil_from_grand_colombia }
+    x = 0
+    y = 1
+    relative_position_id = COS_import_oil_from_grand_colombia
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_hinder_british_french_influence
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_hinder_british_french_influence
+    prerequisite = { focus = COS_industrial_deal_with_colombia }
+    x = 0
+    y = 1
+    relative_position_id = COS_industrial_deal_with_colombia
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+	focus = {
+    id = COS_secure_our_holdings
+    icon = GFX_focus_hun_elect_a_king
+    text = COS_secure_our_holdings
+    prerequisite = { focus = COS_hinder_british_french_influence }
+    x = 0
+    y = 1
+    relative_position_id = COS_hinder_british_french_influence
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+
+    }
+  }
+
+
+
+	focus = {
     id = COS_infrastructure_in_qingdao
     icon = GFX_focus_hun_elect_a_king
     text = COS_infrastructure_in_qingdao
     prerequisite = { focus = COS_colonial_ambitions }
-    x = 2
+    x = 5
     y = 1
     relative_position_id = COS_colonial_ambitions
     cost = 10
@@ -3056,7 +3246,7 @@ focus_tree = {
     icon = GFX_focus_hun_elect_a_king
     text = COS_influence_beyiang
     prerequisite = { focus = COS_infrastructure_in_qingdao }
-    x = 1
+    x = 2
     y = 1
     relative_position_id = COS_infrastructure_in_qingdao
     cost = 10
@@ -3119,7 +3309,7 @@ focus_tree = {
     icon = GFX_focus_hun_elect_a_king
     text = COS_align_indian_congress
     prerequisite = { focus = COS_infrastructure_in_qingdao }
-    x = 1
+    x = 0
     y = 1
     relative_position_id = COS_infrastructure_in_qingdao
     cost = 10
@@ -3180,7 +3370,9 @@ focus_tree = {
 
 
 
-
+	##########
+	######Con. Mon. Branch
+	#########
 
 	focus = {
     id = COS_concessions_to_people
@@ -3188,7 +3380,7 @@ focus_tree = {
     text = COS_concessions_to_people
     prerequisite = { focus = COS_KAISER_SPEECH }
 		mutually_exclusive = { focus = COS_ABSOLUTISM }
-    x = 2
+    x = 7
     y = 1
     relative_position_id = COS_KAISER_SPEECH
     cost = 10
@@ -3596,7 +3788,7 @@ focus_tree = {
 		prerequisite = { focus = COS_REFORM }
 		mutually_exclusive = { focus = COS_sign_a_new_constitution }
 		x = -2
-		y = 1
+		y = 18
 		relative_position_id = COS_REFORM
 		cost = 10
 		ai_will_do = {
@@ -3689,7 +3881,7 @@ focus_tree = {
 
 		available = {has_country_flag = nat_regen}
     x = 7
-    y = 1
+    y = 18
     #relative_position_id = COS_KAISER_SPEECH
     cost = 10
     ai_will_do = {
@@ -3806,7 +3998,7 @@ focus_tree = {
     id = COS_METTERNICH
     icon = GFX_focus_ger_reichskommisariats
     text = COS_METTERNICH
-    prerequisite = { focus = COS_expand_recruitment_imperial_army focus = COS_FORM_INTERNATIONALE focus = COS_FREE_AUSTRIA focus = COS_RISE_OF_EVIL }
+    prerequisite = {  focus = COS_FORM_INTERNATIONALE focus = COS_RISE_OF_EVIL }
     x = 2
     y = 1
     relative_position_id = COS_FORM_INTERNATIONALE
@@ -4163,32 +4355,7 @@ focus_tree = {
 
 
 	#######
-	focus = {
-    id = COS_STATE_OF_EMPIRE
-    icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
-    text = COS_STATE_OF_EMPIRE
-    prerequisite = { focus = COS_KAISER_SPEECH }
-    x = -17
-    y = 1
-    relative_position_id = COS_KAISER_SPEECH
-    ai_will_do = {
-      factor = 65
-    }
-		available = {
-			has_country_flag = state_of_the_empire
-		}
 
-		bypass = {
-			has_country_flag = state_of_the_empire
-		}
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-      add_political_power = 25
-    }
-  }
 
 
 
@@ -4208,8 +4375,11 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_infrastructure
 		text = COS_recover_from_black_monday
 		x = 0
-		y = 0
+		y = 1
 		cost = 7
+
+		prerequisite = {focus = COS_KAISER_SPEECH}
+		relative_position_id = COS_KAISER_SPEECH
 
 		ai_will_do = {
 			factor = 80
