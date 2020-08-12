@@ -2789,7 +2789,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			add_ideas = AUS_colonial_ambitions
     }
   }
 	focus = {
@@ -2800,7 +2800,7 @@ focus_tree = {
     x = -5
     y = 1
     relative_position_id = COS_colonial_ambitions
-    cost = 10
+    cost = 1
     ai_will_do = {
       factor = 20
     }
@@ -2809,7 +2809,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			########gets event kaiser announces african campaign
     }
   }
 
@@ -2830,7 +2830,13 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			every_state = {
+				limit = {
+					is_owned_by = LBA
+					is_owned_by = EGY
+				}
+				add_claim_by = AUS
+			}
     }
   }
 
@@ -2851,7 +2857,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			#####gets event austria demands tunis
     }
   }
 
@@ -2872,7 +2878,18 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			if = {
+				limit = {
+					AUS = {
+						owns_state = 485
+					}
+				}
+				add_resource = {
+					type = oil
+					amount = 12
+					state = 485
+				}
+			}
     }
   }
 

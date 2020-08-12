@@ -58,50 +58,66 @@ ideologies = {
 
 	}
 
-	anarchism_ideology = {
+
+
+
+
+	constitutional_monarchy = {
 
 		types = {
 
-			anarchism_2 = {
+			conservative_con_mon = {
 			}
+			liberal_con_mon = {
+			}
+
+			
 		}
 
-		dynamic_faction_names = {
-			"FACTION_NAME_COMMUNIST_1"
-			"FACTION_NAME_COMMUNIST_2"
-			"FACTION_NAME_COMMUNIST_3"
-			"FACTION_NAME_COMMUNIST_4"
-			"FACTION_NAME_COMMUNIST_5"
-		}
+			dynamic_faction_names = {
+				"FACTION_NAME_DEMOCRATIC_1"
+				"FACTION_NAME_DEMOCRATIC_2"
+				"FACTION_NAME_DEMOCRATIC_3"
+				"FACTION_NAME_DEMOCRATIC_4"
+				"FACTION_NAME_DEMOCRATIC_5"
+				"FACTION_NAME_DEMOCRATIC_6"
+			}
 
-		color = { 0 0 0 }
+			color = { 255 69 122 }
 
-		war_impact_on_world_tension = 0.45		#Commie less threatening
-		faction_impact_on_world_tension = 0.5
+			rules = {
+				can_create_collaboration_government = yes
+				can_declare_war_on_same_ideology = yes
+				can_force_government = yes
+				can_send_volunteers = no
+				can_puppet = no
+				can_lower_tension = yes
+				can_only_justify_war_on_threat_country = yes
+				can_guarantee_other_ideologies = yes
+			}
 
-		ai_communist = yes # uses the commie AI behaviour
+			can_host_government_in_exile = yes
 
-		rules = {
-			can_force_government = yes
-			can_send_volunteers = yes
-			can_puppet = yes
-		}
+			war_impact_on_world_tension = 0.20	# no major danger, remember this this the 40s! #the game takes place in 1930's paradox dev dumb
+			faction_impact_on_world_tension = 0.1
 
-		can_collaborate = yes
+			modifiers = {
+				generate_wargoal_tension = 0.7
+				join_faction_tension = 0.60
+				lend_lease_tension = 0.30
+				send_volunteers_tension = 0.30
+				guarantee_tension = 0.25
+				annex_cost_factor = 0.4
+				civilian_intel_to_others = 20.0
+				army_intel_to_others = 5.0
+				navy_intel_to_others = 20.0
+				airforce_intel_to_others = 5
+			}
 
-		modifiers = {
-			puppet_cost_factor = -0.3
-			civilian_intel_to_others = 10.0
-			army_intel_to_others = 7.5
-			navy_intel_to_others = 12.5
-			airforce_intel_to_others = 7.5
-			join_faction_tension = 0.75
-		}
-
-		faction_modifiers = {
-
-		}
-
+			faction_modifiers = {
+				faction_trade_opinion_factor = 0.50 #plus 50% trade opinion
+			}
+			ai_democratic = yes # uses the democratic AI behaviour
 	}
 
 	democratic = {
@@ -165,7 +181,7 @@ ideologies = {
 	}
 
 
-    monarchy = {
+  monarchy = {
 
 		types = {
 
