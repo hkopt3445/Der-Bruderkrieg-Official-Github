@@ -19,7 +19,7 @@
 	  icon = GFX_goal_generic_construction
 	  text = ITA_MAFIA_FOCUS
 	  #prerequisite = { focus = ITA_stabilize_italy }
-	  x = -12 
+	  x = -12
 	  y = 14
 	  relative_position_id = ITA_stabilize_italy
 	  cost = 5
@@ -1781,7 +1781,7 @@
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_the_roman_question }
-		mutually_exclusive = { focus = ITA_JqQiwURT }
+		mutually_exclusive = { focus = ITA_request_venice_bad }
 		ai_will_do = {
 			factor = 1
 		}
@@ -2135,7 +2135,7 @@
 		available_if_capitulated = yes
 		prerequisite = {
 			focus = ITA_request_venice
-			focus = ITA_JqQiwURT
+			focus = ITA_request_venice_bad
 		}
 		ai_will_do = {
 			factor = 1
@@ -2187,7 +2187,7 @@
 
 	#Focus for Request Venice
 	focus = {
-		id = ITA_JqQiwURT
+		id = ITA_request_venice_bad
 		icon = GFX_goal_generic_major_alliance
 		x = 18
 		y = 9
@@ -2198,6 +2198,11 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		ai_will_do = {
 			factor = 1
+		}
+		available ={
+			NOT = {
+				is_in_faction_with = AUS
+			}
 		}
 		completion_reward = {
 			add_state_core= 160
@@ -2262,7 +2267,7 @@
 			factor = 1
 		}
 		available = {
-			###Italian Civil War has ended
+			has_country_flag = ITA_fascist_or_neutral_win_civil_war
 		}
 		completion_reward = {
 			add_popularity = {
@@ -2305,6 +2310,9 @@
 		prerequisite = { focus = ITA_clerical_fascism }
 		ai_will_do = {
 			factor = 1
+		}
+		available = {
+			has_country_flag = ITA_fascist_or_neutral_win_civil_war
 		}
 		completion_reward = {
 			add_ideas = ITA_three_ideals
