@@ -375,7 +375,7 @@
 	    factor = 1
 	  }
 
-	  available_if_capitulated = yes
+	  available_if_capitulated = yes s
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
@@ -1785,24 +1785,19 @@
 		ai_will_do = {
 			factor = 1
 		}
+		available = {
+			is_in_faction_with = AUS
+		}
 		completion_reward = {
-			AUS = {country_event = italy.504}
+			ITA = {
+				transfer_state = 160
+				transfer_state = 805
+			}
+
 		}
 	}
 
-	#Focus for Protect the Swiss
-	focus = {
-		id = ITA_protect_the_swiss
-		icon = GFX_goal_unknown
-		x = 22
-		y = 10
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = { focus = ITA_deal_with_the_french }
-		ai_will_do = {
-			factor = 1
-		}
-	}
+
 
 	#Focus for Look toward the Napoleans
 	focus = {
@@ -1826,8 +1821,10 @@
 			factor = 1
 		}
 		completion_reward = {
-			FRA = {country_event = generic.5}
+			create_faction = ITA_stresa_pact
+			hidden_effect = {FRA = {country_event = {id = generic.5}}}
 		}
+
 	}
 
 	#Focus for Stratigic Ally
@@ -1852,7 +1849,9 @@
 			factor = 1
 		}
 		completion_reward = {
-			AUS = {country_event = generic.5}
+		create_faction = ITA_veneto_pact
+		hidden_effect = {AUS = {country_event = {id = generic.5}}}
+
 		}
 	}
 
@@ -2101,6 +2100,7 @@
 					}
 				}
 			}
+
 		}
 	}
 
@@ -2115,6 +2115,9 @@
 		prerequisite = { focus = ITA_return_of_victor_emanuel }
 		ai_will_do = {
 			factor = 1
+		}
+		available = {
+			has_country_flag = ITA_fascist_or_neutral_win_civil_war
 		}
 		completion_reward = {
 			add_political_power= 50
@@ -2199,23 +2202,11 @@
 		ai_will_do = {
 			factor = 1
 		}
-		available ={
-			NOT = {
-				is_in_faction_with = AUS
-			}
-		}
+
 		completion_reward = {
 			add_state_core= 160
-			if = {
-				limit =  {
-						ITA = {
-							is_in_faction_with = AUS
-						}
-				}
-				ITA = {
-					transfer_state = 160
-				}
-			}
+			AUS = {country_event = italy.504}
+
 ###Austria gets an event Italy asks for Venice, if they are in your faction they will accept
 		}
 	}
@@ -2252,7 +2243,7 @@
 	#Focus for Pan-Roman Propoganda
 	focus = {
 		id = ITA_panroman_propoganda
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_propaganda
 		x = 37
 		y = 6
 		cost = 10
@@ -2361,6 +2352,7 @@ add_stability = 0.05
 
 		}
 	}
+	
 
 	#Focus for Evola's Coup
 	focus = {
@@ -3532,7 +3524,7 @@ declare_war_on = {
 	#Focus for Demand Venetia
 	focus = {
 		id = ITA_demand_venetia
-		icon = GFX_goal_unknown
+		icon = GFX_Attack_Austria
 		x = 35
 		y = 8
 		cost = 10
@@ -3591,7 +3583,7 @@ declare_war_on = {
 	#Focus for Vendetta Nationale
 	focus = {
 		id = ITA_vendetta_nationale
-		icon = GFX_goal_unknown
+		icon = GFX_goal_generic_demand_territory
 		x = 35
 		y = 10
 		cost = 10
@@ -3628,7 +3620,7 @@ declare_war_on = {
 	#Focus for Influence Greece
 	focus = {
 		id = ITA_influence_greece
-		icon = GFX_goal_unknown
+		icon = GFX_Diplo_Greece
 		x = 33
 		y = 9
 		cost = 10
@@ -3659,7 +3651,7 @@ declare_war_on = {
 	#Focus for Reconquer Greece
 	focus = {
 		id = ITA_reconquer_greece
-		icon = GFX_goal_unknown
+		icon = GFX_Attack_Greece
 		x = 31
 		y = 9
 		cost = 10
@@ -3679,7 +3671,7 @@ declare_war_on = {
 	#Focus for Claims on the Ottomans
 	focus = {
 		id = ITA_claims_on_the_ottomans
-		icon = GFX_goal_unknown
+		icon = GFX_Attack_Turkey
 		x = 31
 		y = 10
 		cost = 10
@@ -3800,8 +3792,13 @@ create_wargoal = {
 		ai_will_do = {
 			factor = 1
 		}
+		available = {
+			is_in_faction_with = FRA
+		}
 		completion_reward = {
 			## france gets event, trade Corsica in exchange for removing claim on savoy
+			FRA = {country_event = italy.526}
+
 		}
 	}
 

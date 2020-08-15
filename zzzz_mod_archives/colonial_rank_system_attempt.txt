@@ -1,0 +1,29 @@
+
+for_each_loop = {
+  array = colonial_countries
+  value = value_name_temp
+  add_to_array = {
+    holder_colonial_3 = value_name_temp
+  }
+}
+for_each_loop = {
+  array = colonial_countries
+  value = value_name
+  effect = {
+    for_each_loop = {
+      array = holder_colonial_3
+      value = value_name_temp_2
+      effect = {
+        if = {
+          limit = {
+            [value_name.colonial_influence_var] > [value_name_temp_2.colonial_influence_var]
+          }
+          add_to_array = {
+            array = actual_colonial_array
+            index =
+          }
+        }
+      }
+    }
+  }
+}

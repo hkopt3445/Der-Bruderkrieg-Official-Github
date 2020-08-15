@@ -767,3 +767,330 @@ country_event = {
 		}
 	}
 }
+
+
+
+#############New austria events
+
+
+######Generic deal
+
+
+country_event = {
+	id = austria.104
+	title = austria.104.t
+	desc = austria.104.desc
+	picture = GFX_report_event_hungary_gains_transylvania
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If Romania selects this option, they will transfer states, no war
+		name = austria.104.a #needs to be localized
+		ai_chance = { factor = 65 } #this factor means the AI will almost always pick this one
+		if = {
+			limit = {
+				ROOT = {
+					tag = SOV
+				}
+			}
+			diplomatic_relation = {
+				country = AUS
+				relation = non_aggression_pact
+				active = yes
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = FRA
+					}
+				}
+				diplomatic_relation = {
+					country = AUS
+					relation = non_aggression_pact
+					active = yes
+					}
+				}
+
+		if = {
+			limit = {
+				ROOT = {
+					tag = USA
+				}
+			}
+			diplomatic_relation = {
+				country = AUS
+				relation = non_aggression_pact
+				active = yes
+				}
+
+				add_ideas = AUS_arms_sharing_with_usa
+			}
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			news_event = { id = austria.105 hours = 3 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If Romania selects this option, they say no and Austria gets event to get war goal
+		name = austria.104.b #needs to be localized
+		ai_chance = { factor = 35 }
+		hidden_effect = {
+			AUS = { country_event = austria.106 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+news_event = {
+	id = austria.105
+	title = austria.105.t
+	desc = austria.105.desc
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austria.105.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = austria.106
+	title = austria.106.t
+	desc = austria.106.desc
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria.106.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		add_opinion_modifier = {
+			modifier = large_decrease
+			target = FROM
+		}
+	}
+}
+
+
+
+
+#######Generic demand territory
+country_event = {
+	id = austria.107
+	title = austria.107.t
+	desc = austria.107.desc
+	picture = GFX_report_event_hungary_gains_transylvania
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If Romania selects this option, they will transfer states, no war
+		name = austria.107.a #needs to be localized
+		ai_chance = { factor = 65 } #this factor means the AI will almost always pick this one
+
+		if = {
+			limit = {
+				tag = FRA
+				FROM = {
+					NOT = {
+						has_country_flag = demand_ceylon
+					}
+				}
+			}
+			AUS = {
+				transfer_state = 485
+			}
+		}
+
+		if = {
+			limit = {
+				tag = ENG
+			}
+			AUS = {
+				transfer_state = 547
+			}
+		}
+
+		if = {
+			limit = {
+				tag = SAF
+			}
+			AUS = {
+				transfer_state = 771
+			}
+		}
+
+		if = {
+			limit = {
+				tag = SMC
+			}
+			AUS = {
+				set_autonomy = {
+					target = SMC
+					autonomous_state =  autonomy_puppet
+				}
+			}
+		}
+
+
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			news_event = { id = austria.108 hours = 3 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If Romania selects this option, they say no and Austria gets event to get war goal
+		name = austria.107.b #needs to be localized
+		ai_chance = { factor = 35 }
+		hidden_effect = {
+			AUS = { country_event = austria.109 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+news_event = {
+	id = austria.108
+	title = austria.108.t
+	desc = austria.108.desc
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austria.108.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = austria.109
+	title = austria.109.t
+	desc = austria.109.desc
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria.109.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+
+country_event = {
+	id = austria.110
+	title = austria.110.t
+	desc = austria.110.desc
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria.110.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+	}
+}
+
+country_event = {
+	id = austria.111
+	title = austria.111.t
+	desc = austria.111.desc
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria.111.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+	}
+}
+
+country_event = {
+	id = austria.112
+	title = austria.112.t
+	desc = austria.112.desc
+	picture = GFX_report_event_hungary_gains_transylvania
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # If Romania selects this option, they will transfer states, no war
+		name = austria.112.a #needs to be localized
+		ai_chance = { factor = 65 } #this factor means the AI will almost always pick this one
+
+		AUS = {
+			transfer_state = 771
+		}
+
+
+		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+			news_event = { id = austria.113 hours = 3 } #this event just notifies Austria that they got their way
+			}
+	}
+
+	option = { # If Romania selects this option, they say no and Austria gets event to get war goal
+		name = austria.112.b #needs to be localized
+		ai_chance = { factor = 35 }
+		hidden_effect = {
+			AUS = { country_event = austria.114 days = 1 } #This event will give Austria an event to get a wargoal
+			}
+	}
+} #Closing Bracket
+
+news_event = {
+	id = austria.113
+	title = austria.113.t
+	desc = austria.113.desc
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austria.113.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+} #Closing Bracket
+
+#This event makes Austria get war goal
+country_event = {
+	id = austria.114
+	title = austria.114.t
+	desc = austria.114.desc
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria.114.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}

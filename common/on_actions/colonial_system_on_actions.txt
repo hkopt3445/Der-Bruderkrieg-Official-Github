@@ -1,0 +1,103 @@
+on_actions = {
+  on_startup = {
+    effect = {
+      every_state = {
+        limit = {
+          is_on_continent = africa
+        }
+        if = {
+          limit = {
+            owner = {capital_scope = {is_on_continent = europe}}
+          }
+          owner = {
+            add_to_variable = {colonial_influence_var = 1}
+          }
+
+          if = {
+            limit = {
+              owner = {
+                NOT = {
+                  has_country_flag = colonial_power
+                }
+              }
+            }
+            owner = { set_country_flag = colonial_power }
+          }
+
+          if = {
+            limit = {
+              NOT = {
+                is_in_array = {
+                  array = countries_with_colonial_influence
+                  value = owner
+                }
+              }
+            }
+            add_to_array = {
+              array = countries_with_colonial_influence
+              value = owner
+            }
+          }
+
+
+        }
+
+
+
+
+
+        #add_to_variable = {total_african_states = 1}
+      }
+    }
+  }
+
+  on_state_control_changed = {
+    effect = {
+      every_state = {
+        limit = {
+          is_on_continent = africa
+        }
+        if = {
+          limit = {
+            owner = {capital_scope = {is_on_continent = europe}}
+          }
+          owner = {
+            add_to_variable = {colonial_influence_var = 1}
+          }
+
+          if = {
+            limit = {
+              owner = {
+                NOT = {
+                  has_country_flag = colonial_power
+                }
+              }
+            }
+            owner = { set_country_flag = colonial_power }
+          }
+
+          if = {
+            limit = {
+              is_in_array = {
+                array = countries_with_colonial_influence
+                value = owner
+              }
+            }
+            add_to_array = {
+              array = countries_with_colonial_influence
+              value = owner
+            }
+          }
+
+
+        }
+
+
+
+
+
+        #add_to_variable = {total_african_states = 1}
+      }
+    }
+  }
+}
