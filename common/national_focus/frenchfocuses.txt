@@ -9,14 +9,15 @@ focus_tree = {
 			tag = FRA
 		}
 	}
+	continuous_focus_position = { x = 0, y = 1900 }
 
   focus = {
     id = FRA_BUILD_INDUSTRY
     icon = GFX_goal_generic_construction
     text = FRA_BOOST_ECONOMY
     #prerequisite = { focus = ITA_industrial_effort_2 }
-    x = 23
-    y = 0
+    x = 5
+    y = -7
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 10
     ai_will_do = {
@@ -326,8 +327,8 @@ focus_tree = {
     icon = GFX_goal_generic_axis_build_infantry
     text = FRA_ARMEE_FRANCAISE
     #prerequisite = { focus = ITA_industrial_effort_2 }
-    x = 0
-    y = 0
+    x = 20
+    y = 7
     #relative_position_id = FRA_BUILD_INDUSTRY
     cost = 10
     ai_will_do = {
@@ -367,7 +368,7 @@ focus_tree = {
     }
   }
 
-	focus = { 
+	focus = {
     id = FRA_FOCUS_ON_BATTLEPLAN
     icon = GFX_goal_generic_army_doctrines
     text = FRA_FOCUS_ON_BATTLEPLAN
@@ -2827,6 +2828,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_threat = 1
 			SPR = {country_event={id = supplies.2}}
 		}
 	}
@@ -2895,12 +2897,14 @@ focus_tree = {
 				}
 			}
 		}
+		mutually_exclusive = {focus = FRA_ANNEX_SPAIN}
 
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			###########Get to this
+			add_threat = 3
 
 			SPR = {country_event = {id = napoleanfrance.1}}
 		}
@@ -2911,6 +2915,7 @@ focus_tree = {
 		icon = GFX_goal_Annex_Spain
 		text = FRA_ANNEX_SPAIN
 		prerequisite = { focus = FRA_CATALONIA_FOR_ALLIANCE }
+		mutually_exclusive = {focus = FRA_DEMAND_SUBJUGATION}
 		x = 1
 		y = 1
 		relative_position_id = FRA_CATALONIA_FOR_ALLIANCE
@@ -3483,11 +3488,11 @@ focus_tree = {
 
 		completion_reward = {
 			#######Declares war on the UK and Prussia gets event the Next Napoleonic War
-			declare_war_on = {
+			create_wargoal_on = {
 				target = GER
 				type = annex_everything
 			}
-			declare_war_on = {
+			create_wargoal_on = {
 				target = ENG
 				type = annex_everything
 			}
@@ -3634,7 +3639,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			declare_war_on = {
+			create_wargoal_on = {
 				target = SOV
 				type = annex_everything
 			}
@@ -3776,7 +3781,7 @@ focus_tree = {
 					}
 				}
 				ROOT = {
-					declare_war_on = {
+					create_wargoal_on = {
 						target = PREV
 						type = annex_everything
 					}
@@ -4017,7 +4022,7 @@ focus_tree = {
 
 		completion_reward = {
 			FRA = {
-				declare_war_on = {
+				create_wargoal_on = {
 					target = AUS
 					type = annex_everything
 				}
@@ -4183,7 +4188,7 @@ focus_tree = {
 
 		completion_reward = {
 			FRA = {
-				declare_war_on = {
+				create_wargoal_on = {
 					target = GER
 					type = annex_everything
 				}
@@ -5509,6 +5514,853 @@ focus_tree = {
 			add_stability = 0.15
 		}
 	}
+
+
+
+
+
+
+		#Focus for On the Frontier
+		focus = {
+			id = FRA_on_the_frontier
+			icon = GFX_goal_generic_construct_mil_factory
+			x = 8
+			y = 3
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_guns_for_the_soldiers }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = arms_factory
+	 size > 0
+	 include_locked = yes
+
+
+	 }
+	 any_neighbor_state = {
+	 	 is_controlled_by  = FGD
+	 }
+
+	 }
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = arms_factory
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 28
+	 }
+	  random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = arms_factory
+	 size > 0
+	 include_locked = yes
+	 }
+	 any_neighbor_state = {
+	 	OR = { is_controlled_by  = ITA }
+	 }
+
+	 }
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = arms_factory
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 28
+	 }
+			}
+		}
+
+		#Focus for In Paris
+		focus = {
+			id = FRA_in_paris
+			icon = GFX_goal_generic_construct_civ_factory
+			x = 5
+			y = 5
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_in_the_south }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+			16={
+
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = 24
+ }
+			}
+		}
+
+		#Focus for National Development Bureau
+		focus = {
+			id = FRA_national_development_bureau
+			icon = GFX_goal_tripartite_pact
+			x = 5
+			y = 0
+			cost = 10
+			available_if_capitulated = yes
+			ai_will_do = {
+				factor = 1
+			}
+
+			#relative_position_id = FRA_BUILD_INDUSTRY
+			completion_reward = {
+				add_political_power= -50
+			}
+		}
+
+		#Focus for Division Metropol
+		focus = {
+			id = FRA_division_metropol
+			icon = GFX_goal_generic_construct_civ_factory
+			x = 5
+			y = 1
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_national_development_bureau }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_political_power= -25
+			}
+		}
+
+		#Focus for Division Coloniale
+		focus = {
+			id = FRA_division_coloniale
+			icon = GFX_focus_generic_military_academy
+			x = 13
+			y = 1
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_national_development_bureau }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_political_power= -25
+			}
+		}
+
+		#Focus for Law on the Country in Danger
+		focus = {
+			id = FRA_law_on_the_country_in_danger
+			icon = GFX_goal_generic_construct_mil_factory
+			x = 2
+			y = 2
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_division_metropol }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_ideas= La_Patrie_En_Danger
+			}
+		}
+
+		#Focus for Keep out the Reichsmarshall
+		focus = {
+			id = FRA_keep_out_the_reichsmarshall
+			icon = GFX_goal_generic_fortify_city
+			x = 2
+			y = 3
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_law_on_the_country_in_danger }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_building_construction= {
+	type = bunker
+	province = 3512
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 6469
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 9482
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 9547
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 9486
+	level = 3
+	instant_build = yes }
+			}
+		}
+
+		#Focus for Defend against the Kaiser
+		focus = {
+			id = FRA_defend_against_the_kaiser
+			icon = GFX_goal_generic_fortify_city
+			x = 2
+			y = 5
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_hold_back_the_duce }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_building_construction= {
+	type = bunker
+	province = 6444
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 11560
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 3558
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 6568
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 3530
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 6542
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 6712
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 11640
+	level = 3
+	instant_build = yes }
+			}
+		}
+
+		#Focus for Hold Back the Duce
+		focus = {
+			id = FRA_hold_back_the_duce
+			icon = GFX_goal_generic_fortify_city
+			x = 2
+			y = 4
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_keep_out_the_reichsmarshall }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_building_construction= {
+	type = bunker
+	province = 9909
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 3959
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 6975
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 3764
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 764
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 9745
+	level = 3
+	instant_build = yes }
+	  add_building_construction= {
+	type = bunker
+	province = 778
+	level = 3
+	instant_build = yes }
+			}
+		}
+
+		#Focus for Ils ne Passeront Pas
+		focus = {
+			id = FRA_ils_ne_passeront_pas
+			icon = GFX_goal_generic_demand_territory
+			x = 2
+			y = 6
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_defend_against_the_kaiser }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				swap_ideas= {
+	 remove_idea = La_Patrie_En_Danger
+	add_idea = FRA_Ils_Ne_Passeront_Pas
+	}
+			}
+		}
+
+		#Focus for Jobs for the Workers
+		focus = {
+			id = FRA_jobs_for_the_workers
+			icon = GFX_goal_generic_consumer_goods
+			x = 5
+			y = 2
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_division_metropol }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_ideas= FRA_More_Jobs
+			}
+		}
+
+		#Focus for In the Loire
+		focus = {
+			id = FRA_in_the_loire
+			icon = GFX_goal_generic_construct_civ_factory
+			x = 5
+			y = 3
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_jobs_for_the_workers }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				30={
+
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = industrial_complex
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 24
+	 }
+	 14={
+
+
+add_extra_state_shared_building_slots = 1
+add_building_construction = {
+type = industrial_complex
+level = 1
+instant_build = yes
+}
+
+set_state_flag = 24
+}
+			}
+		}
+
+		#Focus for In the South
+		focus = {
+			id = FRA_in_the_south
+			icon = GFX_goal_generic_construct_civ_factory
+			x = 5
+			y = 4
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_in_the_loire }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+			25={
+
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = 24
+ }
+ 22={
+
+
+add_extra_state_shared_building_slots = 1
+add_building_construction = {
+type = industrial_complex
+level = 1
+instant_build = yes
+}
+
+set_state_flag = 24
+}
+			}
+		}
+
+		#Focus for Guns for the Soldiers
+		focus = {
+			id = FRA_guns_for_the_soldiers
+			icon = GFX_goal_generic_build_tank
+			x = 8
+			y = 2
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_division_metropol }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_ideas= FRA_More_Guns
+			}
+		}
+
+		#Focus for In Provence
+		focus = {
+			id = FRA_in_provence
+			icon = GFX_goal_generic_construct_mil_factory
+			x = 8
+			y = 4
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_on_the_frontier }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+			958={
+
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = 24
+ }
+
+	 		}
+
+	 }
+
+
+
+		#Focus for In Bretagne
+		focus = {
+			id = FRA_in_bretagne
+			icon = GFX_goal_generic_construct_mil_factory
+			x = 8
+			y = 5
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_in_provence }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+			14={
+
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = 24
+ }
+			}
+		}
+
+		#Focus for Transsaharian Railroad
+		focus = {
+			id = FRA_transsaharian_railroad
+			icon = GFX_goal_generic_construct_infrastructure
+			x = 11
+			y = 2
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_division_coloniale }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				set_building_level = {
+	    type = infrastructure
+	    level = 5
+	    instant_build = yes
+	}
+			}
+		}
+
+		#Focus for Intensify Exploitation
+		focus = {
+			id = FRA_intensify_exploitation
+			icon = GFX_goal_generic_production
+			x = 14
+			y = 2
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_division_coloniale }
+			mutually_exclusive = {focus = FRA_the_union_plan}
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_stability= 0.05
+			}
+		}
+
+		#Focus for The Union Plan
+		focus = {
+			id = FRA_the_union_plan
+			icon = GFX_goal_generic_major_alliance
+			x = 17
+			y = 2
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_division_coloniale }
+			mutually_exclusive = { focus = FRA_intensify_exploitation }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_stability= -0.05
+			}
+		}
+
+		#Focus for The Second France
+		focus = {
+			id = FRA_the_second_france
+			icon = GFX_focus_fra_french_union
+			x = 11
+			y = 3
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_transsaharian_railroad }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = industrial_complex
+	 size > 0
+	 include_locked = yes
+	 }
+
+	 }
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = industrial_complex
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 459
+	 }
+	  random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = arms_factory
+	 size > 0
+	 include_locked = yes
+	 }
+
+	 }
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = arms_factory
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 459
+	 }
+			}
+		}
+
+		#Focus for The Western Bases
+		focus = {
+			id = FRA_the_western_bases
+			icon = GFX_focus_generic_industry_3
+			x = 11
+			y = 4
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_the_second_france }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = industrial_complex
+	 size > 0
+	 include_locked = yes
+	 }
+
+	 }
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = industrial_complex
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 272
+	 }
+	  random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = arms_factory
+	 size > 0
+	 include_locked = yes
+	 }
+
+	 }
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = arms_factory
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 272
+	 }
+			}
+		}
+
+		#Focus for The Eastern Foothold
+		focus = {
+			id = FRA_the_eastern_foothold
+			icon = GFX_goal_generic_consumer_goods
+			x = 11
+			y = 5
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_the_western_bases }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = industrial_complex
+	 size > 0
+	 include_locked = yes
+	 }
+
+	 }
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = industrial_complex
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 671
+	 }
+	  random_owned_controlled_state={
+	 limit = {
+	 free_building_slots = {
+	 building = arms_factory
+	 size > 0
+	 include_locked = yes
+	 }
+
+	 }
+
+	 add_extra_state_shared_building_slots = 1
+	 add_building_construction = {
+	 type = arms_factory
+	 level = 1
+	 instant_build = yes
+	 }
+
+	 set_state_flag = 671
+	 }
+			}
+		}
+
+		#Focus for Saharan Mineral Deposits
+		focus = {
+			id = FRA_saharan_mineral_deposits
+			icon = GFX_goal_generic_construction2
+			x = 14
+			y = 3
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_intensify_exploitation }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_resource= {
+	type = tungsten
+	amount = 10
+	state = 556
+	}
+	  add_resource= {
+	type = aluminium
+	amount = 10
+	state = 556
+	}
+			}
+		}
+
+		#Focus for Algerian Oilfields
+		focus = {
+			id = FRA_algerian_oilfields
+			icon = GFX_goal_generic_oil_refinery
+			x = 14
+			y = 4
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_saharan_mineral_deposits }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_resource= {
+	type = oil
+	amount = 10
+	state = 460
+	}
+			}
+		}
+
+		#Focus for Indochinese Rubber
+		focus = {
+			id = FRA_indochinese_rubber
+			icon = GFX_focus_generic_rubber
+			x = 14
+			y = 5
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_algerian_oilfields }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_resource= {
+	type = rubber
+	amount = 10
+	state = 741
+	}
+			}
+		}
+
+		#Focus for Violette Proposal
+		focus = {
+			id = FRA_violette_proposal
+			icon = GFX_goal_generic_intelligence_exchange
+			x = 17
+			y = 3
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_the_union_plan }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_stability= -0.05  add_manpower= 50000
+			}
+		}
+
+		#Focus for Break Pied-Noir Supremacy
+		focus = {
+			id = FRA_break_piednoir_supremacy
+			icon = GFX_focus_renounce_the_treaty_of_trianon
+			x = 17
+			y = 4
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_violette_proposal }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_stability= -0.05  add_state_core= 459  add_state_core= 514  add_state_core= 513  add_state_core= 460
+			}
+		}
+
+		#Focus for Fulfilling the Rights of Man
+		focus = {
+			id = FRA_fulfilling_the_rights_of_man
+			icon = GFX_focus_generic_the_giant_wakes
+			x = 17
+			y = 5
+			cost = 10
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_break_piednoir_supremacy }
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_stability= -0.05  add_state_core= 458  add_state_core= 272  add_state_core= 462  add_state_core= 461  add_state_core= 779  add_state_core= 778  add_state_core= 556  add_state_core= 665
+			}
+		}
+
+	#End of focuses
+	 }
 
 
 

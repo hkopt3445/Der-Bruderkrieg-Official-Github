@@ -24,7 +24,7 @@ form_scandinavia_category = {
 				controls_state = 144
 			}
 			# Sweden
-			custom_trigger_tooltip = {
+	 		custom_trigger_tooltip = {
 				tooltip = form_country_sweden_required_states_tt
 				controls_state = 124
 				controls_state = 138
@@ -3570,9 +3570,11 @@ form_germany_category = {
 
 		allowed = {
 			OR = {
-				original_tag = GER
-				original_tag = FGD
-				original_tag = GPU
+				tag = GER
+				tag = GPU
+				tag = FGD
+				tag = HAN
+				tag = SAX
 			}
 		}
 
@@ -3611,7 +3613,6 @@ form_germany_category = {
 			controls_state = 949
 			controls_state = 954
 			controls_state = 959
-			controls_state = 954
 			controls_state = 956
 			controls_state = 955
 			controls_state = 957
@@ -3619,19 +3620,20 @@ form_germany_category = {
 		}
 
 		visible = {
-			AND = {
-				original_tag = GER
-				GER = {
-					has_completed_focus = GER_UNITED_GERMANY
-				}
+			OR = {
+				tag = GER
+				tag = GPU
+				tag = FGD
+				tag = HAN
+				tag = SAX
 			}
 			NOT = { has_global_flag = form_germany_flag }
 		}
 
 		complete_effect = {
 			set_cosmetic_tag = united_german
-			# Polynesia
-			custom_effect_tooltip = form_country_balkan_coring_states_tt
+			# Germany
+			#custom_effect_tooltip = form_country_balkan_coring_states_tt
 			hidden_effect = {
 			51 = { add_core_of = ROOT }
 			42 = { add_core_of = ROOT }
@@ -3655,10 +3657,27 @@ form_germany_category = {
 			63 = { add_core_of = ROOT }
 			5 = { add_core_of = ROOT }
 			763 = { add_core_of = ROOT }
+			950 = { add_core_of = ROOT }
+			949 = { add_core_of = ROOT }
+			954 = { add_core_of = ROOT }
+			959 = { add_core_of = ROOT }
+			956 = { add_core_of = ROOT }
+			955 = { add_core_of = ROOT }
+			957 = { add_core_of = ROOT }
+			960 = { add_core_of = ROOT }
+
+
 			}
 			hidden_effect = {
 				news_event = { id = formablenations.1 hours = 6 }
 				set_global_flag = form_germany_flag
+
+				if = {
+					limit = {
+						tag = GER
+					}
+					set_country_flag = deutschland_uber_allies_achievement
+				}
 			}
 		}
 

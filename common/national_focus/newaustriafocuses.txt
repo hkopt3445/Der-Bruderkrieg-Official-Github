@@ -5,7 +5,7 @@ focus_tree = {
 		factor = 0
 
 		modifier = {
-			add = 10
+			add = 11
 			tag = AUS
 		}
 	}
@@ -468,7 +468,7 @@ focus_tree = {
 	  icon = GFX_focus_generic_the_giant_wakes
 	  text = AUS_PREP_WAR
 	  prerequisite = { focus = AUS_KAISER_SPEECH }
-	  x = -50
+	  x = -43
 	  y = 1
 	  relative_position_id = AUS_KAISER_SPEECH
 	  cost = 10
@@ -925,7 +925,7 @@ focus_tree = {
 	  icon = GFX_Austrian_Navy
 	  text = AUS_KAISER_MARINE
 	  prerequisite = { focus = AUS_PREP_WAR }
-	  x = 19
+	  x = 26
 	  y = 1
 	  relative_position_id = AUS_PREP_WAR
 	  cost = 10
@@ -964,7 +964,7 @@ focus_tree = {
 	  prerequisite = { focus = AUS_KAISER_MARINE }
 	  mutually_exclusive = { focus = AUS_WOLF_PACKS }
 
-	  x = -4
+	  x = 2
 	  y = 1
 	  relative_position_id = AUS_KAISER_MARINE
 	  cost = 10
@@ -979,7 +979,7 @@ focus_tree = {
 	    add_tech_bonus = {
 	      bonus = 1
 	      uses = 1
-	      category = cat_fleet_in_being
+	      category = naval_doctrine
 	    }
 	  }
 	}
@@ -989,7 +989,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_navy_battleship
 	  text = AUS_CAPITAL_SHIPS
 	  prerequisite = { focus = AUS_TRUE_NAVY }
-	  x = -1
+	  x = -2
 	  y = 1
 	  relative_position_id = AUS_TRUE_NAVY
 	  cost = 10
@@ -1006,6 +1006,11 @@ focus_tree = {
 	      uses = 1
 	      category = bb_tech
 	    }
+			add_tech_bonus = {
+	      bonus = 1
+	      uses = 1
+	      category = dd_tech
+	    }
 	  }
 	}
 
@@ -1014,7 +1019,7 @@ focus_tree = {
 	  icon = GFX_focus_generic_navy_battleship2
 	  text = AUS_PROJECT_Z
 	  prerequisite = { focus = AUS_TRUE_NAVY }
-	  x = 1
+	  x = 0
 	  y = 1
 	  relative_position_id = AUS_TRUE_NAVY
 	  cost = 10
@@ -1036,41 +1041,15 @@ focus_tree = {
 
 
 
-	focus = {
-	  id = AUS_WOLF_PACKS
-	  icon = GFX_goal_generic_wolf_pack
-	  text = AUS_WOLF_PACKS
-	  prerequisite = { focus = AUS_KAISER_MARINE }
-	  mutually_exclusive = { focus = AUS_TRUE_NAVY }
-
-	  x = 0
-	  y = 1
-	  relative_position_id = AUS_KAISER_MARINE
-	  cost = 10
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus = {
-	      bonus = 1
-	      uses = 1
-	      category = cat_trade_interdiction
-	    }
-	  }
-	}
 
 	focus = {
 	  id = AUS_U_BOATS
 	  icon = GFX_goal_generic_navy_submarine
 	  text = AUS_U_BOATS
-	  prerequisite = { focus = AUS_WOLF_PACKS }
-	  x = -1
+	  prerequisite = { focus = AUS_TRUE_NAVY }
+	  x = 2
 	  y = 1
-	  relative_position_id = AUS_WOLF_PACKS
+	  relative_position_id = AUS_TRUE_NAVY
 	  cost = 10
 	  ai_will_do = {
 	    factor = 1
@@ -1088,30 +1067,7 @@ focus_tree = {
 	  }
 	}
 
-	focus = {
-	  id = AUS_TRADE_WAR
-	  icon = GFX_goal_generic_navy_anti_submarine
-	  text = AUS_TRADE_WAR
-	  prerequisite = { focus = AUS_WOLF_PACKS }
-	  x = 1
-	  y = 1
-	  relative_position_id = AUS_WOLF_PACKS
-	  cost = 10
-	  ai_will_do = {
-	    factor = 1
-	  }
 
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus = {
-	      bonus = 1
-	      uses = 1
-	      category = dd_tech
-	    }
-	  }
-	}
 
 	focus = {
 	  id = AUS_NAVAL_AVIATION
@@ -1119,7 +1075,7 @@ focus_tree = {
 	  text = AUS_NAVAL_AVIATION
 	  prerequisite = { focus = AUS_KAISER_MARINE }
 
-	  x = 4
+	  x = -4
 	  y = 1
 	  relative_position_id = AUS_KAISER_MARINE
 	  cost = 10
@@ -1181,7 +1137,7 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    add_tech_bonus = = {
+	    add_tech_bonus = {
 	      bonus = 1
 	      uses = 1
 	      category = cv_tech
@@ -1221,10 +1177,10 @@ focus_tree = {
 	  id = AUS_BUILD_DOCKYARDS2
 	  icon = GFX_goal_generic_build_navy
 	  text = AUS_BUILD_DOCKYARDS2
-	  prerequisite = { focus = AUS_TRADE_WAR focus = AUS_U_BOATS }
-	  x = -1
+	  prerequisite = { focus = AUS_U_BOATS }
+	  x = 1
 	  y = 1
-	  relative_position_id = AUS_TRADE_WAR
+	  relative_position_id = AUS_U_BOATS
 	  cost = 10
 	  ai_will_do = {
 	    factor = 1
@@ -1250,8 +1206,8 @@ focus_tree = {
 	  icon = GFX_goal_generic_build_navy
 	  text = AUS_BUILD_DOCKYARDS3
 	  prerequisite = { focus = AUS_DEATH_FROM_ABOVE focus = AUS_NAVY_FUTURE}
-		prerequisite = {focus = AUS_ALL_USE_PLANES }
-	  x = 1
+		prerequisite = {focus = AUS_ALL_USE_PLANES focus = AUS_AIRLAND_BATTLE focus = AUS_BURN_TO_GROUND}
+	  x = -1
 	  y = 1
 	  relative_position_id = AUS_DEATH_FROM_ABOVE
 	  cost = 10
@@ -1274,78 +1230,16 @@ focus_tree = {
 	  }
 	}
 
-	focus = {
-	  id = AUS_AMPHIBIOUS_ASSAULT
-	  icon = GFX_goal_generic_amphibious_assault
-	  text = AUS_AMPHIBIOUS_ASSAULT
-	  prerequisite = { focus = AUS_BUILD_DOCKYARDS1 }
 
-	  x = 0
-	  y = 1
-	  relative_position_id = AUS_BUILD_DOCKYARDS1
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    navy_experience = 15
-	  }
-	}
-
-	focus = {
-	  id = AUS_TRADE_DOMINATION
-	  icon = GFX_focus_generic_cruiser2
-	  text = AUS_TRADE_DOMINATION
-	  prerequisite = { focus = AUS_BUILD_DOCKYARDS2 }
-	  x = 0
-	  y = 1
-	  relative_position_id = AUS_BUILD_DOCKYARDS2
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    navy_experience = 15
-	  }
-	}
-
-	focus = {
-	  id = AUS_SUPREMACY_OF_NAVAL_AIR
-	  icon = GFX_goal_generic_air_fighter2
-	  text = AUS_SUPREMACY_OF_NAVAL_AIR
-	  prerequisite = { focus = AUS_BUILD_DOCKYARDS3 }
-	  x = 0
-	  y = 1
-	  relative_position_id = AUS_BUILD_DOCKYARDS3
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    navy_experience = 15
-	  }
-	}
 
 	focus = {
 	  id = AUS_REFORMED_NAVY
 	  #icon = GFX_goal_generic_navy_carrier
 	  text = AUS_REFORMED_NAVY
-	  prerequisite = { focus = AUS_AMPHIBIOUS_ASSAULT focus = AUS_TRADE_DOMINATION focus = AUS_SUPREMACY_OF_NAVAL_AIR }
+	  prerequisite = { focus = AUS_BUILD_DOCKYARDS2 focus = AUS_BUILD_DOCKYARDS1  }
 	  x = 0
 	  y = 1
-	  relative_position_id = AUS_TRADE_DOMINATION
+	  relative_position_id = AUS_BUILD_DOCKYARDS2
 	  cost = 10
 	  ai_will_do = {
 	    factor = 1
@@ -1368,7 +1262,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_build_airforce
 	  text = AUS_KAISER_AIR
 	  prerequisite = { focus = AUS_PREP_WAR }
-	  x = 29
+	  x = 17
 	  y = 1
 	  relative_position_id = AUS_PREP_WAR
 	  cost = 10
@@ -1476,11 +1370,32 @@ focus_tree = {
 	      uses = 1
 	      category = cat_strategic_bomber
 	    }
-			add_tech_bonus = {
-	      bonus = 1
-	      uses = 1
-	      category = tactical_bomber
-	    }
+
+	  }
+	}
+
+	focus = {
+	  id = AUS_RAIN_OF_DEATH
+	  icon = GFX_focus_wonderweapons
+	  text = AUS_RAIN_OF_DEATH
+	  prerequisite = { focus = AUS_RAIN_OF_FIRE }
+	  x = 0
+	  y = 1
+	  relative_position_id = AUS_RAIN_OF_FIRE
+	  cost = 10
+	  ai_will_do = {
+	    factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+		add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = tactical_bomber
+		}
 	  }
 	}
 
@@ -1642,77 +1557,16 @@ focus_tree = {
 	  }
 	}
 
-	focus = {
-	  id = AUS_RAIN_OF_ANNIHILATION
-	  icon = GFX_goal_generic_CAS
-	  text = AUS_RAIN_OF_ANNIHILATION
-	  prerequisite = { focus = AUS_RAIN_OF_FIRE }
-	  x = 0
-	  y = 1
-	  relative_position_id = AUS_RAIN_OF_FIRE
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
 
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    air_experience = 15
-	  }
-	}
-
-	focus = {
-	  id = AUS_DOGFIGHTING
-	  icon = GFX_goal_generic_secret_weapon
-	  text = AUS_DOGFIGHTING
-	  prerequisite = { focus = AUS_ACES }
-	  x = 0
-	  y = 1
-	  relative_position_id = AUS_STRAFING
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    air_experience = 15
-	  }
-	}
-
-	focus = {
-	  id = AUS_BOMBS_EVERYWHERE
-	  icon = GFX_goal_generic_construction
-	  text =  AUS_BOMBS_EVERYWHERE
-	  prerequisite = { focus = AUS_ANTI_TROOP_BOMBS }
-	  x = 0
-	  y = 1
-	  relative_position_id = AUS_BOMBERS
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    air_experience = 15
-	  }
-	}
 
 	focus = {
 	  id = AUS_REFORMED_AIR_FORCE
 	  icon = GFX_Austrian_Air_Force
 	  text = AUS_REFORMED_AIR_FORCE
-	  prerequisite = { focus = AUS_BOMBS_EVERYWHERE focus = AUS_DOGFIGHTING focus = AUS_RAIN_OF_ANNIHILATION }
+	  prerequisite = { focus = AUS_ANTI_TROOP_BOMBS focus = AUS_ACES focus = AUS_RAIN_OF_DEATH }
 	  x = 0
 	  y = 1
-	  relative_position_id = AUS_DOGFIGHTING
+	  relative_position_id = AUS_ACES
 	  cost = 10
 	  ai_will_do = {
 	    factor = 1
@@ -2655,7 +2509,15 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-
+			87 = {
+				add_claim_by = AUS
+			}
+			90 = {
+				add_claim_by = AUS
+			}
+			951 = {
+				add_core_of = AUS
+			}
     }
   }
 
@@ -2771,6 +2633,31 @@ focus_tree = {
     }
   }
 
+	focus = {
+    id = AUS_final_showdown
+    icon = GFX_focus_hun_elect_a_king
+    text = AUS_final_showdown
+    prerequisite = { focus = AUS_arms_deal_with_america focus =  AUS_secure_our_southern_flank}
+		preequisite = { focus =  AUS_invite_ottomans }
+    x = 1
+    y = 1
+    relative_position_id = AUS_invite_ottomans
+    cost = 10
+    ai_will_do = {
+      factor = 20
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+			create_wargoal = {
+				type = puppet_war_goal_focus
+				target = GER
+			}
+    }
+  }
+
 
 
 	focus = {
@@ -2778,6 +2665,7 @@ focus_tree = {
     icon = GFX_focus_hun_elect_a_king
     text = AUS_colonial_ambitions
     prerequisite = { focus = AUS_CENTRALISM }
+		prerequisite = { focus = AUS_REFORMED_NAVY }
     x = -8
     y = 2
     relative_position_id = AUS_CENTRALISM
@@ -2835,10 +2723,13 @@ focus_tree = {
     completion_reward = {
 			every_state = {
 				limit = {
-					is_owned_by = LBA
-					is_owned_by = EGY
+					OR = {
+						is_owned_by = LBA
+						is_owned_by = EGY
+					}
+					is_coastal = yes
 				}
-				add_claim_by = COS
+				add_claim_by = AUS
 			}
     }
   }
@@ -3054,7 +2945,30 @@ focus_tree = {
     completion_reward = {
 			#####SAF gets event austria demands shit
 
-			SAF = {country_event = austria.107}
+			540 = {
+				add_claim_by  = AUS
+			}
+			539 = {
+				add_claim_by  = AUS
+			}
+			772 = {
+				add_claim_by  = AUS
+			}
+			295 = {
+				add_claim_by  = AUS
+			}
+			538 = {
+				add_claim_by  = AUS
+			}
+			718 = {
+				add_claim_by  = AUS
+			}
+			769 = {
+				add_claim_by  = AUS
+			}
+			768 = {
+				add_claim_by  = AUS
+			}
     }
   }
 
@@ -3481,9 +3395,9 @@ focus_tree = {
     completion_reward = {
 			add_opinion_modifier = {
 				modifier = large_increase
-				target = COL
+				target = INC
 			}
-			COL = {
+			INC = {
 			add_opinion_modifier = {
 				modifier = large_increase
 				target = AUS

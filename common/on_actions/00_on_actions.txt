@@ -118,7 +118,7 @@ on_actions = {
 
 	on_wargoal_expire = {
 		random_events = {
-			100 = war_justification.301
+			100 = war_justification.301 
 		}
 	}
 
@@ -587,6 +587,70 @@ on_actions = {
 
 			}
 
+			####major threat
+
+			if = {
+				limit = {
+					FROM = {
+						is_major = yes
+					}
+					ROOT = {
+						is_major = yes
+					}
+				}
+				add_named_threat = {
+					threat = 20
+					name = major_war
+				}
+			}
+
+			if = {
+				limit = {
+					FROM = {
+						is_major = no
+					}
+					ROOT = {
+						is_major = yes
+					}
+				}
+				add_named_threat = {
+					threat = 12
+					name = root_is_major
+				}
+			}
+
+			if = {
+				limit = {
+					FROM = {
+						is_major = yes
+					}
+					ROOT = {
+						is_major = no
+					}
+				}
+				add_named_threat = {
+					threat = 5
+					name = minor_war
+				}
+			}
+
+			if = {
+				limit = {
+					FROM = {
+						is_major = no
+					}
+					ROOT = {
+						is_major = no
+					}
+				}
+				add_named_threat = {
+					threat = 5
+					name = minor_war
+				}
+			}
+
+
+
 
 
 			#Call Anti-Soviet pact members to war
@@ -781,6 +845,31 @@ on_actions = {
 					has_war_with = GER
 				}
 				country_event = france.10
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CMI
+					}
+					FROM = {
+						original_tag = ITA
+					}
+				}
+				news_event = {id = italy.524}
+				set_country_flag = ITA_fascist_or_neutral_win_civil_war
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ITA
+					}
+					FROM = {
+						original_tag = CMI
+					}
+				}
+				news_event = {id = italy.525}
+				set_country_flag = ITA_commies_win_civil_war
 			}
 		}
 	}
@@ -1102,30 +1191,7 @@ on_actions = {
 				abandon_colony_tag = yes
 			}
 
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = ITA
-					}
-					FROM = {
-						original_tag = CMI
-					}
-				}
-				news_event = {id = italy.524}
-				set_country_flag = ITA_fascist_or_neutral_win_civil_war
-			}
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = CMI
-					}
-					FROM = {
-						original_tag = ITA
-					}
-				}
-				news_event = {id = italy.525}
-				set_country_flag = ITA_commies_win_civil_war
-			}
+
 
 			save_global_event_target_as = person_being_annexed
 			FROM = {
