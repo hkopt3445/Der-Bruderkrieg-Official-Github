@@ -207,7 +207,7 @@ focus_tree = {
 				set_state_flag = GER_industrial_effort_2_2IC
 			}
 			random_owned_controlled_state = {
-				limit = { 
+				limit = {
 					free_building_slots = {
 						building = industrial_complex
 						size > 1
@@ -488,7 +488,7 @@ focus_tree = {
 		text = GER_GERMAN_INDUSTRY
 		#prerequisite = { focus = ITA_industrial_effort_2 }
 		x = 24
-		y = 0
+		y = 12
 		relative_position_id = GER_PRUSSIAN_STATE
 		cost = 10
 		ai_will_do = {
@@ -503,1159 +503,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = GER_GERMAN_ARMY
-		icon = GFX_goal_generic_axis_build_infantry
-		text = GER_GERMAN_ARMY
-		#prerequisite = { focus = ITA_industrial_effort_2 }
-		x = 0
-		y = 8
-		relative_position_id = GER_GERMAN_INDUSTRY
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			army_experience = 20
-		}
-	}
-
-
-	focus = {
-		id = GER_REFORMIST_COMMAND
-		icon = GFX_focus_industry
-		text = GER_REFORMIST_COMMAND
-		prerequisite = { focus = GER_GERMAN_ARMY }
-		mutually_exclusive = {focus = GER_TRADITIONAL_COMMAND}
-		x = -4
-		y = 1
-		relative_position_id = GER_GERMAN_ARMY
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-					add_ideas = {
-						Reformist_Command
-					}
-		}
-	}
-
-	focus = {
-		id = GER_FOCUS_ON_FIREPOWER
-		icon = GFX_goal_generic_army_artillery2
-		text = GER_FOCUS_ON_FIREPOWER
-		prerequisite = { focus = GER_REFORMIST_COMMAND }
-		mutually_exclusive = { focus = GER_FOCUS_ON_SPEED }
-
-		x = 2
-		y = 1
-		relative_position_id = GER_REFORMIST_COMMAND
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-				add_tech_bonus {
-					bonus = 1
-					uses = 1
-					category = cat_superior_firepower
-				}
-		}
-	}
-
-
-	focus = {
-		id = GER_MAS_CONTRACTS
-		icon = GFX_goal_generic_allies_build_infantry
-		text = GER_MAS_CONTRACTS
-		prerequisite = { focus = GER_FOCUS_ON_FIREPOWER }
-		x = 0
-		y = 1
-		relative_position_id = GER_FOCUS_ON_FIREPOWER
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 0.5
-				uses = 1
-				category = artillery
-			}
-			add_tech_bonus {
-				bonus = 0.5
-				uses = 1
-				category = infantry_weapons
-			}
-			}
-		}
-
-	focus = {
-		id = GER_MASTER_ARTILLERY
-		icon = GFX_goal_generic_army_artillery
-		text = GER_MASTER_ARTILLERY
-		prerequisite = { focus = GER_MAS_CONTRACTS }
-		x = 0
-		y = 1
-		relative_position_id = GER_MAS_CONTRACTS
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_ideas = {
-				Hellsfire
-			}
-		 }
-	}
-
-
-		focus = {
-			id = GER_FOCUS_ON_SPEED
-			icon = GFX_goal_generic_army_motorized
-			text = FOCUS_ON_SPEED
-			prerequisite = { focus = GER_REFORMIST_COMMAND }
-			mutually_exclusive = { focus = GER_FOCUS_ON_FIREPOWER }
-
-			x = -2
-			y = 1
-			relative_position_id = GER_REFORMIST_COMMAND
-			cost = 10
-			ai_will_do = {
-				factor = 1
-			}
-
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_INDUSTRY }
-
-			completion_reward = {
-				add_tech_bonus {
-					bonus = 1
-					uses = 1
-					category = cat_mobile_warfare
-				}
-		 }
-		}
-
-		focus = {
-			id = GER_TANK_CORP
-			icon = GFX_focus_generic_army_tanks2
-			text = GER_TANK_CORP
-			prerequisite = { focus = GER_FOCUS_ON_SPEED }
-			x = 0
-			y = 1
-			relative_position_id = GER_FOCUS_ON_SPEED
-			cost = 10
-			ai_will_do = {
-				factor = 1
-			}
-
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_INDUSTRY }
-
-			completion_reward = {
-				add_tech_bonus {
-					bonus = 1
-					uses = 1
-					category = cat_light_armor
-				}
-				}
-			}
-
-		focus = {
-			id = GER_MASTER_BLITZKRIEG
-			icon = GFX_goal_generic_army_tanks
-			text = GER_MASTER_BLITZKRIEG
-			prerequisite = { focus = GER_TANK_CORP }
-			x = 0
-			y = 1
-			relative_position_id = GER_TANK_CORP
-			cost = 10
-			ai_will_do = {
-				factor = 1
-			}
-
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_INDUSTRY }
-
-			completion_reward = {
-				add_ideas = {
-					Lightning_War
-				}
-			 }
-		}
-
-
-	focus = {
-		id = GER_TRADITIONAL_COMMAND
-		icon = GFX_focus_industry
-		text = GER_TRADITIONAL_COMMAND
-		prerequisite = { focus = GER_GERMAN_ARMY }
-		mutually_exclusive = { focus = GER_REFORMIST_COMMAND }
-		x = 4
-		y = 1
-		relative_position_id = GER_GERMAN_ARMY
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-					add_ideas = {
-						Traditional_Command
-					}
-		}
-	}
-
-	focus = {
-		id = GER_FOCUS_ON_BATTLEPLAN
-		icon = GFX_goal_generic_army_doctrines
-		text = GER_FOCUS_ON_BATTLEPLAN
-		prerequisite = { focus = GER_TRADITIONAL_COMMAND }
-		mutually_exclusive = { focus = GER_FOCUS_ON_SIZE }
-		x = -2
-		y = 1
-		relative_position_id = GER_TRADITIONAL_COMMAND
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = cat_grand_battle_plan
-			}
-		 }
-	}
-
-	focus = {
-		id = GER_BERLIN_DEPART_OF_DEFENSE
-		icon = GFX_goal_generic_construct_military
-		text = GER_BERLIN_DEPART_OF_DEFENSE
-		prerequisite = { focus = GER_FOCUS_ON_BATTLEPLAN }
-		x = 0
-		y = 1
-		relative_position_id = GER_FOCUS_ON_BATTLEPLAN
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 0.5
-				uses = 1
-				category = cat_grand_battle_plan
-			}
-			add_tech_bonus {
-				bonus = 0.5
-				uses = 1
-				category = support_tech
-			}
-		 }
-	}
-
-
-	focus = {
-		id = GER_MASTER_TACTICS
-		icon = GFX_goal_generic_cavalry
-		text = GER_MASTER_TACTICS
-		prerequisite = { focus = GER_BERLIN_DEPART_OF_DEFENSE }
-		x = 0
-		y = 1
-		relative_position_id = GER_BERLIN_DEPART_OF_DEFENSE
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-				add_ideas = {
-					Tactical_Genius
-				}
-			}
-	 }
-
-	 focus = {
-		 id = GER_FOCUS_ON_SIZE
-		 icon = GFX_focus_generic_manpower
-		 text = GER_FOCUS_ON_SIZE
-		 prerequisite = { focus = GER_TRADITIONAL_COMMAND }
-		 mutually_exclusive = { focus = GER_FOCUS_ON_BATTLEPLAN }
-		 x = 2
-		 y = 1
-		 relative_position_id = GER_TRADITIONAL_COMMAND
-		 cost = 10
-		 ai_will_do = {
-			 factor = 1
-		 }
-
-		 available_if_capitulated = yes
-		 search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		 completion_reward = {
-			 add_tech_bonus {
-				 bonus = 1
-				 uses = 1
-				 category = cat_mass_assault
-			 }
-			}
-	 }
-
-	 focus = {
-		 id = GER_CONSCRIPT_THE_MASSES
-		 icon = GFX_Conscript_The_Masses
-		 text = GER_CONSCRIPT_THE_MASSES
-		 prerequisite = { focus = GER_FOCUS_ON_SIZE }
-		 x = 0
-		 y = 1
-		 relative_position_id = GER_FOCUS_ON_SIZE
-		 cost = 10
-		 ai_will_do = {
-			 factor = 1
-		 }
-
-		 available_if_capitulated = yes
-		 search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		 completion_reward = {
-			 add_ideas = {
-				 extensive_conscription
-			 }
-			}
-	 }
-
-	 focus = {
-		 id = GER_BRAVE_NEW_NATION
-		 icon = GFX_focus_yug_pan_slavic_congress
-		 text = GER_BRAVE_NEW_NATION
-		 prerequisite = { focus = GER_CONSCRIPT_THE_MASSES }
-		 x = 0
-		 y = 1
-		 relative_position_id = GER_CONSCRIPT_THE_MASSES
-		 cost = 10
-		 ai_will_do = {
-			 factor = 1
-		 }
-
-		 available_if_capitulated = yes
-		 search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		 completion_reward = {
-				 add_ideas = {
-					 Brave_New_Empire
-				 }
-			 }
-		 }
-
-	focus = {
-		id = GER_REVITALIZE_ARMY
-		icon = GFX_Prussian_Army
-		text = GER_REVITALIZE_ARMY
-		prerequisite = { focus = GER_MASTER_ARTILLERY focus = GER_MASTER_TACTICS focus = GER_MASTER_BLITZKRIEG focus = GER_BRAVE_NEW_NATION }
-		x = 2
-		y = 1
-		relative_position_id = GER_MASTER_ARTILLERY
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_ideas = {
-				Army_Future
-			}
-			army_experience = 50
-
-		 }
-	}
-
-
-
-	#############Navy
-	focus = {
-	  id = GER_GERMAN_FLEET
-	  icon = GFX_Prussian_Navy
-	  text = GER_GERMAN_FLEET
-	  #prerequisite = { focus = ITA_industrial_effort_2 }
-	  x = 24
-	  y = -8
-	  relative_position_id = GER_GERMAN_ARMY
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    navy_experience = 20
-	  }
-	}
-
-
-	focus = {
-	  id = GER_BUILD_DOCKYARDS
-	  icon = GFX_goal_generic_build_navy
-	  text = GER_BUILD_DOCKYARDS
-	  prerequisite = { focus = GER_GERMAN_FLEET }
-	  x = 0
-	  y = 1
-	  relative_position_id = GER_GERMAN_FLEET
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    63 = {
-	      add_building_construction = {
-	          type = dockyard
-	          level = 2
-	          instant_build = yes
-	      }
-	      add_extra_state_shared_building_slots = 2
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_TRUE_NAVY
-	  icon = GFX_goal_generic_navy_doctrines_tactics
-	  text = GER_TRUE_NAVY
-	  prerequisite = { focus = GER_BUILD_DOCKYARDS }
-	  mutually_exclusive = { focus = GER_WOLF_PACKS }
-	  mutually_exclusive = { focus = GER_NAVAL_AVIATION }
-	  x = -6
-	  y = 1
-	  relative_position_id = GER_BUILD_DOCKYARDS
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus {
-	      bonus = 1
-	      uses = 1
-	      category = cat_fleet_in_being
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_CAPITAL_SHIPS
-	  icon = GFX_goal_generic_navy_battleship
-	  text = GER_CAPITAL_SHIPS
-	  prerequisite = { focus = GER_TRUE_NAVY }
-	  x = -2
-	  y = 1
-	  relative_position_id = GER_TRUE_NAVY
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus {
-	      bonus = 1
-	      uses = 1
-	      category = bb_tech
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_PROJECT_Z
-	  icon = GFX_focus_generic_navy_battleship2
-	  text = GER_PROJECT_Z
-	  prerequisite = { focus = GER_TRUE_NAVY }
-	  x = 2
-	  y = 1
-	  relative_position_id = GER_TRUE_NAVY
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus {
-	      bonus = 1
-	      uses = 1
-	      category = ca_tech
-	    }
-	  }
-	}
-
-
-
-	focus = {
-	  id = GER_WOLF_PACKS
-	  icon = GFX_goal_generic_wolf_pack
-	  text = GER_WOLF_PACKS
-	  prerequisite = { focus = GER_BUILD_DOCKYARDS }
-	  mutually_exclusive = { focus = GER_TRUE_NAVY }
-	  mutually_exclusive = { focus = GER_NAVAL_AVIATION }
-	  x = 0
-	  y = 1
-	  relative_position_id = GER_BUILD_DOCKYARDS
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus {
-	      bonus = 1
-	      uses = 1
-	      category = cat_trade_interdiction
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_U_BOATS
-	  icon = GFX_goal_generic_navy_submarine
-	  text = GER_U_BOATS
-	  prerequisite = { focus = GER_WOLF_PACKS }
-	  x = -2
-	  y = 1
-	  relative_position_id = GER_WOLF_PACKS
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus {
-	      bonus = 1
-	      uses = 1
-	      category = ss_tech
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_TRADE_WAR
-	  icon = GFX_goal_generic_navy_anti_submarine
-	  text = GER_TRADE_WAR
-	  prerequisite = { focus = GER_WOLF_PACKS }
-	  x = 2
-	  y = 1
-	  relative_position_id = GER_WOLF_PACKS
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus {
-	      bonus = 1
-	      uses = 1
-	      category = dd_tech
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_NAVAL_AVIATION
-	  icon = GFX_goal_generic_air_naval_bomber
-	  text = GER_NAVAL_AVIATION
-	  prerequisite = { focus = GER_BUILD_DOCKYARDS }
-	  mutually_exclusive = { focus = GER_WOLF_PACKS }
-	  mutually_exclusive = { focus = GER_TRUE_NAVY }
-	  x = 6
-	  y = 1
-	  relative_position_id = GER_BUILD_DOCKYARDS
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus {
-	      bonus = 1
-	      uses = 1
-	      category = cat_base_strike
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_NAVY_FUTURE
-	  icon = GFX_goal_generic_navy_cruiser
-	  text = GER_NAVY_FUTURE
-	  prerequisite = { focus = GER_NAVAL_AVIATION }
-	  x = -2
-	  y = 1
-	  relative_position_id = GER_NAVAL_AVIATION
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus {
-	      bonus = 1
-	      uses = 1
-	      category = naval_bomber
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_DEATH_FGER_ABOVE
-	  icon = GFX_goal_generic_secret_weapon
-	  text = GER_DEATH_FGER_ABOVE
-	  prerequisite = { focus = GER_NAVAL_AVIATION }
-	  x = 2
-	  y = 1
-	  relative_position_id = GER_NAVAL_AVIATION
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_tech_bonus = {
-	      bonus = 1
-	      uses = 1
-	      category = cv_tech
-	    }
-	  }
-	}
-
-	focus = {
-	  id = GER_AMPHIBIOUS_ASSAULT
-	  icon = GFX_goal_generic_amphibious_assault
-	  text = GER_AMPHIBIOUS_ASSAULT
-	  prerequisite = { focus = GER_PROJECT_Z }
-	  prerequisite = { focus = GER_CAPITAL_SHIPS }
-	  x = -2
-	  y = 1
-	  relative_position_id = GER_PROJECT_Z
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    navy_experience = 15
-	  }
-	}
-
-	focus = {
-	  id = GER_TRADE_DOMINATION
-	  icon = GFX_focus_generic_cruiser2
-	  text = GER_TRADE_DOMINATION
-	  prerequisite = { focus = GER_U_BOATS }
-	  prerequisite = { focus = GER_TRADE_WAR }
-	  x = 2
-	  y = 1
-	  relative_position_id = GER_U_BOATS
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    navy_experience = 15
-	  }
-	}
-
-	focus = {
-	  id = GER_SUPREMACY_OF_NAVAL_AIR
-	  icon = GFX_goal_generic_air_fighter2
-	  text = GER_SUPREMACY_OF_NAVAL_AIR
-	  prerequisite = { focus = GER_NAVY_FUTURE }
-	  prerequisite = { focus = GER_DEATH_FGER_ABOVE }
-	  x = 2
-	  y = 1
-	  relative_position_id = GER_NAVY_FUTURE
-	  cost = 1
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    navy_experience = 15
-	  }
-	}
-
-	focus = {
-	  id = GER_REFORMED_NAVY
-	  icon = GFX_goal_generic_navy_carrier
-	  text = GER_REFORMED_NAVY
-	  prerequisite = { focus = GER_AMPHIBIOUS_ASSAULT focus = GER_TRADE_DOMINATION focus = GER_SUPREMACY_OF_NAVAL_AIR }
-	  x = 0
-	  y = 1
-	  relative_position_id = GER_TRADE_DOMINATION
-	  cost = 5
-	  ai_will_do = {
-	    factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_ideas = {
-	      Reformed_Navy
-	    }
-	  }
-	}
-
-
-	############AF
-	focus = {
-		id = GER_BUILD_AIR
-		icon = GFX_focus_industry
-		text = GER_BUILD_AIR
-		#prerequisite = { focus = ITA_industrial_effort_2 }
-		x = 0
-		y = 8
-		relative_position_id = GER_GERMAN_FLEET
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			air_experience = 20
-		}
-	}
-
-
-	focus = {
-		id = GER_BUILD_AIRFIELDS
-		icon = GFX_focus_industry
-		text = GER_BUILD_FIELDS
-		prerequisite = { focus = GER_BUILD_AIR }
-		x = 0
-		y = 1
-		relative_position_id = GER_BUILD_AIR
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			64 = {
-				add_building_construction = {
-						type = air_base
-						level = 2
-						instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 2
-			}
-		}
-	}
-
-	focus = {
-		id = GER_BURN_TO_GROUND
-		icon = GFX_focus_industry
-		text = GER_BURN_TO_GROUND
-		prerequisite = { focus = GER_BUILD_AIRFIELDS }
-		mutually_exclusive = { focus = GER_AIRLAND_BATTLE }
-		mutually_exclusive = { focus = ALL_USE_PLANES }
-		x = -6
-		y = 1
-		relative_position_id = GER_BUILD_AIRFIELDS
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = cat_strategic_destruction
-			}
-		}
-	}
-
-	focus = {
-		id = GER_RAIN_OF_FIRE
-		icon = GFX_focus_industry
-		text = GER_CAPITAL_SHIPS
-		prerequisite = { focus = GER_BURN_TO_GROUND }
-		x = -2
-		y = 1
-		relative_position_id = GER_BURN_TO_GROUND
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = cat_strategic_bomber
-			}
-		}
-	}
-
-	focus = {
-		id = GER_RAIN_OF_DEATH
-		icon = GFX_focus_industry
-		text = GER_RAIN_OF_DEATH
-		prerequisite = { focus = GER_BURN_TO_GROUND }
-		x = 2
-		y = 1
-		relative_position_id = GER_BURN_TO_GROUND
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = tactical_bomber
-			}
-		}
-	}
-
-
-
-	focus = {
-		id = GER_AIRLAND_BATTLE
-		icon = GFX_focus_industry
-		text = GER_AIRLAND_BATTLE
-		prerequisite = { focus = GER_BUILD_AIRFIELDS }
-		mutually_exclusive = { focus = GER_BURN_TO_GROUND }
-		mutually_exclusive = { focus = GER_ALL_USE_PLANES }
-		x = 0
-		y = 1
-		relative_position_id = GER_BUILD_AIRFIELDS
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = cat_battlefield_support
-			}
-		}
-	}
-
-	focus = {
-		id = GER_STRAFING
-		icon = GFX_focus_industry
-		text = GER_STRAFING
-		prerequisite = { focus = GER_AIRLAND_BATTLE }
-		x = -2
-		y = 1
-		relative_position_id = GER_AIRLAND_BATTLE
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = light_fighter
-			}
-		}
-	}
-
-	focus = {
-		id = GER_ACES
-		icon = GFX_focus_industry
-		text = GER_ACES
-		prerequisite = { focus = GER_AIRLAND_BATTLE }
-		x = 2
-		y = 1
-		relative_position_id = GER_AIRLAND_BATTLE
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = cas_bomber
-			}
-		}
-	}
-
-	focus = {
-		id = GER_ALL_USE_PLANES
-		icon = GFX_focus_industry
-		text = ALL_USE_PLANES
-		prerequisite = { focus = GER_BUILD_AIRFIELDS }
-		mutually_exclusive = { focus = GER_BURN_TO_GROUND }
-		mutually_exclusive = { focus = GER_AIRLAND_BATTLE }
-		x = 6
-		y = 1
-		relative_position_id = GER_BUILD_AIRFIELDS
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = cat_operational_integrity
-			}
-		}
-	}
-
-	focus = {
-		id = GER_BOMBERS
-		icon = GFX_focus_industry
-		text = GER_BOMBERS
-		prerequisite = { focus = GER_ALL_USE_PLANES }
-		x = -2
-		y = 1
-		relative_position_id = GER_ALL_USE_PLANES
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = tactical_bomber
-			}
-		}
-	}
-
-	focus = {
-		id = GER_ANTI_TROOP_BOMBS
-		icon = GFX_focus_industry
-		text = GER_ANTI_TROOP_BOMBS
-		prerequisite = { focus = GER_ALL_USE_PLANES }
-		x = 2
-		y = 1
-		relative_position_id = GER_ALL_USE_PLANES
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = cas_bomber
-			}
-		}
-	}
-
-	focus = {
-		id = GER_RAIN_OF_ANNIHILATION
-		icon = GFX_focus_industry
-		text = GER_RAIN_OF_ANNIHILATION
-		prerequisite = { focus = GER_RAIN_OF_FIRE }
-		prerequisite = { focus = GER_RAIN_OF_DEATH }
-		x = -2
-		y = 1
-		relative_position_id = GER_RAIN_OF_DEATH
-		cost = 1
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			air_experience = 15
-		}
-	}
-
-	focus = {
-		id = GER_DOGFIGHTING
-		icon = GFX_focus_industry
-		text = GER_DOGFIGHTING
-		prerequisite = { focus = GER_STRAFING }
-		prerequisite = { focus = GER_ACES }
-		x = 2
-		y = 1
-		relative_position_id = GER_STRAFING
-		cost = 1
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			air_experience = 15
-		}
-	}
-
-	focus = {
-		id = GER_BOMBS_EVERYWHERE
-		icon = GFX_focus_industry
-		text =  GER_BOMBS_EVERYWHERE
-		prerequisite = { focus = GER_BOMBERS }
-		prerequisite = { focus = GER_ANTI_TROOP_BOMBS }
-		x = 2
-		y = 1
-		relative_position_id = GER_BOMBERS
-		cost = 1
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			air_experience = 15
-		}
-	}
-
-	focus = {
-		id = GER_REFORMED_AIR_FORCE
-		icon = GFX_focus_industry
-		text = GER_REFORMED_AIR_FORCE
-		prerequisite = { focus = GER_BOMBS_EVERYWHERE focus = GER_DOGFIGHTING focus = GER_RAIN_OF_ANNIHILATION }
-		x = 0
-		y = 1
-		relative_position_id = GER_DOGFIGHTING
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_ideas = {
-				Reformed_Air_Force
-			}
-		}
-	}
 
 
 	focus = {
@@ -1663,7 +510,7 @@ focus_tree = {
 		icon = GFX_prussianstate
 		text = GER_PRUSSIAN_STATE
 		#prerequisite = { focus = AUS_METTERNICH }
-		x = 0
+		x = -10
 		y = 0
 		#relative_position_id = GER_four_year_plan2
 		#mutually_exclusive = { focus = AUS_UPHOLD_CONCERT }
@@ -3313,3 +2160,2191 @@ focus_tree = {
 		    unlock_decision_category_tooltip = form_germany_category
 		  }
 		}
+
+
+
+
+			#Focus for An Alternative
+			focus = {
+				id = GER_an_alternative
+				icon = GFX_goal_unknown
+				x = 31
+				y = 1
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_a_new_army }
+				mutually_exclusive = { focus = GER_the_goring_doctorine }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Preußische Reichsmarine
+			focus = {
+				id = GER_preuische_reichsmarine
+				icon = GFX_goal_generic_amphibious_assault
+				x = 5
+				y = 2
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the_goring_doctorine }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					navy_experience = 15
+				}
+			}
+
+			#Focus for German Armour
+			focus = {
+				id = GER_german_armour
+				icon = GFX_goal_generic_army_tanks
+				x = 11
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_technology }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = armor
+		}
+				}
+			}
+
+			#Focus for The Goring Doctorine
+			focus = {
+				id = GER_the_goring_doctorine
+				icon = GFX_goal_unknown
+				x = 13
+				y = 1
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_a_new_army }
+				mutually_exclusive = { focus = GER_an_alternative }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Furthur Improvement
+			focus = {
+				id = GER_furthur_improvement
+				icon = GFX_goal_unknown
+				x = 7
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_rudeltakik }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   uses = 2
+		   bonus = 0.5
+		   category = cat_trade_interdiction_research
+		}
+				}
+			}
+
+			#Focus for Luftstreitkräfte Innovations
+			focus = {
+				id = GER_luftstreitkrfte_innovations
+				icon = GFX_goal_generic_build_airforce
+				x = 22
+				y = 2
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_an_alternative
+					focus = GER_the_goring_doctorine
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					air_experience = 15
+				}
+			}
+
+			#Focus for More Inclusive Training
+			focus = {
+				id = GER_more_inclusive_training
+				icon = GFX_focus_eng_special_air_service
+				x = 9
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_mountain_gear }
+				mutually_exclusive = { focus = GER_tank_upgrades }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = tech_special_forces
+		}
+				}
+			}
+
+			#Focus for Tank Upgrades
+			focus = {
+				id = GER_tank_upgrades
+				icon = GFX_focus_generic_army_tanks2
+				x = 11
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_german_armour }
+				mutually_exclusive = { focus = GER_more_inclusive_training }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_medium_armor
+		}
+				}
+			}
+
+			#Focus for Improved Methods of Training
+			focus = {
+				id = GER_improved_methods_of_training
+				icon = GFX_goal_unknown
+				x = 13
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preuische_propaganda_initiative }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					swap_ideas = {
+		  add_idea = GER_capability_3
+		  remove_idea = GER_capability_2
+		}
+				}
+			}
+
+			#Focus for Superior Production Methods
+			focus = {
+				id = GER_superior_production_methods
+				icon = GFX_goal_generic_construct_mil_factory
+				x = 15
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_production_ability }
+				mutually_exclusive = { focus = GER_plitz_oil }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = improved_machine_tools
+		}
+				}
+			}
+
+			#Focus for Uranprojekt
+			focus = {
+				id = GER_uranprojekt
+				icon = GFX_focus_wonderweapons
+				x = 13
+				y = 11
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_a_new_reichswehr }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = nuclear
+		}
+				}
+			}
+
+			#Focus for A New Reichswehr
+			focus = {
+				id = GER_a_new_reichswehr
+				icon = GFX_goal_unknown
+				x = 13
+				y = 10
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_a_reformed_luftstreitkrfte
+				}
+				prerequisite = {
+					focus = GER_a_revived_reichsheer
+				}
+				prerequisite = {
+					focus = GER_a_revitalized_reichsmarine
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Mauser
+			focus = {
+				id = GER_mauser
+				icon = GFX_GER_mauser-37736
+				x = 16
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_superior_production_methods
+					focus = GER_plitz_oil
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_ideas = mauser
+				}
+			}
+
+			#Focus for The Ports of Rostock
+			focus = {
+				id = GER_the_ports_of_rostock
+				icon = GFX_goal_generic_construct_naval_dockyard
+				x = 3
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preuische_reichsmarine }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					61 = {
+		   limit = {
+		      is_coastal = yes
+		   }
+		   add_building_construction = {
+		     type = dockyard
+		     level = 2
+		     instant_build = yes
+		   }
+		}
+				}
+			}
+
+			#Focus for Preußische Propaganda Initiative
+			focus = {
+				id = GER_preuische_propaganda_initiative
+				icon = GFX_goal_generic_propaganda
+				x = 13
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_capability }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					swap_ideas = {
+		  add_idea = GER_capability_2
+		  remove_idea = GER_capability
+		}
+				}
+			}
+
+			#Focus for Pölitz Oil
+			focus = {
+				id = GER_plitz_oil
+				icon = GFX_goal_unknown
+				x = 17
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_kohleverflssigung }
+				mutually_exclusive = { focus = GER_superior_production_methods }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					63 = {
+		   add_resource = {
+		      type = oil
+		      amount = 12
+		      state = THIS
+		   }
+		}
+				}
+			}
+
+			#Focus for Improved General Academies
+			focus = {
+				id = GER_improved_general_academies
+				icon = GFX_focus_generic_military_academy
+				x = 13
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_improved_methods_of_training }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					swap_ideas = {
+		  add_idea = GER_capability_4
+		  remove_idea = GER_capability_3
+		}
+				}
+			}
+
+			#Focus for Improved Fighters
+			focus = {
+				id = GER_improved_fighters
+				icon = GFX_goal_generic_air_fighter2
+				x = 22
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_strategic_bombers
+					focus = GER_ground_support_planes
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = light_fighter
+		}
+				}
+			}
+
+			#Focus for Final Ground Support Improvements
+			focus = {
+				id = GER_final_ground_support_improvements
+				icon = GFX_goal_unknown
+				x = 20
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_improved_fighters
+				}
+				prerequisite = {
+					focus = GER_improving_combined_tactics
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = naval_bomber
+		}
+				}
+			}
+
+			#Focus for Final Strategic Bombing Improvements
+			focus = {
+				id = GER_final_strategic_bombing_improvements
+				icon = GFX_goal_unknown
+				x = 24
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_improved_fighters
+				}
+				prerequisite = {
+					focus = GER_improved_bombing_tactics
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = tactical_bomber
+		}
+				}
+			}
+
+			#Focus for A Reformed Luftstreitkräfte
+			focus = {
+				id = GER_a_reformed_luftstreitkrfte
+				icon = GFX_goal_unknown
+				x = 22
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_final_ground_support_improvements
+					focus = GER_final_strategic_bombing_improvements
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = air_doctrine
+		}
+				}
+			}
+
+			#Focus for A Revived Reichsheer
+			focus = {
+				id = GER_a_revived_reichsheer
+				icon = GFX_goal_unknown
+				x = 13
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_mauser
+				}
+				prerequisite = {
+					focus = GER_improved_general_academies
+				}
+				prerequisite = {
+					focus = GER_preuische_genius
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					army_experience = 25
+				}
+			}
+
+			#Focus for Kohleverflüssigung
+			focus = {
+				id = GER_kohleverflssigung
+				icon = GFX_goal_generic_oil_refinery
+				x = 17
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_capacity }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = synthetic_refinery
+		}
+				}
+			}
+
+			#Focus for Ready the Populace
+			focus = {
+				id = GER_ready_the_populace
+				icon = GFX_focus_generic_manpower
+				x = 37
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_brace_for_war }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					swap_ideas = {
+		   add_idea = GER_red_bastion_2
+		   remove_idea = GER_red_bastion
+		}
+				}
+			}
+
+			#Focus for A Revitalized Reichsmarine
+			focus = {
+				id = GER_a_revitalized_reichsmarine
+				icon = GFX_goal_unknown
+				x = 5
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_improve_the_naval_academies
+				}
+				prerequisite = {
+					focus = GER_the_bismark_class
+				}
+				prerequisite = {
+					focus = GER_naval_expansion
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = naval_doctrine
+		}
+				}
+			}
+
+			#Focus for The Bismark Class
+			focus = {
+				id = GER_the_bismark_class
+				icon = GFX_focus_generic_africa_naval
+				x = 5
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the_uboat }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = bb_tech
+		}
+				}
+			}
+
+			#Focus for Improve the Naval Academies
+			focus = {
+				id = GER_improve_the_naval_academies
+				icon = GFX_goal_unknown
+				x = 7
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_furthur_improvement }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Production Ability
+			focus = {
+				id = GER_production_ability
+				icon = GFX_goal_generic_construction2
+				x = 15
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_capacity }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = construction
+		}
+				}
+			}
+
+			#Focus for Mountain Gear
+			focus = {
+				id = GER_mountain_gear
+				icon = GFX_goal_generic_special_forces
+				x = 9
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_technology }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = tech_mountaineers
+		}
+				}
+			}
+
+			#Focus for Capability
+			focus = {
+				id = GER_capability
+				icon = GFX_goal_generic_small_arms
+				x = 13
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the__reichsheer_capabilities }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_ideas = GER_capability
+				}
+			}
+
+			#Focus for Capacity
+			focus = {
+				id = GER_capacity
+				icon = GFX_goal_unknown
+				x = 15
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the__reichsheer_capabilities }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = industry
+		}
+				}
+			}
+
+			#Focus for Technology
+			focus = {
+				id = GER_technology
+				icon = GFX_goal_continuous_research
+				x = 11
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the__reichsheer_capabilities }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		    category = land_doctrine
+		    uses = 1
+		    bonus = 1
+		}
+				}
+			}
+
+			#Focus for The  Reichsheer Capabilities
+			focus = {
+				id = GER_the__reichsheer_capabilities
+				icon = GFX_goal_generic_allies_build_infantry
+				x = 13
+				y = 2
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the_goring_doctorine }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					army_experience= 15
+				}
+			}
+
+			#Focus for Support Unification Rebels
+			focus = {
+				id = GER_support_unification_rebels
+				icon = GFX_goal_unknown
+				x = 29
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preperation_for_germany }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					if = {
+		  limit = {
+		    HAN = { has_idea = Nationalist_Sympathizers }
+		  }
+		  HAN = {
+		    add_stability = -0.1
+		    add_war_support = -0.1
+		  }
+		}
+
+		if = {
+		  limit = {
+		    SAX = { has_idea = Nationalist_Sympathizers }
+		  }
+		  SAX = {
+		    add_stability = -0.1
+		    add_war_support = -0.1
+		  }
+		}
+
+		if = {
+		  limit = {
+		    HAN = { has_idea = Nationalist_Sympathizers }
+		  }
+		  HAN = {
+		    add_stability = -0.1
+		    add_war_support = -0.1
+		  }
+		}
+
+		if = {
+		  limit = {
+		    GPU = { has_idea = Nationalist_Sympathizers }
+		  }
+		  GPU = {
+		    add_stability = -0.1
+		    add_war_support = -0.1
+		  }
+		}
+
+		if = {
+		  limit = {
+		    HAN = { has_idea = Nationalist_Sympathizers }
+		  }
+		  HAN = {
+		    add_stability = -0.1
+		    add_war_support = -0.1
+		  }
+		}
+
+		if = {
+		  limit = {
+		    FGD = { has_idea = Nationalist_Sympathizers }
+		  }
+		  FGD = {
+		    add_stability = -0.1
+		    add_war_support = -0.1
+		  }
+		}
+				}
+			}
+
+			#Focus for Ship of War
+			focus = {
+				id = GER_ship_of_war
+				icon = GFX_goal_generic_navy_battleship
+				x = 46
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_lessons_from_britain }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = bb_tech
+		}
+				}
+			}
+
+			#Focus for Mobilize the Economy
+			focus = {
+				id = GER_mobilize_the_economy
+				icon = GFX_goal_unknown
+				x = 38
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_mobilization_efforts }
+				ai_will_do = {
+					factor = 1
+				}
+				bypass = {
+					has_idea = war_economy
+				}
+				completion_reward = {
+					add_ideas = war_economy
+				}
+			}
+
+			#Focus for Improved Armour
+			focus = {
+				id = GER_improved_armour
+				icon = GFX_goal_unknown
+				x = 52
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_weaponry_improvements }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Preußische Carriers
+			focus = {
+				id = GER_preuische_carriers
+				icon = GFX_goal_generic_navy_carrier
+				x = 48
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_american_teachings }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cv_tech
+		}
+				}
+			}
+
+			#Focus for Naval Expansion
+			focus = {
+				id = GER_naval_expansion
+				icon = GFX_goal_generic_construct_naval_dockyard
+				x = 3
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the_ports_of_rostock }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					random_owned_controlled_state = {
+		   limit = {
+		      is_coastal = yes
+		   }
+		   add_building_construction = {
+		     type = dockyard
+		     level = 1
+		     instant_build = yes
+		   }
+		}
+		random_owned_controlled_state = {
+		   limit = {
+		      is_coastal = yes
+		   }
+		   add_building_construction = {
+		     type = dockyard
+		     level = 1
+		     instant_build = yes
+		   }
+		}
+				}
+			}
+
+			#Focus for A New Army
+			focus = {
+				id = GER_a_new_army
+				icon = GFX_focus_generic_military_mission
+				x = 22
+				y = 0
+				cost = 10
+				available_if_capitulated = yes
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Air Base Construction
+			focus = {
+				id = GER_air_base_construction
+				icon = GFX_goal_unknown
+				x = 22
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_luftstreitkrfte_innovations }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					random_owned_controlled_state = {
+		   add_building_construction = {
+		     type = airbase
+		     level = 1
+		     instant_build = yes
+		   }
+		   add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+		   add_building_construction = {
+		     type = airbase
+		     level = 1
+		     instant_build = yes
+		   }
+		   add_extra_state_shared_building_slots = 1
+		}
+				}
+			}
+
+			#Focus for Combined Warfare
+			focus = {
+				id = GER_combined_warfare
+				icon = GFX_focus_generic_combined_arms
+				x = 19
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_start_of_a_new_luftstreitkrfte
+				}
+				prerequisite = {
+					focus = GER_the_goring_doctorine
+				}
+				mutually_exclusive = { focus = GER_strategic_bombing }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_battlefield_support
+		}
+				}
+			}
+
+			#Focus for Start of a New Luftstreitkräfte
+			focus = {
+				id = GER_start_of_a_new_luftstreitkrfte
+				icon = GFX_goal_unknown
+				x = 22
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_modernization_of_our_airforce
+				}
+				prerequisite = {
+					focus = GER_air_base_construction
+				}
+				prerequisite = {
+					focus = GER_evolved_aerial_tactics
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Lessons from Britain
+			focus = {
+				id = GER_lessons_from_britain
+				icon = GFX_focus_chi_british_cooperation
+				x = 46
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_fleet_of_freedom
+				}
+				prerequisite = {
+					focus = GER_assistance_from_britain
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Ship Innovations
+			focus = {
+				id = GER_ship_innovations
+				icon = GFX_focus_generic_navy_battleship2
+				x = 5
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preuische_reichsmarine }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = naval_doctrine
+		}
+				}
+			}
+
+			#Focus for Rudeltakik
+			focus = {
+				id = GER_rudeltakik
+				icon = GFX_goal_generic_navy_doctrines_tactics
+				x = 7
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preuische_reichsmarine }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   uses = 2
+		   bonus = 0.5
+		   category = cat_trade_interdiction_research
+		}
+				}
+			}
+
+			#Focus for The U-boat
+			focus = {
+				id = GER_the_uboat
+				icon = GFX_goal_generic_navy_submarine
+				x = 5
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_ship_innovations }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = ss_tech
+		}
+				}
+			}
+
+			#Focus for Evolved Aerial Tactics
+			focus = {
+				id = GER_evolved_aerial_tactics
+				icon = GFX_goal_generic_air_doctrine
+				x = 20
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_luftstreitkrfte_innovations }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = air_doctrine
+		}
+				}
+			}
+
+			#Focus for Modernization of Our Airforce
+			focus = {
+				id = GER_modernization_of_our_airforce
+				icon = GFX_goal_generic_air_fighter2
+				x = 24
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_luftstreitkrfte_innovations }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = light_air
+		}
+				}
+			}
+
+			#Focus for Strategic Bombing
+			focus = {
+				id = GER_strategic_bombing
+				icon = GFX_goal_poland_goal
+				x = 25
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_start_of_a_new_luftstreitkrfte
+				}
+				prerequisite = {
+					focus = GER_an_alternative
+				}
+				mutually_exclusive = { focus = GER_combined_warfare }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_strategic_destruction
+				}
+			}
+		} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+			#Focus for Ground Support Planes
+			focus = {
+				id = GER_ground_support_planes
+				icon = GFX_goal_unknown
+				x = 21
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_combined_warfare }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cas_bomber
+		}
+				}
+			}
+
+			#Focus for Improving Combined Tactics
+			focus = {
+				id = GER_improving_combined_tactics
+				icon = GFX_focus_generic_combined_arms
+				x = 19
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_combined_warfare }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = direct_ground_support
+		}
+				}
+			}
+
+			#Focus for Preußische Genius
+			focus = {
+				id = GER_preuische_genius
+				icon = GFX_goal_tfv_generic_tech_sharing
+				x = 10
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_more_inclusive_training
+					focus = GER_tank_upgrades
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_ideas = Tactical_Genius
+				}
+			}
+
+			#Focus for Strategic Bombers
+			focus = {
+				id = GER_strategic_bombers
+				icon = GFX_goal_generic_air_bomber
+				x = 23
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_strategic_bombing }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_strategic_bomber
+		}
+				}
+			}
+
+			#Focus for Improved Bombing Tactics
+			focus = {
+				id = GER_improved_bombing_tactics
+				icon = GFX_goal_generic_occupy_start_war
+				x = 25
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_strategic_bombing }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = operational_destruction
+				}
+			}
+		} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+			#Focus for Distance from Goring
+			focus = {
+				id = GER_distance_from_goring
+				icon = GFX_goal_unknown
+				x = 37
+				y = 2
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_an_alternative }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_popularity = {
+		   ideology = fascism
+		   popularity = -0.1
+		}
+				}
+			}
+
+			#Focus for Reorganization of the Military
+			focus = {
+				id = GER_reorganization_of_the_military
+				icon = GFX_goal_unknown
+				x = 37
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_distance_from_goring }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Mass Mobilization
+			focus = {
+				id = GER_mass_mobilization
+				icon = GFX_goal_unknown
+				x = 37
+				y = 10
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_mobilize_the_people
+				}
+				prerequisite = {
+					focus = GER_mobilize_the_economy
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					remove_ideas = GER_change_in_plans_2
+				}
+			}
+
+			#Focus for Operation Red Bastion
+			focus = {
+				id = GER_operation_red_bastion
+				icon = GFX_goal_generic_war_with_comintern
+				x = 37
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_reorganization_of_the_military }
+				mutually_exclusive = {
+					focus = GER_democratic_firepower
+				}
+				mutually_exclusive = {
+					focus = GER_lessons_from_the_past
+				}
+				mutually_exclusive = {
+					focus = GER_
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_timed_idea = {
+		  idea = GER_red_bastion
+		  days = 300
+		}
+				}
+			}
+
+			#Focus for Lessons from the Past
+			focus = {
+				id = GER_lessons_from_the_past
+				icon = GFX_goal_unknown
+				x = 30
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_reorganization_of_the_military }
+				mutually_exclusive = {
+					focus = GER_democratic_firepower
+				}
+				mutually_exclusive = {
+					focus = GER_operation_red_bastion
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_ideas = GER_lessons_from_past
+				}
+			}
+
+			#Focus for Democratic Firepower
+			focus = {
+				id = GER_democratic_firepower
+				icon = GFX_goal_generic_army_artillery2
+				x = 44
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_reorganization_of_the_military }
+				mutually_exclusive = {
+					focus = GER_operation_red_bastion
+				}
+				mutually_exclusive = {
+					focus = GER_lessons_from_the_past
+				}
+				mutually_exclusive = {
+					focus = GER_
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_ideas = GER_democratic_firepower
+				}
+			}
+
+			#Focus for Border of Our People
+			focus = {
+				id = GER_border_of_our_people
+				icon = GFX_goal_unknown
+				x = 35
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_mobilize_the_people }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					swap_ideas = {
+		   add_idea = GER_red_bastion_3
+		   remove_idea = GER_red_bastion_2
+		}
+				}
+			}
+
+			#Focus for Reinstitution of Methods
+			focus = {
+				id = GER_reinstitution_of_methods
+				icon = GFX_goal_unknown
+				x = 30
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_lessons_from_the_past }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_grand_battle_plan
+		}
+
+		swap_ideas = {
+		   add_idea = GER_change_in_plans_2
+		   remove_idea = GER_change_in_plans
+		}
+				}
+			}
+
+			#Focus for Extensive Planning
+			focus = {
+				id = GER_extensive_planning
+				icon = GFX_goal_generic_position_armies
+				x = 30
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_reinstitution_of_methods }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					swap_ideas = {
+		   add_idea = GER_lessons_from_the_past_2
+		   remove_idea = GER_lessons_from_the_past
+		}
+				}
+			}
+
+			#Focus for Preperation for Austria
+			focus = {
+				id = GER_preperation_for_austria
+				icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
+				x = 31
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_extensive_planning }
+				mutually_exclusive = { focus = GER_preperation_for_germany }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					targeted_modifier = { tag = AUS attack_bonus_against = 0.1 }
+				}
+			}
+
+			#Focus for Brace for War
+			focus = {
+				id = GER_brace_for_war
+				icon = GFX_goal_generic_major_war
+				x = 37
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_operation_red_bastion }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					swap_ideas = {
+		   add_idea = GER_change_in_plans_2
+		   remove_idea = GER_change_in_plans
+		}
+		add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_mass_assault
+		}
+				}
+			}
+
+			#Focus for Support Czech Rebels
+			focus = {
+				id = GER_support_czech_rebels
+				icon = GFX_goal_unknown
+				x = 31
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preperation_for_austria }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					if = {
+		  limit = {
+		    AUS = { has_idea = Bohemian_Diet }
+		  }
+		  AUS = {
+		    add_stability = -0.1
+		    add_war_support = -0.1
+		  }
+		}
+				}
+			}
+
+			#Focus for Preperation for Russia
+			focus = {
+				id = GER_preperation_for_russia
+				icon = GFX_goal_unknown
+				x = 33
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preperation_for_austria }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Preperation for Westphalia
+			focus = {
+				id = GER_preperation_for_westphalia
+				icon = GFX_goal_unknown
+				x = 27
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preperation_for_germany }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					targeted_modifier = { tag = FGD attack_bonus_against = 0.1 }
+				}
+			}
+
+			#Focus for Improvement of Methods
+			focus = {
+				id = GER_improvement_of_methods
+				icon = GFX_goal_unknown
+				x = 30
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_support_czech_rebels
+					focus = GER_support_unification_rebels
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					remove_ideas = GER_change_in_plans_2
+				}
+			}
+
+			#Focus for Preperation for Germany
+			focus = {
+				id = GER_preperation_for_germany
+				icon = GFX_goal_unknown
+				x = 29
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_extensive_planning }
+				mutually_exclusive = { focus = GER_preperation_for_austria }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					targeted_modifier = { tag = HAN attack_bonus_against = 0.1 }
+		targeted_modifier = { tag = SAX attack_bonus_against = 0.1 }
+				}
+			}
+
+			#Focus for Mobilization Efforts
+			focus = {
+				id = GER_mobilization_efforts
+				icon = GFX_focus_chi_army_reform
+				x = 37
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_ready_the_populace }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_war_support = 0.1
+				}
+			}
+
+			#Focus for Mobilize the People
+			focus = {
+				id = GER_mobilize_the_people
+				icon = GFX_goal_unknown
+				x = 36
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_mobilization_efforts }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_manpower = 30000
+				}
+			}
+
+			#Focus for Fortify the Borders
+			focus = {
+				id = GER_fortify_the_borders
+				icon = GFX_focus_ger_bulwark_against_bolshevism
+				x = 39
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_mobilize_the_economy }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Defense Ships
+			focus = {
+				id = GER_defense_ships
+				icon = GFX_goal_generic_navy_cruiser
+				x = 52
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_battleship_investments }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = convoy_defense_tree
+		}
+				}
+			}
+
+			#Focus for A New Purpose
+			focus = {
+				id = GER_a_new_purpose
+				icon = GFX_goal_generic_army_artillery2
+				x = 44
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_democratic_firepower }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = artillery
+		}
+				}
+			}
+
+			#Focus for Russian Assistance
+			focus = {
+				id = GER_russian_assistance
+				icon = GFX_GER_russian_assistance-32600
+				x = 43
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_a_new_purpose }
+				ai_will_do = {
+					factor = 1
+				}
+				bypass = {
+					has_war_with = SOV
+				}
+				completion_reward = {
+					SOV = {
+		create_production_license = {
+		    target = GER
+		    equipment = {
+		        type = artillery
+		    }
+		    cost_factor = 0
+		}
+		}
+				}
+			}
+
+			#Focus for Assistance from Britain
+			focus = {
+				id = GER_assistance_from_britain
+				icon = GFX_focus_chi_british_cooperation
+				x = 45
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_a_new_purpose }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					SOV = {
+		create_production_license = {
+		    target = GER
+		    equipment = {
+		        type = landing_craft
+		        type = armor
+		    }
+		    cost_factor = 0
+		}
+		}
+				}
+			}
+
+			#Focus for Prepare Forces for Germany
+			focus = {
+				id = GER_prepare_forces_for_germany
+				icon = GFX_goal_unknown
+				x = 44
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_assistance_from_britain
+				}
+				prerequisite = {
+					focus = GER_russian_assistance
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					targeted_modifier = { tag = FGD attack_bonus_against = 0.1 }
+
+		targeted_modifier = { tag = GPU attack_bonus_against = 0.1 }
+
+		targeted_modifier = { tag = SAX attack_bonus_against = 0.1 }
+
+		targeted_modifier = { tag = HAN attack_bonus_against = 0.1 }
+				}
+			}
+
+			#Focus for The Final Weapon
+			focus = {
+				id = GER_the_final_weapon
+				icon = GFX_focus_wonderweapons
+				x = 33
+				y = 11
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_mass_mobilization
+					focus = GER_improvement_of_methods
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Preußische Naval Reformation
+			focus = {
+				id = GER_preuische_naval_reformation
+				icon = GFX_goal_generic_navy_doctrines_tactics
+				x = 50
+				y = 2
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_an_alternative }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					navy_experience = 40
+				}
+			}
+
+			#Focus for Battleship Investments
+			focus = {
+				id = GER_battleship_investments
+				icon = GFX_focus_generic_navy_battleship2
+				x = 52
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the_imperial_navy }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = bb_tech
+		}
+				}
+			}
+
+			#Focus for Development of Naval Bombers
+			focus = {
+				id = GER_development_of_naval_bombers
+				icon = GFX_goal_generic_air_fighter2
+				x = 50
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preuische_naval_reformation }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = naval_bomber
+		}
+				}
+			}
+
+			#Focus for Expansion of Naval Facilities
+			focus = {
+				id = GER_expansion_of_naval_facilities
+				icon = GFX_goal_generic_construct_naval_dockyard
+				x = 48
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preuische_naval_reformation }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					random_owned_controlled_state = {
+		   limit = {
+		      is_coastal = yes
+		   }
+		   add_building_construction = {
+		     type = dockyard
+		     level = 1
+		     instant_build = yes
+		   }
+		}
+				}
+			}
+
+			#Focus for Weaponry Improvements
+			focus = {
+				id = GER_weaponry_improvements
+				icon = GFX_goal_unknown
+				x = 52
+				y = 3
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_preuische_naval_reformation }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for An Improved Navy
+			focus = {
+				id = GER_an_improved_navy
+				icon = GFX_goal_unknown
+				x = 50
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_development_of_naval_bombers
+				}
+				prerequisite = {
+					focus = GER_weaponry_improvements
+				}
+				prerequisite = {
+					focus = GER_expansion_of_naval_facilities
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = naval_doctrine
+		}
+				}
+			}
+
+			#Focus for Transport Ships
+			focus = {
+				id = GER_transport_ships
+				icon = GFX_goal_unknown
+				x = 48
+				y = 4
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_expansion_of_naval_facilities }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = transport
+		}
+				}
+			}
+
+			#Focus for The Red Hunters
+			focus = {
+				id = GER_the_red_hunters
+				icon = GFX_goal_unknown
+				x = 50
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_an_improved_navy }
+				mutually_exclusive = {
+					focus = GER_the_imperial_navy
+				}
+				mutually_exclusive = {
+					focus = GER_fleet_of_freedom
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_trade_interdiction
+		}
+				}
+			}
+
+			#Focus for Demobilization
+			focus = {
+				id = GER_demobilization
+				icon = GFX_goal_generic_consumer_goods
+				x = 44
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_prepare_forces_for_germany }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Fleet of Freedom
+			focus = {
+				id = GER_fleet_of_freedom
+				icon = GFX_goal_unknown
+				x = 48
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_an_improved_navy }
+				mutually_exclusive = {
+					focus = GER_the_red_hunters
+				}
+				mutually_exclusive = {
+					focus = GER_the_imperial_navy
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_fleet_in_being
+		}
+				}
+			}
+
+			#Focus for The Imperial Navy
+			focus = {
+				id = GER_the_imperial_navy
+				icon = GFX_goal_unknown
+				x = 52
+				y = 6
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_an_improved_navy }
+				mutually_exclusive = {
+					focus = GER_the_red_hunters
+				}
+				mutually_exclusive = {
+					focus = GER_fleet_of_freedom
+				}
+				mutually_exclusive = {
+					focus = GER_
+				}
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_fleet_in_being
+		}
+				}
+			}
+
+			#Focus for Unrestricted Submarine Warfare
+			focus = {
+				id = GER_unrestricted_submarine_warfare
+				icon = GFX_goal_generic_navy_anti_submarine
+				x = 50
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_the_red_hunters }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = ss_tech
+		}
+				}
+			}
+
+			#Focus for American Teachings
+			focus = {
+				id = GER_american_teachings
+				icon = GFX_focus_chi_mission_to_the_us
+				x = 48
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_fleet_of_freedom }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Invest into Destroyers
+			focus = {
+				id = GER_invest_into_destroyers
+				icon = GFX_focus_generic_destroyer
+				x = 46
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_preuische_carriers
+					focus = GER_ship_of_war
+				}
+				mutually_exclusive = { focus = GER_invest_into_crusiers }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = dd_tech
+		}
+				}
+			}
+
+			#Focus for Invest into Crusiers
+			focus = {
+				id = GER_invest_into_crusiers
+				icon = GFX_focus_generic_cruiser2
+				x = 48
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = {
+					focus = GER_preuische_carriers
+					focus = GER_ship_of_war
+				}
+				mutually_exclusive = { focus = GER_invest_into_destroyers }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = ca_tech
+		}
+				}
+			}
+
+			#Focus for Improved Radar
+			focus = {
+				id = GER_improved_radar
+				icon = GFX_goal_generic_radar
+				x = 50
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_unrestricted_submarine_warfare }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = radar
+		}
+				}
+			}
+
+			#Focus for Torpedo Innovations
+			focus = {
+				id = GER_torpedo_innovations
+				icon = GFX_goal_unknown
+				x = 50
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_improved_radar }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = basic_torpedo
+				}
+			}
+		} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+			#Focus for Superior Armour
+			focus = {
+				id = GER_superior_armour
+				icon = GFX_goal_unknown
+				x = 54
+				y = 8
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_battleship_investments }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+			#Focus for Innovations in Battleships
+			focus = {
+				id = GER_innovations_in_battleships
+				icon = GFX_focus_generic_africa_naval
+				x = 52
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_defense_ships }
+				ai_will_do = {
+					factor = 1
+				}
+				completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = bb_tech
+		}
+				}
+			}
+
+			#Focus for Superior Guns
+			focus = {
+				id = GER_superior_guns
+				icon = GFX_goal_unknown
+				x = 54
+				y = 9
+				cost = 10
+				available_if_capitulated = yes
+				prerequisite = { focus = GER_superior_armour }
+				ai_will_do = {
+					factor = 1
+				}
+			}
+
+		#End of focuses
+		 }
