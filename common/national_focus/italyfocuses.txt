@@ -27,6 +27,7 @@
 	    factor = 1
 	  }
 
+
 	  available_if_capitulated = yes
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -40,6 +41,7 @@
 	  icon = GFX_goal_generic_construction
 	  text = ITA_MOBILIZE_POLICE_BATALLIONS
 	  prerequisite = { focus = ITA_MAFIA_FOCUS }
+		mutually_exclusive = {focus = ITA_DEAL_WITH_CLANS}
 	  x = -5
 	  y = 1
 	  relative_position_id = ITA_MAFIA_FOCUS
@@ -260,6 +262,7 @@
 	  icon = GFX_goal_generic_construction
 	  text = ITA_DEAL_WITH_CLANS
 	  prerequisite = { focus = ITA_MAFIA_FOCUS }
+		mutually_exclusive = {focus = ITA_MOBILIZE_POLICE_BATALLIONS}
 	  x = 5
 	  y = 1
 	  relative_position_id = ITA_MAFIA_FOCUS
@@ -2352,7 +2355,7 @@ add_stability = 0.05
 
 		}
 	}
-	
+
 
 	#Focus for Evola's Coup
 	focus = {
@@ -3064,6 +3067,7 @@ create_wargoal = {
 		}
 		completion_reward = {
 			random_owned_controlled_state = {
+			prioritize = { 156 117 }
    limit = {
       free_building_slots = {
          building = arms_factory
@@ -3071,10 +3075,10 @@ create_wargoal = {
          include_locked = yes
       }
    }
-   add_extra_state_shared_building_slots = 1
+   add_extra_state_shared_building_slots = 2
    add_building_construction = {
      type = arms_factory
-     level = 1
+     level = 2
      instant_build = yes
    }
 }
@@ -3211,7 +3215,7 @@ create_wargoal = {
 		icon = GFX_goal_unknown
 		x = 15
 		y = 3
-		cost = 10
+		cost = 3
 		available_if_capitulated = yes
 		prerequisite = {
 			focus = ITA_return_of_victor_emanuel
@@ -3234,7 +3238,7 @@ create_wargoal = {
 		icon = GFX_goal_unknown
 		x = 15
 		y = 4
-		cost = 10
+		cost = 3
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_the_two_sicilies_compromise }
 		ai_will_do = {
