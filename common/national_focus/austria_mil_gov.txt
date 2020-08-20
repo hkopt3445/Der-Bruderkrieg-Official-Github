@@ -12,4 +12,641 @@ focus_tree = {
 	default = no
 	shared_focus = AUS_vienna_salzburg_railroad
 	shared_focus = AUS_austrian_military
+	
+	
+	
+	
+	#Focus for Militaristic State
+	focus = {
+		id = AUS_militaristic_state
+		icon = GFX_goal_rhineland
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_catholic_corporatism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= AUS_militaristic_state
+		}
+	}
+
+	#Focus for Raise the Dolfuss Youth
+	focus = {
+		id = AUS_raise_the_dolfuss_youth
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_militaristic_state }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea= AUS_militaristic_state_2
+			remove_idea = AUS_militaristic_state
+			}
+		}
+	}
+
+	#Focus for Catholic Corporatism
+	focus = {
+		id = AUS_catholic_corporatism
+		icon = GFX_goal_generic_defence
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_dolfuss_seizes_power }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= AUS_catholic_corporatism
+		}
+	}
+
+	#Focus for Dolfuss Infrastructure
+	focus = {
+		id = AUS_dolfuss_infrastructure
+		icon = GFX_goal_unknown ##Unfortunately, the tool could not find your icon in the game's files
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_catholic_corporatism }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state= {
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+   type = infrastructure
+   level = 4
+   instant_build = yes
+ }
+}
+
+random_owned_controlled_state= {
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+   type = infrastructure
+   level = 4
+   instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Dolfuss Seizes Power
+	focus = {
+		id = AUS_dolfuss_seizes_power
+		icon = GFX_goal_support_fascism
+		x = 2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Vangouin's Conservative Government
+	focus = {
+		id = AUS_vangouins_conservative_government
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 16
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = AUS_dolfuss_seizes_power }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = neutrality 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Oppression of the Minorities
+	focus = {
+		id = AUS_oppression_of_the_minorities
+		icon = GFX_goal_generic_political_pressure
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = derbruderkriegaustria.1 
+}
+		}
+	}
+
+	#Focus for Forced Conscriprion
+	focus = {
+		id = AUS_forced_conscriprion
+		icon = GFX_focus_generic_manpower
+		x = 7
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_oppression_of_the_minorities }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 20000
+
+add_stability= -0.05
+		}
+	}
+
+	#Focus for Control the Resource flow
+	focus = {
+		id = AUS_control_the_resource_flow
+		icon = GFX_focus_generic_steel
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_oppression_of_the_minorities }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05
+
+add_resource= { 
+type = steel 
+amount = 8 
+state = 43 
+}
+		}
+	}
+
+	#Focus for Reducation Campaign
+	focus = {
+		id = AUS_reducation_campaign
+		icon = GFX_focus_generic_military_mission
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = AUS_control_the_resource_flow 
+		}
+		prerequisite = { 
+			focus = AUS_forced_conscriprion 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = AUS_reducation_campaign
+		}
+	}
+
+	#Focus for Superiority of the Austrian race
+	focus = {
+		id = AUS_superiority_of_the_austrian_race
+		icon = GFX_focus_generic_support_the_left_right
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_reducation_campaign }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = AUS_reducation_campaign 
+add_idea = AUS_reducation_improvement 
+}
+		}
+	}
+
+	#Focus for Crack down on dissents
+	focus = {
+		id = AUS_crack_down_on_dissents
+		icon = GFX_goal_continuous_suppression
+		x = 11
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_reducation_campaign }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  
+
+add_stability= -0.05
+		}
+	}
+
+	#Focus for Austrofascism
+	focus = {
+		id = AUS_austrofascism
+		icon = GFX_focus_ger_reichskommisariats
+		x = 9
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = AUS_crack_down_on_dissents 
+		}
+		prerequisite = { 
+			focus = AUS_superiority_of_the_austrian_race 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= Gleichstalung
+		}
+	}
+
+	#Focus for A deal with Mussolini
+	focus = {
+		id = AUS_a_deal_with_mussolini
+		icon = GFX_focus_ger_assassinate_mussolini
+		x = 5
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_austrofascism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = derbruderkriegaustria.2 
+}
+		}
+	}
+
+	#Focus for End the Prussians
+	focus = {
+		id = AUS_end_the_prussians
+		icon = GFX_focus_usa_focus_on_europe
+		x = 9
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = AUS_ready_for_war 
+		}
+		prerequisite = { 
+			focus = AUS_protect_saxony_and_hannover 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+		}
+	}
+
+	#Focus for Protect Saxony and Hannover
+	focus = {
+		id = AUS_protect_saxony_and_hannover
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 11
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_a_formal_alliance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			SAX = {country_event = austria.17}
+			HAN = {country_event = austria.17}
+		}
+	}
+
+	#Focus for Ready for war
+	focus = {
+		id = AUS_ready_for_war
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 7
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_a_formal_alliance }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		  add_ideas = war_economy
+		}
+	}
+
+	#Focus for A Formal Alliance
+	focus = {
+		id = AUS_a_formal_alliance
+		icon = GFX_goal_tripartite_pact
+		x = 9
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = AUS_a_deal_with_mussolini 
+		}
+		prerequisite = { 
+			focus = AUS_ask_for_help_from_the_bonapartes 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_faction= AUS_anti_prussian_Pact  
+			ITA = {country_event = austria.17}
+			FRA = {country_event = austria.17}
+		}
+	}
+
+	#Focus for Call to Arms
+	focus = {
+		id = AUS_call_to_arms
+		icon = GFX_goal_rhineland
+		x = 5
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_a_deal_with_mussolini }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 10000  add_equipment_to_stockpile= {
+ type = infantry_equipment 
+amount = 2000 
+producer = AUS 
+}
+		}
+	}
+
+	#Focus for Secure Bavaria
+	focus = {
+		id = AUS_secure_bavaria
+		icon = GFX_focus_ger_return_of_the_kaiser
+		x = 13
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_ask_for_help_from_the_bonapartes }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SGC
+}
+		}
+	}
+
+	#Focus for Ask for help from the Bonapartes
+	focus = {
+		id = AUS_ask_for_help_from_the_bonapartes
+		icon = GFX_focus_focus_fra_orleans_restoration
+		x = 13
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_austrofascism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			FRA = {
+
+country_event= {
+days = 1 
+id = derbruderkriegaustria.5 
+ }
+
+}
+		}
+	}
+
+	#Focus for National Defense Industry
+	focus = {
+		id = AUS_national_defense_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_dolfuss_infrastructure }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			4 = {
+    add_extra_state_shared_building_slots = 2
+    add_building_construction = {
+        type = industrial_complex
+        level = 2
+        instant_build = yes
+    }
+}
+		}
+	}
+
+	#Focus for Anti Protestant Propaganda
+	focus = {
+		id = AUS_anti_protestant_propaganda
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = AUS_raise_the_dolfuss_youth 
+		}
+		prerequisite = { 
+			focus = AUS_national_defense_industry 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas = {
+			   add_idea = AUS_catholic_corporatism_2
+			   remove_idea = AUS_catholic_corporatism
+			}
+		}
+	}
+
+	#Focus for Fierce Nationalism
+	focus = {
+		id = AUS_fierce_nationalism
+		icon = GFX_goal_continuous_suppression
+		x = 16
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_vangouins_conservative_government }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= AUS_fierce_nationalism
+		}
+	}
+
+	#Focus for Anti-socialist ideals
+	focus = {
+		id = AUS_antisocialist_ideals
+		icon = GFX_goal_anti_comintern_pact
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_fierce_nationalism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity = {
+			    ideology = communism
+			    popularity = -0.1
+			}
+			
+			add_popularity = {
+			    ideology = democratic
+			    popularity = -0.1
+			}
+		}
+	}
+
+	#Focus for Crusade against extremism
+	focus = {
+		id = AUS_crusade_against_extremism
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_antisocialist_ideals }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	#Focus for Austrian Capitalism
+	focus = {
+		id = AUS_austrian_capitalism
+		icon = GFX_goal_generic_demand_territory
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_fierce_nationalism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= AUS_austrian_capitalism
+		}
+	}
+
+	#Focus for Expansive infastructure projects
+	focus = {
+		id = AUS_expansive_infastructure_projects
+		icon = GFX_goal_unknown ##Unfortunately, the tool could not find your icon in the game's files
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_austrian_capitalism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		   swap_ideas = {
+		   	add_idea = AUS_austrian_capitalism_2
+			remove_idea = AUS_austrian_capitalism
+		   }
+		}
+	}
+
+	#Focus for Bravery Speech
+	focus = {
+		id = AUS_bravery_speech
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = AUS_expansive_infastructure_projects 
+		}
+		prerequisite = { 
+			focus = AUS_crusade_against_extremism 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas = {
+		   	add_idea = AUS_fierce_nationalism_2
+			remove_idea = AUS_fierce_nationalism
+		   }
+		}
+	}
+
+#End of focuses 
+ 
 }
