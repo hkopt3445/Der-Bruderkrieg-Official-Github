@@ -10,6 +10,8 @@ focus_tree = {
 		}
 	}
 
+	continuous_focus_position = { x = -50, y = 1900 }
+
 	focus = {
 	  id = TUR_TANZIMAT_FOCUS
 	  icon = GFX_goal_generic_construction
@@ -776,7 +778,7 @@ focus_tree = {
     text = TUR_learn_from_constantinople
     #prerequisite = { focus = TUR_TANZIMAT_FOCUS }
     #mutually_exclusive = {focus = TUR_revenge_for_constantinople}
-    x = 2
+    x = 0
     y = 6
     relative_position_id = TUR_TANZIMAT_FOCUS
     cost = 10
@@ -979,7 +981,7 @@ focus_tree = {
       prerequisite = { focus = TUR_revenge_for_constantinople }
       #mutually_exclusive = { focus = TUR_improve_arillery }
 
-      x = -11
+      x = -15
       y = 1
       relative_position_id = TUR_revenge_for_constantinople
       cost = 10
@@ -1466,7 +1468,7 @@ focus_tree = {
 			 icon = GFX_focus_yug_pan_slavic_congress
 			 text = TUR_fortification_efforts
 			 prerequisite = { focus = TUR_national_defense_department }
-			 x = 2
+			 x = 0
 			 y = 1
 			 relative_position_id = TUR_national_defense_department
 			 cost = 10
@@ -1566,11 +1568,11 @@ focus_tree = {
     id = TUR_modernize_the_ottoman_fleet
     icon = GFX_goal_generic_navy_doctrines_tactics
     text = TUR_modernize_the_ottoman_fleet
-    #prerequisite = { focus = TUR_TANZIMAT_FOCUS }
+    prerequisite = { focus = TUR_revenge_for_constantinople focus = TUR_learn_from_constantinople }
 
-    x = -20
-    y = 15
-    relative_position_id = TUR_TANZIMAT_FOCUS
+    x = -7
+    y = 1
+    relative_position_id = TUR_revenge_for_constantinople
     cost = 10
     ai_will_do = {
       factor = 1
@@ -1730,7 +1732,7 @@ focus_tree = {
     text = TUR_NAVAL_AVIATION
     prerequisite = { focus = TUR_modernize_the_ottoman_fleet }
 
-    x = 8
+    x = 6
     y = 1
     relative_position_id = TUR_modernize_the_ottoman_fleet
     cost = 10
@@ -1789,12 +1791,12 @@ focus_tree = {
     id = TUR_AIRLAND_BATTLE
     icon = GFX_goal_generic_air_fighter2
     text = TUR_AIRLAND_BATTLE
-    #prerequisite = { focus = TUR_TANZIMAT_FOCUS }
+    prerequisite = { focus = TUR_learn_from_constantinople focus = TUR_revenge_for_constantinople }
     mutually_exclusive = { focus = TUR_BURN_TO_GROUND }
     mutually_exclusive = { focus = TUR_invest_in_bombers }
-    x = 20
-    y = 15
-    relative_position_id = TUR_TANZIMAT_FOCUS
+    x = 5
+    y = 1
+    relative_position_id = TUR_learn_from_constantinople
     cost = 10
     ai_will_do = {
       factor = 1
@@ -1842,12 +1844,12 @@ focus_tree = {
     id = TUR_invest_in_bombers
     icon = GFX_goal_generic_air_bomber
     text = TUR_invest_in_bombers
-    #prerequisite = { focus = TUR_TANZIMAT_FOCUS }
+    prerequisite = { focus = TUR_learn_from_constantinople focus = TUR_revenge_for_constantinople }
     mutually_exclusive = { focus = TUR_BURN_TO_GROUND }
     mutually_exclusive = { focus = TUR_AIRLAND_BATTLE }
-    x = 24
-    y = 15
-    relative_position_id = TUR_TANZIMAT_FOCUS
+    x = 8
+    y = 1
+    relative_position_id = TUR_learn_from_constantinople
     cost = 10
     ai_will_do = {
       factor = 1
@@ -1900,9 +1902,9 @@ focus_tree = {
     icon = GFX_goal_generic_air_naval_bomber
     text = TUR_the_cas_bomber
     prerequisite = { focus = TUR_tactical_strike focus = TUR_STRAFING }
-    x = 1
+    x = 0
     y = 1
-    relative_position_id = TUR_invest_in_bombers
+    relative_position_id = TUR_tactical_strike
     cost = 10
     ai_will_do = {
       factor = 1
@@ -1981,7 +1983,7 @@ focus_tree = {
     text = TUR_national_defense_department
     prerequisite = { focus = TUR_revenge_for_constantinople focus = TUR_learn_from_constantinople }
     x = 1
-    y = 3
+    y = 4
     relative_position_id = TUR_revenge_for_constantinople
     cost = 10
     ai_will_do = {
@@ -2001,8 +2003,8 @@ focus_tree = {
     icon = GFX_focus_rocketry
     text = TUR_military_industry
     prerequisite = { focus = TUR_national_defense_department }
-    x = 5
-    y = 1
+    x = 7
+    y = 2
     relative_position_id = TUR_national_defense_department
     cost = 10
     ai_will_do = {
@@ -2111,7 +2113,7 @@ focus_tree = {
     icon = GFX_focus_rocketry
     text = TUR_navy_industry
     prerequisite = { focus = TUR_military_industry }
-    x = 0
+    x = 1
     y = 1
     relative_position_id = TUR_military_industry
     cost = 10
@@ -2259,7 +2261,7 @@ focus_tree = {
     icon = GFX_focus_rocketry
     text = TUR_plans_against_our_enemies
     prerequisite = { focus = TUR_national_defense_department }
-    x = -3
+    x = -5
     y = 1
     relative_position_id = TUR_national_defense_department
     cost = 10

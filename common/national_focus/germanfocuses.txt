@@ -331,7 +331,1743 @@ add_idea = GER_Nation_At_Arms
 		}
 	}
 
-#End of focuses
+	focus = {
+	  id = GER_revitalize_the_arms_factories
+	  icon = GFX_goal_generic_construct_mil_factory
+	  x = -15
+	  y = 4
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_an_older_king }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARD
+	random_owned_controlled_state = {
+	add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+	type = arms_factory
+	level = 1
+	instant_build = yes
+	}
+	}
+	  }
+	}
+
+	#Focus for Invite Our Former Allies
+	focus = {
+	  id = GER_invite_our_former_allies
+	  icon = GFX_goal_unknown
+	  x = -6
+	  y = 9
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_protect_the_balkans }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ROM = {country_event = germanyfaction.17}
+	BUL = {country_event = germanyfaction.17}
+	YUG = {country_event = germanyfaction.17}
+	  }
+	}
+
+	#Focus for Rekindle Ties with Russia
+	focus = {
+	  id = GER_rekindle_ties_with_russia
+	  icon = GFX_goal_unknown
+	  x = -3
+	  y = 9
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_an_alliance_with_sweden }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    SOV = {country_event = germanyfaction.17}
+	  }
+	}
+
+	#Focus for The First Five Year Plan
+	focus = {
+	  id = GER_the_first_five_year_plan
+	  icon = GFX_goal_generic_construct_civ_factory
+	  x = -24
+	  y = 3
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_support_the_workers
+	  }
+	  prerequisite = {
+	    focus = GER_cult_of_personality
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_tech_bonus = {
+	 bonus = 1
+	 uses = 1
+	 category = industry
+	}
+	  }
+	}
+
+	#Focus for Support the Workers
+	focus = {
+	  id = GER_support_the_workers
+	  icon = GFX_GER_support_the_workers-36785
+	  x = -28
+	  y = 2
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_side_with_luxemburg
+	    focus = GER_side_with_pieck
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = GER_support_the_union_workers
+	  }
+	}
+
+	#Focus for Side with Luxemburg
+	focus = {
+	  id = GER_side_with_luxemburg
+	  icon = GFX_goal_unknown
+	  x = -30
+	  y = 1
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_spartakus_triumphant }
+	  mutually_exclusive = { focus = GER_side_with_pieck }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_stability = 0.1
+	  }
+	}
+
+	#Focus for Spartakus Triumphant!
+	focus = {
+	  id = GER_spartakus_triumphant
+	  icon = GFX_GER_spartakus_triumphant-36260
+	  x = -28
+	  y = 0
+	  cost = 1
+	  available_if_capitulated = yes
+	  mutually_exclusive = { focus = GER_monarchist_coup }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  bypass = {
+	    has_country_flag = luxemburg_takes_power
+	  }
+	  available = {
+	    has_country_flag = luxemburg_takes_power
+	  }
+	  completion_reward = {
+	    add_popularity = {
+	 ideology = communism
+	 popularity = 0.35
+	}
+	  }
+	}
+
+	#Focus for Side with Pieck
+	focus = {
+	  id = GER_side_with_pieck
+	  icon = GFX_goal_unknown
+	  x = -25
+	  y = 1
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_spartakus_triumphant }
+	  mutually_exclusive = { focus = GER_side_with_luxemburg }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    hidden_effect = {
+	 kill_country_leader = yes
+	 ###create PIECK
+	}
+
+	custom_effect_tooltip = UBRICHT_COMES_IN_POWER
+	  }
+	}
+
+	#Focus for Form a Social Democracy
+	focus = {
+	  id = GER_form_a_social_democracy
+	  icon = GFX_GER_form_a_social_democracy-36803
+	  x = -30
+	  y = 2
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_side_with_luxemburg }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = GER_social_democracy
+	  }
+	}
+
+	#Focus for Cult of Personality
+	focus = {
+	  id = GER_cult_of_personality
+	  icon = GFX_goal_unknown
+	  x = -24
+	  y = 2
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_side_with_pieck }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = GER_cult_of_personality
+	  }
+	}
+
+	#Focus for Universal Healthcare
+	focus = {
+	  id = GER_universal_healthcare
+	  icon = GFX_GER_universal_healthcare-36805
+	  x = -28
+	  y = 3
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_form_a_social_democracy
+	  }
+	  prerequisite = {
+	    focus = GER_support_the_workers
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_political_power = -50
+	swap_ideas = {
+	 add_idea = GER_support_the_union_workers_2
+	 remove_idea = GER_support_the_union_workers
+	}
+	  }
+	}
+
+	#Focus for Higher Wages
+	focus = {
+	  id = GER_higher_wages
+	  icon = GFX_goal_unknown
+	  x = -26
+	  y = 4
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_the_first_five_year_plan
+	    focus = GER_universal_healthcare
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ##will add in idea increasing construction speed and stuff, will reduce political power gain
+			swap_ideas = {
+			 add_idea = GER_support_the_union_workers_3
+			 remove_idea = GER_support_the_union_workers_2
+			}
+		}
+	}
+
+	#Focus for Collectivism
+	focus = {
+	  id = GER_collectivism
+	  icon = GFX_goal_generic_soviet_construction
+	  x = -22
+	  y = 3
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_cult_of_personality }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_political_power = 100
+	  }
+	}
+
+	#Focus for Socialist Education
+	focus = {
+	  id = GER_socialist_education
+	  icon = GFX_focus_research2
+	  x = -30
+	  y = 3
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_form_a_social_democracy }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    swap_ideas = {
+	 add_idea = GER_social_democracy_2
+	 remove_idea = GER_social_democracy
+	}
+	  }
+	}
+
+	#Focus for Establish the Stasi
+	focus = {
+	  id = GER_establish_the_stasi
+	  icon = GFX_goal_generic_dangerous_deal
+	  x = -22
+	  y = 4
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_collectivism }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = GER_stasi
+	  }
+	}
+
+	#Focus for Purge the Fascists
+	focus = {
+	  id = GER_purge_the_fascists
+	  icon = GFX_focus_generic_anti_fascist_diplomacy
+	  x = -22
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_establish_the_stasi }
+	  mutually_exclusive = { focus = GER_reeducation_campaign }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_stability = 0.1
+	add_political_power = 75
+	  }
+	}
+
+	#Focus for Freedom of Press
+	focus = {
+	  id = GER_freedom_of_press
+	  icon = GFX_focus_generic_the_giant_wakes
+	  x = -29
+	  y = 4
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_socialist_education }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_popularity = {
+	 ideology = communism
+	 popularity = 0.1
+	}
+
+	add_stability = 0.1
+	add_war_support = 0.05
+	  }
+	}
+
+	#Focus for Will of the People
+	focus = {
+	  id = GER_will_of_the_people
+	  icon = GFX_focus_spr_crush_the_revolution
+	  x = -29
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_freedom_of_press }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = GER_will_of_the_people
+	  }
+	}
+
+	#Focus for Volksreich
+	focus = {
+	  id = GER_volksreich
+	  icon = GFX_focus_prc_agrarian_socialism
+	  x = -26
+	  y = 6
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_higher_wages
+	    focus = GER_will_of_the_people
+	    focus = GER_purge_the_fascists
+	    focus = GER_prostate_newspaper
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_political_power = 100
+			add_war_support = 0.1
+
+			news_event = {id = germany.5434}
+	  }
+	}
+
+	#Focus for Modernize the People's Army
+	focus = {
+	  id = GER_modernize_the_peoples_army
+	  icon = GFX_focus_generic_manpower
+	  x = -26
+	  y = 3
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_support_the_workers }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_tech_bonus = {
+	 bonus = 1
+	 uses = 1
+	 category = infantry
+	}
+	  }
+	}
+
+	#Focus for Cleanse the Military
+	focus = {
+	  id = GER_cleanse_the_military
+	  icon = GFX_goal_unknown
+	  x = -13
+	  y = 1
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_monarchist_coup }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARD
+	24 = {
+	 retire = yes
+	}
+
+	9 = {
+	retire = yes
+	}
+
+	add_popularity = {
+	 ideology = fascism
+	 popularity = -0.05
+	}
+	  }
+	}
+
+	#Focus for Monarchist Coup
+	focus = {
+	  id = GER_monarchist_coup
+	  icon = GFX_focus_ger_revive_kaiserreich
+	  x = -13
+	  y = 0
+	  cost = 10
+	  available_if_capitulated = yes
+	  mutually_exclusive = { focus = GER_spartakus_triumphant }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARD - MACKENSEN BECOMES LEADER in A COUP
+	  }
+	}
+
+	#Focus for Weaken the Fascist Grasp
+	focus = {
+	  id = GER_weaken_the_fascist_grasp
+	  icon = GFX_goal_unknown
+	  x = -15
+	  y = 1
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_monarchist_coup }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = GER_weakening_of_the_fascist_grasp
+	  }
+	}
+
+	#Focus for Convince the Populace
+	focus = {
+	  id = GER_convince_the_populace
+	  icon = GFX_goal_unknown
+	  x = -11
+	  y = 1
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_monarchist_coup }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = Monarchy_Drift
+	  }
+	}
+
+	#Focus for Prepare for the King
+	focus = {
+	  id = GER_prepare_for_the_king
+	  icon = GFX_focus_generic_monarchy_1
+	  x = -13
+	  y = 2
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_cleanse_the_military
+	  }
+	  prerequisite = {
+	    focus = GER_convince_the_populace
+	  }
+	  prerequisite = {
+	    focus = GER_weaken_the_fascist_grasp
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_stability = 0.1
+	  }
+	}
+
+	#Focus for The Hanover Bundesautobahn
+	focus = {
+	  id = GER_the_hanover_bundesautobahn
+	  icon = GFX_goal_unknown
+	  x = -18
+	  y = 10
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_anglo_german_threat }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	# 2 infrastructure in Hannover (59), Weser-Ems (56), Westfalen (57), and Kassel (960)
+
+	59 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 2
+	instant_build = yes
+	}
+	}
+
+	56 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 2
+	instant_build = yes
+	}
+	}
+
+	57 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 2
+	instant_build = yes
+	}
+	}
+
+	960 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 2
+	instant_build = yes
+	}
+	}
+	  }
+	}
+
+	#Focus for A New King
+	focus = {
+	  id = GER_a_new_king
+	  icon = GFX_focus_hun_elect_a_king
+	  x = -11
+	  y = 3
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_prepare_for_the_king }
+	  mutually_exclusive = { focus = GER_an_older_king }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###wilhelm the 3rd
+
+			create_country_leader = {
+				name = "Wilhelm the 3rd"
+				desc = "POLITICS_ADOLF_HITLER_DESC"
+				picture = "gfx/leaders/Wilhelm_III_Portrait.dds"
+				expire = "1965.1.1"
+				ideology = monarchy_ideology
+				traits = {
+
+				}
+			}
+	  }
+	}
+
+	#Focus for An Older King
+	focus = {
+	  id = GER_an_older_king
+	  icon = GFX_focus_ger_revive_kaiserreich
+	  x = -15
+	  y = 3
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_prepare_for_the_king }
+	  mutually_exclusive = { focus = GER_a_new_king }
+	  ai_will_do = {
+	    factor = 1
+	  }
+		completion_reward = {
+		create_country_leader = {
+			name = "Wilhelm the 2nd"
+			desc = "POLITICS_ADOLF_HITLER_DESC"
+			picture = "gfx/leaders/Kaiser_Wilhelm_II.dds"
+			expire = "1965.1.1"
+			ideology = monarchy_ideology
+			traits = {
+				dictator
+			}
+		}
+		}
+	}
+
+	#Focus for Pro-State Newspaper
+	focus = {
+	  id = GER_prostate_newspaper
+	  icon = GFX_focus_hol_the_foundations_of_defense
+	  x = -24
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_establish_the_stasi }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_stability = -0.05
+	add_popularity = {
+	 ideology = communism
+	 popularity = 0.12
+	}
+	  }
+	}
+
+	#Focus for Centrism
+	focus = {
+	  id = GER_centrism
+	  icon = GFX_goal_generic_neutrality_focus
+	  x = -18
+	  y = 3
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_purge_the_extremists }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	}
+
+	#Focus for Start of The Bundesautobahn
+	focus = {
+	  id = GER_start_of_the_bundesautobahn
+	  icon = GFX_goal_generic_construct_infrastructure
+	  x = -13
+	  y = 4
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_an_older_king
+	    focus = GER_a_new_king
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARD
+
+	64 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 10
+	instant_build = yes
+	}
+	}
+
+	83 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 10
+	instant_build = yes
+	}
+	}
+
+
+	64 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 10
+	instant_build = yes
+	}
+	}
+	  }
+	}
+
+	#Focus for Domestic Matters
+	focus = {
+	  id = GER_domestic_matters
+	  icon = GFX_focus_generic_self_management
+	  x = -20
+	  y = 1
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_spartakus_triumphant
+	    focus = GER_monarchist_coup
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_stability = 0.1
+	  }
+	}
+
+	#Focus for End the Rule of Reactionaries
+	focus = {
+	  id = GER_end_the_rule_of_reactionaries
+	  icon = GFX_goal_unknown
+	  x = -21
+	  y = 2
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_domestic_matters
+	  }
+	  prerequisite = {
+	    focus = GER_spartakus_triumphant
+	  }
+	  mutually_exclusive = { focus = GER_purge_the_extremists }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	}
+
+	#Focus for Purge the Extremists
+	focus = {
+	  id = GER_purge_the_extremists
+	  icon = GFX_goal_unknown
+	  x = -19
+	  y = 2
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_monarchist_coup
+	  }
+	  prerequisite = {
+	    focus = GER_domestic_matters
+	  }
+	  mutually_exclusive = { focus = GER_end_the_rule_of_reactionaries }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	}
+
+	#Focus for Reeducation Campaign
+	focus = {
+	  id = GER_reeducation_campaign
+	  icon = GFX_goal_support_communism
+	  x = -20
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_end_the_rule_of_reactionaries }
+	  mutually_exclusive = {
+	    focus = GER_purge_the_fascists
+	  }
+	  mutually_exclusive = {
+	    focus = GER_
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_political_power = 150
+	  }
+	}
+
+	#Focus for German Campaign
+	focus = {
+	  id = GER_german_campaign
+	  icon = GFX_goal_unknown
+	  x = -26
+	  y = 8
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_announce_the_farmer_liberation_campaign }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    unlock_decision_tooltip = GER_farmer_liberation_sgc
+
+	unlock_decision_tooltip = GER_farmer_liberation_han
+
+	unlock_decision_tooltip = GER_farmer_liberation_sax
+
+	unlock_decision_tooltip = GER_farmer_liberation_fgd
+	  }
+	}
+
+	#Focus for Announce the Farmer Liberation Campaign
+	focus = {
+	  id = GER_announce_the_farmer_liberation_campaign
+	  icon = GFX_goal_unknown
+	  x = -26
+	  y = 7
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_volksreich }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	}
+
+	#Focus for Expand on the Bundesautobahn
+	focus = {
+	  id = GER_expand_on_the_bundesautobahn
+	  icon = GFX_goal_unknown
+	  x = -13
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_start_of_the_bundesautobahn }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARD
+
+
+	65 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 10
+	instant_build = yes
+	}
+	}
+
+	66 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 10
+	instant_build = yes
+	}
+	}
+	  }
+	}
+
+	#Focus for Expand Civilian Industry
+	focus = {
+	  id = GER_expand_civilian_industry
+	  icon = GFX_goal_generic_construct_civ_factory
+	  x = -11
+	  y = 4
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_a_new_king }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    random_owned_controlled_state = {
+	  add_extra_state_shared_building_slots = 1
+	  add_building_construction = {
+	     type = industrial_complex
+	     level = 1
+	     instant_build = yes
+	  }
+	}
+	  }
+	}
+
+	#Focus for The Support of Mackensen
+	focus = {
+	  id = GER_the_support_of_mackensen
+	  icon = GFX_goal_unknown
+	  x = -17
+	  y = 4
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_an_older_king }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    swap_ideas = {
+	 add_idea = Mackensen_Reforms_2
+	 remove_idea=  Mackensen_Reforms
+	}
+	  }
+	}
+
+	#Focus for Support of Adenaur
+	focus = {
+	  id = GER_support_of_adenaur
+	  icon = GFX_goal_unknown
+	  x = -9
+	  y = 4
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_a_new_king }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = Constitutionalism
+	  }
+	}
+
+	#Focus for Sign the Weimar Constitution
+	focus = {
+	  id = GER_sign_the_weimar_constitution
+	  icon = GFX_focus_hol_the_foundations_of_defense
+	  x = -9
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_support_of_adenaur }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_popularity = {
+	 ideology = constitutional_monarchy
+	 popularity = 0.1
+	}
+
+	add_stability = 0.1
+	  }
+	}
+
+	#Focus for Support the Housing Industry
+	focus = {
+	  id = GER_support_the_housing_industry
+	  icon = GFX_focus_usa_guarantee_the_american_dream
+	  x = -11
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_expand_civilian_industry
+	  }
+	  prerequisite = {
+	    focus = GER_support_of_adenaur
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = GER_economic_reforms
+	  }
+	}
+
+	#Focus for Announce Large Scale Infrastructure Development
+	focus = {
+	  id = GER_announce_large_scale_infrastructure_development
+	  icon = GFX_goal_generic_construction2
+	  x = -11
+	  y = 6
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_expand_on_the_bundesautobahn
+	  }
+	  prerequisite = {
+	    focus = GER_support_the_housing_industry
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    swap_ideas = {
+	add_idea = GER_economic_reforms_2
+	remove_idea = GER_economic_reforms
+	}
+	  }
+	}
+
+	#Focus for A Government for the People
+	focus = {
+	  id = GER_a_government_for_the_people
+	  icon = GFX_focus_generic_support_the_left_right
+	  x = -9
+	  y = 6
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_sign_the_weimar_constitution }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    swap_ideas = {
+	add_idea = Constitutionalism_2
+	remove_idea = Constitutionalism
+	}
+	  }
+	}
+
+	#Focus for A New Dawn for Europe
+	focus = {
+	  id = GER_a_new_dawn_for_europe
+	  icon = GFX_goal_unknown
+	  x = -11
+	  y = 7
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_announce_large_scale_infrastructure_development
+	  }
+	  prerequisite = {
+	    focus = GER_a_government_for_the_people
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_war_support = 0.15
+	add_political_power = 100
+	  }
+	}
+
+	#Focus for Protect the Balkans
+	focus = {
+	  id = GER_protect_the_balkans
+	  icon = GFX_goal_unknown
+	  x = -6
+	  y = 8
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_a_new_dawn_for_europe }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    give_guarantee = ROM
+	give_guarantee = YUG
+	  }
+	}
+
+	#Focus for An Alliance With Sweden
+	focus = {
+	  id = GER_an_alliance_with_sweden
+	  icon = GFX_goal_unknown
+	  x = -3
+	  y = 8
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_a_new_dawn_for_europe }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    SWE = {country_event = germanyfaction.17}
+	  }
+	}
+
+	#Focus for Spread the Campaign to France
+	focus = {
+	  id = GER_spread_the_campaign_to_france
+	  icon = GFX_goal_unknown
+	  x = -27
+	  y = 9
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_german_campaign }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	}
+
+	#Focus for Spread the Campaign to Austria
+	focus = {
+	  id = GER_spread_the_campaign_to_austria
+	  icon = GFX_goal_unknown
+	  x = -24
+	  y = 9
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_german_campaign }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	}
+
+	#Focus for Expansion of Hamburg
+	focus = {
+	  id = GER_expansion_of_hamburg
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 10
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_schleswigholstein_incident }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	58 = {
+	add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = industrial_complex
+	level = 2
+	instant_build = yes
+	}
+
+	add_building_construction = {
+	type = dockyard
+	level = 2
+	instant_build = yes
+	}
+	}
+	  }
+	}
+
+	#Focus for Reunite the Saxons
+	focus = {
+	  id = GER_reunite_the_saxons
+	  icon = GFX_goal_unknown
+	  x = -14
+	  y = 9
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_northern_plains }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    create_wargoal = {
+	target = SAX
+	type = annex_everything
+	}
+	  }
+	}
+
+	#Focus for The Schleswig-Holstein Incident
+	focus = {
+	  id = GER_the_schleswigholstein_incident
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 9
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_northern_plains }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	#Denmark gets event, "Ultimatum for Schleswig-Holstein."
+	#(If accepted, Prussia gets N. Schleswig-Holstein and Schleswig-Holstein.)
+	#(If refused, then Prussia goes to war with Denmark.)
+	  }
+	}
+
+	#Focus for A Reborn Preußische
+	focus = {
+	  id = GER_a_reborn_preuische
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 7
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_expand_mining_operations
+	  }
+	  prerequisite = {
+	    focus = GER_support_the_agricultural_industry
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	add_ideas = GER_prussia_reborn
+	  }
+	}
+
+	#Focus for The Northern Plains
+	focus = {
+	  id = GER_the_northern_plains
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 8
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_a_reborn_preuische }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+
+	army_experience = 25
+
+	GER = {
+	add_opinion_modifier = {
+	  target = HAN
+	  modifier = small_decrease
+	}
+	}
+
+	GER = {
+	add_opinion_modifier = {
+	  target = SAX
+	  modifier = small_decrease
+	}
+	}
+
+	GER = {
+	add_opinion_modifier = {
+	  target = DEN
+	  modifier = small_decrease
+	}
+	}
+	  }
+	}
+
+	#Focus for Support the Agricultural Industry
+	focus = {
+	  id = GER_support_the_agricultural_industry
+	  icon = GFX_goal_unknown
+	  x = -17
+	  y = 6
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_mackensens_full_return }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARD
+	add_ideas = GER_improvement_with_agriculture
+	  }
+	}
+
+	#Focus for Expand Mining Operations
+	focus = {
+	  id = GER_expand_mining_operations
+	  icon = GFX_goal_unknown
+	  x = -15
+	  y = 6
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_expand_on_the_bundesautobahn
+	  }
+	  prerequisite = {
+	    focus = GER_expand_the_factories_of_berlin
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    random_owned_controlled_state = {
+	 add_resource = {
+	   type = steel
+	   amount = 12
+	   state = this
+	 }
+	}
+	random_owned_controlled_state = {
+	 add_resource = {
+	   type = aluminium
+	   amount = 12
+	   state = this
+	 }
+	}
+	random_owned_controlled_state = {
+	 add_resource = {
+	   type = tungsten
+	   amount = 12
+	   state = this
+	 }
+	}
+	  }
+	}
+
+	#Focus for Expand the Factories of Berlin
+	focus = {
+	  id = GER_expand_the_factories_of_berlin
+	  icon = GFX_goal_unknown
+	  x = -15
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_revitalize_the_arms_factories }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    64 = {
+	add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+	type = industrial_complex
+	level = 1
+	instant_build = yes
+	}
+	}
+	  }
+	}
+
+	#Focus for Mackensen's Full Return
+	focus = {
+	  id = GER_mackensens_full_return
+	  icon = GFX_goal_unknown
+	  x = -17
+	  y = 5
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_support_of_mackensen }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###Make August von Mackensen a field marshal AND make him an available army chief.
+	  }
+	}
+
+	#Focus for The Anglo German Threat
+	focus = {
+	  id = GER_the_anglo_german_threat
+	  icon = GFX_goal_unknown
+	  x = -18
+	  y = 9
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_northern_plains }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    create_wargoal = {
+	 target = HAN
+	 type = annex_everything
+	}
+	  }
+	}
+
+	#Focus for Saxon Arts
+	focus = {
+	  id = GER_saxon_arts
+	  icon = GFX_goal_unknown
+	  x = -14
+	  y = 10
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_reunite_the_saxons }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_ideas = GER_saxon_art
+	  }
+	}
+
+	#Focus for The Fragile Eagle
+	focus = {
+	  id = GER_the_fragile_eagle
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 12
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_german_powerhouse }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	#Gains claims on Sudetenland (69), Bohemia (9), Southern Sudetenland (958), and Moravia (75)
+
+	69 = {
+	add_core_of = GER
+	}
+
+	9 = {
+	add_core_of = GER
+	}
+
+	958 = {
+	add_core_of = GER
+	}
+
+	75 = {
+	add_core_of = GER
+	}
+	  }
+	}
+
+	#Focus for The German Powerhouse
+	focus = {
+	  id = GER_the_german_powerhouse
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 11
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_the_hanover_bundesautobahn
+	  }
+	  prerequisite = {
+	    focus = GER_expansion_of_hamburg
+	  }
+	  prerequisite = {
+	    focus = GER_saxon_arts
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    add_war_support = 0.1
+	add_stability = 0.05
+	  }
+	}
+
+	#Focus for The Imperial Bear
+	focus = {
+	  id = GER_the_imperial_bear
+	  icon = GFX_goal_unknown
+	  x = -12
+	  y = 12
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_german_powerhouse }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    98 = {
+	add_core_of = GER
+	}
+
+	87 = {
+	add_core_of = GER
+	}
+
+	10 = {
+	add_core_of = GER
+	}
+
+	90 = {
+	add_core_of = GER
+	}
+	  }
+	}
+
+	#Focus for The French Presence
+	focus = {
+	  id = GER_the_french_presence
+	  icon = GFX_goal_unknown
+	  x = -19
+	  y = 12
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_german_powerhouse }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	#Unlocks decisions to:
+	#- Improve relations with France
+	#- Bring Westphalia under Prussian influence
+	#- Annex Westphalia
+	  }
+	}
+
+	#Focus for The Western Pact
+	focus = {
+	  id = GER_the_western_pact
+	  icon = GFX_goal_unknown
+	  x = -19
+	  y = 13
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_french_presence }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  bypass = {
+	    has_war_with= FRA
+	  }
+	  completion_reward = {
+	    FRA = {country_event = germany.9876}
+	  }
+	}
+
+	#Focus for Ostmauer
+	focus = {
+	  id = GER_ostmauer
+	  icon = GFX_goal_unknown
+	  x = -13
+	  y = 13
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_imperial_bear }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	##every state code
+	  }
+	}
+
+	#Focus for Account for the Mountains
+	focus = {
+	  id = GER_account_for_the_mountains
+	  icon = GFX_goal_unknown
+	  x = -17
+	  y = 13
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_fragile_eagle }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	swap_ideas = {
+	add_idea = GER_german_powerhouse_2
+	}
+	  }
+	}
+
+	#Focus for Sabotage the Austrians
+	focus = {
+	  id = GER_sabotage_the_austrians
+	  icon = GFX_goal_unknown
+	  x = -15
+	  y = 13
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_fragile_eagle }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    AUS = {
+	add_ideas = GER_prussian_sabotage
+	}
+	  }
+	}
+
+	#Focus for Our Final Vengence
+	focus = {
+	  id = GER_our_final_vengence
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 14
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_sabotage_the_austrians
+	  }
+	  prerequisite = {
+	    focus = GER_account_for_the_mountains
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    declare_war_on = {
+	target = AUS
+	type = annex_everything
+	}
+
+	news_event = {id = wiltkrieg.1}
+	  }
+	}
+
+	#Focus for Cold Endurance Training
+	focus = {
+	  id = GER_cold_endurance_training
+	  icon = GFX_goal_unknown
+	  x = -11
+	  y = 13
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_imperial_bear }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	add_ideas = GER_russian_winter_training
+	  }
+	}
+
+	#Focus for Hunt the Bear
+	focus = {
+	  id = GER_hunt_the_bear
+	  icon = GFX_goal_unknown
+	  x = -12
+	  y = 14
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_ostmauer
+	  }
+	  prerequisite = {
+	    focus = GER_cold_endurance_training
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    create_wargoal = {
+	 target = SOV
+	 type = annex_everything
+	}
+	  }
+	}
+
+	#Focus for Prussian Dominance
+	focus = {
+	  id = GER_prussian_dominance
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 15
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_hunt_the_bear
+	    focus = GER_our_final_vengence
+	    focus = GER_rhinish_culture
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    unlock_decision_category_tooltip = form_germany_category
+
+	add_political_power = 100
+	  }
+	}
+
+	#Focus for Form the Deutsche Stiefitorende
+	focus = {
+	  id = GER_form_the_deutsche_stiefitorende
+	  icon = GFX_goal_unknown
+	  x = -17
+	  y = 16
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_prussian_dominance }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	#Netherlands, Belgium, and Luxemburg all get #the event "Germany demands submission." (If #accepted, said nation becomes part of a #german puppet called "Deutsche #Stiefitorende".) If denied, Prussia goes to #war with them.)
+	  }
+	}
+
+	#Focus for Resources in the North
+	focus = {
+	  id = GER_resources_in_the_north
+	  icon = GFX_goal_unknown
+	  x = -15
+	  y = 16
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_prussian_dominance }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    create_wargoal = {
+	target = SWE
+	}
+
+	create_wargoal = {
+	target = NOR
+	}
+	  }
+	}
+
+	#Focus for The German Great Power
+	focus = {
+	  id = GER_the_german_great_power
+	  icon = GFX_goal_unknown
+	  x = -16
+	  y = 17
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = {
+	    focus = GER_form_the_deutsche_stiefitorende
+	  }
+	  prerequisite = {
+	    focus = GER_resources_in_the_north
+	  }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    swap_ideas  = {
+	add_idea = GER_german_powerhouse_3
+	remove_idea = GER_german_powerhouse_2
+	}
+	  }
+	}
+
+	#Focus for Rhinish Culture
+	focus = {
+	  id = GER_rhinish_culture
+	  icon = GFX_goal_unknown
+	  x = -19
+	  y = 14
+	  cost = 10
+	  available_if_capitulated = yes
+	  prerequisite = { focus = GER_the_western_pact }
+	  ai_will_do = {
+	    factor = 1
+	  }
+	  completion_reward = {
+	    ###REWARDS
+	add_political_power = 150
+	  }
+	}
+
+	#End of focuses
+
 
 
 	focus = {
@@ -845,7 +2581,7 @@ add_idea = GER_Nation_At_Arms
 
 		completion_reward = {
 			add_political_power = 75
-			GER = {country_event = {id = germanyfaction.1}}
+			GER = {country_event = {id = germanyfaction.17}}
 		}
 	}
 
@@ -1135,16 +2871,7 @@ add_idea = GER_Nation_At_Arms
 				ideology = monarchy
 				popularity = 0.4
 			}
-			create_country_leader = {
-				name = "Wilhelm the 2nd"
-				desc = "POLITICS_ADOLF_HITLER_DESC"
-				picture = "gfx/leaders/Kaiser_Wilhelm_II.dds"
-				expire = "1965.1.1"
-				ideology = monarchy_ideology
-				traits = {
-					dictator
-				}
-			}
+
 		}
 	}
 	focus = {
@@ -1350,22 +3077,17 @@ add_idea = GER_Nation_At_Arms
 	  focus = {
 			id = GER_FRANKFURT_PARLIAMENT
 			icon = GFX_goal_generic_national_unity
-			prerequisite = { focus = GER_REUNIFICATION_OF_GERMANY }
-			mutually_exclusive = { focus = GER_REVOLUTION focus = GER_BLOOD_IRON }
-			x = 0
-			y = 2
-			relative_position_id = GER_REUNIFICATION_OF_GERMANY
+			prerequisite = { focus = GER_a_new_dawn_for_europe }
+			#mutually_exclusive = { focus = GER_REVOLUTION focus = GER_BLOOD_IRON }
+			x = 2
+			y = 1
+			relative_position_id = GER_a_new_dawn_for_europe
 			cost = 10
 			ai_will_do = {
 				factor = 20
 			}
 			available = {
-				OR = {
-					has_country_leader = {
-						name = "Wilhelm the 3rd"
-					}
-					has_government = democratic
-				}
+
 			}
 
 			available_if_capitulated = yes
@@ -1384,17 +3106,17 @@ add_idea = GER_Nation_At_Arms
 	  focus = {
 			id = GER_REVOLUTION
 			icon = GFX_focus_ger_great_red_menace
-			prerequisite = { focus = GER_REUNIFICATION_OF_GERMANY }
-			mutually_exclusive = { focus = GER_FRANKFURT_PARLIAMENT focus = GER_BLOOD_IRON }
-			x = 11
-			y = 2
-			relative_position_id = GER_REUNIFICATION_OF_GERMANY
+			prerequisite = { focus = GER_volksreich }
+			#mutually_exclusive = { focus = GER_FRANKFURT_PARLIAMENT focus = GER_BLOOD_IRON }
+			x = -4
+			y = 1
+			relative_position_id = GER_volksreich
 			cost = 10
 			ai_will_do = {
 				factor = 20
 			}
 			available = {
-				has_government = communism
+
 			}
 
 			available_if_capitulated = yes
@@ -1717,7 +3439,7 @@ add_idea = GER_Nation_At_Arms
 			icon = GFX_goal_tripartite_pact
 			prerequisite = { focus = GER_FRANKFURT_PARLIAMENT }
 			mutually_exclusive = { focus = GER_FAILURE }
-			x = -2
+			x = -1
 			y = 1
 			relative_position_id = GER_FRANKFURT_PARLIAMENT
 			cost = 5
@@ -1746,7 +3468,7 @@ add_idea = GER_Nation_At_Arms
 			icon = GFX_focus_spr_crush_the_revolution
 			prerequisite = { focus = GER_FRANKFURT_PARLIAMENT }
 			mutually_exclusive = { focus = GER_FEDERALISM }
-			x = 2
+			x = 1
 			y = 1
 			relative_position_id = GER_FRANKFURT_PARLIAMENT
 			cost = 5
@@ -1865,7 +3587,7 @@ add_idea = GER_Nation_At_Arms
 			id = GER_PEACE
 			icon = GFX_goal_generic_neutrality_focus
 			prerequisite = { focus = GER_PARTITION focus = GER_GERMAN_UNITE }
-			x = -2
+			x = -1
 			y = 1
 			relative_position_id = GER_PARTITION
 			cost = 10
@@ -1887,7 +3609,7 @@ add_idea = GER_Nation_At_Arms
 			id = GER_RUHR
 			icon = GFX_goal_generic_air_fighter
 			prerequisite = { focus = GER_REVOLUTION }
-			x = -2
+			x = -1
 			y = 1
 			relative_position_id = GER_REVOLUTION
 			cost = 10
@@ -1981,7 +3703,7 @@ add_idea = GER_Nation_At_Arms
 			id = GER_BAYERN
 			icon = GFX_focus_generic_manpower
 			prerequisite = { focus = GER_REVOLUTION }
-			x = 2
+			x = 1
 			y = 1
 			relative_position_id = GER_REVOLUTION
 			cost = 10
@@ -2077,7 +3799,7 @@ add_idea = GER_Nation_At_Arms
 			icon = GFX_focus_generic_join_comintern
 			prerequisite = { focus = GER_ROUSE_COUNCIL }
 			prerequisite = { focus = GER_TRAVAILLEUR }
-			x = -2
+			x = -1
 			y = 1
 			relative_position_id = GER_ROUSE_COUNCIL
 			cost = 10
@@ -2099,7 +3821,7 @@ add_idea = GER_Nation_At_Arms
 		  id = GER_mobilize_reserves
 		  icon = GFX_goal_generic_production
 		  text = GER_mobilize_reserves
-		  x = 12
+		  x = -15
 		  y = 1
 		  cost = 10
 
@@ -2107,9 +3829,9 @@ add_idea = GER_Nation_At_Arms
 		    factor = 10
 		  }
 
-			prerequisite = {focus = GER_GERMAN_INDUSTRY}
+			prerequisite = {focus = GER_consolidating_power}
 
-			relative_position_id = GER_GERMAN_INDUSTRY
+			relative_position_id = GER_consolidating_power
 
 
 		  available_if_capitulated = yes
@@ -2142,7 +3864,7 @@ add_idea = GER_Nation_At_Arms
 		    #	Adds a civilian Factory (Warsaw)
 		      64 = {
 		      add_building_construction = {
-		          type = arms_complex
+		          type = arms_factory
 		          level = 2
 		          instant_build = yes
 
@@ -2152,7 +3874,7 @@ add_idea = GER_Nation_At_Arms
 
 		      86 = {
 		      add_building_construction = {
-		          type = arms_complex
+		          type = arms_factory
 		          level = 1
 		          instant_build = yes
 
@@ -2451,29 +4173,7 @@ add_idea = GER_Nation_At_Arms
 
 
 
-		focus = {
-		  id = GER_Form_Germany
-		  icon = GFX_United_Germany_Focus
-		  text = GER_Form_Germany
-		  prerequisite = { focus = GER_CENTRE_REVOLUTION  focus = GER_PEACE }
 
-		  x = 0
-		  y = 2
-		  relative_position_id = GER_PEACE
-		  cost = 10
-
-		  available = {
-		  }
-
-		  ai_will_do = {
-		    factor = 10
-		  }
-		  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		  completion_reward = {
-		    unlock_decision_category_tooltip = form_germany_category
-		  }
-		}
 
 
 

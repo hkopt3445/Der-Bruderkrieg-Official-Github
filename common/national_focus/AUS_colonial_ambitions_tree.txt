@@ -1,0 +1,771 @@
+shared_focus = {
+  id = AUS_expansion_in_africa
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_expansion_in_africa
+  prerequisite = { focus = AUS_colonial_ambitions }
+  x = -8
+  y = 1
+  relative_position_id = AUS_colonial_ambitions
+  cost = 1
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    ########gets event kaiser announces african campaign
+    add_to_variable = {colonial_influence_var = 3}
+    custom_effect_tooltip = increase_colonial_influence
+    add_war_support = 0.1
+  }
+}
+
+shared_focus = {
+  id = AUS_claim_the_north_african_coast
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_claim_the_north_african_coast
+  prerequisite = { focus = AUS_expansion_in_africa }
+  x = -2
+  y = 1
+  relative_position_id = AUS_expansion_in_africa
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    every_state = {
+      limit = {
+        OR = {
+          is_owned_by = LBA
+          is_owned_by = EGY
+        }
+        is_coastal = yes
+      }
+      add_claim_by = AUS
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_demand_tunis
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_demand_tunis
+  prerequisite = { focus = AUS_claim_the_north_african_coast }
+  x = 0
+  y = 1
+  relative_position_id = AUS_claim_the_north_african_coast
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    #####gets event austria demands tunis
+
+    FRA = {country_event = austria.107}
+  }
+}
+
+shared_focus = {
+  id = AUS_north_african_oil
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_north_african_oil
+  prerequisite = { focus = AUS_demand_tunis }
+  x = 0
+  y = 1
+  relative_position_id = AUS_demand_tunis
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    if = {
+      limit = {
+        AUS = {
+          owns_state = 485
+        }
+      }
+      add_resource = {
+        type = oil
+        amount = 12
+        state = 485
+      }
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_infrastructure_in_somalia
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_infrastructure_in_somalia
+  prerequisite = { focus = AUS_expansion_in_africa }
+  x = 0
+  y = 1
+  relative_position_id = AUS_expansion_in_africa
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+  bypass = {
+    NOT = {
+     controls_state = 559
+    }
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    if = {
+      limit = {
+        controls_state = 559
+      }
+      4 = {
+        add_building_construction = {
+            type = infrastructure
+            level = 3
+            instant_build = yes
+
+        }
+        add_extra_state_shared_building_slots = 1
+      }
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_expand_in_somalia
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_expand_in_somalia
+  prerequisite = { focus = AUS_infrastructure_in_somalia }
+  x = 0
+  y = 1
+  relative_position_id = AUS_infrastructure_in_somalia
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    create_wargoal = {
+      target = ETH
+      type = annex_everything
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_demand_kenya
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_demand_kenya
+  prerequisite = { focus = AUS_expand_in_somalia }
+  x = 0
+  y = 1
+  relative_position_id = AUS_expand_in_somalia
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    ENG = {country_event = austria.107}
+  }
+}
+
+shared_focus = {
+  id = AUS_oil_in_namibia
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_oil_in_namibia
+  prerequisite = { focus = AUS_expansion_in_africa }
+  x = 2
+  y = 1
+  relative_position_id = AUS_expansion_in_africa
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    if = {
+      limit = {
+        owns_state = 541
+      }
+      add_resource = {
+        type = oil
+        amount = 12
+        state = 541
+      }
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_connect_our_territories
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_connect_our_territories
+  prerequisite = { focus = AUS_oil_in_namibia }
+  x = 0
+  y = 1
+  relative_position_id = AUS_oil_in_namibia
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    #####SAF gets event austria demands shit
+
+    SAF = {country_event = austria.107}
+  }
+}
+
+shared_focus = {
+  id = AUS_claim_the_greater_congo_basin
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_claim_the_greater_congo_basin
+  prerequisite = { focus = AUS_connect_our_territories }
+  x = 0
+  y = 1
+  relative_position_id = AUS_connect_our_territories
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    #####SAF gets event austria demands shit
+
+    540 = {
+      add_claim_by  = AUS
+    }
+    539 = {
+      add_claim_by  = AUS
+    }
+    772 = {
+      add_claim_by  = AUS
+    }
+    295 = {
+      add_claim_by  = AUS
+    }
+    538 = {
+      add_claim_by  = AUS
+    }
+    718 = {
+      add_claim_by  = AUS
+    }
+    769 = {
+      add_claim_by  = AUS
+    }
+    768 = {
+      add_claim_by  = AUS
+    }
+  }
+}
+
+
+
+shared_focus = {
+  id = AUS_situation_in_americas
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_situation_in_americas
+  prerequisite = { focus = AUS_colonial_ambitions }
+  x = -1
+  y = 1
+  relative_position_id = AUS_colonial_ambitions
+  cost = 10
+
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    add_to_variable = {colonial_influence_var = 3}
+  }
+}
+
+
+
+shared_focus = {
+  id = AUS_influence_brazil
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_influence_brazil
+  prerequisite = { focus = AUS_situation_in_americas }
+  x = -3
+  y = 1
+  relative_position_id = AUS_situation_in_americas
+  cost = 10
+
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    add_opinion_modifier = {
+      target = BRA
+      modifier = large_increase
+    }
+
+    BRA = {
+      add_opinion_modifier = {
+        target = AUS
+        modifier = large_increase
+      }
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_invite_brazil
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_invite_brazil
+  prerequisite = { focus = AUS_influence_brazil }
+  x = 0
+  y = 1
+  relative_position_id = AUS_influence_brazil
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    BRA = {country_event = austria.17}
+  }
+}
+
+shared_focus = {
+  id = AUS_prepare_mexican_revolt
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_prepare_mexican_revolt
+  prerequisite = { focus = AUS_situation_in_americas }
+  x = 0
+  y = 1
+  relative_position_id = AUS_situation_in_americas
+  cost = 10
+
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    ##gets event preparing the mexican revolt
+  }
+}
+
+shared_focus = {
+  id = AUS_invite_maximilian
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_invite_maximilian
+  prerequisite = { focus = AUS_prepare_mexican_revolt }
+  x = -1
+  y = 1
+  relative_position_id = AUS_prepare_mexican_revolt
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    ##gets event maximilian the 4th returs
+
+    country_event = austria.110
+  }
+}
+
+shared_focus = {
+  id = AUS_pan_monarchist_propoganda
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_pan_monarchist_propoganda
+  prerequisite = { focus = AUS_prepare_mexican_revolt }
+  x = 1
+  y = 1
+  relative_position_id = AUS_prepare_mexican_revolt
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    MEX = {
+      add_ideas = Monarchy_Drift
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_return_of_the_hapsburgs
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_return_of_the_hapsburgs
+  prerequisite = { focus = AUS_pan_monarchist_propoganda }
+  prerequisite = { focus = AUS_invite_maximilian }
+  x = -1
+  y = 1
+  relative_position_id = AUS_pan_monarchist_propoganda
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+  available = {
+    MEX = {
+      monarchy > 0.4
+    }
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    ####will get an event Maxmilian returns to the throne might cause a civil war
+
+    country_event = austria.111
+  }
+}
+
+shared_focus = {
+  id = AUS_import_oil_from_grand_colombia
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_import_oil_from_grand_colombia
+  prerequisite = { focus = AUS_situation_in_americas }
+  x = 3
+  y = 1
+  relative_position_id = AUS_situation_in_americas
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  create_import = {
+  resource = oil
+  amount = 16
+  exporter = COL
+  }
+  }
+}
+
+shared_focus = {
+  id = AUS_industrial_deal_with_colombia
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_industrial_deal_with_colombia
+  prerequisite = { focus = AUS_import_oil_from_grand_colombia }
+  x = 0
+  y = 1
+  relative_position_id = AUS_import_oil_from_grand_colombia
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    add_ideas = AUS_colombia_deal
+    add_opinion_modifier = {
+      modifier = large_increase
+      target = COL
+    }
+    COL = {
+    add_opinion_modifier = {
+      modifier = large_increase
+      target = AUS
+    }
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_hinder_british_french_influence
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_hinder_british_french_influence
+  prerequisite = { focus = AUS_industrial_deal_with_colombia }
+  x = 0
+  y = 1
+  relative_position_id = AUS_industrial_deal_with_colombia
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    ###kinda add austria into the decision
+  }
+}
+
+shared_focus = {
+  id = AUS_secure_our_holdings
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_secure_our_holdings
+  prerequisite = { focus = AUS_hinder_british_french_influence }
+  x = 0
+  y = 1
+  relative_position_id = AUS_hinder_british_french_influence
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    COL = {country_event = austria.17}
+  }
+}
+
+
+
+shared_focus = {
+  id = AUS_infrastructure_in_qingdao
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_infrastructure_in_qingdao
+  prerequisite = { focus = AUS_colonial_ambitions }
+  x = 5
+  y = 1
+  relative_position_id = AUS_colonial_ambitions
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    743 = {
+            add_building_construction = {
+                type = infrastructure
+                level = 3
+                instant_build = yes
+
+            }
+            add_extra_state_shared_building_slots = 1
+      }
+    add_to_variable = {colonial_influence_var = 3}
+  }
+}
+
+shared_focus = {
+  id = AUS_influence_beyiang
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_influence_beyiang
+  prerequisite = { focus = AUS_infrastructure_in_qingdao }
+  x = 2
+  y = 1
+  relative_position_id = AUS_infrastructure_in_qingdao
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    add_opinion_modifier = {
+      modifier = large_increase
+      target = COL
+    }
+    COL = {
+    add_opinion_modifier = {
+      modifier = large_increase
+      target = AUS
+    }
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_pact_with_beyaing
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_pact_with_beyaing
+  prerequisite = { focus = AUS_influence_beyiang }
+  x = 0
+  y = 1
+  relative_position_id = AUS_influence_beyiang
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    BEI = {country_event = austria.17}
+  }
+}
+
+shared_focus = {
+  id = AUS_eastern_menace
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_eastern_menace
+  prerequisite = { focus = AUS_pact_with_beyaing }
+  x = -1
+  y = 1
+  relative_position_id = AUS_pact_with_beyaing
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    create_wargoal = {
+      target = JAP
+      type = annex_everything
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_protect_the_smc
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_protect_the_smc
+  prerequisite = { focus = AUS_pact_with_beyaing }
+  x = 1
+  y = 1
+  relative_position_id = AUS_pact_with_beyaing
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    #####SMC gets event austria offers "protection :thinking:"
+
+    SMC = {country_event = austria.107}
+  }
+}
+
+shared_focus = {
+  id = AUS_align_indian_congress
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_align_indian_congress
+  prerequisite = { focus = AUS_infrastructure_in_qingdao }
+  x = -1
+  y = 1
+  relative_position_id = AUS_infrastructure_in_qingdao
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    add_opinion_modifier = {
+      modifier = large_increase
+      target = INC
+    }
+    INC = {
+    add_opinion_modifier = {
+      modifier = large_increase
+      target = AUS
+    }
+    }
+
+  }
+}
+
+
+shared_focus = {
+  id = AUS_intervention_india
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_intervention_india
+  prerequisite = { focus = AUS_align_indian_congress }
+  x = 0
+  y = 1
+  relative_position_id = AUS_align_indian_congress
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    INC = {country_event = austria.17}
+
+    unlock_decision_category_tooltip = AUS_intervention_india_descision_category
+  }
+}
+
+shared_focus = {
+  id = AUS_demand_ceylon
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_demand_ceylon
+  prerequisite = { focus = AUS_intervention_india }
+  x = 0
+  y = 1
+  relative_position_id = AUS_intervention_india
+  cost = 10
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    FRA = {country_event = austria.112}
+  }
+}
