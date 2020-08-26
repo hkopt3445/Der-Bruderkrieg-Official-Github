@@ -150,7 +150,7 @@ id = germany.5433
 	focus = {
 		id = GER_dolchstolegende
 		icon = GFX_focus_ger_break_anglo_french_colonial_hegemony
-		x = -55
+		x = -52
 		y = 2
 		cost = 10
 		available_if_capitulated = yes
@@ -219,7 +219,7 @@ add_stability = 0.1
 	focus = {
 		id = GER_german_supremacy
 		icon = GFX_goal_support_fascism
-		x = -55
+		x = -52
 		y = 3
 		cost = 10
 		available_if_capitulated = yes
@@ -259,7 +259,7 @@ add_idea = GER_Volkgemeinschaft
 	focus = {
 		id = GER_antiroyalism
 		icon = GFX_focus_rom_abdicate
-		x = -55
+		x = -52
 		y = 4
 		cost = 10
 		available_if_capitulated = yes
@@ -3052,8 +3052,8 @@ add_idea = GER_Nation_At_Arms
   }
 
 	focus = {
-			id = GER_BLOOD_IRON
-			icon = GFX_focus_attack_germany
+			id = GER_the_north_german_confederation
+			icon = GFX_goal_generic_major_war
 			prerequisite = { focus = GER_antiroyalism }
 			#mutually_exclusive = { focus = GER_FRANKFURT_PARLIAMENT focus = GER_REVOLUTION }
 			available = { }
@@ -3070,9 +3070,39 @@ add_idea = GER_Nation_At_Arms
 			search_filters = { FOCUS_FILTER_POLITICAL }
 
 			completion_reward = {
+				HAN = {country_event = germany.5435}
+				SAX = {country_event = germany.5435}
+
+				add_threat = 5
+			}
+	  }
+
+	focus = {
+			id = GER_BLOOD_IRON
+			icon = GFX_focus_attack_germany
+			prerequisite = { focus = GER_the_north_german_confederation }
+			prerequisite = { focus = GER_Anti_Austrian_Fervor }
+			prerequisite = { focus = GER_the_nation_at_arms focus = GER_prussian_professionalism }
+			#mutually_exclusive = { focus = GER_FRANKFURT_PARLIAMENT focus = GER_REVOLUTION }
+			available = { }
+
+			x = 0
+			y = 2
+			relative_position_id = GER_the_north_german_confederation
+			cost = 10
+			ai_will_do = {
+				factor = 20
+			}
+
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_POLITICAL }
+
+			completion_reward = {
 				add_ideas = {
 					Violence
 				}
+
+				add_threat = 5
 			}
 	  }
 	  focus = {
@@ -3101,6 +3131,8 @@ add_idea = GER_Nation_At_Arms
 
 				FGD = { country_event = germany.200  hours = 2 }
 				GPU = { country_event = germany.300  hours = 2 }
+
+				add_threat = -5
 			}
 	  }
 
@@ -3160,6 +3192,8 @@ add_idea = GER_Nation_At_Arms
 					type = annex_everything
 					target = FGD
 				}
+
+				add_threat = 5
 			}
 	  }
 
@@ -3249,6 +3283,8 @@ add_idea = GER_Nation_At_Arms
 
 			completion_reward = {
 				DEN = {country_event = {id = germany.1234}}
+
+				add_threat = 5
 			}
 	  }
 
@@ -3282,6 +3318,8 @@ add_idea = GER_Nation_At_Arms
 				58 = {
 					add_core_of = GER
 				}
+
+				add_threat = 5
 			}
 	  }
 
@@ -3309,6 +3347,8 @@ add_idea = GER_Nation_At_Arms
 					target = NOR
 					type = annex_everything
 				}
+
+				add_threat = 5
 			}
 	  }
 
@@ -3349,6 +3389,8 @@ add_idea = GER_Nation_At_Arms
 						type = annex_everything
 					}
 				}
+
+				add_threat = 10
 			}
 	  }
 
@@ -3384,6 +3426,8 @@ add_idea = GER_Nation_At_Arms
 				152 = {
 					add_core_of = GER
 				}
+
+				add_threat = 5
 			}
 	  }
 
@@ -3407,6 +3451,7 @@ add_idea = GER_Nation_At_Arms
 					target = SOV
 					type = annex_everything
 				}
+
 			}
 	  }
 
@@ -3822,13 +3867,17 @@ add_idea = GER_Nation_At_Arms
 		  id = GER_mobilize_reserves
 		  icon = GFX_goal_generic_production
 		  text = GER_mobilize_reserves
-		  x = -15
-		  y = 1
+		  x = -10
+		  y = 2
 		  cost = 10
 
 		  ai_will_do = {
 		    factor = 10
 		  }
+
+			available = {
+				war_support > 0.4
+			}
 
 			prerequisite = {focus = GER_consolidating_power}
 
@@ -4076,68 +4125,7 @@ add_idea = GER_Nation_At_Arms
 		}
 		  }
 
-		focus = {
-		  id = GER_prepare_partisans
-		  icon = GFX_Uprising
-		  text = GER_prepare_partisans
-		  prerequisite = { focus = GER_fortify_south }
-		  x = 0
-		  y = 1
-		  relative_position_id = GER_fortify_south
-		  cost = 10
 
-		  ai_will_do = {
-		    factor = 10
-		  }
-		  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		  completion_reward = {
-
-		  }
-
-		}
-
-		focus = {
-		  id = GER_secure_french_neutrality
-		  icon = GFX_Diplo_France
-		  text = GER_secure_french_neutrality
-		  prerequisite = { focus = GER_fortify_silesia }
-		  x = 0
-		  y = 1
-		  relative_position_id = GER_fortify_silesia
-		  cost = 10
-
-		  ai_will_do = {
-		    factor = 10
-		  }
-		  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		  completion_reward = {
-		    FRA = {country_event = {id = germany.9876}}
-		  }
-
-		}
-
-		focus = {
-		  id = GER_secure_russian_neutrality
-		  icon = GFX_Diplo_Russia
-		  text = GER_secure_russian_neutrality
-		  prerequisite = { focus = GER_fortify_holstein }
-		  x = 0
-		  y = 1
-		  relative_position_id = GER_fortify_holstein
-		  cost = 10
-
-		  ai_will_do = {
-		    factor = 10
-		  }
-		  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		  completion_reward = {
-		    SOV = {country_event = {id = germany.5432}}
-		  }
-
-		}
 
 
 
@@ -4145,13 +4133,13 @@ add_idea = GER_Nation_At_Arms
 		  id = GER_Anti_Austrian_Fervor
 		  icon = GFX_Austria_Burning
 		  text = GER_Anti_Austrian_Fervor
-		  prerequisite = { focus = GER_prepare_partisans }
-		  prerequisite = { focus = GER_secure_french_neutrality }
-			prerequisite = { focus = GER_secure_russian_neutrality }
+		  prerequisite = { focus = GER_fortify_holstein }
+		  prerequisite = { focus = GER_fortify_silesia }
+			prerequisite = { focus = GER_fortify_south }
 
 		  x = -3
 		  y = 1
-		  relative_position_id = GER_prepare_partisans
+		  relative_position_id = GER_fortify_south
 		  cost = 10
 
 		  available = {

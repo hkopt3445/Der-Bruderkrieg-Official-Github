@@ -1,0 +1,816 @@
+shared_focus = {
+	id = AUS_vienna_salzburg_railroad
+	#icon =
+	x = 39
+	y = 0
+	cost = 8
+	available_if_capitulated = yes
+	
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+      4 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 5
+                    instant_build = yes
+
+                }
+          }
+
+        152 = {
+              add_building_construction = {
+                  type = infrastructure
+                  level = 5
+                  instant_build = yes
+
+              }
+        }
+	}
+
+}
+
+shared_focus = {
+	id = AUS_expand_civilian_industry
+	#icon =
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  relative_position_id = AUS_vienna_salzburg_railroad
+  prerequisite = {focus = AUS_vienna_salzburg_railroad}
+	completion_reward = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+            type = industrial_complex
+            level = 1
+            instant_build = yes
+
+        }
+      }
+	}
+}
+
+shared_focus = {
+	id = AUS_expand_military_industry
+	#icon =
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_vienna_salzburg_railroad}
+  relative_position_id = AUS_vienna_salzburg_railroad
+	completion_reward = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+            type = arms_factory
+            level = 1
+            instant_build = yes
+
+        }
+      }
+	}
+}
+
+shared_focus = {
+	id = AUS_expand_vienna_research_facility
+	#icon =
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_expand_civilian_industry}
+  prerequisite = {focus = AUS_expand_military_industry}
+
+  relative_position_id = AUS_expand_civilian_industry
+	completion_reward = {
+      add_research_slot = 1
+	}
+}
+
+shared_focus = {
+	id = AUS_hungarian_steel
+	#icon =
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_expand_vienna_research_facility}
+
+  relative_position_id = AUS_expand_vienna_research_facility
+	completion_reward = {
+    random_owned_controlled_state = {
+      limit = {
+        is_core_of = HUN
+      }
+      add_resource = {
+	      type = steel
+	      amount = 12
+	      state = THIS
+	    }
+    }
+	}
+}
+shared_focus = {
+	id = AUS_austrian_steel
+	#icon =
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_expand_vienna_research_facility}
+
+  relative_position_id = AUS_expand_vienna_research_facility
+	completion_reward = {
+    4 = {
+      add_resource = {
+	      type = tungsten
+	      amount = 12
+	      state = THIS
+	    }
+    }
+	}
+}
+
+shared_focus = {
+	id = AUS_croatian_tungsten
+	#icon =
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_hungarian_steel}
+
+  relative_position_id = AUS_hungarian_steel
+	completion_reward = {
+    103 = {
+      add_resource = {
+	      type = steel
+	      amount = 12
+	      state = THIS
+	    }
+    }
+	}
+}
+
+shared_focus = {
+	id = AUS_federalised_economy
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_croatian_tungsten}
+
+  relative_position_id = AUS_croatian_tungsten
+	completion_reward = {
+
+	}
+}
+
+shared_focus = {
+	id = AUS_salzburg_aluminium
+	#icon =
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_austrian_steel}
+
+  relative_position_id = AUS_austrian_steel
+	completion_reward = {
+    152 = {
+      add_resource = {
+	      type = aluminium
+	      amount = 12
+	      state = THIS
+	    }
+    }
+	}
+}
+
+shared_focus = {
+	id = AUS_centralised_economy
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_salzburg_aluminium}
+
+  relative_position_id = AUS_salzburg_aluminium
+	completion_reward = {
+
+	}
+}
+
+shared_focus = {
+	id = AUS_industrial_research_facility
+	#icon =
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_austrian_steel focus = AUS_hungarian_steel}
+
+  relative_position_id = AUS_austrian_steel
+	completion_reward = {
+    add_tech_bonus = {
+      uses = 2
+      bonus = 0.5
+      category = industry
+    }
+	}
+}
+
+shared_focus = {
+	id = AUS_improved_excavation_methods
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+  prerequisite = {focus = AUS_industrial_research_facility}
+
+  relative_position_id = AUS_industrial_research_facility
+	completion_reward = {
+    add_tech_bonus = {
+      uses = 1
+      bonus = 1
+      category = excavation_tech
+    }
+	}
+}
+
+
+shared_focus = {
+	id = AUS_austrian_military
+	#icon =
+	x = 20
+	y = 0
+	cost = 1
+	available_if_capitulated = yes
+	
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+
+	}
+}
+shared_focus = {
+	id = AUS_vienna_manuevers
+	#icon =
+	x = -2
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_austrian_military}
+
+  relative_position_id = AUS_austrian_military
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		army_experience = 30
+	}
+}
+
+shared_focus = {
+	id = AUS_army_of_attack
+	#icon =
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_vienna_manuevers}
+
+  relative_position_id = AUS_vienna_manuevers
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = cat_mobile_warfare
+		}
+		add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = cat_superior_firepower
+		}
+	}
+}
+
+shared_focus = {
+	id = AUS_army_of_defense
+	#icon =
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_vienna_manuevers}
+
+  relative_position_id = AUS_vienna_manuevers
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = cat_grand_battle_plan
+		}
+		add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = cat_mass_assault
+		}
+	}
+}
+
+shared_focus = {
+	id = AUS_artillery_production
+	#icon =
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_army_of_defense}
+	prerequisite = {focus = AUS_army_of_attack}
+
+  relative_position_id = AUS_army_of_attack
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = artillery
+	}
+	}
+}
+
+
+
+
+
+shared_focus = {
+	id = AUS_modernize_austrian_panzer_corp
+	#icon =
+	x = 2
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_austrian_military}
+
+  relative_position_id = AUS_austrian_military
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = armor
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_motorized_effort
+	#icon =
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_modernize_austrian_panzer_corp}
+
+  relative_position_id = AUS_modernize_austrian_panzer_corp
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = motorised_infantry
+		}
+	}
+}
+
+shared_focus = {
+	id = AUS_mechanized_effort
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_modernize_austrian_panzer_corp}
+
+  relative_position_id = AUS_modernize_austrian_panzer_corp
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = cat_mechanized_equipment
+	}
+	}
+}
+
+
+shared_focus = {
+	id = AUS_special_forces_corp
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_mechanized_effort}
+	prerequisite = {focus = AUS_motorized_effort}
+
+  relative_position_id = AUS_mechanized_effort
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = tech_special_forces
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_invest_in_support_equipment
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_mechanized_effort}
+	prerequisite = {focus = AUS_motorized_effort}
+
+  relative_position_id = AUS_motorized_effort
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = support_folder
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_modernize_the_airforce
+	#icon =
+	x = 7
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_austrian_military}
+
+  relative_position_id = AUS_austrian_military
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		air_experience = 20
+	}
+}
+
+shared_focus = {
+	id = AUS_closer_air_support
+	#icon =
+	x = -3
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_modernize_the_airforce}
+
+  relative_position_id = AUS_modernize_the_airforce
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = cas_bomber
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_ground_support_bombers
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_closer_air_support}
+
+  relative_position_id = AUS_closer_air_support
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = cat_battlefield_support
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_strategic_bombing
+	#icon =
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_modernize_the_airforce}
+
+  relative_position_id = AUS_modernize_the_airforce
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = tactical_bomber
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_tactical_bombers
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_strategic_bombing}
+
+  relative_position_id = AUS_strategic_bombing
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = cat_strategic_bomber
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_invest_in_fighters
+	#icon =
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_modernize_the_airforce}
+
+  relative_position_id = AUS_modernize_the_airforce
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = light_fighter
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_license_fighters
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_invest_in_fighters}
+
+  relative_position_id = AUS_invest_in_fighters
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = AUS_lisence_fighter
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+######navy
+shared_focus = {
+	id = AUS_expand_the_navy
+	#icon =
+	x = 7
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_austrian_military}
+
+  relative_position_id = AUS_austrian_military
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		navy_experience = 20
+	}
+}
+
+shared_focus = {
+	id = AUS_submarine_effort
+	#icon =
+	x = -3
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_expand_the_navy}
+
+  relative_position_id = AUS_expand_the_navy
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = ss_tech
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_cruiser_submarines
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_submarine_effort}
+
+  relative_position_id = AUS_submarine_effort
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = cl_tech
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_build_dockyards
+	#icon =
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_expand_the_navy}
+
+  relative_position_id = AUS_expand_the_navy
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+			}
+      add_building_construction = {
+          type = dockyard
+          level = 1
+          instant_build = yes
+
+      }
+      add_extra_state_shared_building_slots = 1
+		}
+	}
+}
+
+shared_focus = {
+	id = AUS_navy_licenses
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_build_dockyards}
+
+  relative_position_id = AUS_build_dockyards
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = AUS_naval_liscences
+	}
+}
+
+shared_focus = {
+	id = AUS_destroyer_effort
+	#icon =
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_expand_the_navy}
+
+  relative_position_id = AUS_expand_the_navy
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = dd_tech
+	}
+	}
+}
+
+shared_focus = {
+	id = AUS_carrier_effort
+	#icon =
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {focus = AUS_destroyer_effort}
+
+  relative_position_id = AUS_destroyer_effort
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_tech_bonus = {
+		bonus = 1
+		uses = 1
+		category = cv_tech
+	}
+	}
+}

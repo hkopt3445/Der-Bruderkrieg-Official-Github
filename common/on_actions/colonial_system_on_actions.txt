@@ -24,62 +24,25 @@ on_actions = {
             owner = { set_country_flag = colonial_power }
           }
 
-          add_to_array = {
-            array = countries_with_colonial_influence
-            value = owner
-          }
-
-
-        }
-
-
-
-
-
-        #add_to_variable = {total_african_states = 1}
-      }
-    }
-  }
-
-  on_state_control_changed = {
-    effect = {
-      every_state = {
-        limit = {
-          is_on_continent = africa
-        }
-        if = {
-          limit = {
-            owner = {capital_scope = {is_on_continent = europe}}
-          }
-          owner = {
-            add_to_variable = {colonial_influence_var = 1}
-          }
 
           if = {
             limit = {
-              owner = {
-                NOT = {
-                  has_country_flag = colonial_power
+              NOT = {
+                is_in_array =  {
+                  array = global.countries_with_colonial_influence
+                  value = owner
                 }
               }
             }
-            owner = { set_country_flag = colonial_power }
-          }
-
-          if = {
-            limit = {
-              is_in_array = {
-                array = countries_with_colonial_influence
-                value = owner
-              }
-            }
             add_to_array = {
-              array = countries_with_colonial_influence
+              array = global.countries_with_colonial_influence
               value = owner
             }
           }
 
 
+
+
         }
 
 
@@ -88,6 +51,213 @@ on_actions = {
 
         #add_to_variable = {total_african_states = 1}
       }
+
+      if = {
+        limit = {
+          ROOT = {
+            has_country_flag = colonial_power
+          }
+        }
+
+        if = {
+          limit = {
+            ROOT = {
+              check_variable = { var = colonial_influence_var value = 5 compare = less_than }
+              check_variable = { var = colonial_influence_var value = 0 compare = greater_than_or_equals }
+            }
+          }
+          if = {
+            limit = {
+              NOT = {
+                is_in_array =  {
+                  array = global.small_colonial_countries
+                  value = ROOT
+                }
+              }
+            }
+            add_to_array = {
+              array = global.small_colonial_countries
+              value = ROOT
+            }
+          }
+        }
+
+        if = {
+          limit = {
+            ROOT = {
+              check_variable = { var = colonial_influence_var value = 15 compare = less_than }
+              check_variable = { var = colonial_influence_var value = 5 compare = greater_than_or_equals }
+            }
+          }
+          if = {
+            limit = {
+              NOT = {
+                is_in_array =  {
+                  array = global.medium_colonial_countries
+                  value = ROOT
+                }
+              }
+            }
+            add_to_array = {
+              array = global.medium_colonial_countries
+              value = ROOT
+            }
+          }
+        }
+
+        if = {
+          limit = {
+            ROOT = {
+              check_variable = { var = colonial_influence_var value = 15 compare = greater_than_or_equals }
+            }
+          }
+          if = {
+            limit = {
+              NOT = {
+                is_in_array =  {
+                  array = global.large_colonial_countries
+                  value = ROOT
+                }
+              }
+            }
+            add_to_array = {
+              array = global.large_colonial_countries
+              value = ROOT
+            }
+          }
+        }
+      }
     }
+  }
+
+  on_state_control_changed = {
+  effect = {
+    every_state = {
+      limit = {
+        is_on_continent = africa
+      }
+      if = {
+        limit = {
+          owner = {capital_scope = {is_on_continent = europe}}
+        }
+        owner = {
+          add_to_variable = {colonial_influence_var = 1}
+        }
+
+        if = {
+          limit = {
+            owner = {
+              NOT = {
+                has_country_flag = colonial_power
+              }
+            }
+          }
+          owner = { set_country_flag = colonial_power }
+        }
+
+
+        if = {
+          limit = {
+            NOT = {
+              is_in_array =  {
+                array = global.countries_with_colonial_influence
+                value = owner
+              }
+            }
+          }
+          add_to_array = {
+            array = global.countries_with_colonial_influence
+            value = owner
+          }
+        }
+
+
+
+
+      }
+
+
+
+
+
+      #add_to_variable = {total_african_states = 1}
+    }
+
+    if = {
+      limit = {
+        ROOT = {
+          has_country_flag = colonial_power
+        }
+      }
+
+      if = {
+        limit = {
+          ROOT = {
+            check_variable = { var = colonial_influence_var value = 5 compare = less_than }
+            check_variable = { var = colonial_influence_var value = 0 compare = greater_than_or_equals }
+          }
+        }
+        if = {
+          limit = {
+            NOT = {
+              is_in_array =  {
+                array = global.small_colonial_countries
+                value = ROOT
+              }
+            }
+          }
+          add_to_array = {
+            array = global.small_colonial_countries
+            value = ROOT
+          }
+        }
+      }
+
+      if = {
+        limit = {
+          ROOT = {
+            check_variable = { var = colonial_influence_var value = 15 compare = less_than }
+            check_variable = { var = colonial_influence_var value = 5 compare = greater_than_or_equals }
+          }
+        }
+        if = {
+          limit = {
+            NOT = {
+              is_in_array =  {
+                array = global.medium_colonial_countries
+                value = ROOT
+              }
+            }
+          }
+          add_to_array = {
+            array = global.medium_colonial_countries
+            value = ROOT
+          }
+        }
+      }
+
+      if = {
+        limit = {
+          ROOT = {
+            check_variable = { var = colonial_influence_var value = 15 compare = greater_than_or_equals }
+          }
+        }
+        if = {
+          limit = {
+            NOT = {
+              is_in_array =  {
+                array = global.large_colonial_countries
+                value = ROOT
+              }
+            }
+          }
+          add_to_array = {
+            array = global.large_colonial_countries
+            value = ROOT
+          }
+        }
+      }
+    }
+  }
   }
 }
