@@ -52,81 +52,8 @@ on_actions = {
         #add_to_variable = {total_african_states = 1}
       }
 
-      if = {
-        limit = {
-          ROOT = {
-            has_country_flag = colonial_power
-          }
-        }
+      sort_country_colonial_rank_system = yes
 
-        if = {
-          limit = {
-            ROOT = {
-              check_variable = { var = colonial_influence_var value = 5 compare = less_than }
-              check_variable = { var = colonial_influence_var value = 0 compare = greater_than_or_equals }
-            }
-          }
-          if = {
-            limit = {
-              NOT = {
-                is_in_array =  {
-                  array = global.small_colonial_countries
-                  value = ROOT
-                }
-              }
-            }
-            add_to_array = {
-              array = global.small_colonial_countries
-              value = ROOT
-            }
-          }
-        }
-
-        if = {
-          limit = {
-            ROOT = {
-              check_variable = { var = colonial_influence_var value = 15 compare = less_than }
-              check_variable = { var = colonial_influence_var value = 5 compare = greater_than_or_equals }
-            }
-          }
-          if = {
-            limit = {
-              NOT = {
-                is_in_array =  {
-                  array = global.medium_colonial_countries
-                  value = ROOT
-                }
-              }
-            }
-            add_to_array = {
-              array = global.medium_colonial_countries
-              value = ROOT
-            }
-          }
-        }
-
-        if = {
-          limit = {
-            ROOT = {
-              check_variable = { var = colonial_influence_var value = 15 compare = greater_than_or_equals }
-            }
-          }
-          if = {
-            limit = {
-              NOT = {
-                is_in_array =  {
-                  array = global.large_colonial_countries
-                  value = ROOT
-                }
-              }
-            }
-            add_to_array = {
-              array = global.large_colonial_countries
-              value = ROOT
-            }
-          }
-        }
-      }
     }
   }
 
@@ -259,5 +186,5 @@ on_actions = {
       }
     }
   }
-  }
+  } 
 }

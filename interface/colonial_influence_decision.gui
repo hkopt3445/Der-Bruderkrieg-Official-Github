@@ -3,7 +3,7 @@ guiTypes = {
     name = "colonial_decision_category_container"
     position = { x = 0 y = 0 }
     orientation = UPPER_RIGHT
-    size = { width = 100% height = 300 }
+    size = { width = 100% height = 900 }
 
 
 
@@ -13,11 +13,11 @@ guiTypes = {
     instantTextBoxType = {
       name ="country_influence_speicific"
       position = { x= 0 y = 0 }
-      font = "hoi_18mbs"
-      text = "Our Influence"
+      font = "hoi_16mbs"
+      text = "colonial_country_influence_desc"
       format = center
       fixedsize = no
-      maxWidth = 70
+      maxWidth = 470
       maxLength = 30
 
     }
@@ -27,9 +27,11 @@ guiTypes = {
 
 
 
+
+
     containerWindowType = {
       name = "colonial_influence_gridbox_container"
-      position = {x=190 y=0}
+      position = {x=0 y=100}
       size = { width = 300 height = 300 }
       margin = { top = 10 bottom = 10 }
       Orientation = upper_left
@@ -42,14 +44,9 @@ guiTypes = {
       # background is necesarry for scrollbars to work
       background = {
         name = "Background"
-        quadTextureSprite ="GFX_tiled_window2_1b_border"
+        quadTextureSprite ="GFX_tiled_window_transparent"
       }
 
-      background = {
-        name = "Background"
-        quadTextureSprite ="GFX_tiled_generic_overlay_bg1_small"
-        position = { x = -1 y = 0 }
-      }
 
       # this grid will be dynamically populated
 
@@ -62,12 +59,39 @@ guiTypes = {
         add_horizontal = yes
       }
     }
+
+    gridboxtype = { #big colonial powerhouse
+      name = "big_colonial_power_grid"
+      position = { x = 190 y = 320 }
+      size = { width = 100 height = 100 }
+      slotsize = { width = 32 height = 18 }
+      max_slots_horizontal = 13
+      max_slots_vertical = 1
+    }
+
+    gridboxtype = { #medium colonial powerhouse
+      name = "medium_colonial_power_grid"
+      position = { x = 190 y = 420 }
+      size = { width = 100 height = 100 }
+      slotsize = { width = 32 height = 18 }
+      max_slots_horizontal = 13
+      max_slots_vertical = 1
+    }
+
+    gridboxtype = { #small colonial powerhouse
+      name = "small_colonial_power_grid"
+      position = { x = 190 y = 520 }
+      size = { width = 100 height = 100 }
+      slotsize = { width = 32 height = 18 }
+      max_slots_horizontal = 13
+      max_slots_vertical = 1
+    }
   }
 
 
   containerWindowType = {
     name = "colonial_influence_entry"
-    position = { x = 190 y = 0}
+    position = { x = 0 y = 0}
     size = { width = 300 height = 300 }
 
     instantTextboxType = {
@@ -91,4 +115,20 @@ guiTypes = {
       fixedsize = yes
     }
   }
+
+
+  containerWindowType = {
+		name = "colonial_powerhouse_flag_entry"
+		position = { x = 0 y = 0}
+		size = { width = 300 height = 35 }
+
+    buttonType = {
+			name = "flag_entry_thing"
+			position = { x = 0 y = 0 }
+			quadTextureSprite ="GFX_flag_small"
+			Orientation = "LOWER_LEFT"
+
+      pdx_tooltip = "colonial_powerhouse_flag_entry_name"
+		}
+	}
 }

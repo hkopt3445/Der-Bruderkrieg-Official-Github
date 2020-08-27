@@ -1,0 +1,57 @@
+sort_country_colonial_rank_system = {
+  if = {
+    limit = {
+      ROOT = {
+        has_country_flag = colonial_power
+      }
+    }
+
+    if = {
+      limit = {
+        ROOT = {
+          check_variable = { var = colonial_influence_var value = 5 compare = less_than }
+          check_variable = { var = colonial_influence_var value = 0 compare = greater_than_or_equals }
+        }
+      }
+      add_to_array = {
+        array = global.small_colonial_countries
+        value = ROOT
+      }
+    }
+
+    if = {
+      limit = {
+        ROOT = {
+          check_variable = { var = colonial_influence_var value = 15 compare = less_than }
+          check_variable = { var = colonial_influence_var value = 5 compare = greater_than_or_equals }
+        }
+      }
+      add_to_array = {
+        array = global.medium_colonial_countries
+        value = ROOT
+      }
+    }
+
+    if = {
+      limit = {
+        ROOT = {
+          check_variable = { var = colonial_influence_var value = 15 compare = greater_than_or_equals }
+        }
+      }
+      add_to_array = {
+        array = global.large_colonial_countries
+        value = ROOT
+      }
+    }
+  }
+
+  add_to_array = {
+    array = global.small_colonial_countries
+    value = POR
+  }
+
+  add_to_array = {
+    array = global.large_colonial_countries
+    value = ENG
+  }
+}
