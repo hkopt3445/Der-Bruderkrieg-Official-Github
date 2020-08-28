@@ -28,7 +28,7 @@ focus_tree = {
 	  available_if_capitulated = yes
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
-	  completion_reward = { 
+	  completion_reward = {
 	   # #######Gets a long ass event about the Tanzimat reforms
 	  }
 	}
@@ -777,7 +777,7 @@ focus_tree = {
     icon = GFX_goal_generic_construction
     text = TUR_learn_from_constantinople
     #prerequisite = { focus = TUR_TANZIMAT_FOCUS }
-    #mutually_exclusive = {focus = TUR_revenge_for_constantinople}
+    mutually_exclusive = {focus = TUR_revenge_for_constantinople}
     x = 0
     y = 6
     relative_position_id = TUR_TANZIMAT_FOCUS
@@ -801,7 +801,7 @@ focus_tree = {
     prerequisite = { focus = TUR_learn_from_constantinople }
     #mutually_exclusive = { focus = TUR_FOCUS_ON_SPEED }
 
-    x = 11
+    x = 7
     y = 1
     relative_position_id = TUR_learn_from_constantinople
     cost = 10
@@ -981,7 +981,7 @@ focus_tree = {
       prerequisite = { focus = TUR_revenge_for_constantinople }
       #mutually_exclusive = { focus = TUR_improve_arillery }
 
-      x = -15
+      x = -11
       y = 1
       relative_position_id = TUR_revenge_for_constantinople
       cost = 10
@@ -1117,13 +1117,9 @@ focus_tree = {
 	      search_filters = { FOCUS_FILTER_INDUSTRY }
 
 	      completion_reward = {
-	        add_tech_bonus = {
-	          bonus = 1
-	          uses = 1
-	          category = cat_light_armor
-	        }
-	        }
+					add_ideas = TUR_tank_liscences
 	      }
+	    }
 
     focus = {
       id = TUR_MASTER_GUERRE_ECLAIR
@@ -1167,9 +1163,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_INDUSTRY }
 
     completion_reward = {
-          add_ideas = {
-            Diverse_Command
-          }
+
     }
   }
 
@@ -1179,7 +1173,7 @@ focus_tree = {
     text = TUR_FOCUS_ON_BATTLEPLAN
     prerequisite = { focus = TUR_learn_from_constantinople }
     #mutually_exclusive = { focus = TUR_FOCUS_ON_SIZE }
-    x = 15
+    x = 11
     y = 1
     relative_position_id = TUR_learn_from_constantinople
     cost = 10
@@ -1264,7 +1258,7 @@ focus_tree = {
     completion_reward = {
 			swap_ideas = {
 				add_idea = TUR_acemi_olgan_idea_2
-				remove_idea = TUR_acemi_olgan_idea_2
+				remove_idea = TUR_acemi_olgan_idea
 			}
      }
   }
@@ -1326,7 +1320,7 @@ focus_tree = {
 		 text = TUR_FOCUS_ON_SIZE
 		 prerequisite = { focus = TUR_revenge_for_constantinople }
 		 #mutually_exclusive = { focus = TUR_FOCUS_ON_BATTLEPLAN }
-		 x = -11
+		 x = -7
 		 y = 1
 		 relative_position_id = TUR_revenge_for_constantinople
 		 cost = 10
@@ -1568,10 +1562,10 @@ focus_tree = {
     id = TUR_modernize_the_ottoman_fleet
     icon = GFX_goal_generic_navy_doctrines_tactics
     text = TUR_modernize_the_ottoman_fleet
-    prerequisite = { focus = TUR_revenge_for_constantinople focus = TUR_learn_from_constantinople }
+    #prerequisite = { focus = TUR_revenge_for_constantinople focus = TUR_learn_from_constantinople }
 
-    x = -7
-    y = 1
+    x = 22
+    y = 0
     relative_position_id = TUR_revenge_for_constantinople
     cost = 10
     ai_will_do = {
@@ -1791,12 +1785,11 @@ focus_tree = {
     id = TUR_AIRLAND_BATTLE
     icon = GFX_goal_generic_air_fighter2
     text = TUR_AIRLAND_BATTLE
-    prerequisite = { focus = TUR_learn_from_constantinople focus = TUR_revenge_for_constantinople }
-    mutually_exclusive = { focus = TUR_BURN_TO_GROUND }
+    #prerequisite = { focus = TUR_learn_from_constantinople focus = TUR_revenge_for_constantinople }
     mutually_exclusive = { focus = TUR_invest_in_bombers }
-    x = 5
-    y = 1
-    relative_position_id = TUR_learn_from_constantinople
+    x = 0
+    y = 4
+    relative_position_id = TUR_modernize_the_ottoman_fleet
     cost = 10
     ai_will_do = {
       factor = 1
@@ -1844,12 +1837,11 @@ focus_tree = {
     id = TUR_invest_in_bombers
     icon = GFX_goal_generic_air_bomber
     text = TUR_invest_in_bombers
-    prerequisite = { focus = TUR_learn_from_constantinople focus = TUR_revenge_for_constantinople }
-    mutually_exclusive = { focus = TUR_BURN_TO_GROUND }
+  #  prerequisite = { focus = TUR_learn_from_constantinople focus = TUR_revenge_for_constantinople }
     mutually_exclusive = { focus = TUR_AIRLAND_BATTLE }
-    x = 8
-    y = 1
-    relative_position_id = TUR_learn_from_constantinople
+    x = 3
+    y = 4
+    relative_position_id = TUR_modernize_the_ottoman_fleet
     cost = 10
     ai_will_do = {
       factor = 1
@@ -1983,7 +1975,7 @@ focus_tree = {
     text = TUR_national_defense_department
     prerequisite = { focus = TUR_revenge_for_constantinople focus = TUR_learn_from_constantinople }
     x = 1
-    y = 4
+    y = 1
     relative_position_id = TUR_revenge_for_constantinople
     cost = 10
     ai_will_do = {
@@ -2003,8 +1995,8 @@ focus_tree = {
     icon = GFX_focus_rocketry
     text = TUR_military_industry
     prerequisite = { focus = TUR_national_defense_department }
-    x = 7
-    y = 2
+    x = 5
+    y = 3
     relative_position_id = TUR_national_defense_department
     cost = 10
     ai_will_do = {
@@ -2028,8 +2020,8 @@ focus_tree = {
     icon = GFX_focus_rocketry
     text = TUR_air_industry
     prerequisite = { focus = TUR_military_industry }
-    x = -2
-    y = 1
+    x = -4
+    y = 2
     relative_position_id = TUR_military_industry
     cost = 10
     ai_will_do = {
@@ -2113,8 +2105,8 @@ focus_tree = {
     icon = GFX_focus_rocketry
     text = TUR_navy_industry
     prerequisite = { focus = TUR_military_industry }
-    x = 1
-    y = 1
+    x = -1
+    y = 2
     relative_position_id = TUR_military_industry
     cost = 10
     ai_will_do = {
@@ -2156,8 +2148,8 @@ focus_tree = {
     icon = GFX_focus_rocketry
     text = TUR_ankara_arsenals
     prerequisite = { focus = TUR_military_industry }
-    x = 3
-    y = 1
+    x = 1
+    y = 2
     relative_position_id = TUR_military_industry
     cost = 10
     ai_will_do = {
@@ -2261,7 +2253,7 @@ focus_tree = {
     icon = GFX_focus_rocketry
     text = TUR_plans_against_our_enemies
     prerequisite = { focus = TUR_national_defense_department }
-    x = -5
+    x = -4
     y = 1
     relative_position_id = TUR_national_defense_department
     cost = 10
