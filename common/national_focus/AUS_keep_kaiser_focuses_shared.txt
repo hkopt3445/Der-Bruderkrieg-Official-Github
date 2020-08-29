@@ -2,11 +2,11 @@ shared_focus = {
   id = AUS_recover_from_black_monday
   icon = GFX_goal_generic_construct_infrastructure
   text = AUS_recover_from_black_monday
-  x = 9
-  y = 1
+  x = 20
+  y = 0
   cost = 7
 
-  prerequisite = {focus = AUS_ABSOLUTISM focus = AUS_concessions_to_people}
+  #prerequisite = {focus = AUS_ABSOLUTISM focus = AUS_concessions_to_people}
 
   relative_position_id = AUS_ABSOLUTISM
 
@@ -26,7 +26,7 @@ shared_focus = {
     unlock_decision_category_tooltip = AUS_stop_riots
     unlock_decision_category_tooltip = AUS_recovery
   }
-} 
+}
 
 shared_focus = {
   id = AUS_BUILD_INDUSTRY
@@ -1610,10 +1610,10 @@ shared_focus = {
   id = AUS_fortify_austria
   icon = GFX_goal_generic_defence
   text = AUS_fortify_austria
-  prerequisite = { focus = AUS_PREP_WAR }
-  x = -10
+  prerequisite = { focus = AUS_bulwark_against_expansionism }
+  x = 9
   y = 1
-  relative_position_id = AUS_PREP_WAR
+  relative_position_id = AUS_bulwark_against_expansionism
   cost = 5
 
   ai_will_do = {
@@ -1788,7 +1788,7 @@ shared_focus = {
   id = AUS_assume_defensive_positions
   icon = GFX_goal_generic_construct_military
   text = AUS_assume_defensive_positions
-  prerequisite = { focus = AUS_vienna}
+  prerequisite = { focus = AUS_vienna} 
   x = 0
   y = 1
   relative_position_id = AUS_vienna
@@ -1828,10 +1828,10 @@ shared_focus = {
   id = AUS_mil_industry_1
   icon = GFX_goal_generic_construct_mil_factory
   text = AUS_mil_industry_1
-  prerequisite = { focus = AUS_PREP_WAR}
-  x = -5
+  prerequisite = { focus = AUS_expand_recruitment_imperial_army focus =  AUS_CENTRALISM}
+  x = -1
   y = 1
-  relative_position_id = AUS_PREP_WAR
+  relative_position_id = AUS_expand_recruitment_imperial_army
   cost = 5
 
   available = {
@@ -1944,10 +1944,10 @@ shared_focus = {
   id = AUS_mil_infastructure_1
   icon = GFX_goal_generic_construct_military
   text = AUS_mil_infastructure_1
-  prerequisite = { focus = AUS_PREP_WAR}
-  x = -3
+  prerequisite = { focus = AUS_expand_recruitment_imperial_army focus =  AUS_CENTRALISM}
+  x = 1
   y = 1
-  relative_position_id = AUS_PREP_WAR
+  relative_position_id = AUS_expand_recruitment_imperial_army
   cost = 5
 
   available = {
@@ -2025,7 +2025,7 @@ shared_focus = {
   text = AUS_ABSOLUTISM
   #prerequisite = { focus = AUS_KAISER_SPEECH }
   mutually_exclusive = {focus = AUS_concessions_to_people}
-  x = -7
+  x = -3
   y = -4
   relative_position_id = AUS_KAISER_SPEECH
   cost = 5
@@ -2046,7 +2046,7 @@ shared_focus = {
   icon = GFX_focus_generic_monarchy_2
   text = AUS_AUTOCRACY
   prerequisite = { focus = AUS_ABSOLUTISM }
-  x = -1
+  x = -2
   y = 1
   relative_position_id = AUS_ABSOLUTISM
   cost = 5
@@ -2221,7 +2221,7 @@ shared_focus = {
   icon = GFX_Attack_Romania
   text = AUS_ANNEX_BUCOVINA
   prerequisite = { focus = AUS_CENTRALISM }
-  x = 3
+  x = 1
   y = 2
   relative_position_id = AUS_CENTRALISM
   cost = 5
@@ -2242,70 +2242,6 @@ shared_focus = {
 
 
 
-
-shared_focus = {
-  id = AUS_non_aggression_with_russia
-  icon = GFX_focus_hun_elect_a_king
-  text = AUS_non_aggression_with_russia
-  prerequisite = { focus = AUS_ANNEX_BUCOVINA focus = AUS_bulwark_against_expansionism}
-
-  x = 4
-  y = 1
-  relative_position_id = AUS_ANNEX_BUCOVINA
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    SOV = {country_event = austria.104}
-  }
-}
-
-shared_focus = {
-  id = AUS_envoy_to_france
-  icon = GFX_focus_hun_elect_a_king
-  text = AUS_envoy_to_france
-  prerequisite = { focus = AUS_non_aggression_with_russia }
-  x = 0
-  y = 1
-  relative_position_id = AUS_non_aggression_with_russia
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    FRA = {country_event = austria.104}
-  }
-}
-
-shared_focus = {
-  id = AUS_arms_deal_with_america
-  icon = GFX_focus_hun_elect_a_king
-  text = AUS_arms_deal_with_america
-  prerequisite = { focus = AUS_envoy_to_france }
-  x = 0
-  y = 1
-  relative_position_id = AUS_envoy_to_france
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    USA = {country_event = austria.104}
-  }
-}
 
 shared_focus = {
   id = AUS_final_showdown
@@ -2335,13 +2271,16 @@ shared_focus = {
   id = AUS_the_majors_europe
   icon = GFX_focus_hun_elect_a_king
   text = AUS_the_majors_europe
-  prerequisite = { focus =  AUS_final_showdown }
-  x = 0
-  y = 4
+  prerequisite = { focus =  AUS_final_showdown focus = AUS_bulwark_against_expansionism }
+  x = 2
+  y = 2
   relative_position_id = AUS_final_showdown
   cost = 5
   ai_will_do = {
     factor = 20
+  }
+  bypass = {
+    tag = AUS
   }
 
   available_if_capitulated = yes
@@ -2369,7 +2308,18 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+    SOV = {
+      add_opinion_modifier = {
+        modifier = medium_increase
+        target = AUS
+      }
+    }
+    AUS = {
+      add_opinion_modifier = {
+        modifier = medium_increase
+        target = SOV
+      }
+    }
   }
 }
 
@@ -2390,7 +2340,13 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    add_ideas = AUS_purcahse_small_arms_idea
 
+    add_tech_bonus = {
+      bonus = 0.25
+      uses = 1
+      category = infantry_tech
+    }
   }
 }
 
@@ -2411,7 +2367,11 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+  add_tech_bonus = {
+    bonus = 1
+    uses = 2
+    category = artillery_folder
+  }
   }
 }
 
@@ -2423,7 +2383,7 @@ shared_focus = {
   x = -1
   y = 1
   relative_position_id = AUS_improve_relations_bear
-  cost = 5
+  cost = 2
   ai_will_do = {
     factor = 20
   }
@@ -2432,7 +2392,9 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+    951 = {
+      remove_core_of = AUS
+    }
   }
 }
 
@@ -2458,9 +2420,9 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = AUS_russis_general_corp
+  id = AUS_russia_general_corp
   icon = GFX_focus_hun_elect_a_king
-  text = AUS_russis_general_corp
+  text = AUS_russia_general_corp
   prerequisite = { focus =  AUS_tank_treaty_with_russia }
   x = 0
   y = 1
@@ -2474,7 +2436,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+    add_ideas = AUS_russian_general_corp_idea
   }
 }
 
@@ -2496,7 +2458,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+    SOV = {country_event = austria.17}
   }
 }
 
@@ -2517,7 +2479,18 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+  FRA = {
+    add_opinion_modifier = {
+      modifier = medium_increase
+      target = AUS
+    }
+  }
+  AUS = {
+    add_opinion_modifier = {
+      modifier = medium_increase
+      target = FRA
+    }
+  }
   }
 }
 
@@ -2559,7 +2532,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+    FRA = {country_event = austria.17}
   }
 }
 
@@ -2581,7 +2554,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+    ENG = {country_event = austria.17}
   }
 }
 
@@ -2602,7 +2575,11 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+    add_tech_bonus = {
+      category = radar_tech
+      bonus = 1
+      uses = 2
+    }
   }
 }
 
@@ -2623,7 +2600,11 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+  add_tech_bonus = {
+    category = decryption_tech
+    bonus = 1
+    uses = 3
+  }
   }
 }
 
@@ -2645,7 +2626,11 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+  add_tech_bonus = {
+    category = bb_tech
+    bonus = 1
+    uses = 2
+  }
   }
 }
 
@@ -2669,7 +2654,11 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+  add_tech_bonus = {
+    category = ca_tech
+    bonus = 1
+    uses = 2
+  }
   }
 }
 
@@ -2691,7 +2680,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+    ENG = {country_event = austria.17}
   }
 }
 
@@ -2714,7 +2703,18 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+  TUR = {
+    add_opinion_modifier = {
+      modifier = medium_increase
+      target = AUS
+    }
+  }
+  AUS = {
+    add_opinion_modifier = {
+      modifier = medium_increase
+      target = TUR
+    }
+  }
   }
 }
 
@@ -2736,7 +2736,11 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-
+  add_tech_bonus = {
+    category = dd_tech
+    bonus = 1
+    uses = 2
+  }
   }
 }
 
@@ -2766,6 +2770,7 @@ shared_focus = {
   icon = GFX_focus_hun_elect_a_king
   text = AUS_support_ottoman_claim_edirne
   prerequisite = { focus = AUS_improve_relations_ottomans }
+  mutually_exclusive = {focus = AUS_invite_bulgaria}
   x = 4
   y = 1
   relative_position_id = AUS_improve_relations_ottomans
@@ -2808,6 +2813,8 @@ shared_focus = {
     else = {
       create_faction = AUS_central_powers
     }
+
+    add_war_support = 0.1
   }
 }
 
@@ -2849,7 +2856,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    GRE = {country_event = austria.17}
+
   }
 }
 
@@ -2881,7 +2888,7 @@ shared_focus = {
   text = AUS_colonial_ambitions
   prerequisite = { focus = AUS_CENTRALISM }
   prerequisite = { focus = AUS_REFORMED_NAVY }
-  x = -1
+  x = -7
   y = 2
   relative_position_id = AUS_CENTRALISM
   cost = 5
@@ -3550,7 +3557,7 @@ shared_focus = {
   x = -1
   y = 1
   relative_position_id = AUS_infrastructure_in_qingdao
-  cost = 5
+  cost = 2
   ai_will_do = {
     factor = 20
   }
@@ -3627,7 +3634,7 @@ shared_focus = {
   text = AUS_concessions_to_people
   #prerequisite = { focus = AUS_KAISER_SPEECH }
   mutually_exclusive = { focus = AUS_ABSOLUTISM }
-  x = 7
+  x = 3
   y = -4
   relative_position_id = AUS_KAISER_SPEECH
   cost = 5
@@ -3959,8 +3966,8 @@ shared_focus = {
   icon = GFX_focus_generic_self_management
   text = AUS_pacify_the_balkan_states
   prerequisite = { focus = AUS_bulwark_against_expansionism }
-  x = 3
-  y = 1
+  x = 5
+  y = 2
   relative_position_id = AUS_bulwark_against_expansionism
   cost = 2
   ai_will_do = {
@@ -4072,11 +4079,12 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = AUS_invite_bulgaria_albania
+  id = AUS_invite_bulgaria
   icon = GFX_focus_generic_self_management
-  text = AUS_invite_bulgaria_albania
+  text = AUS_invite_bulgaria
   prerequisite = { focus = AUS_deal_with_romania }
   prerequisite = { focus = AUS_croatia_for_alliance }
+  mutually_exclusive = {focus = AUS_support_ottoman_claim_edirne}
   x = 1
   y = 1
   relative_position_id = AUS_deal_with_romania

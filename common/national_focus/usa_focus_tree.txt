@@ -1,0 +1,2392 @@
+
+focus_tree = {
+	id = usa_focus_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = USA
+		}
+	}
+
+
+
+
+
+
+
+
+
+	#Focus for Terror Raining Down
+	focus = {
+		id = USA_terror_raining_down
+		icon = GFX_goal_unknown
+		x = 72
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_state_of_the_air_force }
+		mutually_exclusive = { focus = USA_the_battle_for_air }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The Battle for Air
+	focus = {
+		id = USA_the_battle_for_air
+		icon = GFX_goal_unknown
+		x = 68
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_state_of_the_air_force }
+		mutually_exclusive = { focus = USA_terror_raining_down }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Expand the Boston Shipyards
+	focus = {
+		id = USA_expand_the_boston_shipyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 34
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_knoxs_presidency }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			357 =  {
+  add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+}
+}
+		}
+	}
+	#Focus for Military Training Exercises with Mexico
+	focus = {
+		id = USA_military_training_exercises_with_mexico
+		icon = GFX_goal_unknown
+		x = 22
+		y = 14
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_foriegn_investments_in_mexico }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			MEX = {
+  army_experience = 30
+}
+
+army_experience = 25
+		}
+	}
+	#Focus for The American Sphere of Influence
+	focus = {
+		id = USA_the_american_sphere_of_influence
+		icon = GFX_goal_unknown
+		x = 26
+		y = 14
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_the_banana_republic
+			focus = USA_support_the_regime_of_cardenas_for_now
+			focus = USA_cedillos_coup
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_faction = USA_american_sphere
+		}
+	}
+	#Focus for Coups Against the Corrupt Regimes
+	focus = {
+		id = USA_coups_against_the_corrupt_regimes
+		icon = GFX_goal_unknown
+		x = 26
+		y = 15
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_american_sphere_of_influence }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Secure Mexico
+	focus = {
+		id = USA_secure_mexico
+		icon = GFX_goal_unknown
+		x = 30
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_intervention_in_the_americas }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal = {
+  target = MEX
+  type = annex_everything
+}
+		}
+	}
+	#Focus for Domination over South America
+	focus = {
+		id = USA_domination_over_south_america
+		icon = GFX_goal_unknown
+		x = 30
+		y = 15
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_break_the_colombian_supremacy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal = {
+  target = BRA
+  type = annex_everything
+}
+
+create_wargoal = {
+  target = ARG
+  type = annex_everything
+}
+		}
+	}
+	#Focus for The Banana Republic
+	focus = {
+		id = USA_the_banana_republic
+		icon = GFX_goal_unknown
+		x = 28
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_enforce_the_monroe_doctrine }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Knox's Presidency
+	focus = {
+		id = USA_knoxs_presidency
+		icon = GFX_goal_unknown
+		x = 34
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_side_with_interventionists_under_knox }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Department of National Defense
+	focus = {
+		id = USA_department_of_national_defense
+		icon = GFX_goal_generic_defence
+		x = 31
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_smiths_presidency
+			focus = USA_knoxs_presidency
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#Focus for Side with Interventionists under Knox
+	focus = {
+		id = USA_side_with_interventionists_under_knox
+		icon = GFX_goal_unknown
+		x = 34
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_republican_victory }
+		mutually_exclusive = { focus = USA_a_new_regime_under_borah }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for State of the Army
+	focus = {
+		id = USA_state_of_the_army
+		icon = GFX_goal_unknown
+		x = 63
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_american_military }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Support Private Land Ownership
+	focus = {
+		id = USA_support_private_land_ownership
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		x = 36
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_expand_the_department_of_the_interior }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for A Middle Ground?
+	focus = {
+		id = USA_a_middle_ground
+		icon = GFX_goal_unknown
+		x = 53
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_state_of_the_navy }
+		mutually_exclusive = {
+			focus = USA_flexibility_is_key
+		}
+		mutually_exclusive = {
+			focus = USA_bigger_is_better
+		}
+		mutually_exclusive = {
+			focus = USA_
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Flexibility is Key
+	focus = {
+		id = USA_flexibility_is_key
+		icon = GFX_goal_unknown
+		x = 56
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_state_of_the_navy }
+		mutually_exclusive = { focus = USA_bigger_is_better }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Extensive Civilian INdustry
+	focus = {
+		id = USA_extensive_civilian_industry
+		icon = GFX_goal_unknown
+		x = 44
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_develop_the_peacetime_economy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Develop the Peacetime Economy
+	focus = {
+		id = USA_develop_the_peacetime_economy
+		icon = GFX_goal_unknown
+		x = 42
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_industrial_development }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Industrial Development
+	focus = {
+		id = USA_industrial_development
+		icon = GFX_goal_unknown
+		x = 40
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_borahs_presidency }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+}
+		}
+	}
+	#Focus for Borah's Presidency
+	focus = {
+		id = USA_borahs_presidency
+		icon = GFX_goal_unknown
+		x = 38
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_a_new_regime_under_borah }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for 1936 Presidential Election
+	focus = {
+		id = USA_1936_presidential_election
+		icon = GFX_USA_1936_presidential_election-38293
+		x = 21
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Huey's Big Win
+	focus = {
+		id = USA_hueys_big_win
+		icon = GFX_USA_hueys_big_win-40283
+		x = 18
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_1936_presidential_election }
+		mutually_exclusive = {
+			focus = USA_al_smith_dethrones_the_king
+		}
+		mutually_exclusive = {
+			focus = USA_republican_victory
+		}
+		mutually_exclusive = {
+			focus = USA_
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for State of the Air Force
+	focus = {
+		id = USA_state_of_the_air_force
+		icon = GFX_goal_unknown
+		x = 70
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_american_military }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The Marshall Plan
+	focus = {
+		id = USA_the_marshall_plan
+		icon = GFX_goal_unknown
+		x = 60
+		y = 3
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_state_of_the_army }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The MacArthur Plan
+	focus = {
+		id = USA_the_macarthur_plan
+		icon = GFX_goal_unknown
+		x = 66
+		y = 3
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_state_of_the_army }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The Eisenhower Plan
+	focus = {
+		id = USA_the_eisenhower_plan
+		icon = GFX_goal_unknown
+		x = 63
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_state_of_the_army }
+		mutually_exclusive = {
+			focus = USA_the_macarthur_plan
+		}
+		mutually_exclusive = {
+			focus = USA_the_marshall_plan
+		}
+		mutually_exclusive = {
+			focus = USA_
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The American Military
+	focus = {
+		id = USA_the_american_military
+		icon = GFX_focus_usa_recruit_the_free_corps
+		x = 63
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for State of the Navy
+	focus = {
+		id = USA_state_of_the_navy
+		icon = GFX_goal_unknown
+		x = 53
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_american_military }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Bigger is Better
+	focus = {
+		id = USA_bigger_is_better
+		icon = GFX_goal_unknown
+		x = 50
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_state_of_the_navy }
+		mutually_exclusive = { focus = USA_flexibility_is_key }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Republican Victory
+	focus = {
+		id = USA_republican_victory
+		icon = GFX_goal_unknown
+		x = 36
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_1936_presidential_election }
+		mutually_exclusive = { focus = USA_hueys_big_win }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Secure the Democratic Victory
+	focus = {
+		id = USA_secure_the_democratic_victory
+		icon = GFX_goal_unknown
+		x = 28
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_al_smith_dethrones_the_king }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for A Close Call
+	focus = {
+		id = USA_a_close_call
+		icon = GFX_goal_unknown
+		x = 21
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_hueys_big_win }
+		mutually_exclusive = { focus = USA_inauguration_day }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Al Smith Dethrones the King
+	focus = {
+		id = USA_al_smith_dethrones_the_king
+		icon = GFX_goal_unknown
+		x = 28
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_1936_presidential_election }
+		mutually_exclusive = { focus = USA_hueys_big_win }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Inauguration Day
+	focus = {
+		id = USA_inauguration_day
+		icon = GFX_USA_inauguration_day-40307
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_hueys_big_win }
+		mutually_exclusive = { focus = USA_a_close_call }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for A New Regime under Borah
+	focus = {
+		id = USA_a_new_regime_under_borah
+		icon = GFX_goal_unknown
+		x = 38
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_republican_victory }
+		mutually_exclusive = { focus = USA_side_with_interventionists_under_knox }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Long's New Deal
+	focus = {
+		id = USA_longs_new_deal
+		icon = GFX_USA_longs_new_deal-40308
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_hueys_2nd_term }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The Wallace Plan
+	focus = {
+		id = USA_the_wallace_plan
+		icon = GFX_USA_the_wallace_plan-40167
+		x = 4
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_longs_new_deal }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The Long Plan
+	focus = {
+		id = USA_the_long_plan
+		icon = GFX_USA_the_long_plan-40282
+		x = 8
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_longs_new_deal }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Economic Reform Plan
+	focus = {
+		id = USA_economic_reform_plan
+		icon = GFX_USA_economic_reform_plan-40296
+		x = 12
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_longs_new_deal }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Huey's Dream For America
+	focus = {
+		id = USA_hueys_dream_for_america
+		icon = GFX_USA_hueys_dream_for_america-40281
+		x = 8
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_long_plan }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Free Polio Vaccines
+	focus = {
+		id = USA_free_polio_vaccines
+		icon = GFX_USA_free_polio_vaccines-40294
+		x = 8
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_restore_public_support_in_government }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Agricultural Relief Program
+	focus = {
+		id = USA_agricultural_relief_program
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 4
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_wallace_plan }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Share Our Wealth
+	focus = {
+		id = USA_share_our_wealth
+		icon = GFX_USA_share_our_wealth-40275
+		x = 12
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_economic_reform_plan }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Battle The Corrupt and Greedy
+	focus = {
+		id = USA_battle_the_corrupt_and_greedy
+		icon = GFX_focus_rom_parties_end
+		x = 10
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_hueys_dream_for_america }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Take Down Standard Oil
+	focus = {
+		id = USA_take_down_standard_oil
+		icon = GFX_USA_take_down_standard_oil-39854
+		x = 10
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_battle_the_corrupt_and_greedy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Expand City Universities
+	focus = {
+		id = USA_expand_city_universities
+		icon = GFX_goal_continuous_research
+		x = 28
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_create_the_department_of_housing_and_urban_development }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#Focus for Support the Interests of the High Command
+	focus = {
+		id = USA_support_the_interests_of_the_high_command
+		icon = GFX_focus_generic_military_mission
+		x = 34
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_expand_the_boston_shipyards }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 20
+add_war_support = 0.1
+
+####increase war support, army org factor
+		}
+	}
+	#Focus for Establish the Department of Veteran Affairs
+	focus = {
+		id = USA_establish_the_department_of_veteran_affairs
+		icon = GFX_goal_unknown
+		x = 34
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_support_the_interests_of_the_high_command }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity = {
+   ideology = democratic
+   popularity = 0.1
+}
+
+add_stability = 0.1
+		}
+	}
+	#Focus for Encourage Charity
+	focus = {
+		id = USA_encourage_charity
+		icon = GFX_USA_encourage_charity-40260
+		x = 10
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_take_down_standard_oil }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Republican Bipartisanship
+	focus = {
+		id = USA_republican_bipartisanship
+		icon = GFX_USA_republican_bipartisanship-40258
+		x = 10
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_encourage_charity }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Work With The Unions
+	focus = {
+		id = USA_work_with_the_unions
+		icon = GFX_USA_work_with_the_unions-40262
+		x = 12
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_new_roads
+			focus = USA_jobs_for_the_middle_class
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Restore Public Support In Government
+	focus = {
+		id = USA_restore_public_support_in_government
+		icon = GFX_goal_tripartite_pact
+		x = 8
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_hueys_dream_for_america }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Protect Against Mexico
+	focus = {
+		id = USA_protect_against_mexico
+		icon = GFX_goal_unknown
+		x = 41
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_fortify_our_borders }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_owned_state = {
+		        limit = {
+		            any_neighbor_state = {
+		                is_controlled_by = MEX
+		            }
+		        }
+		        add_building_construction = {
+		            type = bunker
+		            level = 5
+		            instant_build = yes
+		            province = {
+		                all_provinces = yes
+		                limit_to_border = yes
+		            }
+		        }
+		    }
+		}
+	}
+	#Focus for Secure our Ports Against the Japanese
+	focus = {
+		id = USA_secure_our_ports_against_the_japanese
+		icon = GFX_goal_unknown
+		x = 40
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_protect_against_mexico }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Batteries in New York City
+	focus = {
+		id = USA_batteries_in_new_york_city
+		icon = GFX_goal_unknown
+		x = 44
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_declare_britain_a_threat }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Naval Arms Race
+	focus = {
+		id = USA_naval_arms_race
+		icon = GFX_goal_unknown
+		x = 42
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_declare_britain_a_threat }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for British Motorized Infantry
+	focus = {
+		id = USA_british_motorized_infantry
+		icon = GFX_goal_unknown
+		x = 46
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_technological_research_committee }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for British Electronics
+	focus = {
+		id = USA_british_electronics
+		icon = GFX_goal_unknown
+		x = 48
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_technological_research_committee }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Defend Our Hemisphere
+	focus = {
+		id = USA_defend_our_hemisphere
+		icon = GFX_goal_unknown
+		x = 49
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_enforce_the_kellogbriand_policy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Enforce the Kellog-Briand Policy
+	focus = {
+		id = USA_enforce_the_kellogbriand_policy
+		icon = GFX_goal_unknown
+		x = 49
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_a_new_foriegn_policy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Technological Research Committee
+	focus = {
+		id = USA_technological_research_committee
+		icon = GFX_goal_unknown
+		x = 46
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_uphold_the_pact_of_atlantica }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Fortify Our Borders
+	focus = {
+		id = USA_fortify_our_borders
+		icon = GFX_goal_unknown
+		x = 42
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_continue_american_isolationism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas = {
+   add_idea = USA_isolationism_2
+   remove_idea = USA_isolationism
+}
+		}
+	}
+	#Focus for Declare Britain A Threat
+	focus = {
+		id = USA_declare_britain_a_threat
+		icon = GFX_goal_unknown
+		x = 44
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_fortify_the_canadian_border }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Continue American Isolationism
+	focus = {
+		id = USA_continue_american_isolationism
+		icon = GFX_goal_unknown
+		x = 44
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_extensive_civilian_industry }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = USA_isolationism
+		}
+	}
+	#Focus for Help Southern Sharecroppers
+	focus = {
+		id = USA_help_southern_sharecroppers
+		icon = GFX_USA_help_southern_sharecroppers-40278
+		x = 2
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_farmer_tax_breaks }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Farmer Tax Breaks
+	focus = {
+		id = USA_farmer_tax_breaks
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 2
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_agricultural_relief_program }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Jobs For The Middle Class
+	focus = {
+		id = USA_jobs_for_the_middle_class
+		icon = GFX_USA_jobs_for_the_middle_class-40277
+		x = 14
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_lower_taxes_on_small_businesses }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Irrigation For the South-Western Desert
+	focus = {
+		id = USA_irrigation_for_the_southwestern_desert
+		icon = GFX_USA_irrigation_for_the_southwestern_desert-40290
+		x = 4
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_flood_the_dustbowl }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Government Work Programs
+	focus = {
+		id = USA_government_work_programs
+		icon = GFX_USA_government_work_programs-40267
+		x = 14
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_lower_taxes_on_small_businesses }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Build up New York City
+	focus = {
+		id = USA_build_up_new_york_city
+		icon = GFX_goal_unknown
+		x = 28
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_smiths_presidency }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			358 =  {
+  add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+}
+}
+		}
+	}
+	#Focus for Guarantee Saxony
+	focus = {
+		id = USA_guarantee_saxony
+		icon = GFX_goal_unknown
+		x = 37
+		y = 15
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_antiaustrian_diplomacy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Create the Department of Housing and Urban Development
+	focus = {
+		id = USA_create_the_department_of_housing_and_urban_development
+		icon = GFX_focus_spa_the_spanish_miracle
+		x = 28
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_build_up_new_york_city }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+   limit = {
+      has_state_category = large_city
+   }
+   add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+}
+}
+random_owned_controlled_state = {
+   limit = {
+      has_state_category = large_city
+   }
+   add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+}
+}
+		}
+	}
+	#Focus for Transform the Pact of Atlantica
+	focus = {
+		id = USA_transform_the_pact_of_atlantica
+		icon = GFX_goal_unknown
+		x = 33
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_situation_in_europe }
+		mutually_exclusive = {
+			focus = USA_abandon_britain
+		}
+		mutually_exclusive = {
+			focus = USA_
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			tag = USA
+		}
+	}
+	#Focus for Peace on the Isles
+	focus = {
+		id = USA_peace_on_the_isles
+		icon = GFX_goal_unknown
+		x = 34
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_transform_the_pact_of_atlantica }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			IRE = {country_event = generic.5}
+		}
+	}
+	#Focus for Befriend France
+	focus = {
+		id = USA_befriend_france
+		icon = GFX_goal_unknown
+		x = 35
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_an_offensive_alliance }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+   target = FRA
+   type = medium_increase
+}
+
+MEX = {
+add_opinion_modifier = {
+   target = FRA
+   type = medium_increase
+}
+}
+		}
+	}
+	#Focus for An Offensive Alliance
+	focus = {
+		id = USA_an_offensive_alliance
+		icon = GFX_goal_unknown
+		x = 36
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_abandon_britain }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support = 0.1
+add_threat = 5
+		}
+	}
+	#Focus for Our Scandanvian Friends
+	focus = {
+		id = USA_our_scandanvian_friends
+		icon = GFX_goal_unknown
+		x = 33
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_transform_the_pact_of_atlantica
+			focus = USA_an_offensive_alliance
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			SWE = {country_event = generic.5}
+NOR = {country_event = generic.5}
+DEN = {country_event = generic.5}
+		}
+	}
+	#Focus for Anti-Prussian Diplomacy
+	focus = {
+		id = USA_antiprussian_diplomacy
+		icon = GFX_goal_unknown
+		x = 34
+		y = 14
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_befriend_france }
+		mutually_exclusive = { focus = USA_antiaustrian_diplomacy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+   target = AUS
+   type = medium_increase
+}
+
+AUS= {
+add_opinion_modifier = {
+   target = USA
+   type = medium_increase
+}
+}
+
+
+add_opinion_modifier = {
+   target = GER
+   type = medium_decrease
+}
+
+MEX = {
+add_opinion_modifier = {
+   target = GER
+   type = medium_decrease
+}
+}
+		}
+	}
+	#Focus for Demand the Candian Corridor
+	focus = {
+		id = USA_demand_the_candian_corridor
+		icon = GFX_goal_unknown
+		x = 37
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_abandon_britain }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Hold An Approval Poll
+	focus = {
+		id = USA_hold_an_approval_poll
+		icon = GFX_focus_usa_voter_registration_act
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_hueys_2nd_term }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Huey Abolishes Congress
+	focus = {
+		id = USA_huey_abolishes_congress
+		icon = GFX_goal_unknown
+		x = 21
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_aftershock_of_the_assassination_attempt }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for A New Dawn For America
+	focus = {
+		id = USA_a_new_dawn_for_america
+		icon = GFX_USA_a_new_dawn_for_america-40306
+		x = 8
+		y = 16
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_god_bless_the_kingfish
+			focus = USA_large_and_prosperous_middle_class
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Large And Prosperous Middle Class
+	focus = {
+		id = USA_large_and_prosperous_middle_class
+		icon = GFX_USA_large_and_prosperous_middle_class-40305
+		x = 7
+		y = 15
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_thriving_and_supportive_hollywood
+			focus = USA_the_american_dream_reborn
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for God Bless The Kingfish
+	focus = {
+		id = USA_god_bless_the_kingfish
+		icon = GFX_USA_god_bless_the_kingfish-40304
+		x = 9
+		y = 15
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_the_american_dream_reborn
+			focus = USA_regulate_wall_street
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Thriving And Supportive Hollywood
+	focus = {
+		id = USA_thriving_and_supportive_hollywood
+		icon = GFX_USA_thriving_and_supportive_hollywood-40303
+		x = 6
+		y = 14
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_the_end_of_prohibition
+			focus = USA_united_as_americans
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Regulate Wall Street
+	focus = {
+		id = USA_regulate_wall_street
+		icon = GFX_USA_regulate_wall_street-40302
+		x = 10
+		y = 14
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_no_more_slums
+			focus = USA_an_educated_america
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The American Dream Reborn
+	focus = {
+		id = USA_the_american_dream_reborn
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		x = 8
+		y = 14
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_united_as_americans
+			focus = USA_an_educated_america
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for No More Slums
+	focus = {
+		id = USA_no_more_slums
+		icon = GFX_USA_no_more_slums-40300
+		x = 11
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_republican_bipartisanship
+			focus = USA_work_with_the_unions
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for An Educated America
+	focus = {
+		id = USA_an_educated_america
+		icon = GFX_USA_an_educated_america-40301
+		x = 9
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_fund_public_universities
+			focus = USA_republican_bipartisanship
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for United As Americans
+	focus = {
+		id = USA_united_as_americans
+		icon = GFX_USA_united_as_americans-40298
+		x = 7
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_antidiscrimination_organizations
+			focus = USA_fund_public_universities
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The End Of Prohibition
+	focus = {
+		id = USA_the_end_of_prohibition
+		icon = GFX_USA_the_end_of_prohibition-40297
+		x = 5
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_deify_the_common_man
+			focus = USA_antidiscrimination_organizations
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Expand the Department of the Interior
+	focus = {
+		id = USA_expand_the_department_of_the_interior
+		icon = GFX_focus_generic_self_management
+		x = 36
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_knoxs_presidency
+			focus = USA_borahs_presidency
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power = 75
+		}
+	}
+	#Focus for Anti-Collectivism
+	focus = {
+		id = USA_anticollectivism
+		icon = GFX_goal_unknown
+		x = 38
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_expand_the_department_of_the_interior }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability = 0.05
+add_popularity = {
+    ideology = communism
+    popularity = -0.1
+}
+		}
+	}
+	#Focus for Smith's Presidency
+	focus = {
+		id = USA_smiths_presidency
+		icon = GFX_goal_unknown
+		x = 28
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_secure_the_democratic_victory }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Infrastructure in Idaho
+	focus = {
+		id = USA_infrastructure_in_idaho
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 38
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_borahs_presidency }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			###add infrastructure in idaho
+		}
+	}
+	#Focus for Internationalism
+	focus = {
+		id = USA_internationalism
+		icon = GFX_goal_unknown
+		x = 31
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_the_arlington_military_facility
+		}
+		prerequisite = {
+			focus = USA_for_the_home_of_the_free
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = USA_internationalism
+
+
+####justify time - 25%, trade deal opinion -50%
+		}
+	}
+	#Focus for Repair the Broken Hegemony
+	focus = {
+		id = USA_repair_the_broken_hegemony
+		icon = GFX_focus_mex_redeem_aztlan
+		x = 29
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_internationalism }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The Situation in Europe
+	focus = {
+		id = USA_the_situation_in_europe
+		icon = GFX_focus_usa_focus_on_europe
+		x = 35
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_internationalism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power = 50
+add_stability = 0.05
+		}
+	}
+	#Focus for Foriegn Investments in Mexico
+	focus = {
+		id = USA_foriegn_investments_in_mexico
+		icon = GFX_goal_unknown
+		x = 22
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_looking_across_the_border }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Looking Across the Border
+	focus = {
+		id = USA_looking_across_the_border
+		icon = GFX_focus_mex_jefe_maximo
+		x = 24
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_enforce_the_monroe_doctrine }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+   target = MEX
+   type = medium_increase
+}
+
+MEX = {
+add_opinion_modifier = {
+   target = USA
+   type = medium_increase
+}
+}
+		}
+	}
+	#Focus for Enforce the Monroe Doctrine
+	focus = {
+		id = USA_enforce_the_monroe_doctrine
+		icon = GFX_goal_unknown
+		x = 27
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_repair_the_broken_hegemony }
+		mutually_exclusive = { focus = USA_intervention_in_the_americas }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Intervention in the Americas
+	focus = {
+		id = USA_intervention_in_the_americas
+		icon = GFX_focus_por_recover_latin_america
+		x = 30
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_repair_the_broken_hegemony }
+		mutually_exclusive = { focus = USA_enforce_the_monroe_doctrine }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_threat = 10
+		}
+	}
+	#Focus for Support the Regime of Cardenas? (for now)
+	focus = {
+		id = USA_support_the_regime_of_cardenas_for_now
+		icon = GFX_goal_unknown
+		x = 24
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_looking_across_the_border }
+		mutually_exclusive = { focus = USA_cedillos_coup }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Cedillo's Coup
+	focus = {
+		id = USA_cedillos_coup
+		icon = GFX_goal_unknown
+		x = 26
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_enforce_the_monroe_doctrine }
+		mutually_exclusive = { focus = USA_support_the_regime_of_cardenas_for_now }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Break the Colombian Supremacy
+	focus = {
+		id = USA_break_the_colombian_supremacy
+		icon = GFX_goal_unknown
+		x = 30
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_secure_mexico }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal = {
+  target = CEN
+  type = annex_everything
+}
+
+create_wargoal = {
+  target = COL
+  type = annex_everything
+}
+		}
+	}
+	#Focus for Controller of the Hemisphere
+	focus = {
+		id = USA_controller_of_the_hemisphere
+		icon = GFX_goal_unknown
+		x = 28
+		y = 16
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_coups_against_the_corrupt_regimes
+			focus = USA_domination_over_south_america
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for A New Foriegn Policy
+	focus = {
+		id = USA_a_new_foriegn_policy
+		icon = GFX_goal_unknown
+		x = 48
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_continue_american_isolationism }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for The Aftershock of the Assassination Attempt
+	focus = {
+		id = USA_the_aftershock_of_the_assassination_attempt
+		icon = GFX_goal_unknown
+		x = 21
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_a_close_call }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Huey's 2nd Term
+	focus = {
+		id = USA_hueys_2nd_term
+		icon = GFX_USA_hueys_2nd_term-40309
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_inauguration_day }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Flood The Dustbowl
+	focus = {
+		id = USA_flood_the_dustbowl
+		icon = GFX_USA_flood_the_dustbowl-40287
+		x = 4
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_agricultural_relief_program }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Ease Racial Laws
+	focus = {
+		id = USA_ease_racial_laws
+		icon = GFX_USA_ease_racial_laws-40284
+		x = 6
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_hueys_dream_for_america }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Grub For The Poor
+	focus = {
+		id = USA_grub_for_the_poor
+		icon = GFX_USA_grub_for_the_poor-40280
+		x = 12
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_share_our_wealth }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Anti Klan Speeches
+	focus = {
+		id = USA_anti_klan_speeches
+		icon = GFX_USA_anti_klan_speeches-40286
+		x = 6
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_ease_racial_laws }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for A Pact with Austria
+	focus = {
+		id = USA_a_pact_with_austria
+		icon = GFX_goal_unknown
+		x = 34
+		y = 16
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_antiprussian_diplomacy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Create Social Security
+	focus = {
+		id = USA_create_social_security
+		icon = GFX_USA_create_social_security-40292
+		x = 12
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_grub_for_the_poor }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Lower Taxes On Small Businesses
+	focus = {
+		id = USA_lower_taxes_on_small_businesses
+		icon = GFX_USA_lower_taxes_on_small_businesses-40276
+		x = 14
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_share_our_wealth }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Literacy Programs
+	focus = {
+		id = USA_literacy_programs
+		icon = GFX_USA_literacy_programs-40160
+		x = 8
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_free_polio_vaccines }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for New Roads
+	focus = {
+		id = USA_new_roads
+		icon = GFX_USA_new_roads-40279
+		x = 12
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_create_social_security }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Send Troops to Sundown Towns
+	focus = {
+		id = USA_send_troops_to_sundown_towns
+		icon = GFX_USA_send_troops_to_sundown_towns-40289
+		x = 6
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_anti_klan_speeches }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Anti-Discrimination Organizations
+	focus = {
+		id = USA_antidiscrimination_organizations
+		icon = GFX_USA_antidiscrimination_organizations-40299
+		x = 6
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_send_troops_to_sundown_towns }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Fortify the Canadian Border
+	focus = {
+		id = USA_fortify_the_canadian_border
+		icon = GFX_goal_unknown
+		x = 44
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_fortify_our_borders }
+		mutually_exclusive = { focus = USA_uphold_the_pact_of_atlantica }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_owned_state = {
+		        limit = {
+		            any_neighbor_state = {
+		                is_controlled_by = CAN
+		            }
+		        }
+		        add_building_construction = {
+		            type = bunker
+		            level = 5
+		            instant_build = yes
+		            province = {
+		                all_provinces = yes
+		                limit_to_border = yes
+		            }
+		        }
+		    }
+		}
+	}
+	#Focus for Uphold the Pact of Atlantica
+	focus = {
+		id = USA_uphold_the_pact_of_atlantica
+		icon = GFX_goal_unknown
+		x = 46
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_a_new_foriegn_policy }
+		mutually_exclusive = { focus = USA_fortify_the_canadian_border }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Pass The Neutrality Act
+	focus = {
+		id = USA_pass_the_neutrality_act
+		icon = GFX_goal_unknown
+		x = 44
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_continue_american_isolationism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			###gets event neutrality act,
+
+add_political_power = 75
+		}
+	}
+	#Focus for Hold Washington at All Costs
+	focus = {
+		id = USA_hold_washington_at_all_costs
+		icon = GFX_goal_unknown
+		x = 42
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_fortify_our_borders }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Safeguard our Pacific Islands
+	focus = {
+		id = USA_safeguard_our_pacific_islands
+		icon = GFX_goal_unknown
+		x = 40
+		y = 13
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_secure_our_ports_against_the_japanese }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			639 = {
+   add_building_construction = {
+        type = bunker
+        level = 5
+        instant_build = yes
+   }
+}
+
+638= {
+   add_building_construction = {
+        type = bunker
+        level = 5
+        instant_build = yes
+   }
+}
+		}
+	}
+	#Focus for Reinforce The Breadbasket of America
+	focus = {
+		id = USA_reinforce_the_breadbasket_of_america
+		icon = GFX_USA_reinforce_the_breadbasket_of_america-40244
+		x = 2
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_help_southern_sharecroppers }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Fund Public Universities
+	focus = {
+		id = USA_fund_public_universities
+		icon = GFX_USA_fund_public_universities-40288
+		x = 8
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_literacy_programs }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Agriculture Minimum Wage
+	focus = {
+		id = USA_agriculture_minimum_wage
+		icon = GFX_focus_mex_privatisation
+		x = 4
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_irrigation_for_the_southwestern_desert }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Deify The Common Man
+	focus = {
+		id = USA_deify_the_common_man
+		icon = GFX_USA_deify_the_common_man-40295
+		x = 4
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_agriculture_minimum_wage
+			focus = USA_reinforce_the_breadbasket_of_america
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Protect Hannover
+	focus = {
+		id = USA_protect_hannover
+		icon = GFX_goal_unknown
+		x = 33
+		y = 15
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_our_scandanvian_friends
+			focus = USA_antiprussian_diplomacy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Anti-Austrian Diplomacy
+	focus = {
+		id = USA_antiaustrian_diplomacy
+		icon = GFX_goal_unknown
+		x = 36
+		y = 14
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_befriend_france }
+		mutually_exclusive = { focus = USA_antiprussian_diplomacy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+   target = GER
+   type = medium_increase
+}
+
+MEX = {
+add_opinion_modifier = {
+   target = GER
+   type = medium_increase
+}
+}
+
+
+add_opinion_modifier = {
+   target = AUS
+   type = medium_decrease
+}
+
+MEX = {
+add_opinion_modifier = {
+   target = AUS
+   type = medium_decrease
+}
+}
+		}
+	}
+	#Focus for Abandon Britain
+	focus = {
+		id = USA_abandon_britain
+		icon = GFX_goal_unknown
+		x = 37
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_the_situation_in_europe }
+		mutually_exclusive = { focus = USA_transform_the_pact_of_atlantica }
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			NOT = {
+  is_in_faction_with = BRI
+}
+		}
+		completion_reward = {
+			leave_faction = yes
+		}
+	}
+	#Focus for The Berlin Alliance
+	focus = {
+		id = USA_the_berlin_alliance
+		icon = GFX_goal_unknown
+		x = 36
+		y = 16
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_antiaustrian_diplomacy }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Expand the Lockhead Facilities
+	focus = {
+		id = USA_expand_the_lockhead_facilities
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 31
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_department_of_national_defense }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+   add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+}
+}
+		}
+	}
+	#Focus for The Arlington Military Facility
+	focus = {
+		id = USA_the_arlington_military_facility
+		icon = GFX_focus_usa_build_the_pentagon
+		x = 30
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_expand_the_lockhead_facilities }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = USA_arlington_military_facility
+###planning speed probably
+
+362 = {
+  add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = infrastructure
+ level = 2
+ instant_build = yes
+}
+}
+		}
+	}
+	#Focus for American Militarism
+	focus = {
+		id = USA_american_militarism
+		icon = GFX_goal_unknown
+		x = 32
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_support_the_interests_of_the_high_command
+			focus = USA_expand_the_lockhead_facilities
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = USA_militarism
+
+###1% recuritable, 10% mobilization_speed, 10% factory output
+		}
+	}
+	#Focus for For the Home of The Free
+	focus = {
+		id = USA_for_the_home_of_the_free
+		icon = GFX_goal_unknown
+		x = 32
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_american_militarism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas = {
+   add_idea = USA_militarism_2
+   remove_idea = USA_militarism
+}
+
+###bost army morale and attack factor
+		}
+	}
+	#Focus for A True Republican Economy
+	focus = {
+		id = USA_a_true_republican_economy
+		icon = GFX_goal_unknown
+		x = 40
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_industrial_development }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Al Smith's 2nd Term
+	focus = {
+		id = USA_al_smiths_2nd_term
+		icon = GFX_goal_unknown
+		x = 28
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_expand_city_universities }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power = 70
+		}
+	}
+	#Focus for Preperation for War
+	focus = {
+		id = USA_preperation_for_war
+		icon = GFX_goal_unknown
+		x = 26
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_al_smiths_2nd_term }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#Focus for Military Infrastructure Effort
+	focus = {
+		id = USA_military_infrastructure_effort
+		icon = GFX_goal_unknown
+		x = 25
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_establish_the_office_of_production_managment }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+              add_building_construction = {
+                    type = infrastructure
+                    level = 5
+                    instant_build = yes
+
+                }
+}
+		}
+	}
+	#Focus for Establish the Office of Production Managment
+	focus = {
+		id = USA_establish_the_office_of_production_managment
+		icon = GFX_goal_unknown
+		x = 24
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_preperation_for_war }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = USA_office_of_production_management
+		}
+	}
+	#Focus for The American Powerhouse
+	focus = {
+		id = USA_the_american_powerhouse
+		icon = GFX_goal_unknown
+		x = 23
+		y = 11
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_establish_the_office_of_production_managment }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+	#Focus for The 1940 State of the Union
+	focus = {
+		id = USA_the_1940_state_of_the_union
+		icon = GFX_goal_unknown
+		x = 28
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = USA_al_smiths_2nd_term }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Focus for Economic Surveys
+	focus = {
+		id = USA_economic_surveys
+		icon = GFX_goal_unknown
+		x = 64
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+	}
+#End of focuses
+}
