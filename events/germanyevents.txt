@@ -691,3 +691,77 @@ country_event = {
 
 	 }
  }
+
+
+
+
+
+
+
+
+
+ country_event = {
+	id = germany.5438
+	title = germany.5438.t
+	desc = germany.5438.d
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = germany.5438.a #needs to be localized
+		ai_chance = { factor = 60 } #this factor means the AI will almost always pick this one
+		GER = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+		country_event = germany.5439
+	}
+
+	option = { # Last chance to backout! Click this option and literally nothing happens
+		name = germany.5438.b #needs to be localized
+		ai_chance = { factor = 50 } #AI will NOT do
+
+		country_event = germany.5440
+	}
+ }
+
+ country_event = {
+	id = germany.5439
+	title = germany.5439.t
+	desc = germany.5439.d
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = germany.5439.a #needs to be localized
+		ai_chance = { factor = 1000 } #this factor means the AI will almost always pick this one
+
+
+	}
+ }
+
+ country_event = {
+	id = germany.5440
+	title = germany.5440.t
+	desc = germany.5440.d
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = germany.5440.a #needs to be localized
+		ai_chance = { factor = 1000 } #this factor means the AI will almost always pick this one
+		create_wargoal = {
+		 target = FROM
+		 type = annex_everything
+		}
+
+	}
+ }

@@ -34,7 +34,9 @@ focus_tree = {
 	  x = 30
 	  y = 0
 	  #relative_position_id = AUS_BUILD_INDUSTRY
-	  cost = 10
+	  cost = 0
+
+
 
 	  available = {
 
@@ -64,7 +66,8 @@ focus_tree = {
 	  x = -4
 	  y = 1
 	  relative_position_id = AUS_announce_the_kaiser_speech
-	  cost = 10
+		mutually_exclusive = {focus = AUS_plan_the_assasination}
+	  cost = 1
 
 	  available = {
 
@@ -91,7 +94,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_construct_military
 	  text = AUS_fortify_the_route
 	  prerequisite = { focus = AUS_thwart_the_attempt_on_the_kaiser}
-	  x = -1
+	  x = -2
 	  y = 1
 	  relative_position_id = AUS_thwart_the_attempt_on_the_kaiser
 	  cost = 1
@@ -121,7 +124,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_construct_military
 	  text = AUS_recruit_the_security_guards
 	  prerequisite = { focus = AUS_thwart_the_attempt_on_the_kaiser}
-	  x = 1
+	  x = 2
 	  y = 1
 	  relative_position_id = AUS_thwart_the_attempt_on_the_kaiser
 	  cost = 1
@@ -155,7 +158,7 @@ focus_tree = {
 	  icon = GFX_Austrian_Crown
 	  text = AUS_KAISER_SPEECH
 	  prerequisite = { focus = AUS_recruit_the_security_guards focus = AUS_fortify_the_route }
-	  x = -1
+	  x = -2
 	  y = 1
 	  relative_position_id = AUS_recruit_the_security_guards
 	  cost = 2
@@ -209,6 +212,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_construct_military
 	  text = AUS_plan_the_assasination
 	  prerequisite = { focus = AUS_announce_the_kaiser_speech}
+		mutually_exclusive = {focus = AUS_thwart_the_attempt_on_the_kaiser}
 	  x = 4
 	  y = 1
 	  relative_position_id = AUS_announce_the_kaiser_speech
@@ -239,7 +243,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_construct_military
 	  text = AUS_recruit_the_assasins
 	  prerequisite = { focus = AUS_plan_the_assasination}
-	  x = 1
+	  x = 2
 	  y = 1
 	  relative_position_id = AUS_plan_the_assasination
 	  cost = 1
@@ -269,7 +273,7 @@ focus_tree = {
 	  icon = GFX_goal_generic_construct_military
 	  text = AUS_study_the_route_plan
 	  prerequisite = { focus = AUS_plan_the_assasination}
-	  x = -1
+	  x = -2
 	  y = 1
 	  relative_position_id = AUS_plan_the_assasination
 	  cost = 1
@@ -300,7 +304,7 @@ focus_tree = {
 	  text = AUS_the_kaiser_speech_BAD
 	  prerequisite = { focus = AUS_recruit_the_assasins}
 		prerequisite = { focus = AUS_study_the_route_plan}
-	  x = -1
+	  x = -2
 	  y = 1
 	  relative_position_id = AUS_recruit_the_assasins
 	  cost = 1
@@ -329,9 +333,10 @@ focus_tree = {
 	  icon = GFX_goal_generic_construct_military
 	  text = AUS_side_with_the_commies
 	  prerequisite = { focus = AUS_the_kaiser_speech_BAD}
-	  x = -1
+	  x = -3
 	  y = 1
 	  relative_position_id = AUS_the_kaiser_speech_BAD
+		mutually_exclusive = {focus = AUS_side_with_the_mil_government}
 	  cost = 1
 
 	  available = {
@@ -350,7 +355,12 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_INDUSTRY }
 
 	  completion_reward = {
-			load_focus_tree = austria_commie_focus_tree
+			custom_effect_tooltip = play_as_commmie_austria
+			hidden_effect = {
+				load_focus_tree = austria_commie_focus_tree
+			}
+
+
 
 	  }
 	}
@@ -360,7 +370,8 @@ focus_tree = {
 	  icon = GFX_goal_generic_construct_military
 	  text = AUS_side_with_the_mil_government
 	  prerequisite = { focus = AUS_the_kaiser_speech_BAD}
-	  x = 1
+		mutually_exclusive = {focus = AUS_side_with_the_commies}
+	  x = 3
 	  y = 1
 	  relative_position_id = AUS_the_kaiser_speech_BAD
 	  cost = 1
@@ -381,7 +392,7 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_INDUSTRY }
 
 	  completion_reward = {
-
+			custom_effect_tooltip = play_as_mil_gov
 			hidden_effect = {
 				load_focus_tree = austria_mil_gov_focus_tree
 			}
