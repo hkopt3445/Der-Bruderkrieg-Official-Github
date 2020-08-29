@@ -5,7 +5,7 @@ tags={
 	"Gameplay"
 	"Ideologies"
 	"Map"
-	"National Focuses"
+	"National Focuses" 
 }
 name="Der Bruderkrieg: What if Austria won the Austro-Prussian War?"
 replace_path="gfx/loadingscreens"
