@@ -2248,6 +2248,7 @@ shared_focus = {
   icon = GFX_focus_hun_elect_a_king
   text = AUS_final_showdown
   prerequisite = { focus = AUS_ANNEX_BUCOVINA}
+  prerequisite = { focus = AUS_mil_industry_2 focus = AUS_mil_infastructure_2}
   x = 0
   y = 1
   relative_position_id = AUS_ANNEX_BUCOVINA
@@ -2463,6 +2464,49 @@ shared_focus = {
 }
 
 shared_focus = {
+  id = AUS_put_nicholas_on_throne
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_put_nicholas_on_throne
+  prerequisite = { focus =  AUS_a_form_alliance_with_the_bear }
+  x = -1
+  y = 1
+  relative_position_id = AUS_a_form_alliance_with_the_bear
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+   
+  }
+}
+
+shared_focus = {
+  id = AUS_anti_communist_crusade
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_anti_communist_crusade
+  prerequisite = { focus =  AUS_a_form_alliance_with_the_bear }
+  x = 1
+  y = 1
+  relative_position_id = AUS_a_form_alliance_with_the_bear
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+   
+  }
+}
+
+
+shared_focus = {
   id = AUS_improve_relations_france
   icon = GFX_focus_hun_elect_a_king
   text = AUS_improve_relations_france
@@ -2519,9 +2563,9 @@ shared_focus = {
   id = AUS_alliance_with_france
   icon = GFX_focus_hun_elect_a_king
   text = AUS_alliance_with_france
-  prerequisite = { focus =  AUS_secure_mines_in_alps }
+  prerequisite = { focus =  AUS_secure_mines_in_alps focus = AUS_joint_artillery_design}
   x = 0
-  y = 1
+  y = 2
   relative_position_id = AUS_secure_mines_in_alps
   cost = 5
   ai_will_do = {
@@ -2581,6 +2625,8 @@ shared_focus = {
       uses = 2
     }
   }
+
+  
 }
 
 shared_focus = {
@@ -2607,6 +2653,7 @@ shared_focus = {
   }
   }
 }
+
 
 shared_focus = {
   id = AUS_battleship_technology
@@ -2681,6 +2728,189 @@ shared_focus = {
 
   completion_reward = {
     ENG = {country_event = austria.17}
+  }
+}
+
+shared_focus = {
+  id = AUS_munich_conference
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_munich_conference
+  prerequisite = { focus =  AUS_alliance_with_england }
+  x = -1
+  y = 1
+  relative_position_id = AUS_alliance_with_england
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  available = {
+      GPU = {
+        is_puppet = AUS
+      }
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    
+  }
+}
+
+shared_focus = {
+  id = AUS_split_naval_conference
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_split_naval_conference
+  prerequisite = { focus =  AUS_alliance_with_england }
+  x = 1
+  y = 1
+  relative_position_id = AUS_alliance_with_england
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  available = {
+      
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    
+  }
+}
+
+
+
+shared_focus = {
+  id = AUS_crush_the_dream
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_crush_the_dream
+  prerequisite = { focus =  AUS_split_naval_conference }
+  x = 0
+  y = 1
+  relative_position_id = AUS_split_naval_conference
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  available = {
+      USA = {
+          NOT = {
+            is_in_faction_with = AUS
+          }
+      }
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+      create_wargoal = {
+        target = USA
+        type = annex_everything
+      }
+  }
+}
+
+shared_focus = {
+  id = AUS_arms_deal_with_america
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_arms_deal_with_america
+  prerequisite = { focus =  AUS_split_naval_conference }
+  mutually_exclusive = {focus = AUS_crush_the_dream}
+  x = 2
+  y = 1
+  relative_position_id = AUS_split_naval_conference
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  available = {
+      
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    
+  }
+}
+
+shared_focus = {
+  id = AUS_westphalian_sgc_unification
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_westphalian_sgc_unification
+  prerequisite = { focus =  AUS_alliance_with_france }
+  
+  x = 0
+  y = 1
+  relative_position_id = AUS_alliance_with_france
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  available = {
+      
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    
+  }
+}
+
+shared_focus = {
+  id = AUS_napoleonic_hapsburg_union
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_napoleonic_hapsburg_union
+  prerequisite = { focus =  AUS_alliance_with_france }
+  
+  x = -2
+  y = 1
+  relative_position_id = AUS_alliance_with_france
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  available = {
+      
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    
+  }
+}
+
+shared_focus = {
+  id = AUS_form_united_germany
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_form_united_germany
+  prerequisite = { focus =  AUS_munich_conference focus = AUS_westphalian_sgc_unification }
+  
+  x = 1
+  y = 1
+  relative_position_id = AUS_westphalian_sgc_unification
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  available = {
+      
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    
   }
 }
 
@@ -2823,7 +3053,7 @@ shared_focus = {
   icon = GFX_focus_hun_elect_a_king
   text = AUS_invite_greeks
   prerequisite = { focus = AUS_reform_central_powers }
-  x = 1
+  x = 2
   y = 1
   relative_position_id = AUS_reform_central_powers
   cost = 5
@@ -2907,7 +3137,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_expansion_in_africa
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_goal_austrian_africa
   text = AUS_expansion_in_africa
   prerequisite = { focus = AUS_colonial_ambitions }
   x = -12
@@ -2931,7 +3161,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_claim_the_north_african_coast
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_goal_Claim_NorthAfrica
   text = AUS_claim_the_north_african_coast
   prerequisite = { focus = AUS_expansion_in_africa }
   x = -2
@@ -2961,7 +3191,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_demand_tunis
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_goal_Claim_Tunisia
   text = AUS_demand_tunis
   prerequisite = { focus = AUS_claim_the_north_african_coast }
   x = 0
@@ -2984,7 +3214,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_north_african_oil
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_goal_generic_oil_refinery
   text = AUS_north_african_oil
   prerequisite = { focus = AUS_demand_tunis }
   x = 0
@@ -3016,7 +3246,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_infrastructure_in_somalia
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_goal_SomalianIndustry
   text = AUS_infrastructure_in_somalia
   prerequisite = { focus = AUS_expansion_in_africa }
   x = 0
@@ -3079,7 +3309,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_demand_kenya
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_goal_Claim_Kenya
   text = AUS_demand_kenya
   prerequisite = { focus = AUS_expand_in_somalia }
   x = 0
@@ -3100,7 +3330,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_oil_in_namibia
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_goal_NamibianIndustry
   text = AUS_oil_in_namibia
   prerequisite = { focus = AUS_expansion_in_africa }
   x = 2
@@ -3153,7 +3383,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_claim_the_greater_congo_basin
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_goal_Claim_CongoBasin
   text = AUS_claim_the_greater_congo_basin
   prerequisite = { focus = AUS_connect_our_territories }
   x = 0
