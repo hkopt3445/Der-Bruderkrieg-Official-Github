@@ -11,7 +11,7 @@ focus_tree = {
 	}
 	continuous_focus_position = { x = 0, y = 1900 }
 
-  focus = {
+  focus = { 
     id = FRA_BUILD_INDUSTRY
     icon = GFX_goal_generic_construction
     text = FRA_BOOST_ECONOMY
@@ -4306,6 +4306,154 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = FRA_KEEP_PEACE
+		icon = GFX_goal_generic_neutrality_focus
+		text = FRA_KEEP_PEACE
+
+		prerequisite = { focus = FRA_LIBERTE }
+		prerequisite = { focus = FRA_LEVI_EN_MASSE }
+
+		x = 1
+		y = 4
+		relative_position_id = FRA_LIBERTE
+		cost = 10
+		ai_will_do = {
+			factor = 200
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			give_guarantee = ROM
+			give_guarantee = BUL
+			give_guarantee = YUG
+			give_guarantee = POL
+			give_guarantee = GRE
+			give_guarantee = ALB
+		}
+	}
+
+	focus = {
+		id = FRA_INVITE_BALKANS
+		icon = GFX_Diplo_Balkans
+		text = FRA_INVITE_BALKANS
+		prerequisite = { focus = FRA_INVITE_BENELUX }
+		x = -1
+		y = 1
+		relative_position_id = FRA_INVITE_BENELUX
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			YUG = {country_event = { id =france.17 days = 5}}
+			BUL = {country_event = { id =france.17 days = 5}}
+			ROM = {country_event = { id =france.17 days = 5}}
+			GRE = {country_event = { id =france.17 days = 5}}
+			ALB = {country_event = { id =france.17 days = 5}}
+		}
+	}
+
+	focus = {
+		id = FRA_INVITE_SCANDANAVIA
+		icon = GFX_Diplo_Scandinavia
+		text = FRA_INVITE_SCANDANAVIA
+		prerequisite = { focus = FRA_INVITE_BENELUX }
+		x = 1
+		y = 1
+		relative_position_id = FRA_INVITE_BENELUX
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			NOR = {country_event = { id =france.17 days = 5}}
+			SWE = {country_event = { id =france.17 days = 5}}
+			DEN = {country_event = { id =france.17 days = 5}}
+		}
+	}
+
+	focus = {
+		id = FRA_INVITE_BENELUX
+		icon = GFX_goal_generic_alliance
+		text = FRA_INVITE_BENELUX
+		prerequisite = { focus = FRA_JOIN_ENTENTE focus = FRA_JOIN_ENTENTE_CORDIALE }
+		x = 1
+		y = 1
+		relative_position_id = FRA_JOIN_ENTENTE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			BEL = {country_event = { id =france.17 days = 5}}
+			HOL = {country_event = { id =france.17 days = 5}}
+			LUX = {country_event = { id =france.17 days = 5}}
+		}
+	}
+
+	focus = {
+		id = FRA_PREVENT_EXPANSIONISM
+		icon = GFX_goal_generic_fortify_city
+		text = FRA_PREVENT_EXPANSIONISM
+		prerequisite = { focus = FRA_INVITE_BALKANS }
+		prerequisite = { focus = FRA_INVITE_SCANDANAVIA}
+		x = 1
+		y = 1
+		relative_position_id = FRA_INVITE_BALKANS
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			set_faction_name = "Pax Europa"
+		}
+	}
+
+	focus = {
+		id = FRA_PEACE_IN_TIME
+		icon = GFX_goal_molotov_ribbentrop_pact
+		text = FRA_PEACE_IN_TIME
+		prerequisite = { focus = FRA_PREVENT_EXPANSIONISM }
+		x = 0
+		y = 1
+		relative_position_id = FRA_PREVENT_EXPANSIONISM
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_stability = 0.15
+		}
+	}
+
+
+
+
+	
+
 
 
 	focus = {
@@ -4314,7 +4462,7 @@ focus_tree = {
     text = FRA_JOIN_ENTENTE
 		prerequisite = { focus = FRA_KEEP_PEACE }
 		mutually_exclusive = { focus = FRA_JOIN_ENTENTE_CORDIALE }
-    x = 0
+    x = -2
     y = 1
     relative_position_id = FRA_KEEP_PEACE
     cost = 10
@@ -4350,7 +4498,7 @@ focus_tree = {
     text = FRA_JOIN_ENTENTE_CORDIALE
 		prerequisite = { focus = FRA_KEEP_PEACE }
 		mutually_exclusive = {focus = FRA_JOIN_ENTENTE}
-    x = 2
+    x = 0
     y = 1
     relative_position_id = FRA_KEEP_PEACE
     cost = 10
@@ -4390,701 +4538,294 @@ focus_tree = {
     }
   }
 
-	focus = {
-    id = FRA_JOIN_INTERNATIONALE
-    icon = GFX_focus_generic_join_comintern
-    text = FRA_JOIN_INTERNATIONALE
-		prerequisite = { focus = FRA_LEVI_EN_MASSE }
-		prerequisite = { focus = FRA_EGALITE }
-    x = 9
-    y = 2
-    relative_position_id = FRA_LEVI_EN_MASSE
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			create_faction = Internationale
-			add_to_faction = FRA
-
-			add_ideas = {
-				Spreader_Revolution
-			}
-    }
-  }
-
-	focus = {
-    id = FRA_INFLUENCE_BENELUX
-    icon = GFX_goal_Influence_Benelux
-    text = FRA_INFLUENCE_BENELUX
-		prerequisite = { focus = FRA_JOIN_INTERNATIONALE }
-    x = 0
-    y = 1
-    relative_position_id = FRA_JOIN_INTERNATIONALE
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			BEL = {
-				add_ideas = communist_influence
-			}
-			LUX = {
-				add_ideas = communist_influence
-			}
-			HOL = {
-				add_ideas = communist_influence
-			}
-    }
-  }
-
-	focus = {
-    id = FRA_INFLUENCE_SCANDI
-    icon = GFX_goal_Influence_Scandinavia
-    text = FRA_INFLUENCE_SCANDI
-		prerequisite = { focus = FRA_INFLUENCE_BENELUX }
-    x = 0
-    y = 1
-    relative_position_id = FRA_INFLUENCE_BENELUX
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			NOR = {
-				add_ideas = communist_influence
-			}
-			SWE = {
-				add_ideas = communist_influence
-			}
-			DEN = {
-				add_ideas = communist_influence
-			}
-    }
-  }
-
-	focus = {
-    id = FRA_SUBJUGATION
-    icon = GFX_goal_Subjugation
-    text = FRA_SUBJUGATION
-		prerequisite = { focus = FRA_INFLUENCE_SCANDI }
-		mutually_exclusive = {focus = FRA_COM_ALLIANCE}
-    x = -4
-    y = 1
-    relative_position_id = FRA_INFLUENCE_SCANDI
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			add_war_support = 0.1
-    }
-  }
-
-	focus = {
-    id = FRA_SUBJUGATION_LUX
-    icon = GFX_goal_Puppet_Luexembourg
-    text = FRA_SUBJUGATION_LUX
-		prerequisite = { focus = FRA_SUBJUGATION }
-    x = -2
-    y = 1
-    relative_position_id = FRA_SUBJUGATION
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-
-		available = {
-			LUX = {
-				communism > 0.4
-			}
-		}
-
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = LUX
-				}
-				FRA = {
-					has_war_with = LUX
-				}
-				LUX = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			LUX = {country_event = {id = napoleanfrance.1}}
-    }
-  }
-
-	focus = {
-    id = FRA_SUBJUGATION_HOL
-    icon = GFX_goal_Puppet_Netherlands
-    text = FRA_SUBJUGATION_HOL
-		prerequisite = { focus = FRA_SUBJUGATION }
-    x = 0
-    y = 1
-    relative_position_id = FRA_SUBJUGATION
-
-		available = {
-			HOL = {
-				communism > 0.4
-			}
-		}
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = HOL
-				}
-				FRA = {
-					has_war_with = HOL
-				}
-				HOL = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			HOL = {country_event = {id = napoleanfrance.1}}
-    }
-  }
-
-	focus = {
-    id = FRA_SUBJUGATION_BEL
-    icon = GFX_goal_Puppet_Belgium
-    text = FRA_SUBJUGATION_BEL
-		prerequisite = { focus = FRA_SUBJUGATION }
-    x = 2
-    y = 1
-    relative_position_id = FRA_SUBJUGATION
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = BEL
-				}
-				FRA = {
-					has_war_with = BEL
-				}
-				BEL = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-
-		available = {
-			BEL = {
-				communism > 0.4
-			}
-		}
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			BEL = {country_event = {id = napoleanfrance.1}}
-    }
-  }
-
-
-
-	focus = {
-    id = FRA_SUBJUGATION_SWE
-    icon = GFX_goal_Puppet_Sweden
-    text = FRA_SUBJUGATION_SWE
-		prerequisite = { focus = FRA_SUBJUGATION_LUX }
-    x = 0
-    y = 1
-    relative_position_id = FRA_SUBJUGATION_LUX
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SWE
-				}
-				FRA = {
-					has_war_with = SWE
-				}
-				SWE = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-
-		available = {
-			SWE = {
-				communism > 0.4
-			}
-		}
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			SWE = {country_event = {id = napoleanfrance.1}}
-    }
-  }
-
-	focus = {
-    id = FRA_SUBJUGATION_DEN
-    icon = GFX_focus_generic_join_comintern
-    text = FRA_SUBJUGATION_DEN
-		prerequisite = { focus = FRA_SUBJUGATION_HOL }
-    x = 0
-    y = 1
-    relative_position_id = FRA_SUBJUGATION_HOL
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = DEN
-				}
-				FRA = {
-					has_war_with = DEN
-				}
-				DEN = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-
-		available = {
-			DEN = {
-				communism > 0.4
-			}
-		}
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			DEN = {country_event = {id = napoleanfrance.1}}
-    }
-  }
-
-	focus = {
-    id = FRA_SUBJUGATION_NOR
-    icon = GFX_goal_Puppet_Norway
-    text = FRA_SUBJUGATION_NOR
-		prerequisite = { focus = FRA_SUBJUGATION_BEL }
-    x = 0
-    y = 1
-    relative_position_id = FRA_SUBJUGATION_BEL
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = NOR
-				}
-				FRA = {
-					has_war_with = NOR
-				}
-				NOR = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-		available = {
-			NOR = {
-				communism > 0.4
-			}
-		}
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			NOR = {country_event = {id = napoleanfrance.1}}
-    }
-  }
-
-	focus = {
-    id = FRA_PUPPET_MASTER
-    icon = GFX_goal_Puppet_Master
-    text = FRA_PUPPET_MASTER
-		prerequisite = { focus = FRA_SUBJUGATION_NOR }
-		prerequisite = { focus = FRA_SUBJUGATION_DEN }
-		prerequisite = { focus = FRA_SUBJUGATION_SWE }
-    x = -2
-    y = 1
-    relative_position_id = FRA_SUBJUGATION_NOR
-
-    cost = 10
-    ai_will_do = {
-      factor = 20
-    }
-
-    available_if_capitulated = yes
-    search_filters = { FOCUS_FILTER_RESEARCH }
-
-    completion_reward = {
-			#######add an idea that speeds up building in puppets? increases manpower?
-    }
-  }
-
-	focus = {
-	  id = FRA_COM_ALLIANCE
-	  icon = GFX_goal_Communist_Alliance
-	  text = FRA_COM_ALLIANCE
-	  prerequisite = { focus = FRA_INFLUENCE_SCANDI }
-		mutually_exclusive = {focus = FRA_SUBJUGATION}
-	  x = 4
-	  y = 1
-	  relative_position_id = FRA_INFLUENCE_SCANDI
-
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			add_stability = 0.1
-	  }
+  focus = {
+	id = FRA_internationalism
+	icon = GFX_goal_unknown
+	mutually_exclusive = {focus = FRA_isolationism}
+	prerequisite = {focus = FRA_EGALITE}
+	x = 63
+	y = 9
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
 	}
-
-	focus = {
-	  id = FRA_COM_ALLIANCE_LUX
-	  icon = GFX_goal_Invite_Luexembourg
-	  text = FRA_COM_ALLIANCE_LUX
-	  prerequisite = { focus = FRA_COM_ALLIANCE }
-	  x = -2
-	  y = 1
-	  relative_position_id = FRA_COM_ALLIANCE
-
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = LUX
-				}
-				FRA = {
-					has_war_with = LUX
-				}
-				LUX = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-
-		available = {
-			LUX = {
-				communism > 0.4
-			}
-		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			LUX = {country_event={id = france.17}}
-	  }
+	completion_reward = {
+		add_ideas= Spreader_Revolution
 	}
+}
 
-	focus = {
-	  id = FRA_COM_ALLIANCE_HOL
-	  icon = GFX_goal_Invite_Netherlands
-	  text = FRA_COM_ALLIANCE_HOL
-	  prerequisite = { focus = FRA_COM_ALLIANCE }
-	  x = 0
-	  y = 1
-	  relative_position_id = FRA_COM_ALLIANCE
-
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = HOL
-				}
-				FRA = {
-					has_war_with = HOL
-				}
-				HOL = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-		available = {
-			HOL = {
-				communism > 0.4
-			}
-		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			HOL = {country_event={id = france.17}}
-	  }
+focus = {
+	id = FRA_isolationism
+	icon = GFX_goal_unknown
+	mutually_exclusive = {focus = FRA_internationalism}
+	prerequisite = {focus = FRA_EGALITE}
+	x = 68
+	y = 9
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
 	}
-
-	focus = {
-	  id = FRA_COM_ALLIANCE_BEL
-	  icon = GFX_goal_Invite_Belgium
-	  text = FRA_COM_ALLIANCE_BEL
-	  prerequisite = { focus = FRA_COM_ALLIANCE }
-	  x = 2
-	  y = 1
-	  relative_position_id = FRA_COM_ALLIANCE
-
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = BEL
-				}
-				FRA = {
-					has_war_with = BEL
-				}
-				BEL = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-		available = {
-			BEL = {
-				communism > 0.4
-			}
-		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			BEL = {country_event={id = france.17}}
-	  }
+	completion_reward = {
+		add_ideas= FRA_Isolationism
 	}
-
-
-
-	focus = {
-	  id = FRA_COM_ALLIANCE_SWE
-	  icon = GFX_goal_Invite_Sweden
-	  text = FRA_COM_ALLIANCE_SWE
-	  prerequisite = { focus = FRA_COM_ALLIANCE_LUX }
-	  x = 0
-	  y = 1
-	  relative_position_id = FRA_COM_ALLIANCE_LUX
-
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SWE
-				}
-				FRA = {
-					has_war_with = SWE
-				}
-				SWE = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-		available = {
-			SWE = {
-				communism > 0.4
-			}
-		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			SWE = {country_event={id = france.17}}
-	  }
+}
+focus = {
+	id = FRA_our_brothers_in_scandinavia
+	icon = GFX_goal_Influence_Scandinavia
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_internationalism }
+	ai_will_do = {
+		factor = 1
 	}
-
-	focus = {
-	  id = FRA_COM_ALLIANCE_DEN
-	  icon = GFX_focus_generic_join_comintern
-	  text = FRA_COM_ALLIANCE_DEN
-	  prerequisite = { focus = FRA_COM_ALLIANCE_HOL }
-	  x = 0
-	  y = 1
-	  relative_position_id = FRA_COM_ALLIANCE_HOL
-
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = DEN
-				}
-				FRA = {
-					has_war_with = DEN
-				}
-				DEN = {
-					is_in_faction_with = FRA
-				}
-			}
+	relative_position_id = FRA_internationalism
+	completion_reward = {
+		DEN = {
+			add_ideas = communist_influence
 		}
-		available = {
-			DEN = {
-				communism > 0.4
-			}
+		SWE= {
+			add_ideas = communist_influence
 		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			DEN = {country_event={id = france.17}}
-	  }
+		NOR= {
+			add_ideas = communist_influence
+		}
+		
 	}
-
-	focus = {
-	  id = FRA_COM_ALLIANCE_NOR
-	  icon = GFX_goal_Invite_Norway
-	  text = FRA_COM_ALLIANCE_NOR
-	  prerequisite = { focus = FRA_COM_ALLIANCE_BEL }
-	  x = 0
-	  y = 1
-	  relative_position_id = FRA_COM_ALLIANCE_BEL
-
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = NOR
-				}
-				FRA = {
-					has_war_with = NOR
-				}
-				NOR = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-		available = {
-			NOR = {
-				communism > 0.4
-			}
-		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			NOR = {country_event={id = france.17}}
-	  }
+}
+focus = {
+	id = FRA_influence_the_benelux
+	icon = GFX_goal_Influence_Benelux
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_internationalism }
+	ai_will_do = {
+		factor = 1
 	}
-
-	focus = {
-	  id = FRA_ANTI_GERMAN_PACT
-	  icon = GFX_goal_Anti_Prussian_Pact
-	  text = FRA_ANTI_GERMAN_PACT
-	  prerequisite = { focus = FRA_COM_ALLIANCE_NOR }
-	  prerequisite = { focus = FRA_COM_ALLIANCE_DEN }
-	  prerequisite = { focus = FRA_COM_ALLIANCE_SWE }
-	  x = -2
-	  y = 1
-	  relative_position_id = FRA_COM_ALLIANCE_NOR
-
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			every_country = {
+	relative_position_id = FRA_internationalism
+	completion_reward = {
+		BEL= {
+			add_ideas = communist_influence
+		}
+		LUX= {
+			add_ideas = communist_influence
+		}
+		HOL= {
+			add_ideas = communist_influence
+		}
+	}
+}
+focus = {
+	id = FRA_invite_the_scandis
+	icon = GFX_goal_unknown
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_our_brothers_in_scandinavia }
+	relative_position_id = FRA_our_brothers_in_scandinavia
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+			AND = {
+					SWE = {
+							communism > 0.25
+					}
+					NOR = {
+						communism > 0.25
+					}
+					DEN = {
+						communism > 0.25
+					}	
+			}
+	}
+	completion_reward = {
+		SWE = { country_event= { days = 1 id = france.17 }}
+		NOR = { country_event= { days = 1 id = france.17 }}
+		DEN = { country_event= { days = 1 id = france.17 }}
+	}
+}
+focus = {
+	id = FRA_invite_the_benelux
+	icon = GFX_goal_unknown
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_influence_the_benelux }
+	relative_position_id = FRA_influence_the_benelux
+	ai_will_do = {
+		factor = 1
+	}
+	AND = {
+		BEL = {
+				communism > 0.25
+		}
+		LUX = {
+			communism > 0.25
+		}
+		HOL = {
+			communism > 0.25
+		}	
+}
+	completion_reward = {
+		BEL = { country_event= { days = 1 id = france.17 }}
+		LUX = { country_event= { days = 1 id = france.17 }}
+		HOL = { country_event= { days = 1 id = france.17 }}
+	}
+}
+focus = {
+	id = FRA_fortify_our_borders
+	icon = GFX_goal_unknown
+	x = 0
+	y = 1
+	cost = 10
+	relative_position_id = FRA_isolationism
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_isolationism }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		remove_ideas= FRA_Isolationism  
+add_ideas= FRA_Isolationism_2
+	}
+}
+focus = {
+	id = FRA_fortify_the_westalen_line
+	icon = GFX_goal_unknown
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_fortify_our_borders }
+	ai_will_do = {
+		factor = 1
+	}
+	relative_position_id = FRA_fortify_our_borders
+	completion_reward = {
+		FGD = {
+			every_owned_state = {
 				limit = {
-					any_neighbor_state = {
-							is_controlled_by = GER
-					}
-					NOT = {
-						is_major = yes
-						is_in_faction_with = GER
-					}
+						any_neighbor_state = {
+								is_controlled_by = GER
+						}
 				}
-				FRA = {add_guarantee = PREV}
-			}
-	  }
+				add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+								all_provinces = yes
+								limit_to_border = yes
+						}
+				}
+		}
+		}
 	}
+}
+focus = {
+	id = FRA_fortify_the_alpine_line
+	icon = GFX_goal_unknown
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_fortify_our_borders }
+	ai_will_do = {
+		factor = 1
+	}
+	relative_position_id = FRA_fortify_our_borders
+	completion_reward = {
+		every_owned_state = {
+			limit = {
+					any_neighbor_state = {
+							is_controlled_by = ITA
+					}
+			}
+			add_building_construction = {
+					type = bunker
+					level = 5
+					instant_build = yes
+					province = {
+							all_provinces = yes
+							limit_to_border = yes
+					}
+			}
+	}
+	}
+}
+focus = {
+	id = FRA_protect_our_coasts
+	icon = GFX_goal_unknown
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { 
+		focus = FRA_fortify_the_alpine_line 
+	}
+	prerequisite = { 
+		focus = FRA_fortify_the_westalen_line 
+	}
+	relative_position_id = FRA_fortify_the_westalen_line
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		every_owned_state = {
+			limit = {
+					any_neighbor_state = {
+							is_controlled_by = ITA
+					}
+			}
+			add_building_construction = {
+					type = bunker
+					level = 5
+					instant_build = yes
+					province = {
+							all_provinces = yes
+							limit_to_border = yes
+					}
+			}
+	}
+	}
+}
 
+focus = {
+	id = FRA_france_alone
+	icon = GFX_goal_unknown
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_protect_our_coasts }
+	ai_will_do = {
+		factor = 1
+	}
+	relative_position_id = FRA_protect_our_coasts
+	completion_reward = {
+		remove_ideas= FRA_Isolationism_3  
+add_ideas= FRA_Isolationism_2
+	}
+}
+
+
+	
 	focus = {
 	  id = FRA_EUROPEAN_COMMUNISM
 	  icon = GFX_goal_European_Communism
 	  text = FRA_EUROPEAN_COMMUNISM
-	  prerequisite = { focus = FRA_ANTI_GERMAN_PACT focus = FRA_PUPPET_MASTER }
-	  x = -4
+	  prerequisite = { focus = FRA_invite_the_benelux focus = FRA_invite_the_scandis }
+	  x = 1
 	  y = 1
-	  relative_position_id = FRA_ANTI_GERMAN_PACT
+	  relative_position_id = FRA_invite_the_benelux
 
 	  cost = 10
 	  ai_will_do = {
@@ -5378,7 +5119,7 @@ focus_tree = {
 		prerequisite = { focus = FRA_LIBERTE }
 		prerequisite = { focus = FRA_LEVI_EN_MASSE }
 
-		x = 1
+		x = -1
 		y = 4
 		relative_position_id = FRA_LIBERTE
 		cost = 10
@@ -6365,4 +6106,4 @@ set_state_flag = 24
 
 
 
-}
+
