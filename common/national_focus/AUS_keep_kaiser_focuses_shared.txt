@@ -1254,7 +1254,7 @@ shared_focus = {
   text = AUS_REFORMED_NAVY
   prerequisite = { focus = AUS_BUILD_DOCKYARDS2 focus = AUS_BUILD_DOCKYARDS1  }
   x = 0
-  y = 1
+  y = 2
   relative_position_id = AUS_BUILD_DOCKYARDS2
   cost = 5
   ai_will_do = {
@@ -2273,8 +2273,9 @@ shared_focus = {
   icon = GFX_focus_hun_elect_a_king
   text = AUS_the_majors_europe
   prerequisite = { focus =  AUS_final_showdown focus = AUS_bulwark_against_expansionism }
+  mutually_exclusive = {focus = AUS_hapsburg_foriegn_policy}
   x = 4
-  y = 2
+  y = 1
   relative_position_id = AUS_final_showdown
   cost = 5
   ai_will_do = {
@@ -2371,7 +2372,7 @@ shared_focus = {
   add_tech_bonus = {
     bonus = 1
     uses = 2
-    category = artillery_folder
+    category = artillery
   }
   }
 }
@@ -2501,7 +2502,17 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-   
+    every_country = {
+      limit = {
+        has_government = communism
+      }
+      AUS = {
+          create_wargoal = {
+            target = PREV
+            type = annex_everything
+          }
+      }
+    }
   }
 }
 
@@ -2563,7 +2574,8 @@ shared_focus = {
   id = AUS_alliance_with_france
   icon = GFX_focus_hun_elect_a_king
   text = AUS_alliance_with_france
-  prerequisite = { focus =  AUS_secure_mines_in_alps focus = AUS_joint_artillery_design}
+  prerequisite = { focus =  AUS_secure_mines_in_alps }
+  prerequisite = {focus = AUS_joint_artillery_design}
   x = 0
   y = 2
   relative_position_id = AUS_secure_mines_in_alps
@@ -3112,15 +3124,191 @@ shared_focus = {
   }
 }
 
+shared_focus = {
+  id = AUS_hapsburg_foriegn_policy
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_hapsburg_foriegn_policy
+  prerequisite = {focus = AUS_final_showdown}
+  mutually_exclusive = {focus = AUS_the_majors_europe}
+  x = -7
+  y = 4
+  relative_position_id = AUS_CENTRALISM
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  bypass = {
+    tag = AUS
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = AUS_royal_marraiges
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_royal_marraiges
+  prerequisite = {focus = AUS_hapsburg_foriegn_policy}
+  x = -2
+  y = 1
+  relative_position_id = AUS_hapsburg_foriegn_policy
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+  bypass = {
+    tag = AUS
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  }
+}
+
+
+shared_focus = {
+  id = AUS_restore_the_house_of_phillip
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_restore_the_house_of_phillip
+  prerequisite = {focus = AUS_royal_marraiges}
+  x = -2
+  y = 1
+  relative_position_id = AUS_royal_marraiges
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+ 
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = AUS_reform_hapsburg_netherlands
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_reform_hapsburg_netherlands
+  prerequisite = {focus = AUS_restore_the_house_of_phillip}
+  x = 0
+  y = 2
+  relative_position_id = AUS_restore_the_house_of_phillip
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+ 
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  }
+}
+
+
+
+shared_focus = {
+  id = AUS_the_order_of_st_george
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_the_order_of_st_george
+  prerequisite = {focus = AUS_royal_marraiges}
+  x = 0
+  y = 1
+  relative_position_id = AUS_royal_marraiges
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+ 
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = AUS_ancluss_the_sgc
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_ancluss_the_sgc
+  prerequisite = {focus = AUS_the_order_of_st_george}
+  x = 0
+  y = 2
+  relative_position_id = AUS_the_order_of_st_george
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+ 
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = AUS_hollonherzen_proposal
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_hollonherzen_proposal
+  prerequisite = {focus = AUS_royal_marraiges}
+  x = 2
+  y = 1
+  relative_position_id = AUS_royal_marraiges
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+ 
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = AUS_the_kaiser_rules_hannover
+  icon = GFX_focus_hun_elect_a_king
+  text = AUS_the_kaiser_rules_hannover
+  prerequisite = {focus = AUS_hollonherzen_proposal}
+  x = 0
+  y = 2
+  relative_position_id = AUS_hollonherzen_proposal
+  cost = 5
+  ai_will_do = {
+    factor = 20
+  }
+ 
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+  }
+}
+
 
 shared_focus = {
   id = AUS_colonial_ambitions
   icon = GFX_focus_hun_elect_a_king
   text = AUS_colonial_ambitions
-  prerequisite = { focus = AUS_CENTRALISM }
+  prerequisite = { focus = AUS_hapsburg_foriegn_policy}
   prerequisite = { focus = AUS_REFORMED_NAVY }
-  x = -7
-  y = 2
+  x = -16
+  y = 5
   relative_position_id = AUS_CENTRALISM
   cost = 5
   ai_will_do = {
@@ -4198,7 +4386,7 @@ shared_focus = {
   text = AUS_pacify_the_balkan_states
   prerequisite = { focus = AUS_bulwark_against_expansionism }
   x = 5
-  y = 2
+  y = 1
   relative_position_id = AUS_bulwark_against_expansionism
   cost = 2
   ai_will_do = {
