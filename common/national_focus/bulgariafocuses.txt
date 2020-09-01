@@ -10,17 +10,203 @@ focus_tree = {
 		}
 	}
 
+	continuous_focus_position = { x = 0, y = 1900 }
+
+	focus = {
+		id = BUL_bulgarias_situation
+		icon = GFX_Greater_Bulgaria
+		text = BUL_bulgarias_situation
+		
+	 
+		x = 0
+		y = 0
+		#relative_position_id = BUL_BUILD_INDUSTRY
+		cost = 5
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		  
+		}
+	  }
+
+	  focus = {
+		id = BUL_government_infrastructure_projects
+		icon = unknown
+		text = BUL_government_infrastructure_projects
+		prerequisite = {focus = BUL_bulgarias_situation}
+	
+		x = 0
+		y = 2
+		relative_position_id = BUL_bulgarias_situation
+		cost = 5
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		  add_ideas = BUL_government_infrastructure_projects_idea
+		}
+	  }
+
+	  focus = {
+		id = BUL_build_roads
+		icon = unknown
+		text = BUL_build_roads
+		prerequisite = {focus = BUL_government_infrastructure_projects}
+	
+		x = -1
+		y = 1
+		relative_position_id = BUL_government_infrastructure_projects
+		cost = 5
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		    random_owned_controlled_state = {
+			  add_building_construction = {
+				  type = infrastructure
+				  level = 4
+				  instant_build = yes
+			  }
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+			  }
+		}
+	  }
+
+	  focus = {
+		id = BUL_expand_sofia_university
+		icon = unknown
+		text = BUL_expand_sofia_university
+		prerequisite = {focus = BUL_government_infrastructure_projects}
+	
+		x = 1
+		y = 1
+		relative_position_id = BUL_government_infrastructure_projects
+		cost = 5
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }be
+	
+		completion_reward = {
+		  add_research_slot = 1
+		}
+	  }
+
+	  focus = {
+		id = BUL_plodviv_radar_station
+		icon = unknown
+		text = BUL_plodviv_radar_station
+		prerequisite = {focus = BUL_expand_sofia_university}
+	
+		x = -1
+		y = 1
+		relative_position_id = BUL_expand_sofia_university
+		cost = 5
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }be
+	
+		completion_reward = {
+		  random_owned_controlled_state = {
+			  prioritize = {212}
+			  add_building_construction = {
+				  type = radar_station
+				  level = 2
+				  instant_build = yes
+			  }
+		    }
+		}
+	  }
+
+	  focus = {
+		id = BUL_invest_in_nuclear_power
+		icon = unknown
+		text = BUL_invest_in_nuclear_power
+		prerequisite = {focus = BUL_plodviv_radar_station }
+		prerequisite = {focus =  BUL_build_roads}
+	
+		x = -1
+		y = 1
+		relative_position_id = BUL_plodviv_radar_station
+		cost = 5
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }be
+	
+		completion_reward = {
+		  add_tech_bonus = {
+			  category = nuclear
+			  bonus = 1
+			  uses = 1
+		  }
+		}
+	  }
+
+	  focus = {
+		id = BUL_research_electronics
+		icon = unknown
+		text = BUL_research_electronics
+		prerequisite = {focus = BUL_plodviv_radar_station }
+		prerequisite = {focus =  BUL_build_roads}
+	
+		x = 1
+		y = 1
+		relative_position_id = BUL_plodviv_radar_station
+		cost = 5
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }be
+	
+		completion_reward = {
+			add_tech_bonus = {
+				category = electronics
+				bonus = 1
+				uses = 1
+			}
+		}
+	  }
+
   focus = {
     id = BUL_TSARS_POWER
     icon = GFX_Boris_III_Icon
     text = BUL_TSARS_POWER
-    #prerequisite = { focus = ITA_industrial_effort_2 }
+    prerequisite = { focus = BUL_bulgarias_situation }
 		mutually_exclusive = {focus = BUL_REVERSE_FERDINAND_REFORMS}
 		mutually_exclusive = {focus = BUL_ETHNIC_CLEANSING}
 
-    x = 19
-    y = 0
-    relative_position_id = BUL_BUILD_INDUSTRY
+    x = -4
+    y = 1
+    relative_position_id = BUL_bulgarias_situation
     cost = 5
     ai_will_do = {
       factor = 20
@@ -32,7 +218,7 @@ focus_tree = {
     completion_reward = {
       add_political_power = 100
 
-			#####add idea Sanctions for 250 days basically fucking your industry
+		
     }
   }
 
@@ -40,12 +226,12 @@ focus_tree = {
     id = BUL_ETHNIC_CLEANSING
     icon = GFX_Boris_III_Icon
     text = BUL_ETHNIC_CLEANSING
-    #prerequisite = { focus = ITA_industrial_effort_2 }
+    prerequisite = { focus = BUL_bulgarias_situation }
 		mutually_exclusive = {focus = BUL_REVERSE_FERDINAND_REFORMS}
 		mutually_exclusive = {focus = BUL_TSARS_POWER}
-    x = 13
-    y = 0
-    relative_position_id = BUL_BUILD_INDUSTRY
+    x = -13
+    y = 1
+    relative_position_id = BUL_bulgarias_situation
     cost = 5
     ai_will_do = {
       factor = 20
@@ -55,7 +241,6 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_political_power = 100
 
 			#####add idea Sanctions for 250 days basically fucking your industry
     }
@@ -65,12 +250,12 @@ focus_tree = {
     id = BUL_REVERSE_FERDINAND_REFORMS
     icon = GFX_Boris_III_Icon
     text = BUL_REVERSE_FERDINAND_REFORMS
-    #prerequisite = { focus = ITA_industrial_effort_2 }
+    prerequisite = { focus = BUL_bulgarias_situation }
 		mutually_exclusive = {focus = BUL_TSARS_POWER}
 		mutually_exclusive = {focus = BUL_ETHNIC_CLEANSING}
-    x = 21
-    y = 0
-    relative_position_id = BUL_BUILD_INDUSTRY
+    x = 6
+    y = 1
+    relative_position_id = BUL_bulgarias_situation
     cost = 5
     ai_will_do = {
       factor = 20
@@ -95,7 +280,7 @@ focus_tree = {
 	  text = BUL_SOCIAL_DEMOCRATS
 	  prerequisite = { focus = BUL_REVERSE_FERDINAND_REFORMS }
 	  #mutually_exclusive = { focus = BUL_SUPPORT_THE_AGRARIANISTS }
-	  x = 2
+	  x = -2
 	  y = 2
 	  relative_position_id = BUL_REVERSE_FERDINAND_REFORMS
 	  cost = 10
@@ -125,7 +310,7 @@ focus_tree = {
 	  icon = GFX_focus_generic_concessions
 	  text = BUL_SUPPORT_UNIONS
 	  prerequisite = { focus = BUL_SOCIAL_DEMOCRATS }
-	  x = -1
+	  x = 1
 	  y = 1
 	  relative_position_id = BUL_SOCIAL_DEMOCRATS
 	  cost = 10
@@ -137,16 +322,58 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    unlock_decision_category_tooltip = BUL_support_the_unions
+	    unlock_decision_tooltip = BUL_empower_working_class
 	  }
 	}
+
+	focus = {
+		id = BUL_regulate_corporations
+		icon = unkown
+		text = BUL_regulate_corporations
+		prerequisite = { focus = BUL_SUPPORT_UNIONS }
+		x = 1
+		y = 1
+		relative_position_id = BUL_SUPPORT_UNIONS
+		cost = 10
+		ai_will_do = {
+		  factor = 20
+		} 
+  
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+  
+		completion_reward = {
+		  unlock_decision_tooltip = BUL_install_corporate_law
+		}
+	  }
+
+	  focus = {
+		id = BUL_wealth_tax
+		icon = unkown
+		text = BUL_wealth_tax
+		prerequisite = { focus = BUL_regulate_corporations }
+		x = 0
+		y = 1
+		relative_position_id = BUL_regulate_corporations
+		cost = 10
+		ai_will_do = {
+		  factor = 20
+		} 
+  
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+  
+		completion_reward = {
+		  unlock_decision_tooltip = BUL_tax_wealthy
+		}
+	  }
 
 	focus = {
 	  id = BUL_DEMOCRATIC_IDEALS
 	  icon = GFX_focus_goal_generic_support_democracy
 	  text = BUL_DEMOCRATIC_IDEALS
 	  prerequisite = { focus = BUL_SOCIAL_DEMOCRATS }
-	  x = 1
+	  x = -1
 	  y = 1
 	  relative_position_id = BUL_SOCIAL_DEMOCRATS
 	  cost = 10
@@ -173,11 +400,11 @@ focus_tree = {
 
 	focus = {
 	  id = BUL_ADVANCED_DEMOCRACY
-	  #icon = GFX_Boris_III_Rich
+	  icon = uknown
 	  text = BUL_ADVANCED_DEMOCRACY
 	  prerequisite = { focus = BUL_DEMOCRATIC_IDEALS  }
 	  prerequisite = { focus = BUL_SUPPORT_UNIONS  }
-	  x = -1
+	  x = 1
 	  y = 1
 	  relative_position_id = BUL_DEMOCRATIC_IDEALS
 	  cost = 10
@@ -194,134 +421,81 @@ focus_tree = {
 				remove_idea = Social_Democracy
 			}
 	  }
-	}
+	} 
 
-	focus = {
-	  id = BUL_SUPPORT_THE_AGRARIANISTS
-	  #icon = GFX_goal_support_fascism
-	  text = BUL_SUPPORT_THE_AGRARIANISTS
-	  prerequisite = { focus = BUL_REVERSE_FERDINAND_REFORMS }
-	  mutually_exclusive = { focus = BUL_SOCIAL_DEMOCRATS }
-	  x = 8
-	  y = 2
-	  relative_position_id = BUL_REVERSE_FERDINAND_REFORMS
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
-	  }
-		available = {
-			has_country_flag = BUL_farmers_revolt
+	
+
+	  focus = {
+		id = BUL_pro_trade_policy
+		icon = uknown
+		text = BUL_pro_trade_policy
+		prerequisite = { focus = BUL_ADVANCED_DEMOCRACY }
+		x = 0
+		y = 1
+		relative_position_id = BUL_ADVANCED_DEMOCRACY
+		cost = 10
+		ai_will_do = {
+		  factor = 20
 		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_popularity =  {
-	      ideology = communism
-	      popularity = 0.1
-	    }
-	    add_ideas = {
-	      communist_influence
-	    }
-	  }
-	}
-
-	focus = {
-	  id = BUL_MAOIST_PRINCIPLES
-	  #icon = GFX_focus_rom_handle_king
-	  text = BUL_MAOIST_PRINCIPLES
-	  prerequisite = { focus = BUL_SUPPORT_THE_AGRARIANISTS }
-	  x = -1
-	  y = 1
-	  relative_position_id = BUL_SUPPORT_THE_AGRARIANISTS
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
+  
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+  
+		completion_reward = {
+			
+		}
 	  }
 
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-
-	    add_political_power = 100
-	    ###Unlock decision tooltip ig
-	    add_ideas = {
-	      Bulgarian_Maoism
-	    }
-
-			####Unlock decision tooltip "Maoist Ideals"
-	  }
-	}
-
-	focus = {
-	  id = BUL_ESTABLISH_BULGARIAN_COMMUNE
-	  #icon = GFX_focus_spr_crush_the_revolution
-	  text = BUL_ESTABLISH_BULGARIAN_COMMUNE
-	  prerequisite = { focus = BUL_SUPPORT_THE_AGRARIANISTS }
-	  x = 1
-	  y = 1
-	  relative_position_id = BUL_SUPPORT_THE_AGRARIANISTS
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
+	  focus = {
+		id = BUL_befriend_democratic_nations
+		icon = uknown
+		text = BUL_befriend_democratic_nations
+		prerequisite = { focus = BUL_pro_trade_policy }
+		x = 1
+		y = 1
+		relative_position_id = BUL_pro_trade_policy
+		cost = 10
+		ai_will_do = {
+		  factor = 20
+		}
+  
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+  
+		completion_reward = {
+			add_war_support = 0.1
+		}
 	  }
 
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-	    add_popularity = {
-	      ideology = monarchy
-	      popularity = -0.05
-	    }
-	    add_popularity = {
-	      ideology = democratic
-	      popularity = -0.05
-	    }
-	    add_popularity = {
-	      ideology = fascism
-	      popularity = -0.05
-	    }
-
-	    add_popularity = {
-	      ideology = communism
-	      popularity = 0.3
-	    }
-	  }
-	}
-
-	focus = {
-	  id = BUL_COMMUNIST_FUTURE
-	  icon = GFX_focus_prc_agrarian_socialism
-	  text = BUL_COMMUNIST_FUTURE
-	  prerequisite = { focus = BUL_ESTABLISH_BULGARIAN_COMMUNE  }
-	  prerequisite = { focus = BUL_MAOIST_PRINCIPLES  }
-	  x = -1
-	  y = 1
-	  relative_position_id = BUL_ESTABLISH_BULGARIAN_COMMUNE
-	  cost = 10
-	  ai_will_do = {
-	    factor = 20
+	  focus = {
+		id = BUL_trade_with_russia
+		icon = uknown
+		text = BUL_trade_with_russia
+		prerequisite = { focus = BUL_befriend_democratic_nations }
+		x = 1
+		y = 1
+		relative_position_id = BUL_befriend_democratic_nations
+		cost = 10
+		ai_will_do = {
+		  factor = 20
+		}
+  
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+  
+		completion_reward = {
+			add_war_support = 0.1
+		}
 	  }
 
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
 
-	  completion_reward = {
-	    add_ideas = {
-	      Bulgarian_Commune
-	    }
-	  }
-	}
 
 	focus = {
 	  id = BUL_CONCESSIONS_TO_MACEDONIANS
 	  icon = GFX_focus_generic_diplomatic_treaty
 	  text = BUL_CONCESSIONS_TO_MACEDONIANS
 	  prerequisite = { focus = BUL_REVERSE_FERDINAND_REFORMS}
-	  x = 5
+	  x = 3
 	  y = 1
 	  relative_position_id = BUL_REVERSE_FERDINAND_REFORMS
 	  cost = 10
@@ -421,8 +595,8 @@ focus_tree = {
 		icon = GFX_focus_rom_royal_dictatorship
 		text = BUL_STICK_WITH_TSAR
 		prerequisite = { focus = BUL_TSARS_POWER }
-		#mutually_exclusive = { focus = BUL_SUCCUMB_TO_THE_LEGIONARES }
-		x = -2
+		#mutually_exclusive = { focus = BUL_ultranationalism }
+		x = 0
 		y = 2
 		relative_position_id = BUL_TSARS_POWER
 		cost = 10
@@ -512,9 +686,449 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_SUCCUMB_TO_THE_LEGIONARES
+		id = BUL_enforce_boris_foriegn_policy
+		icon = unkown
+		text = BUL_enforce_boris_foriegn_policy
+		prerequisite = { focus = BUL_TSARS_RULE }
+		x = -2
+		y = 1
+		relative_position_id = BUL_TSARS_RULE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_reconcile_russia
+		icon = unkown
+		text = BUL_reconcile_russia
+		prerequisite = { focus = BUL_enforce_boris_foriegn_policy }
+		x = -1
+		y = 1
+		relative_position_id = BUL_enforce_boris_foriegn_policy
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_moscow_pact
+		icon = unkown
+		text = BUL_moscow_pact
+		prerequisite = { focus = BUL_reconcile_russia }
+		x = 0
+		y = 1
+		relative_position_id = BUL_reconcile_russia
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_russian_generals
+		icon = unkown
+		text = BUL_russian_generals
+		prerequisite = { focus = BUL_moscow_pact }
+		x = 0
+		y = 1
+		relative_position_id = BUL_moscow_pact
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_switching_sides
+		icon = unkown
+		text = BUL_switching_sides
+		prerequisite = { focus = BUL_enforce_boris_foriegn_policy }
+		x = 1
+		y = 1
+		relative_position_id = BUL_enforce_boris_foriegn_policy
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_join_the_congress_of_vienna
+		icon = unkown
+		text = BUL_join_the_congress_of_vienna
+		prerequisite = { focus = BUL_switching_sides }
+		x = 0
+		y = 1
+		relative_position_id = BUL_switching_sides
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_buy_austrian_tanks
+		icon = unkown
+		text = BUL_buy_austrian_tanks
+		prerequisite = { focus = BUL_join_the_congress_of_vienna }
+		x = 0
+		y = 1
+		relative_position_id = BUL_join_the_congress_of_vienna
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	
+
+	focus = {
+		id = BUL_economic_development_scheme
+		icon = unknown
+		text = BUL_economic_development_scheme
+		prerequisite = { focus = BUL_TSARS_RULE focus = BUL_ADVANCED_DEMOCRACY  }
+		prerequisite = { focus = BUL_research_electronics focus = BUL_invest_in_nuclear_power  }
+		x = 4
+		y = 1
+		relative_position_id = BUL_TSARS_RULE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = BUL_economic_dev_scheme
+		}
+	}
+
+	focus = {
+		id = BUL_mining_iniative
+		icon = unknown
+		text = BUL_mining_iniative
+		prerequisite = { focus = BUL_economic_development_scheme  }
+		x = 2
+		y = 1
+		relative_position_id = BUL_economic_development_scheme
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = BUL_mining_iniative_idea
+		}
+	}
+
+	focus = {
+		id = BUL_expand_tungsten_mines
+		icon = unknown
+		text = BUL_expand_tungsten_mines
+		prerequisite = { focus = BUL_mining_iniative  }
+		x = -1
+		y = 1
+		relative_position_id = BUL_mining_iniative
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = {
+					resource = tungsten
+					amount = 12
+					state = THIS
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_expand_chromium_mines
+		icon = unknown
+		text = BUL_expand_chromium_mines
+		prerequisite = { focus = BUL_mining_iniative  }
+		x = 1
+		y = 1
+		relative_position_id = BUL_mining_iniative
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+ 
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = {
+					resource = chromium
+					amount = 12
+					state = THIS
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_gold_mining_treaty
+		icon = unknown
+		text = BUL_gold_mining_treaty
+		prerequisite = { focus = BUL_mining_iniative  }
+		prerequisite = {focus = BUL_befriend_democratic_nations}
+		x = 2
+		y = 2
+		relative_position_id = BUL_mining_iniative
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_bulgarian_miners_commission
+		icon = unknown
+		text = BUL_bulgarian_miners_commission
+		prerequisite = { focus = BUL_expand_chromium_mines focus = BUL_expand_tungsten_mines  }
+		x = -1
+		y = 1
+		relative_position_id = BUL_expand_chromium_mines
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = BUL_mining_iniative_idea_2
+				remove_idea = BUL_mining_iniative_idea
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_expand_civlian_industry
+		icon = unknown
+		text = BUL_expand_civlian_industry
+		prerequisite = { focus =BUL_economic_development_scheme  }
+		x = -2
+		y = 1
+		relative_position_id = BUL_economic_development_scheme
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+
+			add_tech_bonus = {
+				category = industry
+				bonus = 1
+				uses = 1
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_develop_countryside
+		icon = unknown
+		text = BUL_develop_countryside
+		prerequisite = { focus =BUL_expand_civlian_industry  }
+		x = -1
+		y = 1
+		relative_position_id = BUL_expand_civlian_industry
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					has_state_category = rural
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_category = rural
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_develop_cities
+		icon = unknown
+		text = BUL_develop_cities
+		prerequisite = { focus =BUL_expand_civlian_industry  }
+		x = 1
+		y = 1
+		relative_position_id = BUL_expand_civlian_industry
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					has_state_category = city
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_state_category = city
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = BUL_four_year_plan
+		icon = unknown
+		text = BUL_four_year_plan
+		prerequisite = { focus =BUL_develop_cities  }
+		prerequisite = {focus =BUL_develop_countryside }
+		x = -1
+		y = 1
+		relative_position_id = BUL_develop_cities
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				bonus = 1.5
+				uses = 2
+			}
+		}
+	}
+
+	
+
+
+
+	focus = {
+		id = BUL_ultranationalism
 		icon = GFX_goal_support_fascism
-		text = BUL_SUCCUMB_TO_THE_LEGIONARES
+		text = BUL_ultranationalism
 		prerequisite = { focus = BUL_ETHNIC_CLEANSING }
 		#mutually_exclusive = { focus = BUL_STICK_WITH_TSAR }
 		x = -2
@@ -540,13 +1154,41 @@ focus_tree = {
 	}
 
 	focus = {
+		id = BUL_storm_the_palace
+		icon = GFX_goal_support_fascism
+		text = BUL_storm_the_palace
+		prerequisite = { focus = BUL_ultranationalism }
+		#mutually_exclusive = { focus = BUL_STICK_WITH_TSAR }
+		x = 0
+		y = 1
+		relative_position_id = BUL_ultranationalism
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_popularity =  {
+				ideology = fascism
+				popularity = 0.15
+			}
+			set_politics = {
+				ruling_party = fascism
+			}
+		}
+	}
+
+	focus = {
 		id = BUL_ADOPT_CORPORATIST_IDEALS
-		icon = GFX_focus_rom_handle_king
+		icon = GFX_goal_generic_positive_trade_relations
 		text = BUL_ADOPT_CORPORATIST_IDEALS
-		prerequisite = { focus = BUL_SUCCUMB_TO_THE_LEGIONARES }
+		prerequisite = { focus = BUL_storm_the_palace }
 		x = -1
 		y = 1
-		relative_position_id = BUL_SUCCUMB_TO_THE_LEGIONARES
+		relative_position_id = BUL_storm_the_palace
 		cost = 10
 		ai_will_do = {
 			factor = 20
@@ -570,10 +1212,10 @@ focus_tree = {
 		id = BUL_MARTIAL_LAW
 		icon = GFX_focus_spr_crush_the_revolution
 		text = BUL_MARTIAL_LAW
-		prerequisite = { focus = BUL_SUCCUMB_TO_THE_LEGIONARES }
+		prerequisite = { focus = BUL_storm_the_palace }
 		x = 1
 		y = 1
-		relative_position_id = BUL_SUCCUMB_TO_THE_LEGIONARES
+		relative_position_id = BUL_storm_the_palace
 		cost = 10
 		ai_will_do = {
 			factor = 20
@@ -600,9 +1242,7 @@ focus_tree = {
 			add_ideas = {
 				Secret_Police
 			}
-			set_politics = {
-				ruling_party = fascism
-			}
+			
 		}
 	}
 
@@ -631,12 +1271,203 @@ focus_tree = {
 	}
 
 	focus = {
+		id = BUL_rouse_the_bulgarian_youth
+		icon = unknown
+		text = BUL_rouse_the_bulgarian_youth
+		prerequisite = { focus =BUL_FASCIST_FUTURE }
+		prerequisite = {focus = BUL_MARTIAL_LAW}
+		x = 1
+		y = 1
+		relative_position_id = BUL_FASCIST_FUTURE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_secret_police
+		icon = unknown
+		text = BUL_secret_police
+		prerequisite = { focus = BUL_rouse_the_bulgarian_youth}
+		x = 1
+		y = 2
+		relative_position_id = BUL_rouse_the_bulgarian_youth
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_our_brothers_in_italy
+		icon = unknown
+		text = BUL_our_brothers_in_italy
+		prerequisite = { focus = BUL_secret_police}
+		x = -1
+		y = 1
+		relative_position_id = BUL_secret_police
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_go_our_own_way
+		icon = unknown
+		text = BUL_go_our_own_way
+		prerequisite = { focus = BUL_secret_police}
+		x = 1
+		y = 1
+		relative_position_id = BUL_secret_police
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = BUL_new_economic_policy
+		icon = unknown
+		text = BUL_new_economic_policy
+		prerequisite = { focus =BUL_FASCIST_FUTURE }
+		prerequisite = { focus = BUL_ADOPT_CORPORATIST_IDEALS }
+		x = -1
+		y = 1
+		relative_position_id = BUL_FASCIST_FUTURE
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_worker_propoganda_campaign
+		icon = unknown
+		text = BUL_worker_propoganda_campaign
+		prerequisite = { focus = BUL_new_economic_policy}
+		x = 0
+		y = 2
+		relative_position_id = BUL_new_economic_policy
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_moblization_efforts
+		icon = unknown
+		text = BUL_moblization_efforts
+		prerequisite = { focus = BUL_new_economic_policy }
+		x = -2
+		y = 1
+		relative_position_id = BUL_new_economic_policy
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_arm_the_bulgarska_nardona_armiya
+		icon = unknown
+		text = BUL_arm_the_bulgarska_nardona_armiya
+		prerequisite = { focus = BUL_moblization_efforts }
+		x = 0
+		y = 1
+		relative_position_id = BUL_moblization_efforts
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = BUL_war_economy
+		icon = unknown
+		text = BUL_war_economy
+		prerequisite = { focus = BUL_arm_the_bulgarska_nardona_armiya  }
+		prerequisite = {focus = BUL_worker_propoganda_campaign}
+		x = 1
+		y = 1
+		relative_position_id = BUL_arm_the_bulgarska_nardona_armiya
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
 	  id = BUL_CRUSH_MACEDONIA
 	  icon = GFX_focus_generic_little_entente
 	  text = BUL_CRUSH_MACEDONIA
 	  prerequisite = { focus = BUL_TSARS_POWER }
 		prerequisite = { focus = BUL_ETHNIC_CLEANSING }
-	  x = -5
+	  x = -6
 	  y = 1
 	  relative_position_id = BUL_TSARS_POWER
 	  cost = 10
@@ -759,36 +1590,15 @@ focus_tree = {
 	  }
 	}
 
-	focus = {
-		id = BUL_REINTEGRATE_TERRITORIES
-		icon = GFX_Greater_Bulgaria
-		text = BUL_REINTEGRATE_TERRITORIES
-		#prerequisite = { focus = BUL_TSARS_POWER }
-		x = 1
-		y = 4
-		relative_position_id = BUL_TSARS_POWER
-		cost = 10
-		ai_will_do = {
-			factor = 20
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_war_support = 0.1
-		}
-	}
 
 	focus = {
 		id = BUL_BALKAN_DOMINANCE
 		icon = GFX_goal_generic_major_war
 		text = BUL_BALKAN_DOMINANCE
-		prerequisite = { focus = BUL_REINTEGRATE_TERRITORIES }
 		prerequisite = { focus = BUL_IRON_FIST }
-		x = -4
+		x = 0
 		y = 1
-		relative_position_id = BUL_REINTEGRATE_TERRITORIES
+		relative_position_id = BUL_IRON_FIST
 		cost = 10
 		ai_will_do = {
 			factor = 200
@@ -943,12 +1753,11 @@ focus_tree = {
 	  id = BUL_MAKE_ALLIANCES
 	  icon = GFX_goal_generic_alliance
 	  text = BUL_MAKE_ALLIANCES
-	  prerequisite = { focus = BUL_REINTEGRATE_TERRITORIES }
 		prerequisite = { focus = BUL_UNITED_BULGARIA }
-	  x = 4
+	  x = 0
 	  y = 1
-	  relative_position_id = BUL_REINTEGRATE_TERRITORIES
-	  mutually_exclusive = {focus = BUL_BALKAN_DOMINANCE}
+	  relative_position_id = BUL_UNITED_BULGARIA
+	  #mutually_exclusive = {focus = BUL_BALKAN_DOMINANCE}
 	  cost = 10
 	  ai_will_do = {
 	    factor = 10
@@ -979,7 +1788,7 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    GRE = {country_event = bulgariaevents17 hours = 3}
+	    GRE = {country_event = bulgariaevents.17 hours = 3}
 	  }
 	}
 
@@ -1000,7 +1809,7 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    YUG = {country_event = bulgariaevents17 hours = 3}
+	    YUG = {country_event = bulgariaevents.17 hours = 3}
 	  }
 	}
 
@@ -1021,7 +1830,7 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    ROM = {country_event = bulgariaevents17 hours = 3}
+	    ROM = {country_event = bulgariaevents.17 hours = 3}
 	  }
 	}
 
@@ -1042,7 +1851,7 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    TUR = {country_event = {id = bulgariaevents5432}}
+	    TUR = {country_event = {id = bulgariaevents.5432}}
 	  }
 	}
 
@@ -1051,7 +1860,8 @@ focus_tree = {
 	  icon = GFX_Diplo_Russia
 	  text = BUL_RUSSIAN_PROTECTION
 	  prerequisite = { focus = BUL_PEACE_WITH_TURKS focus = BUL_INVITE_ROMANIA }
-	  x = 1
+	  prerequisite = {focus = BUL_trade_with_russia}
+	  x = -1
 	  y = 1
 	  relative_position_id = BUL_PEACE_WITH_TURKS
 	  cost = 10
@@ -1063,7 +1873,7 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    SOV = {country_event = {id = bulgariaevents69}}
+	    SOV = {country_event = {id = bulgariaevents.69}}
 	  }
 	}
 
@@ -1072,7 +1882,7 @@ focus_tree = {
 	  icon = GFX_Bulgarian_Expansion
 	  text = BUL_BULGARIA_ASCENDANT
 	  prerequisite = { focus = BUL_RUSSIAN_PROTECTION focus = BUL_MASTERS_OF_THE_BALKANS }
-	  x = -4
+	  x = -7
 	  y = 1
 	  relative_position_id = BUL_RUSSIAN_PROTECTION
 	  cost = 10
@@ -1088,387 +1898,6 @@ focus_tree = {
 	  }
 	}
 
-	focus = {
-		id = BUL_BUILD_INDUSTRY
-		icon = GFX_goal_generic_construction
-		text = BUL_BOOST_ECONOMY
-		#prerequisite = { focus = ITA_industrial_effort_2 }
-		x = 0
-		y = 0
-		#relative_position_id = ITA_industrial_effort_2
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 0.5
-				uses = 2
-				category = industry
-			}
-		}
-	}
-
-	focus = {
-		id = BUL_DEV_SOFIA_SCHEME
-		icon = GFX_goal_generic_construction2
-		text = BUL_DEV_SOFIA_SCHEME
-		prerequisite = { focus = BUL_BUILD_INDUSTRY }
-		x = 0
-		y = 1
-		relative_position_id = BUL_BUILD_INDUSTRY
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			48 = {
-								add_building_construction = {
-										type = industrial_complex
-										level = 2
-										instant_build = yes
-
-								}
-								add_extra_state_shared_building_slots = 2
-					}
-			}
-	}
-
-	focus = {
-		id = BUL_DEV_BULGARIA
-		icon = GFX_goal_generic_construct_civilian
-		text = BUL_DEV_BULGARIA
-		prerequisite = { focus = BUL_DEV_SOFIA_SCHEME }
-		x = -4
-		y = 1
-		relative_position_id = BUL_DEV_SOFIA_SCHEME
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_research_slot = 1
-		 }
-	}
-
-	focus = {
-		id = BUL_DEV_TERRITORIES
-		icon = GFX_goal_generic_construct_civilian
-		text = BUL_DEV_TERRITORIES
-		prerequisite = { focus = BUL_DEV_SOFIA_SCHEME }
-		x = 4
-		y = 1
-		relative_position_id = BUL_DEV_SOFIA_SCHEME
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_tech_bonus {
-				bonus = 1
-				uses = 1
-				category = excavation_tech
-			}
-		}
-	}
-
-
-	focus = {
-		id = BUL_DEV_PLOVDIV
-		icon = GFX_focus_generic_industry_1
-		text = BUL_DEV_PLOVDIV
-		prerequisite = { focus = BUL_DEV_BULGARIA }
-		x = -2
-		y = 1
-		relative_position_id = BUL_DEV_BULGARIA
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			212 = {
-								add_building_construction = {
-										type = industrial_complex
-										level = 2
-										instant_build = yes
-
-								}
-								add_extra_state_shared_building_slots = 2
-			}
-		 }
-	}
-
-	focus = {
-		id = BUL_DEV_BURGAS
-		icon = GFX_focus_generic_industry_2
-		text = BUL_DEV_BURGAS
-		prerequisite = { focus = BUL_DEV_BULGARIA }
-		x = 2
-		y = 1
-		relative_position_id = BUL_DEV_BULGARIA
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			211 = {
-								add_building_construction = {
-										type = industrial_complex
-										level = 2
-										instant_build = yes
-
-								}
-								add_extra_state_shared_building_slots = 2
-			}
-
-		 }
-	}
-
-	focus = {
-		id = BUL_DEV_WEST_BULGARIA
-		icon = GFX_focus_generic_industry_3
-		text = BUL_DEV_WEST_BULGARIA
-		prerequisite = { focus = BUL_DEV_BULGARIA }
-		x = 0
-		y = 1
-		relative_position_id = BUL_DEV_BULGARIA
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			48 = {
-								add_building_construction = {
-										type = industrial_complex
-										level = 1
-										instant_build = yes
-
-								}
-								add_extra_state_shared_building_slots = 1
-			}
-
-		 }
-	}
-
-	focus = {
-		id = BUL_STRONG_BULGARIA
-		icon = GFX_goal_generic_construction
-		text = BUL_STRONG_BULGARIA
-		prerequisite = { focus = BUL_DEV_PLOVDIV }
-		prerequisite = { focus = BUL_DEV_BURGAS }
-		prerequisite = { focus = BUL_DEV_WEST_BULGARIA }
-		x = 0
-		y = 1
-		relative_position_id = BUL_DEV_WEST_BULGARIA
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			every_state = {
-										limit = {
-												AND = {
-														is_core_of = BUL
-
-												}
-										}
-										add_state_modifier = {
-												modifier = {
-														production_factory_max_efficiency_factor = 0.1
-														production_speed_industrial_complex_factor = 0.15
-												}
-										}
-								}
-						}
-		}
-
-	focus = {
-		id = BUL_DEV_MACEDONIA
-		icon = GFX_focus_generic_industry_1
-		text = BUL_DEV_MACEDONIA
-		prerequisite = { focus = BUL_DEV_TERRITORIES }
-		x = -2
-		y = 1
-		relative_position_id = BUL_DEV_TERRITORIES
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-		bypass = {
-			NOT = {
-				owns_state = 106
-			}
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			106 = {
-								add_building_construction = {
-										type = industrial_complex
-										level = 2
-										instant_build = yes
-
-								}
-								add_extra_state_shared_building_slots = 2
-			}
-		 }
-	}
-	focus = {
-		id = BUL_DEV_DOBRUDJA
-		icon = GFX_focus_generic_industry_2
-		text = BUL_DEV_DOBRUDJA
-		prerequisite = { focus = BUL_DEV_TERRITORIES }
-		x = 0
-		y = 1
-		relative_position_id = BUL_DEV_TERRITORIES
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			77 = {
-								add_building_construction = {
-										type = industrial_complex
-										level = 2
-										instant_build = yes
-
-								}
-								add_extra_state_shared_building_slots = 2
-			}
-		 }
-	}
-	focus = {
-		id = BUL_DEV_THRACE
-		icon = GFX_focus_generic_industry_3
-		text = BUL_DEV_THRACE
-		prerequisite = { focus = BUL_DEV_TERRITORIES }
-		x = 2
-		y = 1
-		relative_position_id = BUL_DEV_TERRITORIES
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-		bypass = {
-			NOT = {
-				owns_state = 184
-			}
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			184 = {
-								add_building_construction = {
-										type = industrial_complex
-										level = 1
-										instant_build = yes
-
-								}
-								add_extra_state_shared_building_slots = 1
-			}
-		 }
-	}
-
-	focus = {
-		id = BUL_STRONG_TERRITORIES
-		icon = GFX_goal_generic_production
-		text = BUL_STRONG_TERRITORIES
-		prerequisite = { focus = BUL_DEV_MACEDONIA }
-		prerequisite = { focus = BUL_DEV_DOBRUDJA }
-		prerequisite = { focus = BUL_DEV_THRACE }
-		x = 0
-		y = 1
-		relative_position_id = BUL_DEV_DOBRUDJA
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			every_state = {
-										limit = {
-												is_core_of = BUL
-										}
-										add_state_modifier = {
-												modifier = {
-														local_resources_factor = 0.2
-														production_oil_factor = 0.15
-														production_speed_infrastructure_factor = 0.25
-												}
-										}
-								}
-						}
-		}
-
-	focus = {
-		id = BUL_FOR_THE_TSAR
-		icon = GFX_goal_generic_construct_civ_factory
-		text = BUL_FOR_THE_TSAR
-		prerequisite = { focus = BUL_STRONG_BULGARIA }
-		prerequisite = { focus = BUL_STRONG_TERRITORIES }
-		x = -4
-		y = 1
-		relative_position_id = BUL_STRONG_TERRITORIES
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_idea = {
-				Booming_Economy
-			}
-			remove_ideas = {
-				Agrarianism
-			}
-		 }
-	}
 
 
 
@@ -1481,7 +1910,7 @@ focus_tree = {
 		icon = GFX_goal_generic_axis_build_infantry
 		text = BUL_BULGARIAN_ARMY
 		#prerequisite = { focus = ITA_industrial_effort_2 }
-		x = 19
+		x = 12
 		y = 0
 		relative_position_id = BUL_REVERSE_FERDINAND_REFORMS
 		cost = 10
