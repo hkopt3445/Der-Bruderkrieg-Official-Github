@@ -13,14 +13,35 @@ focus_tree = {
 
 continuous_focus_position = { x = 5000, y = 2000 }
 
+focus = {
+    id = GPU_state_of_the_confederation
+    icon = unkown
+    #prerequisite = { focus = ITA_industrial_effort_2 }
+	mutually_exclusive = { focus = GPU_ASSERT }
+    x = 25
+    y = 0
+    relative_position_id = GFX_focus_generic_industry_1
+    cost = 10
+    ai_will_do = {
+      factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward = {
+
+	}
+}
+
 	focus = {
     id = GPU_COMPLIANCE
     icon = GFX_goal_diplo_austria
-    #prerequisite = { focus = ITA_industrial_effort_2 }
+    prerequisite = { focus = GPU_state_of_the_confederation }
 	mutually_exclusive = { focus = GPU_ASSERT }
-    x = 12
-    y = 0
-    relative_position_id = GFX_focus_generic_industry_1
+    x = -10
+    y = 1
+    relative_position_id = GPU_state_of_the_confederation
     cost = 10
     ai_will_do = {
       factor = 1
@@ -81,7 +102,7 @@ continuous_focus_position = { x = 5000, y = 2000 }
   }
 
   focus = {
-    id = GPU_ELECTION
+    id = GPU_continue_the_dual_system
     icon = GFX_goal_support_democracy
     prerequisite = { focus = GPU_COMPLIANCE }
 	mutually_exclusive = { focus = GPU_STATUS_QUO }
@@ -193,11 +214,11 @@ continuous_focus_position = { x = 5000, y = 2000 }
   focus = {
     id = GPU_ASSERT
     icon = GFX_focus_generic_support_the_left_right
-    #prerequisite = { focus =  }
+    prerequisite = { focus =  GPU_state_of_the_confederation}
 	mutually_exclusive = { focus = GPU_COMPLIANCE }
-    x = 10
-    y = 0
-    relative_position_id = GPU_COMPLIANCE
+    x = 8
+    y = 1
+    relative_position_id = GPU_state_of_the_confederation
     cost = 10
     ai_will_do = {
       factor = 20
@@ -493,10 +514,10 @@ continuous_focus_position = { x = 5000, y = 2000 }
     id = GPU_BUILD_INDUSTRY
     icon = GFX_goal_generic_construction
     text = GPU_BOOST_ECONOMY
-    #prerequisite = { focus = ITA_industrial_effort_2 }
-    x = 0
-    y = 0
-    #relative_position_id = ITA_industrial_effort_2
+    prerequisite = { focus = GPU_state_of_the_confederation }
+    x = 2
+    y = 1
+    relative_position_id = GPU_state_of_the_confederation
     cost = 10
     ai_will_do = {
       factor = 1
@@ -819,7 +840,7 @@ continuous_focus_position = { x = 5000, y = 2000 }
 	  icon = GFX_goal_generic_axis_build_infantry
 	  text = GPU_ARMY
 	  #prerequisite = { focus = ITA_industrial_effort_2 }
-	  x = 0
+	  x = -10
 	  y = 6
 	  relative_position_id = GPU_COMPLIANCE
 	  cost = 10
@@ -1225,8 +1246,9 @@ continuous_focus_position = { x = 5000, y = 2000 }
 		focus = {
 			id = GPU_recover_from_black_monday
 			icon = GFX_goal_generic_construction
-			x = 6
-			y = 0
+			prerequisite = {focus = GPU_state_of_the_confederation}
+			x = -3
+			y = 1
 			cost = 7
 
 			ai_will_do = {
@@ -1235,7 +1257,7 @@ continuous_focus_position = { x = 5000, y = 2000 }
 			available = {
 				has_country_flag = stocks_crash
 			}
-			relative_position_id = GPU_BUILD_INDUSTRY
+			relative_position_id = GPU_state_of_the_confederation
 
 			available_if_capitulated = yes
 			search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
@@ -1389,7 +1411,7 @@ continuous_focus_position = { x = 5000, y = 2000 }
 
 			ai_will_do = {
 				factor = 10
-			}
+			} 
 			search_filters = { FOCUS_FILTER_INDUSTRY }
 
 			completion_reward = {

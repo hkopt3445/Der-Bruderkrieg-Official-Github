@@ -774,6 +774,7 @@ focus_tree = {
 		icon = unkown
 		text = BUL_switching_sides
 		prerequisite = { focus = BUL_enforce_boris_foriegn_policy }
+		mutually_exclusive = {focus = BUL_reconcile_russia}
 		x = 1
 		y = 1
 		relative_position_id = BUL_enforce_boris_foriegn_policy
@@ -1202,9 +1203,7 @@ focus_tree = {
 				Bulgarian_Corporatism
 			}
 
-			remove_ideas = {
-				Agrarianism
-			}
+			
 		}
 	}
 
@@ -1882,6 +1881,7 @@ focus_tree = {
 	  icon = GFX_Bulgarian_Expansion
 	  text = BUL_BULGARIA_ASCENDANT
 	  prerequisite = { focus = BUL_RUSSIAN_PROTECTION focus = BUL_MASTERS_OF_THE_BALKANS }
+	  prerequisite = {focus = BUL_four_year_plan focus = BUL_bulgarian_miners_commission}
 	  x = -7
 	  y = 1
 	  relative_position_id = BUL_RUSSIAN_PROTECTION
@@ -1894,7 +1894,11 @@ focus_tree = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    add_political_power = 200
+		add_political_power = 200
+		
+		remove_ideas = {
+			Agrarianism
+		}
 	  }
 	}
 
