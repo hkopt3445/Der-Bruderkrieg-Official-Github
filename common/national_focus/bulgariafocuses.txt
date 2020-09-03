@@ -30,7 +30,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
-		  
+		  add_political_power = 100
 		}
 	  }
 
@@ -442,7 +442,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
   
 		completion_reward = {
-			
+			add_ideas = BUL_pro_trade_policy_idea
 		}
 	  }
 
@@ -463,7 +463,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
   
 		completion_reward = {
-			add_war_support = 0.1
+			
 		}
 	  }
 
@@ -702,7 +702,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_political_power = 150
+			add_war_support = 0.1
 		}
 	}
 
@@ -723,7 +724,16 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_opnion_modifier = {
+				target = SOV
+				modifier = medium_increase
+			}
+			SOV = {
+				add_opnion_modifier = {
+					target = BUL
+					modifier = medium_increase
+				}
+			}
 		}
 	}
 
@@ -744,7 +754,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			create_faction = BUL_moscow_pact_faction
 		}
 	}
 
@@ -765,7 +775,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_ideas = BUL_russian_generals
 		}
 	}
 
@@ -787,7 +797,16 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_opnion_modifier = {
+				target = AUS
+				modifier = medium_increase
+			}
+			AUS = {
+				add_opnion_modifier = {
+					target = BUL
+					modifier = medium_increase
+				}
+			}
 		}
 	}
 
@@ -808,7 +827,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			AUS = {country_event = generic.2}
 		}
 	}
 
@@ -829,7 +848,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_ideas = BUL_austrian_tanks
 		}
 	}
 
@@ -853,7 +872,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_ideas = BUL_economic_dev_scheme
+			swap_ideas = {
+				add_idea = BUL_government_infrastructure_projects_idea_2
+				remove_idea = BUL_government_infrastructure_projects_idea
+			}
 		}
 	}
 
@@ -1167,6 +1189,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 20
 		}
+		available = {
+			fascism > 0.4
+		}
 
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1287,7 +1312,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_ideas = BUL_bulgarian_youth
 		}
 	}
 
@@ -1308,7 +1333,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_ideas = Secret_Police
 		}
 	}
 
@@ -1329,7 +1354,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			create_faction = BUL_fascist_pact
+			ITA = {country_event = bulgaria.17}
 		}
 	}
 
@@ -1350,7 +1376,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			create_faction = BUL_greater_bulgaria
 		}
 	}
 	focus = {
@@ -1371,7 +1397,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			swap_ideas = {
+				add_idea = Bulgarian_Corporatism_2
+				remove_idea = Bulgarian_Corporatism
+			}
 		}
 	}
 
@@ -1392,7 +1421,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			swap_ideas = {
+				add_idea = Bulgarian_Corporatism_3
+				remove_idea = Bulgarian_Corporatism_2
+			}
 		}
 	}
 
@@ -1413,7 +1445,16 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_manpower = 20000
+			add_war_support = 0.05
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					instant_build = yes
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 
@@ -1434,7 +1475,30 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					instant_build = yes
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					instant_build = yes
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					instant_build = yes
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 
@@ -1456,7 +1520,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			add_ideas = war_economy
 		}
 	}
 

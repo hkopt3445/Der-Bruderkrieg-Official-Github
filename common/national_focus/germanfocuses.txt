@@ -804,6 +804,10 @@ add_idea = GER_Nation_At_Arms
 				ideology = neutrality
 				popularity = 0.4
 			}
+
+			set_politics = {
+				ruling_party = neutrality
+			}
 	  }
 	}
 
@@ -930,14 +934,29 @@ add_idea = GER_Nation_At_Arms
 	    factor = 1
 	  }
 	  completion_reward = {
-	    ###wilhelm the 3rd
+		###wilhelm the 3rd
+		
+			set_temp_variable = {neu_pop = party_popularity@ruling_party}
+
+			add_popularity = {
+				popularity = neu_pop
+				ideology = constitutional_monarchy
+			}
+
+			set_temp_variable = {sub_neu_pop = party_popularity@ruling_party}
+			multiply_temp_variable = {sub_neu_pop = -1}
+
+			add_popularity = {
+				popularity = sub_neu_pop
+				ideology = neutrality
+			}
 
 			create_country_leader = {
 				name = "Wilhelm the 3rd"
 				desc = "POLITICS_ADOLF_HITLER_DESC"
 				picture = "gfx/leaders/Wilhelm_III_Portrait.dds"
 				expire = "1965.1.1"
-				ideology = monarchy_ideology
+				ideology = conservative_con_mon
 				traits = {
 
 				}
