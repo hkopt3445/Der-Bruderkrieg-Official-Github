@@ -23,6 +23,8 @@ country_event = {
 	option = {
 		name = aus.b.1
 		ai_chance = { factor = 100 }
+
+		news_event = {id = austria.147 hours = 3}
 		
 		953 = {
 			add_core_of = HUN
@@ -276,13 +278,13 @@ country_event = {
 	
 }
 
-news_event = {
+country_event = {
 	id = austria.2
 	title = austria.2.t
 	desc = austria.2.d
 	picture = GFX_report_event_czech_soldiers_02
 	is_triggered_only = yes
-	major = yes
+	
 
 	trigger = {
 		tag = AUS
@@ -290,20 +292,22 @@ news_event = {
 			has_completed_focus = AUS_BAN_CZECHS
 		}
 	}
+	
 
 
 	option = {
 		name = aus.b.2
+		news_event = {id = austria.148 hours = 3}
 	}
 }
 
-news_event = {
+country_event = {
 	id = austria.3
 	title = austria.3.t
 	desc = austria.3.d
 	picture = GFX_report_event_spr_italian_volunteers
 	is_triggered_only = yes
-	major = yes
+	
 
 	trigger = {
 		tag = AUS
@@ -315,24 +319,9 @@ news_event = {
 
 	option = {
 		name = aus.b.3
-		if = {
-			limit = {
-				original_tag = ITA
-				AND {
-					has_stability > 75
-					is_ai = true
-					has_manpower > 400000
-				}
-			}
-			ITA = {
-				declare_war_on = {
-					target = AUS
-					type = annex_everything
-				}
-			}
+		news_event = {id = austria.149 hours = 3}
 		}
-		}
-	}
+}
 
 news_event = {
 	id = austria.666
@@ -1846,4 +1835,58 @@ country_event = {
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 
 	}
+}
+
+news_event = {
+	id = austria.147
+	title = austria.147.t
+	desc = austria.147.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austria.147.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+news_event = {
+	id = austria.148
+	title = austria.148.t
+	desc = austria.148.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austria.148.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+news_event = {
+	id = austria.149
+	title = austria.149.t
+	desc = austria.149.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austria.149.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
 }

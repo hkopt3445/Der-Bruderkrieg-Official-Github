@@ -846,11 +846,22 @@ country_event = {
 		name = italy.522.a #needs to be localized
 		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
 		news_event = {id = italy.523}
+		every_state = {
+			limit = {
+				any_neighbor_state = {
+					is_owned_by = CMI
+				}
+			}
+			add_to_array = {
+				array = ITA_place_army_states
+				value = THIS
+			}
+		}
 		teleport_armies = {
 			limit = {
 				tag = ITA
 			}
-			to_state_array = owned_controlled_states
+			to_state_array = ITA_place_army_states
 		}
 
 		declare_war_on = {
