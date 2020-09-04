@@ -64,7 +64,7 @@
 			}
 
 			hidden_effect = {
-				add_to_variable = {ITA_mafia_var = 1}
+				country_event = italymafia.1
 			}
 	  }
 	}
@@ -91,7 +91,11 @@
 				remove_idea = ITA_mafia_idea_2
 			}
 			hidden_effect = {
-				add_to_variable = {ITA_mafia_var = 1}
+				random_events = {
+					50 = italymafia.1
+					100 = italymafia.2
+				}
+				country_event = {id = italymafia.3 days = 5}
 			}
 	  }
 	}
@@ -118,7 +122,13 @@
 				remove_idea = ITA_mafia_idea_3
 			}
 			hidden_effect = {
-				add_to_variable = {ITA_mafia_var = 1}
+				hidden_effect = {
+					random_events = {
+						50 = italymafia.3
+						100 = italymafia.4
+					}
+					country_event = {id = italymafia.5 days = 5}
+				}
 			}
 	  }
 	}
@@ -144,7 +154,13 @@
 			add_stability = 0.1
 
 			hidden_effect = {
-				add_to_variable = {ITA_mafia_var = 1}
+				random_events = {
+					50 = italymafia.6
+					10 = italymafia.1
+				}
+				country_event = {id = italymafia.7 days = 5}
+				
+				
 			}
 	  }
 	}
@@ -476,7 +492,19 @@
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = {161 l60}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
 
+			add_stability = 0.1
+			
 	  }
 	}
 
@@ -497,7 +525,26 @@
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-
+		random_owned_controlled_state = {
+			prioritize = {161 l60}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			
+		}
+		random_owned_controlled_state = {
+			prioritize = {161 l60}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			
+		}
 	  }
 	}
 
@@ -518,7 +565,32 @@
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-
+		random_owned_controlled_state = {
+			prioritize = {161 l60}
+			limit = {
+				has_state_category = city
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			
+		}
+		random_owned_controlled_state = {
+			prioritize = {161 l60}
+			limit = {
+				has_state_category = city
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			
+		}
 	  }
 	}
 
@@ -539,14 +611,26 @@
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-
+		random_owned_controlled_state = {
+			prioritize = {161 l60}
+			limit = {
+				has_state_category = rural
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			
+		}
 	  }
 	}
 
 	focus = {
-	  id = ITA_HANDOUTS_SOUTHERNERS
+	  id = ITA_naples_university
 	  icon = GFX_goal_generic_construction
-	  text = ITA_HANDOUTS_SOUTHERNERS
+	  text = ITA_naples_university
 	  prerequisite = { focus = ITA_INDUSTRIALIZE_COUNTRYSIDE }
 	  prerequisite = {focus = ITA_BUILD_CITIES}
 	  x = 0
@@ -561,7 +645,7 @@
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-
+		add_research_slot = 1
 	  }
 	}
 
@@ -584,7 +668,10 @@
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-
+			swap_ideas = {
+				add_idea = Southern_Problem_2
+				remove_idea = Southern_Problem
+			}
 	  }
 	}
 
@@ -593,7 +680,7 @@
 	  icon = GFX_goal_generic_construction
 	  text = ITA_SOUTH_REJUVANATED
 	  prerequisite = { focus = ITA_CATHOLIC_CHARITY_WORK }
-	  prerequisite = {focus = ITA_HANDOUTS_SOUTHERNERS}
+	  prerequisite = {focus = ITA_naples_university}
 	  x = -1
 	  y = 1
 	  relative_position_id = ITA_CATHOLIC_CHARITY_WORK
@@ -606,7 +693,7 @@
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-
+			remove_ideas = Southern_Problem_2
 	  }
 	}
 
@@ -1259,7 +1346,7 @@
 			}
 		}
 	}
-
+ 
 	focus = {
 		id = ITA_naval_research_facility
 		icon = GFX_goal_continuous_research

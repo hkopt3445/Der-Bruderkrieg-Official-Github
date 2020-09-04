@@ -72,6 +72,8 @@ focus_tree = {
 	focus = {
 		id = GER_the_reichsmarshalls_prussia
 		icon = GFX_GER_the_reichsmarshalls_prussia-39039
+		mutually_exclusive = {focus = GER_spartakus_triumphant}
+		mutually_exclusive = {focus = GER_royalist_coup}
 		x = -48
 		y = 0
 		cost = 5
@@ -83,7 +85,7 @@ focus_tree = {
 			always = no
 		}
 
-		completion_reward = {
+		completion_reward = { 
 			add_political_power = 100
 		}
 	}
@@ -468,6 +470,7 @@ add_idea = GER_Nation_At_Arms
 	  cost = 1
 	  available_if_capitulated = yes
 	  mutually_exclusive = { focus = GER_monarchist_coup }
+	  mutually_exclusive = {focus = GER_the_reichsmarshalls_prussia}
 	  ai_will_do = {
 	    factor = 1
 	  }
@@ -477,10 +480,13 @@ add_idea = GER_Nation_At_Arms
  		 always = no
  	 }
 	  completion_reward = {
-		add_popularity = {
- ideology = communism
- popularity = 0.35
-}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.35
+			}
+			set_politics = {
+				ruling_party = communism
+			}
 	  }
 	}
 
@@ -503,7 +509,16 @@ add_idea = GER_Nation_At_Arms
 	 ###create PIECK
 	}
 
-	custom_effect_tooltip = UBRICHT_COMES_IN_POWER
+	create_country_leader = {
+		name = "Wilhelm Pieck"
+		desc = "POLITICS_WILHELM_PIECK_DESC"
+		picture = "Portrait_Germany_Wilhelm_Pieck.dds"
+		expire = "1965.1.1"
+		ideology = stalinism
+		traits = {
+			dictator
+		}
+	}
 	  }
 	}
 
@@ -789,6 +804,7 @@ add_idea = GER_Nation_At_Arms
 	  cost = 5
 	  available_if_capitulated = yes
 	  mutually_exclusive = { focus = GER_spartakus_triumphant }
+	  mutually_exclusive = {focus = GER_the_reichsmarshalls_prussia}
 	  ai_will_do = {
 	    factor = 1
 	  }
@@ -951,6 +967,10 @@ add_idea = GER_Nation_At_Arms
 				ideology = neutrality
 			}
 
+			set_politics = {
+				ruling_party = constitutional_monarchy
+			}
+
 			create_country_leader = {
 				name = "Wilhelm the 3rd"
 				desc = "POLITICS_ADOLF_HITLER_DESC"
@@ -978,6 +998,26 @@ add_idea = GER_Nation_At_Arms
 	    factor = 1
 	  }
 		completion_reward = {
+
+		set_temp_variable = {neu_pop = party_popularity@ruling_party}
+
+		add_popularity = {
+			popularity = neu_pop
+			ideology = monarchy
+		}
+
+		set_temp_variable = {sub_neu_pop = party_popularity@ruling_party}
+		multiply_temp_variable = {sub_neu_pop = -1}
+
+		add_popularity = {
+			popularity = sub_neu_pop
+			ideology = neutrality
+		}
+
+		set_politics = {
+			ruling_party = monarchy
+		}
+
 		create_country_leader = {
 			name = "Wilhelm the 2nd"
 			desc = "POLITICS_ADOLF_HITLER_DESC"
@@ -1009,6 +1049,7 @@ add_idea = GER_Nation_At_Arms
 	 ideology = communism
 	 popularity = 0.12
 	}
+	
 	  }
 	}
 
@@ -3793,7 +3834,7 @@ add_idea = GER_Nation_At_Arms
 			#Focus for An Alternative
 			focus = {
 				id = GER_an_alternative
-				icon = GFX_goal_unknown
+				icon = 
 				x = 31
 				y = 1
 				cost = 5
@@ -3802,6 +3843,11 @@ add_idea = GER_Nation_At_Arms
 				mutually_exclusive = { focus = GER_the_goring_doctorine }
 				ai_will_do = {
 					factor = 1
+				}
+				available = {
+					NOT = {
+						has_government = fascism
+					}
 				}
 			}
 
