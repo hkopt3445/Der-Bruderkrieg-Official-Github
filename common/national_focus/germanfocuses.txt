@@ -3834,17 +3834,22 @@ add_idea = GER_Nation_At_Arms
 			#Focus for An Alternative
 			focus = {
 				id = GER_an_alternative
-				icon = 
+				icon = unkown
 				x = 31
-				y = 1
+				y = 0
 				cost = 5
 				available_if_capitulated = yes
-				prerequisite = { focus = GER_a_new_army }
+				#prerequisite = { focus = GER_a_new_army }
 				mutually_exclusive = { focus = GER_the_goring_doctorine }
 				ai_will_do = {
 					factor = 1
 				}
 				available = {
+					NOT = {
+						has_government = fascism
+					}
+				}
+				bypass = {
 					NOT = {
 						has_government = fascism
 					}
@@ -3894,13 +3899,19 @@ add_idea = GER_Nation_At_Arms
 				id = GER_the_goring_doctorine
 				icon = GFX_goal_unknown
 				x = 13
-				y = 1
-				cost = 5
+				y = 0
+				cost = 0
 				available_if_capitulated = yes
-				prerequisite = { focus = GER_a_new_army }
+				#prerequisite = { focus = GER_a_new_army }
 				mutually_exclusive = { focus = GER_an_alternative }
 				ai_will_do = {
 					factor = 1
+				}
+				bypass = {
+					has_country_flag = riots_crushed_gorimng
+				}
+				available = {
+					has_country_flag = riots_crushed_gorimng
 				}
 			}
 
@@ -4721,18 +4732,7 @@ add_idea = GER_Nation_At_Arms
 				}
 			}
 
-			#Focus for A New Army
-			focus = {
-				id = GER_a_new_army
-				icon = GFX_focus_generic_military_mission
-				x = 22
-				y = 0
-				cost = 5
-				available_if_capitulated = yes
-				ai_will_do = {
-					factor = 1
-				}
-			}
+			
 
 			#Focus for Air Base Construction
 			focus = {
@@ -5649,7 +5649,7 @@ add_idea = GER_Nation_At_Arms
 				}
 				completion_reward = {
 					add_tech_bonus = {
-		   bonus = 1
+		   bonus = 1 
 		   uses = 1
 		   category = naval_bomber
 		}
