@@ -1,6 +1,6 @@
 shared_focus = {
   id = GPU_continue_the_rule_of_franz_ferdiannd
-  icon = GFX_goal_diplo_austria
+  icon = unkown
   #prerequisite = { focus = GPU_state_of_the_confederation_economy }
 #mutually_exclusive = { focus = GPU_ASSERT }
   x = -10
@@ -21,14 +21,510 @@ add_autonomy_score = {
   }
 } 
 
+shared_focus = {
+  id = GPU_rule_of_house_wittlebach
+  icon = unkown
+  #prerequisite = { focus = GPU_state_of_the_confederation_economy }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -22
+  y = 0
+  relative_position_id = GPU_state_of_the_confederation_economy
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+} 
+
+shared_focus = {
+  id = GPU_austrian_ally
+  icon = GFX_goal_diplo_austria
+  prerequisite = { focus = GPU_rule_of_house_wittlebach }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 4
+  y = 1
+  relative_position_id = GPU_rule_of_house_wittlebach
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+} 
+
+shared_focus = {
+  id = GPU_sever_ties_with_austria
+  icon = unkown
+  prerequisite = { focus = GPU_rule_of_house_wittlebach }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -4
+  y = 1
+  relative_position_id = GPU_rule_of_house_wittlebach
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_begin_federalism
+  icon = unkown
+  prerequisite = { focus = GPU_sever_ties_with_austria focus = GPU_austrian_ally }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 2
+  y = 1
+  relative_position_id = GPU_sever_ties_with_austria
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_draft_a_new_constitution
+  icon = unkown
+  prerequisite = { focus = GPU_begin_federalism }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_begin_federalism
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+
+shared_focus = {
+  id = GPU_talks_with_william
+  icon = unkown
+  prerequisite = { focus = GPU_begin_federalism }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 1
+  y = 1
+  relative_position_id = GPU_begin_federalism
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_split_the_confederation
+  icon = unkown
+  prerequisite = { focus = GPU_talks_with_william  }
+  prerequisite = {focus = GPU_draft_a_new_constitution focus = GPU_legacy_of_the_hre}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_talks_with_william
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+
+
+shared_focus = {
+  id = GPU_the_two_kings
+  icon = unkown
+  prerequisite = { focus = GPU_split_the_confederation }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_split_the_confederation
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+
+
+shared_focus = {
+  id = GPU_royalism
+  icon = unkown
+  prerequisite = { focus = GPU_sever_ties_with_austria focus = GPU_austrian_ally }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 6
+  y = 1
+  relative_position_id = GPU_sever_ties_with_austria
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+    
+  }
+}
+
+shared_focus = {
+  id = GPU_restart_the_ludwig_porjects
+  icon = unkown
+  prerequisite = { focus = GPU_royalism }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 2
+  y = 1
+  relative_position_id = GPU_royalism
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+    
+  }
+}
+
+shared_focus = {
+  id = GPU_water_projects
+  icon = unkown
+  prerequisite = { focus = GPU_restart_the_ludwig_porjects }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_restart_the_ludwig_porjects
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+    
+  }
+}
+
+shared_focus = {
+  id = GPU_support_agriculture
+  icon = unkown
+  prerequisite = { focus = GPU_restart_the_ludwig_porjects }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 2
+  relative_position_id = GPU_restart_the_ludwig_porjects
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+  
+  }
+}
+
+
+shared_focus = {
+  id = GPU_legacy_of_the_hre
+  icon = unkown
+  prerequisite = { focus = GPU_royalism }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_royalism
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_envoy_to_the_vatican
+  icon = unkown
+  prerequisite = { focus = GPU_legacy_of_the_hre }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_legacy_of_the_hre
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_blessed_by_the_pope
+  icon = unkown
+  prerequisite = { focus = GPU_envoy_to_the_vatican }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 2
+  relative_position_id = GPU_envoy_to_the_vatican
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_reclaim_our_lost_thrones
+  icon = unkown
+  prerequisite = { focus = GPU_royalism }
+  prerequisite = {focus = GPU_legacy_of_the_hre}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 2
+  relative_position_id = GPU_royalism
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+
+
+shared_focus = {
+  id = GPU_expand_our_confederation
+  icon = unkown
+  prerequisite = { focus = GPU_reclaim_our_lost_thrones }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_reclaim_our_lost_thrones
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_claim_the_throne_of_saxony
+  icon = unkown
+  prerequisite = { focus = GPU_expand_our_confederation }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 2
+  y = 1
+  relative_position_id = GPU_expand_our_confederation
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_ties_with_hannover
+  icon = unkown
+  prerequisite = { focus = GPU_expand_our_confederation }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_expand_our_confederation
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_reach_out_to_france
+  icon = unkown
+  prerequisite = { focus = GPU_ties_with_hannover }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_ties_with_hannover
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_westphalian_unification
+  icon = unkown
+  prerequisite = { focus = GPU_reach_out_to_france }
+  mutually_exclusive = {focus = GPU_westphalian_aggression}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_reach_out_to_france
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_westphalian_aggression
+  icon = unkown
+  prerequisite = { focus = GPU_ties_with_hannover }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -2
+  y = 2
+  relative_position_id = GPU_ties_with_hannover
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_bohemian_restoration
+  icon = unkown
+  prerequisite = { focus = GPU_claim_the_throne_of_saxony }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_claim_the_throne_of_saxony
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+
+
 
 
 shared_focus = {
   id = GPU_continue_the_dual_system
   icon = GFX_goal_support_democracy
-  prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd }
+  prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd focus = GPU_austrian_ally}
   x = -3
-  y = 1
+  y = 2
   relative_position_id = GPU_continue_the_rule_of_franz_ferdiannd
   cost = 10
   ai_will_do = {
@@ -49,12 +545,14 @@ add_political_power = 100
 
 
 
+
+
 shared_focus = {
   id = GPU_stabilitize_the_deutcher_bund
   icon = unkown
   prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd }
   x = 2
-  y = 1
+  y = 2
   relative_position_id = GPU_continue_the_rule_of_franz_ferdiannd
   cost = 10
   ai_will_do = {
@@ -1008,10 +1506,10 @@ shared_focus = {
   id = GPU_public_works
   icon = GFX_focus_generic_industry_1
   text = GPU_public_works
-  prerequisite = { focus = GPU_economic_development }
-  x = 0
+  prerequisite = { focus = GPU_expand_civilian_indutry }
+  x = 1
   y = 1
-  relative_position_id = GPU_economic_development
+  relative_position_id = GPU_expand_civilian_indutry
   cost = 10
   ai_will_do = {
     factor = 1

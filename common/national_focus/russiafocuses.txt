@@ -17,7 +17,7 @@ focus_tree = {
 		#prerequisite = { focus = ITA_industrial_effort_2 }
 		icon = GFX_goal_generic_construction
 		x = 0
-		y = 0
+		y = 0 
 		#relative_position_id = SOV_RUSSIAN_ECONOMY
 		cost = 10
 		ai_will_do = {
@@ -2017,7 +2017,7 @@ focus_tree = {
 				{
 					has_country_flag = agrarian
 				}
-				SOV = {country_event = id = { russia.201 days = 3} }
+				SOV = {country_event = {id = russia.201 days = 3} }
 			}
 		add_stability = -0.1
   }
@@ -2520,53 +2520,25 @@ focus_tree = {
 			add_political_power = 150
 		}
 	}
+	
 
-	focus = {
-		id = SOV_LOOKING_OUTWARDS
-		icon = GFX_focus_usa_focus_on_europe
-		text = SOV_LOOKING_OUTWARDS
-		#prerequisite = { focus = SOV_WORKERS_GOVERNMENT }
-		available = {
-			OR = {
-				has_completed_focus = SOV_REACTIONARY_POLITICS
-				has_completed_focus = SOV_FASCIST_POLITICS
-				has_completed_focus = SOV_KERENSKY
-				has_completed_focus = SOV_CHEMOV
-				has_completed_focus = SOV_TROTSKY
-			}
-		}
-		x = 0
-		y = 9
-		relative_position_id = SOV_CRISIS_COALITION
-		cost = 10
-		ai_will_do = {
-			factor = 20
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			set_rule = {
-				can_create_factions = yes
-			}
-		}
-	}
+	
 
 	focus = {
 		id = SOV_EXPANSIONISM
 		icon = GFX_goal_rus_expand
 		text = SOV_EXPANSIONISM
-		prerequisite = { focus = SOV_LOOKING_OUTWARDS }
+		#prerequisite = { focus = SOV_LOOKING_OUTWARDS }
+		prerequisite = {focus = SOV_OAN focus = SOV_LEGALIZE_POGROMS}
 		mutually_exclusive = {
 			AND = {
 				focus = SOV_MANTAIN_CONCERT
 				focus = SOV_DEVOLUTION
 			}
 		}
-		x = -10
+		x = 2
 		y = 1
-		relative_position_id = SOV_LOOKING_OUTWARDS
+		relative_position_id = SOV_OAN
 		cost = 10
 		ai_will_do = {
 			factor = 20
@@ -2600,7 +2572,7 @@ focus_tree = {
 			78 = {
 				add_claim_by = SOV
 				}
-			ROM = { country_event = id = { russia.69 days = 5 } }
+			ROM = { country_event = {id = russia.69 days = 5 } }
 		}
 	}
 
@@ -2768,10 +2740,10 @@ focus_tree = {
 		id = SOV_MANTAIN_CONCERT
 		icon = GFX_goal_generic_neutrality_focus
 		text = SOV_MANTAIN_CONCERT
-		prerequisite = { focus = SOV_LOOKING_OUTWARDS }
-		x = 0
+		prerequisite = { focus = SOV_ELIMINATE_CENSORSHIP focus = SOV_ELIMINATE_VIOLENCE }
+		x = -2
 		y = 1
-		relative_position_id = SOV_LOOKING_OUTWARDS
+		relative_position_id = SOV_ELIMINATE_CENSORSHIP
 		cost = 10
 		ai_will_do = {
 			factor = 20
@@ -2935,10 +2907,10 @@ focus_tree = {
 		id = SOV_DEVOLUTION
 		icon = GFX_goal_generic_major_alliance
 		text = SOV_DEVOLUTION
-		prerequisite = { focus = SOV_LOOKING_OUTWARDS }
-		x = 10
+		prerequisite = { focus = SOV_MANTAIN_CONCERT focus = SOV_VANGUARDISM }
+		x = 5
 		y = 1
-		relative_position_id = SOV_LOOKING_OUTWARDS
+		relative_position_id = SOV_MANTAIN_CONCERT
 		cost = 10
 		ai_will_do = {
 			factor = 10
@@ -2963,7 +2935,7 @@ focus_tree = {
 		icon = GFX_goal_diplo_ukraine
 		text = SOV_AUTONOMY_UKRAINE
 		prerequisite = { focus = SOV_DEVOLUTION }
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = SOV_DEVOLUTION
 		cost = 10
@@ -3005,7 +2977,7 @@ focus_tree = {
 		icon = GFX_focus_invite_finland
 		text = SOV_AUTONOMY_FINLAND
 		prerequisite = { focus = SOV_DEVOLUTION }
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = SOV_DEVOLUTION
 		cost = 10

@@ -4839,7 +4839,7 @@ add_ideas= FRA_Isolationism_2
 	  icon = GFX_goal_Prussian_Communism
 	  text = FRA_PREP_GERMAN_REV
 	  prerequisite = { focus = FRA_EUROPEAN_COMMUNISM }
-	  x = -2
+	  x = -1
 	  y = 1
 	  relative_position_id = FRA_EUROPEAN_COMMUNISM
 
@@ -4925,7 +4925,7 @@ add_ideas= FRA_Isolationism_2
 	  icon = GFX_goal_Austrian_Communism
 	  text = FRA_PREP_AUSTRIAN_REV
 	  prerequisite = { focus = FRA_EUROPEAN_COMMUNISM }
-	  x = 0
+	  x = 1
 	  y = 1
 	  relative_position_id = FRA_EUROPEAN_COMMUNISM
 
@@ -4961,7 +4961,7 @@ add_ideas= FRA_Isolationism_2
 
 	shared_focus = {
 	  id = FRA_AUSTRIAN_REVOLT
-	  #icon = GFX_focus_generic_join_comintern
+	  icon = GFX_focus_generic_join_comintern
 	  text = FRA_AUSTRIAN_REVOLT
 	  prerequisite = { focus = FRA_PREP_AUSTRIAN_REV }
 	  x = 0
@@ -5007,91 +5007,7 @@ add_ideas= FRA_Isolationism_2
 	  }
 	}
 
-	shared_focus = {
-	  id = FRA_IGNITE_BOLSHEVIKS
-	  icon = GFX_goal_Russian_Communism
-	  text = FRA_IGNITE_BOLSHEVIKS
-	  prerequisite = { focus = FRA_EUROPEAN_COMMUNISM }
-	  x = 2
-	  y = 1
-	  relative_position_id = FRA_EUROPEAN_COMMUNISM
-
-	  cost = 5
-	  ai_will_do = {
-	    factor = 20
-	  }
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SOV
-				}
-				FRA = {
-					has_war_with = SOV
-				}
-				SOV = {
-					is_in_faction_with = FRA
-				}
-				SOV = {
-					has_government = communism
-				}
-			}
-		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			SOV = { add_ideas = communist_influence}
-	  }
-	}
-
-	shared_focus = {
-	  id = FRA_SOVIETS_IN_RUSSIA
-	  icon = GFX_goal_Russian_Revolution
-	  text = FRA_SOVIETS_IN_RUSSIA
-	  prerequisite = { focus = FRA_IGNITE_BOLSHEVIKS }
-	  x = 0
-	  y = 1
-	  relative_position_id = FRA_IGNITE_BOLSHEVIKS
-
-	  cost = 5
-	  ai_will_do = {
-	    factor = 20
-	  }
-		available = {
-			AUS = {
-				communism > 0.4
-			}
-		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SOV
-				}
-				FRA = {
-					has_war_with = SOV
-				}
-				SOV = {
-					is_in_faction_with = FRA
-				}
-				SOV = {
-					has_government = communism
-				}
-			}
-		}
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-			SOV = {
-				start_civil_war = {
-					ideology = communism
-					size = 0.5
-				}
-			}
-	  }
-	}
+	
 
 	shared_focus = {
 		id = FRA_KEEP_PEACE

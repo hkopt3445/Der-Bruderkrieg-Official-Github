@@ -1828,6 +1828,7 @@ shared_focus = {
         size > 1
         include_locked = yes
       }
+      is_on_continent = europe
     }
     add_extra_state_shared_building_slots = 2
     add_building_construction = {
@@ -1886,6 +1887,7 @@ shared_focus = {
         size > 1
         include_locked = yes
       }
+      is_on_continent = europe
     }
     add_extra_state_shared_building_slots = 2
     add_building_construction = {
@@ -1999,9 +2001,12 @@ shared_focus = {
   x = -3
   y = -4
   relative_position_id = AUS_KAISER_SPEECH
-  cost = 5
+  cost = 2
   ai_will_do = {
     factor = 300
+  }
+  available = {
+    has_country_flag = absolutism
   }
 
   available_if_capitulated = yes
@@ -2162,6 +2167,9 @@ shared_focus = {
         days = 60 #######NO SHIT SHERLOCK
       }
       country_event = { id = austria.3 hours = 2 }
+
+      805 = { set_demilitarized_zone = no }
+    160 = { set_demilitarized_zone = no }
   }
 }
 
@@ -2214,9 +2222,9 @@ shared_focus = {
 
 
 shared_focus = {
-  id = AUS_final_showdown
-  icon = GFX_goal_stabprussia
-  text = AUS_final_showdown
+  id = AUS_the_austrian_superpower
+  icon = unkown
+  text = AUS_the_austrian_superpower
   prerequisite = { focus = AUS_ANNEX_BUCOVINA}
   prerequisite = { focus = AUS_mil_industry_2 focus = AUS_mil_infastructure_2}
   x = -3
@@ -2231,10 +2239,29 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    create_wargoal = {
-      type = puppet_war_goal_focus
-      target = GER
-    }
+    
+  }
+}
+
+shared_focus = {
+  id = AUS_the_final_showdown
+  icon = GFX_goal_stabprussia
+  text = AUS_preperation_for_war_against_prussia
+  prerequisite = { focus = AUS_the_austrian_superpower }
+  prerequisite = {focus = AUS_hapsburg_foriegn_policy focus = AUS_the_majors_europe}
+  x = 0
+  y = 2
+  relative_position_id = AUS_the_austrian_superpower
+  cost = 15
+  ai_will_do = {
+    factor = 20
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    
   }
 }
 
@@ -2242,11 +2269,11 @@ shared_focus = {
   id = AUS_the_majors_europe
   icon = GFX_focus_hun_elect_a_king
   text = AUS_the_majors_europe
-  prerequisite = { focus =  AUS_final_showdown focus = AUS_bulwark_against_expansionism }
+  prerequisite = { focus =  AUS_the_austrian_superpower focus = AUS_bulwark_against_expansionism }
   mutually_exclusive = {focus = AUS_hapsburg_foriegn_policy}
   x = 4
   y = 1
-  relative_position_id = AUS_final_showdown
+  relative_position_id = AUS_the_austrian_superpower
   cost = 5
   ai_will_do = {
     factor = 20
@@ -3098,7 +3125,7 @@ shared_focus = {
   id = AUS_hapsburg_foriegn_policy
   icon = GFX_focus_hun_elect_a_king
   text = AUS_hapsburg_foriegn_policy
-  prerequisite = {focus = AUS_final_showdown}
+  prerequisite = {focus = AUS_the_austrian_superpower}
   mutually_exclusive = {focus = AUS_the_majors_europe}
   x = -4
   y = 4
@@ -3133,7 +3160,6 @@ shared_focus = {
     factor = 20
   }
   bypass = {
-    tag = AUS
   }
   
 
@@ -3247,6 +3273,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    add_political_power = 50
   }
 }
 
@@ -3805,7 +3832,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_connect_our_territories
-  icon = GFX_focus_hun_elect_a_king
+  icon = GFX_focus_por_the_pink_map
   text = AUS_connect_our_territories
   prerequisite = { focus = AUS_oil_in_namibia }
   x = 0
@@ -4316,6 +4343,9 @@ shared_focus = {
   ai_will_do = {
     factor = 20
   }
+  available = {
+    has_country_flag = reform
+  } 
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_RESEARCH }
@@ -4348,6 +4378,10 @@ shared_focus = {
 
   completion_reward = {
     add_ideas = Constitutionalism
+
+    hidden_effect = {
+      news_event = austria.154
+    }
   }
 }
 
@@ -4384,6 +4418,11 @@ shared_focus = {
     }
 
     #####gets event calling of the rechstart
+
+    news_event = {
+      id = austria.155
+      days = 1
+    }
   }
 }
 shared_focus = {
@@ -4438,7 +4477,7 @@ shared_focus = {
   icon = GFX_focus_generic_diplomatic_treaty
   text = AUS_REOPEN_DIET
   prerequisite = { focus = AUS_FREE_AUSTRIA }
-  mutually_exclusive = { focus = AUS_BAN_CZECHS }
+  #mutually_exclusive = { focus = AUS_BAN_CZECHS }
   x = 2
   y = 1
   relative_position_id = AUS_FREE_AUSTRIA
@@ -4525,6 +4564,9 @@ shared_focus = {
     release_puppet = CZE
 
     remove_ideas = Autonomism
+    hidden_effect = {
+      news_event = {id = austria.153}
+    }
   }
 }
 
@@ -4548,6 +4590,10 @@ shared_focus = {
     release_puppet = HUN
 
     remove_ideas = Autonomism_2
+
+    hidden_effect = {
+      news_event = {id = austria.152}
+    }
   }
 }
 
@@ -4571,6 +4617,10 @@ shared_focus = {
     release_puppet = ITF
 
     remove_ideas = Autonomism_3
+
+    hidden_effect = {
+      news_event = {id = austria.151}
+    }
   }
 }
 

@@ -132,7 +132,7 @@
 			}
 	  }
 	}
-
+ 
 	focus = {
 	  id = ITA_CRUSH_REBELS
 	  icon = GFX_goal_generic_construction
@@ -2270,9 +2270,10 @@
 		icon = GFX_goal_unknown
 		x = 32
 		y = 5
-		cost = 10
+		cost = 3
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_purges_in_the_high_command }
+		prerequisite = {focus = ITA_purges_in_the_state}
 		ai_will_do = {
 			factor = 1
 		}
@@ -2367,7 +2368,7 @@
 		icon = GFX_goal_unknown
 		x = 35
 		y = 5
-		cost = 10
+		cost = 3
 		available_if_capitulated = yes
 		prerequisite = {
 			focus = ITA_the_duces_military_production_plan
@@ -2467,10 +2468,11 @@ add_stability = 0.05
 			popularity = 0.5
 		}
 			set_politics = {
-  ruling_party = neutrality
-}
+  			ruling_party = neutrality
+			}
 		hidden_effect = {
 			dismantle_faction = yes
+			news_event = {id = italy.529}
 		}
 		}
 	}
@@ -2991,7 +2993,7 @@ create_wargoal = {
 		icon = GFX_focus_ger_bulwark_against_bolshevism
 		x = 30
 		y = 2
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_assert_the_power_of_mussolini }
 		ai_will_do = {
@@ -3051,11 +3053,15 @@ create_wargoal = {
 		icon = GFX_focus_CZE_german_puppet
 		x = 28
 		y = 3
-		cost = 10
+		cost = 2
 		available_if_capitulated = yes
 
 		prerequisite = {
 			focus = ITA_the_duces_musketeers
+			
+		}
+		prerequisite = {
+			focus = ITA_red_scare
 		}
 		ai_will_do = {
 			factor = 1
@@ -3078,7 +3084,7 @@ create_wargoal = {
 		icon = GFX_focus_generic_support_the_left_right
 		x = 31
 		y = 3
-		cost = 10
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_red_scare }
 		ai_will_do = {
@@ -3102,7 +3108,7 @@ create_wargoal = {
 		icon = GFX_goal_generic_military_sphere
 		x = 27
 		y = 2
-		cost = 10
+		cost = 3
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_assert_the_power_of_mussolini }
 		ai_will_do = {
@@ -3127,12 +3133,12 @@ create_wargoal = {
 	}
 
 	#Focus for Defend the Duce
-	focus = {
+	focus = { 
 		id = ITA_defend_the_duce
 		icon = GFX_goal_unknown
 		x = 34
 		y = 3
-		cost = 10
+		cost = 4
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_red_scare }
 		ai_will_do = {
@@ -3149,7 +3155,7 @@ create_wargoal = {
 		icon = GFX_goal_generic_construct_mil_factory
 		x = 34
 		y = 4
-		cost = 10
+		cost = 2
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_defend_the_duce }
 		ai_will_do = {
@@ -3287,7 +3293,7 @@ create_wargoal = {
 		icon = GFX_goal_support_fascism
 		x = 36
 		y = 4
-		cost = 10
+		cost = 3.5
 		available_if_capitulated = yes
 		prerequisite = { focus = ITA_defend_the_duce }
 		ai_will_do = {
