@@ -26,7 +26,7 @@ shared_focus = {
   icon = unkown
   #prerequisite = { focus = GPU_state_of_the_confederation_economy }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = -22
+  x = -25
   y = 0
   relative_position_id = GPU_state_of_the_confederation_economy
   cost = 10
@@ -89,7 +89,7 @@ shared_focus = {
   icon = unkown
   prerequisite = { focus = GPU_sever_ties_with_austria focus = GPU_austrian_ally }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = 2
+  x = 1
   y = 1
   relative_position_id = GPU_sever_ties_with_austria
   cost = 10
@@ -259,13 +259,55 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = GPU_support_agriculture
+  id = GPU_expand_the_agricultural_industry
   icon = unkown
   prerequisite = { focus = GPU_restart_the_ludwig_porjects }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = -1
+  x = 1
   y = 2
   relative_position_id = GPU_restart_the_ludwig_porjects
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+  
+  }
+}
+
+shared_focus = {
+  id = GPU_pro_feuadlism
+  icon = unkown
+  prerequisite = { focus = GPU_expand_the_agricultural_industry }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 1
+  y = 1
+  relative_position_id = GPU_expand_the_agricultural_industry
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+  
+  }
+}
+
+shared_focus = {
+  id = GPU_support_the_landlords
+  icon = unkown
+  prerequisite = { focus = GPU_pro_feuadlism }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_pro_feuadlism
   cost = 10
   ai_will_do = {
     factor = 1
@@ -285,7 +327,7 @@ shared_focus = {
   icon = unkown
   prerequisite = { focus = GPU_royalism }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = -1
+  x = -2
   y = 1
   relative_position_id = GPU_royalism
   cost = 10
@@ -323,9 +365,53 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = GPU_blessed_by_the_pope
+  id = GPU_preparing_for_coronation
   icon = unkown
   prerequisite = { focus = GPU_envoy_to_the_vatican }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_envoy_to_the_vatican
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_convince_the_populace
+  icon = unkown
+  prerequisite = { focus = GPU_preparing_for_coronation }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 1
+  y = 1
+  relative_position_id = GPU_preparing_for_coronation
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+
+
+shared_focus = {
+  id = GPU_blessed_by_the_pope
+  icon = unkown
+  prerequisite = {focus = GPU_preparing_for_coronation}
 #mutually_exclusive = { focus = GPU_ASSERT }
   x = -1
   y = 2
@@ -372,7 +458,7 @@ shared_focus = {
   icon = unkown
   prerequisite = { focus = GPU_reclaim_our_lost_thrones }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = -1
+  x = 0
   y = 1
   relative_position_id = GPU_reclaim_our_lost_thrones
   cost = 10
@@ -502,6 +588,135 @@ shared_focus = {
   x = 0
   y = 1
   relative_position_id = GPU_claim_the_throne_of_saxony
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_the_austrian_proposal
+  icon = unkown
+  prerequisite = { focus = GPU_bohemian_restoration }
+  prerequisite = {focus = GPU_restoration_of_the_empire}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 1
+  y = 3
+  relative_position_id = GPU_bohemian_restoration
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_the_italian_proposal
+  icon = unkown
+  prerequisite = {focus = GPU_restoration_of_the_empire}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -3
+  y = 1
+  relative_position_id = GPU_restoration_of_the_empire
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_the_home_of_charlegmegne
+  icon = unkown
+  prerequisite = {focus = GPU_restoration_of_the_empire}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_restoration_of_the_empire
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_our_greatest_enemy
+  icon = unkown
+  prerequisite = { focus = GPU_bohemian_restoration }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_bohemian_restoration
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_declare_a_catholic_worker_state
+  icon = unkown
+  prerequisite = { focus = GPU_blessed_by_the_pope }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 2
+  relative_position_id = GPU_blessed_by_the_pope
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_restoration_of_the_empire
+  icon = unkown
+  prerequisite = { focus = GPU_declare_a_catholic_worker_state }
+  prerequisite = {focus = GPU_westphalian_aggression focus = GPU_westphalian_unification}
+  prerequisite = {focus = GPU_our_greatest_enemy}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 3
+  y = 1
+  relative_position_id = GPU_declare_a_catholic_worker_state
   cost = 10
   ai_will_do = {
     factor = 1
