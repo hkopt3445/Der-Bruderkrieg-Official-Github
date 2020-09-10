@@ -46,6 +46,7 @@ shared_focus = {
   id = GPU_austrian_ally
   icon = GFX_goal_diplo_austria
   prerequisite = { focus = GPU_rule_of_house_wittlebach }
+  mutually_exclusive = {focus = GPU_sever_ties_with_austria}
 #mutually_exclusive = { focus = GPU_ASSERT }
   x = 4
   y = 1
@@ -67,6 +68,7 @@ shared_focus = {
   id = GPU_sever_ties_with_austria
   icon = unkown
   prerequisite = { focus = GPU_rule_of_house_wittlebach }
+  mutually_exclusive = {focus = GPU_austrian_ally}
 #mutually_exclusive = { focus = GPU_ASSERT }
   x = -4
   y = 1
@@ -101,7 +103,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-
+    GPU_level_down_united_empire = yes
   }
 }
 
@@ -212,7 +214,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    
+      add_ideas = KING_PEOPLE
   }
 }
 
@@ -447,7 +449,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-
+    swap_ideas = {
+      add_idea = GPU_king_and_country_2
+      remove_idea = GPU_king_and_country
+    }
   }
 }
 
@@ -470,7 +475,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-
+    add_political_power = 100
   }
 }
 
@@ -491,7 +496,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-
+    
   }
 }
 
@@ -624,13 +629,14 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = GPU_the_italian_proposal
+  id = GPU_autocratic_state
   icon = unkown
-  prerequisite = {focus = GPU_restoration_of_the_empire}
+  prerequisite = { focus = GPU_the_austrian_proposal }
+  prerequisite = {focus = GPU_support_the_landlords}
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = -3
+  x = 1
   y = 1
-  relative_position_id = GPU_restoration_of_the_empire
+  relative_position_id = GPU_the_austrian_proposal
   cost = 10
   ai_will_do = {
     factor = 1
@@ -645,13 +651,13 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = GPU_the_home_of_charlegmegne
+  id = GPU_promote_the_rule_of_nobles
   icon = unkown
-  prerequisite = {focus = GPU_restoration_of_the_empire}
+  prerequisite = { focus = GPU_autocratic_state }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = 0
+  x = 1
   y = 1
-  relative_position_id = GPU_restoration_of_the_empire
+  relative_position_id = GPU_autocratic_state
   cost = 10
   ai_will_do = {
     factor = 1
@@ -664,6 +670,51 @@ shared_focus = {
 
   }
 }
+
+shared_focus = {
+  id = GPU_the_empire_senate
+  icon = unkown
+  prerequisite = { focus = GPU_autocratic_state }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_autocratic_state
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_united_through_centralism
+  icon = unkown
+  prerequisite = {focus = GPU_the_empire_senate}
+  prerequisite = {focus = GPU_promote_the_rule_of_nobles}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 1
+  y = 1
+  relative_position_id = GPU_the_empire_senate
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+
 
 shared_focus = {
   id = GPU_our_greatest_enemy
@@ -717,6 +768,224 @@ shared_focus = {
   x = 3
   y = 1
   relative_position_id = GPU_declare_a_catholic_worker_state
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+
+
+shared_focus = {
+  id = GPU_restore_charlegmenges_hre
+  icon = unkown
+  prerequisite = {focus = GPU_restoration_of_the_empire}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -3
+  y = 1
+  relative_position_id = GPU_restoration_of_the_empire
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_joint_civilian_development
+  icon = unkown
+  prerequisite = {focus = GPU_restore_charlegmenges_hre}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_restore_charlegmenges_hre
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_reach_out_to_italy
+  icon = unkown
+  prerequisite = {focus = GPU_restore_charlegmenges_hre}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -2
+  y = 1
+  relative_position_id = GPU_restore_charlegmenges_hre
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_austro_italian_railway_system
+  icon = unkown
+  prerequisite = {focus = GPU_reach_out_to_italy}
+  prerequisite = {focus = GPU_joint_civilian_development}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_reach_out_to_italy
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_united_through_federalism
+  icon = unkown
+  prerequisite = {focus = GPU_reach_out_to_italy}
+  prerequisite = {focus = GPU_joint_civilian_development}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 1
+  y = 2
+  relative_position_id = GPU_reach_out_to_italy
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_strict_catholicism
+  icon = unkown
+  prerequisite = {focus = GPU_restore_charlegmenges_hre focus = GPU_the_austrian_proposal}
+  
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 3
+  y = 1
+  relative_position_id = GPU_restore_charlegmenges_hre
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_build_more_churches
+  icon = unkown
+  prerequisite = {focus = GPU_strict_catholicism}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_strict_catholicism
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_encourage_catholic_charity
+  icon = unkown
+  prerequisite = {focus = GPU_strict_catholicism}
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 1
+  y = 1
+  relative_position_id = GPU_strict_catholicism
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_catholic_research_school
+  icon = unkown
+  prerequisite = {focus = GPU_encourage_catholic_charity }
+  prerequisite = {focus = GPU_build_more_churches }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_encourage_catholic_charity
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+
+  }
+}
+
+shared_focus = {
+  id = GPU_a_new_era
+  icon = unkown
+  prerequisite = {focus = GPU_catholic_research_school }
+  prerequisite = {focus = GPU_united_through_federalism  focus = GPU_united_through_centralism}
+  
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_catholic_research_school
   cost = 10
   ai_will_do = {
     factor = 1

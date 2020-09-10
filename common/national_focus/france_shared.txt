@@ -8,7 +8,7 @@ shared_focus = {
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 5
     ai_will_do = {
-      factor = 10
+      factor = 10 
     }
 
     available_if_capitulated = yes
@@ -1184,8 +1184,8 @@ shared_focus = {
     icon = GFX_goal_generic_build_airforce
     text = FRA_GRANDE_AIR
     #prerequisite = { focus = ITA_industri5l_effort_2 }
-    x = 0
-    y = 7
+    x = 10
+    y = 0
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 5
     ai_will_do = {
@@ -1453,11 +1453,11 @@ shared_focus = {
     completion_reward = {
       add_popularity = {
 				ideology = monarchy
-				popularity = 0.05
+				popularity = 0.1
 			}
 			add_popularity = {
-				ideology = democratic
-				popularity = 0.05
+				ideology = constitutional_monarchy
+				popularity = 0.1
 			}
     }
   }
@@ -1671,7 +1671,7 @@ shared_focus = {
     id = FRA_LEFTIST_COALITION
     icon = GFX_goal_continuous_boost_freedom
     text = FRA_LEFTIST_COALITION
-    x = 36
+    x = 35
     y = 0
     relative_position_id = FRA_BUILD_INDUSTRY
     cost = 5
@@ -2091,9 +2091,9 @@ shared_focus = {
 
 
 	shared_focus = {
-		id = FRA_THREE_PILLAS
+		id = FRA_LEGACY_OF_CHARLEGMEGNE
 		icon = GFX_focus_focus_fra_third_empire
-		text = FRA_THREE_PILLAS
+		text = FRA_LEGACY_OF_CHARLEGMEGNE
 		prerequisite = { focus = FRA_DOCTRINAIRE_VIC }
 		x = -3
 		y = 1
@@ -2207,10 +2207,10 @@ shared_focus = {
 		id = FRA_IMPERIAL_GLORY
 		icon = GFX_focus_fra_le_deluge
 		text = FRA_IMPERIAL_GLORY
-		prerequisite = { focus = FRA_THREE_PILLAS}
+		prerequisite = { focus = FRA_LEGACY_OF_CHARLEGMEGNE}
 		x = 0
 		y = 1
-		relative_position_id = FRA_THREE_PILLAS
+		relative_position_id = FRA_LEGACY_OF_CHARLEGMEGNE
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2295,7 +2295,7 @@ shared_focus = {
 		icon = GFX_focus_generic_self_management
 		text = FRA_AUTOCRACY
 		prerequisite = { focus = FRA_CONSERVATIVES_PREVAIL}
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = FRA_CONSERVATIVES_PREVAIL
 		cost = 5
@@ -4460,7 +4460,7 @@ shared_focus = {
     text = FRA_JOIN_ENTENTE
 		prerequisite = { focus = FRA_KEEP_PEACE }
 		mutually_exclusive = { focus = FRA_JOIN_ENTENTE_CORDIALE }
-    x = -2
+    x = 2
     y = 1
     relative_position_id = FRA_KEEP_PEACE
     cost = 5
@@ -4537,10 +4537,26 @@ shared_focus = {
   }
 
   shared_focus = {
+	id = FRA_state_of_the_commune
+	icon = GFX_goal_unknown
+	prerequisite = {focus = FRA_EGALITE}
+	x = 62
+	y = 7
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_political_power = 50
+	}
+}
+
+  shared_focus = {
 	id = FRA_internationalism
 	icon = GFX_goal_unknown
 	mutually_exclusive = {focus = FRA_isolationism}
-	prerequisite = {focus = FRA_EGALITE}
+	prerequisite = {focus = FRA_state_of_the_commune}
 	x = 63
 	y = 8
 	cost = 5
@@ -4557,8 +4573,8 @@ shared_focus = {
 	id = FRA_isolationism
 	icon = GFX_goal_unknown
 	mutually_exclusive = {focus = FRA_internationalism}
-	prerequisite = {focus = FRA_EGALITE}
-	x = 68
+	prerequisite = {focus = FRA_state_of_the_commune}
+	x = 67
 	y = 8
 	cost = 5
 	available_if_capitulated = yes
@@ -5107,7 +5123,7 @@ add_ideas= FRA_Isolationism_2
 		icon = GFX_goal_generic_alliance
 		text = FRA_INVITE_BENELUX
 		prerequisite = { focus = FRA_JOIN_ENTENTE focus = FRA_JOIN_ENTENTE_CORDIALE }
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = FRA_JOIN_ENTENTE
 		cost = 5
