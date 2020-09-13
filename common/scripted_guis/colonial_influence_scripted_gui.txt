@@ -3,11 +3,7 @@ scripted_gui = {
       context_type = decision_category
       window_name = "colonial_decision_category_container"
       dynamic_lists = {
-          colonial_influence_gridbox = {
-              array = global.countries_with_colonial_influence
-              change_scope = yes
-              entry_container = colonial_influence_entry
-          }
+          
 
           small_colonial_power_grid = {
               array = global.small_colonial_countries
@@ -26,6 +22,139 @@ scripted_gui = {
               change_scope = yes
               entry_container = colonial_powerhouse_flag_entry
           }
-      } 
+ 
+          
+      }
+      
+      effects = {
+        open_council_window_click = {
+            set_country_flag = open_conference_of_vienna_gui
+        }
+      }
+
+      properties = {
+        flag_entry_thing = {
+              image = "[This.GetFlag]"
+          }
+      }
+   }
+
+
+   conference_of_vienna_scripted_gui = {
+    window_name = "conference_of_vienna_container"
+    context_type = player_context
+    dynamic_lists = {
+        voting_conference_of_vienna_grid = {
+            array = global.countries_with_colonial_influence
+            change_scope = yes
+            entry_container = conference_vienna_flag_entry
+        }
+    }
+
+    properties = {
+        flag_entry_thing_vienna = {
+            image = "[This.GetFlag]"
+        }
+    }
+
+    triggers = {
+        spain_icon_check_holder_yes_visible = {
+            OR = {
+                SPR = {
+                    has_country_flag = voted_yes_colonial
+                }
+                SPN = {
+                    has_country_flag = voted_yes_colonial
+                }
+            }
+        }
+        spain_icon_check_holder_no_visible = {
+            NOT = {
+            OR = {
+                SPR = {
+                    has_country_flag = voted_yes_colonial
+                }
+                SPN = {
+                    has_country_flag = voted_yes_colonial
+                }
+            }
+        }
+        }
+
+        france_icon_check_holder_yes_visible = {
+            
+                FRA = {
+                    has_country_flag = voted_yes_colonial
+                }
+            
+        }
+        france_icon_check_holder_no_visible = {
+            FRA = {
+                has_country_flag = voted_no_colonial
+            }
+        }
+
+        uk_icon_check_holder_yes_visible = {
+            
+                ENG = {
+                    has_country_flag = voted_yes_colonial
+                }
+            
+        }
+        uk_icon_check_holder_no_visible = {
+            ENG = {
+                has_country_flag = voted_no_colonial
+            }
+        }
+
+        belgium_icon_check_holder_yes_visible = {
+            
+                BEL = {
+                    has_country_flag = voted_yes_colonial
+                }
+            
+        }
+        belgium_icon_check_holder_no_visible = {
+            BEL = {
+                has_country_flag = voted_no_colonial
+            }
+        }
+
+         portugal_icon_check_holder_yes_visible = {
+            
+                POR = {
+                    has_country_flag = voted_yes_colonial
+                }
+            
+        }
+        portugal_icon_check_holder_no_visible = {
+            POR = {
+                has_country_flag = voted_no_colonial
+            }
+        }
+
+
+
+        austria_icon_check_holder_yes_visible = {
+            
+                AUS = {
+                    has_country_flag = voted_yes_colonial
+                }
+            
+        }
+        austria_icon_check_holder_no_visible = {
+            AUS = {
+                has_country_flag = voted_no_colonial
+            }
+        }
+
+        
+
+        
+    }
+
+    visible = {
+        has_country_flag = open_conference_of_vienna_gui
+    }
    }
 }

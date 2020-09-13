@@ -1,0 +1,305 @@
+focus_tree = {
+	id = austria_prov_gov_focus_tree
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = AUS
+		}
+	}
+	default = no
+	
+	focus = {
+		id = AUS_karls_funeral
+		icon = unkown
+		x = 8
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_ottos_coronation
+		icon = unkown
+		x = 10
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+
+	focus = {
+		id = AUS_the_first_day
+		icon = unkown
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		relative_position_id = AUS_ottos_coronation
+		prerequisite = {focus = AUS_ottos_coronation}
+		prerequisite = {focus = AUS_karls_funeral}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_revolts_in_hungary
+		icon = unkown
+		x = -2
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_the_first_day }
+		relative_position_id = AUS_the_first_day
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+
+	focus = {
+		id = AUS_unrest_in_bohemia
+		icon = unkown
+		x = 0
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_the_first_day }
+		relative_position_id = AUS_the_first_day
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_the_rise_of_young_italy
+		icon = unkown
+		x = 2
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_the_first_day }
+		relative_position_id = AUS_the_first_day
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_crush_them
+		icon = unkown
+		x = -1
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_the_rise_of_young_italy }
+		prerequisite = {focus = AUS_unrest_in_bohemia}
+		prerequisite = {focus = AUS_revolts_in_hungary}
+		relative_position_id = AUS_the_rise_of_young_italy
+		mutually_exclusive = {focus = AUS_let_them_be}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_let_them_be
+		icon = unkown
+		x = -3
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_the_rise_of_young_italy }
+		prerequisite = {focus = AUS_unrest_in_bohemia}
+		prerequisite = {focus = AUS_revolts_in_hungary}
+		relative_position_id = AUS_the_rise_of_young_italy
+		mutually_exclusive = {focus = AUS_crush_them}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_tides_of_the_revolution
+		icon = unkown
+	
+		x = -1
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_let_them_be}
+		relative_position_id = AUS_let_them_be
+		mutually_exclusive = {focus = AUS_petition_to_the_mil}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_return_of_klahr
+		icon = unkown
+		x = -1
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_tides_of_the_revolution}
+		relative_position_id = AUS_tides_of_the_revolution
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_in_the_unions
+		icon = unkown
+		x = 1
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_tides_of_the_revolution}
+		relative_position_id = AUS_tides_of_the_revolution
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_storm_the_palace
+		icon = unkown
+		x = -1
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_in_the_unions}
+		prerequisite = {focus = AUS_return_of_klahr}
+		relative_position_id = AUS_in_the_unions
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	
+
+	focus = {
+		id = AUS_petition_to_the_mil
+		icon = unkown
+		x = 3
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_let_them_be focus = AUS_crush_them} 
+		mutually_exclusive = {focus = AUS_tides_of_the_revolution}
+		
+		relative_position_id = AUS_let_them_be
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_convince_the_aristrocracy
+		icon = unkown
+		x = -1
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_petition_to_the_mil} 
+		
+		relative_position_id = AUS_petition_to_the_mil
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_support_of_the_army
+		icon = unkown
+		x = 1
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_petition_to_the_mil} 
+		
+		relative_position_id = AUS_petition_to_the_mil
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = AUS_englebert_rules_supreme
+		icon = unkown
+		x = -1
+		y = 1
+		cost= 5
+		available_if_capitulated = yes
+		prerequisite = { focus = AUS_support_of_the_army} 
+		prerequisite = {focus = AUS_convince_the_aristrocracy}
+		
+		relative_position_id = AUS_support_of_the_army
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+
+
+
+
+}

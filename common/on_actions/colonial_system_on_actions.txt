@@ -5,14 +5,24 @@ on_actions = {
         limit = {
           is_on_continent = africa
         }
+        set_temp_variable = {num_of_resources_in_state = THIS.resource@steel}
+        add_to_variable = {num_of_resources_in_state =  THIS.resource@tungsten}
+        add_to_variable = {num_of_resources_in_state =  THIS.resource@rubber}
+        add_to_variable = {num_of_resources_in_state =  THIS.resource@aluminium}
+        add_to_variable = {num_of_resources_in_state =  THIS.resource@oil}
+        add_to_variable = {num_of_resources_in_state =  THIS.resource@chromium}
+
+        set_temp_variable = {num_napower_in_state = THIS.modifier@local_manpower}
         if = {
           limit = {
             owner = {capital_scope = {is_on_continent = europe}}
           }
           owner = {
             add_to_variable = {colonial_influence_var = 1}
+            add_to_variable = {colonial_influence_var = num_of_resources_in_state}
+            add_to_variable = {colonial_influence_var = num_napower_in_state}
           }
-
+ 
           if = {
             limit = {
               owner = {
@@ -52,7 +62,19 @@ on_actions = {
         #add_to_variable = {total_african_states = 1}
       }
 
-      sort_country_colonial_rank_system = yes
+      every_country = {
+        limit = {
+          has_country_flag = colonial_power
+        }
+        THIS = {sort_country_colonial_rank_system = yes}
+      }
+
+
+      set_variable = {global.mining_rules_vienna = 2}
+      set_variable = {global.conscription_rules_vienna = 2}
+      set_variable = {global.construction_rules_vienna = 2}
+
+      
 
     }
   }

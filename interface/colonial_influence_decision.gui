@@ -10,77 +10,89 @@ guiTypes = {
 
 
 
-    instantTextBoxType = {
-      name ="country_influence_speicific"
-      position = { x= 0 y = 0 }
-      font = "hoi_16mbs"
-      text = "colonial_country_influence_desc"
-      format = center
-      fixedsize = no
-      maxWidth = 470
-      maxLength = 30
-
-    }
-
-
-
-
-
-
 
 
     containerWindowType = {
-      name = "colonial_influence_gridbox_container"
-      position = {x=0 y=100}
-      size = { width = 300 height = 300 }
-      margin = { top = 10 bottom = 10 }
-      Orientation = upper_left
-      clipping = yes
+      name = "open_conference_of_berlin"
+      position = {x =290 y = 0}
 
+      size = {width = 218 height = 185 } 
 
-      verticalScrollbar = "right_vertical_slider"
-      #horizontalScrollbar = "bottom_vertical_slider"
-
-      # background is necesarry for scrollbars to work
       background = {
         name = "Background"
-        quadTextureSprite ="GFX_tiled_window_transparent"
-      }
+        spriteType ="GFX_open_conference_bg"
+      } 
+
+      buttonType = {
+				name = "open_council_window"
+        position = { x = 31 y = 129 }
+        spriteType = "GFX_tiled_window_small"
+		  	size = { width = 159 length = 44 }
+				buttonText = "2nd Conference of Vienna"
+			  buttonFont = "hoi_16mbs"
+			}
+    }
 
 
-      # this grid will be dynamically populated
+    
 
-      gridboxtype = {
-        name = "colonial_influence_gridbox"
-        position = { x = 0 y = 0 }
-        size = { width = 300 height = 100% }
-        slotsize = { width = 300 height = 35 }
-        max_slots_horizontal = 1
-        add_horizontal = yes
-      }
+    instantTextBoxType = { 
+      name ="large_colonial_power_title"
+      position = { x= 0 y = 0 }
+      font = "hoi_16mbs"
+      text = "Large Colonial Powers"
+      format = center
+      fixedsize = no
+      maxWidth = 300
+      maxLength = 35
+
     }
 
     gridboxtype = { #big colonial powerhouse
       name = "big_colonial_power_grid"
-      position = { x = 190 y = 320 }
+      position = { x = 0 y = 0 }
       size = { width = 100 height = 100 }
       slotsize = { width = 32 height = 18 }
       max_slots_horizontal = 13
       max_slots_vertical = 1
+    }
+
+    instantTextBoxType = { 
+      name ="mediun_colonial_power_title"
+      position = { x= 0 y = 100 }
+      font = "hoi_16mbs"
+      text = "Medium Colonial Powers"
+      format = center
+      fixedsize = no
+      maxWidth = 300
+      maxLength = 35
+
     }
 
     gridboxtype = { #medium colonial powerhouse
       name = "medium_colonial_power_grid"
-      position = { x = 190 y = 420 }
+      position = { x = 0 y = 100 }
       size = { width = 100 height = 100 }
       slotsize = { width = 32 height = 18 }
       max_slots_horizontal = 13
       max_slots_vertical = 1
+    }
+
+    instantTextBoxType = { 
+      name ="small_colonial_power_title"
+      position = { x= 0 y = 200 }
+      font = "hoi_16mbs"
+      text = "Small Colonial Powers"
+      format = center
+      fixedsize = no
+      maxWidth = 300
+      maxLength = 35
+
     }
 
     gridboxtype = { #small colonial powerhouse
       name = "small_colonial_power_grid"
-      position = { x = 190 y = 520 }
+      position = { x = 0 y = 200 }
       size = { width = 100 height = 100 }
       slotsize = { width = 32 height = 18 }
       max_slots_horizontal = 13
@@ -89,32 +101,6 @@ guiTypes = {
   }
 
 
-  containerWindowType = {
-    name = "colonial_influence_entry"
-    position = { x = 0 y = 0}
-    size = { width = 300 height = 300 }
-
-    instantTextboxType = {
-      name = "colonial_influence_entry_name"
-      position = { x = 0 y = 0}
-      font = "hoi_20b"
-      text = "[?THIS.GetName]"
-      format = center
-      maxWidth = 170
-      maxHeight = 35
-      fixedsize = yes
-    }
-    instantTextboxType = {
-      name = "colonial_influence_entry_influence"
-      position = { x = 180 y = 0}
-      font = "hoi_20b"
-      text = "[?THIS.colonial_influence_var]"
-      format = center
-      maxWidth = 120
-      maxHeight = 35
-      fixedsize = yes
-    }
-  }
 
 
   containerWindowType = {
@@ -122,13 +108,14 @@ guiTypes = {
 		position = { x = 0 y = 0}
 		size = { width = 300 height = 35 }
 
-    buttonType = {
+    iconType = {
 			name = "flag_entry_thing"
 			position = { x = 0 y = 0 }
 			quadTextureSprite ="GFX_flag_small"
-			Orientation = "LOWER_LEFT"
+      Orientation = "LOWER_LEFT"
+      alwaystransparent = yes
 
       pdx_tooltip = "colonial_powerhouse_flag_entry_name"
 		}
-	}
+  }
 }

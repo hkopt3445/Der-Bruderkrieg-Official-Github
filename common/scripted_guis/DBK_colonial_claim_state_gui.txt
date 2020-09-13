@@ -1,0 +1,92 @@
+scripted_gui = {
+	uncoring_button_powers = {
+	
+		context_type = selected_state_context
+		
+		window_name = "claim_state_button"
+		
+		visible = {
+			NOT = {
+				is_claimed_by = ROOT
+				is_owned_by = ROOT
+			}
+
+			ROOT = {
+				has_country_flag = allowed_to_claim_colonial_states
+				has_country_flag = colonial_power
+			}
+
+		}
+		
+		effects = {
+			claim_state_click = {	
+				add_claim_by = ROOT
+				ROOT = {
+					add_political_power = -100
+					set_global_flag = open_alert_claim_window
+				}
+
+				
+
+				
+
+				save_global_event_target_as = state_claimed
+				THIS.owner = { 
+					save_global_event_target_as = state_claimed_owner
+				}
+				
+
+				ROOT = {
+					save_global_event_target_as = state_claimed_claimer
+				}
+			}
+		}
+		
+		triggers = {
+			claim_state_click_enabled = {
+				ROOT = {
+					has_political_power > 49.9
+					has_country_flag = allowed_to_claim_colonial_states
+					has_country_flag = colonial_power
+				}
+			}
+		}
+		        
+		ai_check = {
+			always = no
+		}
+		
+        ai_test_variance = 1
+		ai_check_scope = {
+			
+		 }
+		ai_weights = {
+			claim_state_click = {
+				ai_will_do = {
+					factor = 10000
+				}
+			}
+		}
+	}
+
+
+	colonial_claim_window_alert_window_scripted_gui = {
+		context_type = player_context
+
+		window_name = "colonial_claim_window_alert_window"
+
+		visible = {
+			has_global_flag = open_alert_claim_window
+			has_country_flag = colonial_power
+		}
+
+		effects = {
+			colonial_claim_window_alert_x_button_click = {
+				clr_country_flag = open_alert_claim_window
+				country_event = generic.26
+
+				set_variable = {joe = 1}
+			}	
+		}
+	}
+}
