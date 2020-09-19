@@ -2,10 +2,10 @@ shared_focus = {
 	id = BUL_government_infrastructure_projects
 	icon = unknown
 	text = BUL_government_infrastructure_projects
-	prerequisite = {focus = BUL_strengthen_the_government focus = BUL_the_tsar_abdicates}
+	#prerequisite = {focus = BUL_strengthen_the_government focus = BUL_the_tsar_abdicates}
 
 	x = 0
-	y = 1
+	y = 20
 	cost = 5
 	ai_will_do = {
 	  factor = 20
@@ -246,6 +246,112 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = BUL_SOCIAL_DEMOCRATS
+	icon = GFX_goal_ideology_social_democrat
+	text = BUL_SOCIAL_DEMOCRATS
+	prerequisite = { focus = BUL_the_tsar_abdicates }
+	#mutually_exclusive = { focus = BUL_SUPPORT_THE_AGRARIANISTS }
+	x = -2
+	y = 2
+	relative_position_id = BUL_the_tsar_abdicates
+	cost = 10
+	ai_will_do = {
+	  factor = 20
+	}
+	  available = {
+		  has_country_flag = BUL_democratic_coup
+	  }
+  
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+	  add_popularity =  {
+		ideology = democratic
+		popularity = 0.2
+	  }
+	  add_ideas = {
+		democratic_influence
+	  }
+	}
+  }
+
+  shared_focus = {
+	id = BUL_a_deal_with_reacionaries
+	icon = GFX_goal_ideology_social_democrat
+	text = BUL_a_deal_with_reacionaries
+	prerequisite = { focus = BUL_SOCIAL_DEMOCRATS }
+	#mutually_exclusive = { focus = BUL_SUPPORT_THE_AGRARIANISTS }
+	x = 3
+	y = 1
+	relative_position_id = BUL_SOCIAL_DEMOCRATS
+	cost = 10
+	ai_will_do = {
+	  factor = 20
+	}
+	  available = {
+		  has_country_flag = BUL_democratic_coup
+	  }
+  
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+	  
+	}
+  }
+
+  shared_focus = {
+	id = BUL_arresting_fascist_generals
+	icon = GFX_goal_ideology_social_democrat
+	text = BUL_arresting_fascist_generals
+	prerequisite = { focus = BUL_a_deal_with_reacionaries }
+	#mutually_exclusive = { focus = BUL_SUPPORT_THE_AGRARIANISTS }
+	x = -1
+	y = 1
+	relative_position_id = BUL_a_deal_with_reacionaries
+	cost = 10
+	ai_will_do = {
+	  factor = 20
+	}
+	  available = {
+		  has_country_flag = BUL_democratic_coup
+	  }
+  
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+	  
+	}
+  }
+
+  shared_focus = {
+	id = BUL_placating_the_tsars_former_supporters
+	icon = GFX_goal_ideology_social_democrat
+	text = BUL_placating_the_tsars_former_supporters
+	prerequisite = { focus = BUL_a_deal_with_reacionaries }
+	#mutually_exclusive = { focus = BUL_SUPPORT_THE_AGRARIANISTS }
+	x = 0
+	y = 2
+	relative_position_id = BUL_a_deal_with_reacionaries
+	cost = 10
+	ai_will_do = {
+	  factor = 20
+	}
+	  available = {
+		  has_country_flag = BUL_democratic_coup
+	  }
+  
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+	  
+	}
+  }
+
+shared_focus = {
   id = BUL_SUPPORT_UNIONS
   icon = GFX_focus_generic_concessions
   text = BUL_SUPPORT_UNIONS
@@ -271,7 +377,7 @@ shared_focus = {
 	icon = unkown
 	text = BUL_regulate_corporations
 	prerequisite = { focus = BUL_SUPPORT_UNIONS }
-	x = 1
+	x = -3
 	y = 1
 	relative_position_id = BUL_SUPPORT_UNIONS
 	cost = 10
@@ -799,11 +905,10 @@ shared_focus = {
 	id = BUL_economic_development_scheme
 	icon = unknown
 	text = BUL_economic_development_scheme
-	prerequisite = { focus = BUL_TSARS_RULE focus = BUL_ADVANCED_DEMOCRACY  }
-	prerequisite = { focus = BUL_research_electronics focus = BUL_invest_in_nuclear_power  }
-	x = 4
-	y = 1
-	relative_position_id = BUL_TSARS_RULE
+	#prerequisite = { focus = BUL_government_infrastucture_projects  }
+	x = 5
+	y = 0
+	relative_position_id = BUL_government_infrastructure_projects
 	cost = 10
 	ai_will_do = {
 		factor = 20
@@ -900,7 +1005,7 @@ shared_focus = {
 	icon = unknown
 	text = BUL_gold_mining_treaty
 	prerequisite = { focus = BUL_mining_iniative  }
-	prerequisite = {focus = BUL_befriend_democratic_nations}
+	#prerequisite = {focus = BUL_befriend_democratic_nations}
 	x = 2
 	y = 2
 	relative_position_id = BUL_mining_iniative
@@ -946,6 +1051,7 @@ shared_focus = {
 	icon = unknown
 	text = BUL_expand_civlian_industry
 	prerequisite = { focus =BUL_economic_development_scheme  }
+	prerequisite = {focus = BUL_government_infrastructure_projects}
 	x = -2
 	y = 1
 	relative_position_id = BUL_economic_development_scheme
@@ -1471,7 +1577,7 @@ shared_focus = {
   text = BUL_CRUSH_MACEDONIA
   prerequisite = { focus = BUL_strengthen_the_government }
 	prerequisite = { focus = BUL_ETHNIC_CLEANSING }
-  x = -8
+  x = -10
   y = 1
   relative_position_id = BUL_strengthen_the_government
   cost = 10
@@ -1720,8 +1826,8 @@ shared_focus = {
 	text = BUL_MASTERS_OF_THE_BALKANS
 	prerequisite = { focus = BUL_WAR_WITH_ROMANIA }
 	prerequisite = { focus = BUL_WAR_WITH_OTTOMANS }
-	x = 0
-	y = 3
+	x = -1
+	y = 1
 	relative_position_id = BUL_WAR_WITH_ROMANIA
 	cost = 10
 	ai_will_do = {
@@ -1866,7 +1972,7 @@ shared_focus = {
   prerequisite = { focus = BUL_PEACE_WITH_TURKS focus = BUL_INVITE_ROMANIA }
   prerequisite = {focus = BUL_trade_with_russia}
   x = -1
-  y = 3
+  y = 1
   relative_position_id = BUL_PEACE_WITH_TURKS
   cost = 10
   ai_will_do = {
@@ -1881,31 +1987,7 @@ shared_focus = {
   }
 }
 
-shared_focus = {
-  id = BUL_BULGARIA_ASCENDANT
-  icon = GFX_Bulgarian_Expansion
-  text = BUL_BULGARIA_ASCENDANT
-  prerequisite = { focus = BUL_RUSSIAN_PROTECTION focus = BUL_MASTERS_OF_THE_BALKANS }
-  #prerequisite = {focus = BUL_four_year_plan focus = BUL_bulgarian_miners_commission}
-  x = -11
-  y = 1
-  relative_position_id = BUL_RUSSIAN_PROTECTION
-  cost = 10
-  ai_will_do = {
-	factor = 1
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-	add_political_power = 200
-	
-	remove_ideas = {
-		Agrarianism
-	}
-  } 
-}
 
 
 

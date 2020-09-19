@@ -13,7 +13,7 @@ variable.
 * [state](#dynamic-variables-for-scope-state)
 * [unit_leader](#dynamic-variables-for-scope-unit_leader)
 
-## Dynamic variables for scope global
+## Dynamic variables for scope global 
 
 ### countries
 * description: get array of all countries (including non existing

@@ -1,0 +1,352 @@
+focus_tree = {
+	id = italy_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = ITA
+		}
+	}
+
+focus = {
+	id = ITA_stabilize_italy
+	icon = GFX_focus_generic_italy_first
+	#relative_position_id  = ITA_MAFIA_FOCUS
+	x = 20
+	y = 0
+	cost = 7
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+
+	bypass = {
+		tag = ITA
+	}
+
+	available = {
+
+	}
+	completion_reward = {
+
+	}
+}
+
+
+#Focus for Evola's Coup
+focus = {
+	id = ITA_evolas_coup
+	icon = GFX_ITA_evolas_coup-34228
+	x = 16
+	y = 1
+	cost = 12
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_stabilize_italy }
+	mutually_exclusive = { focus = ITA_assert_the_power_of_mussolini }
+	search_filters = { FOCUS_FILTER_RESEARCH }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+	add_popularity = {
+		ideology = neutrality
+		popularity = 0.5
+	}
+		set_politics = {
+		  ruling_party = neutrality
+		}
+	hidden_effect = {
+		dismantle_faction = yes
+		news_event = {id = italy.529}
+	}
+	}
+}
+
+focus = {
+	id = ITA_assert_the_power_of_mussolini
+	icon = GFX_focus_ger_assassinate_mussolini
+	x = 23
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_stabilize_italy }
+	mutually_exclusive = { focus = ITA_evolas_coup }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_political_power = 100
+	}
+}
+
+focus = {
+	id = ITA_the_duces_musketeers
+	icon = GFX_goal_generic_military_sphere
+	x = 25
+	y = 2
+	cost = 3
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_assert_the_power_of_mussolini }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		###add a new unit with 6 infantry, the duce's musketeers
+
+			random_owned_controlled_state = {
+			create_unit = {
+				division = "name = \"Duce's Musketeers 1\" division_template = \"Guard Division\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+				owner = ITA
+			}
+			create_unit = {
+				division = "name = \"Duce's Musketeers 2\" division_template = \"Guard Division\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+				owner = ITA
+			}
+		}
+  }
+}
+
+focus = { 
+	id = ITA_defend_the_duce
+	icon = GFX_goal_unknown
+	x = 25
+	y = 3
+	cost = 4
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_the_duces_musketeers }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = ITA_defend_duce
+	}
+}
+
+focus = {
+	id = ITA_the_duces_military_production_plan
+	icon = GFX_goal_generic_construct_mil_factory
+	x = 24
+	y = 4
+	cost = 2
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_defend_the_duce }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		random_owned_controlled_state = {
+		prioritize = { 156 117 }
+limit = {
+  free_building_slots = {
+	 building = arms_factory
+	 size > 0
+	 include_locked = yes
+  }
+}
+add_extra_state_shared_building_slots = 2
+add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+}
+}
+	}
+}
+
+focus = {
+	id = ITA_rouse_the_nationalists
+	icon = GFX_goal_support_fascism
+	x = 26
+	y = 4
+	cost = 3.5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_defend_the_duce }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_manpower = 50000
+		add_war_support = 0.1
+	}
+}
+
+focus = {
+	id = ITA_fort_italia
+	icon = GFX_goal_unknown
+	x = 25
+	y = 5
+	cost = 3
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_the_duces_military_production_plan
+	}
+	prerequisite = {
+		focus = ITA_rouse_the_nationalists
+	}
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = ITA_for_italia
+	}
+}
+
+
+focus = {
+	id = ITA_red_scare
+	icon = GFX_focus_ger_bulwark_against_bolshevism
+	x = 20
+	y = 2
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_assert_the_power_of_mussolini focus = ITA_evolas_coup}
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_days_mission_timeout = {
+			mission = ITA_incoming_socialist_revolution_decision
+			days = 10
+		}
+
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+	}
+}
+
+focus = {
+	id = ITA_purges_in_the_high_command
+	icon = GFX_focus_CZE_german_puppet
+	x = 19
+	y = 3
+	cost = 2
+	available_if_capitulated = yes
+
+	
+	prerequisite = {
+		focus = ITA_red_scare
+	}
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		###gets event about purges in the military
+
+		ITA = {country_event = italy.511}
+
+		add_days_mission_timeout = {
+			mission = ITA_incoming_socialist_revolution_decision
+			days = 30
+		}
+	}
+}
+
+
+focus = {
+	id = ITA_purges_in_the_state
+	icon = GFX_focus_generic_support_the_left_right
+	x = 21
+	y = 3
+	cost = 2
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_red_scare }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		###Will get a series of events about purges in the council
+
+		ITA = {country_event = italy.512}
+
+		add_days_mission_timeout = {
+			mission = ITA_incoming_socialist_revolution_decision
+			days = 30
+		}
+	}
+
+}
+
+focus = {
+	id = ITA_will_of_il_duce
+	icon = GFX_goal_unknown
+	x = 20
+	y = 4
+	cost = 3
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_purges_in_the_high_command }
+	prerequisite = {focus = ITA_purges_in_the_state}
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = Will_Duce
+	}
+}
+
+focus = {
+	id = ITA_imprison_the_socialists
+	icon = GFX_focus_generic_strike_at_democracy2
+	x = 16
+	y = 2
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_evolas_coup
+	}
+	mutually_exclusive = { focus = ITA_the_two_sicilies_compromise }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {	
+		add_popularity = {
+ideology = communism
+popularity = -0.1
+}
+	}
+}
+
+focus = {
+	id = ITA_italian_legionaraires
+	icon = GFX_focus_por_portuguese_legion
+	x = 15
+	y = 3
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_imprison_the_socialists }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_manpower = 10000
+
+		add_war_support = 0.05
+	
+
+
+###Will start the revolution
+custom_effect_tooltip = ITA_will_start_socialist_revolt
+	}
+}
+
+focus = {
+	id = ITA_arm_the_exercitus_romanus
+	icon = GFX_goal_generic_production
+	x = 15
+	y = 4
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_italian_legionaraires }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		###add equipment
+	}
+}
+}

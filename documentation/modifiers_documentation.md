@@ -15,7 +15,7 @@ The listed decimal places is for display only. All numbers support up to
 * [autonomy](#modifiers-for-scope-autonomy)
 * [country](#modifiers-for-scope-country)
 * [defensive](#modifiers-for-scope-defensive)
-* [government_in_exile](#modifiers-for-scope-government_in_exile)
+* [government_in_exile](#modifiers-for-scope-government_in_exile) 
 * [intelligence_agency](#modifiers-for-scope-intelligence_agency)
 * [military_advancements](#modifiers-for-scope-military_advancements)
 * [naval](#modifiers-for-scope-naval)

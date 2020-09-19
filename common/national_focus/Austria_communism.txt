@@ -16,10 +16,10 @@ focus_tree = {
 
 	focus = {
 		id = AUS_arbkies_convnetion
-		icon = unkown
+		icon = GFX_goal_AUS_arbieks_convention
 		x = 16
 		y = 0
-		cost = 5
+		cost = 2
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
@@ -31,10 +31,10 @@ focus_tree = {
 
 	focus = {
 		id = AUS_protect_the_arbiets	
-		icon = unkown
+		icon = GFX_goal_AUS_protect_the_arbieks
 		x = -2
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_arbkies_convnetion }
 		relative_position_id = AUS_arbkies_convnetion
 		available_if_capitulated = yes
@@ -42,16 +42,16 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			add_ideas = AUS_councilism
 		}
 	}
 
 	focus = {
 		id = AUS_teach_the_workers	
-		icon = unkown
+		icon = GFX_goal_AUS_teach_workers
 		x = -1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_protect_the_arbiets }
 		relative_position_id = AUS_protect_the_arbiets
 		available_if_capitulated = yes
@@ -59,16 +59,34 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			if = {
+				limit = {
+					has_idea = AUS_councilism
+				}
+				swap_ideas = {
+					add_idea = AUS_councilism_2
+					remove_idea = AUS_councilism
+				}
+			}
+
+			if = {
+				limit = {
+					has_idea = AUS_councilism_4
+				}
+				swap_ideas = {
+					add_idea = AUS_councilism_4
+					remove_idea = AUS_councilism_3
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = AUS_by_the_workers_for_the_workers	
-		icon = unkown
+		icon = GFX_goal_AUS_by_the_people
 		x = 1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_protect_the_arbiets }
 		relative_position_id = AUS_protect_the_arbiets
 		available_if_capitulated = yes
@@ -76,7 +94,25 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			if = {
+				limit = {
+					has_idea = AUS_councilism
+				}
+				swap_ideas = {
+					add_idea = AUS_councilism_4
+					remove_idea = AUS_councilism
+				}
+			}
+
+			if = {
+				limit = {
+					has_idea = AUS_councilism_2
+				}
+				swap_ideas = {
+					add_idea = AUS_councilism_2
+					remove_idea = AUS_councilism_3
+				}
+			}
 		}
 	}
 
@@ -85,7 +121,7 @@ focus_tree = {
 		icon = unkown
 		x = -1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_by_the_workers_for_the_workers }
 		prerequisite = {focus = AUS_teach_the_workers}
 		relative_position_id = AUS_by_the_workers_for_the_workers
@@ -100,16 +136,16 @@ focus_tree = {
 
 	focus = {
 		id = AUS_uniting_the_people
-		icon = unkown
+		icon = GFX_goal_AUS_uniting_the_people
 		x = 8
 		y = 0
-		cost = 5
+		cost = 2
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			add_political_power = 50
 		}
 	}
 
@@ -118,7 +154,7 @@ focus_tree = {
 		icon = unkown
 		x = -3
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_uniting_the_people }
 		relative_position_id = AUS_uniting_the_people
 		available_if_capitulated = yes
@@ -135,7 +171,7 @@ focus_tree = {
 		icon = unkown
 		x = 2
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_uniting_the_people }
 		relative_position_id = AUS_uniting_the_people
 		available_if_capitulated = yes
@@ -143,7 +179,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			add_war_support = 0.1
 		}
 	}
 
@@ -152,7 +188,7 @@ focus_tree = {
 		icon = unkown
 		x = -1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_reactionary_menaces }
 		relative_position_id = AUS_reactionary_menaces
 		available_if_capitulated = yes
@@ -160,7 +196,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			create_wargoal = {
+				target = HUN
+				type = annex_everything
+			}
 		}
 	}
 
@@ -169,7 +208,7 @@ focus_tree = {
 		icon = unkown
 		x = 1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_reactionary_menaces }
 		relative_position_id = AUS_reactionary_menaces
 		available_if_capitulated = yes
@@ -177,7 +216,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			create_wargoal = {
+				target = POL ###might create new tag for Poland, cuz Russian civil war xD haha
+				type = annex_everything
+			}
 		}
 	}
 
@@ -188,7 +230,7 @@ focus_tree = {
 		icon = unkown
 		x = -2
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_revolutionary_brethen }
 		relative_position_id = AUS_revolutionary_brethen
 		available_if_capitulated = yes
@@ -196,7 +238,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			ITF = {country_event = austriakillthekaiser.24}
 		}
 	}
 
@@ -205,7 +247,7 @@ focus_tree = {
 		icon = unkown
 		x = 0
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_revolutionary_brethen }
 		relative_position_id = AUS_revolutionary_brethen
 		available_if_capitulated = yes
@@ -213,7 +255,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			CRO = {country_event = austriakillthekaiser.27}
 		}
 	}
 
@@ -224,7 +266,7 @@ focus_tree = {
 		icon = unkown
 		x = 2
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_revolutionary_brethen }
 		relative_position_id = AUS_revolutionary_brethen
 		available_if_capitulated = yes
@@ -232,7 +274,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			CZE = {country_event = austriakillthekaiser.30}
 		}
 	}
 	focus = {
@@ -240,12 +282,11 @@ focus_tree = {
 		icon = unkown
 		x = 0
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_suborn_tito   }
 		prerequisite = {focus = AUS_deal_with_masa}
 		prerequisite = {focus = AUS_convince_the_anarchists}
-		prerequisite = {focus = AUS_wild_fascists}
-		prerequisite = {focus = AUS_old_royalists}
+
 		
 		relative_position_id = AUS_suborn_tito 
 		available_if_capitulated = yes
@@ -253,7 +294,16 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = CZE
+						is_core_of = CRO
+					}
+
+					add_core_of = AUS
+				}
+			}
 		}
 	}
 
@@ -262,7 +312,7 @@ focus_tree = {
 		icon = unkown
 		x = 5
 		y = 1
-		cost = 5
+		cost = 2
 		
 		prerequisite = {focus = AUS_wild_fascists}
 		prerequisite = {focus = AUS_old_royalists}
@@ -273,7 +323,16 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = HUN
+						is_core_of = POL
+					}
+				}
+
+				add_core_of = AUS
+			}
 		}
 	}
 
@@ -291,7 +350,7 @@ focus_tree = {
 		icon = unkown
 		x = 5
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_arbkies_convnetion }
 		relative_position_id = AUS_arbkies_convnetion
 		available_if_capitulated = yes
@@ -308,7 +367,7 @@ focus_tree = {
 		icon = unkown
 		x = -3
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_the_spark_we_light_will }
 		relative_position_id = AUS_the_spark_we_light_will
 		available_if_capitulated = yes
@@ -316,7 +375,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			add_timed_idea = { idea = AUS_purification_of_army days = 340}
 		}
 	}
 
@@ -325,7 +384,7 @@ focus_tree = {
 		icon = unkown
 		x = 3
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_the_spark_we_light_will }
 		relative_position_id = AUS_the_spark_we_light_will
 		available_if_capitulated = yes
@@ -333,7 +392,15 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = constitutional_monarchy
+				popularity = -0.05
+			}
+
+			add_popularity = {
+				ideology = monarchy
+				popularity = -0.05
+			}
 		}
 	}
 
@@ -342,7 +409,7 @@ focus_tree = {
 		icon = unkown
 		x = 1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_the_spark_we_light_will }
 		relative_position_id = AUS_the_spark_we_light_will
 		available_if_capitulated = yes
@@ -350,7 +417,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			##remove reactionary coup
 		}
 	}
 
@@ -359,7 +426,7 @@ focus_tree = {
 		icon = unkown
 		x = -1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_the_spark_we_light_will }
 		relative_position_id = AUS_the_spark_we_light_will
 		available_if_capitulated = yes
@@ -367,7 +434,8 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			add_stability = 0.05
+			add_political_power = 30
 		}
 	}
 
@@ -376,7 +444,7 @@ focus_tree = {
 		icon = unkown
 		x = 3
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_purify_the_army }
 		prerequisite = {focus =  AUS_burn_hierarchy }
 		prerequisite = {focus =  AUS_destroy_reaction }
@@ -388,7 +456,18 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = constitutional_monarchy
+				popularity = -0.1
+			}
+
+			add_popularity = {
+				ideology = monarchy
+				popularity = -0.1
+			}
+
+			add_political_power = 60
+			add_war_support = 0.05
 		}
 	}
 	
@@ -398,7 +477,7 @@ focus_tree = {
 		icon = unkown
 		x = -1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = {focus =  AUS_purify_the_army }
 		prerequisite = {focus =  AUS_burn_hierarchy }
 		prerequisite = {focus =  AUS_destroy_reaction }
@@ -410,7 +489,11 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			add_ideas = AUS_death_over_oppression
+
+			set_rule = {
+				can_send_volunteers = yes
+			}
 		}
 	}
 
@@ -419,7 +502,7 @@ focus_tree = {
 		icon = unkown
 		x = -2
 		y = 1
-		cost = 5
+		cost = 2
 		
 		prerequisite = {focus = AUS_brothers_under_red_flag}
 		prerequisite = {focus = AUS_a_neverending_flame}

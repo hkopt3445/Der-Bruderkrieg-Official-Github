@@ -20,7 +20,7 @@
 ## Triggers for scope COMBATANT
 
 * [armor](#armor)
-* [attack_skill_level](#attack_skill_level)
+* [attack_skill_level](#attack_skill_level) 
 * [average_stats](#average_stats)
 * [can_select_trait](#can_select_trait)
 * [defense_skill_level](#defense_skill_level)
