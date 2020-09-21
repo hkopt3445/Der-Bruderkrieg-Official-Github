@@ -64,15 +64,59 @@ defined_text = { # Country
 	name = GetGermanSphereMech
 	text = {
 		trigger = {
-			german_sphere_country_this {
+			german_sphere_country_this = {
 				is_puppet = yes
 			}
 		}
 		localization_key = GERMAN_SPHERE_PUPPET
 	}
-	}
 	text = {
 		localization_key = GERMAN_SPHERE_INDEPENDENT
+	}
+}
+
+defined_text = { # Country
+	name = GetAustrianIntelLevel
+	
+	text = {
+		trigger = {
+			check_variable = { var = AUS_prussian_infil_var value = 20 compare = greater_than_or_equals }
+		}
+
+		localization_key = austria_very_high_intel
+	}
+
+	text = {
+	trigger = {
+		check_variable = { var = AUS_prussian_infil_var value = 15 compare = equals }
+	}
+
+	localization_key = austria_high_intel
+
+	
+	}
+
+	text = {
+	trigger = {
+		check_variable = { var = AUS_prussian_infil_var value = 10 compare = equals }
+	}
+	localization_key = austria_medium_intel
+
+
+	}
+
+	text = {
+	trigger = {
+		check_variable = { var = AUS_prussian_infil_var value = 5 compare = equals }
+	}
+	localization_key = austria_low_intel
+	}
+
+	text = {
+	trigger = {
+		check_variable = { var = AUS_prussian_infil_var value = 1 compare = lesser_than_or_equals }
+	}
+	localization_key = austria_very_low_intel
 	}
 }
 
