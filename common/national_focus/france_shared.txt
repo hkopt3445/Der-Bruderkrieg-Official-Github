@@ -3,7 +3,7 @@ shared_focus = {
     icon = GFX_goal_generic_construction
     text = FRA_BOOST_ECONOMY
     #prerequisite = { focus = ITA_industrial_effort_2 }
-    x = 5
+    x = 6
     y = -7
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 5
@@ -314,7 +314,7 @@ shared_focus = {
     icon = GFX_goal_generic_axis_build_infantry
     text = FRA_ARMEE_FRANCAISE
     #prerequisite = { focus = ITA_industrial_effort_2 }
-    x = 20
+    x = 19
     y = 7
     #relative_position_id = FRA_BUILD_INDUSTRY
     cost = 5
@@ -1184,7 +1184,7 @@ shared_focus = {
     icon = GFX_goal_generic_build_airforce
     text = FRA_GRANDE_AIR
     #prerequisite = { focus = ITA_industri5l_effort_2 }
-    x = 10
+    x = 9
     y = 0
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 5
@@ -1409,7 +1409,7 @@ shared_focus = {
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_focus_generic_monarchy_2
     text = FRA_CONSERVATIVES_PREVAIL
-    x = 20
+    x = 24
     y = 0
     relative_position_id = FRA_BUILD_INDUSTRY
     cost = 0
@@ -1438,7 +1438,7 @@ shared_focus = {
     icon = GFX_focus_generic_monarchy_2
     text = FRA_DOCTRINAIRE_VIC
 
-    x = 6
+    x = 9
     y = 1
 		prerequisite = {focus = FRA_CLASS_HIERARCHY}
     relative_position_id = FRA_CLASS_HIERARCHY
@@ -1458,6 +1458,10 @@ shared_focus = {
 			add_popularity = {
 				ideology = constitutional_monarchy
 				popularity = 0.1
+			}
+
+			hidden_effect = {
+				news_event = france.206
 			}
     }
   }
@@ -1608,7 +1612,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_popularity {
+      add_popularity  = {
 				ideology = constitutional_monarchy
 				popularity = 0.15
 			}
@@ -1671,7 +1675,7 @@ shared_focus = {
     id = FRA_LEFTIST_COALITION
     icon = GFX_goal_continuous_boost_freedom
     text = FRA_LEFTIST_COALITION
-    x = 37
+    x = 44
     y = 0
     relative_position_id = FRA_BUILD_INDUSTRY
     cost = 5
@@ -1701,7 +1705,7 @@ shared_focus = {
     x = 7
     y = 1
     relative_position_id = FRA_LEFTIST_COALITION
-    cost = 5
+    cost = 2
     ai_will_do = {
       factor = 20
     }
@@ -1710,7 +1714,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-     
+		add_stability =  0.05
     }
   }
 
@@ -1794,7 +1798,12 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-     
+		add_popularity = {
+			ideology = current_party_ideology_group
+			popularity =  0.05
+		}
+
+		country_event = france.209
     }
   }
 
@@ -1836,7 +1845,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-     
+		country_event = france.208
     }
   }
 
@@ -1857,7 +1866,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-     
+		FRA_level_up_workers_idea = yes
     }
   }
 
@@ -1879,7 +1888,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-     
+		FRA_level_up_workers_idea = yes
     }
   }
 
@@ -1900,7 +1909,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-     
+		FRA_level_up_workers_idea = yes
     }
   }
 
@@ -1923,7 +1932,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-     
+     add_political_power = 50
     }
   }
 
@@ -1967,12 +1976,12 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_popularity {
+      add_popularity  = {
 				ideology = democratic
 				popularity = 0.3
 			}
 
-			add_popularity {
+			add_popularity  = {
 				ideology = monarchy
 				popularity = -0.4
 			}
@@ -2074,7 +2083,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_popularity {
+      add_popularity  = {
 				ideology = communism
 				popularity = 0.15
 			}
@@ -2103,7 +2112,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_popularity {
+      add_popularity  = {
 				ideology = monarchy
 				popularity = -0.4
 			}
@@ -2162,7 +2171,7 @@ shared_focus = {
       add_ideas = {
 				Vive_la_Commune
 			}
-			add_popularity {
+			add_popularity  = {
 				ideology = communism
 				popularity = 0.15
 			}
@@ -2200,7 +2209,7 @@ shared_focus = {
     icon = GFX_goal_support_fascism
     text = FRA_FASCIST_VIC
 		prerequisite = { focus = FRA_MILITARY_HIEARCHY }
-    x = -3
+    x = -7
     y = 1
     relative_position_id = FRA_MILITARY_HIEARCHY
     cost = 5
@@ -2212,7 +2221,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_popularity {
+      add_popularity  = {
 				ideology = fascism
 				popularity = 0.2
 			}
@@ -2220,6 +2229,10 @@ shared_focus = {
 			add_timed_idea = {
 				idea = fascist_influence
 				days = 365
+			}
+
+			hidden_effect = {
+				news_event = france.205
 			}
     }
   }
@@ -2246,7 +2259,7 @@ shared_focus = {
 
 
     completion_reward = {
-			add_popularity {
+			add_popularity  = {
 				ideology = fascism
 				popularity = 0.2
 			}
@@ -2367,15 +2380,149 @@ shared_focus = {
 			add_ideas = {
 				Legacy_of_Charlemegne
 			}
+
+			hidden_effect = {
+				news_event = france.207
+			}
 		}
 	}
+
+	shared_focus = {
+		id = FRA_THE_ISSUE_OF_THE_POPULAR_FRONT
+		icon = unkown
+		text = FRA_THE_ISSUE_OF_THE_POPULAR_FRONT
+		prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
+		x = -4
+		y = 1
+		relative_position_id = FRA_MILITARY_GOVERNMENT
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = FRA_DECOMMUNIZATION
+		icon = unkown
+		text = FRA_DECOMMUNIZATION
+		prerequisite = { focus = FRA_THE_ISSUE_OF_THE_POPULAR_FRONT }
+		x = -1
+		y = 1
+		relative_position_id = FRA_THE_ISSUE_OF_THE_POPULAR_FRONT
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		mutually_exclusive = {
+			focus = FRA_SYSTMATIC_PURGES
+	   }
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = FRA_decommunization
+		}
+	}
+
+	shared_focus = {
+		id = FRA_FACTORY_PROPOGANDA
+		icon = unkown
+		text = FRA_FACTORY_PROPOGANDA
+		prerequisite = { focus = FRA_DECOMMUNIZATION }
+		x = 0
+		y = 1
+		relative_position_id = FRA_DECOMMUNIZATION
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+	
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = FRA_SYSTMATIC_PURGES
+		icon = unkown
+		text = FRA_SYSTMATIC_PURGES
+		prerequisite = { focus = FRA_THE_ISSUE_OF_THE_POPULAR_FRONT }
+		mutually_exclusive = {
+			 focus = FRA_DECOMMUNIZATION
+		}
+		x = 1
+		y = 1
+		relative_position_id = FRA_THE_ISSUE_OF_THE_POPULAR_FRONT
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			stability = -0.05
+
+			add_popularity = {
+				ideology =  communism
+				popularity = -0.1
+			}
+		}
+	}
+
+	shared_focus = {
+		id = FRA_CRACKDOWN_ON_FREEDOM_OF_SPEECH
+		icon = unkown
+		text = FRA_CRACKDOWN_ON_FREEDOM_OF_SPEECH
+		prerequisite = { focus = FRA_SYSTMATIC_PURGES }
+
+		x = 0
+		y = 1
+		relative_position_id = FRA_SYSTMATIC_PURGES
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.05
+
+			add_popularity = {
+				ideology =  communism
+				popularity = -0.2
+			}
+
+			add_popularity = {
+				ideology =  democratic
+				popularity = -0.15
+			}
+		}
+	}
+
 
 	shared_focus = {
 		id = FRA_CHRISTINAITY
 		icon = GFX_focus_focus_fra_national_resistance_council
 		text = FRA_CHRISTINAITY
 		prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
-		x = 1
+		x = 5
 		y = 1
 		relative_position_id = FRA_MILITARY_GOVERNMENT
 		cost = 5
@@ -2416,9 +2563,9 @@ shared_focus = {
 		id = FRA_BURN_HERETICS
 		icon = GFX_focus_generic_strike_at_democracy1
 		text = FRA_BURN_HERETICS
-		prerequisite = { focus = FRA_CHRISTINAITY focus = FRA_END_CONSTITUTIONALISM}
+		prerequisite = { focus = FRA_CHRISTINAITY }
 		x = -1
-		y = 2
+		y = 1
 		relative_position_id = FRA_CHRISTINAITY
 		cost = 5
 		ai_will_do = {
@@ -2487,7 +2634,7 @@ shared_focus = {
 		x = 0
 		y = 1
 		relative_position_id = FRA_IMPERIAL_GLORY
-		cost = 5
+		cost = 2
 		ai_will_do = {
 			factor = 20
 		}
@@ -2496,7 +2643,7 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			PAP = {country_event = { id = france.987}}
+			add_political_power = 20
 		}
 	}
 	shared_focus = {
@@ -2564,6 +2711,8 @@ shared_focus = {
 
 		completion_reward = {
 			add_political_power = 25
+
+			country_event = france.204
 		}
 	}
 
@@ -2571,10 +2720,10 @@ shared_focus = {
 		id = FRA_LAISEZE_FAIRE
 		icon = unkown
 		text = FRA_LAISEZE_FAIRE
-		prerequisite = { focus = FRA_AUTOCRACY}
-		x = -9
+		prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
+		x = 1
 		y = 1
-		relative_position_id = FRA_AUTOCRACY
+		relative_position_id = FRA_MILITARY_GOVERNMENT
 		cost = 1
 		ai_will_do = {
 			factor = 20
@@ -2605,6 +2754,7 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			country_event = france.203
 		}
 	}
 
@@ -2625,6 +2775,7 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_ideas = FRA_conservative_economic_reforms
 		}
 	}
 
@@ -2645,6 +2796,7 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_ideas = FRA_deregulation
 		}
 	}
 
@@ -2665,6 +2817,7 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			FRA_level_up_deregulation = yes
 		}
 	}
 
@@ -2686,6 +2839,7 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			FRA_level_up_deregulation = yes
 		}
 	}
 
@@ -2708,6 +2862,10 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			swap_ideas = {
+				add_idea = FRA_conservative_economic_reforms_2
+				remove_idea =  FRA_conservative_economic_reforms
+			}
 		}
 	}
 	shared_focus = {
@@ -2729,18 +2887,19 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_ideas = FRA_colonial_grain_shipments
 		}
 	}
 
 	shared_focus = {
-		id = FRA_la_grande_de_ecole
+		id = FRA_la_grande_de_ecole_industrial
 		icon = unkown
-		text = FRA_la_grande_de_ecole
+		text = FRA_la_grande_de_ecole_industrial
 		prerequisite = { focus = FRA_abolish_price_caps}
 		prerequisite = {focus = FRA_colonial_grain_shipments}
 		prerequisite = { focus = FRA_build_up_the_housing_industry}
 		x = 0
-		y = 3
+		y = 2
 		relative_position_id = FRA_abolish_price_caps
 		cost = 5
 		ai_will_do = {
@@ -2751,6 +2910,218 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	shared_focus = {
+		id = FRA_la_grande_de_ecole_army
+		icon = unkown
+		text = FRA_la_grande_de_ecole_army
+		prerequisite = { focus = FRA_la_grande_de_ecole_industrial }
+		prerequisite = {
+			 focus = FRA_NAPOLEON
+			 focus = FRA_PATH_AGGRESSION
+		}
+		x = 0
+		y = 1
+		relative_position_id = FRA_la_grande_de_ecole_industrial
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+
+	shared_focus = {
+		id = FRA_french_nationalist_propoganda
+		icon = unkown
+		text = FRA_french_nationalist_propoganda
+		prerequisite = { focus = FRA_la_grande_de_ecole_army }
+
+		x = 0
+		y = 1
+		relative_position_id = FRA_la_grande_de_ecole_army
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = FRA_national_propoganda_mil
+		}
+	}
+
+	shared_focus = {
+		id = FRA_french_harsh_training
+		icon = unkown
+		text = FRA_french_harsh_training
+		prerequisite = { focus = FRA_french_nationalist_propoganda }
+
+		x = -1
+		y = 1
+		relative_position_id = FRA_french_nationalist_propoganda
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		mutually_exclusive = {
+			focus = FRA_french_extensive_training
+	   }
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = FRA_national_propoganda_mil_2
+				remove_idea = FRA_national_propoganda_mil
+			}
+		}
+	}
+
+	shared_focus = {
+		id = FRA_french_extensive_training
+		icon = unkown
+		text = FRA_french_extensive_training
+		prerequisite = { focus = FRA_french_nationalist_propoganda }
+		mutually_exclusive = {
+			 focus = FRA_french_harsh_training
+		}
+
+		x = 1
+		y = 1
+		relative_position_id = FRA_french_nationalist_propoganda
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = FRA_national_propoganda_mil_3
+				remove_idea = FRA_national_propoganda_mil
+			}
+		}
+	}
+
+	shared_focus = {
+		id = FRA_a_hierarchy_of_skill
+		icon = unkown
+		text = FRA_a_hierarchy_of_skill
+		prerequisite = { focus = FRA_french_extensive_training  focus = FRA_french_harsh_training}
+		mutually_exclusive = {
+			focus = FRA_a_hierarchy_of_loyaltyw
+	   }
+
+		x = 1
+		y = 1
+		relative_position_id = FRA_french_extensive_training
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = FRA_national_propoganda_mil_3
+				}
+				swap_ideas = {
+					add_idea = FRA_national_propoganda_mil_5
+					remove_idea = FRA_national_propoganda_mil_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = FRA_national_propoganda_mil_2
+				}
+				swap_ideas = {
+					add_idea = FRA_national_propoganda_mil_7
+					remove_idea = FRA_national_propoganda_mil_3
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = FRA_a_hierarchy_of_loyalty
+		icon = unkown
+		text = FRA_a_hierarchy_of_loyalty
+		prerequisite = { focus = FRA_french_extensive_training  focus = FRA_french_harsh_training}
+		mutually_exclusive = {
+			 focus = FRA_a_hierarchy_of_skill
+		}
+
+		x = -3
+		y = 1
+		relative_position_id = FRA_french_extensive_training
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = FRA_national_propoganda_mil_3
+				}
+				swap_ideas = {
+					add_idea = FRA_national_propoganda_mil_4
+					remove_idea = FRA_national_propoganda_mil_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = FRA_national_propoganda_mil_2
+				}
+				swap_ideas = {
+					add_idea = FRA_national_propoganda_mil_6
+					remove_idea = FRA_national_propoganda_mil_3
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = FRA_a_france_for_the_better
+		icon = unkown
+		text = FRA_a_france_for_the_better
+		prerequisite = { focus = FRA_a_hierarchy_of_loyalty focus = FRA_a_hierarchy_of_skill}
+	
+
+		x = 2
+		y = 2
+		relative_position_id = FRA_a_hierarchy_of_loyalty
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_political_power = 75
 		}
 	}
 
@@ -2775,6 +3146,7 @@ shared_focus = {
 			add_ideas = {
 				Robe_Nobility
 			}
+			
 		}
 	}
 	shared_focus = {
@@ -4987,7 +5359,7 @@ shared_focus = {
 	id = FRA_state_of_the_commune
 	icon = GFX_goal_unknown
 	prerequisite = {focus = FRA_EGALITE}
-	x = 64
+	x = 71
 	y = 7
 	cost = 5
 	available_if_capitulated = yes
@@ -5004,7 +5376,7 @@ shared_focus = {
 	icon = GFX_goal_unknown
 	mutually_exclusive = {focus = FRA_isolationism}
 	prerequisite = {focus = FRA_state_of_the_commune}
-	x = 63
+	x = 70
 	y = 8
 	cost = 5
 	available_if_capitulated = yes
@@ -5021,7 +5393,7 @@ shared_focus = {
 	icon = GFX_goal_unknown
 	mutually_exclusive = {focus = FRA_internationalism}
 	prerequisite = {focus = FRA_state_of_the_commune}
-	x = 67
+	x = 74
 	y = 8
 	cost = 5
 	available_if_capitulated = yes
