@@ -371,7 +371,7 @@ shared_focus = {
   relative_position_id = AUS_DEV_BUDAPEST
   cost = 5
   ai_will_do = {
-    factor = 1
+    factor = 1 
   }
 
   available_if_capitulated = yes
@@ -2586,16 +2586,40 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-      add_timed_idea = {idea = Prague_Massacre days = 100}
+      add_dynamic_modifier = {modifier = bohemian_modifier}
       remove_ideas = {Bohemian_Outrage}
 
-      country_event = { id = austria.2 hours = 2}
+      country_event = { id = austria.2}
       unlock_decision_tooltip = AUS_post_massacre_cat
       hidden_effect = {
         set_country_flag = bohemian_massacre
         set_variable = {
           var = AUS.recovery
-          value = 0
+          value = 100
+        }
+
+        set_variable = {
+          AUS.stab_bohemian_massacre = AUS.recovery
+        }
+
+        divide_variable = {
+          AUS.stab_bohemian_massacre = -5
+        }
+
+        set_variable = {
+          AUS.factory_bohemian_massacre = AUS.recovery
+        }
+
+        divide_variable = {
+          AUS.factory_bohemian_massacre = -2
+        }
+
+        set_variable = {
+          AUS.buildings_bohemian_massacre = AUS.recovery
+        }
+
+        divide_variable = {
+          AUS.buildings_bohemian_massacre = -2.5  
         }
       }
   }
