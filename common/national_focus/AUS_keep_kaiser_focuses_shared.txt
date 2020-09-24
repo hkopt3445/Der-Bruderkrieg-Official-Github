@@ -481,7 +481,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_SOLIDIFY_THE_GOVERNMENT
-  icon = unokown
+  icon = unkown
   text = AUS_SOLIDIFY_THE_GOVERNMENT
   #prerequisite = { focus = AUS_MODERNIZATION focus = AUS_IMPERIAL_MODERNIZATION }
   x = -20
@@ -496,10 +496,11 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+
 
    }
 }
+
 
 shared_focus = {
   id = AUS_karls_cabinet
@@ -957,9 +958,9 @@ shared_focus = {
   icon = GFX_focus_generic_the_giant_wakes
   text = AUS_PREP_WAR
   #prerequisite = { focus = AUS_KAISER_SPEECH }
-  x = 20
+  x = 16
   y = 0
-  relative_position_id = AUS_announce_the_kaiser_speech
+  #relative_position_id = AUS_announce_the_kaiser_speech
   cost = 5
   ai_will_do = {
     factor = 1
@@ -983,7 +984,7 @@ shared_focus = {
   icon = GFX_goal_generic_axis_build_infantry
   text = AUS_KAISERLICHE_HEER
   prerequisite = { focus = AUS_PREP_WAR }
-  x = -4
+  x = -3
   y = 1
   relative_position_id = AUS_PREP_WAR
   cost = 5
@@ -1008,7 +1009,7 @@ shared_focus = {
   icon = GFX_goal_generic_allies_build_infantry
   text = AUS_KRUPP_MAUSER_CONTRACTS
   prerequisite = { focus = AUS_KAISERLICHE_HEER }
-  x = -4
+  x = -3
   y = 1
   relative_position_id = AUS_KAISERLICHE_HEER
   cost = 5
@@ -1038,7 +1039,7 @@ shared_focus = {
     icon = GFX_goal_generic_construct_military
     text = VIENNA_KRIEGSAKADEMIE
     prerequisite = { focus = AUS_KAISERLICHE_HEER }
-    x = -2
+    x = -1
     y = 1
     relative_position_id = AUS_KAISERLICHE_HEER
     cost = 5
@@ -1068,7 +1069,7 @@ shared_focus = {
     icon = GFX_Conscript_The_Masses
     text = AUS_CONSCRIPT_THE_MASSES
     prerequisite = { focus = AUS_KAISERLICHE_HEER }
-    x = 2
+    x = 1
     y = 1
     relative_position_id = AUS_KAISERLICHE_HEER
     cost = 5
@@ -1091,7 +1092,7 @@ shared_focus = {
     icon = GFX_goal_generic_army_tanks
     text = AUS_PANZER_CORP
     prerequisite = { focus = AUS_KAISERLICHE_HEER }
-    x = 4
+    x = 3
     y = 1
     relative_position_id = AUS_KAISERLICHE_HEER
     cost = 5
@@ -1375,7 +1376,7 @@ shared_focus = {
   prerequisite = {focus = AUS_BRAVE_NEW_EMPIRE focus = AUS_MASTER_BLITZKRIEG focus = AUS_MASTER_TACTICS focus = AUS_MASTER_ARTILLERY}
 
 
-  x = 4
+  x = 3
   y = 1
   relative_position_id = AUS_MASTER_ARTILLERY
   cost = 5
@@ -2475,7 +2476,7 @@ shared_focus = {
   mutually_exclusive = {focus = AUS_concessions_to_people}
   x = -3
   y = 0
-  relative_position_id = AUS_announce_the_kaiser_speech
+  #relative_position_id = AUS_announce_the_kaiser_speech
   cost = 2
   ai_will_do = {
     factor = 300
@@ -2595,15 +2596,22 @@ shared_focus = {
         set_country_flag = bohemian_massacre
         set_variable = {
           var = AUS.recovery
-          value = 100
+          value = -100
         }
 
         set_variable = {
           AUS.stab_bohemian_massacre = AUS.recovery
         }
 
+        set_variable = {
+          AUS.loc_showcase_bohmia = AUS.recovery
+        }
+        add_to_variable = {
+          AUS.loc_showcase_bohmia = 100
+        }
+
         divide_variable = {
-          AUS.stab_bohemian_massacre = -5
+          AUS.stab_bohemian_massacre = 500
         }
 
         set_variable = {
@@ -2611,15 +2619,15 @@ shared_focus = {
         }
 
         divide_variable = {
-          AUS.factory_bohemian_massacre = -2
-        }
+          AUS.factory_bohemian_massacre = 1000
+       }
 
         set_variable = {
           AUS.buildings_bohemian_massacre = AUS.recovery
         }
 
         divide_variable = {
-          AUS.buildings_bohemian_massacre = -2.5  
+          AUS.buildings_bohemian_massacre = 1000
         }
       }
   }
@@ -2689,6 +2697,12 @@ shared_focus = {
 
       805 = { set_demilitarized_zone = no }
     160 = { set_demilitarized_zone = no }
+
+    hidden_effect = {
+      
+
+      set_country_flag = sixty_days_in_milan
+    }
   }
 }
 
@@ -4798,7 +4812,7 @@ shared_focus = {
   mutually_exclusive = { focus = AUS_ABSOLUTISM }
   x = 0
   y = 0
-  relative_position_id = AUS_announce_the_kaiser_speech
+  #relative_position_id = AUS_announce_the_kaiser_speech
   cost = 5
   ai_will_do = {
     factor = 20
