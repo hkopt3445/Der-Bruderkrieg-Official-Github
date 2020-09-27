@@ -11,7 +11,7 @@ focus_tree = {
 	}
 	
 
-	focus = { 
+	focus = {  
 		id = FRA_announce_imperial_election
 		icon = unkown
 		text = FRA_announce_imperial_election
@@ -49,7 +49,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
-		  set_country_flag = napoleon_wins
+		  
 		}
 	  }
 
@@ -70,7 +70,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
-		  set_country_flag = napoleon_wins
+		  
 		}
 	  }
 
@@ -96,7 +96,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
-		  set_country_flag = napoleon_wins
+		  
 		}
 	  }
 
@@ -252,6 +252,190 @@ focus_tree = {
 		}
 	  }
 
+	  
+
+	  
+	
+	
+	  
+
+
+	  focus = { 
+		id = FRA_the_bill_was_approved
+		icon = unkown
+		text = FRA_the_bill_was_approved
+		prerequisite = { focus = FRA_the_issue_or_refugees }
+		mutually_exclusive = {focus =FRA_the_bill_was_rejected }
+		
+		x = 4
+		y = 1
+		relative_position_id = FRA_the_issue_or_refugees
+		cost = 2
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+		}
+	  }
+
+	  
+
+	  
+
+	  focus = { 
+		id = FRA_lessening_the_kings_power
+		icon = unkown
+		text = FRA_lessening_the_kings_power
+		prerequisite = { focus = FRA_the_bill_was_approved }
+		
+		x = 0
+		y = 1
+		relative_position_id = FRA_the_bill_was_approved
+		cost = 2
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		}
+	  }
+
+	  focus = { 
+		id = FRA_lessening_the_power_of_the_landowners
+		icon = unkown
+		text = FRA_lessening_the_power_of_the_landowners
+		prerequisite = { focus = FRA_lessening_the_kings_power }
+		prerequisite = {focus = FRA_solving_frances_problems}
+		
+		x = -3
+		y = 1
+		relative_position_id = FRA_lessening_the_kings_power
+		cost = 2
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		}
+	  }
+
+	  focus = { 
+		id = FRA_supporting_the_peasants
+		icon = unkown
+		text = FRA_supporting_the_peasants
+		prerequisite = { focus = FRA_lessening_the_power_of_the_landowners }
+		
+		x = 0
+		y = 1
+		relative_position_id = FRA_lessening_the_power_of_the_landowners
+		cost = 2
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		}
+	  }
+
+
+	  focus = { 
+		id = FRA_the_rubberstamp_king
+		icon = unkown
+		text = FRA_the_rubberstamp_king
+		prerequisite = { focus = FRA_lessening_the_kings_power }
+		
+		x = -1
+		y = 1
+		relative_position_id = FRA_lessening_the_kings_power
+		cost = 2
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		}
+	  }
+
+	  focus = { 
+		id = FRA_securing_true_democracy
+		icon = unkown
+		text = FRA_securing_true_democracy
+		prerequisite = { focus = FRA_the_rubberstamp_king }
+		
+		x = 0
+		y = 1
+		relative_position_id = FRA_the_rubberstamp_king
+		cost = 2
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		}
+	  }
+
+	  focus = { 
+		id = FRA_the_first_guillotine
+		icon = unkown
+		text = FRA_the_first_guillotine
+		prerequisite = { focus = FRA_lessening_the_kings_power }
+		
+		x = 1
+		y = 1
+		relative_position_id = FRA_lessening_the_kings_power
+		cost = 2
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		}
+	  }
+
+	  focus = { 
+		id = FRA_begin_purging_the_beauracracy
+		icon = unkown
+		text = FRA_begin_purging_the_beauracracy
+		prerequisite = { focus = FRA_the_first_guillotine }
+		
+		x = 0
+		y = 1
+		relative_position_id = FRA_the_first_guillotine
+		cost = 2
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		}
+	  }
+
 	  focus = { 
 		id = FRA_a_new_dawn_for_france
 		icon = unknown
@@ -269,11 +453,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
-		  hidden_effect ={
-			load_focus_tree = french_focus_conservative
-			complete_national_focus = FRA_CONSERVATIVES_PREVAIL
-			news_event = {id = napoleanfrance.23}
-		  }
+		  
 		}
 	  }
 
@@ -315,7 +495,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_civilian
 		text = FRA_encourage_infrastructure
 		prerequisite = { focus = FRA_start_developing_countryside }
-		  x = -1
+		x = -1
 		y = 1
 		relative_position_id = FRA_start_developing_countryside
 		cost = 5
@@ -439,198 +619,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 	
 		completion_reward = {
-				remove_ideas = FRA_underdeveloped_countryside
-
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_flag = napoleon_wins
-						}
-						load_focus_tree = french_focus_conservative
-					complete_national_focus = FRA_CONSERVATIVES_PREVAIL
-					}
-				}
+				
 	
-		}
-	  }
-	
-	
-	  
-
-
-	  focus = { 
-		id = FRA_the_bill_was_approved
-		icon = unkown
-		text = FRA_the_bill_was_approved
-		prerequisite = { focus = FRA_the_issue_or_refugees }
-		mutually_exclusive = {focus =FRA_the_bill_was_rejected }
-		
-		x = 3
-		y = 1
-		relative_position_id = FRA_the_issue_or_refugees
-		cost = 2
-		ai_will_do = {
-		  factor = 10
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-			set_country_flag = pop_front_wins
-		}
-	  }
-
-	  
-
-	  
-
-	  focus = { 
-		id = FRA_lessening_the_kings_power
-		icon = unkown
-		text = FRA_lessening_the_kings_power
-		prerequisite = { focus = FRA_the_bill_was_approved }
-		
-		x = 0
-		y = 1
-		relative_position_id = FRA_the_bill_was_approved
-		cost = 2
-		ai_will_do = {
-		  factor = 10
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-		}
-	  }
-
-	  focus = { 
-		id = FRA_lessening_the_power_of_the_landowners
-		icon = unkown
-		text = FRA_lessening_the_power_of_the_landowners
-		prerequisite = { focus = FRA_lessening_the_kings_power }
-		prerequisite = {focus = FRA_solving_frances_problems}
-		
-		x = -2
-		y = 1
-		relative_position_id = FRA_lessening_the_kings_power
-		cost = 2
-		ai_will_do = {
-		  factor = 10
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-		}
-	  }
-
-	  focus = { 
-		id = FRA_supporting_the_peasants
-		icon = unkown
-		text = FRA_supporting_the_peasants
-		prerequisite = { focus = FRA_lessening_the_power_of_the_landowners }
-		
-		x = 0
-		y = 1
-		relative_position_id = FRA_lessening_the_power_of_the_landowners
-		cost = 2
-		ai_will_do = {
-		  factor = 10
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-		}
-	  }
-
-
-	  focus = { 
-		id = FRA_the_rubberstamp_king
-		icon = unkown
-		text = FRA_the_rubberstamp_king
-		prerequisite = { focus = FRA_lessening_the_kings_power }
-		
-		x = 0
-		y = 1
-		relative_position_id = FRA_lessening_the_kings_power
-		cost = 2
-		ai_will_do = {
-		  factor = 10
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-		}
-	  }
-
-	  focus = { 
-		id = FRA_securing_true_democracy
-		icon = unkown
-		text = FRA_securing_true_democracy
-		prerequisite = { focus = FRA_the_rubberstamp_king }
-		
-		x = 0
-		y = 1
-		relative_position_id = FRA_the_rubberstamp_king
-		cost = 2
-		ai_will_do = {
-		  factor = 10
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-		}
-	  }
-
-	  focus = { 
-		id = FRA_the_first_guillotine
-		icon = unkown
-		text = FRA_the_first_guillotine
-		prerequisite = { focus = FRA_lessening_the_kings_power }
-		
-		x = 2
-		y = 1
-		relative_position_id = FRA_lessening_the_kings_power
-		cost = 2
-		ai_will_do = {
-		  factor = 10
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-		}
-	  }
-
-	  focus = { 
-		id = FRA_begin_purging_the_beauracracy
-		icon = unkown
-		text = FRA_begin_purging_the_beauracracy
-		prerequisite = { focus = FRA_the_first_guillotine }
-		
-		x = 0
-		y = 1
-		relative_position_id = FRA_the_first_guillotine
-		cost = 2
-		ai_will_do = {
-		  factor = 10
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
 		}
 	  }
 
@@ -639,34 +629,11 @@ focus_tree = {
 
 	 }
 
- 
-	focus_tree = {
-	id = french_focus_conservative
 
-	country = {
-		factor = 0
 
-		modifier = {
-			add = 11
-			tag = FRA
-		}
-	}
-	continuous_focus_position = { x = 0, y = 1900 }
-	default = no
-
-	shared_focus = FRA_national_development_bureau
-	shared_focus = FRA_GRANDE_MARINE
-	shared_focus = FRA_ARMEE_FRANCAISE
-	shared_focus = FRA_GRANDE_AIR
-	shared_focus = FRA_BUILD_INDUSTRY
-	shared_focus = FRA_CONSERVATIVES_PREVAIL
-
-	}
-
-	focus_tree = {
-		id = french_focus_pop_front
+	 focus_tree = {
+		id = french_focus_conservative
 	
-		continuous_focus_position = { x = 0, y = 1900 }
 		country = {
 			factor = 0
 	
@@ -675,15 +642,34 @@ focus_tree = {
 				tag = FRA
 			}
 		}
+		continuous_focus_position = { x = 0, y = 1900 }
 		default = no
 	
-		shared_focus = FRA_national_development_bureau
-		shared_focus = FRA_GRANDE_MARINE
-		shared_focus = FRA_ARMEE_FRANCAISE
-		shared_focus = FRA_GRANDE_AIR
-		shared_focus = FRA_BUILD_INDUSTRY
-		shared_focus = FRA_LEFTIST_COALITION
-	}
+		shared_focus = FRA_the_state_of_the_nation
+		shared_focus = FRA_CONSERVATIVES_PREVAIL
+	
+		}
+	
+		focus_tree = {
+			id = french_focus_pop_front
+		
+			continuous_focus_position = { x = 0, y = 1900 }
+			country = {
+				factor = 0
+		
+				modifier = {
+					add = 11
+					tag = FRA
+				}
+			}
+			default = no
+		
+			shared_focus = FRA_the_state_of_the_nation
+			shared_focus = FRA_LEFTIST_COALITION
+		}
+
+ 
+
 
 
 
