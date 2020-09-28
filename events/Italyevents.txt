@@ -13,7 +13,7 @@ country_event = {
 		name = italy.1.a
 		annex_country = { target = ALB }
 		add_named_threat = { threat = 2 name = ITA_albania_war_goal }
-		USA = {
+		USA = { 
 			set_country_flag = { flag = USA_albania_window days = 60 value = 1 }
 		}
 		hidden_effect = {
@@ -867,12 +867,24 @@ country_event = {
 		
 
 		hidden_effect = {
-			158 = {
-				add_core_of = CMI
-			  }
-			  159 = {
-				add_core_of = CMI
-			  }
+			if = { 
+				limit = { 
+					158 = {check_variable = socialist_influence > fascist_influence} 
+				}
+				158 = {
+					add_core_of = CMI
+				} 
+			}
+			if = { 
+				limit = { 
+					159 = {check_variable = socialist_influence > fascist_influence} 
+				}
+				159 = {
+					add_core_of = CMI
+				} 
+			}
+				
+			  
 			  161 = {
 				add_core_of = CMI
 			  }
@@ -895,17 +907,7 @@ country_event = {
 				add_core_of = CMI
 			  }
 		
-			  CMI = {
-				transfer_state = 158
-				transfer_state = 159
-				transfer_state = 161
-				transfer_state = 162
-				transfer_state = 157
-				transfer_state = 888
-				transfer_state = 891
-				transfer_state = 892
-				transfer_state = 890
-			  }
+			  release = CMI
 		
 			CMI = {
 				random_owned_controlled_state = {
@@ -997,7 +999,7 @@ country_event = {
 			}
 			declare_war_on = {
 				target = CMI
-				type = annex_everything
+				type = civil_war
 			}
 		}
 
