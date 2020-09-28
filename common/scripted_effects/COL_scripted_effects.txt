@@ -1,3 +1,4 @@
+##Created by Tsar Giraldo
 COL_congress_get_quorum = {
 	set_variable = { var = quorum_low value = senators_total }
 	multiply_variable = { var = quorum_low value = 0.4 }
@@ -316,5 +317,568 @@ COL_calc_stars = {
 	}
 	else = {
 		set_cosmetic_tag = COL_49
+	}
+}
+
+COL_cuba_inf = { #
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = COL_influencing_cuba
+			}
+			add_to_variable = {
+				var = CUB_COL_Influence
+				value = 1
+			}
+			COL_influence_autonomy_update_CUB = yes
+			if = {
+				limit = {
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 4
+						compare = greater_than_or_equals
+					}
+				}
+				clr_country_flag = COL_influencing_cuba
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = COL_influencing_a_nation
+					}
+				}
+				add_ideas = COL_influencing_a_nation
+			}
+			country_event = { id = ita.1000 days = 7 }
+		}
+	}
+}
+
+COL_mexico_inf = { #
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = COL_influencing_mexico
+			}
+			add_to_variable = {
+				var = MEX_COL_Influence
+				value = 1
+			}
+			COL_influence_autonomy_update_MEX = yes
+			if = {
+				limit = {
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 4
+						compare = greater_than_or_equals
+					}
+				}
+				clr_country_flag = COL_influencing_mexico
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = COL_influencing_a_nation
+					}
+				}
+				add_ideas = COL_influencing_a_nation
+			}
+			country_event = { id = ita.1000 days = 7 }
+		}
+	}
+}
+
+COL_paraguay_inf = { #
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = COL_influencing_paraguay
+			}
+			add_to_variable = {
+				var = PAR_COL_Influence
+				value = 1
+			}
+			COL_influence_autonomy_update_PAR = yes
+			if = {
+				limit = {
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 4
+						compare = greater_than_or_equals
+					}
+				}
+				clr_country_flag = COL_influencing_paraguay
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = COL_influencing_a_nation
+					}
+				}
+				add_ideas = COL_influencing_a_nation
+			}
+			country_event = { id = ita.1000 days = 7 }
+		}
+	}
+}
+
+COL_centralamerica_inf = { #
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = COL_influencing_centralamerica
+			}
+			add_to_variable = {
+				var = CEN_COL_Influence
+				value = 1
+			}
+			COL_influence_autonomy_update_CEN = yes
+			if = {
+				limit = {
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 4
+						compare = greater_than_or_equals
+					}
+				}
+				clr_country_flag = COL_influencing_centralamerica
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = COL_influencing_a_nation
+					}
+				}
+				add_ideas = COL_influencing_a_nation
+			}
+			country_event = { id = ita.1000 days = 7 }
+		}
+	}
+}
+
+COL_chile_inf = { #
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = COL_influencing_chile
+			}
+			add_to_variable = {
+				var = CHL_COL_Influence
+				value = 1
+			}
+			COL_influence_autonomy_update_CHL = yes
+			if = {
+				limit = {
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 4
+						compare = greater_than_or_equals
+					}
+				}
+				clr_country_flag = COL_influencing_chile
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = COL_influencing_a_nation
+					}
+				}
+				add_ideas = COL_influencing_a_nation
+			}
+			country_event = { id = ita.1000 days = 7 }
+		}
+	}
+}
+
+COL_peru_inf = { #
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = COL_influencing_peru
+			}
+			add_to_variable = {
+				var = PRU_COL_Influence
+				value = 1
+			}
+			COL_influence_autonomy_update_PRU = yes
+			if = {
+				limit = {
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 4
+						compare = greater_than_or_equals
+					}
+				}
+				clr_country_flag = COL_influencing_peru
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = COL_influencing_a_nation
+					}
+				}
+				add_ideas = COL_influencing_a_nation
+			}
+			country_event = { id = ita.1000 days = 7 }
+		}
+	}
+}
+COL_haiti_inf = { #
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = COL_influencing_haiti
+				NOT = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			add_to_variable = {
+				var = HAI_COL_Influence
+				value = 1
+			}
+			COL_influence_autonomy_update_HAI = yes
+			if = {
+				limit = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+				clr_country_flag = COL_influencing_haiti
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = COL_influencing_a_nation
+					}
+				}
+				add_ideas = COL_influencing_a_nation
+			}
+			country_event = { id = ita.1000 days = 7 }
+		}
+	}
+}
+
+COL_influence_autonomy_update_HAI = {
+	hidden_effect = {
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			HAI = {
+				country_event = {
+					id = col.1001
+				}
+			}
+		}
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			HAI = {
+				country_event = {
+					id = col.1002
+				}
+			}
+		}
+	}
+}
+
+COL_influence_autonomy_update_CUB = {
+	hidden_effect = {
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			CUB = {
+				country_event = {
+					id = col.1001
+				}
+			}
+		}
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			CUB = {
+				country_event = {
+					id = col.1002
+				}
+			}
+		}
+	}
+}
+
+COL_influence_autonomy_update_PRU = {
+	hidden_effect = {
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			PRU = {
+				country_event = {
+					id = col.1001
+				}
+			}
+		}
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			PRU = {
+				country_event = {
+					id = col.1002
+				}
+			}
+		}
+	}
+}
+
+COL_influence_autonomy_update_MEX = {
+	hidden_effect = {
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			MEX = {
+				country_event = {
+					id = col.1001
+				}
+			}
+		}
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			MEX = {
+				country_event = {
+					id = col.1002
+				}
+			}
+		}
+	}
+}
+
+COL_influence_autonomy_update_CEN = {
+	hidden_effect = {
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+		}
+	}
+}
+
+COL_influence_autonomy_update_PAR = {
+	hidden_effect = {
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			PAR = {
+				country_event = {
+					id = col.1001
+				}
+			}
+		}
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			PAR = {
+				country_event = {
+					id = col.1002
+				}
+			}
+		}
+	}
+}
+
+COL_influence_autonomy_update_CHL = {
+	hidden_effect = {
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			CHL = {
+				country_event = {
+					id = col.1001
+				}
+			}
+		}
+		if = {
+			limit = {
+				COL = {
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			CHL = {
+				country_event = {
+					id = col.1002
+				}
+			}
+		}
 	}
 }
