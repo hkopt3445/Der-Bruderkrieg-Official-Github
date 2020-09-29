@@ -47,14 +47,26 @@ ITA_incoming_socialist_revolution = {
     }
 
     cost = 0
-    days_remove = 365
+    days_remove = 20
 
-    fire_only_once = yes
+    fire_only_once = no
+
+    
 
     remove_effect = {
-      italian_civil_war_state = {
-        subtract_from_variable = {socialist_influence =5}
-      }
+      subtract_from_variable = {italian_civil_war_state.socialist_influence =5}
+      set_variable = {italian_civil_war_state.fascist_influence = 0} 
+  
+  set_temp_variable = {
+  socialist_temp_var = italian_civil_war_state.socialist_influence
+  }
+
+  subtract_from_temp_variable  = {socialist_temp_var = 100}
+  multiply_temp_variable = {socialist_temp_var = -1}
+
+  add_to_variable = {italian_civil_war_state.fascist_influence = socialist_temp_var}
+
+      
     }
   }
 
@@ -68,14 +80,25 @@ ITA_incoming_socialist_revolution = {
     }
 
     cost = 0
-    days_remove = 10
+    days_remove = 20
 
-    fire_only_once = yes
+    fire_only_once = no
 
     remove_effect = {
-      italian_civil_war_state = {
-        subtract_from_variable = {socialist_influence =5}
-      }
+       
+        subtract_from_variable = {italian_civil_war_state.socialist_influence =5}
+        set_variable = {italian_civil_war_state.fascist_influence = 0}
+    
+    set_temp_variable = {
+    socialist_temp_var = italian_civil_war_state.socialist_influence
+    }
+
+    subtract_from_temp_variable  = {socialist_temp_var = 100}
+    multiply_temp_variable = {socialist_temp_var = -1}
+
+    add_to_variable = {italian_civil_war_state.fascist_influence = socialist_temp_var}
+      
+      
     }
   }
 }
@@ -87,7 +110,7 @@ ITA_mafia_decision = {
 
     }
     visible = {
-      tag = ITA
+      tag = ITA 
     }
 
     cost = 0
@@ -102,7 +125,272 @@ ITA_mafia_decision = {
 }
 
 ITA_the_kings_men = {
-  
+  ITA_hold_a_speech_with_the_king = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 5
+    days_remove = 5
+
+    fire_only_once = yes
+
+    remove_effect = {
+        add_to_variable = {
+          mussolini_influence = 5
+        }
+    }
+  }
+  ITA_declare_evola_a_lunatic = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+        add_to_variable = {
+          mussolini_influence = 5
+        }
+        add_to_variable = {
+          evola_influence =  -5
+        }
+    }
+  }
+  ITA_lower_pro_evola_officials = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 30
+
+    fire_only_once = yes
+
+    remove_effect = {
+        add_to_variable = {
+          mussolini_influence = 5
+        }
+        add_to_variable = {
+          evola_influence =  -5
+        }
+    }
+  }
+  ITA_dissolving_pro_evola_cults = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+        
+        add_to_variable = {
+          evola_influence =  -5
+        }
+    }
+  }
+  ITA_shut_down_the_gruppo_di_ur = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+        
+        add_to_variable = {
+          evola_influence =  -5
+        }
+    }
+  }
+
+  ITA_arresting_evola = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+      set_temp_variable = {
+        temp_benito = mussolini_influence
+      }
+      add_to_temp_variable = {temp_benito = 10}
+
+      check_variable = {temp_benito > evola_influence}
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+        add_to_variable = {
+          mussolini_influence = 5
+        }
+
+        complete_national_focus = ITA_assert_the_power_of_mussolini
+    }
+  }
+  ITA_denounce_mussolini_loyalty = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = no
+
+    remove_effect = {
+      add_to_variable = {
+        mussolini_influence = -5
+      }
+    }
+  }
+  ITA_publishing_the_mussolini_socialist_papers = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+      add_to_variable = {
+        mussolini_influence = -5
+      }
+    }
+  }
+
+  ITA_spreading_the_gruppo_di_ur = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = no
+
+    remove_effect = {
+      add_to_variable = {
+        evola_influence = 5
+      }
+    }
+  }
+  ITA_hold_a_secret_meeting_with_the_king = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+      add_to_variable = {
+        evola_influence = 5
+      }
+    }
+  }
+  ITA_promote_spiritualism = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+      add_to_variable = {
+        evola_influence = 5
+      }
+    }
+  }
+  ITA_evolas_coup_decision = {
+    available = {
+      tag = ITA
+
+    }
+    visible = {
+      tag = ITA 
+      set_temp_variable = {
+        temp_evola = evola_influence
+      }
+      add_to_temp_variable = {temp_benito = 10}
+
+      check_variable = {temp_evola > mussolini_influence}
+    }
+
+    cost = 0
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+      add_to_variable = {
+        evola_influence = 5
+      }
+
+      complete_national_focus = ITA_evolas_coup
+    }
+  }
 }
 
 

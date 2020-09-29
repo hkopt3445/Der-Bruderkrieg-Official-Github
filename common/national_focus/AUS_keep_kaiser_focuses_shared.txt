@@ -524,12 +524,13 @@ shared_focus = {
    }
 }
 
+
 shared_focus = {
-  id = AUS_public_works_sector
+  id = AUS_SDP
   icon = unokown
-  text = AUS_public_works_sector
+  text = AUS_SDP
   prerequisite = { focus = AUS_karls_cabinet }
-  x = 0
+  x = 2
   y = 1
   relative_position_id = AUS_karls_cabinet
   cost = 5
@@ -538,7 +539,7 @@ shared_focus = {
   }
 
   available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
+  search_filters = { FOCUS_FILTER_INDUSTRY } 
 
   completion_reward = {
     
@@ -547,20 +548,107 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = AUS_SDP
+  id = AUS_karl_sietz
   icon = unokown
-  text = AUS_SDP
-  prerequisite = { focus = AUS_karls_cabinet }
-  x = 3
+  text = AUS_karl_sietz
+  prerequisite = { focus = AUS_SDP }
+  x = -1
   y = 1
-  relative_position_id = AUS_karls_cabinet
+  relative_position_id = AUS_SDP
   cost = 5
   ai_will_do = {
     factor = 1
   }
 
   available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
+  search_filters = { FOCUS_FILTER_INDUSTRY } 
+
+  completion_reward = {
+    
+
+   }
+}
+shared_focus = {
+  id = AUS_karl_sietz
+  icon = unokown
+  text = AUS_karl_sietz
+  prerequisite = { focus = AUS_SDP }
+  x = -1
+  y = 1
+  relative_position_id = AUS_SDP
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY } 
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_karl_renner
+  icon = unokown
+  text = AUS_karl_renner
+  prerequisite = { focus = AUS_SDP }
+  x = 1
+  y = 1
+  relative_position_id = AUS_SDP
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY } 
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_civilian_economics
+  icon = unokown
+  text = AUS_civilian_economics
+  prerequisite = { focus = AUS_karl_renner focus = AUS_karl_sietz }
+  x = -1
+  y = 1
+  relative_position_id = AUS_karl_renner
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY } 
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_foriegn_investments
+  icon = unokown
+  text = AUS_foriegn_investments
+  prerequisite = { focus = AUS_civilian_economics focus = AUS_lisence_military_industries }
+  x = -2
+  y = 2
+  relative_position_id = AUS_civilian_economics
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY } 
 
   completion_reward = {
     
@@ -573,9 +661,81 @@ shared_focus = {
   icon = unokown
   text = AUS_CSU
   prerequisite = { focus = AUS_karls_cabinet }
-  x = -3
+  x = -2
   y = 1
   relative_position_id = AUS_karls_cabinet
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+shared_focus = {
+  id = AUS_emmerich_czermach
+  icon = unokown
+  text = AUS_emmerich_czermach
+  prerequisite = { focus = AUS_CSU }
+  mutually_exclusive = {
+    focus = AUS_engelbert_dolfuss
+  }
+  x = 1
+  y = 1
+  relative_position_id = AUS_CSU
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_engelbert_dolfuss
+  icon = unokown
+  text = AUS_engelbert_dolfuss
+  prerequisite = { focus = AUS_CSU }
+  mutually_exclusive = {
+    focus = AUS_emmerich_czermach
+  }
+  x = -1
+  y = 1
+  relative_position_id = AUS_CSU
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_lisence_military_industries
+  icon = unokown
+  text = AUS_lisence_military_industries
+  prerequisite = { focus = AUS_emmerich_czermach focus = AUS_engelbert_dolfuss }
+
+  x = -1
+  y = 1
+  relative_position_id = AUS_emmerich_czermach
   cost = 5
   ai_will_do = {
     factor = 1
