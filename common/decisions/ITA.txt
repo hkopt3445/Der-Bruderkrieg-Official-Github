@@ -143,6 +143,8 @@ ITA_the_kings_men = {
         add_to_variable = {
           mussolini_influence = 5
         }
+
+        custom_effect_tooltip = increase_mussolini
     }
   }
   ITA_declare_evola_a_lunatic = {
@@ -166,6 +168,7 @@ ITA_the_kings_men = {
         add_to_variable = {
           evola_influence =  -5
         }
+        custom_effect_tooltip = increase_mussolini
     }
   }
   ITA_lower_pro_evola_officials = {
@@ -189,6 +192,7 @@ ITA_the_kings_men = {
         add_to_variable = {
           evola_influence =  -5
         }
+        custom_effect_tooltip = increase_mussolini
     }
   }
   ITA_dissolving_pro_evola_cults = {
@@ -210,6 +214,7 @@ ITA_the_kings_men = {
         add_to_variable = {
           evola_influence =  -5
         }
+        custom_effect_tooltip = increase_mussolini
     }
   }
   ITA_shut_down_the_gruppo_di_ur = {
@@ -231,22 +236,27 @@ ITA_the_kings_men = {
         add_to_variable = {
           evola_influence =  -5
         }
+        custom_effect_tooltip = increase_mussolini
     }
   }
 
   ITA_arresting_evola = {
     available = {
-      tag = ITA
+      custom_trigger_tooltip = {
+        tooltip = arrest_evola_tt
+        tag = ITA 
+        set_temp_variable = {
+          temp_benito = mussolini_influence
+        }
+        add_to_temp_variable = {temp_benito = 10}
 
+        check_variable = {temp_benito > evola_influence}
+
+      
+      }
     }
     visible = {
-      tag = ITA 
-      set_temp_variable = {
-        temp_benito = mussolini_influence
-      }
-      add_to_temp_variable = {temp_benito = 10}
-
-      check_variable = {temp_benito > evola_influence}
+      tag = ITA
     }
 
     cost = 0
@@ -280,6 +290,7 @@ ITA_the_kings_men = {
       add_to_variable = {
         mussolini_influence = -5
       }
+      custom_effect_tooltip = increase_evola
     }
   }
   ITA_publishing_the_mussolini_socialist_papers = {
@@ -300,6 +311,7 @@ ITA_the_kings_men = {
       add_to_variable = {
         mussolini_influence = -5
       }
+      custom_effect_tooltip = increase_evola
     }
   }
 
@@ -321,6 +333,7 @@ ITA_the_kings_men = {
       add_to_variable = {
         evola_influence = 5
       }
+      custom_effect_tooltip = increase_evola
     }
   }
   ITA_hold_a_secret_meeting_with_the_king = {
@@ -341,6 +354,7 @@ ITA_the_kings_men = {
       add_to_variable = {
         evola_influence = 5
       }
+      custom_effect_tooltip = increase_evola
     }
   }
   ITA_promote_spiritualism = {
@@ -361,21 +375,27 @@ ITA_the_kings_men = {
       add_to_variable = {
         evola_influence = 5
       }
+      custom_effect_tooltip = increase_evola
     }
   }
   ITA_evolas_coup_decision = {
     available = {
-      tag = ITA
+      custom_trigger_tooltip = {
+				tooltip = launch_evola_coups_tt		
+        tag = ITA
+        set_temp_variable = {
+          temp_benito = mussolini_influence
+        }
+        add_to_temp_variable = {temp_benito = 20}
+
+        AND = { check_variable = {evola_influence > temp_benito} check_variable = {evola_influence>60}}
+			}
+       
 
     }
     visible = {
       tag = ITA 
-      set_temp_variable = {
-        temp_evola = evola_influence
-      }
-      add_to_temp_variable = {temp_benito = 10}
-
-      check_variable = {temp_evola > mussolini_influence}
+      
     }
 
     cost = 0
