@@ -1,5 +1,5 @@
 focus_tree = {
-	id = italy_focus
+	id = italy_recovery_tree
 
 	country = {
 		factor = 0
@@ -9,6 +9,7 @@ focus_tree = {
 			tag = ITA
 		}
 	}
+	default = no
 	
 
  
@@ -66,7 +67,7 @@ focus_tree = {
 	focus = {
 		id = ITA_purifying_the_army	
 		icon = unkown
-		x = 2
+		x = 1
 		y = 1
 		cost = 2
 		prerequisite = {focus = ITA_ending_the_last_resistance}
@@ -76,7 +77,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			swap_ideas = {
+				add_idea = ITA_broken_army_2
+				remove_idea = ITA_broken_army
+			}
 		}
 	}
 
@@ -94,7 +98,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			remove_ideas = ITA_broken_army_2
 		}
 	}
 	focus = {
@@ -110,41 +114,62 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			ITA_level_down_recovery = yes
 		}
 	}
 	
 	focus = {
 		id = ITA_northern_investments	
 		icon = unkown
-		x = -2
+		x = 1
 		y = 1
 		cost = 2
-		prerequisite = {focus = ITA_begin_the_recovery_process}
+		prerequisite = {focus = ITA_boost_the_north}
+		relative_position_id = ITA_boost_the_north
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			unlock_decision_category_tooltip = ITA_northern_investments
+		}
+	}
+	focus = {
+		id = ITA_boost_the_north	
+		icon = unkown
+		x = -2
+		y = 1
+		cost = 5
+		prerequisite = {focus = ITA_begin_the_recovery_process }
+		#prerequisite = {focus = ITA_ending_the_last_resistance}
 		relative_position_id = ITA_begin_the_recovery_process
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = ITA_disperse_striking_unions	
-		icon = unkown
-		x = 1
-		y = 1
-		cost = 2
-		prerequisite = {focus = ITA_northern_investments }
-		prerequisite = {focus = ITA_ending_the_last_resistance}
-		relative_position_id = ITA_northern_investments
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-			
+			random_owned_controlled_state = {
+				prioritize = {162 161 158}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+  
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				prioritize = {162 161 158}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+  
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+
+			unlock_decision_category_tooltip = ITA_road_to_recovery
 		}
 	}
 	focus = {
@@ -153,15 +178,15 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 2
-		prerequisite = {focus = ITA_northern_investments }
+		prerequisite = {focus = ITA_boost_the_north }
 		
-		relative_position_id = ITA_northern_investments
+		relative_position_id = ITA_boost_the_north
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			
+			unlock_decision_category_tooltip = ITA_factory_repairing
 		}
 	}
 	focus = {
@@ -171,11 +196,17 @@ focus_tree = {
 		y = 1
 		cost = 2
 		prerequisite = {focus = ITA_repairing_broken_factories }
-		prerequisite = {focus = ITA_disperse_striking_unions}
+		prerequisite = {focus = ITA_northern_investments}
 		relative_position_id = ITA_repairing_broken_factories
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 1
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = full_recovered_economy_ita_tt
+				OR = { check_variable = {ITA_economic_civil_war_var > 0} check_variable = {ITA_economic_civil_war_var = 0} }
+			}
 		}
 		completion_reward = {
 			
@@ -196,6 +227,19 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_political_power = 75
+			add_stability = 0.05
+
+			if = {
+				limit = {
+					has_country_flag = evola_coup
+				}
+				##load evola
+
+				else = {
+					##load mussolini
+				}
+			}
 			
 		}
 	}

@@ -1,4 +1,61 @@
 on_actions = {
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { original_tag = ITA }
+					FROM = {
+						original_tag = CMI
+					}
+				}
+				ITA = {country_event = italy.530}
+				set_country_flag = ITA_fascist_or_neutral_win_civil_war
+
+				ITA = {
+					add_ideas = ITA_legacy_of_the_civil_war
+					set_variable = {ITA_economic_civil_war_var = -100}
+					ITA_calc_economic_recovery = yes
+					add_dynamic_modifier = {modifier = italian_economoy_civil_war_modifier}
+				}
+			}
+			if = {
+				limit = {
+					tag = CMI
+					FROM = {
+						original_tag = ITA
+					}
+				}
+				news_event = {id = italy.525}
+				set_country_flag = ITA_commies_win_civil_war
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					tag = CMI
+					FROM = {
+						tag = ITA
+					}
+				}
+				ITA = {country_event = italy.530}
+				set_country_flag = ITA_fascist_or_neutral_win_civil_war
+				
+				
+			}
+			if = {
+				limit = {
+					tag = ITA
+					FROM = {
+						tag = CMI
+					}
+				}
+				news_event = {id = italy.525}
+				set_country_flag = ITA_commies_win_civil_war
+			}
+		}
+	}
     on_startup = {
 		effect = {
 			ITA = {
