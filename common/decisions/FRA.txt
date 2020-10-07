@@ -8,7 +8,7 @@ FRA_solve_countryside_problem = {
 
 		visible = {
 		  tag = FRA
-		  
+		  has_completed_focus = FRA_encourage_infrastructure
 		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
 		}
 		target_trigger = {
@@ -31,38 +31,7 @@ is_on_continent = europe				is_owned_by = FRA
 		  
 		}
 	}
-	FRA_build_factories_in_from = {
-		available = {
-		  tag = FRA
-		  
-		}
-		state_target = yes
-
-		visible = {
-		  tag = FRA
-		  
-		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
-		}
-		target_trigger = {
-			FROM = {
-				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
-is_on_continent = europe				is_owned_by = FRA
-			}
-		}
-		cost = 15
-		days_remove = 10
-		on_map_mode = map_and_decisions_view
-		ai_will_do = {
-		  factor = 20
-		  modifier = {
-			has_war = yes
-			factor = 0
-		  }
-		}
-		remove_effect = {
-		  
-		}
-	}
+	
 	FRA_expand_local_villages_in_from = {
 		available = {
 		  tag = FRA
@@ -72,7 +41,7 @@ is_on_continent = europe				is_owned_by = FRA
 
 		visible = {
 		  tag = FRA
-		  
+		  has_completed_focus = FRA_expand_local_villages
 		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
 		}
 		target_trigger = {
@@ -99,6 +68,185 @@ is_on_continent = europe				is_owned_by = FRA
 		available = {
 		  tag = FRA
 		  
+		}
+		state_target = yes
+
+		visible = {
+		  tag = FRA
+		  has_completed_focus = FRA_solving_frances_problems
+		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
+		}
+		target_trigger = {
+			FROM = {
+				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
+is_on_continent = europe				is_owned_by = FRA
+			}
+		}
+		cost = 15
+		days_remove = 10
+		on_map_mode = map_and_decisions_view
+		ai_will_do = {
+		  factor = 20
+		  modifier = {
+			has_war = yes
+			factor = 0
+		  }
+		}
+		remove_effect = {
+		  
+		}
+	}
+
+
+	
+}
+
+FRA_countryside_revolt = {
+FRA_peasent_revolution = {
+
+	priority = 10
+
+	icon = generic_ignite_civil_war
+
+	available = {
+		hidden_trigger = { always = no }
+	}
+
+	days_mission_timeout = 190
+
+	fire_only_once = yes 
+
+	activation = {
+		tag = FRA
+	}
+
+	visible = {
+		tag = FRA
+		check_variable = {FRA_peasent_revolt_var < 0}
+	} 
+
+	cancel_if_not_visible = yes
+
+	is_good = yes
+
+	timeout_effect = {
+		
+	}
+	}
+	FRA_crush_revolting_peasants_in_from = {
+		available = {
+		  tag = FRA
+		  has_completed_focus = FRA_crush_revolting_peasents
+		}
+		state_target = yes
+
+		visible = {
+		  tag = FRA
+		  
+		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
+		}
+		target_trigger = {
+			FROM = {
+				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
+is_on_continent = europe				is_owned_by = FRA
+			}
+		}
+		cost = 15
+		days_remove = 10
+		on_map_mode = map_and_decisions_view
+		ai_will_do = {
+		  factor = 20
+		  modifier = {
+			has_war = yes
+			factor = 0
+		  }
+		}
+		remove_effect = {
+		  
+		}
+	}
+
+	FRA_reestablish_feudalistic_control_in_from = {
+		available = {
+		  tag = FRA
+		  has_completed_focus = FRA_reestablish_feudalism
+		}
+		state_target = yes
+
+		visible = {
+		  tag = FRA
+		  
+		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
+		}
+		target_trigger = {
+			FROM = {
+				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
+is_on_continent = europe				is_owned_by = FRA
+			}
+		}
+		cost = 15
+		days_remove = 10
+		on_map_mode = map_and_decisions_view
+		ai_will_do = {
+		  factor = 20
+		  modifier = {
+			has_war = yes
+			factor = 0
+		  }
+		}
+		remove_effect = {
+		  
+		}
+	}
+
+
+
+
+
+
+	
+
+
+
+
+
+	FRA_lessen_the_landowners_power_in_from = {
+		available = {
+		  tag = FRA
+		  has_completed_focus = FRA_lessening_the_power_of_the_landowners
+		}
+		state_target = yes
+
+		visible = {
+		  tag = FRA
+		  
+		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
+		}
+		target_trigger = {
+			FROM = {
+				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
+is_on_continent = europe				is_owned_by = FRA
+			}
+		}
+		cost = 15
+		days_remove = 10
+		on_map_mode = map_and_decisions_view
+		ai_will_do = {
+		  factor = 20
+		  modifier = {
+			has_war = yes
+			factor = 0
+		  }
+		}
+		remove_effect = {
+		  
+		}
+	}
+
+	FRA_reestablish_feudalistic_control_in_from = {
+		available = {
+		  tag = FRA
+		  has_completed_focus = FRA_crush_revolting_peasents
 		}
 		state_target = yes
 
