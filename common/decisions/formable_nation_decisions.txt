@@ -914,3 +914,35 @@ form_greaterfrance_category = {
 		}
 	}
 }
+
+form_grobdeuctchland_category = {
+	form_gdb = {
+		allowed = {
+			tag = AUS
+		}
+
+		available = {
+			#form_grobdeuctland_trigger = yes
+			every_state = {
+				limit = {
+					is_core_of = GER
+				}
+				is_owned_by = AUS
+			}
+			every_state = {
+				limit = {
+					is_core_of = AUS
+				}
+				is_owned_by = AUS
+			}
+		}
+		visible = {
+			tag = AUS
+			NOT = {has_global_flag = gdb_formed}
+		}
+
+		complete_effect = {
+			set_global_flag = gdb_formed
+		}
+	}
+}
