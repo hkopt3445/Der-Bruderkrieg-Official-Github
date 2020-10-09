@@ -18,7 +18,7 @@ static const float3 DayAmbientMapPosX = float3(0.1, 0.1, 0.05);  // right
 static const float3 DayAmbientMapNegX = float3(0.15, 0.15, 0.15);  // left
 static const float3 DayAmbientMapPosY = float3(0.03, 0.03, 0.06);  // kills everything
 static const float3 DayAmbientMapNegY = float3(0.0, 0.0, 0.0);  // from under
-static const float3 DayAmbientMapPosZ = float3(0.0502, 0.05023, 0.1023);  // top
+static const float3 DayAmbientMapPosZ = float3(0.0502, 0.05023, 0.1023);  // top 
 static const float3 DayAmbientMapNegZ = float3(0.03, 0.033, 0.033);  // bottom
  
 static const float3 NightAmbientMapPosX = float3(0.2, 0.2, 0.2);  // right
@@ -85,7 +85,7 @@ static const float 	SNOW_FROST_MIN_EFFECT  		= 0.4f;
 static const float3 ICE_COLOR 					= float3( 0.5f, 0.6f, 0.9f );
 static const float 	ICE_NOISE_TILING  			= 0.1f; //0.068f;
 
-static const float WATER_COLOR_LIGHTNESS = 0.85;
+static const float WATER_COLOR_LIGHTNESS = 0.25;
 static const float WATER_RIPPLE_EFFECT = 0.0025;
 
 static const float COLORMAP_OVERLAY_STRENGTH 	= 0.73f; //0.7f;

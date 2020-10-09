@@ -1111,17 +1111,71 @@ shared_focus = {
 
 
 ####ARMY
+shared_focus = {
+  id = AUS_denounce_the_treaty_of_vienna
+  icon = unkown
+  text = AUS_denounce_the_treaty_of_vienna
+  #prerequisite = { focus = AUS_KAISER_SPEECH }
+  x = 25
+  y = 0
+  #relative_position_id = AUS_announce_the_kaiser_speech
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
 
+  bypass = {
+  
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    remove_ideas = AUS_treaty_of_vienna
+    hidden_effect = {
+      news_event = { id = austria.165 } 
+    }
+   }
+}
+
+shared_focus = {
+  id = AUS_the_next_bruderkrieg_is_coming
+  icon = unkown
+  text = AUS_the_next_bruderkrieg_is_coming
+  prerequisite = { focus = AUS_denounce_the_treaty_of_vienna }
+  x = 0
+  y = 1
+  relative_position_id = AUS_denounce_the_treaty_of_vienna
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  bypass = {
+    
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+   
+    add_command_power = 20
+    add_offsite_building = { type = arms_factory level = 1 }
+
+   }
+}
 
 shared_focus = {
   id = AUS_PREP_WAR
   icon = GFX_focus_generic_the_giant_wakes
   text = AUS_PREP_WAR
-  #prerequisite = { focus = AUS_KAISER_SPEECH }
-  x = 16
-  y = 0
-  #relative_position_id = AUS_announce_the_kaiser_speech
-  cost = 5
+  prerequisite = { focus = AUS_the_next_bruderkrieg_is_coming }
+  x = 12
+  y = 1
+  relative_position_id = AUS_the_next_bruderkrieg_is_coming
+  cost = 1
   ai_will_do = {
     factor = 1
   }
@@ -1135,7 +1189,7 @@ shared_focus = {
 
   completion_reward = {
 
-
+    add_war_suport = 0.03
    }
 }
 
