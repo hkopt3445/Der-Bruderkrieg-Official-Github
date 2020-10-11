@@ -133,6 +133,39 @@ FRA_peasent_revolution = {
 		
 	}
 	}
+	FRA_landowner_revolt = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 190 
+	
+		fire_only_once = yes 
+	
+		activation = {
+			tag = FRA
+			has_country_flag = FRA_activate_landowner_revolt_flag
+		}
+	
+		visible = {
+			tag = FRA
+			has_country_flag = FRA_activate_landowner_revolt_flag
+			check_variable = {FRA_landowner_revolt_var	 < 0}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			
+		}
+		}
 	FRA_crush_revolting_peasants_in_from = {
 		available = {
 		  tag = FRA
@@ -175,7 +208,7 @@ is_on_continent = europe				is_owned_by = FRA
 
 		visible = {
 		  tag = FRA
-		  
+		  has_completed_focus = FRA_reestablish_feudalism
 		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
 		}
 		target_trigger = {
@@ -219,7 +252,7 @@ is_on_continent = europe				is_owned_by = FRA
 
 		visible = {
 		  tag = FRA
-		  
+		  has_completed_focus = FRA_lessening_the_power_of_the_landowners
 		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
 		}
 		target_trigger = {
@@ -243,7 +276,7 @@ is_on_continent = europe				is_owned_by = FRA
 		}
 	}
 
-	FRA_reestablish_feudalistic_control_in_from = {
+	FRA_support_peasent_workers_in_from = {
 		available = {
 		  tag = FRA
 		  has_completed_focus = FRA_crush_revolting_peasents
@@ -287,6 +320,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -316,6 +350,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -347,6 +382,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -376,6 +412,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -409,6 +446,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -438,6 +476,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -470,6 +509,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -499,6 +539,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -532,6 +573,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -561,6 +603,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -593,6 +636,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -622,6 +666,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -655,6 +700,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -684,6 +730,7 @@ FRA_the_issue_of_refugees = {
 		}
 
 		visible = {
+		always = no
 		}
 
 		days_remove = 5 
@@ -715,6 +762,7 @@ FRA_the_issue_of_refugees = {
 		}
 	
 		visible = {
+		
 		}
 	
 		days_remove = 5 
@@ -744,6 +792,7 @@ FRA_the_issue_of_refugees = {
 		}
 	
 		visible = {
+		
 		}
 	
 		days_remove = 5 
@@ -775,6 +824,7 @@ FRA_the_issue_of_refugees = {
 		}
 	
 		visible = {
+		always = no
 		}
 	
 		days_remove = 5 
@@ -1214,6 +1264,7 @@ FRA_the_issue_of_refugees = {
 		}
 	
 		visible = {
+			always = no
 		}
 	
 		days_remove = 5 
@@ -1271,7 +1322,7 @@ FRA_the_issue_of_refugees = {
 		complete_effect = {
 		}
 	
-		remove_effect = {
+		remove_effect = {	
 		complete_national_focus = FRA_the_bill_was_approved
 		}
 	}

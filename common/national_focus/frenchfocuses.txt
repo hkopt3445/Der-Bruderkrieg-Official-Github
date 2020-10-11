@@ -58,8 +58,8 @@ focus_tree = {
 		icon = GFX_goal_Uphold_Napoleonic_Ideas
 		text = FRA_solving_frances_problems
 		prerequisite = { focus = FRA_the_issue_or_refugees }
-		x = 0
-		y = 2
+		x = 2
+		y = 1
 		relative_position_id = FRA_the_issue_or_refugees
 		cost = 2
 		ai_will_do = {
@@ -84,7 +84,7 @@ focus_tree = {
 		text = FRA_the_bill_was_rejected
 		prerequisite = { focus = FRA_the_issue_or_refugees }
 		mutually_exclusive = {focus = FRA_the_bill_was_approved }
-		x = -6
+		x = -2
 		y = 1
 		relative_position_id = FRA_the_issue_or_refugees
 		cost = 2
@@ -173,8 +173,8 @@ focus_tree = {
 		text = FRA_crush_revolting_peasents
 		prerequisite = { focus = FRA_the_bill_was_rejected }
 		prerequisite = {focus = FRA_solving_frances_problems}
-		x = 3
-		y = 2
+		x = 7
+		y = 1
 		relative_position_id = FRA_the_bill_was_rejected
 		cost = 2
 		ai_will_do = {
@@ -194,7 +194,7 @@ focus_tree = {
 		icon = unknown
 		text = FRA_reestablish_feudalism
 		prerequisite = { focus = FRA_crush_revolting_peasents}
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = FRA_crush_revolting_peasents
 		cost = 2
@@ -239,7 +239,7 @@ focus_tree = {
 		text = FRA_no_time_for_democracy
 		prerequisite = { focus = FRA_rubberstamp_parliment focus = FRA_worker_propoganda }
 		x = -1
-		y = 2
+		y = 1
 		relative_position_id = FRA_rubberstamp_parliment
 		cost = 2
 		ai_will_do = {
@@ -279,6 +279,9 @@ focus_tree = {
 		text = FRA_the_bill_was_approved
 		prerequisite = { focus = FRA_the_issue_or_refugees }
 		mutually_exclusive = {focus =FRA_the_bill_was_rejected }
+		allow_branch = {
+			always = no
+		}
 		
 		x = 6
 		y = 1
@@ -296,8 +299,10 @@ focus_tree = {
 	
 		completion_reward = {
 			set_country_flag = pop_front_wins
-
-			
+ 
+			hidden_effect = {
+				country_event = francestart.11
+			}
 		}
 	  }
 
@@ -326,6 +331,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
+			unlock_decision_tooltip = FRA_lessen_the_landowners_power_in_from
 		}
 	  }
 
@@ -347,6 +353,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
+			unlock_decision_tooltip = FRA_support_peasent_workers_in_from
 		}
 	  }
 
@@ -356,6 +363,9 @@ focus_tree = {
 		icon = unkown
 		text = FRA_the_rubberstamp_king
 		prerequisite = { focus = FRA_the_bill_was_approved }
+		mutually_exclusive = {
+			focus = FRA_the_first_guillotine
+		}
 		
 		x = -1
 		y = 1
@@ -460,7 +470,14 @@ focus_tree = {
 		id = FRA_a_better_economy
 		icon = GFX_goal_generic_construction2
 		text = FRA_a_better_economy
-		prerequisite = {focus = FRA_reestablish_feudalism focus = FRA_supporting_the_peasants}
+		prerequisite = {focus = FRA_reestablish_feudalism}
+		prerequisite = {
+			focus = FRA_encourage_infrastructure
+			
+		}
+		prerequisite = {
+			focus = FRA_expand_local_villages
+		}
 		x = 0
 		y = 3
 		relative_position_id = FRA_solving_frances_problems
@@ -546,9 +563,9 @@ focus_tree = {
 		icon = unkown
 		text = FRA_a_nation_reborn
 
-		prerequisite = {focus = FRA_no_time_for_democracy focus = FRA_a_new_dawn_for_france}
+		prerequisite = {focus = FRA_no_time_for_democracy }
 		prerequisite = {focus = FRA_a_better_economy}
-		x = 6
+		x = 2
 		y = 1
 		relative_position_id = FRA_no_time_for_democracy
 		cost = 5
@@ -569,13 +586,7 @@ focus_tree = {
 
 					load_focus_tree = french_focus_conservative
 				}
-				if = {
-					limit = {
-						has_country_flag = pop_front_wins
-					} 
-
-					load_focus_tree = french_focus_pop_front
-				}
+					
 			}
 		}
 	  }
