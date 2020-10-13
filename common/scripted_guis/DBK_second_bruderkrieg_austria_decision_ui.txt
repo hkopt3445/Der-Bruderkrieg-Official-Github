@@ -3,7 +3,13 @@ scripted_gui = {
 	DBK_second_bruderkrieg_austria_decision_ui = {
 		context_type = decision_category
 		window_name = "DBK_second_bruderkrieg_austria"
+		effects = {
+			open_spy_window_click = {
+				set_country_flag = open_spy_window
+			}
+		}
 
+		
 		properties = {
 			GFX_high_infiltration_austria_visible = {
 				check_variable = { var = AUS_prussian_infil_var value = 20 compare = greater_than_or_equals }
@@ -37,6 +43,16 @@ scripted_gui = {
 			austrian_progress_bar = {
 				frame = austrian_tech_var
 			}
+		}
+	}
+
+
+	spy_window_aus_gui = {
+		context_type = player_context
+		window_name = "spy_window_aus_container"
+
+		visible = {
+			has_country_flag = open_spy_window
 		}
 	}
 }

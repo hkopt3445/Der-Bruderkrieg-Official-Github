@@ -1090,7 +1090,7 @@
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_focus_generic_monarchy_2
     text = FRA_CONSERVATIVES_PREVAIL
-    x = -15
+    x = -17
     y = 0
     #relative_position_id = FRA_national_development_bureau
     cost = 0
@@ -1286,7 +1286,7 @@
     }
 
 		available = {
-			democratic > 0.4
+			constitutional_monarchy > 0.4
 		}
 
     available_if_capitulated = yes
@@ -1356,7 +1356,7 @@
     id = FRA_LEFTIST_COALITION
     icon = GFX_goal_continuous_boost_freedom
     text = FRA_LEFTIST_COALITION
-    x = 30
+    x = 100
     y = 7
     relative_position_id = FRA_national_development_bureau
     cost = 5
@@ -1898,7 +1898,7 @@
     icon = GFX_goal_support_fascism
     text = FRA_FASCIST_VIC
 		prerequisite = { focus = FRA_MILITARY_HIEARCHY }
-    x = -5
+    x = -7
     y = 1
     relative_position_id = FRA_MILITARY_HIEARCHY
     cost = 5
@@ -2305,7 +2305,7 @@
 		icon = GFX_focus_fra_le_deluge
 		text = FRA_IMPERIAL_GLORY
 		prerequisite = { focus = FRA_LEGACY_OF_CHARLEGMEGNE}
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = FRA_LEGACY_OF_CHARLEGMEGNE
 		cost = 5
@@ -2325,7 +2325,7 @@
 		icon = GFX_focus_focus_fra_orleans_restoration
 		text = FRA_PEPIN
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = FRA_IMPERIAL_GLORY
 		cost = 2
@@ -2345,7 +2345,7 @@
 		icon = GFX_focus_fra_french_union
 		text = FRA_DEUS_OMNIA
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = FRA_IMPERIAL_GLORY
 		cost = 5
@@ -2613,10 +2613,7 @@
 		icon = unkown
 		text = FRA_la_grande_de_ecole_army
 		prerequisite = { focus = FRA_la_grande_de_ecole_industrial }
-		prerequisite = {
-			 focus = FRA_NAPOLEON
-			 focus = FRA_PATH_AGGRESSION
-		}
+		
 		x = 0
 		y = 1
 		relative_position_id = FRA_la_grande_de_ecole_industrial
@@ -3312,7 +3309,7 @@
 		prerequisite = { focus = FRA_RULE_FRANKIA }
 		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
 		
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = FRA_RULE_FRANKIA
 		cost = 5
@@ -3335,11 +3332,10 @@
 		id = FRA_SUPPLY_CARLIST
 		icon = GFX_goal_Supply_Carlist_Spain
 		text = FRA_SUPPLY_CARLIST
-		prerequisite = { focus = FRA_NAPOLEON }
-
-		x = -6
+		prerequisite = { focus = FRA_SPAIN_IS_BROKEN }
+		x = 1
 		y = 1
-		relative_position_id = FRA_NAPOLEON
+		relative_position_id = FRA_SPAIN_IS_BROKEN
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -3403,90 +3399,16 @@
 		}
 	}
 
-	shared_focus = {
-		id = FRA_DEMAND_SUBJUGATION
-		icon = GFX_goal_Demand_Subjugation
-		text = FRA_DEMAND_SUBJUGATION
-		prerequisite = { focus = FRA_CATALONIA_FOR_ALLIANCE }
-		x = -1
-		y = 1
-		relative_position_id = FRA_CATALONIA_FOR_ALLIANCE
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SPR
-				}
-				FRA = {
-					has_war_with = SPR
-				}
-				SPR = {
-					OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-				}
-			}
-		}
-		mutually_exclusive = {focus = FRA_ANNEX_SPAIN}
 
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			###########Get to this
-			add_threat = 3
-
-			SPR = {country_event = {id = napoleanfrance.1}}
-		}
-	}
 
 	shared_focus = {
-		id = FRA_ANNEX_SPAIN
-		icon = GFX_goal_Annex_Spain
-		text = FRA_ANNEX_SPAIN
-		prerequisite = { focus = FRA_CATALONIA_FOR_ALLIANCE }
-		mutually_exclusive = {focus = FRA_DEMAND_SUBJUGATION}
-		x = 1
-		y = 1
-		relative_position_id = FRA_CATALONIA_FOR_ALLIANCE
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SPR
-				}
-				FRA = {
-					has_war_with = SPR
-				}
-				SPR = {
-					OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-				}
-			}
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			create_wargoal = {
-				target = SPR
-				type = annex_everything
-			}
-		}
-	}
-
-	shared_focus = {
-		id = FRA_ANNEX_PORTUGAL
+		id = FRA_ALLY_PORTUGAL
 		icon = GFX_goal_Attack_Portugaul
-		text = FRA_ANNEX_PORTUGAL
-		prerequisite = { focus = FRA_ANNEX_SPAIN focus = FRA_DEMAND_SUBJUGATION}
-		x = -1
-		y = 2
-		relative_position_id = FRA_ANNEX_SPAIN
+		text = FRA_ALLY_PORTUGAL
+		prerequisite = { focus = FRA_CATALONIA_FOR_ALLIANCE}
+		x = 0
+		y = 1
+		relative_position_id = FRA_CATALONIA_FOR_ALLIANCE
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -3579,7 +3501,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			BEL = {country_event = {id = napoleanfrance.4}}
+			country_event = napoleanfrance.26
 		}
 	}
 
@@ -3588,7 +3510,7 @@
 		icon = GFX_goal_Dethrone_Charlotte
 		text = FRA_ANNEX_LUX
 		prerequisite = { focus = FRA_ANNEX_BELGIUM }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = FRA_ANNEX_BELGIUM
 		cost = 5
@@ -3603,9 +3525,6 @@
 				FRA = {
 					has_war_with = LUX
 				}
-				LUX = {
-					OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-				}
 			}
 		}
 
@@ -3613,7 +3532,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			LUX = {country_event = {id = napoleanfrance.4}}
+			country_event = napoleanfrance.25
 		}
 	}
 
@@ -3647,7 +3566,91 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			HOL = {country_event = {id = napoleanfrance.4}}
+			create_wargoal = {
+				target = HOL
+				type = annex_everything
+			}
+		}
+	}
+
+	shared_focus = {
+		id = FRA_MEETING_WITH_THE_MONARCHISTS
+		icon = unkown
+		text = FRA_MEETING_WITH_THE_MONARCHISTS
+		prerequisite = { focus = FRA_NAPOLEON }
+		x = -1
+		y = 2
+		relative_position_id = FRA_BUFFER_STATE
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		bypass = {
+			
+
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+		
+		}
+	}
+
+	shared_focus = {
+		id = FRA_DENOUNCING_BRITIAN
+		icon = unkown
+		text = FRA_DENOUNCING_BRITIAN
+		prerequisite = { focus = FRA_MEETING_WITH_THE_MONARCHISTS }
+		x = -1
+		y = 1
+		relative_position_id = FRA_MEETING_WITH_THE_MONARCHISTS
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		bypass = {
+			
+
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+		
+		}
+	}
+
+	shared_focus = {
+		id = FRA_DENOUNCING_PRUSSIA
+		icon = unkown
+		text = FRA_DENOUNCING_PRUSSIA
+		prerequisite = { focus = FRA_MEETING_WITH_THE_MONARCHISTS }
+		x = 1
+		y = 1
+		relative_position_id = FRA_MEETING_WITH_THE_MONARCHISTS
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		bypass = {
+			
+
+		}
+		prerequisite = {
+			focus = FRA_DENOUNCING_BRITIAN
+		}
+		prerequisite = {
+			focus = FRA_DENOUNCING_PRUSSIA
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+		
 		}
 	}
 
@@ -3748,7 +3751,7 @@
 		icon = GFX_goal_Solidify_Control
 		text = FRA_SOLIDIFY_CONTROL
 		prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = FRA_BRUSSELLS_CONFERENCE
 		cost = 5
@@ -3829,6 +3832,9 @@
 		x = -2
 		y = 1
 		relative_position_id = FRA_FORTIFY_BENELUX_BORDER
+		mutually_exclusive = {
+			focus = FRA_FRANCE_ALONE
+			}
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -3858,11 +3864,47 @@
 	}
 
 	shared_focus = {
+		id = FRA_FRANCE_ALONE
+		icon = unkown
+		text = FRA_FRANCE_ALONE
+	
+		prerequisite = { focus = FRA_FORTIFY_BENELUX_BORDER focus = FRA_ANNEX_HOL}
+		prerequisite = {
+			focus = FRA_DENOUNCING_BRITIAN
+		}
+		prerequisite = {
+			focus = FRA_DENOUNCING_PRUSSIA
+		}
+		x = -4
+		y = 1
+		mutually_exclusive = {
+			focus = FRA_JOIN_AUSTRIA
+		}
+		relative_position_id = FRA_FORTIFY_BENELUX_BORDER
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		bypass = {
+			
+		}
+
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			create_faction = FRA_napoleonic_faction
+		}
+	}
+
+	shared_focus = {
 		id = FRA_ANTI_AUSTRIAN_PACT
 		icon = GFX_goal_Claims_On_Alliance
 		text = FRA_ANTI_AUSTRIAN_PACT
-		prerequisite = { focus = FRA_JOIN_AUSTRIA }
-		x = 0
+		prerequisite = { focus = FRA_JOIN_AUSTRIA focus = FRA_FRANCE_ALONE }
+		x = -1
 		y = 1
 		relative_position_id = FRA_JOIN_AUSTRIA
 		cost = 3
@@ -4234,13 +4276,44 @@
 	}
 
 	shared_focus = {
+		id = FRA_SPAIN_IS_BROKEN
+		icon = GFX_focus_intervention_spain_nationalists
+		text = FRA_SPAIN_IS_BROKEN
+		#prerequisite = { focus = FRA_PATH_AGGRESSION }
+		x = -2
+		y = 0
+		#relative_position_id = FRA_PATH_AGGRESSION
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		bypass = {
+			OR = {
+				NOT = {
+					country_exists = SPN
+				}
+				FRA = {
+					has_war_with = SPN
+				}
+			}
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			SPN = {country_event = {id = supplies.2}}
+		}
+	}
+
+	shared_focus = {
 		id = FRA_SUPPLY_NATIONALIST
 		icon = GFX_focus_intervention_spain_nationalists
 		text = FRA_SUPPLY_NATIONALIST
-		prerequisite = { focus = FRA_PATH_AGGRESSION }
-		x = -5
-		y = 2
-		relative_position_id = FRA_PATH_AGGRESSION
+		prerequisite = { focus = FRA_SPAIN_IS_BROKEN }
+		x = -1
+		y = 1
+		relative_position_id = FRA_SPAIN_IS_BROKEN
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -4291,9 +4364,57 @@
 		}
 
 		available = {
-			SPN = {
-				surrender_progress = 0.4
+			
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			######every_country
+			every_country = {
+				limit = {
+					has_war_with = SPN
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+				ROOT = {
+					create_wargoal = {
+						target = PREV
+						type = annex_everything
+					}
+				}
 			}
+
+		}
+	}
+
+	shared_focus = {
+		id = FRA_INFLUENCE_PORTUGAL
+		icon = GFX_focus_focus_fra_intervention_spain
+		text = FRA_INFLUENCE_PORTUGAL
+		prerequisite = { focus = FRA_SPANISH_INTERVENTION }
+		x = 0
+		y = 1
+		relative_position_id = FRA_SPANISH_INTERVENTION
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		bypass = {
+			OR = {
+				NOT = {
+					country_exists = POR
+				}
+				FRA = {
+					has_war_with = POR
+				}
+			}
+		}
+
+		available = {
+			
 		}
 
 		available_if_capitulated = yes
@@ -4731,11 +4852,11 @@
 		id = FRA_INVITE_SPAIN
 		icon = GFX_goal_generic_alliance
 		text = FRA_INVITE_SPAIN
-		prerequisite = { focus = FRA_SPANISH_INTERVENTION }
+		#prerequisite = { focus = FRA_SPANISH_INTERVENTION }
 		prerequisite = { focus = FRA_GREATER_FRANCE }
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = FRA_SPANISH_INTERVENTION
+		relative_position_id = FRA_GREATER_FRANCE
 		cost = 5
 		ai_will_do = {
 			factor = 20
