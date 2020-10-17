@@ -6,7 +6,7 @@ news_event = {
 	desc = wiltkrieg.1.d
 	picture = GFX_report_event_czech_soldiers_02.dds
 	is_triggered_only = yes
-	fire_only_once = yes
+	#fire_only_once = yes
 	major = yes
 
 	trigger = {
@@ -18,5 +18,147 @@ news_event = {
 		name = wiltkrieg.1.a
 
 		set_country_flag = open_super_window
+	}
+}
+
+
+#######Treaty of Munich, Austria
+country_event = {
+	id = wiltkrieg.2
+	title = wiltkrieg.2.t
+	desc = wiltkrieg.2.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = wiltkrieg.2.a
+		news_event = {id = wiltkrieg.5 days = 3}
+		set_country_flag = AUS_karl_death
+		white_peace = GER
+
+
+		country_event = {id = wiltkrieg.6 days = 4}
+
+	}
+}
+
+#######Treaty of Munich, Prussia
+country_event = {
+	id = wiltkrieg.3
+	title = wiltkrieg.3.t
+	desc = wiltkrieg.3.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = wiltkrieg.3.a
+		annex_country = {
+			target = GPU
+			transfer_troops =  no
+		}
+	}
+}
+
+##Treaty of Munich, news
+news_event = {
+	id = wiltkrieg.4
+	title = wiltkrieg.4.t
+	desc = wiltkrieg.4.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = wiltkrieg.4.a
+
+	}
+}
+
+
+###Karl suicide
+news_event = {
+	id = wiltkrieg.5
+	title = wiltkrieg.5.t
+	desc = wiltkrieg.5.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+	trigger = {
+		AUS = {
+			has_country_flag = AUS_karl_death
+		}
+	}
+
+
+	option = {
+		name = wiltkrieg.5.a
+
+	}
+}
+
+
+#######Austrian civil war
+country_event = {
+	id = wiltkrieg.6
+	title = wiltkrieg.6.t
+	desc = wiltkrieg.6.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = wiltkrieg.6.a
+		AUS = {hungary_states = yes czech_pole_states = yes italian_states = yes croat_states = yes}
+		austrian_civil_war_effect = yes
+		news_event = { id = wiltkrieg.7}
+	}
+}
+
+news_event = {
+	id = wiltkrieg.7
+	title = wiltkrieg.7.t
+	desc = wiltkrieg.7.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = wiltkrieg.7.a
+
+
 	}
 }
