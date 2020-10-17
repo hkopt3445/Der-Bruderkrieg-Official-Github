@@ -1,0 +1,96 @@
+form_china_category = {
+	
+	form_china = {
+	    fire_only_once = yes
+
+		icon = generic_form_nation
+
+		allowed = {
+			OR = {
+				original_tag = SHC
+				original_tag = BEI
+				original_tag = SHX
+				original_tag = XSM
+				original_tag = SIC
+				original_tag = PRC
+				original_tag = YUN
+				original_tag = CHI
+				original_tag = GXC
+			}
+		}
+
+		available = {
+			is_subject = no
+			# All clans
+			custom_trigger_tooltip = {
+				tooltip = form_country_china_required_states_tt
+				controls_state = 611
+				controls_state = 614
+				controls_state = 917
+				controls_state = 607
+				controls_state = 613
+				controls_state = 622
+				controls_state = 898
+				controls_state = 605
+				controls_state = 601
+				controls_state = 604
+				controls_state = 756
+				controls_state = 594
+				controls_state = 593
+				controls_state = 325
+			}
+		}
+
+		visible = {
+			OR = {
+				original_tag = SHC
+				original_tag = BEI
+				original_tag = SHX
+				original_tag = XSM
+				original_tag = SIC
+				original_tag = PRC
+				original_tag = YUN
+				original_tag = CHI
+				original_tag = GXC
+			}
+			NOT = { has_global_flag = form_china_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = CHU
+				custom_effect_tooltip = form_country_china_gain_cores_tt
+				custom_effect_tooltip = form_country_china_gain_cores_tibet_tt
+				custom_effect_tooltip = form_country_china_gain_cores_manchuria_tt
+				custom_effect_tooltip = form_country_china_gain_cores_turkistan_tt
+
+			hidden_effect = {
+				set_global_flag = form_china_flag
+				ROOT = {
+					add_state_core  = 611
+					add_state_core  = 614
+					add_state_core  = 917
+					add_state_core  = 607
+					add_state_core  = 613
+					add_state_core  = 622
+					add_state_core  = 898
+					add_state_core  = 605
+					add_state_core  = 601
+					add_state_core  = 604
+					add_state_core  = 756
+					add_state_core  = 594
+					add_state_core  = 593
+					add_state_core  = 325
+				}
+			}
+		}
+
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
