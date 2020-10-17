@@ -2,13 +2,45 @@
 
 oob = "IRE_1936"
 
-set_research_slots = 3
+set_research_slots = 4
 
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	fuel_silos = 1
+	tech_support = 1
+	tech_engineers = 1
+	early_fighter = 1
+	
 }
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		sonar = 1
+		basic_fire_control_system = 1
+	}
+	add_ideas = MTG_naval_treaty_adherent
+	set_global_flag = MTG_second_london_conference
+	set_global_flag = { flag = MTG_naval_treaty_signatories value = 5 }
+}
+
+
 add_ideas={
 IRE_Crumbling_Economy
 IRE_Northern_Ireland_declares_a_righteous_Church
