@@ -1148,7 +1148,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-   
+   add_ideas = AUS_legacy_of_the_brudekrieg
 
    }
 }
@@ -2597,14 +2597,14 @@ shared_focus = {
 
 
 shared_focus = {
-  id = AUS_mil_industry_1
-  icon = GFX_goal_Propoganda_Construction
-  text = AUS_mil_industry_1
-  prerequisite = { focus = AUS_mil_industry_2}
+  id = AUS_mil_industry_2
+  icon = GFX_goal_Generic_War_Propaganda04
+  text = AUS_mil_industry_2
+  prerequisite = { focus = AUS_mil_industry_1}
   x = -1
   y = 2
-  relative_position_id = AUS_mil_industry_2
-  cost = 5
+  relative_position_id = AUS_mil_industry_1
+  cost = 3
 
   available = {
     has_war_support > 0.25
@@ -2625,6 +2625,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
+    add_ideas = AUS_mil_factory_buff
   random_owned_controlled_state = {
     limit = {
       free_building_slots = {
@@ -2784,9 +2785,10 @@ shared_focus = {
   }
 }
 shared_focus = {
-  id = AUS_mil_industry_2
-  icon = GFX_goal_Generic_War_Propaganda04
-  text = AUS_mil_industry_2
+  id = AUS_mil_industry_1
+  
+  icon = GFX_goal_Propoganda_Construction
+  text = AUS_mil_industry_1
   prerequisite = { focus = AUS_expand_recruitment_imperial_army focus =  AUS_CENTRALISM}
   x = 0
   y = 1
@@ -2816,11 +2818,11 @@ shared_focus = {
   id = AUS_mil_infastructure_1
   icon = GFX_goal_AUS_roads
   text = AUS_mil_infastructure_1
-  prerequisite = { focus = AUS_mil_industry_2}
+  prerequisite = { focus = AUS_mil_industry_1}
   x = 0
   y = 1
-  relative_position_id = AUS_mil_industry_2
-  cost = 5
+  relative_position_id = AUS_mil_industry_1
+  cost = 3
 
   available = {
     has_war_support > 0.25
@@ -2841,16 +2843,22 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-  every_state = {
-    limit = {
-      is_owned_by = GER
+    random_owned_controlled_state = {
+      limit = {
+        free_building_slots = {
+          building = infrastructure
+          size > 1
+          include_locked = yes
+        }
+        is_on_continent = europe
+      }
+      add_extra_state_shared_building_slots = 1
+      add_building_construction = {
+        type = infrastructure
+        level = 1
+        instant_build = yes
+      }
     }
-    add_building_construction = {
-      type = infrastructure
-      level = 6
-      instant_build = yes
-    }
-  }
   }
 }
 
@@ -2858,11 +2866,11 @@ shared_focus = {
   id = AUS_mil_infastructure_2
   icon = GFX_goal_Generic_Resource_Extraction
   text = AUS_mil_infastructure_2
-  prerequisite = { focus = AUS_mil_industry_2}
+  prerequisite = { focus = AUS_mil_industry_1}
   x = 2
   y = 1
-  relative_position_id = AUS_mil_industry_2
-  cost = 5
+  relative_position_id = AUS_mil_industry_1
+  cost = 3
 
   available = {
 
@@ -2880,10 +2888,22 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    add_resource = {
-      type = steel
-      amount = 12
-      state = 9
+    add_ideas = AUS_civ_factory_buff
+    random_owned_controlled_state = {
+      limit = {
+        free_building_slots = {
+          building = industrial_complex
+          size > 1
+          include_locked = yes
+        }
+        is_on_continent = europe
+      }
+      add_extra_state_shared_building_slots = 1
+      add_building_construction = {
+        type = industrial_complex
+        level = 1
+        instant_build = yes
+      }
     }
   }
 }
@@ -5090,6 +5110,9 @@ shared_focus = {
   cost = 5
   ai_will_do = {
     factor = 20
+  }
+  allow_branch = {
+    always = no
   }
 
   available_if_capitulated = yes
