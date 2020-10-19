@@ -18,7 +18,7 @@ is_on_continent = europe				is_owned_by = FRA
 			}
 		}
 		cost = 15
-		days_remove = 10
+		days_remove = 10 
 		on_map_mode = map_and_decisions_view
 		ai_will_do = {
 		  factor = 20
@@ -98,6 +98,44 @@ is_on_continent = europe				is_owned_by = FRA
 	}
 
 
+	FRA_declare_the_countryside_developed = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			custom_trigger_tooltip = {
+				tooltip = FRA_countryside_developed_tt 
+				check_variable = {
+					var = FRA_develoepd_countryside_var value = 30 compare = greater_than_or_equals
+				}
+			}
+		}
+
+		visible = {
+			check_variable = {
+				var = FRA_develoepd_countryside_var value = 30 compare = greater_than_or_equals
+			}
+		}
+
+		days_remove = 1 
+ 
+		cost = 0 
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			set_country_flag = FRA_countryside_developed_flag
+		}
+	}
+
+
 	
 }
 
@@ -112,7 +150,9 @@ FRA_peasent_revolution = {
 		hidden_trigger = { always = no }
 	}
 
-	days_mission_timeout = 190 
+	war_with_on_remove = FPR
+
+	days_mission_timeout = 100 
 
 	fire_only_once = yes 
 
@@ -122,15 +162,16 @@ FRA_peasent_revolution = {
 
 	visible = {
 		tag = FRA
-		check_variable = {FRA_peasent_revolt_var < 0}
+		check_variable = {FRA_peasent_revolt_var > 0}
 	} 
 
 	cancel_if_not_visible = yes
 
 	is_good = yes
+	
 
 	timeout_effect = {
-		
+		FRA = { FRA_peasent_revolt_effect = yes }
 	}
 	}
 	FRA_landowner_revolt = {
@@ -174,7 +215,8 @@ FRA_peasent_revolution = {
 		state_target = yes
 
 		visible = {
-		  tag = FRA
+			tag = FRA
+			has_completed_focus = FRA_crush_revolting_peasents
 		  
 		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
 		}
@@ -184,8 +226,8 @@ FRA_peasent_revolution = {
 is_on_continent = europe				is_owned_by = FRA
 			}
 		}
-		cost = 15
-		days_remove = 10
+		cost = 5
+		days_remove = 5
 		on_map_mode = map_and_decisions_view
 		ai_will_do = {
 		  factor = 20
@@ -195,7 +237,11 @@ is_on_continent = europe				is_owned_by = FRA
 		  }
 		}
 		remove_effect = {
-		  
+			add_days_mission_timeout = {
+				mission = FRA_peasent_revolution
+				days = 3
+			}
+			
 		}
 	}
 
@@ -217,8 +263,8 @@ is_on_continent = europe				is_owned_by = FRA
 is_on_continent = europe				is_owned_by = FRA
 			}
 		}
-		cost = 15
-		days_remove = 10
+		cost = 5
+		days_remove = 5
 		on_map_mode = map_and_decisions_view
 		ai_will_do = {
 		  factor = 20
@@ -228,84 +274,10 @@ is_on_continent = europe				is_owned_by = FRA
 		  }
 		}
 		remove_effect = {
-		  
-		}
-	}
-
-
-
-
-
-
-	
-
-
-
-
-
-	FRA_lessen_the_landowners_power_in_from = {
-		available = {
-		  tag = FRA
-		  has_completed_focus = FRA_lessening_the_power_of_the_landowners
-		}
-		state_target = yes
-
-		visible = {
-		  tag = FRA
-		  has_completed_focus = FRA_lessening_the_power_of_the_landowners
-		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
-		}
-		target_trigger = {
-			FROM = {
-				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
-is_on_continent = europe				is_owned_by = FRA
+			subtract_from_variable = {
+				FRA_peasent_revolt_var = 5
+				tooltip = DECREASE_PEASENT
 			}
-		}
-		cost = 15
-		days_remove = 10
-		on_map_mode = map_and_decisions_view
-		ai_will_do = {
-		  factor = 20
-		  modifier = {
-			has_war = yes
-			factor = 0
-		  }
-		}
-		remove_effect = {
-		  
-		}
-	}
-
-	FRA_support_peasent_workers_in_from = {
-		available = {
-		  tag = FRA
-		  has_completed_focus = FRA_crush_revolting_peasents
-		}
-		state_target = yes
-
-		visible = {
-		  tag = FRA
-		  
-		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
-		}
-		target_trigger = {
-			FROM = {
-				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
-is_on_continent = europe				is_owned_by = FRA
-			}
-		}
-		cost = 15
-		days_remove = 10
-		on_map_mode = map_and_decisions_view
-		ai_will_do = {
-		  factor = 20
-		  modifier = {
-			has_war = yes
-			factor = 0
-		  }
-		}
-		remove_effect = {
-		  
 		}
 	}
 }

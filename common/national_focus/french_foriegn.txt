@@ -1,0 +1,1272 @@
+focus_tree = {
+	id = french_foreign
+
+	continuous_focus_position = { x = 0 y = 3000 }
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = FRA
+		}
+	}
+	default = no
+    
+
+
+
+focus = {
+	id = FRA_ANNEX_BENELUX
+	icon = GFX_goal_Dominate_Benelux
+	text = FRA_ANNEX_BENELUX
+	#prerequisite = { focus = FRA_NAPOLEON  focus = FRA_PATH_AGGRESSION}
+	mutually_exclusive = {focus = FRA_BUFFER_STATE}
+	x = -21
+	y = 0
+	#relative_position_id = FRA_NAPOLEON
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = BEL
+					is_owned_by = HOL
+					is_owned_by = LUX
+				}
+			}
+			add_core_of = FRA
+		}
+	}
+}
+
+focus = {
+	id = FRA_ANNEX_BELGIUM
+	icon = GFX_goal_demandflanders
+	text = FRA_ANNEX_BELGIUM
+	prerequisite = { focus = FRA_ANNEX_BENELUX }
+	x = 0
+	y = 1
+	relative_position_id = FRA_ANNEX_BENELUX
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = BEL
+			}
+			FRA = {
+				has_war_with = BEL
+			}
+			BEL = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	will_lead_to_war_with = BEL
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		country_event = napoleanfrance.26
+	}
+}
+
+
+
+focus = {
+	id = FRA_MEETING_WITH_THE_MONARCHISTS
+	icon = unkown
+	text = FRA_MEETING_WITH_THE_MONARCHISTS
+	prerequisite = { focus = FRA_ANNEX_BELGIUM }
+	prerequisite = {
+		focus = FRA_BRUSSELLS_CONFERENCE
+	}
+	x = -1
+	y = 2
+	relative_position_id = FRA_BUFFER_STATE
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		
+
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+	
+	}
+}
+
+focus = {
+	id = FRA_DENOUNCING_BRITIAN
+	icon = unkown
+	text = FRA_DENOUNCING_BRITIAN
+	prerequisite = { focus = FRA_MEETING_WITH_THE_MONARCHISTS }
+	x = -1
+	y = 1
+	relative_position_id = FRA_MEETING_WITH_THE_MONARCHISTS
+	cost = 2
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		
+
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+	
+	}
+}
+
+focus = {
+	id = FRA_DENOUNCING_PRUSSIA
+	icon = unkown
+	text = FRA_DENOUNCING_PRUSSIA
+	prerequisite = { focus = FRA_MEETING_WITH_THE_MONARCHISTS }
+	x = 1
+	y = 1
+	relative_position_id = FRA_MEETING_WITH_THE_MONARCHISTS
+	cost = 2
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		
+
+	}
+	
+
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+	
+	}
+}
+
+focus = {
+	id = FRA_BUFFER_STATE
+	icon = GFX_goal_Establish_Buffer_State
+	text = FRA_BUFFER_STATE
+	#prerequisite = { focus = FRA_NAPOLEON }
+	mutually_exclusive = {focus = FRA_ANNEX_BENELUX}
+	x = -19
+	y = 0
+	#relative_position_id = FRA_NAPOLEON
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = BEL
+			}
+			FRA = {
+				has_war_with = BEL
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = HOL
+					is_owned_by = LUX
+				}
+			}
+			add_core_of = BEL
+		}
+
+		if = {
+			limit = {
+				BEL = {
+					is_ai = no
+				}
+			}
+			set_autonomy = {
+				target = BEL
+				autonomous_state =  autonomy_puppet
+			}
+		}
+
+		ENG = {
+			add_opinion_modifier = {
+				modifier = defied_treaty_london
+				target = FRA
+			}
+		}
+	}
+}
+
+focus = {
+	id = FRA_BRUSSELLS_CONFERENCE
+	icon = GFX_goal_Brussels_Conference
+	text = FRA_BRUSSELLS_CONFERENCE
+	prerequisite = { focus = FRA_BUFFER_STATE }
+	x = 0
+	y = 1
+	relative_position_id = FRA_BUFFER_STATE
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = BEL
+			}
+			FRA = {
+				has_war_with = BEL
+			}
+		}
+
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		HOL = {country_event = {id = napoleanfrance.7}}
+		LUX = {country_event = {id = napoleanfrance.7}}
+	}
+}
+
+focus = {
+	id = FRA_SOLIDIFY_CONTROL
+	icon = GFX_goal_Solidify_Control
+	text = FRA_SOLIDIFY_CONTROL
+	prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
+	x = 2
+	y = 1
+	relative_position_id = FRA_BRUSSELLS_CONFERENCE
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	available = {
+		NOT = {
+			country_exists = HOL
+			country_exists = LUX
+		}
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = BEL
+			}
+			FRA = {
+				has_war_with = BEL
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		remove_ideas = FRA_benelux_crisis
+	}
+}
+
+focus = {
+	id = FRA_FORTIFY_BENELUX_BORDER
+	icon = GFX_goal_Fortify_Benelux
+	text = FRA_FORTIFY_BENELUX_BORDER
+	prerequisite = { focus = FRA_SOLIDIFY_CONTROL }
+	x = 0
+	y = 1
+	relative_position_id = FRA_SOLIDIFY_CONTROL
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+			BEL = {
+				every_owned_state = {
+						limit = {
+								any_neighbor_state = {
+										is_controlled_by = GER
+										is_controlled_by = HAN
+										is_controlled_by = FGD
+								}
+						}
+						add_building_construction = {
+								type = bunker
+								level = 5
+								instant_build = yes
+								province = {
+										all_provinces = yes
+										limit_to_border = yes
+								}
+						}
+				}
+		}
+	}
+}
+
+focus = {
+	id = FRA_JOIN_AUSTRIA
+	icon = GFX_goal_diplo_austria
+	text = FRA_JOIN_AUSTRIA
+		x = -2
+	y = 1
+	relative_position_id = FRA_FORTIFY_BENELUX_BORDER
+	mutually_exclusive = {
+		focus = FRA_FRANCE_ALONE
+		}
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = AUS
+			}
+			FRA = {
+				has_war_with = AUS
+			}
+			AUS = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		AUS = {country_event = {id = france.170}}
+	}
+}
+
+focus = {
+	id = FRA_FRANCE_ALONE
+	icon = unkown
+	text = FRA_FRANCE_ALONE
+
+	prerequisite = {
+		focus = FRA_DENOUNCING_BRITIAN
+	}
+	prerequisite = {
+		focus = FRA_DENOUNCING_PRUSSIA
+	}
+	x = -4
+	y = 1
+	mutually_exclusive = {
+		focus = FRA_JOIN_AUSTRIA
+	}
+	relative_position_id = FRA_FORTIFY_BENELUX_BORDER
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	bypass = {
+		
+	}
+
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		create_faction = FRA_napoleonic_faction
+	}
+}
+
+focus = {
+	id = FRA_ANTI_AUSTRIAN_PACT
+	icon = GFX_goal_Claims_On_Alliance
+	text = FRA_ANTI_AUSTRIAN_PACT
+	prerequisite = { focus = FRA_JOIN_AUSTRIA focus = FRA_FRANCE_ALONE }
+	x = -1
+	y = 1
+	relative_position_id = FRA_JOIN_AUSTRIA
+	cost = 3
+	ai_will_do = {
+		factor = 20
+	}
+
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		add_war_support = 0.05
+
+		158 = {
+			add_core_of = FRA
+		}
+	}
+}
+
+focus = {
+	id = FRA_DEMAND_WEST_ITALY
+	icon = GFX_goal_Demand_Italia
+	text = FRA_DEMAND_WEST_ITALY
+	prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
+	x = -2
+	y = 1
+	relative_position_id = FRA_ANTI_AUSTRIAN_PACT
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = ITA
+			}
+			FRA = {
+				has_war_with = ITA
+			}
+			ITA = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		ITA = {country_event = {id = napoleanfrance.10}}
+	}
+}
+
+focus = {
+	id = FRA_DEMAND_GERMANY
+	icon = GFX_goal_Demand_German_Lands
+	text = FRA_DEMAND_GERMANY
+	prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
+	x = 2
+	y = 1
+	relative_position_id = FRA_ANTI_AUSTRIAN_PACT
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = HAN
+			}
+			FRA = {
+				has_war_with = HAN
+			}
+			HAN = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		HAN = {country_event = {id = napoleanfrance.13}}
+	}
+}
+
+focus = {
+	id = FRA_REESTABLISH_EMPIRE
+	icon = GFX_goal_French_Empire
+	text = FRA_REESTABLISH_EMPIRE
+	prerequisite = { focus = FRA_DEMAND_WEST_ITALY}
+	prerequisite = { focus = FRA_DEMAND_GERMANY }
+	x = 2
+	y = 1
+	relative_position_id = FRA_DEMAND_WEST_ITALY
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		set_cosmetic_tag = napoleonic_france
+
+		add_political_power = 70
+		add_stability = 0.08
+	}
+}
+
+focus = {
+	id = FRA_RESTART_WARS 
+	icon = GFX_goal_Napoleonic_Wars
+	text = FRA_RESTART_WARS
+	prerequisite = { focus = FRA_REESTABLISH_EMPIRE }
+	x = 0
+	y = 1
+	relative_position_id = FRA_REESTABLISH_EMPIRE
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		AND = {
+		OR = {
+			NOT = {
+				country_exists = ENG
+			}
+			FRA = {
+				has_war_with = ENG
+			}
+			ENG = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+		OR = {
+			NOT = {
+				country_exists = GER
+			}
+			FRA = {
+				has_war_with = GER
+			}
+			GER = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		#######Declares war on the UK and Prussia gets event the Next Napoleonic War
+		create_wargoal_on = {
+			target = GER
+			type = annex_everything
+		}
+		create_wargoal_on = {
+			target = ENG
+			type = annex_everything
+		}
+
+		hidden_effect = {
+			news_event = {id = napoleanfrance.19}
+		}
+	}
+}
+
+focus = {
+	id = FRA_MANEGO_CAMPAIGN
+	icon = GFX_goal_Monego_Campaign
+	text = FRA_MANEGO_CAMPAIGN
+	prerequisite = { focus = FRA_RESTART_WARS }
+	x = -2
+	y = 1
+	relative_position_id = FRA_RESTART_WARS
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = ITA
+			}
+			
+			ITA = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes 
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		add_ideas = {
+			FRA_manego_campaign
+		}
+	}
+}
+
+focus = {
+	id = FRA_DANUBE_CAMPAIGN
+	icon = GFX_goal_Danubian_Regions
+	text = FRA_DANUBE_CAMPAIGN
+	prerequisite = { focus = FRA_RESTART_WARS }
+	x = 0
+	y = 1
+	relative_position_id = FRA_RESTART_WARS
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = GER
+			}
+			
+			GER = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		add_ideas = FRA_danube_campaign
+	}
+}
+
+focus = {
+	id = FRA_BLITZ_ISLAND
+	icon = GFX_goal_Blitz_The_Islands
+	text = FRA_BLITZ_ISLAND
+	prerequisite = { focus = FRA_RESTART_WARS }
+	x = 2
+	y = 1
+	relative_position_id = FRA_RESTART_WARS
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = ENG
+			}
+		
+			ENG = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		add_ideas = FRA_blitz_island
+	}
+}
+
+focus = {
+	id = FRA_REVENGE_RUSSIA
+	icon = GFX_goal_Revenge_Against_Russia
+	text = FRA_REVENGE_RUSSIA
+	prerequisite = { focus = FRA_DANUBE_CAMPAIGN }
+	prerequisite = { focus = FRA_BLITZ_ISLAND }
+	prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
+	x = 0
+	y = 1
+	relative_position_id = FRA_DANUBE_CAMPAIGN
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = SOV
+			}
+			FRA = {
+				has_war_with = SOV
+			}
+			SOV = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		create_wargoal_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+}
+
+focus = {
+	id = FRA_NAPOLEONIC_SUPERPOWER
+	icon = GFX_goal_Napoleonic_Superpower
+	text = FRA_NAPOLEONIC_SUPERPOWER
+	prerequisite = { focus = FRA_REVENGE_RUSSIA }
+	x = 0
+	y = 1
+	relative_position_id = FRA_REVENGE_RUSSIA
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		######Make Bonapartist Ambition so fucking op
+
+		swap_ideas = {
+			add_idea = Bonapartist_Ambition_3
+			remove_idea = Bonapartist_Ambition_2
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+#######
+
+
+
+
+
+
+
+
+
+focus = {
+	id = FRA_ANNEX_LUX
+	icon = GFX_goal_invadeluxembourg
+	text = FRA_ANNEX_LUX
+	prerequisite = { focus = FRA_ANNEX_BENELUX }
+	x = -2
+	y = 1
+	relative_position_id = FRA_ANNEX_BENELUX
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = HOL
+			}
+			FRA = {
+				has_war_with = HOL
+			}
+			HOL = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		LUX = {country_event = {id = napoleanfrance.4}}
+	}
+}
+
+focus = {
+	id = FRA_ANNEX_HOL
+	icon = GFX_goal_invadedutch
+	text = FRA_ANNEX_HOL
+	prerequisite = { focus = FRA_ANNEX_BENELUX }
+	x = -4
+	y = 1
+	relative_position_id = FRA_ANNEX_BENELUX
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = HOL
+			}
+			FRA = {
+				has_war_with = HOL
+			}
+			HOL = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		HOL = {country_event = {id = napoleanfrance.4}}
+	}
+}
+
+focus = {
+	id = FRA_JOIN_GERMANY
+	icon = GFX_goal_euroalliancetripartie
+	text = FRA_JOIN_GERMANY
+	prerequisite = { focus = FRA_ANNEX_LUX }
+	prerequisite = { focus = FRA_ANNEX_HOL }
+	mutually_exclusive = {focus = FRA_JOIN_ITALY}
+	mutually_exclusive = {focus = FRA_GREATER_FRANCE}
+	x = 0
+	y = 1
+	relative_position_id = FRA_ANNEX_LUX
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = GER
+			}
+			FRA = {
+				has_war_with = GER
+			}
+			GER = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		GER = {country_event={id = france.170}}
+	}
+}
+
+focus = {
+	id = FRA_JOIN_ITALY
+	icon = GFX_goal_pactofturin
+	text = FRA_JOIN_ITALY
+	prerequisite = { focus = FRA_ANNEX_LUX }
+	prerequisite = { focus = FRA_ANNEX_HOL }
+	mutually_exclusive = {focus = FRA_JOIN_GERMANY}
+	mutually_exclusive = {focus = FRA_GREATER_FRANCE}
+	x = -3
+	y = 1
+	relative_position_id = FRA_ANNEX_LUX
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = ITA
+			}
+			FRA = {
+				has_war_with = ITA
+			}
+			ITA = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		ITA = {country_event={id = france.170}}
+	}
+}
+
+focus = {
+	id = FRA_GREATER_FRANCE
+	icon = GFX_goal_greaterfrance
+	text = FRA_GREATER_FRANCE
+	prerequisite = { focus = FRA_ANNEX_LUX }
+	prerequisite = { focus = FRA_ANNEX_HOL }
+	mutually_exclusive = {focus = FRA_JOIN_GERMANY}
+	mutually_exclusive = {focus = FRA_JOIN_ITALY}
+	x = -5
+	y = 1
+	relative_position_id = FRA_ANNEX_LUX
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		create_faction = FRA_greater_france
+	}
+}
+
+focus = {
+	id = FRA_FINISH_AUSTRIA
+	icon = GFX_goal_Finishaustria
+	text = FRA_FINISH_AUSTRIA
+	prerequisite = { focus = FRA_JOIN_GERMANY }
+	x = 0
+	y = 1
+	relative_position_id = FRA_JOIN_GERMANY
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = AUS
+			}
+			FRA = {
+				has_war_with = AUS
+			}
+			AUS = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		FRA = {
+			create_wargoal_on = {
+				target = AUS
+				type = annex_everything
+			}
+		}
+
+	}
+}
+
+focus = {
+	id = FRA_HOLD_UNIFICATION_TALKS
+	icon = GFX_goal_Unificationwithprussia
+	text = FRA_HOLD_UNIFICATION_TALKS
+	prerequisite = { focus = FRA_FINISH_AUSTRIA }
+	x = 0
+	y = 1
+	relative_position_id = FRA_FINISH_AUSTRIA
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = GER
+			}
+			NOT = {
+				country_exists = FGD
+			}
+			FRA = {
+				has_war_with = GER
+			}
+			FRA = {
+				has_war_with = FGD
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		GER = {country_event = {id = napoleanfrance.20}}
+	}
+}
+
+focus = {
+	id = FRA_EUROPEAN_DOM
+	icon = GFX_goal_eurodominance
+	text = FRA_EUROPEAN_DOM
+	prerequisite = { focus = FRA_HOLD_UNIFICATION_TALKS }
+	x = 0
+	y = 1
+	relative_position_id = FRA_HOLD_UNIFICATION_TALKS
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_category_tooltip = FRA_european_dominance
+	}
+}
+
+focus = {
+	id = FRA_RELEASE_PAPALCY
+	icon = GFX_goal_ceasepapalinfluence
+	text = FRA_RELEASE_PAPALCY
+	prerequisite = { focus = FRA_JOIN_ITALY }
+	x = 0
+	y = 1
+	relative_position_id = FRA_JOIN_ITALY
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	available = {
+
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = PAP
+			}
+			FRA = {
+				has_war_with = PAP
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		diplomatic_relation = { country = PAP relation = guarantee active = no }
+	}
+}
+
+focus = {
+	id = FRA_SPLIT_SWITZERLAND
+	icon = GFX_goal_splitswiss
+	text = FRA_SPLIT_SWITZERLAND
+	prerequisite = { focus = FRA_RELEASE_PAPALCY }
+	x = -1
+	y = 1
+	relative_position_id = FRA_RELEASE_PAPALCY
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = SWI
+			}
+			FRA = {
+				has_war_with = SWI
+			}
+			SWI = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		ITA = {country_event = {id = napoleanfrance.16}}
+	}
+}
+
+focus = {
+	id = FRA_DESTROY_GERMANY
+	icon = GFX_goal_stabprussia
+	text = FRA_DESTROY_GERMANY
+	prerequisite = { focus = FRA_RELEASE_PAPALCY }
+	x = 1
+	y = 1
+	relative_position_id = FRA_RELEASE_PAPALCY
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = GER
+			}
+			FRA = {
+				has_war_with = GER
+			}
+			GER = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		FRA = {
+			create_wargoal_on = {
+				target = GER
+				type = annex_everything
+			}
+		}
+	}
+}
+
+focus = {
+	id = FRA_INVITE_SPAIN
+	icon = GFX_goal_generic_alliance
+	text = FRA_INVITE_SPAIN
+	#prerequisite = { focus = FRA_SPANISH_INTERVENTION }
+	prerequisite = { focus = FRA_GREATER_FRANCE }
+	x = -2
+	y = 1
+	relative_position_id = FRA_GREATER_FRANCE
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = SPN
+			}
+			FRA = {
+				has_war_with = SPN
+			}
+			SPN = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		SPN = {country_event = {id = france.17}}
+	}
+}
+
+focus = {
+	id = FRA_SPREAD_FASCISM
+	icon = GFX_goal_eurofascism
+	text = FRA_SPREAD_FASCISM
+	prerequisite = { focus = FRA_INVITE_SPAIN }
+
+	x = 1	
+	y = 1
+	relative_position_id = FRA_INVITE_SPAIN
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		every_country = {
+			limit = {
+				is_on_continent = europe
+				NOT = {
+					OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+					has_government = fascism
+				}
+			}
+				PREV = {add_ideas = fascist_influence}
+		}
+	}
+}
+
+focus = {
+	id = FRA_LOOKING_EAST
+	icon = GFX_goal_eurofascism
+	text = FRA_LOOKING_EAST
+	prerequisite = { focus = FRA_INVITE_SPAIN }
+
+	x = -1
+	y = 2
+	relative_position_id = FRA_INVITE_SPAIN
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+	}
+}
+
+focus = {
+	id = FRA_DEMAND_SUBMISSION
+	icon = GFX_goal_forcedsubimission
+	text = FRA_DEMAND_SUBMISSION
+	prerequisite = { focus = FRA_SPREAD_FASCISM	}
+	x = 0
+	y = 1
+	relative_position_id = FRA_SPREAD_FASCISM
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = GER
+			}
+			FRA = {
+				has_war_with = GER
+			}
+			GER = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+		OR = {
+			NOT = {
+				country_exists = ITA
+			}
+			FRA = {
+				has_war_with = ITA
+			}
+			ITA = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		GER = {country_event = {id = napoleanfrance.1}}
+		ITA = {country_event = {id = napoleanfrance.1}}
+	}
+}
+}
