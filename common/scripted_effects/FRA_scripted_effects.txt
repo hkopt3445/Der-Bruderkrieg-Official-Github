@@ -49,3 +49,66 @@ FRA_level_up_workers_idea = {
 		}
     }
 }
+
+FRA_peasent_revolt_effect = {
+  if = {
+    limit = {
+      OR = { AND = { check_variable = {var = FRA_peasent_revolt_var value = 0 compare = greater_than}
+			check_variable = {var = FRA_peasent_revolt_var value = 25 compare = less_than_or_equals} } check_variable = {var = FRA_peasent_revolt_var value = 0 compare = less_than} }
+    }
+    set_country_flag = FRA_peasentrevolt_crushed_flag
+  }
+  if = {
+    limit = {
+      check_variable = {var = FRA_peasent_revolt_var value = 25 compare = greater_than}
+			check_variable = {var = FRA_peasent_revolt_var value = 40 compare = less_than_or_equals}
+    }
+    random_owned_controlled_state = {
+      limit = {
+        has_state_category = rural
+        is_on_continent = europe
+      }
+      FPR = {
+        set_state_owner = THIS
+      }
+    }
+    random_owned_controlled_state = {
+      limit = {
+        has_state_category = rural
+        is_on_continent = europe
+      }
+      FPR = {
+        set_state_owner = THIS
+      }
+    }
+    declare_war_on = {
+      target = FPR
+      type = annex_everything
+    }
+  }
+  if = {
+    limit = {
+      check_variable = {var = FRA_peasent_revolt_var value = 40 compare = greater_than}
+    }
+    every_state = {
+      limit = {
+        is_owned_by = FRA
+        has_state_category = rural
+        is_on_continent = europe
+      }
+      FPR = {
+        set_state_owner = THIS
+      }
+
+    }
+
+    declare_war_on = {
+      target = FPR
+      type = annex_everything
+    }
+  }
+}
+
+d_frarevolt = {
+  FRA_peasent_revolt_effect = yes
+}
