@@ -52,60 +52,92 @@ FRA_level_up_workers_idea = {
 
 FRA_peasent_revolt_effect = {
   if = {
-    limit = {
-      OR = { AND = { check_variable = {var = FRA_peasent_revolt_var value = 0 compare = greater_than}
-			check_variable = {var = FRA_peasent_revolt_var value = 25 compare = less_than_or_equals} } check_variable = {var = FRA_peasent_revolt_var value = 0 compare = less_than} }
-    }
-    set_country_flag = FRA_peasentrevolt_crushed_flag
+      limit = {
+        check_variable = { FRA_peasent_revolt_var > 40 }
+      }
+      set_variable = {
+        test_var = 0
+      }
+      every_owned_state = {
+          limit = {
+              OR = { has_state_category = rural has_state_category = pastoral has_state_category = town}
+              is_on_continent = europe
+          }
+          FPR = {
+              transfer_state = PREV
+          }
+          create_unit = {
+            division = "name = \"Peasant Army\" division_template = \"Peasant Army\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+
+            owner = FPR
+          }
+          create_unit = {
+            division = "name = \"Peasant Army\" division_template = \"Peasant Army\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+
+            owner = FPR
+          }
+          add_to_variable = { PREV.test_var = 1 }
+      }
+      declare_war_on = {
+          target = FPR
+          type = annex_everything
+      }
   }
-  if = {
-    limit = {
-      check_variable = {var = FRA_peasent_revolt_var value = 25 compare = greater_than}
-			check_variable = {var = FRA_peasent_revolt_var value = 40 compare = less_than_or_equals}
-    }
-    random_owned_controlled_state = {
+  else_if = {
       limit = {
-        has_state_category = rural
-        is_on_continent = europe
+          check_variable = { FRA_peasent_revolt_var > 25 }
       }
-      FPR = {
-        set_state_owner = THIS
+      random_owned_controlled_state = {
+          limit = {
+              OR = {has_state_category = rural has_state_category = pastoral has_state_category = town}
+              is_on_continent = europe
+          }
+          FPR = {
+              transfer_state = PREV
+          }
+          create_unit = {
+            division = "name = \"Peasant Army\" division_template = \"Peasant Army\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+
+            owner = FPR
+          }
+          create_unit = {
+            division = "name = \"Peasant Army\" division_template = \"Peasant Army\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+
+            owner = FPR
+          }
       }
-    }
-    random_owned_controlled_state = {
-      limit = {
-        has_state_category = rural
-        is_on_continent = europe
+      random_owned_controlled_state = {
+          limit = {
+              OR = {has_state_category = rural has_state_category = pastoral has_state_category = town}
+              is_on_continent = europe
+          }
+          FPR = {
+              transfer_state = PREV
+          }
+
+          create_unit = {
+            division = "name = \"Peasant Army\" division_template = \"Peasant Army\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+
+            owner = FPR
+          }
+          create_unit = {
+            division = "name = \"Peasant Army\" division_template = \"Peasant Army\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+
+            owner = FPR
+          }
       }
-      FPR = {
-        set_state_owner = THIS
-      }
-    }
-    declare_war_on = {
-      target = FPR
-      type = annex_everything
-    }
-  }
-  if = {
-    limit = {
-      check_variable = {var = FRA_peasent_revolt_var value = 40 compare = greater_than}
-    }
-    every_state = {
-      limit = {
-        is_owned_by = FRA
-        has_state_category = rural
-        is_on_continent = europe
-      }
-      FPR = {
-        set_state_owner = THIS
+      declare_war_on = {
+          target = FPR
+          type = annex_everything
       }
 
-    }
 
-    declare_war_on = {
-      target = FPR
-      type = annex_everything
-    }
+  }
+  else_if = {
+      limit = {
+          has_variable = FRA_peasent_revolt_var
+      }
+      set_country_flag = FRA_peasentrevolt_crushed_flag
   }
 }
 

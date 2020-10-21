@@ -5,7 +5,7 @@ scripted_gui = {
 		window_name = "DBK_second_bruderkrieg_austria"
 		effects = {
 			open_spy_window_click = {
-				set_country_flag = open_spy_window
+				set_country_flag = open_spy_window_flag
 			}
 		}
 
@@ -30,7 +30,7 @@ scripted_gui = {
 			GFX_low_infiltration_austria_visible = {
 				check_variable = { var = AUS_prussian_infil_var value = 0 compare = lesser_than_or_equals }
 			}
-
+ 
 
 
 
@@ -52,16 +52,44 @@ scripted_gui = {
 		window_name = "spy_window_aus_container" 
 
 		visible = {
-			has_country_flag = open_spy_window
+			has_country_flag = open_spy_window_flag
 		}
+
+		dirty = austrian_espionage_budget_dirty
 
 		effects = {
 			AUS_Espionage_GUI_Close_Button_click = {
-				clr_country_flag = open_spy_window
+				clr_country_flag = open_spy_window_flag
 			}
+
+			AUS_espionage_budget_slider_minus_click = {
+				add_to_variable = { austrian_espionage_budget_slider_dot_cel = -5 }
+				add_to_variable = { austrian_espionage_budget_dirty = 1 }
+				if = {
+					set_variable = { austrian_espionage_budget_slider_dot_cel = 34 }
+					limit = { check_variable = { austrian_espionage_budget_slider_dot_cel < 34 } }
+				}
+				add_to_variable = {
+					AUS_infilitration_mission_budget = -1
+				}
+			}
+			AUS_espionage_budget_slider_plus_click = {
+				add_to_variable = { austrian_espionage_budget_slider_dot_cel = 5 }
+				add_to_variable = { austrian_espionage_budget_dirty = 1 }
+				if = {
+					set_variable = { austrian_espionage_budget_slider_dot_x = 231 }
+					limit = { check_variable = { austrian_espionage_budget_slider_dot_cel > 231 } }
+				}
+				add_to_variable = {
+					AUS_infilitration_mission_budget = 1
+				}
+			}
+		
 		}
-	}
+			
+		}
 }
+
 
 
 
