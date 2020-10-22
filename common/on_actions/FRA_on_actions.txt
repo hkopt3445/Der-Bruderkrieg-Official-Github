@@ -28,4 +28,31 @@ on_actions = {
 			
 		}
 	}
+
+	on_weekly_FRA = {
+		effect = {
+			if = {
+				limit = { 
+					FRA = {OR = {NOT = {has_country_flag = FRA_peasentrevolt_crushed_flag}  has_war_with = FPR }   }
+				}
+				random_owned_controlled_state = {
+					limit = {
+						OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
+						is_on_continent = europe
+					}
+					THIS = {
+						save_global_event_target_as = france_peasant_damaged_state
+					}
+				}
+				random_list = {
+					50 = {
+						country_event = francestart.9
+					}
+					50 = {
+						country_event = francestart.10
+					}
+				}
+			}
+		}
+	}
 }
