@@ -1088,7 +1088,7 @@
 
 	shared_focus = {
     id = FRA_CONSERVATIVES_PREVAIL
-    icon = GFX_focus_generic_monarchy_2
+    icon = GFX_goal_FRA_doctrinaire_vic
     text = FRA_CONSERVATIVES_PREVAIL
     x = -17
     y = 0
@@ -1180,7 +1180,7 @@
 
 	shared_focus = {
     id = FRA_RESTORE_1852
-    icon = GFX_focus_por_reclaim_crown_jewel
+    icon = GFX_goal_AUS_expansion_act
     text = FRA_RESTORE_1852
 		prerequisite = { focus = FRA_DOCTRINAIRE_RIGHT }
     x = 1
@@ -1227,7 +1227,7 @@
 
 	shared_focus = {
     id = FRA_BONAPARTIST_ABSOLUTISM
-    icon = GFX_focus_eng_god_save_the_king
+    icon = GFX_goal_FRA_BONAPARTIST_ABSOLUTISM
     text = FRA_BONAPARTIST_ABSOLUTISM
 		prerequisite = { focus = FRA_LE_EMPEROR }
     x = 0
@@ -1904,13 +1904,13 @@
 
 	shared_focus = {
     id = FRA_FASCIST_VIC
-    icon = GFX_goal_support_fascism
+    icon = GFX_goal_FRA_FASCIST_VIC
     text = FRA_FASCIST_VIC
 		prerequisite = { focus = FRA_MILITARY_HIEARCHY }
     x = -2
     y = 2
     relative_position_id = FRA_MILITARY_HIEARCHY
-    cost = 5
+    cost = 1
     ai_will_do = {
       factor = 20
     }
@@ -1919,19 +1919,9 @@
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_popularity  = {
-				ideology = fascism
-				popularity = 0.2
-			}
+      country_event = france.211
 
-			add_timed_idea = {
-				idea = fascist_influence
-				days = 365
-			}
-
-			hidden_effect = {
-				news_event = france.205
-			}
+			
     }
   }
 
@@ -1952,19 +1942,17 @@
     search_filters = { FOCUS_FILTER_RESEARCH }
 
 		available = {
-			fascism > 0.4
+			
 		}
 
 
     completion_reward = {
 			add_popularity  = {
-				ideology = fascism
-				popularity = 0.2
+				ideology = monarchy
+				popularity = 0.05
 			}
 			add_political_power = 75
-			set_politics = {
-				ruling_party = fascism
-			}
+			
 
 
     }
@@ -1972,7 +1960,7 @@
 
 	shared_focus = {
     id = FRA_END_CONSTITUTIONALISM
-    icon = GFX_focus_generic_support_the_left_right
+    icon = GFX_goal_FRA_end_constitutionalism
     text = FRA_END_CONSTITUTIONALISM
 		prerequisite = { focus = FRA_CAGOULE_CABINET }
     x = 0
@@ -1988,7 +1976,6 @@
 
     completion_reward = {
       add_ideas = {
-				Napoleon_6
 				National_Syndicalism
 			}
     }
@@ -1999,7 +1986,8 @@
     icon = GFX_focus_fra_french_union
     text = FRA_VIVE_LE_FRANCE
 		prerequisite = { focus = FRA_END_CONSTITUTIONALISM }
-    x = 0
+		prerequisite = {focus = FRA_IMPERIAL_GLORY}
+    x = 1
     y = 1
     relative_position_id = FRA_END_CONSTITUTIONALISM
     cost = 5
@@ -2007,18 +1995,17 @@
       factor = 20
     }
 		completion_reward = {
-      add_political_power = 150
-			add_war_support = 0.15
+      
+			add_war_support = 0.05
 
-			remove_ideas = Haven_of_Refugees
-			remove_ideas = Haven_of_Refugees_2
+		
 		}
   }
 
   shared_focus = {
-    id = FRA_the_cult_of_the_marshall
-    icon = unkown
-    text = FRA_the_cult_of_the_marshall
+    id = FRA_the_cult_of_napoleon
+    icon = GFX_goal_FRA_cult_of_napoleon
+    text = FRA_the_cult_of_napoleon
 		prerequisite = { focus = FRA_VIVE_LE_FRANCE }
     x = 1
     y = 1
@@ -2028,7 +2015,7 @@
       factor = 20
     }
 	completion_reward = {
-	
+		add_ideas = FRA_cult_of_napoleon
 	}
   }
 
@@ -2061,10 +2048,10 @@
 	icon = GFX_goal_pursueaggresion
 	text = FRA_PATH_AGGRESSION
 	prerequisite = { focus = FRA_GARDE_DE_FRATIRNITE }
-	prerequisite = { focus = FRA_the_cult_of_the_marshall }
+	prerequisite = { focus = FRA_the_cult_of_napoleon }
 	x = -1
 	y = 1
-	relative_position_id = FRA_the_cult_of_the_marshall
+	relative_position_id = FRA_the_cult_of_napoleon
 	mutually_exclusive = {
 		focus = FRA_NAPOLEON
 	}
@@ -2088,7 +2075,7 @@
 
 	shared_focus = {
 		id = FRA_LEGACY_OF_CHARLEGMEGNE
-		icon = GFX_focus_focus_fra_third_empire
+		icon = GFX_goal_FRA_legacy_of_charlegemgne
 		text = FRA_LEGACY_OF_CHARLEGMEGNE
 		prerequisite = { focus = FRA_DOCTRINAIRE_VIC }
 		x = -1
@@ -2378,7 +2365,7 @@
 	}
 	shared_focus = {
 		id = FRA_DEUS_OMNIA
-		icon = GFX_focus_fra_french_union
+		icon = GFX_goal_FRA_deus_omnia_vincit
 		text = FRA_DEUS_OMNIA
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
 		x = 1
@@ -2425,7 +2412,7 @@
 
 	shared_focus = {
 		id = FRA_AUTOCRACY
-		icon = GFX_focus_generic_self_management
+		icon = GFX_goal_FRA_autocracy
 		text = FRA_AUTOCRACY
 		prerequisite = { focus = FRA_CONSERVATIVES_PREVAIL}
 		x = 0
@@ -2855,7 +2842,8 @@
 
 	shared_focus = {
 		id = FRA_CLASS_HIERARCHY
-		icon = GFX_focus_spr_class_war
+		
+		icon = GFX_goal_FRA_robe_nobility
 		text = FRA_CLASS_HIERARCHY
 		prerequisite = { focus = FRA_AUTOCRACY}
 		#mutually_exclusive = {focus = FRA_MILITARY_HIEARCHY}
@@ -2867,12 +2855,7 @@
 			factor = 20 
 		}
 		
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = class_hierarchy_tt		
-				check_variable = { FRA_nobility_var > 50}
-			}
-		}
+
 
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2886,7 +2869,8 @@
 	}
 	shared_focus = {
 		id = FRA_MILITARY_HIEARCHY
-		icon = GFX_focus_generic_military_mission
+		
+		icon = GFX_goal_FRA_sword_nobility
 		text = FRA_MILITARY_HIEARCHY
 		prerequisite = { focus = FRA_AUTOCRACY}
 		#mutually_exclusive = {focus = FRA_CLASS_HIERARCHY}
@@ -2897,12 +2881,7 @@
 		ai_will_do = {
 			factor = 20
 		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = mil_hierarchy_tt		
-				check_variable = { FRA_military_var > 50}
-			}
-		}
+		
 
 		
 
@@ -2917,7 +2896,7 @@
 	}
 	shared_focus = {
 		id = FRA_NOBLE_RULE
-		icon = GFX_goal_generic_fortify_city
+		icon = GFX_focus_spr_class_war
 		text = FRA_NOBLE_RULE
 		prerequisite = { focus = FRA_CLASS_HIERARCHY}
 		x = 0
@@ -2943,7 +2922,7 @@
 	}
 	shared_focus = {
 		id = FRA_MILITARY_GOVERNMENT
-		icon = GFX_focus_generic_manpower
+		icon = GFX_focus_generic_military_mission
 		text = FRA_MILITARY_GOVERNMENT
 		prerequisite = { focus = FRA_MILITARY_HIEARCHY}
 		mutually_exclusive = {
@@ -3493,7 +3472,7 @@
 		id = FRA_INFLUENCE_PORTUGAL
 		icon = GFX_focus_focus_fra_intervention_spain
 		text = FRA_INFLUENCE_PORTUGAL
-		prerequisite = { focus = FRA_SPANISH_INTERVENTION }
+		prerequisite = { focus = FRA_SPANISH_INTERVENTION focus = FRA_CATALONIA_FOR_ALLIANCE }
 		x = 0
 		y = 1
 		relative_position_id = FRA_SPANISH_INTERVENTION
@@ -3511,6 +3490,7 @@
 				}
 			}
 		}
+		mutually_exclusive = {focus = FRA_ALLY_PORTUGAL}
 
 		available = {
 			
@@ -3521,20 +3501,7 @@
 
 		completion_reward = {
 			######every_country
-			every_country = {
-				limit = {
-					has_war_with = SPN
-					NOT = {
-						has_war_with = ROOT
-					}
-				}
-				ROOT = {
-					create_wargoal_on = {
-						target = PREV
-						type = annex_everything
-					}
-				}
-			}
+			POR = {country_event = france.17}
 
 		}
 	}
@@ -3616,7 +3583,7 @@
 		id = FRA_ALLY_PORTUGAL
 		icon = GFX_goal_Attack_Portugaul
 		text = FRA_ALLY_PORTUGAL
-		prerequisite = { focus = FRA_CATALONIA_FOR_ALLIANCE}
+		prerequisite = { focus = FRA_SPANISH_INTERVENTION focus = FRA_CATALONIA_FOR_ALLIANCE }
 		x = 0
 		y = 1
 		relative_position_id = FRA_CATALONIA_FOR_ALLIANCE
