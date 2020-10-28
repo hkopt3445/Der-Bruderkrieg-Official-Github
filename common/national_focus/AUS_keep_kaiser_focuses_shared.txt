@@ -1158,7 +1158,7 @@ shared_focus = {
   icon = unkown
   text = AUS_deliglegitamizing_the_prussian_state
   prerequisite = { focus = AUS_a_war_of_ideology }
-  x = -1
+  x = 0
   y = 1
   relative_position_id = AUS_a_war_of_ideology
   cost = 5
@@ -1179,31 +1179,7 @@ shared_focus = {
    }
 }
 
-shared_focus = {
-  id = AUS_integrating_saxony
-  icon = unkown
-  text = AUS_integrating_saxony
-  prerequisite = { focus = AUS_a_war_of_ideology }
-  x = 1
-  y = 1
-  relative_position_id = AUS_a_war_of_ideology
-  cost = 5
-  ai_will_do = {
-    factor = 1
-  }
 
-  bypass = {
-    
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-   
-
-   }
-}
 
 
 shared_focus = {
@@ -1232,57 +1208,7 @@ shared_focus = {
    }
 }
 
-shared_focus = {
-  id = AUS_improving_the_evinzebureau
-  icon = unkown
-  text = AUS_improving_the_evinzebureau
-  prerequisite = { focus = AUS_a_war_of_espionage }
-  x = 0
-  y = 1
-  relative_position_id = AUS_a_war_of_espionage
-  cost = 5
-  ai_will_do = {
-    factor = 1
-  }
 
-  bypass = {
-    
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-   
-
-   }
-}
-
-shared_focus = {
-  id = AUS_expanding_the_global_spynetwork
-  icon = unkown
-  text = AUS_expanding_the_global_spynetwork
-  prerequisite = { focus = AUS_a_war_of_espionage }
-  x = 2
-  y = 1
-  relative_position_id = AUS_a_war_of_espionage
-  cost = 5
-  ai_will_do = {
-    factor = 1
-  }
-
-  bypass = {
-    
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-   
-
-   }
-}
 
 shared_focus = {
   id = AUS_PREP_WAR
@@ -2364,8 +2290,21 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_ideas = {
-      Reformed_Air_Force
+    random_owned_controlled_state = {
+      add_building_construction = {
+        type = arms_factory
+        level = 1
+        instant_build = yes
+      }
+      add_extra_state_shared_building_slots = 1
+    }
+    random_owned_controlled_state = {
+      add_building_construction = {
+        type = arms_factory
+        level = 1
+        instant_build = yes
+      }
+      add_extra_state_shared_building_slots = 1
     }
   }
 }
@@ -3208,7 +3147,7 @@ shared_focus = {
   x = -2
   y = 1
   relative_position_id = AUS_ANNEX_BUCOVINA
-  cost = 5
+  cost = 2
   ai_will_do = {
     factor = 20
   }
@@ -3217,7 +3156,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    
+    add_war_suport = 0.05
   }
 }
 
@@ -3227,9 +3166,9 @@ shared_focus = {
   text = AUS_the_final_showdown
   prerequisite = { focus = AUS_integrating_saxony }
   prerequisite = {focus = AUS_deliglegitamizing_the_prussian_state}
-  x = -1
+  x = 0
   y = 1
-  relative_position_id = AUS_integrating_saxony
+  relative_position_id = AUS_deliglegitamizing_the_prussian_state
   cost = 15
   ai_will_do = {
     factor = 20
@@ -3588,7 +3527,18 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    ENG = {country_event = austria.17}
+   ENG = {
+    add_opinion_modifier = {
+      modifier = medium_increase
+      target = AUS
+    }
+  }
+  AUS = {
+    add_opinion_modifier = {
+      modifier = medium_increase
+      target = ENG
+    }
+  }
   }
 }
 
@@ -3738,44 +3688,15 @@ shared_focus = {
 
 
 
-shared_focus = {
-  id = AUS_crush_the_dream
-  icon = GFX_focus_eng_crush_the_dream
-  text = AUS_crush_the_dream
-  prerequisite = { focus =  AUS_split_naval_conference }
-  x = 0
-  y = 1
-  relative_position_id = AUS_split_naval_conference
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  available = {
-      USA = {
-          NOT = {
-            is_in_faction_with = AUS
-          }
-      }
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-      create_wargoal = {
-        target = USA
-        type = annex_everything
-      }
-  }
-}
 
 shared_focus = {
   id = AUS_arms_deal_with_america
   icon = GFX_focus_generic_combined_arms
   text = AUS_arms_deal_with_america
   prerequisite = { focus =  AUS_split_naval_conference }
-  mutually_exclusive = {focus = AUS_crush_the_dream}
-  x = 2
+  #mutually_exclusive = {focus = AUS_crush_the_dream}
+  x = 0
   y = 1
   relative_position_id = AUS_split_naval_conference
   cost = 5
@@ -5428,7 +5349,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_war_support = 0.15
+    add_war_support = 0.05
   }
 }
 
