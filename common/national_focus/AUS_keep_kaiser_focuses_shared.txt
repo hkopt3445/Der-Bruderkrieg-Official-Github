@@ -2322,8 +2322,8 @@ shared_focus = {
   icon = GFX_goal_generic_defence
   text = AUS_fortify_austria
   prerequisite = { focus = AUS_bulwark_against_expansionism }
-  x = 6
-  y = 3
+  x = 4
+  y = 1
   relative_position_id = AUS_bulwark_against_expansionism
   cost = 5
 
@@ -2506,10 +2506,7 @@ shared_focus = {
   cost = 5
 
   available = {
-    OR = {
-      has_war_with = ITA
-      has_war_with = GER
-    }
+    has_global_flag = wiltkrieg
   }
 
   ai_will_do = {
@@ -2882,7 +2879,7 @@ shared_focus = {
   icon = GFX_goal_AUS_support_the_nobility
   text = AUS_AUTOCRACY
   prerequisite = { focus = AUS_ABSOLUTISM }
-  x = 0
+  x = -1
   y = 1
   relative_position_id = AUS_ABSOLUTISM
   cost = 5
@@ -3986,9 +3983,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
   completion_reward = { 
     AUS = {country_event = austria.180}
-    set_variable = {global.charlotte_influence = 0}
-    set_variable = {global.marie_influence = 0}
-    set_variable = {global.juliana_influence = 0}
+    
   }
 }
 
@@ -3997,7 +3992,7 @@ shared_focus = {
   icon = GFX_focus_hun_elect_a_king
   text = AUS_restore_the_house_of_wilhelmina
   available = {
-    has_country_flag = Orange-Nassau_trigger_flag
+    has_country_flag = OrangeNassau_trigger_flag
   }
   
   prerequisite = {
@@ -4005,7 +4000,7 @@ shared_focus = {
   }
   mutually_exclusive = {focus = AUS_royal_marraige_with_england}
   mutually_exclusive = {focus = AUS_royal_marraige_with_france}
-  x = -2
+  x = -1
   y = 1
   relative_position_id = AUS_otto_is_open
   cost = 0
@@ -4033,7 +4028,7 @@ shared_focus = {
   }
   mutually_exclusive = {focus = AUS_restore_the_house_of_wilhelmina}
   mutually_exclusive = {focus = AUS_royal_marraige_with_france}
-  x =  1
+  x =  3
   y = 1
   relative_position_id = AUS_otto_is_open
   cost = 0
@@ -4058,7 +4053,7 @@ shared_focus = {
     focus = AUS_otto_is_open}
   mutually_exclusive = {focus = AUS_royal_marraige_with_england}
   mutually_exclusive = {focus = AUS_restore_the_house_of_wilhelmina}
-  x =  3
+  x =  1
   y = 1
   relative_position_id = AUS_otto_is_open
   cost = 0
@@ -4091,7 +4086,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_political_power = 50
+    country_event = austria.183
   }
 }
 
@@ -4113,6 +4108,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    country_event = austria.181
   }
 }
 
@@ -4136,6 +4132,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    country_event = austria.182
   }
 }
 
@@ -4259,7 +4256,7 @@ shared_focus = {
   icon = GFX_focus_hun_elect_a_king
   text = AUS_colonial_ambitions
   prerequisite = { focus = AUS_the_austrian_superpower}
-  x = -5
+  x = -3
   y = 1
   relative_position_id = AUS_the_austrian_superpower
   cost = 5
@@ -4315,6 +4312,9 @@ shared_focus = {
   ai_will_do = {
     factor = 20
   }
+  allow_branch = {
+    always = no
+  }
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_RESEARCH }
@@ -4337,10 +4337,10 @@ shared_focus = {
   id = AUS_demand_tunis
   icon = GFX_goal_Claim_Tunisia
   text = AUS_demand_tunis
-  prerequisite = { focus = AUS_claim_the_north_african_coast }
-  x = 0
+  prerequisite = { focus = AUS_expansion_in_africa }
+  x = -2
   y = 1
-  relative_position_id = AUS_claim_the_north_african_coast
+  relative_position_id = AUS_expansion_in_africa
   cost = 5
   ai_will_do = {
     factor = 20
@@ -4362,7 +4362,7 @@ shared_focus = {
   text = AUS_north_african_oil
   prerequisite = { focus = AUS_demand_tunis }
   x = 0
-  y = 1
+  y = 2
   relative_position_id = AUS_demand_tunis
   cost = 5
   ai_will_do = {
@@ -4427,38 +4427,15 @@ shared_focus = {
   }
 }
 
-shared_focus = {
-  id = AUS_expand_in_somalia
-  icon = GFX_focus_hun_elect_a_king
-  text = AUS_expand_in_somalia
-  prerequisite = { focus = AUS_infrastructure_in_somalia }
-  x = 0
-  y = 1
-  relative_position_id = AUS_infrastructure_in_somalia
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    create_wargoal = {
-      target = ETH
-      type = annex_everything
-    }
-  }
-}
 
 shared_focus = {
   id = AUS_demand_kenya
   icon = GFX_goal_Claim_Kenya
   text = AUS_demand_kenya
-  prerequisite = { focus = AUS_expand_in_somalia }
+  prerequisite = { focus = AUS_infrastructure_in_somalia }
   x = 0
   y = 1
-  relative_position_id = AUS_expand_in_somalia
+  relative_position_id = AUS_infrastructure_in_somalia
   cost = 5
   ai_will_do = {
     factor = 20
@@ -4530,7 +4507,8 @@ shared_focus = {
   icon = GFX_goal_Claim_CongoBasin
   text = AUS_claim_the_greater_congo_basin
   prerequisite = { focus = AUS_connect_our_territories }
-  x = 0
+  prerequisite = {focus = AUS_demand_kenya}
+  x = -1
   y = 1
   relative_position_id = AUS_connect_our_territories
   cost = 5
@@ -4544,30 +4522,7 @@ shared_focus = {
   completion_reward = {
     #####SAF gets event austria demands shit
 
-    540 = {
-      add_claim_by  = AUS
-    }
-    539 = {
-      add_claim_by  = AUS
-    }
-    772 = {
-      add_claim_by  = AUS
-    }
-    295 = {
-      add_claim_by  = AUS
-    }
-    538 = {
-      add_claim_by  = AUS
-    }
-    718 = {
-      add_claim_by  = AUS
-    }
-    769 = {
-      add_claim_by  = AUS
-    }
-    768 = {
-      add_claim_by  = AUS
-    }
+   
   }
 }
 
@@ -5028,7 +4983,7 @@ shared_focus = {
   icon = GFX_goal_support_democracy
   text = AUS_sign_a_new_constitution
   prerequisite = { focus = AUS_concessions_to_people }
-  x = 2
+  x = 1
   y = 1
   relative_position_id = AUS_concessions_to_people
   cost = 5
@@ -5374,7 +5329,9 @@ shared_focus = {
   available = {
     has_country_flag = vote_succesful_treaties_act
   }
-
+  allow_branch =  {
+    always = no
+  }
 
   completion_reward = {
     add_opinion_modifier = {
