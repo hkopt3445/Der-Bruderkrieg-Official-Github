@@ -1,3 +1,18 @@
+focus_tree = {
+    id = USA_boom_era_tree
+    country = {
+		factor = 0
+
+		modifier = {
+			add = 11
+			tag = USA
+		}
+	}
+
+    shared_focus = USA_boom_era
+}
+
+
 shared_focus = {
     id = USA_boom_era
     icon = unkown
@@ -14,9 +29,9 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_a_thriving_and_supporting_hollywood
+    id = USA_an_educated_america
     icon = unkown
-    x = -2
+    x = -1
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -51,8 +66,32 @@ shared_focus = {
         
     }
 }
+
+
 shared_focus = {
     id = USA_regulate_wall_street
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_no_more_slums
+
+    }
+    relative_position_id = USA_no_more_slums
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+
+
+shared_focus = {
+    id = USA_the_american_dream_reborn
     icon = unkown
     x = -1
     y = 1
@@ -72,6 +111,27 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = USA_united_as_americans
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_regulate_wall_street
+
+    }
+    prerequisite = {focus = USA_the_american_dream_reborn}
+    relative_position_id = USA_regulate_wall_street
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
     id = USA_all_hail_the_kingfish
     icon = unkown
     x = 1
@@ -82,7 +142,28 @@ shared_focus = {
         focus = USA_a_thriving_and_supporting_hollywood
 
     }
+    prerequisite = {focus = USA_the_american_dream_reborn}
     relative_position_id = USA_a_thriving_and_supporting_hollywood
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = USA_a_thriving_and_supporting_hollywood
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_an_educated_america
+
+    }
+    relative_position_id = USA_an_educated_america
     ai_will_do = {
         factor = 1
     }
@@ -104,9 +185,61 @@ shared_focus = {
 
     }
     prerequisite = {
-        focus = USA_regulate_wall_street
+
+        focus = USA_united_as_americans
     }
+   
     relative_position_id = USA_all_hail_the_kingfish
+    ai_will_do = {
+        factor = 1
+    } 
+    completion_reward = {
+        
+    }
+}
+
+
+focus_tree = {
+    id = USA_melting_pot_tree
+    country = {
+        factor = 0
+        modifier = {
+            tag = FRA
+            add = 11
+        }
+    } 
+}
+
+
+
+
+shared_focus = {
+    id = USA_the_melting_pot
+    icon = unkown
+    x = 13
+    y = 0
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = USA_western_european_immigrants
+    icon = unkown
+    x = -4
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_the_melting_pot
+
+    }
+    relative_position_id = USA_the_melting_pot
     ai_will_do = {
         factor = 1
     }
