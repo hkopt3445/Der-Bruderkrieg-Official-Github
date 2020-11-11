@@ -147,3 +147,17 @@ FRA_peasent_revolt_effect = {
 d_frarevolt = {
   FRA_peasent_revolt_effect = yes
 }
+
+
+belgian_elections_effect = {
+  set_temp_variable =   {
+    temp_degrelle_win_prob = global.degrelle_win_prob
+  }
+  subtract_from_variable = {temp_degrelle_win_prob = 100}
+  multiply_variable = {temp_degrelle_win_prob = -1}
+
+  random_events = {
+			global.degrelle_win_prob = belgian_election_events.1
+			temp_degrelle_win_prob = belgian_election_events.3			
+		}
+}

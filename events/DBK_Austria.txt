@@ -2591,3 +2591,152 @@ country_event = {
 		add_political_power = 20
 	}	
 }
+
+
+
+
+add_namespace = austria_sax_relations
+
+###initial ebvent
+country_event = {
+	id = austria_sax_relations.1
+	title = austria_sax_relations.1.t
+	desc = austria_sax_relations.1.d
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = no   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria_sax_relations.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		SAX = { country_event = austria_sax_relations.2 }
+	}	
+}
+
+
+##Demand
+country_event = {
+	id = austria_sax_relations.2
+	title = austria_sax_relations.2.t
+	desc = austria_sax_relations.2.d
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = no   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria_sax_relations.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		AUS = {country_event = austria_sax_relations.3}
+	}
+	option = { # This option will give the war goal
+		name = austria_sax_relations.2.b #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		AUS = {country_event = austria_sax_relations.5}
+	}	
+}
+
+
+###Accepts
+country_event = {
+	id = austria_sax_relations.3
+	title = austria_sax_relations.3.t
+	desc = austria_sax_relations.3.d
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = no   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria_sax_relations.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		AUS = {
+			set_autonomy = {
+			target = SAX
+			autonomous_state =  autonomy_puppet
+			} 
+		}
+		news_event = {id = austria_sax_relations.4}
+	}	
+}
+
+news_event = {
+	id = austria_sax_relations.4
+	title = austria_sax_relations.4.t
+	desc = austria_sax_relations.4.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	#fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austria_sax_relations.4.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+###Denies
+country_event = {
+	id = austria_sax_relations.5
+	title = austria_sax_relations.5.t
+	desc = austria_sax_relations.5.d
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = no   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria_sax_relations.5.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		news_event = {id = austria_sax_relations.6 days = 1}
+		declare_war_on = {
+			target = SAX
+			type = puppet_wargoal_focus
+		}
+	}	
+}
+
+news_event = {
+	id = austria_sax_relations.6
+	title = austria_sax_relations.6.t
+	desc = austria_sax_relations.6.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	#fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austria_sax_relations.6.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+
+###SGC incorpoation
+country_event = {
+	id = austria_sax_relations.7
+	title = austria_sax_relations.7.t
+	desc = austria_sax_relations.7.d
+	picture = GFX_report_event_hungary_refused
+
+	fire_only_once = no   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = austria_sax_relations.7.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		SGC = {
+			annex_country = {
+				target = SAX
+				transfer_troops = yes
+			}
+		}
+	}	
+}
