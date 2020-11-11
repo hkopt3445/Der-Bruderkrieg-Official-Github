@@ -644,3 +644,114 @@ news_event = {
 		name = napoleanfrance.30.a
 	}
 }
+
+
+add_namespace = belgian_election_events ##not really france itself but deeply intertwined
+
+##Degrelle wins, france  belgium and england
+country_event = {
+	id = belgian_election_events.1
+	title = belgian_election_events.1.t
+	desc = belgian_election_events.1.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.1.a
+		trigger = {
+			NOT = {
+				tag = ENG
+			}
+		}
+		news_event = belgian_election_events.2
+	}
+	option = {
+		name = belgian_election_events.1.b
+		trigger = {
+			tag = ENG
+		}
+		news_event = belgian_election_events.2
+	}
+}
+
+news_event = {
+	id = belgian_election_events.2
+	title = belgian_election_events.2.t
+	desc = belgian_election_events.2.d
+	picture = GFX_report_event_finnish_letter
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.2.a
+	}
+}
+
+###Degrelle loses
+country_event = {
+	id = belgian_election_events.3
+	title = belgian_election_events.3.t
+	desc = belgian_election_events.3.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.3.a
+		trigger = {
+			NOT = {
+				tag = FRA
+			}
+		}
+		news_event = belgian_election_events.4
+	}
+	option = {
+		name = belgian_election_events.3.b
+		trigger = {
+			tag = FRA
+		}
+		news_event = belgian_election_events.4
+	}
+}
+
+news_event = {
+	id = belgian_election_events.4
+	title = belgian_election_events.4.t
+	desc = belgian_election_events.4.d
+	picture = GFX_report_event_finnish_letter
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.4.a
+	}
+}
+
+
+###campaign begins for eng and france
+country_event = {
+	id = belgian_election_events.5
+	title = belgian_election_events.5.t
+	desc = belgian_election_events.5.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.5.a
+		trigger = {
+			tag=  FRA
+		}
+		
+	}
+	option = {
+		name = belgian_election_events.5.b
+		trigger = {
+			tag = ENG
+		}
+		
+	}
+}
