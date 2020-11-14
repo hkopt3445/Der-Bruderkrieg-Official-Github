@@ -56,10 +56,10 @@
 		id = FRA_open_military_academies
 		icon = GFX_focus_generic_commonwealth_build_infantry
 		text = FRA_open_military_academies
-		prerequisite = { focus = FRA_expand_the_sorbonne_university }
+		prerequisite = { focus = FRA_ARMEE_FRANCAISE }
 		x = -1
-		y = 3
-		relative_position_id = FRA_expand_the_sorbonne_university
+		y = 2
+		relative_position_id = FRA_ARMEE_FRANCAISE
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -100,10 +100,10 @@
 		id = FRA_open_research_facilities
 		icon = GFX_goal_generic_consumer_goods
 		text = FRA_open_research_facilities
-		prerequisite = { focus = FRA_expand_the_sorbonne_university }
+		prerequisite = { focus = FRA_ARMEE_FRANCAISE }
 		x = 1
-		y = 3
-		relative_position_id = FRA_expand_the_sorbonne_university
+		y = 2
+		relative_position_id = FRA_ARMEE_FRANCAISE
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -1139,11 +1139,11 @@
 
     completion_reward = {
       add_popularity = {
-				ideology = monarchy
+				ideology = authoritarian_democratic
 				popularity = 0.1
 			}
 			add_popularity = {
-				ideology = constitutional_monarchy
+				ideology = democratic_conservatism
 				popularity = 0.1
 			}
 
@@ -1172,7 +1172,7 @@
 
     completion_reward = {
       add_popularity = {
-				ideology = monarchy
+				ideology = authoritarian_democratic
 				popularity = 0.1
 			}
     }
@@ -1219,7 +1219,7 @@
 
     completion_reward = {
       add_popularity = {
-				ideology = monarchy
+				ideology = authoritarian_democratic
 				popularity = 0.1
 			}
     }
@@ -1245,6 +1245,25 @@
       add_ideas = {
 				Bonapartist_Absolutism
 			}
+
+			set_temp_variable = {neu_pop = party_popularity@authoritarian_democratic}
+
+			add_popularity = {
+				popularity = neu_pop
+				ideology = neutrality
+			}
+
+			set_temp_variable = {sub_neu_pop = party_popularity@authoritarian_democratic}
+			multiply_temp_variable = {sub_neu_pop = -1}
+
+			add_popularity = {
+				popularity = sub_neu_pop
+				ideology = authoritarian_democratic
+			}
+
+			set_politics = {
+				ruling_party = neutrality
+			}
     }
   }
 
@@ -1254,12 +1273,10 @@
     text = FRA_DOCTRINAIRE_LEFT
 		prerequisite = { focus = FRA_DOCTRINAIRE_VIC }
 		mutually_exclusive = {focus = FRA_DOCTRINAIRE_RIGHT}
-    x = 2
+    x = 3
     y = 1
 	relative_position_id = FRA_DOCTRINAIRE_VIC
-	allow_branch = {
-		always = no
-	}
+	
     cost = 5
     ai_will_do = {
       factor = 20
@@ -1270,12 +1287,12 @@
 
     completion_reward = {
 			add_popularity = {
-				ideology = constitutional_monarchy
+				ideology = democratic_conservatism
 				popularity = 0.1
 			}
 
 			add_timed_idea = {
-				idea = Constitional_Monarchy_Drift
+				idea = democratic_conservatism
 				days = 365
 			}
     }
@@ -1286,7 +1303,7 @@
     icon = GFX_focus_generic_strike_at_democracy3
     text = FRA_KEEP_1827
 		prerequisite = { focus = FRA_DOCTRINAIRE_LEFT }
-    x = 0
+    x = 1
     y = 1
     relative_position_id = FRA_DOCTRINAIRE_LEFT
     cost = 5
@@ -1295,7 +1312,7 @@
     }
 
 		available = {
-			constitutional_monarchy > 0.4
+			democratic_conservatism > 0.4
 		}
 
     available_if_capitulated = yes
@@ -1303,14 +1320,13 @@
 
     completion_reward = {
       add_popularity  = {
-				ideology = constitutional_monarchy
+				ideology = democratic_conservatism
 				popularity = 0.15
 			}
 
-			set_country_leader_ideology = conservative_con_mon
-
+			set_country_leader_ideology = democratic_conservative
 			set_politics = {
-				ruling_party = constitutional_monarchy
+				ruling_party = democratic_conservatism
 			}
     }
   }
@@ -1320,7 +1336,7 @@
     icon = GFX_focus_rom_handle_king
     text = FRA_REX_REGNAT
 		prerequisite = { focus = FRA_KEEP_1827 }
-    x = 1
+    x = 0
     y = 1
     relative_position_id = FRA_KEEP_1827
     cost = 5
@@ -1680,7 +1696,7 @@
 			}
 
 			add_popularity  = {
-				ideology = monarchy
+				ideology = authoritarian_democratic
 				popularity = -0.4
 			}
 
@@ -1811,7 +1827,7 @@
 
     completion_reward = {
       add_popularity  = {
-				ideology = monarchy
+				ideology = authoritarian_democratic
 				popularity = -0.4
 			}
 			#kill_ideology_leader = monarchy
@@ -1948,7 +1964,7 @@
 
     completion_reward = {
 			add_popularity  = {
-				ideology = monarchy
+				ideology = authoritarian_democratic
 				popularity = 0.05
 			}
 			add_political_power = 75
@@ -2239,7 +2255,7 @@
 		icon = GFX_focus_focus_fra_national_resistance_council
 		text = FRA_CHRISTINAITY
 		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
-		x = -9
+		x = -6
 		y = 5
 		#relative_position_id = FRA_MILITARY_GOVERNMENT
 		cost = 5
@@ -2500,7 +2516,7 @@
 		id = FRA_deregulate_the_banking_industry
 		icon = unkown
 		text = FRA_deregulate_the_banking_industry
-		#prerequisite = { focus = FRA_LAISEZE_FAIRE}
+		prerequisite = { focus = FRA_LAISEZE_FAIRE}
 		x = -4
 		y = 1
 		relative_position_id = FRA_LAISEZE_FAIRE
@@ -3328,7 +3344,7 @@
 		icon = GFX_goal_Uphold_Napoleonic_Ideas #########Napoleon
 		text = FRA_NAPOLEON
 		prerequisite = { focus = FRA_RULE_FRANKIA }
-		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM }
+		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
 		
 		x = 2
 		y = 1
