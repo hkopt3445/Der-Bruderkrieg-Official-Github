@@ -14,7 +14,7 @@ news_event = {
 	}
 
 
-	option = {
+	option = { 
 		name = wiltkrieg.1.a
 
 		set_global_flag = wiltkrieg
@@ -164,6 +164,82 @@ news_event = {
 }
 
 
+add_namespace = second_treaty_of_vienna 
+##For Austria
+country_event = {
+	id = second_treaty_of_vienna.1
+	title = second_treaty_of_vienna.1.t
+	desc = second_treaty_of_vienna.1.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = second_treaty_of_vienna.1.a
+		unlock_decision_category_tooltip = post_war_prussia_loses
+		set_country_flag = second_treaty_of_vienna_enacted
+		add_ideas = AUS_post_war_occupation
+		
+		hidden_effect = {
+			news_event = {id = econd_treaty_of_vienna.3}
+			country_event = {id = post_wiltkrieg_trials.1 days = 2}
+			GER = {
+				load_focus_tree = generic_focus
+			}
+		}
+	}
+}
+##For prussia
+country_event = {
+	id = second_treaty_of_vienna.2
+	title = second_treaty_of_vienna.2.t
+	desc = second_treaty_of_vienna.2.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = second_treaty_of_vienna.2.a
+		
+	}
+}
+
+
+news_event = {
+	id = second_treaty_of_vienna.3
+	title = second_treaty_of_vienna.3.t
+	desc = second_treaty_of_vienna.3.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = second_treaty_of_vienna.3.a
+
+
+	}
+}
+
+
+
 add_namespace = post_wiltkrieg_trials
 ###Goering Trials: Beginning
 country_event = {
@@ -207,6 +283,9 @@ country_event = {
 		name = post_wiltkrieg_trials.2.a
 		
 		set_country_flag = goering_bye
+		GER = {
+			kill_country_leader = yes
+		}
 	}
 }
 
@@ -254,7 +333,106 @@ country_event = {
 
 	option = {
 		name = german_military_administration.1.a
+		set_country_flag = AUS_german_mil_admin_in_action
+		remove_ideas = AUS_post_war_occupation
+		set_autonomy = {
+            target = GER
+            autonomous_state =  autonomy_puppet
+        } 
+
+	}
+}
+
+
+add_namespace = post_bruderkrieg_hideout_events
+country_event = {
+	id = post_bruderkrieg_hideout_events.1
+	title = post_bruderkrieg_hideout_events.1.t
+	desc = post_bruderkrieg_hideout_events.1.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = post_bruderkrieg_hideout_events.1.a
+		add_to_variable = {AUS_post_brudekrireg_mil_trust_var = 5}
 		
 
+	}
+}
+country_event = {
+	id = post_bruderkrieg_hideout_events.2
+	title = post_bruderkrieg_hideout_events.2.t
+	desc = post_bruderkrieg_hideout_events.2.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = post_bruderkrieg_hideout_events.2.a
+		add_to_variable = {AUS_post_brudekrireg_mil_trust_var = 2}
+		add_political_power = -10
+		
+	}
+}
+country_event = {
+	id = post_bruderkrieg_hideout_events.3
+	title = post_bruderkrieg_hideout_events.3.t
+	desc = post_bruderkrieg_hideout_events.3.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = post_bruderkrieg_hideout_events.3.a
+		add_to_variable = {AUS_post_brudekrireg_mil_trust_var = -3}
+		add_political_power = -20
+		german_hideout_state = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+		}
+		
+	}
+}
+
+add_namespace = post_wittkrieg_annexation_events
+country_event = {
+	id = post_bruderkrieg_hideout_events.1
+	title = post_bruderkrieg_hideout_events.1.t
+	desc = post_bruderkrieg_hideout_events.1.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = post_bruderkrieg_hideout_events.1.a
+		
+		
 	}
 }

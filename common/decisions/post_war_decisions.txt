@@ -1,12 +1,15 @@
 post_war_prussia_loses = {
     AUS_hold_the_goering_trials = {
-
-
+		icon = generic_construction
 		available = {
-
+			tag = AUS
 		}
+		allowed = {
+		  tag = AUS
+		  }
 		visible = {
-
+			tag = AUS
+			has_country_flag = second_treaty_of_vienna_enacted
 		}
 
 		fire_only_once = yes
@@ -19,14 +22,81 @@ post_war_prussia_loses = {
 		}
 	}
     AUS_establish_a_military_government = {
-
-
-		available = {
-
+		icon = generic_construction
+		allowed = {
+		  tag = AUS
+		  }
+		available = { 
+			has_country_flag = goering_bye	
 		}
 		visible = {
-
+			has_country_flag = goering_bye
 		}
+
+		fire_only_once = yes
+
+		days_remove = 3
+		cost = 5
+ 
+		remove_effect = {
+			country_event = german_military_administration.1
+		}
+	} 
+	AUS_anti_goering_propoganda_campaign = {
+		icon = generic_construction
+		allowed = {
+		  tag = AUS
+		  }
+		available = { 
+			has_country_flag = AUS_german_mil_admin_in_action	
+		}
+		visible = {
+			has_country_flag = AUS_german_mil_admin_in_action
+		}
+
+		fire_only_once = no
+
+		days_remove = 20
+		cost = 15
+ 
+		remove_effect = {
+			add_to_variable = {AUS_post_brudekrireg_mil_trust_var = 10}
+		}
+	}
+	AUS_burning_prussian_propoganda_posters = {
+		icon = generic_construction
+		allowed = {
+		  tag = AUS
+		  }
+		available = { 
+			has_country_flag = AUS_german_mil_admin_in_action	
+		}
+		visible = {
+			has_country_flag = AUS_german_mil_admin_in_action
+		}
+
+		fire_only_once = yes
+
+		days_remove = 7
+		cost = 5
+ 
+		remove_effect = {
+			add_to_variable = {AUS_post_brudekrireg_mil_trust_var = 5}
+		}
+	}   
+	
+	AUS_finding_hideout_raids = {
+		icon = generic_construction
+
+		available = {
+			has_country_flag = AUS_german_mil_admin_in_action
+		}
+		visible = {
+			has_country_flag = AUS_german_mil_admin_in_action
+		}
+		allowed = {
+		  tag = AUS
+		  }
 
 		fire_only_once = yes
 
@@ -34,7 +104,72 @@ post_war_prussia_loses = {
 		cost = 5
 
 		remove_effect = {
-			country_event = post_wiltkrieg_trials.1
+			set_country_flag = country_hideout_raids_available
+			set_variable = {AUS_post_brudekrireg_mil_trust_var = 0}
+		}
+	} 
+
+	AUS_hideout_raid_in_from = {
+		icon = generic_construction
+		available = {
+		  tag = AUS
+		  has_country_flag = country_hideout_raids_available
+		}
+		state_target = yes
+		allowed = {
+		  tag = AUS
+		  }
+		visible = {
+			 tag = AUS
+		  has_country_flag = country_hideout_raids_available
+		  
+		  FROM = { is_owned_by = GER }
+		}
+		target_trigger = {
+			FROM = { is_owned_by = GER }
+		}
+		cost = 5
+		days_remove = 5
+		on_map_mode = map_and_decisions_view
+		ai_will_do = {
+		  factor = 20
+		  modifier = {
+			has_war = yes
+			factor = 0
+		  }
+		}
+		remove_effect = {
+			FROM = {
+				save_global_event_target_as = german_hideout_state
+			}
+
+			random_events = {
+				100 = post_bruderkrieg_hideout_events.1
+				70 = post_bruderkrieg_hideout_events.2
+				40 = post_bruderkrieg_hideout_events.3
+			}
+			
+		}
+	}
+	AUS_integration = {
+		icon = generic_construction
+		allowed = {
+		  tag = AUS
+		  }
+		available = { 
+			check_variable = {AUS_post_brudekrireg_mil_trust_var > 50}	
+		}
+		visible = {
+			check_variable = {AUS_post_brudekrireg_mil_trust_var > 50}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 3
+		cost = 5
+ 
+		remove_effect = {
+			country_event = german_military_administration.1
 		}
 	}   
 }
