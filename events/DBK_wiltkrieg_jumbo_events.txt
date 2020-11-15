@@ -258,7 +258,7 @@ country_event = {
 
 	option = {
 		name = post_wiltkrieg_trials.1.a
-		
+		country_event = post_wiltkrieg_trials.2
 
 	}
 }
@@ -286,6 +286,7 @@ country_event = {
 		GER = {
 			kill_country_leader = yes
 		}
+		news_event = { id = post_wiltkrieg_trials.3 }
 	}
 }
 
@@ -415,11 +416,14 @@ country_event = {
 	}
 }
 
-add_namespace = post_wittkrieg_annexation_events
+add_namespace = austria_post_wittkrieg_annexation_events
+
+
+###Issue of Annexation
 country_event = {
-	id = post_bruderkrieg_hideout_events.1
-	title = post_bruderkrieg_hideout_events.1.t
-	desc = post_bruderkrieg_hideout_events.1.d
+	id = austria_post_wittkrieg_annexation_events.1
+	title = austria_post_wittkrieg_annexation_events.1.t
+	desc = austria_post_wittkrieg_annexation_events.1.d
 	picture = GFX_report_event_czech_soldiers_02.dds
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -431,8 +435,137 @@ country_event = {
 
 
 	option = {
-		name = post_bruderkrieg_hideout_events.1.a
+		name = austria_post_wittkrieg_annexation_events.1.a
+		trigger = {
+			has_country_flag = AUS_we_will_hand_over_the_prussian_lands_to_the_sgc
+		}
+		country_event = {id = austria_post_wittkrieg_annexation_events.2 days = 1}
+
+		
+	}
+	option = {
+		name = austria_post_wittkrieg_annexation_events.1.b
+		trigger = {
+			has_country_flag = AUS_we_will_form_a_union_with_bavaria_if_they_agree_after_beating_prussia
+		}
+		country_event = {id = austria_post_wittkrieg_annexation_events.3 days = 1}
+	}
+} 
+
+
+##SGC incorp
+country_event = {
+	id = austria_post_wittkrieg_annexation_events.2
+	title = austria_post_wittkrieg_annexation_events.2.t
+	desc = austria_post_wittkrieg_annexation_events.2.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = austria_post_wittkrieg_annexation_events.2.a
+		GPU = {
+			annex_country = {
+				target = GER
+				transfer_troops = yes
+			}
+		}
+
+	}
+}
+
+###Austro-Bavarian Union
+country_event = {
+	id = austria_post_wittkrieg_annexation_events.3
+	title = austria_post_wittkrieg_annexation_events.3.t
+	desc = austria_post_wittkrieg_annexation_events.3.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = austria_post_wittkrieg_annexation_events.3.a
+		
+
+		
+	}
+	option = {
+		name = austria_post_wittkrieg_annexation_events.3.b
 		
 		
 	}
 } 
+
+country_event = {
+	id = austria_post_wittkrieg_annexation_events.4
+	title = austria_post_wittkrieg_annexation_events.4.t
+	desc = austria_post_wittkrieg_annexation_events.4.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = austria_post_wittkrieg_annexation_events.4.a
+		GPU = {
+			annex_country = {
+				target = GER
+				transfer_troops = yes
+			}
+		}
+
+	}
+}
+
+country_event = {
+	id = austria_post_wittkrieg_annexation_events.5
+	title = austria_post_wittkrieg_annexation_events.5.t
+	desc = austria_post_wittkrieg_annexation_events.5.d
+	picture = GFX_report_event_czech_soldiers_02.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+	trigger = {
+
+	}
+
+
+	option = {
+		name = austria_post_wittkrieg_annexation_events.5.a
+		GPU = {
+			leave_faction = yes
+		}
+
+		every_state = {
+			limit = {
+				OR = { is_core_of = GER is_core_of = GPU }
+			}
+			add_core_of = AUS
+		}
+		AUS = {
+			declare_war_on = {
+				target = GPU
+				type = annex_country
+			}
+		}
+
+	}
+}
