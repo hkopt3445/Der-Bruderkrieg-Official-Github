@@ -1980,7 +1980,8 @@ shared_focus = {
 #############Navy
 shared_focus = {
   id = AUS_KAISER_MARINE
-  icon = GFX_Austrian_Navy
+  #
+  icon = GFX_goal_generic_navy_carrier
   text = AUS_KAISER_MARINE
   prerequisite = { focus = AUS_PREP_WAR }
   x = 11
@@ -2194,11 +2195,12 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_BUILD_DOCKYARDS1
-  icon = GFX_goal_generic_build_navy
+  icon = GFX_Austrian_Navy
   text = AUS_BUILD_DOCKYARDS1
   prerequisite = { focus = AUS_PROJECT_Z focus = AUS_CAPITAL_SHIPS }
+  prerequisite = {focus = AUS_BUILD_DOCKYARDS2}
   x = -1
-  y = 1
+  y = 2
   relative_position_id = AUS_PROJECT_Z
   cost = 5
   ai_will_do = {
@@ -2225,7 +2227,7 @@ shared_focus = {
   icon = GFX_goal_generic_build_navy
   text = AUS_BUILD_DOCKYARDS2
   prerequisite = { focus = AUS_U_BOATS }
-  x = 1
+  x = -1
   y = 1
   relative_position_id = AUS_U_BOATS
   cost = 5
@@ -2279,28 +2281,7 @@ shared_focus = {
 
 
 
-shared_focus = {
-  id = AUS_REFORMED_NAVY
-  icon = GFX_goal_generic_navy_carrier
-  text = AUS_REFORMED_NAVY
-  prerequisite = { focus = AUS_BUILD_DOCKYARDS2 focus = AUS_BUILD_DOCKYARDS1  }
-  x = -2
-  y = 2
-  relative_position_id = AUS_BUILD_DOCKYARDS2
-  cost = 5
-  ai_will_do = {
-    factor = 1
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    add_ideas = {
-      Reformed_Navy
-    }
-  }
-}
 
 
 ############AF
@@ -2630,6 +2611,34 @@ shared_focus = {
     }
   }
 }
+shared_focus = {
+  id = AUS_nuclear_commission
+  icon = unkown
+  text = AUS_nuclear_commission
+  prerequisite = { focus = AUS_REVITALIZE_ARMY}
+  prerequisite = { focus = AUS_BUILD_DOCKYARDS1}
+  prerequisite = { focus =AUS_REFORMED_AIR_FORCE}
+  x = 0
+  y = 2
+  relative_position_id = AUS_REFORMED_AIR_FORCE
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    add_tech_bonus = {
+      bonus = 0.5
+      uses = 2
+      category = nuclear
+    }
+  }
+}
+
+
 
 
 
