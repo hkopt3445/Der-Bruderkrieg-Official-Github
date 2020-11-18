@@ -11,8 +11,8 @@ focus_tree = {
 		}
 	}
 	default = no
-	shared_focus = FRA_ANNEX_BENELUX
-	shared_focus = FRA_BUFFER_STATE
+	shared_focus = FRA_ANNEX_BELGIUM
+	shared_focus = FRA_BRUSSELLS_CONFERENCE
 	shared_focus = FRA_national_development_bureau
 		shared_focus = FRA_CONSERVATIVES_PREVAIL
 		shared_focus = FRA_SPAIN_IS_BROKEN
@@ -21,44 +21,18 @@ focus_tree = {
 
 
 
-shared_focus = {
-	id = FRA_ANNEX_BENELUX
-	icon = GFX_goal_Dominate_Benelux
-	text = FRA_ANNEX_BENELUX
-	#prerequisite = { focus = FRA_NAPOLEON  focus = FRA_PATH_AGGRESSION}
-	mutually_exclusive = {focus = FRA_BUFFER_STATE}
-	x = -21
-	y = 0
-	#relative_position_id = FRA_NAPOLEON
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		every_state = {
-			limit = {
-				OR = {
-					is_owned_by = BEL
-					is_owned_by = HOL
-					is_owned_by = LUX
-				}
-			}
-			add_core_of = FRA
-		}
-	}
-}
 
 shared_focus = {
 	id = FRA_ANNEX_BELGIUM
 	icon = GFX_goal_demandflanders
 	text = FRA_ANNEX_BELGIUM
 	prerequisite = { focus = FRA_ANNEX_BENELUX }
-	x = 0
-	y = 1
+	mutually_exclusive = {
+		focus = FRA_BRUSSELLS_CONFERENCE
+	}
+	x = -23
+	y = 0
 	relative_position_id = FRA_ANNEX_BENELUX
 	cost = 5
 	ai_will_do = {
@@ -90,100 +64,24 @@ shared_focus = {
 
 
 
-shared_focus = {
-	id = FRA_MEETING_WITH_THE_MONARCHISTS
-	icon = unkown
-	text = FRA_MEETING_WITH_THE_MONARCHISTS
-	prerequisite = { focus = FRA_ANNEX_BELGIUM  focus = FRA_BRUSSELLS_CONFERENCE}
-	x = -1
-	y = 2
-	relative_position_id = FRA_BUFFER_STATE
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	bypass = {
-		
-
-	}
-
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		add_political_power = 60
-	}
-}
 
 
 
-shared_focus = {
-	id = FRA_BUFFER_STATE
-	icon = GFX_goal_Establish_Buffer_State
-	text = FRA_BUFFER_STATE
-	#prerequisite = { focus = FRA_NAPOLEON }
-	mutually_exclusive = {focus = FRA_ANNEX_BENELUX}
-	x = -19
-	y = 0
-	#relative_position_id = FRA_NAPOLEON
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	bypass = {
-		OR = {
-			NOT = {
-				country_exists = BEL
-			}
-			FRA = {
-				has_war_with = BEL
-			}
-		}
-	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
-		every_state = {
-			limit = {
-				OR = {
-					is_owned_by = HOL
-					is_owned_by = LUX
-				}
-			}
-			add_core_of = BEL
-		}
-
-		if = {
-			limit = {
-				BEL = {
-					is_ai = no
-				}
-			}
-			set_autonomy = {
-				target = BEL
-				autonomous_state =  autonomy_puppet
-			}
-		}
-
-		ENG = {
-			add_opinion_modifier = {
-				modifier = defied_treaty_london
-				target = FRA
-			}
-		}
-	}
-}
 
 shared_focus = {
 	id = FRA_BRUSSELLS_CONFERENCE
 	icon = GFX_goal_Brussels_Conference
 	text = FRA_BRUSSELLS_CONFERENCE
-	prerequisite = { focus = FRA_BUFFER_STATE }
-	x = 0
-	y = 1
-	relative_position_id = FRA_BUFFER_STATE
+	#prerequisite = { focus = FRA_BUFFER_STATE }
+	mutually_exclusive = {
+		focus = FRA_ANNEX_BELGIUM
+	}
+
+	x = -15
+	y = 0
+	#relative_position_id = FRA_BUFFER_STATE
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -214,7 +112,7 @@ shared_focus = {
 	icon = GFX_goal_Solidify_Control
 	text = FRA_SOLIDIFY_CONTROL
 	prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
-	x = 2
+	x = 0
 	y = 1
 	relative_position_id = FRA_BRUSSELLS_CONFERENCE
 	cost = 5
@@ -242,7 +140,6 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		remove_ideas = FRA_benelux_crisis
 	}
 }
 
@@ -251,7 +148,7 @@ shared_focus = {
 	icon = GFX_goal_Fortify_Benelux
 	text = FRA_FORTIFY_BENELUX_BORDER
 	prerequisite = { focus = FRA_SOLIDIFY_CONTROL }
-	x = 0
+	x = 1	
 	y = 1
 	relative_position_id = FRA_SOLIDIFY_CONTROL
 	cost = 5
@@ -286,65 +183,27 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = FRA_JOIN_AUSTRIA
-	icon = GFX_goal_diplo_austria
-	text = FRA_JOIN_AUSTRIA
-		x = -2
-	y = 1
-	relative_position_id = FRA_FORTIFY_BENELUX_BORDER
-	mutually_exclusive = {
-		focus = FRA_FRANCE_ALONE
-		}
-		prerequisite = {
-			focus = FRA_MEETING_WITH_THE_MONARCHISTS
-		}
-		prerequisite = {
-			focus = FRA_DENOUNCING_PRUSSIA
-		}
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
 
-	bypass = {
-		OR = {
-			NOT = {
-				country_exists = AUS
-			}
-			FRA = {
-				has_war_with = AUS
-			}
-			AUS = {
-				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-			}
-		}
-	}
-
-
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		AUS = {country_event = {id = france.170}}
-	}
-}
 
 shared_focus = {
 	id = FRA_FRANCE_ALONE
-	icon = unkown
+	icon = GFX_goal_greaterfrance
 	text = FRA_FRANCE_ALONE
 
 	prerequisite = {
-		focus = FRA_MEETING_WITH_THE_MONARCHISTS
+		focus = FRA_BRUSSELLS_CONFERENCE
+		focus = FRA_ANNEX_BELGIUM
+	}
+	mutually_exclusive = {
+		focus = FRA_JOIN_GERMANY
 	}
 
-	x = -4
+	x = -3
 	y = 1
 	mutually_exclusive = {
 		focus = FRA_JOIN_AUSTRIA
 	}
-	relative_position_id = FRA_FORTIFY_BENELUX_BORDER
+	relative_position_id = FRA_BRUSSELLS_CONFERENCE
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -368,9 +227,9 @@ shared_focus = {
 	icon = GFX_goal_Claims_On_Alliance
 	text = FRA_ANTI_AUSTRIAN_PACT
 	prerequisite = { focus = FRA_JOIN_AUSTRIA focus = FRA_FRANCE_ALONE }
-	x = -3
+	x = -1
 	y = 1
-	relative_position_id = FRA_JOIN_AUSTRIA
+	relative_position_id = FRA_FRANCE_ALONE
 	cost = 3
 	ai_will_do = {
 		factor = 20
@@ -424,6 +283,8 @@ shared_focus = {
 }
 
 
+
+
 shared_focus = {
 	id = FRA_REESTABLISH_EMPIRE
 	icon = GFX_goal_French_Empire
@@ -431,7 +292,7 @@ shared_focus = {
 	prerequisite = { focus = FRA_JOIN_AUSTRIA focus = FRA_FRANCE_ALONE }
 	x = 1
 	y = 1
-	relative_position_id = FRA_JOIN_AUSTRIA
+	relative_position_id = FRA_FRANCE_ALONE
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -459,6 +320,9 @@ shared_focus = {
 	cost = 5
 	ai_will_do = {
 		factor = 20
+	}
+	allowed = {
+	
 	}
 	bypass = {
 		AND = {
@@ -612,7 +476,7 @@ shared_focus = {
 	prerequisite = { focus = FRA_DANUBE_CAMPAIGN }
 	prerequisite = { focus = FRA_BLITZ_ISLAND }
 	prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = FRA_DANUBE_CAMPAIGN
 	cost = 5
@@ -645,11 +509,51 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = FRA_TAKING_OUT_THE_SGC
+	icon = GFX_goal_Finishaustria
+	text = FRA_TAKING_OUT_THE_SGC
+	prerequisite = { focus = FRA_DANUBE_CAMPAIGN }
+	prerequisite = { focus = FRA_BLITZ_ISLAND }
+	prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
+	x = 1
+	y = 1
+	relative_position_id = FRA_DANUBE_CAMPAIGN
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = AUS
+			}
+			FRA = {
+				has_war_with = AUS
+			}
+			AUS = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		create_wargoal_on = {
+			target = AUS
+			type = annex_everything
+		}
+	}
+}
+
+shared_focus = {
 	id = FRA_NAPOLEONIC_SUPERPOWER
 	icon = GFX_goal_Napoleonic_Superpower
 	text = FRA_NAPOLEONIC_SUPERPOWER
 	prerequisite = { focus = FRA_REVENGE_RUSSIA }
-	x = 0
+	prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
+	x = 1
 	y = 1
 	relative_position_id = FRA_REVENGE_RUSSIA
 	cost = 5
@@ -692,10 +596,10 @@ shared_focus = {
 	id = FRA_ANNEX_LUX
 	icon = GFX_goal_invadeluxembourg
 	text = FRA_ANNEX_LUX
-	prerequisite = { focus = FRA_ANNEX_BENELUX }
-	x = -2
+	#prerequisite = { focus = FRA_ANNEX_BELGIUM }
+	x = -1
 	y = 1
-	relative_position_id = FRA_ANNEX_BENELUX
+	#relative_position_id = FRA_ANNEX_BELGIUM
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -726,10 +630,11 @@ shared_focus = {
 	id = FRA_ANNEX_HOL
 	icon = GFX_goal_invadedutch
 	text = FRA_ANNEX_HOL
-	prerequisite = { focus = FRA_ANNEX_BENELUX }
-	x = -4
+	prerequisite = { focus = FRA_JOIN_GERMANY focus = FRA_FRANCE_ALONE}
+
+	x = 4
 	y = 1
-	relative_position_id = FRA_ANNEX_BENELUX
+	relative_position_id = FRA_JOIN_GERMANY
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -752,7 +657,7 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		HOL = {country_event = {id = napoleanfrance.4}}
+		
 	}
 }
 
@@ -760,12 +665,13 @@ shared_focus = {
 	id = FRA_JOIN_GERMANY
 	icon = GFX_goal_euroalliancetripartie
 	text = FRA_JOIN_GERMANY
-	prerequisite = { focus = FRA_ANNEX_LUX }
-	prerequisite = { focus = FRA_ANNEX_HOL }
-	mutually_exclusive = {focus = FRA_GREATER_FRANCE}
-	x = 0
+	prerequisite = { focus = FRA_ANNEX_BELGIUM }
+	mutually_exclusive = {
+		focus = FRA_FRANCE_ALONE
+	}
+	x = -4
 	y = 1
-	relative_position_id = FRA_ANNEX_LUX
+	relative_position_id = FRA_ANNEX_BELGIUM
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -800,8 +706,7 @@ shared_focus = {
 	icon = GFX_goal_pactofturin
 	text = FRA_JOIN_ITALY
 	prerequisite = { focus = FRA_JOIN_GERMANY }
-	prerequisite = { focus = FRA_JOIN_GERMANY }
-	x = -3
+	x = 2
 	y = 1
 	relative_position_id = FRA_JOIN_GERMANY
 	cost = 5
@@ -833,31 +738,7 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = FRA_GREATER_FRANCE
-	icon = GFX_goal_greaterfrance
-	text = FRA_GREATER_FRANCE
-	prerequisite = { focus = FRA_ANNEX_LUX }
-	prerequisite = { focus = FRA_ANNEX_HOL }
-	mutually_exclusive = {focus = FRA_JOIN_GERMANY}
-	x = -5
-	y = 1
-	relative_position_id = FRA_ANNEX_LUX
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	available = {
-		has_country_flag = path_of_aggresssion_flag
-	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		create_faction = FRA_greater_france
-	}
-}
 
 shared_focus = {
 	id = FRA_FINISH_AUSTRIA
@@ -962,7 +843,7 @@ shared_focus = {
 	icon = GFX_goal_ceasepapalinfluence
 	text = FRA_RELEASE_PAPALCY
 	prerequisite = { focus = FRA_JOIN_ITALY }
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = FRA_JOIN_ITALY
 	cost = 5
@@ -1031,11 +912,10 @@ shared_focus = {
 	id = FRA_INVITE_SPAIN
 	icon = GFX_goal_generic_alliance
 	text = FRA_INVITE_SPAIN
-	#prerequisite = { focus = FRA_SPANISH_INTERVENTION }
-	prerequisite = { focus = FRA_GREATER_FRANCE }
-	x = -2
+	prerequisite = { focus = FRA_FRANCE_ALONE }
+	x = -3
 	y = 1
-	relative_position_id = FRA_GREATER_FRANCE
+	relative_position_id = FRA_FRANCE_ALONE
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -1075,6 +955,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
+	allow_branch = {
+		always = no
+	}
 
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1099,8 +982,8 @@ shared_focus = {
 	text = FRA_LOOKING_EAST
 	prerequisite = { focus = FRA_INVITE_SPAIN }
 
-	x = -1
-	y = 2
+	x = 0
+	y = 1
 	relative_position_id = FRA_INVITE_SPAIN
 	cost = 5
 	ai_will_do = {
@@ -1120,7 +1003,7 @@ shared_focus = {
 	icon = GFX_goal_forcedsubimission
 	text = FRA_DEMAND_SUBMISSION
 	prerequisite = { focus = FRA_SPREAD_FASCISM	}
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = FRA_SPREAD_FASCISM
 	cost = 5
