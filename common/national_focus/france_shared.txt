@@ -37,7 +37,7 @@
 	icon = GFX_focus_research
 	text = FRA_expand_the_sorbonne_university
 	#prerequisite = { focus = FRA_the_state_of_the_nation }
-	x = 15 
+	x = 12 
 	y = 7
 	#relative_position_id = FRA_ARMEE_FRANCAISE
 	cost = 5
@@ -2255,7 +2255,7 @@
 		icon = GFX_focus_focus_fra_national_resistance_council
 		text = FRA_CHRISTINAITY
 		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
-		x = -6
+		x = -23
 		y = 5
 		#relative_position_id = FRA_MILITARY_GOVERNMENT
 		cost = 5
@@ -2454,7 +2454,7 @@
 		icon = unkown
 		text = FRA_LAISEZE_FAIRE
 		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
-		x = 1
+		x = -6
 		y = 0
 		#relative_position_id = FRA_MILITARY_GOVERNMENT
 		cost = 1
@@ -2475,7 +2475,7 @@
 		icon = unkown
 		text = FRA_ban_trade_unions
 		prerequisite = { focus = FRA_LAISEZE_FAIRE}
-		x = -2
+		x = 1
 		y = 1
 		relative_position_id = FRA_LAISEZE_FAIRE
 		cost = 5
@@ -2517,7 +2517,7 @@
 		icon = unkown
 		text = FRA_deregulate_the_banking_industry
 		prerequisite = { focus = FRA_LAISEZE_FAIRE}
-		x = -4
+		x = -1
 		y = 1
 		relative_position_id = FRA_LAISEZE_FAIRE
 		cost = 5
@@ -3377,7 +3377,7 @@
 		icon = GFX_focus_intervention_spain_nationalists
 		text = FRA_SPAIN_IS_BROKEN
 		#prerequisite = { focus = FRA_PATH_AGGRESSION }
-		x = -9
+		x = -23
 		y = 0
 		#relative_position_id = FRA_PATH_AGGRESSION
 		cost = 5
@@ -4340,6 +4340,91 @@ add_ideas= FRA_Isolationism_2
 		}
 	}
 
+	shared_focus = {
+		id = FRA_colonial_investments
+		icon = unkown
+		text = FRA_colonial_investments
+		x = 12
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		relative_position_id = FRA_national_development_bureau
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			unlock_decision_category_tooltip = FRA_colonial_investments_decision_cat
+		}
+	}
+	shared_focus = {
+		id = FRA_the_luxemburg_colony
+		icon = unko0
+		text = FRA_the_luxemburg_colony
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		prerequisite = {focus = FRA_colonial_investments}
+		relative_position_id = FRA_colonial_investments
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	shared_focus = {
+		id = FRA_mertz_steel_mines
+		icon = unknown
+		text = FRA_mertz_steel_mines
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		prerequisite = {focus = FRA_the_luxemburg_colony}
+		relative_position_id = FRA_the_luxemburg_colony
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = FRA_the_expansion_of_pondicherri
+		icon = unkonkown
+		text = FRA_the_expansion_of_pondicherri
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		prerequisite = {focus = FRA_colonial_investments}
+		relative_position_id = FRA_colonial_investments
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+
+
+	
+
 
 
 
@@ -4349,11 +4434,12 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_on_the_frontier
 			icon = GFX_goal_generic_construct_mil_factory
-			x = 8
-			y = 3
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_guns_for_the_soldiers }
+			relative_position_id = FRA_guns_for_the_soldiers
 			ai_will_do = {
 				factor = 1
 			}
@@ -4411,11 +4497,12 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_in_paris
 			icon = GFX_goal_generic_construct_civ_factory
-			x = 5
-			y = 5
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_in_the_south }
+			relative_position_id = FRA_in_the_south
 			ai_will_do = {
 				factor = 1
 			}
@@ -4440,7 +4527,8 @@ add_ideas= FRA_Isolationism_2
 			id = FRA_national_development_bureau
 			icon = GFX_goal_tripartite_pact
 			prerequisite = {focus = FRA_the_state_of_the_nation}
-			x = 5
+			relative_position_id = FRA_LAISEZE_FAIRE
+			x = 7
 			y = 0
 			cost = 5
 			available_if_capitulated = yes
@@ -4458,12 +4546,13 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_division_metropol
 			icon = GFX_goal_generic_construct_civ_factory
-			x = 5
+			x = 0
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_national_development_bureau }
 			prerequisite = {focus = FRA_LAISEZE_FAIRE}
+			relative_position_id = FRA_national_development_bureau
 			ai_will_do = {
 				factor = 1
 			}
@@ -4474,13 +4563,15 @@ add_ideas= FRA_Isolationism_2
 
 		#Focus for Division Coloniale
 		shared_focus = {
-			id = FRA_division_coloniale
+			id = FRA_division_coloniale_de_africa
 			icon = GFX_focus_generic_military_academy
-			x = 13
+			x = -3
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_national_development_bureau }
+			prerequisite = {focus = FRA_colonial_investments}
+			relative_position_id = FRA_colonial_investments
 			ai_will_do = {
 				factor = 1
 			}
@@ -4493,11 +4584,12 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_law_on_the_country_in_danger
 			icon = GFX_goal_generic_construct_mil_factory
-			x = 2
-			y = 2
+			x = -3
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_division_metropol }
+			relative_position_id = FRA_division_metropol
 			ai_will_do = {
 				factor = 1
 			}
@@ -4510,11 +4602,12 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_keep_out_the_reichsmarshall
 			icon = GFX_goal_generic_fortify_city
-			x = 2
-			y = 3
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_law_on_the_country_in_danger }
+			relative_position_id = FRA_law_on_the_country_in_danger
 			ai_will_do = {
 				factor = 1
 			}
@@ -4551,11 +4644,12 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_defend_against_the_kaiser
 			icon = GFX_goal_generic_fortify_city
-			x = 3
-			y = 4
+			x = 1
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_keep_out_the_reichsmarshall }
+			relative_position_id = FRA_keep_out_the_reichsmarshall
 			ai_will_do = {
 				factor = 1
 			}
@@ -4607,11 +4701,12 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_hold_back_the_duce
 			icon = GFX_goal_generic_fortify_city
-			x = 1
-			y = 4
+			x = -1
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_keep_out_the_reichsmarshall }
+			relative_position_id = FRA_keep_out_the_reichsmarshall
 			ai_will_do = {
 				factor = 1
 			}
@@ -4659,11 +4754,12 @@ add_ideas= FRA_Isolationism_2
 			id = FRA_ils_ne_passeront_pas
 			icon = GFX_goal_generic_demand_territory
 			prerequisite = {focus = FRA_hold_back_the_duce}
-			x = 2
-			y = 5
+			x = -1
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_defend_against_the_kaiser }
+			relative_position_id = FRA_defend_against_the_kaiser
 			ai_will_do = {
 				factor = 1
 			}
@@ -4679,11 +4775,12 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_jobs_for_the_workers
 			icon = GFX_goal_generic_consumer_goods
-			x = 5
-			y = 2
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_division_metropol }
+			relative_position_id = FRA_division_metropol
 			ai_will_do = {
 				factor = 1
 			}
@@ -4696,11 +4793,12 @@ add_ideas= FRA_Isolationism_2
 		shared_focus = {
 			id = FRA_in_the_loire
 			icon = GFX_goal_generic_construct_civ_factory
-			x = 5
-			y = 3
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_jobs_for_the_workers }
+			relative_position_id = FRA_jobs_for_the_workers
 			ai_will_do = {
 				factor = 1
 			}
@@ -4736,11 +4834,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_in_the_south
 			icon = GFX_goal_generic_construct_civ_factory
-			x = 5
-			y = 4
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_in_the_loire }
+			relative_position_id = FRA_in_the_loire
 			ai_will_do = {
 				factor = 1
 			}
@@ -4776,11 +4875,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_guns_for_the_soldiers
 			icon = GFX_goal_generic_build_tank
-			x = 8
-			y = 2
+			x = 3
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_division_metropol }
+			relative_position_id = FRA_division_metropol
 			ai_will_do = {
 				factor = 1
 			}
@@ -4793,11 +4893,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_in_provence
 			icon = GFX_goal_generic_construct_mil_factory
-			x = 8
-			y = 4
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_on_the_frontier }
+			relative_position_id = FRA_on_the_frontier
 			ai_will_do = {
 				factor = 1
 			}
@@ -4825,11 +4926,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_in_bretagne
 			icon = GFX_goal_generic_construct_mil_factory
-			x = 8
-			y = 5
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_in_provence }
+			relative_position_id = FRA_in_provence
 			ai_will_do = {
 				factor = 1
 			}
@@ -4853,11 +4955,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_transsaharian_railroad
 			icon = GFX_goal_generic_construct_infrastructure
-			x = 11
-			y = 2
+			x = -3
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_division_coloniale }
+			prerequisite = { focus = FRA_division_coloniale_de_africa }
+			relative_position_id = FRA_division_coloniale_de_africa
 			ai_will_do = {
 				factor = 1
 			}
@@ -4874,11 +4977,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_intensify_exploitation
 			icon = GFX_goal_generic_production
-			x = 14
-			y = 2
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_division_coloniale }
+			prerequisite = { focus = FRA_division_coloniale_de_africa }
+			relative_position_id = FRA_division_coloniale_de_africa
 			mutually_exclusive = {focus = FRA_the_union_plan}
 			ai_will_do = {
 				factor = 1
@@ -4892,11 +4996,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_the_union_plan
 			icon = GFX_goal_generic_major_alliance
-			x = 17
-			y = 2
+			x = 3
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_division_coloniale }
+			prerequisite = { focus = FRA_division_coloniale_de_africa }
+			relative_position_id = FRA_division_coloniale_de_africa
 			mutually_exclusive = { focus = FRA_intensify_exploitation }
 			ai_will_do = {
 				factor = 1
@@ -4910,11 +5015,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_the_second_france
 			icon = GFX_focus_fra_french_union
-			x = 11
-			y = 3
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_transsaharian_railroad }
+			relative_position_id = FRA_transsaharian_railroad
 			ai_will_do = {
 				factor = 1
 			}
@@ -4964,16 +5070,17 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_the_western_bases
 			icon = GFX_focus_generic_industry_3
-			x = 11
-			y = 4
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_the_second_france }
+			relative_position_id = FRA_the_second_france
 			ai_will_do = {
 				factor = 1
 			}
 			completion_reward = {
-				random_owned_controlled_state={
+				272={
 	 limit = {
 	 free_building_slots = {
 	 building = industrial_complex
@@ -4992,7 +5099,7 @@ set_state_flag = 24
 
 	 set_state_flag = 272
 	 }
-	  random_owned_controlled_state={
+	  272={
 	 limit = {
 	 free_building_slots = {
 	 building = arms_factory
@@ -5014,69 +5121,18 @@ set_state_flag = 24
 			}
 		}
 
-		#Focus for The Eastern Foothold
-		shared_focus = {
-			id = FRA_the_eastern_foothold
-			icon = GFX_goal_generic_consumer_goods
-			x = 11
-			y = 5
-			cost = 5
-			available_if_capitulated = yes
-			prerequisite = { focus = FRA_the_western_bases }
-			ai_will_do = {
-				factor = 1
-			}
-			completion_reward = {
-				random_owned_controlled_state={
-	 limit = {
-	 free_building_slots = {
-	 building = industrial_complex
-	 size > 0
-	 include_locked = yes
-	 }
-
-	 }
-
-	 add_extra_state_shared_building_slots = 1
-	 add_building_construction = {
-	 type = industrial_complex
-	 level = 1
-	 instant_build = yes
-	 }
-
-	 set_state_flag = 671
-	 }
-	  random_owned_controlled_state={
-	 limit = {
-	 free_building_slots = {
-	 building = arms_factory
-	 size > 0
-	 include_locked = yes
-	 }
-
-	 }
-
-	 add_extra_state_shared_building_slots = 1
-	 add_building_construction = {
-	 type = arms_factory
-	 level = 1
-	 instant_build = yes
-	 }
-
-	 set_state_flag = 671
-	 }
-			}
-		}
+	
 
 		#Focus for Saharan Mineral Deposits
 		shared_focus = {
 			id = FRA_saharan_mineral_deposits
 			icon = GFX_goal_generic_construction2
-			x = 14
-			y = 3
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_intensify_exploitation }
+			relative_position_id = FRA_intensify_exploitation
 			ai_will_do = {
 				factor = 1
 			}
@@ -5098,11 +5154,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_algerian_oilfields
 			icon = GFX_goal_generic_oil_refinery
-			x = 14
-			y = 4
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_saharan_mineral_deposits }
+			relative_position_id = FRA_saharan_mineral_deposits
 			ai_will_do = {
 				factor = 1
 			}
@@ -5119,11 +5176,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_indochinese_rubber
 			icon = GFX_focus_generic_rubber
-			x = 14
-			y = 5
+			x =0 
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_algerian_oilfields }
+			relative_position_id = FRA_algerian_oilfields
 			ai_will_do = {
 				factor = 1
 			}
@@ -5140,11 +5198,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_violette_proposal
 			icon = GFX_goal_generic_intelligence_exchange
-			x = 17
-			y = 3
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_the_union_plan }
+			relative_position_id = FRA_the_union_plan
 			ai_will_do = {
 				factor = 1
 			}
@@ -5157,11 +5216,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_break_piednoir_supremacy
 			icon = GFX_focus_renounce_the_treaty_of_trianon
-			x = 17
-			y = 4
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_violette_proposal }
+			relative_position_id = FRA_violette_proposal
 			ai_will_do = {
 				factor = 1
 			}
@@ -5174,11 +5234,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_fulfilling_the_rights_of_man
 			icon = GFX_focus_generic_the_giant_wakes
-			x = 17
-			y = 5
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_break_piednoir_supremacy }
+			relative_position_id = FRA_break_piednoir_supremacy
 			ai_will_do = {
 				factor = 1
 			}
