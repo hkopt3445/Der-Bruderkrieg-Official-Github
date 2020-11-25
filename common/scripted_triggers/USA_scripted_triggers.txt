@@ -1,0 +1,33 @@
+is_long_state = {
+	OR = {
+		AND = { 
+			check_variable = {long_support > smith_support }
+			check_variable = {long_support > borah_support }
+		}
+
+		AND = {
+			check_variable = {long_support = smith_support }
+			check_variable = { long_support > borah_support}
+		}
+		AND = {
+			check_variable = {long_support = borah_support }
+			check_variable = { long_support > smith_support}
+		}
+			
+	}
+}
+
+
+is_borah_state = {
+	AND = { 
+		check_variable = {borah_support > smith_support }
+		check_variable = {borah_support > long_support }
+	}
+}
+
+is_smith_state = {
+	AND = { 
+		check_variable = {smith_support > smith_support }
+		check_variable = {smith_support > borah_support }
+	}
+}
