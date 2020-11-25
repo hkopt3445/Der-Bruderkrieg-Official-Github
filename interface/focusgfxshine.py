@@ -26,6 +26,8 @@ import re
 #############################
 
 
+
+
 def get_shine_def(name, path):
     return """	SpriteType = {
 		name = "%s_shine"
@@ -66,6 +68,7 @@ def get_shine_def(name, path):
 
 
 def main():
+
     parser = argparse.ArgumentParser(
         description="Given a goals GFX file, add all missing shine entries to the goals_shine GFX file."
     )

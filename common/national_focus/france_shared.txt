@@ -1276,7 +1276,11 @@
     x = 3
     y = 1
 	relative_position_id = FRA_DOCTRINAIRE_VIC
-	
+	available = {
+		NOT = {
+			has_completed_focus = FRA_END_CONSTITUTIONALISM
+		}
+	}
     cost = 5
     ai_will_do = {
       factor = 20
@@ -1979,6 +1983,7 @@
     icon = GFX_goal_FRA_end_constitutionalism
     text = FRA_END_CONSTITUTIONALISM
 		prerequisite = { focus = FRA_CAGOULE_CABINET }
+	
     x = 0
     y = 1
     relative_position_id = FRA_CAGOULE_CABINET
@@ -3303,13 +3308,13 @@
 		}
 
 		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH }	
 
 		completion_reward = {
 		remove_ideas = {
 			Workers_Riots
 		}
-
+ 
 		add_timed_idea = {
 			idea = Riots_Settled
 			days = 100
