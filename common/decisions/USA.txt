@@ -8,5 +8,67 @@ DBK_USA_house = {
 }
 
 DBK_USA_election = {
+	USA_open_electoral_college = {
 
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		fire_only_once = no
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		
+		}
+
+		complete_effect = {
+			set_country_flag = open_us_election_container
+		}
+	}
+	USA_election_campaign_targeted = {
+		available = {
+			tag = USA
+		  
+		}
+		allowed = {
+			tag = USA
+		}
+		state_target = yes
+
+		visible = {
+		  tag = USA
+		 
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = USA 
+				is_core_of = USA
+			}
+		}
+		cost = 10
+		days_remove = 10 
+		on_map_mode = map_only
+		ai_will_do = {
+		  factor = 20
+		}
+		remove_effect = {
+		  FROM = {
+			  add_to_variable = {
+				long_support = 3
+			  }
+		  }
+		}
+	}
 }
