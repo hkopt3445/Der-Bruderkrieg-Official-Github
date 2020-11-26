@@ -3492,44 +3492,7 @@
 		}
 	}
 
-	shared_focus = {
-		id = FRA_INFLUENCE_PORTUGAL
-		icon = GFX_focus_focus_fra_intervention_spain
-		text = FRA_INFLUENCE_PORTUGAL
-		prerequisite = { focus = FRA_SPANISH_INTERVENTION focus = FRA_CATALONIA_FOR_ALLIANCE }
-		x = 0
-		y = 1
-		relative_position_id = FRA_SPANISH_INTERVENTION
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = POR
-				}
-				FRA = {
-					has_war_with = POR
-				}
-			}
-		}
-		mutually_exclusive = {focus = FRA_ALLY_PORTUGAL}
-
-		available = {
-			
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			######every_country
-			POR = {country_event = france.17}
-
-		}
-	}
-
+	
 	shared_focus = {
 		id = FRA_SUPPLY_CARLIST
 		icon = GFX_goal_Supply_Carlist_Spain
@@ -3603,42 +3566,7 @@
 
 
 
-	shared_focus = {
-		id = FRA_ALLY_PORTUGAL
-		icon = GFX_goal_Attack_Portugaul
-		text = FRA_ALLY_PORTUGAL
-		prerequisite = { focus = FRA_SPANISH_INTERVENTION focus = FRA_CATALONIA_FOR_ALLIANCE }
-		x = 0
-		y = 1
-		relative_position_id = FRA_CATALONIA_FOR_ALLIANCE
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = POR
-				}
-				FRA = {
-					has_war_with = POR
-				}
-				POR = {
-					OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-				}
-			}
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			create_wargoal = {
-				target = POR
-				type = puppet_wargoal_focus
-			}
-		}
-	}
+	
 
 	
 

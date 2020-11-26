@@ -18,6 +18,7 @@ focus_tree = {
 		shared_focus = FRA_CONSERVATIVES_PREVAIL
 		shared_focus = FRA_SPAIN_IS_BROKEN
 		shared_focus = FRA_LAISEZE_FAIRE
+		
 }
 
 
@@ -113,7 +114,7 @@ shared_focus = {
 	icon = GFX_goal_Solidify_Control
 	text = FRA_SOLIDIFY_CONTROL
 	prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = FRA_BRUSSELLS_CONFERENCE
 	cost = 5
@@ -149,7 +150,7 @@ shared_focus = {
 	icon = GFX_goal_Fortify_Benelux
 	text = FRA_FORTIFY_BENELUX_BORDER
 	prerequisite = { focus = FRA_SOLIDIFY_CONTROL }
-	x = 1	
+	x = 0
 	y = 1
 	relative_position_id = FRA_SOLIDIFY_CONTROL
 	cost = 5
@@ -220,6 +221,80 @@ shared_focus = {
 
 	completion_reward = {
 		create_faction = FRA_napoleonic_faction
+	}
+}
+
+shared_focus = {
+	id = FRA_ALLY_PORTUGAL
+	icon = GFX_goal_generic_alliance
+	text = FRA_ALLY_PORTUGAL
+	prerequisite = { focus = FRA_FRANCE_ALONE }
+	x = -3
+	y = 1
+	relative_position_id = FRA_FRANCE_ALONE
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = POR
+			}
+			FRA = {
+				has_war_with = POR
+			}
+			POR = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		create_wargoal = {
+			target = POR
+			type = puppet_wargoal_focus
+		}
+	}
+}
+
+shared_focus = {
+	id = FRA_portugese_shipbuilding
+	icon = GFX_goal_generic_alliance
+	text = FRA_portugese_shipbuilding
+	prerequisite = { focus = FRA_ALLY_PORTUGAL }
+	x = 0
+	y = 1
+	relative_position_id = FRA_ALLY_PORTUGAL
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	bypass = {
+		OR = {
+			NOT = {
+				country_exists = POR
+			}
+			FRA = {
+				has_war_with = POR
+			}
+			POR = {
+				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		create_wargoal = {
+			target = POR
+			type = puppet_wargoal_focus
+		}
 	}
 }
 
@@ -514,10 +589,10 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		create_wargoal_on = {
-			target = AUS
+		FGD = { create_wargoal_on = {
+			target = SGC
 			type = annex_everything
-		}
+		} }
 	}
 }
 
@@ -545,6 +620,29 @@ shared_focus = {
 			add_idea = Bonapartist_Ambition_3
 			remove_idea = Bonapartist_Ambition_2
 		}
+	}
+}
+
+shared_focus = {
+	id = FRA_the_confederation_of_the_rhine
+	icon = GFX_goal_Napoleonic_Superpower
+	text = FRA_the_confederation_of_the_rhine
+	prerequisite = { focus = FRA_REVENGE_RUSSIA }
+	prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
+	prerequisite = {focus = FRA_demand_hannovers_integration}
+	x = 5
+	y = 1
+	relative_position_id = FRA_REVENGE_RUSSIA
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		###Unlock decision to form germany
 	}
 }
 
@@ -620,6 +718,47 @@ shared_focus = {
 			
 		}
 }
+shared_focus = {
+	id = FRA_reinforcing_neue_code_napoleon
+	icon = unko0
+	text = FRA_reinforcing_neue_code_napoleon
+	x = -1
+	y = 2
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	prerequisite = {focus = FRA_managing_the_instability}
+	relative_position_id = FRA_managing_the_instability
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = FRA_demand_hannovers_integration
+	icon = unko0
+	text = FRA_demand_hannovers_integration
+	x = -1
+	y = 1
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
+	relative_position_id = FRA_reinforcing_neue_code_napoleon
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+	}
+}
+
 
 shared_focus = {
 		id = FRA_ruhr_development
@@ -640,6 +779,28 @@ shared_focus = {
 		completion_reward = {
 			
 		}
+}
+shared_focus = {
+	id = FRA_the_school_of_research
+	icon = unko0
+	text = FRA_the_school_of_research
+	x = -1
+	y = 1
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	prerequisite = {focus = FRA_ruhr_development}
+	relative_position_id = FRA_ruhr_development
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		FGD = {
+			add_research_slot = 1
+		}
+	}
 }
 
 
@@ -1004,39 +1165,6 @@ shared_focus = {
 
 
 
-shared_focus = {
-	id = FRA_INVITE_SPAIN
-	icon = GFX_goal_generic_alliance
-	text = FRA_INVITE_SPAIN
-	prerequisite = { focus = FRA_FRANCE_ALONE }
-	x = -3
-	y = 1
-	relative_position_id = FRA_FRANCE_ALONE
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	bypass = {
-		OR = {
-			NOT = {
-				country_exists = SPN
-			}
-			FRA = {
-				has_war_with = SPN
-			}
-			SPN = {
-				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-			}
-		}
-	}
-
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		SPN = {country_event = {id = france.17}}
-	}
-}
 
 shared_focus = {
 	id = FRA_SPREAD_FASCISM
@@ -1076,11 +1204,11 @@ shared_focus = {
 	id = FRA_LOOKING_EAST
 	icon = GFX_goal_eurofascism
 	text = FRA_LOOKING_EAST
-	prerequisite = { focus = FRA_INVITE_SPAIN }
+	prerequisite = {focus = FRA_JOIN_ITALY}
 
-	x = 0
-	y = 1
-	relative_position_id = FRA_INVITE_SPAIN
+	x = 1
+	y = 2
+	relative_position_id = FRA_JOIN_ITALY
 	cost = 5
 	ai_will_do = {
 		factor = 20
