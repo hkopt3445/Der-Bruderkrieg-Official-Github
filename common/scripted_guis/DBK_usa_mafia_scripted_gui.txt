@@ -1,0 +1,42 @@
+scripted_gui = {
+  DBK_usa_nyc_mafia_gui = {
+    window_name = "mafia_container"
+    context_type = decision_category
+
+    visible = {
+      
+    }
+    triggers = {
+		statenisland_visible = {
+			has_country_flag = nyc_mafia_gui_flag
+		}
+		queensbrooklyn_visible = {
+			has_country_flag = nyc_mafia_gui_flag
+		}
+		harlem_visible = {
+			has_country_flag = nyc_mafia_gui_flag
+		}
+		manhattan_visible = {
+			has_country_flag = nyc_mafia_gui_flag
+		}
+	}
+
+	effects = {
+		nyc_show_button_click = {
+			set_country_flag = nyc_mafia_gui_flag
+			clr_country_flag = losangeles_mafia_gui_flag
+			clr_country_flag =  chicago_mafia_gui_flag
+		}
+		chicago_show_button_click = {
+			set_country_flag = chicago_mafia_gui_flag
+			clr_country_flag = nyc_mafia_gui_flag
+			clr_country_flag =  losangeles_mafia_gui_flag
+		}
+		losangeles_show_button_click = {
+			set_country_flag = losangeles_mafia_gui_flag
+			clr_country_flag = nyc_mafia_gui_flag
+			clr_country_flag =  chicago_mafia_gui_flag
+		}
+	}
+  }
+}

@@ -1,4 +1,20 @@
 scripted_gui = {
+  DBK_electoral_count_decision_container = {
+    window_name = "us_election_counters"
+    context_type = decision_category
+
+    properties = {
+      long_count = {
+        frame = long_progressbar_var
+      }
+      borah_count = {
+        frame = smith_progressbar_var
+      }
+      smith_count = {
+        frame = borah_progressbar_var
+      }
+    }
+  }
     DBK_usa_election_scripted_gui = {
       window_name = "USA_election_container"
       context_type = player_context
@@ -6,7 +22,11 @@ scripted_gui = {
       visible = {
         has_country_flag = open_us_election_container
       }
-
+      effects = {
+        exit_click = {
+          clr_country_flag = open_us_election_container
+        }
+      }
       triggers = {
         arizona_blue_visible = {
           377 = {
@@ -744,20 +764,5 @@ scripted_gui = {
       }
     }
 
-    DBK_electoral_count_decision_container = {
-      window_name = "us_election_counters"
-      context_type = decision_category
-
-      properties = {
-        long_count = {
-          frame = long_electoral
-        }
-        borah_count = {
-          frame = borah_electoral
-        }
-        smith_count = {
-          frame = smith_electoral
-        }
-      }
-    }
+    
 }
