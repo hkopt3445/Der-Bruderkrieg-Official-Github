@@ -1,0 +1,934 @@
+##Created by Tsar Giraldo
+##Special thanks to the TNO team
+scripted_gui = {
+
+	col_influence_window_open = {
+		context_type = player_context
+		parent_window_token = politics_tab
+		window_name = "col_influence_window_open"
+
+		visible = {
+			tag = COL
+			NOT = {
+				COL = {
+					is_puppet = yes
+				}
+			}
+		}
+
+		effects = {
+			col_influence_menu_open_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = COL_influence_window_open_flag }
+					}
+					set_country_flag = COL_influence_window_open_flag
+				}
+				else_if = {
+					limit = {
+						has_country_flag = COL_influence_window_open_flag
+					}
+					clr_country_flag = COL_influence_window_open_flag
+				}
+				clr_country_flag = gui_alert_visible
+			}
+		}
+
+        triggers = {
+            gui_alert_visible = {
+                has_country_flag = gui_alert_visible
+            }
+        }
+	}
+
+	col_influence_window_main_open = {
+		context_type = player_context
+		window_name = "col_influence_window_main"
+		visible = {
+			has_country_flag = COL_influence_window_open_flag
+			NOT = {
+				COL = {
+					is_puppet = yes
+				}
+			}
+		}
+
+		triggers = {
+
+			HAI_LVL1_visible = {
+				COL = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 100
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 200
+						compare = less_than
+					}
+				}
+			}
+			HAI_LVL2_visible = {
+				COL = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			HAI_LVL3_visible = {
+				COL = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			HAI_LVL4_visible = {
+				COL = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+			}
+
+			CUB_LVL1_visible = {
+				COL = {
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 100
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 200
+						compare = less_than
+					}
+				}
+			}
+			CUB_LVL2_visible = {
+				COL = {
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			CUB_LVL3_visible = {
+				COL = {
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			CUB_LVL4_visible = {
+				COL = {
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+			}
+
+			PRU_LVL1_visible = {
+				COL = {
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 100
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 200
+						compare = less_than
+					}
+				}
+			}
+			PRU_LVL2_visible = {
+				COL = {
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			PRU_LVL3_visible = {
+				COL = {
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			PRU_LVL4_visible = {
+				COL = {
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+			}
+
+			MEX_LVL1_visible = {
+				COL = {
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 100
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 200
+						compare = less_than
+					}
+				}
+			}
+			MEX_LVL2_visible = {
+				COL = {
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			MEX_LVL3_visible = {
+				COL = {
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			MEX_LVL4_visible = {
+				COL = {
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+			}
+
+			CEN_LVL1_visible = {
+				COL = {
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 100
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 200
+						compare = less_than
+					}
+				}
+			}
+			CEN_LVL2_visible = {
+				COL = {
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			CEN_LVL3_visible = {
+				COL = {
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			CEN_LVL4_visible = {
+				COL = {
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+			}
+
+			PAR_LVL1_visible = {
+				COL = {
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 100
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 200
+						compare = less_than
+					}
+				}
+			}
+			PAR_LVL2_visible = {
+				COL = {
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			PAR_LVL3_visible = {
+				COL = {
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			PAR_LVL4_visible = {
+				COL = {
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+			}
+
+			CHL_LVL1_visible = {
+				COL = {
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 100
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 200
+						compare = less_than
+					}
+				}
+			}
+			CHL_LVL2_visible = {
+				COL = {
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 200
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 300
+						compare = less_than
+					}
+				}
+			}
+			CHL_LVL3_visible = {
+				COL = {
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 300
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 400
+						compare = less_than
+					}
+				}
+			}
+			CHL_LVL4_visible = {
+				COL = {
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+			}
+
+			HAI_SphereButtonCheck_visible = {
+				COL = {
+					check_variable = {
+						var = HAI_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+				HAI = {
+					is_subject_of = COL
+				}
+			}
+
+			PRU_SphereButtonCheck_visible = {
+				COL = {
+					check_variable = {
+						var = PRU_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+				PRU = {
+					is_subject_of = COL
+				}
+			}
+
+			CUB_SphereButtonCheck_visible = {
+				COL = {
+					check_variable = {
+						var = CUB_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+				CUB = {
+					is_subject_of = COL
+				}
+			}
+
+			MEX_SphereButtonCheck_visible = {
+				COL = {
+					check_variable = {
+						var = MEX_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+				MEX = {
+					is_subject_of = COL
+				}
+			}
+
+			CEN_SphereButtonCheck_visible = {
+				COL = {
+					check_variable = {
+						var = CEN_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+				CEN = {
+					is_subject_of = COL
+				}
+			}
+
+			PAR_SphereButtonCheck_visible = {
+				COL = {
+					check_variable = {
+						var = PAR_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+				PAR = {
+					is_subject_of = COL
+				}
+			}
+
+			CHL_SphereButtonCheck_visible = {
+				COL = {
+					check_variable = {
+						var = CHL_COL_Influence
+						value = 400
+						compare = greater_than_or_equals
+					}
+				}
+				CHL = {
+					is_subject_of = COL
+				}
+			}
+			
+			##countries
+			
+			Colombia_Diplo_GUI_State_Chile_visible = {
+				CHL = {
+					is_subject_of = COL	
+				}
+			}
+			
+			Colombia_Diplo_GUI_State_Peru_visible = {
+				PRU = {
+					is_subject_of = COL
+				}
+			}
+			
+			Colombia_Diplo_GUI_State_Cuba_visible = {
+				CUB = {
+					is_subject_of = COL
+				}
+			}
+			
+			Colombia_Diplo_GUI_State_Haiti_visible = {
+				HAI = {
+					is_subject_of = COL
+				}
+			}
+			
+			Colombia_Diplo_GUI_State_Peru_visible = {
+				PRU = {
+					is_subject_of = COL
+				}
+			}
+			
+			Colombia_Diplo_GUI_State_Paraguay_visible = {
+				PAR = {
+					is_subject_of = COL
+				}
+			}
+			
+			Colombia_Diplo_GUI_State_Mexico_visible = {
+				MEX = {
+					is_subject_of = COL
+				}
+			}
+			
+			Colombia_Diplo_GUI_State_Centralamerica_visible = {
+				CEN = {
+					is_subject_of = COL
+				}
+			}
+		}
+
+		effects = {
+			COL_Diplo_GUI_Close_Button_click = {
+				clr_country_flag = col_influence_window_open_flag
+			}
+		}
+	}
+
+	col_influence_windowbuttons_open = {
+		context_type = player_context
+		parent_window_name = col_influence_window_main_open
+		window_name = "col_influence_windowbuttons_open"
+
+		visible = {
+			has_country_flag = COL_influence_window_open_flag
+		}
+
+		triggers = {
+			HAI_blank_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = HAI_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					NOT = {
+						has_country_flag = COL_influencing_haiti
+					}
+				}
+				HAI = {
+					is_subject_of = COL
+				}
+			}
+
+			HAI_full_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = HAI_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					has_country_flag = COL_influencing_haiti
+				}
+				HAI = {
+					is_subject_of = COL
+				}
+			}
+
+			PRU_blank_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = PRU_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					NOT = {
+						has_country_flag = COL_influencing_peru
+					}
+				}
+				PRU = {
+					is_subject_of = COL
+				}
+			}
+
+			PRU_full_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = PRU_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					has_country_flag = COL_influencing_peru
+				}
+				PRU = {
+					is_subject_of = COL
+				}
+			}
+
+			CUB_blank_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = CUB_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					NOT = {
+						has_country_flag = COL_influencing_cuba
+					}
+				}
+				CUB = {
+					is_subject_of = COL
+				}
+			}
+
+			CUB_full_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = CUB_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					has_country_flag = COL_influencing_cuba
+				}
+				CUB = {
+					is_subject_of = COL
+				}
+			}
+
+			MEX_blank_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = MEX_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					NOT = {
+						has_country_flag = COL_influencing_mexico
+					}
+				}
+				MEX = {
+					is_subject_of = COL
+				}
+			}
+
+			MEX_full_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = MEX_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					has_country_flag = COL_influencing_mexico
+				}
+				MEX = {
+					is_subject_of = COL
+				}
+			}
+
+			CEN_blank_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = CEN_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					NOT = {
+						has_country_flag = COL_influencing_centralamerica
+					}
+				}
+				CEN = {
+					is_subject_of = COL
+				}
+			}
+
+			CEN_full_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = CEN_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					has_country_flag = COL_influencing_centralamerica
+				}
+				CEN = {
+					is_subject_of = COL
+				}
+			}
+
+			PAR_blank_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = PAR_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					NOT = {
+						has_country_flag = COL_influencing_paraguay
+					}
+				}
+				PAR = {
+					is_subject_of = COL
+				}
+			}
+
+			PAR_full_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = PAR_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					has_country_flag = COL_influencing_paraguay
+				}
+				PAR = {
+					is_subject_of = COL
+				}
+			}
+
+			CHL_blank_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = CHL_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					NOT = {
+						has_country_flag = COL_influencing_chile
+					}
+				}
+				CHL = {
+					is_subject_of = COL
+				}
+			}
+
+			CHL_full_sphere_button_visible = {
+				COL = {
+					NOT = {
+						check_variable = {
+							var = CHL_COL_Influence
+							value = 400
+							compare = greater_than_or_equals
+						}
+					}
+					has_country_flag = COL_influencing_chile
+				}
+				CHL = {
+					is_subject_of = COL
+				}
+			}
+		}
+
+		effects = {
+			HAI_blank_sphere_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = COL_influencing_haiti
+							has_country_flag = COL_influencing_nation
+						}
+					}
+					set_country_flag = COL_influencing_haiti
+					set_country_flag = COL_influencing_nation
+				}
+			}
+			HAI_full_sphere_button_click = {
+				clr_country_flag = COL_influencing_haiti
+				clr_country_flag = COL_influencing_nation
+			}
+
+			PRU_blank_sphere_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = COL_influencing_peru
+							has_country_flag = COL_influencing_nation
+						}
+					}
+					set_country_flag = COL_influencing_peru
+					set_country_flag = COL_influencing_nation
+				}
+			}
+			PRU_full_sphere_button_click = {
+				clr_country_flag = COL_influencing_peru
+				clr_country_flag = COL_influencing_nation
+			}
+
+			CUB_blank_sphere_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = COL_influencing_cuba
+							has_country_flag = COL_influencing_nation
+						}
+					}
+					set_country_flag = COL_influencing_cuba
+					set_country_flag = COL_influencing_nation
+				}
+			}
+			CUB_full_sphere_button_click = {
+				clr_country_flag = COL_influencing_cuba
+				clr_country_flag = COL_influencing_nation
+			}
+
+			MEX_blank_sphere_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = COL_influencing_mexico
+							has_country_flag = COL_influencing_nation
+						}
+					}
+					set_country_flag = COL_influencing_mexico
+					set_country_flag = COL_influencing_mexico
+				}
+			}
+			MEX_full_sphere_button_click = {
+				clr_country_flag = COL_influencing_mexico
+				clr_country_flag = COL_influencing_nation
+			}
+
+			CEN_blank_sphere_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = COL_influencing_centralamerica
+							has_country_flag = COL_influencing_nation
+						}
+					}
+					set_country_flag = COL_influencing_centralamerica
+					set_country_flag = COL_influencing_nation
+				}
+			}
+			CEN_full_sphere_button_click = {
+				clr_country_flag = COL_influencing_centralamerica
+				clr_country_flag = COL_influencing_nation
+			}
+
+			PAR_blank_sphere_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = COL_influencing_paraguay
+							has_country_flag = COL_influencing_nation
+						}
+					}
+					set_country_flag = COL_influencing_paraguay
+					set_country_flag = COL_influencing_nation
+				}
+			}
+			PAR_full_sphere_button_click = {
+				clr_country_flag = COL_influencing_paraguay
+				clr_country_flag = COL_influencing_nation
+			}
+
+			CHL_blank_sphere_button_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = COL_influencing_chile
+							has_country_flag = COL_influencing_nation
+						}
+					}
+					set_country_flag = COL_influencing_chile
+					set_country_flag = COL_influencing_nation
+				}
+			}
+			CHL_full_sphere_button_click = {
+				clr_country_flag = COL_influencing_chile
+				clr_country_flag = COL_influencing_nation
+			}
+		}
+	}
+}
