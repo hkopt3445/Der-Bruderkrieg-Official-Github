@@ -254,10 +254,7 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		create_wargoal = {
-			target = POR
-			type = puppet_wargoal_focus
-		}
+		POR = {country_event = france.17}
 	}
 }
 
@@ -291,10 +288,7 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		create_wargoal = {
-			target = POR
-			type = puppet_wargoal_focus
-		}
+		
 	}
 }
 
@@ -401,18 +395,7 @@ shared_focus = {
 	
 	}
 	bypass = {
-		AND = {
-		OR = {
-			NOT = {
-				country_exists = ENG
-			}
-			FRA = {
-				has_war_with = ENG
-			}
-			ENG = {
-				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-			}
-		}
+		
 		OR = {
 			NOT = {
 				country_exists = GER
@@ -424,7 +407,7 @@ shared_focus = {
 				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
 			}
 		}
-		}
+		
 	}
 
 	available_if_capitulated = yes
@@ -660,7 +643,7 @@ shared_focus = {
 		id = FRA_the_french_imperium
 		icon = unko0
 		text = FRA_the_french_imperium
-		x = -7
+		x = -9
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -681,7 +664,7 @@ shared_focus = {
 		id = FRA_the_chaotic_westfalen
 		icon = unko0
 		text = FRA_the_chaotic_westfalen
-		x = -3
+		x = -2
 		y = 1
 		cost = 5
 		ai_will_do = {
@@ -719,16 +702,38 @@ shared_focus = {
 		}
 }
 shared_focus = {
+	id = FRA_our_crown_jewel
+	icon = unko0
+	text = FRA_our_crown_jewel
+	x = 0
+	y = 1
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
+	relative_position_id = FRA_reinforcing_neue_code_napoleon
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
 	id = FRA_reinforcing_neue_code_napoleon
 	icon = unko0
 	text = FRA_reinforcing_neue_code_napoleon
-	x = -1
-	y = 2
+	x = 0
+	y = 1
 	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
 	prerequisite = {focus = FRA_managing_the_instability}
+
 	relative_position_id = FRA_managing_the_instability
 
 	available_if_capitulated = yes
@@ -743,7 +748,7 @@ shared_focus = {
 	icon = unko0
 	text = FRA_demand_hannovers_integration
 	x = -1
-	y = 1
+	y = 2
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -777,14 +782,60 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
+			51 = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+
+                }
+                add_extra_state_shared_building_slots = 2
+      }
 		}
+}
+shared_focus = {
+	id = FRA_mobilization_of_the_rhine_guard
+	icon = unko0
+	text = FRA_mobilization_of_the_rhine_guard
+	x = 2
+	y = 1
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	prerequisite = {focus = FRA_managing_the_instability}
+	relative_position_id = FRA_managing_the_instability
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		FGD = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+	
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			
+  }
+  create_unit = {
+	division = "name = \"King's Guard Division 1\" division_template = \"Guard Division\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+	owner = FGD
+}
+  
+
+	}
 }
 shared_focus = {
 	id = FRA_the_school_of_research
 	icon = unko0
 	text = FRA_the_school_of_research
-	x = -1
+	x = 0
 	y = 1
 	cost = 5
 	ai_will_do = {
@@ -800,6 +851,27 @@ shared_focus = {
 		FGD = {
 			add_research_slot = 1
 		}
+	}
+}
+
+shared_focus = {
+	id = FRA_send_in_degaulle
+	icon = unko0
+	text = FRA_send_in_degaulle
+	x = 0
+	y = 1
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	prerequisite = {focus = FRA_mobilization_of_the_rhine_guard}
+	relative_position_id = FRA_mobilization_of_the_rhine_guard
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
 	}
 }
 
