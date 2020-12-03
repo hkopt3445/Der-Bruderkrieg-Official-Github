@@ -1,5 +1,6 @@
 ###########################
-# Soviet Events
+# austrian
+ Events
 ###########################
 
 add_namespace = austria
@@ -2812,3 +2813,41 @@ country_event = {
 	}
 }
 
+
+
+add_namespace = austrian_civil_war
+
+##austrian civil war
+country_event = {
+	id = austrian_civil_war.1
+	title = austrian_civil_war.1.t
+	desc = austrian_civil_war.1.d
+	picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = {
+
+	}
+	option = {
+		name = austrian_civil_war.1.a
+		ai_chance = { factor = 1}
+		AUS = {hungary_states = yes czech_pole_states = yes italian_states = yes croat_states = yes}
+		austrian_civil_war_effect = yes
+	}
+}
+news_event = {
+	id = austrian_civil_war.2
+	title = austrian_civil_war.2.t
+	desc = austrian_civil_war.2.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	#fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = austrian_civil_war.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
