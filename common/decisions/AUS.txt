@@ -1676,6 +1676,52 @@ AUS_test_cat = {
 }
 
 AUS_post_massacre_cat = {
+	AUS_bohemian_revolt = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 400
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = AUS
+		has_country_flag = bohemian_massacre
+		}
+	
+		visible = {
+		tag = AUS
+		has_country_flag = bohemian_massacre
+
+		NOT = {
+			has_country_flag =recovered_from_prague_massacre
+		}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+		###copy nehe states
+		AUS ={
+			czech_pole_states = yes
+			release = CZE
+			declare_war_on = {
+				target = CZE
+				type = annex_everything
+			}
+		}
+
+
+		}
+	}
 
 
 	AUS_recover_from_prague_massacre = {
@@ -2325,6 +2371,25 @@ AUS_post_massacre_cat = {
           AUS.buildings_bohemian_massacre= 1000
         }
         }
+	}
+
+	AUS_declare_a_recovery = {
+
+		available = {
+			check_variable = {
+				AUS.recovery > 0
+			}
+		}
+		visible = {
+
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = recovered_from_prague_massacre
+		}
 	}
 	
 }
