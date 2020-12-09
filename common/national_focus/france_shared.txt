@@ -1127,8 +1127,8 @@
 
     x = 2
     y = 2
-		prerequisite = {focus = FRA_CLASS_HIERARCHY}
-    relative_position_id = FRA_CLASS_HIERARCHY
+		prerequisite = {focus = FRA_NOBLE_RULE}
+    relative_position_id = FRA_NOBLE_RULE
     cost = 5
     ai_will_do = {
       factor = 20
@@ -1180,7 +1180,8 @@
 
 	shared_focus = {
     id = FRA_RESTORE_1852
-    icon = GFX_goal_AUS_expansion_act
+	#icon = GFX_goal_AUS_expansion_act
+	icon = unokwn
     text = FRA_RESTORE_1852
 		prerequisite = { focus = FRA_DOCTRINAIRE_RIGHT }
     x = 1
@@ -1926,10 +1927,10 @@
     id = FRA_FASCIST_VIC
     icon = GFX_goal_FRA_FASCIST_VIC
     text = FRA_FASCIST_VIC
-		prerequisite = { focus = FRA_MILITARY_HIEARCHY }
-    x = -2
+		prerequisite = { focus = FRA_MILITARY_GOVERNMENT }
+    x = -1
     y = 2
-    relative_position_id = FRA_MILITARY_HIEARCHY
+    relative_position_id = FRA_MILITARY_GOVERNMENT
     cost = 1
     ai_will_do = {
       factor = 20
@@ -2008,7 +2009,7 @@
     text = FRA_VIVE_LE_FRANCE
 		prerequisite = { focus = FRA_END_CONSTITUTIONALISM }
 		prerequisite = {focus = FRA_IMPERIAL_GLORY}
-    x = 1
+    x = -1
     y = 1
     relative_position_id = FRA_END_CONSTITUTIONALISM
     cost = 5
@@ -2259,10 +2260,10 @@
 		id = FRA_CHRISTINAITY
 		icon = GFX_focus_focus_fra_national_resistance_council
 		text = FRA_CHRISTINAITY
-		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
-		x = -23
-		y = 5
-		#relative_position_id = FRA_MILITARY_GOVERNMENT
+		prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
+		x = 1
+		y = 1
+		relative_position_id = FRA_MILITARY_GOVERNMENT
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2280,7 +2281,7 @@
 		icon = GFX_focus_por_concordat
 		text = FRA_PIETY
 		prerequisite = { focus = FRA_CHRISTINAITY}
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = FRA_CHRISTINAITY
 		cost = 5
@@ -2297,36 +2298,15 @@
 			}
 		}
 	}
-	shared_focus = {
-		id = FRA_BURN_HERETICS
-		icon = GFX_focus_generic_strike_at_democracy1
-		text = FRA_BURN_HERETICS
-		prerequisite = { focus = FRA_CHRISTINAITY }
-		x = -1
-		y = 1
-		relative_position_id = FRA_CHRISTINAITY
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.1
-			add_manpower = -10000
-		}
-	}
+	
 	shared_focus = {
 		id = FRA_CHRISTUS_REX
 		icon = GFX_focus_spa_no_compromise_on_carlist_ideals
 		text = FRA_CHRISTUS_REX
 		prerequisite = { focus = FRA_BURN_HERETICS}
 		prerequisite = { focus = FRA_PIETY}
-		x = -1
-		y = 2
+		x = 0
+		y = 1
 		relative_position_id = FRA_PIETY
 		cost = 5
 		ai_will_do = {
@@ -2349,7 +2329,7 @@
 		icon = GFX_focus_fra_le_deluge
 		text = FRA_IMPERIAL_GLORY
 		prerequisite = { focus = FRA_LEGACY_OF_CHARLEGMEGNE}
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = FRA_LEGACY_OF_CHARLEGMEGNE
 		cost = 5
@@ -2386,7 +2366,8 @@
 	}
 	shared_focus = {
 		id = FRA_DEUS_OMNIA
-		icon = GFX_goal_FRA_deus_omnia_vincit
+		#icon = GFX_goal_FRA_deus_omnia_vincit
+		icon =  unkown
 		text = FRA_DEUS_OMNIA
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
 		x = 1
@@ -2867,13 +2848,19 @@
 		icon = GFX_goal_FRA_robe_nobility
 		text = FRA_CLASS_HIERARCHY
 		prerequisite = { focus = FRA_AUTOCRACY}
-		#mutually_exclusive = {focus = FRA_MILITARY_HIEARCHY}
+		mutually_exclusive = {focus = FRA_MILITARY_HIEARCHY}
 		x = 1
 		y = 1
 		relative_position_id = FRA_AUTOCRACY
 		cost = 5
 		ai_will_do = {
 			factor = 20 
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = class_hierarchy_tt
+				check_variable = {FRA_nobility_var>50}
+			}
 		}
 		
 
@@ -2894,13 +2881,20 @@
 		icon = GFX_goal_FRA_sword_nobility
 		text = FRA_MILITARY_HIEARCHY
 		prerequisite = { focus = FRA_AUTOCRACY}
-		#mutually_exclusive = {focus = FRA_CLASS_HIERARCHY}
+		mutually_exclusive = {focus = FRA_CLASS_HIERARCHY}
 		x = -1
 		y = 1
 		relative_position_id = FRA_AUTOCRACY
 		cost = 5
 		ai_will_do = {
 			factor = 20
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = mil_hierarchy_tt
+				check_variable = {FRA_military_var>50}
+			}
 		}
 		
 
@@ -2923,9 +2917,7 @@
 		x = 0
 		y = 1
 		relative_position_id = FRA_CLASS_HIERARCHY
-		mutually_exclusive = {
-			focus = FRA_MILITARY_GOVERNMENT
-		}
+		
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2946,9 +2938,7 @@
 		icon = GFX_focus_generic_military_mission
 		text = FRA_MILITARY_GOVERNMENT
 		prerequisite = { focus = FRA_MILITARY_HIEARCHY}
-		mutually_exclusive = {
-			focus = FRA_NOBLE_RULE
-		}
+		
 		x = 0
 		y = 1
 		relative_position_id = FRA_MILITARY_HIEARCHY
