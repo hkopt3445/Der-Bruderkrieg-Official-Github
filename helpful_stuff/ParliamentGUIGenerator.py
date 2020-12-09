@@ -20,7 +20,7 @@ ROW_TOTALS = [4, 15, 33, 61, 95, 138, 189, 247, 313, 388, 469, 559, 657, 762, 87
 
 CANVAS_WIDTH = 800
 CANVAS_HEIGHT = 450
-
+ 
 
 GUI_FILE = '''
 ### Insert as a top-level container in your .gui file
