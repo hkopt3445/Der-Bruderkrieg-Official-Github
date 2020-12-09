@@ -501,44 +501,7 @@ shared_focus = {
 
 
 
-shared_focus = {
-	id = FRA_REVENGE_RUSSIA
-	icon = GFX_goal_Revenge_Against_Russia
-	text = FRA_REVENGE_RUSSIA
-	prerequisite = { focus = FRA_DANUBE_CAMPAIGN }
-	#prerequisite = { focus = FRA_BLITZ_ISLAND }
-	#prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
-	x = -1
-	y = 1
-	relative_position_id = FRA_DANUBE_CAMPAIGN
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	bypass = {
-		OR = {
-			NOT = {
-				country_exists = SOV
-			}
-			FRA = {
-				has_war_with = SOV
-			}
-			SOV = {
-				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-			}
-		}
-	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		create_wargoal_on = {
-			target = SOV
-			type = annex_everything
-		}
-	}
-}
 
 shared_focus = {
 	id = FRA_TAKING_OUT_THE_SGC
@@ -583,11 +546,10 @@ shared_focus = {
 	id = FRA_NAPOLEONIC_SUPERPOWER
 	icon = GFX_goal_Napoleonic_Superpower
 	text = FRA_NAPOLEONIC_SUPERPOWER
-	prerequisite = { focus = FRA_REVENGE_RUSSIA }
 	prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
-	x = 1
+	x = -1
 	y = 1
-	relative_position_id = FRA_REVENGE_RUSSIA
+	relative_position_id = FRA_TAKING_OUT_THE_SGC
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -613,9 +575,9 @@ shared_focus = {
 	prerequisite = { focus = FRA_REVENGE_RUSSIA }
 	prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
 	prerequisite = {focus = FRA_demand_hannovers_integration}
-	x = 5
+	x = 3
 	y = 1
-	relative_position_id = FRA_REVENGE_RUSSIA
+	relative_position_id = FRA_TAKING_OUT_THE_SGC
 	cost = 5
 	ai_will_do = {
 		factor = 20
