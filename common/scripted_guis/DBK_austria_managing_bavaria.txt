@@ -1,21 +1,28 @@
 scripted_gui = {
     AUS_managing_bavaria_scripted_gui = {
-        context_type = player_context
+        context_type = decision_category
 		window_name = "bavarian_management_container"
 
-		visible = {
-			has_country_flag = "open_bavarian_gui_flag"
+		#visible = {
+			#has_country_flag = "open_bavarian_gui_flag"
+		#}
+		dynamic_lists = {
+			bavarian_management_state_grid = {
+					array = GPU.owned_controlled_states
+					change_scope = yes
+					entry_container = bavarian_management_state_entry
+			}
 		}
 
 		triggers = {
 			bavarian_management_baden_crazy_visible = {
 				check_variable = {
-					baden_rowdyness_var > 5
+					954.rowdiness > 5
 				}
 			}
 			bavarian_management_baden_not_crazy_visible = {
 				check_variable = {
-					var = baden_rowdyness_var
+					var = 954.rowdiness
 					value = 5
 					compare = less_than_or_equals
 				}
@@ -23,12 +30,12 @@ scripted_gui = {
 
 			bavarian_management_franken_crazy_visible = {
 				check_variable = {
-					franken_rowdyness_var > 5
+					54.rowdiness > 5
 				}
 			}
 			bavarian_management_franken_not_crazy_visible = {
 				check_variable = {
-					var = franken_rowdyness_var
+					var = 54.rowdiness
 					value = 5
 					compare = less_than_or_equals
 				}
@@ -36,12 +43,12 @@ scripted_gui = {
 
 			bavarian_management_hessen_crazy_visible = {
 				check_variable = {
-					hessen_rowdyness_var > 5
+					55.rowdiness > 5
 				}
 			}
 			bavarian_management_hessen_not_crazy_visible = {
 				check_variable = {
-					var = hessen_rowdyness_var
+					var = 55.rowdiness
 					value = 5
 					compare = less_than_or_equals
 				}
@@ -49,12 +56,25 @@ scripted_gui = {
 
 			bavarian_management_neiderbayern_crazy_visible = {
 				check_variable = {
-					neiderbayern_rowdyness_var > 5
+					53.rowdiness > 5
 				}
 			}
 			bavarian_management_neiderbayern_not_crazy_visible = {
 				check_variable = {
-					var = neiderbayern_rowdyness_var
+					var = 53.rowdiness
+					value = 5
+					compare = less_than_or_equals
+				}
+			}
+
+			bavarian_management_wurtemmburg_crazy_visible = {
+				check_variable = {
+					50.rowdiness > 5
+				}
+			}
+			bavarian_management_wurtemmburg_not_crazy_visible = {
+				check_variable = {
+					var = 50.rowdiness
 					value = 5
 					compare = less_than_or_equals
 				}
