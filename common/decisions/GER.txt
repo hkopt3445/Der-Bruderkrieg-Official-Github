@@ -286,5 +286,132 @@ GER_farmer_liberation_campaign = {
 }
 
 GER_ss_waffen_cat = {
+	GER_sa_commissions = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_the_issue_of_the_militias
+			has_country_flag = chose_sa
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		ai_will_do = {
+			factor = 20
+		}
+		
+		remove_effect = {
+			add_to_variable = { ss_loyalty = 5 }
+			add_to_variable = { ss_power = 5 }
+			subtract_from_variable = { state_influence = 5 }
+			add_to_variable = { ss_influence = 5 }
+			custom_effect_tooltip = GER_sa_commissions_tt
+			add_manpower = 10000
+		}
+	}
+	GER_decision_workplace_reforms = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_the_issue_of_the_militias
+			has_country_flag = chose_sa
+		}
+
+
+		fire_only_once = yes
+
+		cost = 50
 	
+		complete_effect = {
+			add_ideas = {
+				GER_workplace_reforms
+			}
+		}
+
+		remove_effect = {
+			remove_ideas = {
+				GER_workplace_reforms
+			}
+			add_to_variable = { ss_loyalty = 5 }
+			custom_effect_tooltip = GER_workplace_reforms_tt
+			set_country_flag = GER_flag_workplace_reforms
+		}
+		
+		days_remove = 90
+
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	GER_control_of_the_daf = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_the_issue_of_the_militias
+			has_country_flag = chose_sa
+			has_country_flag = GER_flag_workplace_reforms
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+		days_remove = 21
+
+		remove_effect = {
+			add_to_variable = { ss_loyalty = 10 }
+			add_to_variable = { ss_power = 15 }
+			custom_effect_tooltip = GER_daf_tt
+			add_ideas = {
+				GER_deutsches_arbeitsfront
+			}		
+		}
+	}
+	GER_concessions_to_freikorps = {
+		icon =  generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_the_issue_of_the_militias
+			has_country_flag = chose_sa
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
+			add_to_variable = { freikorps_loyalty = 5 }
+			subtract_from_variable = { ss_loyalty = 5 }
+			custom_effect_tooltip = GER_concessions_freikorps_tt
+			add_stability = -0.05
+		}
+	}
+	GER_infiltrate_reactionary_regiments = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_the_issue_of_the_militias
+			has_country_flag = chose_sa
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 28
+
+		remove_effect = {
+			add_to_variable = { state_influence = 5 }
+			subtract_from_variable = { freikorps_loyalty = 5 }
+			subtract_from_variable = { freikorps_loyalty = 5 }
+			custom_effect_tooltip = GER_infiltrate_reactionary_regiments_tt
+		}
+	}
 }
