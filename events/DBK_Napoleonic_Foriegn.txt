@@ -785,7 +785,9 @@ country_event = {
 
 	option = {
 		name = brussells_conference.1.a
-		
+		BEL = {
+			country_event = brussells_conference.2
+		}
 	}
 }
 
@@ -801,10 +803,18 @@ country_event = {
 
 	option = { ##Accept
 		name = brussells_conference.2.a
+		ai_chance = {
+			factor = 10000
+		}
+
+		country_event = brussells_conference.3
 		
 	}
 	option = { ##Deny
 		name = brussells_conference.2.b
+		ai_chance = {
+			factor = 1
+		}
 		
 	}
 }
@@ -820,6 +830,15 @@ country_event = {
 
 	option = { ##Plan 2
 		name = brussells_conference.3.a
+
+		random_list = {
+			80 = {
+				country_event = brussells_conference.5
+			}
+			20 = {
+				country_event = brussells_conference.4
+			}
+		}
 		
 	}
 	option = { ##Keep Plan 1
@@ -839,11 +858,8 @@ country_event = {
 
 	option = { ##Accept
 		name = brussells_conference.4.a
-		
-	}
-	option = { ##Deny
-		name = brussells_conference.4.b
-		
+		add_stability = -0.05
+		add_political_power = -50
 	}
 }
 
@@ -858,14 +874,29 @@ country_event = {
 
 	option = { ##Accept
 		name = brussells_conference.5.a
-		
-	}
-	option = { ##Deny
-		name = brussells_conference.5.b
-		
-	}
-}
 
+		hidden_effect = {
+			BEL = {
+				annex_country = {
+					target = LUX
+					transfer_troops = yes
+				}
+			}
+
+			FRA = {
+				target = BEL
+   				autonomy_state = puppet
+			}
+
+			
+		}
+
+		add_threat = 5
+		
+	}
+}	
+
+##the brussels conference ally pact
 news_event = {
 	id = brussells_conference.6
 	title = brussells_conference.6.t
@@ -877,6 +908,22 @@ news_event = {
 
 	option = {
 		name = brussells_conference.6.a
+	}
+}
+
+
+##the brussells conference, belgium incorporation 
+news_event = {
+	id = brussells_conference.7
+	title = brussells_conference.7.t
+	desc = brussells_conference.7.d
+	picture = GFX_report_event_finnish_letter
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = brussells_conference.7.a
 	}
 }
 
