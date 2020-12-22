@@ -803,7 +803,7 @@ AUS_preperation_for_the_second_bruderkrieg_infil = {
 
 
 				set_variable = {
-					prussian_infiltration_succeed_prob = 0
+					prussian_infiltration_succeed_prob = 20
 				}
 			}	
 
@@ -811,7 +811,13 @@ AUS_preperation_for_the_second_bruderkrieg_infil = {
 			set_country_flag = unlock_AUS_infilitrating_the_prussian_palace
 
 			set_variable = {
-				funding_for_infil_mission = 2
+				funding_for_infil_mission = 0
+			}
+
+			AUS_calc_mission_fund_var = yes
+
+			add_dynamic_modifier = {
+				modifier = prussian_infil_palace_cost_modifier
 			}
 
 		}
@@ -825,9 +831,7 @@ AUS_infilitrating_the_prussian_palace = {
 	
 		icon = generic_ignite_civil_war
 	
-		available = {
-		
-		}
+	
 	
 		days_mission_timeout = 80
 	
@@ -837,10 +841,6 @@ AUS_infilitrating_the_prussian_palace = {
 		tag = AUS
 		}
 	
-		visible = {
-		tag = AUS
-		} 
-	
 		cancel_if_not_visible = yes
 	
 		is_good = yes
@@ -849,7 +849,7 @@ AUS_infilitrating_the_prussian_palace = {
 			if = {
 				limit = {
 					check_variable = {
-						prussian_infiltration_succeed_prob > 15
+						prussian_infiltration_succeed_prob > 25
 					}
 				}
 				set_country_flag = checkpoint_1_infil_passes
@@ -894,7 +894,7 @@ AUS_infilitrating_the_prussian_palace = {
 			if = {
 				limit = {
 					check_variable = {
-						prussian_infiltration_succeed_prob > 30
+						prussian_infiltration_succeed_prob > 40
 					}
 				}
 				set_country_flag = checkpoint_2_infil_passes
@@ -939,7 +939,7 @@ AUS_infilitrating_the_prussian_palace = {
 			if = {
 				limit = {
 					check_variable = {
-						prussian_infiltration_succeed_prob > 50
+						prussian_infiltration_succeed_prob > 60
 					}
 				}
 				set_country_flag = checkpoint_3_infil_passes
@@ -1026,7 +1026,107 @@ AUS_infilitrating_the_prussian_palace = {
 
 		remove_effect = {
 			add_to_variable = {
-				funding_for_infil_mission = 1
+				funding_for_infil_mission = 20
+			}
+			AUS_calc_mission_fund_var = yes
+			add_to_variable = {
+				prussian_infiltration_succeed_prob = 10
+			}
+		}
+	}
+
+	AUS_organize_a_secret_meeting = {
+
+		icon = eng_trade_unions_demand
+		allowed = {
+		  }
+		 
+		visible = { 
+			
+		}
+
+		
+
+		days_remove = 20 
+
+		cost = 10
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				prussian_infiltration_succeed_prob = 10
+			}
+		}
+	}
+	
+	AUS_an_encoded_document = {
+
+		icon = eng_trade_unions_demand
+		allowed = {
+		  }
+		 
+		visible = { 
+			
+		}
+
+		
+
+		days_remove = 20 
+
+		cost = 10
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				prussian_infiltration_succeed_prob = 10
+			}
+		}
+	}
+
+	AUS_a_hidden_call = {
+
+		icon = eng_trade_unions_demand
+		allowed = {
+		  }
+		 
+		visible = { 
+			
+		}
+
+		
+
+		days_remove = 20 
+
+		cost = 10
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				prussian_infiltration_succeed_prob = 10
 			}
 		}
 	}
