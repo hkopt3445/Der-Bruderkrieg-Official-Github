@@ -220,9 +220,13 @@ AUS_preperation_for_the_second_bruderkrieg_infil = {
 }
 
 AUS_infilitrating_the_prussian_palace = {
+	scripted_gui = prussian_weapons_dev_infil_scripted_gui
 	allowed = {
 		tag = AUS
 		#always = no
+	}
+	priority = {
+		base = 10
 	}
 	visible = {
 		tag = AUS
@@ -327,6 +331,10 @@ AUS_managing_bavaria_adminsitrative_decisions = {
 	}
 
 	visible = {
+	OR= {
+		has_completed_focus = AUS_a_letter_from_franz
+		has_country_flag = unlock_sgc_admin_divisions_debug
+	}	
 	}
 	visible_when_empty = yes
 }
@@ -338,6 +346,10 @@ AUS_managing_bavaria_court_factionalism = {
 	}
 
 	visible = {
+	OR = {	
+		has_completed_focus = AUS_reinforce_the_sgc_garrison
+		has_country_flag = unlock_sgc_court_factionalism_debug
+	}
 	}
 	visible_when_empty = yes
 }
@@ -349,6 +361,8 @@ AUS_austrian_collapse = {
 		tag = AUS
 		
 	}
+
+	priority = 1000
 
 	visible = {
 		OR = {
