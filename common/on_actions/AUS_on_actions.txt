@@ -5,6 +5,9 @@ on_actions = {
 			austrian_imperial_senate_initial = yes
             }
 
+            AUS = {
+                AUS_infilitration_mission_budget = 0
+            }
         
 
             ##Wurtemmburg
@@ -54,9 +57,13 @@ on_actions = {
             set_variable = {
                 von_rundstent_influence = 4
             }
-
-
+            set_variable = {
+                popular_anger = 50
+            }
             calc_court_influence = yes
+
+
+            
         }
             
             
@@ -67,6 +74,31 @@ on_actions = {
         effect = {
             
             
+        }
+    }
+    on_weekly = {
+        effect = {
+            if = {
+                limit = {
+                    has_country_flag = support_loyalists_decision_flag
+                }
+                add_to_variable = {
+                    popular_anger = 2
+                }
+                add_to_variable = {
+                    franz_ferdinand_influence = 2
+                }
+                calc_court_influence = yes
+            }
+            if = {
+                limit = {
+                    has_country_flag = arrest_courrt_distenter_flag
+                }
+                add_to_variable = {
+                    popular_anger = -1
+                }
+         
+            }
         }
     }
 
