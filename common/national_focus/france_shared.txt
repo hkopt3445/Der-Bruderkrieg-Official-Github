@@ -2430,15 +2430,204 @@
 		}
 	}
 
+	shared_focus = { 
+		id = FRA_solving_frances_problems
+		icon = GFX_goal_Focus_Peasant_Rebellion
+		text = FRA_solving_frances_problems
+		prerequisite = { focus = FRA_announce_imperial_election }
+		x = -5
+		y = 0
+		relative_position_id = FRA_announce_imperial_election
+		cost = 2
+		ai_will_do = {
+		  factor = 100
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		}
+	  }
+	
+	  shared_focus = { 
+		id = FRA_crush_revolting_peasents
+		icon = GFX_goal_landlordism
+		text = FRA_crush_revolting_peasents
+		#prerequisite = { focus = FRA_the_bill_was_rejected }
+		prerequisite = {focus = FRA_solving_frances_problems}
+		x = -1
+		y = 1
+		relative_position_id = FRA_solving_frances_problems
+		cost = 2
+		ai_will_do = {
+		  factor = 100
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		  unlock_decision_tooltip = FRA_crush_revolting_peasants_in_from
+		}
+	  }
+	
+	  shared_focus = { 
+		id = FRA_reestablish_feudalism
+		icon = GFX_goal_emanc_name
+		text = FRA_reestablish_feudalism
+		prerequisite = { focus = FRA_solving_frances_problems}
+		x = -3
+		y = 1
+		relative_position_id = FRA_solving_frances_problems
+		cost = 2
+		ai_will_do = {
+		  factor = 100
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		  unlock_decision_tooltip = FRA_reestablish_feudalistic_control_in_from
+		}
+	  }
+
+	  shared_focus = { 
+		id = FRA_the_workers_crushed
+		icon = GFX_goal_emanc_name
+		text = FRA_the_workers_crushed
+		prerequisite = { focus = FRA_reestablish_feudalism}
+		prerequisite = {
+			focus = FRA_crush_revolting_peasents
+		}
+		x = 1
+		y = 1
+		relative_position_id = FRA_reestablish_feudalism
+		cost = 2
+		ai_will_do = {
+		  factor = 100
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		  unlock_decision_tooltip = FRA_reestablish_feudalistic_control_in_from
+		}
+	  }
+	
+	  shared_focus = {
+		id = FRA_encourage_infrastructure
+		icon = GFX_goal_generic_roads
+		text = FRA_encourage_infrastructure
+		prerequisite = { focus = FRA_solving_frances_problems }
+		x = 3
+		y = 1
+		relative_position_id = FRA_solving_frances_problems
+		cost = 5
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	
+		completion_reward = {
+		  add_timed_idea =  { idea = FRA_local_infrastructure days = 100 }
+	
+		  unlock_decision_tooltip = FRA_build_infrastructure_in_from
+		 }
+	  }
+	
+	  shared_focus = {
+		id = FRA_a_better_economy
+		icon = GFX_goal_FRA_better_economy
+		text = FRA_a_better_economy
+		prerequisite = {focus = FRA_expand_local_villages}
+		prerequisite = {
+			focus = FRA_encourage_infrastructure
+			
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = FRA_encourage_infrastructure
+		cost = 5
+		ai_will_do = {
+		  factor = 10
+		}
+		available = {
+			
+	
+			custom_trigger_tooltip = {
+				tooltip = FRA_BETTER_ECONOMY_TOOLTIP
+				has_country_flag = FRA_countryside_developed_flag
+			}
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	
+		completion_reward = {
+				random_owned_controlled_state = { 
+					limit = {
+						has_state_category = rural
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+	
+				remove_ideas = FRA_underdeveloped_countryside
+	
+	
+		}
+	  }
+	
+	
+	
+	
+	  shared_focus = {
+		id = FRA_expand_local_villages
+		icon = GFX_goal_FRA_expand_local_villages
+		text = FRA_expand_local_villages
+		prerequisite = { focus = FRA_solving_frances_problems }
+		x = 1
+		y = 1
+		relative_position_id = FRA_solving_frances_problems
+		cost = 5
+		ai_will_do = {
+		  factor = 10
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	
+		completion_reward = {
+			
+			unlock_decision_tooltip = FRA_expand_local_villages_in_from
+				add_timed_idea =  { idea = FRA_local_villages days = 100 }
+		 }
+	  }
+
 	shared_focus = {
 		id = FRA_LAISEZE_FAIRE
 		icon = GFX_goal_laise_faire
 		text = FRA_LAISEZE_FAIRE
 		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
-		
-		x = -5
-		y = 0
-		#relative_position_id = FRA_MILITARY_GOVERNMENT
+		prerequisite = {
+			focus = FRA_a_better_economy
+		}
+		prerequisite = {
+			focus = FRA_the_workers_crushed
+		}
+		x = -2
+		y = 1
+		relative_position_id = FRA_a_better_economy
 		cost = 1
 		ai_will_do = {
 			factor = 20
@@ -4409,7 +4598,7 @@ add_ideas= FRA_Isolationism_2
 			prerequisite = {focus = FRA_the_state_of_the_nation}
 			relative_position_id = FRA_LAISEZE_FAIRE
 			x = 10
-			y = 0
+			y = -3
 			cost = 5
 			available_if_capitulated = yes
 			ai_will_do = {
