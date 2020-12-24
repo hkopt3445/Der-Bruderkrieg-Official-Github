@@ -1,38 +1,57 @@
 scripted_gui = {
+
+    karl_josef_window_open = {
+        window_name = "open_karl_josef_window"
+        context_type = politics_tab
+
+        visible = {
+            tag = FGD
+        }
+
+        effects = {
+            karl_josef_open_button_click = {
+                set_country_flag = open_karl_josef_window
+            }
+        }
+    }
+
+    karl_josef_window = {
+        window_name = "karl_josef_window"
+        context_type = player_context
+
+        visible = {
+            has_country_flag = open_karl_josef_window
+        }
+
+        
+    }
+
     westfalen_scripted_gui = {
         window_name = "westfalen_nationalist_hunting_container"
         context_type = decision_category
 
-        dynamic_lists = {
-            westfalen_gui_state_grid = {
-                array = FGD.owned_controlled_states
-                change_scope = yes
-                entry_container = westfalen_gui_state_entry
-            }
-		}
-		
-		triggers = {
+        triggers = {
             westfalen_gui_baden_low_visible = {
                 959 = {
                     check_variable = {
-                        nationalist_influence < 3
+                        nationalist_influence < 4
                     }
                 }
             }
 			westfalen_gui_baden_medium_visible = {
                 959 = {
                     check_variable = {
-                        nationalist_influence > 2
+                        nationalist_influence > 3
                     }
                     check_variable = {
-                        nationalist_influence < 6
+                       nationalist_influence < 8
                     }
                 }
             }
             westfalen_gui_baden_high_visible = {
                 959 = {
                     check_variable = {
-                        nationalist_influence > 6
+                        nationalist_influence > 7
                     }
                 }
             }
@@ -42,24 +61,24 @@ scripted_gui = {
             westfalen_gui_rhineland_low_visible = {
                 42 = {
                     check_variable = {
-                        nationalist_influence < 3
+                        nationalist_influence < 4
                     }
                 }
             }
 			westfalen_gui_rhineland_medium_visible = {
                 42 = {
                     check_variable = {
-                        nationalist_influence > 2
+                        nationalist_influence > 3
                     }
                     check_variable = {
-                        nationalist_influence < 6
+                       nationalist_influence < 8
                     } 
                 }
             }
             westfalen_gui_rhineland_high_visible = {
                 42 = {
                     check_variable = {
-                        nationalist_influence > 6
+                        nationalist_influence > 7
                     }
                 }
             }
@@ -68,24 +87,24 @@ scripted_gui = {
             westfalen_gui_kassel_low_visible = {
                 960 = {
                     check_variable = {
-                        nationalist_influence < 3
+                        nationalist_influence < 4
                     }
                 }
             }
 			westfalen_gui_kassel_medium_visible = {
                 960 = {
                     check_variable = {
-                        nationalist_influence > 2
+                        nationalist_influence > 3
                     }
                     check_variable = {
-                        nationalist_influence < 6
+                       nationalist_influence < 8
                     }
                 }
             }
             westfalen_gui_kassel_high_visible = {
                 960 = {
                     check_variable = {
-                        nationalist_influence > 6
+                        nationalist_influence > 7
                     }
                 }
             }
@@ -94,24 +113,24 @@ scripted_gui = {
             westfalen_gui_em_low_visible = {
                 798 = {
                     check_variable = {
-                        nationalist_influence < 3
+                        nationalist_influence < 4
                     }
                 }
             }
 			westfalen_gui_em_medium_visible = {
                 798 = {
                     check_variable = {
-                        nationalist_influence > 2
+                        nationalist_influence > 3
                     }
                     check_variable = {
-                        nationalist_influence < 6
+                       nationalist_influence < 8
                     }
                 }
             }
             westfalen_gui_em_high_visible = {
                 798 = {
                     check_variable = {
-                        nationalist_influence > 6
+                        nationalist_influence > 7
                     }
                 }
             }
@@ -119,49 +138,49 @@ scripted_gui = {
             westfalen_gui_bitburg_low_visible = {
                 955 = {
                     check_variable = {
-                        nationalist_influence < 3
+                        nationalist_influence < 4
                     }
                 }
             }
 			westfalen_gui_bitburg_medium_visible = {
                 955 = {
                     check_variable = {
-                        nationalist_influence > 2
+                        nationalist_influence > 3
                     }
                     check_variable = {
-                        nationalist_influence < 6
+                       nationalist_influence < 8
                     }
                 }
             }
             westfalen_gui_bitburg_high_visible = {
                 955 = {
                     check_variable = {
-                        nationalist_influence > 6
+                        nationalist_influence > 7
                     }
                 }
             }
 
-            westfalen_gui_moselland_low_visible = {
+            westfalen_gui_mosselland_low_visible = {
                 51 = {
                     check_variable = {
-                        nationalist_influence < 3
+                        nationalist_influence < 4
                     }
                 }
             }
-			westfalen_gui_moselland_medium_visible = {
+			westfalen_gui_mosselland_medium_visible = {
                 51 = {
                     check_variable = {
-                        nationalist_influence > 2
+                        nationalist_influence > 3
                     }
                     check_variable = {
-                        nationalist_influence < 6
+                       nationalist_influence < 8
                     }
                 }
             }
-            westfalen_gui_moselland_high_visible = {
+            westfalen_gui_mosselland_high_visible = {
                 51 = {
                     check_variable = {
-                        nationalist_influence > 6
+                        nationalist_influence > 7
                     }
                 }
             }
@@ -169,28 +188,39 @@ scripted_gui = {
             westfalen_gui_westfalen_low_visible = {
                 57   = {
                     check_variable = {
-                        nationalist_influence < 3
+                        nationalist_influence < 4
                     }
                 }
             }
 			westfalen_gui_westfalen_medium_visible = {
                 57 = {
                     check_variable = {
-                        nationalist_influence > 2
+                        nationalist_influence > 3
                     }
                     check_variable = {
-                        nationalist_influence < 6
+                       nationalist_influence < 8
                     }
                 }
             }
             westfalen_gui_westfalen_high_visible = {
                 57 = {
                     check_variable = {
-                        nationalist_influence > 6
+                        nationalist_influence > 7
                     }
                 }
             }
         }
+
+        dynamic_lists = {
+            westfalen_gui_state_grid = {
+                array = FGD.owned_controlled_states
+                change_scope = yes
+                entry_container = westfalen_gui_state_entry
+            }
+        }
+        
+		
+		
         
         effects = {
             westfalen_gui_baden_low_click = {
