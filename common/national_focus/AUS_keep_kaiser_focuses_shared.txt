@@ -600,8 +600,42 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY } 
 
   completion_reward = {
-    add_country_leader_trait = workers_man
+    #add_country_leader_trait = workers_man
 
+    custom_effect_tooltip = AUS_the_liberal_SDP_coalition_rises
+    
+    hidden_effect = {
+      set_temp_variable = {new_pop = party_popularity@democratic_conservatism}
+
+			add_popularity = {
+				popularity = new_pop
+				ideology = democratic_liberalism
+			}
+
+			set_temp_variable = {sub_new_pop = party_popularity@democratic_conservatism}
+			multiply_temp_variable = {sub_new_pop = -1}
+
+			add_popularity = {
+				popularity = sub_new_pop
+				ideology = democratic_conservatism
+			}
+
+			set_politics = {
+				ruling_party = democratic_liberalism
+      }
+      
+      create_country_leader = {
+        name = "Karl I"
+        desc = "KARL_DESC"
+        picture = "gfx/leaders/KarlPortrait.dds"
+        expire = "1965.1.1"
+        ideology = democratic_liberal
+        traits = {
+          Habsburg_monarch
+          
+        }
+      }
+    }
    }
 }
 
@@ -627,6 +661,14 @@ shared_focus = {
   completion_reward = {
     
     add_ideas = karl_sietz
+    custom_effect_tooltip = AUS_the_liberal_SDP_coalition_strengthens
+
+    hidden_effect = {
+      add_popularity = {
+        ideology = democratic_liberalism
+        popularity = 0.1
+      }
+    }
    }
 }
 
@@ -653,6 +695,40 @@ shared_focus = {
   completion_reward = {
     
     add_ideas = karl_renner
+    custom_effect_tooltip = AUS_the_soc_dem_SDP_coalition_rises
+
+    hidden_effect = {
+      set_temp_variable = {new_pop = party_popularity@democratic_liberalism}
+
+			add_popularity = {
+				popularity = new_pop
+				ideology = socialism_democratic
+			}
+
+			set_temp_variable = {sub_new_pop = party_popularity@socialism_democratic}
+			multiply_temp_variable = {sub_new_pop = -1}
+
+			add_popularity = {
+				popularity = sub_new_pop
+				ideology = socialism_democratic
+			}
+
+			set_politics = {
+				ruling_party = socialism_democratic
+      }
+      
+      create_country_leader = {
+        name = "Karl I"
+        desc = "KARL_DESC"
+        picture = "gfx/leaders/KarlPortrait.dds"
+        expire = "1965.1.1"
+        ideology = social_democrat
+        traits = {
+          Habsburg_monarch
+          
+        }
+      }
+    }
    }
 }
 
@@ -760,6 +836,40 @@ shared_focus = {
   completion_reward = {
     add_country_leader_trait = conservative_grandee
 
+    if = {
+      limit = {
+        has_completed_focus = AUS_ABSOLUTISM
+      }
+      custom_effect_tooltip = AUS_the_conservative_CSU_coalition_rises
+    }
+    if = {
+      limit = {
+        has_completed_focus = AUS_concessions_to_the_people
+      }
+      custom_effect_tooltip = AUS_the_conservative_CSU_coalition_rises
+    }
+
+    hidden_effect = {
+      if = {
+        limit = {
+          has_completed_focus = AUS_ABSOLUTISM
+        }
+        add_popularity = {
+          ideology = authoritarian_democratic
+          popularity = 0.1
+        }
+      }
+      if = {
+        limit = {
+          has_completed_focus = AUS_concessions_to_the_people
+        }
+        add_popularity = {
+          ideology = democratic_conservatism
+          popularity = 0.1
+        }
+      }
+    }
+
    }
 }
 shared_focus = {
@@ -769,6 +879,11 @@ shared_focus = {
   prerequisite = { focus = AUS_CSU }
   mutually_exclusive = {
     focus = AUS_emmerich_czermach
+  }
+  available = {
+    NOT = {
+      has_completed_focus = AUS_ABSOLUTISM
+    }
   }
   x = 1
   y = 1
@@ -784,6 +899,8 @@ shared_focus = {
   completion_reward = {
     
 add_ideas = emmerich_czermach
+
+custom_effect_tooltip = AUS_the_conservative_CSU_coalition_strenghthens
    }
 }
 
@@ -809,6 +926,7 @@ shared_focus = {
   completion_reward = {
     add_ideas = engelbert_dolfuss
 
+    custom_effect_tooltip = AUS_the_kaiserrist_coalition_CSU_strenghthens
    }
 }
 
@@ -1463,6 +1581,7 @@ shared_focus = {
   completion_reward = {
    
     country_event = austria_military_events.1
+    unlock_decision_category_tooltip = GER_german_sphere
 
    }
 }
@@ -3277,7 +3396,7 @@ shared_focus = {
   icon = GFX_goal_unkown
   text = AUS_the_majors_europe
   #prerequisite = { focus =  AUS_the_austrian_superpower focus = AUS_bulwark_against_expansionism }
- #mutually_exclusive = {focus = AUS_hapsburg_foriegn_policy}
+ #mutually_exclusive = {focus = AUS_Habsburg_foriegn_policy}
   x = 0
   y = 8
  # prerequisite = {focus = AUS_denounce_the_treaty_of_vienna}
@@ -3367,7 +3486,7 @@ shared_focus = {
   text = AUS_joint_artillery_design
   prerequisite = { focus =  AUS_purcahse_small_arms }
   x = 0
-  y = 2
+  y = 1
   relative_position_id = AUS_purcahse_small_arms
   cost = 5
   ai_will_do = {
@@ -3527,36 +3646,16 @@ shared_focus = {
   }
 }
 
-shared_focus = {
-  id = AUS_secure_mines_in_alps
-  icon = GFX_goal_Monego_Campaign
-  text = AUS_secure_mines_in_alps
-  prerequisite = { focus =  AUS_improve_relations_france }
-  x = 0
-  y = 2
-  relative_position_id = AUS_improve_relations_france
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    SWI = { country_event = austria.118 }
-  }
-}
 
 shared_focus = {
   id = AUS_alliance_with_france
   icon = GFX_Diplo_France
   text = AUS_alliance_with_france
-  prerequisite = { focus =  AUS_secure_mines_in_alps }
+  prerequisite = { focus =  AUS_joint_artillery_design }
   prerequisite = {focus = AUS_joint_artillery_design}
-  x = 0
+  x = 1
   y = 2
-  relative_position_id = AUS_secure_mines_in_alps
+  relative_position_id = AUS_joint_artillery_design
   cost = 5
   ai_will_do = {
     factor = 20
@@ -3576,6 +3675,12 @@ shared_focus = {
   icon = GFX_Diplo_Britain
   text = AUS_improve_relations_england
   prerequisite = { focus =  AUS_the_majors_europe }
+  mutually_exclusive = {
+    focus = AUS_improve_relations_france
+  }
+  mutually_exclusive = {
+    focus = AUS_improve_relations_bear
+  }
   x = 3
   y = 1
   relative_position_id = AUS_the_majors_europe
@@ -3696,56 +3801,7 @@ shared_focus = {
   }
 }
 
-shared_focus = {
-  id = AUS_munich_conference
-  icon = GFX_goal_unkown
-  text = AUS_munich_conference
-  prerequisite = { focus =  AUS_alliance_with_england }
-  x = -1
-  y = 1
-  relative_position_id = AUS_alliance_with_england
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  available = {
-      GPU = {
-        is_puppet = AUS
-      }
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    ENG = {country_event = austria.121}
-  }
-}
-
-shared_focus = {
-  id = AUS_split_naval_conference
-  icon = GFX_focus_ger_accept_british_naval_dominance
-  text = AUS_split_naval_conference
-  prerequisite = { focus =  AUS_alliance_with_england }
-  x = 1
-  y = 1
-  relative_position_id = AUS_alliance_with_england
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  available = {
-      
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    country_event = austria.124
-    ENG = {country_event = austria.124}
-  }
-}
 
 
 
@@ -3755,11 +3811,11 @@ shared_focus = {
   id = AUS_arms_deal_with_america
   icon = GFX_focus_generic_combined_arms
   text = AUS_arms_deal_with_america
-  prerequisite = { focus =  AUS_split_naval_conference }
+  prerequisite = { focus =  AUS_alliance_with_england focus = AUS_alliance_with_france}
   #mutually_exclusive = {focus = AUS_crush_the_dream}
-  x = 0
+  x = -1
   y = 1
-  relative_position_id = AUS_split_naval_conference
+  relative_position_id = AUS_alliance_with_england
   cost = 5
   ai_will_do = {
     factor = 20
@@ -3776,30 +3832,6 @@ shared_focus = {
   }
 }
 
-shared_focus = {
-  id = AUS_westphalian_sgc_unification
-  icon = GFX_goal_unkown
-  text = AUS_westphalian_sgc_unification
-  prerequisite = { focus =  AUS_alliance_with_france }
-  
-  x = 0
-  y = 1
-  relative_position_id = AUS_alliance_with_france
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  available = {
-      
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    FRA = {country_event = austria.126} 
-  }
-}
 
 
 
