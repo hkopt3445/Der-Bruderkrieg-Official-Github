@@ -486,7 +486,7 @@ shared_focus = {
   icon = GFX_goal_AUS_reshuffling_karls_cabinet
   text = AUS_karls_cabinet
   #prerequisite = { focus = AUS_recover_from_black_monday } 
-  x = -5
+  x = -6
   y = 9
   #relative_position_id = AUS_recover_from_black_monday
   cost = 5
@@ -3397,7 +3397,7 @@ shared_focus = {
   text = AUS_the_majors_europe
   #prerequisite = { focus =  AUS_the_austrian_superpower focus = AUS_bulwark_against_expansionism }
  #mutually_exclusive = {focus = AUS_Habsburg_foriegn_policy}
-  x = -7
+  x = -6
   y = 9
  # prerequisite = {focus = AUS_denounce_the_treaty_of_vienna}
   relative_position_id = AUS_denounce_the_treaty_of_vienna
@@ -4053,32 +4053,6 @@ shared_focus = {
 
 
 
-shared_focus = {
-  id = AUS_royal_marraiges
-  icon = GFX_goal_unkown
-  text = AUS_royal_marraiges
-  #prerequisite = {focus = AUS_the_austrian_superpower focus = AUS_bulwark_against_expansionism}
-
-  x = -4
-  y = 8
-  #relative_position_id = AUS_the_austrian_superpower
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  bypass = {
-  }
-  allow_branch = {
-    has_country_flag = austrian_century
-  }
-  
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-  }
-}
 
 #royal marriage
 
@@ -4086,13 +4060,16 @@ shared_focus = {
   id = AUS_otto_is_open
   icon = GFX_goal_unkown
   text = AUS_otto_is_open
-  prerequisite = {focus = AUS_royal_marraiges}
-  x = -2
-  y = 1
-  relative_position_id = AUS_royal_marraiges
+  #prerequisite = {focus = AUS_royal_marraiges}
+  x = -1
+  y = 9
+  #relative_position_id = AUS_royal_marraiges
   cost = 5
   ai_will_do = {
     factor = 20
+  }
+  allow_branch = {
+    always = no
   }
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_RESEARCH }
@@ -4252,50 +4229,7 @@ shared_focus = {
 }
 
 
-shared_focus = {
-  id = AUS_the_german_line
-  icon = GFX_goal_unkown
-  text = AUS_the_german_line
-  prerequisite = {focus = AUS_royal_marraiges}
-  x = 3
-  y = 1
-  relative_position_id = AUS_royal_marraiges
-  cost = 1
-  ai_will_do = {
-    factor = 20
-  }
- 
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-  }
-}
-
-
-
-shared_focus = {
-  id = AUS_the_order_of_st_george
-  icon = GFX_goal_unkown
-  text = AUS_the_order_of_st_george
-  prerequisite = {focus = AUS_the_german_line}
-  #mutually_exclusive = {focus = AUS_hollonherzen_proposal}
-  x = 0
-  y = 1
-  relative_position_id = AUS_the_german_line
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
- 
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-  }
-}
 
 
 
@@ -4352,25 +4286,30 @@ shared_focus = {
   icon = GFX_goal_unkown
   text = AUS_colonial_ambitions
   #prerequisite = { focus = AUS_the_austrian_superpower}
-  x = -12
-  y = 8
+  x = 1
+  y = 9
   #relative_position_id = AUS_the_austrian_superpower
   cost = 5
   ai_will_do = {
     factor = 20
   }
   available = {
+    OR = {
+      has_completed_focus = AUS_the_austrian_superpower
+      has_completed_focus = AUS_bulwark_against_expansionism
+    }
     has_country_flag = vote_successful_colonial_expansion_act
   }
-  allow_branch = {
-    has_country_flag = austrian_century
-  }
+ 
+  
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
     add_ideas = AUS_colonial_ambitions
+
+    ##unlock karls decisions
   }
 }
 
