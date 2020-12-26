@@ -713,7 +713,7 @@ AUS_preperation_for_the_second_bruderkrieg_infil = {
 
 			set_variable = {
 				funding_for_infil_mission = 0
-			}
+			}	
 
 			AUS_calc_mission_fund_var = yes
 
@@ -731,7 +731,12 @@ AUS_infilitrating_the_prussian_palace = {
 		priority = 10
 	
 		icon = generic_ignite_civil_war
-	
+		
+		available = {
+			NOT = {
+				has_country_flag = mission_infil_failed
+			}
+		}
 	
 	
 		days_mission_timeout = 80
@@ -750,7 +755,7 @@ AUS_infilitrating_the_prussian_palace = {
 	
 		is_good = yes
 	 
-		remove_effect = {
+		timeout_effect = {
 			if = {
 				limit = {
 					check_variable = {
@@ -763,6 +768,7 @@ AUS_infilitrating_the_prussian_palace = {
 			}
 			else = {
 				##mission failed
+				set_country_flag = mission_infil_failed
 			}
 			
 
@@ -795,7 +801,7 @@ AUS_infilitrating_the_prussian_palace = {
 	
 		is_good = yes
 	 
-		remove_effect = {
+		timeout_effect	 = {
 			if = {
 				limit = {
 					check_variable = {
@@ -840,7 +846,7 @@ AUS_infilitrating_the_prussian_palace = {
 	
 		is_good = yes
 	 
-		remove_effect = {
+		timeout_effect = {
 			if = {
 				limit = {
 					check_variable = {
@@ -885,7 +891,7 @@ AUS_infilitrating_the_prussian_palace = {
 	
 		is_good = yes
 	 
-		remove_effect = {
+		timeout_effect = {
 			if = {
 				limit = {
 					check_variable = {
