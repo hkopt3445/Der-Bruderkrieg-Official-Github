@@ -704,7 +704,7 @@ AUS_preperation_for_the_second_bruderkrieg_infil = {
 
 
 				set_variable = {
-					prussian_infiltration_succeed_prob = 20
+					prussian_infiltration_succeed_prob = 0
 				}
 			}	
 
@@ -712,7 +712,7 @@ AUS_preperation_for_the_second_bruderkrieg_infil = {
 			set_country_flag = unlock_AUS_infilitrating_the_prussian_palace
 
 			set_variable = {
-				funding_for_infil_mission = 0
+				funding_for_infil_mission = 20
 			}	
 
 			AUS_calc_mission_fund_var = yes
@@ -727,34 +727,33 @@ AUS_preperation_for_the_second_bruderkrieg_infil = {
 
 AUS_infilitrating_the_prussian_palace = {
 	AUS_checkpoint_infil_1 = {
-	
+
 		priority = 10
 	
 		icon = generic_ignite_civil_war
-		
+	
 		available = {
-			NOT = {
-				has_country_flag = mission_infil_failed
-			}
+			hidden_trigger = { always = no }
 		}
 	
 	
-		days_mission_timeout = 80
+		days_mission_timeout = 80 
 	
-		fire_only_once = yes
+		fire_only_once = yes 
 	
 		activation = {
-		tag = AUS
+			tag = AUS
 		}
-
+	
 		visible = {
-			always = yes
-		}
+			tag = AUS
+		} 
 	
-		cancel_if_not_visible = yes
+	#	cancel_if_not_visible = yes
 	
-		is_good = yes
-	 
+	#	is_good = yes
+		
+	
 		timeout_effect = {
 			if = {
 				limit = {
@@ -770,10 +769,9 @@ AUS_infilitrating_the_prussian_palace = {
 				##mission failed
 				set_country_flag = mission_infil_failed
 			}
-			
-
 		}
 	}
+	
 	AUS_checkpoint_infil_2 = {
 	
 		priority = 10
@@ -781,7 +779,7 @@ AUS_infilitrating_the_prussian_palace = {
 		icon = generic_ignite_civil_war
 	
 		available = {
-		
+			hidden_trigger = { always = no }
 		}
 	
 		days_mission_timeout = 80
@@ -797,9 +795,9 @@ AUS_infilitrating_the_prussian_palace = {
 		has_country_flag = checkpoint_1_infil_passes
 		} 
 	
-		cancel_if_not_visible = yes
+	#	cancel_if_not_visible = yes
 	
-		is_good = yes
+	#	is_good = yes
 	 
 		timeout_effect	 = {
 			if = {
@@ -826,7 +824,7 @@ AUS_infilitrating_the_prussian_palace = {
 		icon = generic_ignite_civil_war
 	
 		available = {
-		
+			hidden_trigger = { always = no }
 		}
 	
 		days_mission_timeout = 80
@@ -842,9 +840,9 @@ AUS_infilitrating_the_prussian_palace = {
 		has_country_flag = checkpoint_2_infil_passes
 		} 
 	
-		cancel_if_not_visible = yes
+#		cancel_if_not_visible = yes
 	
-		is_good = yes
+#		is_good = yes
 	 
 		timeout_effect = {
 			if = {
@@ -871,7 +869,7 @@ AUS_infilitrating_the_prussian_palace = {
 		icon = generic_ignite_civil_war
 	
 		available = {
-		
+			hidden_trigger = { always = no }
 		}
 	
 		days_mission_timeout = 80
@@ -887,9 +885,9 @@ AUS_infilitrating_the_prussian_palace = {
 		has_country_flag = checkpoint_3_infil_passes
 		} 
 	
-		cancel_if_not_visible = yes
+	#	cancel_if_not_visible = yes
 	
-		is_good = yes
+	#		is_good = yes
 	 
 		timeout_effect = {
 			if = {
