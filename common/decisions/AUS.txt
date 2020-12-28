@@ -749,26 +749,30 @@ AUS_infilitrating_the_prussian_palace = {
 			tag = AUS
 		} 
 	
-	#	cancel_if_not_visible = yes
+		#cancel_if_not_visible = yes
 	
-	#	is_good = yes
+		#is_good = yes
 		
 	
 		timeout_effect = {
 			if = {
 				limit = {
-					check_variable = {
-						prussian_infiltration_succeed_prob > 25
-					}
+					check_variable = { var = prussian_infiltration_succeed_prob value =  25 compare = greater_than_or_equals }
 				}
 				set_country_flag = checkpoint_1_infil_passes
 				country_event = austria_infil_prussian_gov.2
 				##Mission success
+
+				hidden_effect = {
+					activate_mission = AUS_checkpoint_infil_2
+				}
 			}
 			else = {
 				##mission failed
 				set_country_flag = mission_infil_failed
 			}
+			#set_country_flag = checkpoint_1_infil_passes
+				#country_event = austria_infil_prussian_gov.2
 		}
 	}
 	
@@ -787,7 +791,8 @@ AUS_infilitrating_the_prussian_palace = {
 		fire_only_once = yes
 	
 		activation = {
-		tag = AUS
+			has_country_flag = checkpoint_1_infil_passes
+
 		}
 	
 		visible = {
@@ -795,20 +800,21 @@ AUS_infilitrating_the_prussian_palace = {
 		has_country_flag = checkpoint_1_infil_passes
 		} 
 	
-	#	cancel_if_not_visible = yes
-	
-	#	is_good = yes
+		#cancel_if_not_visible = yes
+		
+		#is_good = yes
 	 
 		timeout_effect	 = {
 			if = {
 				limit = {
-					check_variable = {
-						prussian_infiltration_succeed_prob > 40
-					}
+					check_variable = { var = prussian_infiltration_succeed_prob value =  40 compare = greater_than_or_equals }
 				}
 				set_country_flag = checkpoint_2_infil_passes
 				country_event = austria_infil_prussian_gov.3
 				##Mission success
+				hidden_effect = {
+				activate_mission = AUS_checkpoint_infil_3 
+			}
 			}
 			else = {
 				##mission failed
@@ -832,7 +838,7 @@ AUS_infilitrating_the_prussian_palace = {
 		fire_only_once = yes
 	
 		activation = {
-		tag = AUS
+			set_country_flag = checkpoint_2_infil_passes
 		}
 	
 		visible = {
@@ -840,19 +846,21 @@ AUS_infilitrating_the_prussian_palace = {
 		has_country_flag = checkpoint_2_infil_passes
 		} 
 	
-#		cancel_if_not_visible = yes
-	
-#		is_good = yes
+	#	cancel_if_not_visible = yes
+		
+		#is_good = yes
 	 
 		timeout_effect = {
 			if = {
 				limit = {
-					check_variable = {
-						prussian_infiltration_succeed_prob > 60
-					}
+					check_variable = { var = prussian_infiltration_succeed_prob value =  60 compare = greater_than_or_equals }
 				}
 				set_country_flag = checkpoint_3_infil_passes
 				country_event = austria_infil_prussian_gov.4
+
+				hidden_effect = {
+					activate_mission = AUS_checkpoint_infil_4
+				}
 				##Mission success
 			}
 			else = {
@@ -877,7 +885,7 @@ AUS_infilitrating_the_prussian_palace = {
 		fire_only_once = yes
 	
 		activation = {
-		tag = AUS
+		has_country_flag = checkpoint_3_infil_passes
 		}
 	
 		visible = {
@@ -885,16 +893,14 @@ AUS_infilitrating_the_prussian_palace = {
 		has_country_flag = checkpoint_3_infil_passes
 		} 
 	
-	#	cancel_if_not_visible = yes
-	
-	#		is_good = yes
+		#cancel_if_not_visible = yes
+		
+		#is_good = yes
 	 
 		timeout_effect = {
 			if = {
 				limit = {
-					check_variable = {
-						prussian_infiltration_succeed_prob > 75
-					}
+					check_variable = { var = prussian_infiltration_succeed_prob value =  75 compare = greater_than_or_equals }
 				}
 				set_country_flag = mission_infil_succeeds
 				country_event = austria_infil_prussian_gov.5
@@ -971,7 +977,7 @@ AUS_infilitrating_the_prussian_palace = {
 
 		remove_effect = {
 			add_to_variable = {
-				prussian_infiltration_succeed_prob = 10
+				prussian_infiltration_succeed_prob = 3
 			}
 		}
 	}
@@ -1003,7 +1009,7 @@ AUS_infilitrating_the_prussian_palace = {
 
 		remove_effect = {
 			add_to_variable = {
-				prussian_infiltration_succeed_prob = 10
+				prussian_infiltration_succeed_prob = 3
 			}
 		}
 	}
@@ -1035,7 +1041,7 @@ AUS_infilitrating_the_prussian_palace = {
 
 		remove_effect = {
 			add_to_variable = {
-				prussian_infiltration_succeed_prob = 10
+				prussian_infiltration_succeed_prob = 3
 			}
 		}
 	}
