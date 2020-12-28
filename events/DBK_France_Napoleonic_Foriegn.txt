@@ -664,14 +664,22 @@ country_event = {
 				tag = ENG
 			}
 		}
-		news_event = belgian_election_events.2
+		#news_event = belgian_election_events.2
+		hidden_effect = {
+			BEL = {
+				add_popularity = {
+					ideology = democratic_conservatism
+					popularity = 0.1
+				}
+			}
+		}
 	}
 	option = {
 		name = belgian_election_events.1.b
 		trigger = {
 			tag = ENG
 		}
-		news_event = belgian_election_events.2
+		#news_event = belgian_election_events.2
 	}
 }
 
@@ -705,14 +713,41 @@ country_event = {
 				tag = FRA
 			}
 		}
-		news_event = belgian_election_events.4
+		
+		#news_event = belgian_election_events.4
+
+		hidden_effect = {
+			BEL = {
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Paul_Van_Zeeland"
+				desc = "POLITICS_HUBERT_PIERLOT_DESC"
+				picture = "gfx/leaders/Leon_Degrelle.dds"
+				expire = "1965.1.1"
+				ideology = democratic_liberalism
+				traits = {
+					#
+				}
+			}
+			add_popularity = {
+				ideology = democratic_liberalism
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = democratic_liberalism
+			}
+		}
+		}
+		
+
 	}
 	option = {
 		name = belgian_election_events.3.b
 		trigger = {
 			tag = FRA
 		}
-		news_event = belgian_election_events.4
+	
+		#news_event = belgian_election_events.4
 	}
 }
 
@@ -745,6 +780,7 @@ country_event = {
 		trigger = {
 			tag=  FRA
 		}
+		country_event = belgian_elections_events.6
 		
 	}
 	option = {
@@ -767,7 +803,7 @@ country_event = {
 	option = {
 		name = belgian_election_events.6.a
 		set_global_flag = belgian_elections_start
-		
+		unlock_decision_category_tooltip = influencing_belgium
 	}
 
 }
