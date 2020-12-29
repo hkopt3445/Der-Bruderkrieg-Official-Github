@@ -80,7 +80,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "spy_window_aus_container"
 		position = { x = 530 y = 200 }
-		size = { width = 600 height = 500 }
+		size = { width = 300 height = 100 }
 	
 		containerWindowType = {
 			name = "spy_window_aus_container_bruh"
@@ -89,39 +89,39 @@ guiTypes = {
 	
 			background = {
 				name = "Background"
-				spriteType = "GFX_spy_bg"
+				spriteType = "GFX_tiled_window_small"
 			}
 	
-			instantTextboxType = {
-			name = "title"
-			position = { x = 0 y = 5 }
-			font = "hoi_36header"
-			text = "Prussian Infiltration Missions"
-			format = center
-			maxwidth = 500
-			maxHeight = 35
-			fixedsize = yes
-			}
+			#instantTextboxType = {
+	#name = "title"
+#	position = { x = 0 y = 5 }
+#	font = "hoi_36header"
+#	text = "Prussian Infiltration Mission Funding"
+#	format = center 
+#	maxwidth = 500
+#	maxHeight = 35
+#	fixedsize = yes
+#	}
 
-			instantTextboxType = {
-			name = "current mission"
-			font = "hoi_30header"
-			position = { x = 10 y = 45 }
-			maxWidth = 500
-			Orientation = upper_left
-			text = "[Root.GetCurrentMission]"
-		
-		}
+#	instantTextboxType = {
+#	name = "current mission"
+#	font = "hoi_30header"
+#	position = { x = 10 y = 45 }
+#	maxWidth = 500
+#	Orientation = upper_left
+#	text = "[Root.GetCurrentMission]"
+#
+#}
 
-		instantTextboxType = {
-			name = "current mission desc"
-			font = "hoi_20b"
-			position = { x = 10 y = 80 }
-			maxWidth = 450
-			Orientation = upper_left
-			text = "[Root.GetCurrentMissionDesc]"
-		
-		}
+#instantTextboxType = {
+#	name = "current mission desc"
+#	font = "hoi_20b"
+#	position = { x = 10 y = 80 }
+#	maxWidth = 450
+#	Orientation = upper_left
+#	text = "[Root.GetCurrentMissionDesc]"
+#
+#}
 
 
 		buttonType = {
@@ -135,46 +135,52 @@ guiTypes = {
 			pdx_tooltip = "CLOSE"
 		}
 
-		scrollbarType = {
-			name = "ausespionage_slider"	
-			slider = "austrian_espionage_budget_slider_dot"
-			track= "AUS_espionage_budget_slider_bg"
-			leftbutton = "AUS_espionage_budget_slider_minus"
-			rightbutton = "AUS_espionage_budget_slider_plus"
-			size = {x = 165 y = 16 }
-			position = { x = 10 y = 375 }		
-			borderSize = {x =16 y = 16}
-			maxValue = 100
-			minValue = 0
-			stepSize =1 
-			startValue = 0	
-			horizontal = 1
-					
-			buttonType = {
-				name = "austrian_espionage_budget_slider_dot"	
-				quadTextureSprite = "GFX_econ_crt_slider_dot"				
-				position = { x = 50 y = 184 }
+		containerWindowType = {
+			name = "slider_window"
+			position = { x = 10 y = 10 }
+			size = { width = 244 height = 18 }
+	
+			background = {
+				name = "background"
+				spriteType = "GFX_scrollbar_horisontal_bg"
+				alwaystransparent = yes
 			}
-			buttonType = {
-				name = "AUS_espionage_budget_slider_bg"
-				quadTextureSprite = "GFX_econ_crt_slider_bg"
-				position = { x = 17 y = 186 }						
-			}	
-			buttonType = {
-				name = "AUS_espionage_budget_slider_plus"
-				quadTextureSprite = "GFX_econ_crt_slider_right"
-				position = { x = 927 y = 186 }
+	
+			containerWindowType = {
+				name = "slider_track_window"
+				position = { x = 19 y = 3 }
+				size = { width = -19 height = 12 }
+	
+				background = {
+					name = "background"
+					spriteType = "GFX_scroll_track_horisontal"
+					alwaystransparent = yes
+				}
 			}
+	
 			buttonType = {
-				name = "AUS_espionage_budget_slider_minus"
-				quadTextureSprite = "GFX_econ_crt_slider_left"
-				position = { x = 270 y = 186 }
-			}					
+				name = "left_button"
+				position = { x = 3 y = 1 }
+				spriteType = "GFX_scroll_left"
+			}
+	
+			buttonType = {
+				name = "right_button"
+				position = { x = -19 y = 1 }
+				orientation = upper_right
+				spriteType = "GFX_scroll_right"
+			}
+	
+			iconType = {
+				name = "dragger_icon"
+				position = { x = 19 y = 1 }
+				spriteType = "GFX_scroll_drager"
+			}
 		}
 
 		instantTextboxType = {
 			name = "Austrian_Espionage_Budget_text"
-			position = { x = 10 y = 350 }
+			position = { x = 10 y = 5 }
 			font = "hoi_18mbs" 
 			text = "Austrian_Espionage_Budget_text"
 			maxWidth = 999
@@ -182,24 +188,18 @@ guiTypes = {
 			fixedsize = no
 		}
 
-
-		instantTextboxType = {
-			name = "name"
-			position = { x = 445 y = 398 }
-			font = "hoi_18mbs" 
-			text = "hanz wilhelm"
-			maxWidth = 130
-			maxHeight = 70
+		buttonType = {
+			name = "save_global_value"
+			position = { x = 10 y  = 55 }
+			size = {x = 100 y=30}
+			spriteType = "GFX_tiled_window_small"
+			buttonText = "Save"
+			buttonFont = "hoi_18mbs"
 			format = center
-			fixedsize = no
-
+			 
 		}
+		
 
-		iconType = {
-			name = "hanz wilhelm"
-			position = {x = 436 y = 176}
-			spriteType = "GFX_Hanz_wilhelm"
-		}
 		}
 	}
 
