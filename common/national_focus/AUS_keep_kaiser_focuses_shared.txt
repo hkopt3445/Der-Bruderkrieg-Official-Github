@@ -4,7 +4,7 @@ shared_focus = {
   id = AUS_recover_from_black_monday
   icon = GFX_goal_deregulate_the_banking_industury
   text = AUS_recover_from_black_monday
-  x = 22
+  x = 25
   y = 0
   cost = 7
 
@@ -1500,7 +1500,7 @@ shared_focus = {
   icon = unkown
   text = AUS_denounce_the_treaty_of_vienna
   #prerequisite = { focus = AUS_KAISER_SPEECH }
-  x = 13
+  x = 14
   y = 0
   #relative_position_id = AUS_announce_the_kaiser_speech
   cost = 5
@@ -1553,10 +1553,116 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    unlock_decision_category_tooltip = AUS_preperation_for_the_second_bruderkrieg_infil
     add_command_power = 20
     add_offsite_building = { type = arms_factory level = 1 }
 
+   }
+}
+
+shared_focus = {
+  id = AUS_a_war_of_battleplans
+  icon = unkown
+  text = AUS_a_war_of_battleplans
+  prerequisite = { focus = AUS_the_next_bruderkrieg_is_coming }
+  x = -2
+  y = 1
+  relative_position_id = AUS_the_next_bruderkrieg_is_coming
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  bypass = {
+    
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+
+
+   }
+}
+
+
+shared_focus = {
+  id = AUS_fate_favors_the_aggressive
+  icon = unkown
+  text = AUS_fate_favors_the_aggressive
+  prerequisite = { focus = AUS_a_war_of_battleplans }
+  x = -1
+  y = 1
+  relative_position_id = AUS_a_war_of_battleplans
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  bypass = {
+    
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+
+    add_ideas = AUS_aggressive_war_theory
+   }
+}
+
+shared_focus = {
+  id = AUS_on_the_offensive
+  icon = unkown
+  text = AUS_on_the_offensive
+  prerequisite = { focus = AUS_fate_favors_the_aggressive }
+  x = 0
+  y = 1
+  relative_position_id = AUS_fate_favors_the_aggressive
+  cost = 5
+  ai_will_do = {
+    factor = 1
+  }
+
+  bypass = {
+    
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    unlock_decision_category_tooltip = AUS_offensives_against_the_fbc
+    
+   }
+}
+
+shared_focus = {
+  id = AUS_bide_our_time
+  icon = unkown
+  text = AUS_bide_our_time
+  prerequisite = { focus = AUS_a_war_of_battleplans }
+  x = 1
+  y = 1
+  relative_position_id = AUS_a_war_of_battleplans
+  cost = 5
+  ai_will_do = {
+    factor = 1000
+  }
+
+  bypass = {
+    
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+
+    add_ideas = {
+      Fortify_austria
+    }
    }
 }
 
@@ -1565,7 +1671,7 @@ shared_focus = {
   icon = unkown
   text = AUS_war_of_ideology
   prerequisite = { focus = AUS_the_next_bruderkrieg_is_coming }
-  x = 0
+  x = 2
   y = 1
   relative_position_id = AUS_the_next_bruderkrieg_is_coming
   cost = 5
@@ -1780,72 +1886,38 @@ shared_focus = {
 }
 
 
-
 shared_focus = {
-  id = AUS_austro_bavarian_union
-  icon = unkown
-  text = AUS_austro_bavarian_union
-  prerequisite = { focus = AUS_incorportate_them_to_the_sgc }
+  id = AUS_the_german_question
+ # icon = GFX_goal_stabprussia
+ icon = unkown
+  text = AUS_the_german_question
   prerequisite = {focus = AUS_they_are_our_puppet focus = AUS_supporting_ohv_autonomy}
-  mutually_exclusive = {focus = AUS_the_greater_german_solution}
-  x = -5
-  y = 1
-  relative_position_id = AUS_incorportate_them_to_the_sgc
-  cost = 5
-  ai_will_do = {
-    factor = 1
-  }
-
-  bypass = {
-    
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-  custom_effect_tooltip = AUS_we_will_form_a_union_with_bavaria_if_they_agree_after_beating_prussia
-  set_country_flag = AUS_we_will_form_a_union_with_bavaria_if_they_agree_after_beating_prussia
-   }
-}
-
-shared_focus = {
-  id = AUS_the_greater_german_solution
-  icon = unkown
-  text = AUS_the_greater_german_solution
-  prerequisite = { focus = AUS_incorportate_them_to_the_sgc }
-  prerequisite = {focus = AUS_they_are_our_puppet focus = AUS_supporting_ohv_autonomy}
-  mutually_exclusive = {focus = AUS_austro_bavarian_union}
   x = 1
   y = 1
-  relative_position_id = AUS_incorportate_them_to_the_sgc
-  cost = 5
+  relative_position_id = AUS_they_are_our_puppet
+  cost = 15
   ai_will_do = {
-    factor = 1
-  }
-
-  bypass = {
-    
+    factor = 20
   }
 
   available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
+  search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-  custom_effect_tooltip = AUS_we_will_hand_over_the_prussian_lands_to_the_sgc
-  set_country_flag = AUS_we_will_hand_over_the_prussian_lands_to_the_sgc
-  unlock_decision_category_tooltip = form_germany_category
-   }
+    create_wargoal = {
+      type = puppet_wargoal_focus
+      target = GER
+    }
+  }
 }
 shared_focus = {
   id = AUS_the_final_showdown
   icon = GFX_goal_stabprussia
   text = AUS_the_final_showdown
-  prerequisite = { focus = AUS_the_greater_german_solution }
-  prerequisite = {focus = AUS_austro_bavarian_union}
-  x = 3
+  prerequisite = {focus = AUS_on_the_offensive}
+  x = 0
   y = 1
-  relative_position_id = AUS_austro_bavarian_union
+  relative_position_id = AUS_on_the_offensive
   cost = 15
   ai_will_do = {
     factor = 20
@@ -2987,14 +3059,14 @@ shared_focus = {
   icon = GFX_goal_generic_defence
   text = AUS_fortify_austria
   #prerequisite = { focus = AUS_bulwark_against_expansionism }
-  prerequisite = {focus = AUS_PREP_WAR}
-  x = -9
+  prerequisite = {focus = AUS_bide_our_time}
+  x = 0
   y = 1
-  relative_position_id = AUS_PREP_WAR
+  relative_position_id = AUS_bide_our_time
   cost = 5
 
   ai_will_do = {
-    factor = 10
+    factor = 100
   }
 
   bypass = {
@@ -3005,159 +3077,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    add_ideas = {
-      Fortify_austria
-    }
+    
+    unlock_decision_category_tooltip = AUS_foritfying_against_the_fbc
   }
 }
-
-shared_focus = {
-  id = AUS_danube_line
-  icon = GFX_goal_generic_construct_military
-  text = AUS_danube_line
-  prerequisite = { focus = AUS_fortify_austria }
-  x = 1
-  y = 1
-  relative_position_id = AUS_fortify_austria
-  cost = 5
-
-  ai_will_do = {
-    factor = 10
-  }
-
-  bypass = {
-
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-      AUS = {
-        every_owned_state = {
-            limit = {
-                any_neighbor_state = {
-                    is_controlled_by = GER
-                }
-            }
-            add_building_construction = {
-                type = bunker
-                level = 3
-                instant_build = yes
-                province = {
-                    all_provinces = yes
-                    limit_to_border = yes
-                }
-            }
-        }
-    }
-    GPU = {
-      every_owned_state = {
-          limit = {
-              any_neighbor_state = {
-                  is_controlled_by = GER
-              }
-          }
-          add_building_construction = {
-              type = bunker
-              level = 3
-              instant_build = yes
-              province = {
-                  all_provinces = yes
-                  limit_to_border = yes
-              }
-          }
-      }
-  }
-  }
-}
-
-
-
-
-
-shared_focus = {
-  id = AUS_dniester_line
-  icon = GFX_goal_generic_position_armies
-  text = AUS_dniester_line
-  prerequisite = { focus = AUS_fortify_austria }
-  x = -1
-  y = 1
-  relative_position_id = AUS_fortify_austria
-  cost = 5
-
-  ai_will_do = {
-    factor = 10
-  }
-
-  bypass = {
-
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-      AUS = {
-        every_owned_state = {
-            limit = {
-                any_neighbor_state = {
-                    is_controlled_by = ITA
-                }
-            }
-            add_building_construction = {
-                type = bunker
-                level = 3
-                instant_build = yes
-                province = {
-                    all_provinces = yes
-                    limit_to_border = yes
-                }
-            }
-        }
-    }
-  }
-}
-
-
-
-
-
-
-
-shared_focus = {
-  id = AUS_vienna
-  icon = GFX_goal_generic_fortify_city
-  text = AUS_vienna
-  prerequisite = { focus = AUS_danube_line focus = AUS_dniester_line}
-  x = -1
-  y = 1
-  relative_position_id = AUS_danube_line
-  cost = 5
-
-  ai_will_do = {
-    factor = 10
-  }
-
-  bypass = {
-
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-      4 = {
-        add_building_construction = {
-          type = bunker
-          level = 7
-          instant_build = Yes
-          province = 11666
-        }
-      }
-  }
-}
-
 
 
 
@@ -3165,10 +3088,10 @@ shared_focus = {
   id = AUS_assume_defensive_positions
   icon = GFX_goal_generic_construct_military
   text = AUS_assume_defensive_positions
-  prerequisite = { focus = AUS_vienna} 
+  prerequisite = { focus = AUS_fortify_austria} 
   x = 0
   y = 1
-  relative_position_id = AUS_vienna
+  relative_position_id = AUS_fortify_austria
   cost = 5
 
   available = {
@@ -3176,7 +3099,7 @@ shared_focus = {
   }
 
   ai_will_do = {
-    factor = 10
+    factor = 100
   }
 
   bypass = {
@@ -3267,7 +3190,7 @@ shared_focus = {
   icon = GFX_goal_Propoganda_Construction
   text = AUS_mil_industry_1
  # prerequisite = { focus = AUS_the_next_bruderkrieg_is_coming}
-  x = 30
+  x = 31
   y = 3
  # relative_position_id = AUS_the_next_bruderkrieg_is_coming
   cost = 3
