@@ -171,8 +171,8 @@ is_on_continent = europe				is_owned_by = FRA
 	
 }
 
-FRA_countryside_revolt = {
-FRA_peasent_revolution = {
+FRA_worker_strikes = {
+  FRA_the_workers_strike_1 = {
 
 	priority = 10
 
@@ -182,9 +182,9 @@ FRA_peasent_revolution = {
 		hidden_trigger = { always = no }
 	}
 
-	war_with_on_remove = FPR
+	#war_with_on_remove = FPR
 
-	days_mission_timeout = 100 
+	days_mission_timeout = 30 
 
 	fire_only_once = yes 
 
@@ -194,7 +194,7 @@ FRA_peasent_revolution = {
 
 	visible = {
 		tag = FRA
-		check_variable = {FRA_peasent_revolt_var > 0}
+		#check_variable = {FRA_peasent_revolt_var > 0}
 	} 
 
 	cancel_if_not_visible = yes
@@ -203,115 +203,10 @@ FRA_peasent_revolution = {
 	
 
 	timeout_effect = {
-		FRA = { FRA_peasent_revolt_effect = yes }
+		country_event = FRA_worker_strikes.4
 	}
-	}
-	FRA_landowner_revolt = {
+  }
 
-		priority = 10
-	
-		icon = generic_ignite_civil_war
-	
-		available = {
-			hidden_trigger = { always = no }
-		}
-	
-		days_mission_timeout = 190 
-	
-		fire_only_once = yes 
-	
-		activation = {
-			tag = FRA
-			has_country_flag = FRA_activate_landowner_revolt_flag
-		}
-	
-		visible = {
-			tag = FRA
-			has_country_flag = FRA_activate_landowner_revolt_flag
-			check_variable = {FRA_landowner_revolt_var	 < 0}
-		} 
-	
-		cancel_if_not_visible = yes
-	
-		is_good = yes
-	
-		timeout_effect = {
-			
-		}
-		}
-	FRA_crush_revolting_peasants_in_from = {
-		available = {
-		  tag = FRA
-		  has_completed_focus = FRA_crush_revolting_peasents
-		}
-		state_target = yes
-
-		visible = {
-			tag = FRA
-			has_completed_focus = FRA_crush_revolting_peasents
-		  
-		  FROM = { OR = {  has_state_category = large_town has_state_category = town } is_on_continent = europe}
-		}
-		target_trigger = {
-			FROM = {
-				OR = {  has_state_category = large_town has_state_category = town }
-is_on_continent = europe				is_owned_by = FRA
-			}
-		}
-		cost = 5
-		days_remove = 5
-		on_map_mode = map_and_decisions_view
-		ai_will_do = {
-		  factor = 20
-		  modifier = {
-			has_war = yes
-			factor = 0
-		  }
-		}
-		remove_effect = {
-			add_days_mission_timeout = {
-				mission = FRA_peasent_revolution
-				days = 3
-			}
-			
-		}
-	}
-
-	FRA_reestablish_feudalistic_control_in_from = {
-		available = {
-		  tag = FRA
-		  has_completed_focus = FRA_reestablish_feudalism
-		}
-		state_target = yes
-
-		visible = {
-		  tag = FRA
-		  has_completed_focus = FRA_reestablish_feudalism
-		  FROM = { OR = {has_state_category = city has_state_category = large_city} is_on_continent = europe}
-		}
-		target_trigger = {
-			FROM = {
-				OR = { has_state_category = large_town has_state_category = town }
-is_on_continent = europe				is_owned_by = FRA
-			}
-		}
-		cost = 5
-		days_remove = 5
-		on_map_mode = map_and_decisions_view
-		ai_will_do = {
-		  factor = 20
-		  modifier = {
-			has_war = yes
-			factor = 0
-		  }
-		}
-		remove_effect = {
-			subtract_from_variable = {
-				FRA_peasent_revolt_var = 5
-				tooltip = DECREASE_PEASENT
-			}
-		}
-	}
 }
 
 
