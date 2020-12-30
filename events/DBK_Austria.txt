@@ -562,7 +562,7 @@ country_event = {
 		45 = {
 			add_core_of = CRO
 		}
-		release_puppet = CRO
+		#release_puppet = CRO
 		remove_ideas = {
 			Croat_Support
 		}
@@ -1314,13 +1314,14 @@ country_event = {
 		give_resource_rights = { receiver = AUS state = 679 }
 
 		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
-		news_event = { id = austria.133 hours = 3 } #this event just notifies Austria that they got their way
+		country_event = { id = austria.134 hours = 3 } #this event just notifies Austria that they got their way
+		
 			}
 	}
 
 	option = { # If Romania selects this option, they say no and Austria gets event to get war goal
 		name = austria.132.b #needs to be localized
-		ai_chance = { factor = 35 }
+		ai_chance = { factor = 0 }
 		hidden_effect = {
 			AUS = { country_event = austria.134 days = 1 } #This event will give Austria an event to get a wargoal
 			}
@@ -1358,7 +1359,7 @@ country_event = {
 	option = { # This option will give the war goal
 		name = austria.134.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
+		news_event = austria.133
 	}
 }
 
@@ -2466,12 +2467,12 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = austria_sax_relations.2.a #needs to be localized
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		ai_chance = { factor = 200 } #this factor means the AI will almost always pick this one
 		AUS = {country_event = austria_sax_relations.3}
 	}
 	option = { # This option will give the war goal
 		name = austria_sax_relations.2.b #needs to be localized
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		ai_chance = { factor = 5 } #this factor means the AI will almost always pick this one
 		AUS = {country_event = austria_sax_relations.5}
 	}	
 }
@@ -2496,27 +2497,11 @@ country_event = {
 			autonomous_state =  autonomy_puppet
 			} 
 		}
-		news_event = {id = austria_sax_relations.4}
+		#news_event = {id = austria_sax_relations.4}
 	}	
 }
 
-news_event = {
-	id = austria_sax_relations.4
-	title = austria_sax_relations.4.t
-	desc = austria_sax_relations.4.d
-	picture = GFX_report_event_vienna_award_hungary
-	major = yes
 
-	#fire_only_once = yes   #this means this event can only fire one time
-	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
-
-	option = { # Only one option, just an acknowledgment by the player
-		name = austria_sax_relations.4.a #needs to be localized
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
-	}
-
-}
 
 ###Denies
 country_event = {
@@ -2531,31 +2516,21 @@ country_event = {
 	option = { # This option will give the war goal
 		name = austria_sax_relations.5.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-		news_event = {id = austria_sax_relations.6 days = 1}
+		#news_event = {id = austria_sax_relations.6 days = 1}
 		declare_war_on = {
 			target = SAX
 			type = puppet_wargoal_focus
 		}
+	}
+	option = { # This option will give the war goal
+		name = austria_sax_relations.5.b #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		#news_event = {id = austria_sax_relations.6 days = 1}
+		add_war_support = -0.03
 	}	
 }
 
-news_event = {
-	id = austria_sax_relations.6
-	title = austria_sax_relations.6.t
-	desc = austria_sax_relations.6.d
-	picture = GFX_report_event_vienna_award_hungary
-	major = yes
 
-	#fire_only_once = yes   #this means this event can only fire one time
-	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
-
-	option = { # Only one option, just an acknowledgment by the player
-		name = austria_sax_relations.6.a #needs to be localized
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
-	}
-
-}
 
 
 ###SGC incorpoation

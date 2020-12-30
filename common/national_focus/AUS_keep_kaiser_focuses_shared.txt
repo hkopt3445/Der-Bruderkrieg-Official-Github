@@ -1893,6 +1893,11 @@ shared_focus = {
   bypass = {
     
   }
+  available = {
+    SAX = {
+      is_puppet_of = AUS
+    }
+  }
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -3819,7 +3824,7 @@ shared_focus = {
   text = AUS_mediterranean_defense_pact
   prerequisite = { focus = AUS_improve_relations_ottomans }
   x = 0
-  y = 2
+  y = 1
   relative_position_id = AUS_improve_relations_ottomans
   cost = 5
   ai_will_do = {
@@ -3838,10 +3843,10 @@ shared_focus = {
   id = AUS_request_arabian_oilfields
   icon = GFX_goal_unkown
   text = AUS_request_arabian_oilfields
-  prerequisite = { focus = AUS_improve_relations_ottomans }
+  prerequisite = { focus = AUS_mediterranean_defense_pact }
   x = -1
   y = 1
-  relative_position_id = AUS_improve_relations_ottomans
+  relative_position_id = AUS_mediterranean_defense_pact
   cost = 5
   ai_will_do = {
     factor = 20
@@ -3904,7 +3909,7 @@ shared_focus = {
       create_faction = AUS_central_powers
     }
 
-    add_war_support = 0.1
+    add_war_support = 0.03
   }
 }
 
@@ -3933,10 +3938,13 @@ shared_focus = {
   id = AUS_invite_greeks
   icon = GFX_Diplo_Greece
   text = AUS_invite_greeks
-  prerequisite = { focus = AUS_reform_central_powers }
-  x = -3
+  prerequisite = { focus = AUS_request_arabian_oilfields }
+  prerequisite = {
+    focus = AUS_reform_central_powers
+  }
+  x = 0
   y = 1
-  relative_position_id = AUS_reform_central_powers
+  relative_position_id = AUS_request_arabian_oilfields
   cost = 5
   ai_will_do = {
     factor = 20
@@ -3976,10 +3984,10 @@ shared_focus = {
   id = AUS_invite_ottomans
   icon = GFX_Diplo_Ottoman
   text = AUS_invite_ottomans
-  prerequisite = { focus = AUS_reform_central_powers focus = AUS_mediterranean_defense_pact}
-  x = -1
+  prerequisite = { focus = AUS_reform_central_powers focus = AUS_request_arabian_oilfields}
+  x = 2
   y = 1
-  relative_position_id = AUS_reform_central_powers
+  relative_position_id = AUS_request_arabian_oilfields
   cost = 5
   ai_will_do = {
     factor = 20
