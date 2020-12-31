@@ -392,7 +392,7 @@ country_event = {
 add_namespace = FRA_worker_strikes
 
 
-#Workers Attack Infrastructure in [Global Event Target]
+#Workers Strike in Infrastructure in [Global Event Target]
 country_event = {
 	id = FRA_worker_strikes.1
 	title = FRA_worker_strikes.1.t
@@ -413,7 +413,7 @@ country_event = {
 	}
 }
 
-#Workers Attack Civ in [Global Event Target]
+#Workers Strike in Civ in [Global Event Target]
 country_event = {
 	id = FRA_worker_strikes.2
 	title = FRA_worker_strikes.2.t
@@ -434,7 +434,7 @@ country_event = {
 	}
 }
 
-#Workers Attack Mil Fac in [Global Event Target]
+#Workers Strike in Mil Fac in [Global Event Target]
 country_event = {
 	id = FRA_worker_strikes.3
 	title = FRA_worker_strikes.3.t
@@ -468,6 +468,100 @@ country_event = {
 		name = FRA_worker_strikes.4.a
 		add_stability = -0.03
 		add_political_power = -20
+		set_country_flag = FRA_strikes_begin_monthly
+	}
+}
+
+
+###worker strikes get worse
+country_event = {
+	id = FRA_worker_strikes.5
+	title = FRA_worker_strikes.5.t
+	desc = FRA_worker_strikes.5.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_worker_strikes.5.a
+		add_stability = -0.03
+		add_political_power = -20
+		set_country_flag = FRA_strikes_begin_two_weeks
+	}
+}
+
+###worker strikes get really bad
+country_event = {
+	id = FRA_worker_strikes.6
+	title = FRA_worker_strikes.6.t
+	desc = FRA_worker_strikes.6.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_worker_strikes.6.a
+		add_stability = -0.03
+		add_political_power = -20
+		set_country_flag = FRA_strikes_begin_weekly
+	}
+}
+
+##The Vienna Crash hits france
+country_event = {
+	id = FRA_worker_strikes.7
+	title = FRA_worker_strikes.7.t
+	desc = FRA_worker_strikes.7.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_worker_strikes.7.a
 		
+		if = {
+			limit = {
+				has_country_flag = FRA_strikes_begin_monthly
+			}
+			clr_country_flag = FRA_strikes_begin_monthly
+			country_event =  FRA_worker_strikes.5
+		}
+		if = {
+			limit = {
+				has_country_flag = FRA_strikes_begin_two_weeks
+			}
+			clr_country_flag = FRA_strikes_begin_two_weeks
+			country_event =  FRA_worker_strikes.6
+		}
+	}
+}
+
+
+##Conservative Vic causes rowdier elections
+country_event = {
+	id = FRA_worker_strikes.8
+	title = FRA_worker_strikes.8.t
+	desc = FRA_worker_strikes.8.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_worker_strikes.8.a
+		
+		if = {
+			limit = {
+				has_country_flag = FRA_strikes_begin_monthly
+			}
+			clr_country_flag = FRA_strikes_begin_monthly
+			country_event =  FRA_worker_strikes.5
+		}
+		if = {
+			limit = {
+				has_country_flag = FRA_strikes_begin_two_weeks
+			}
+			clr_country_flag = FRA_strikes_begin_two_weeks
+			country_event =  FRA_worker_strikes.6
+		}
 	}
 }
