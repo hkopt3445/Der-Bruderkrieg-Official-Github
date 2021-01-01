@@ -2850,7 +2850,7 @@ AUS_managing_bavaria_adminsitrative_decisions = {
 		icon = generic_ignite_civil_war
 	
 		available = {
-			
+			hidden_trigger = {always = no}
 		}
 	
 		days_mission_timeout = 600
@@ -2879,6 +2879,27 @@ AUS_managing_bavaria_adminsitrative_decisions = {
 		
 	}
 
+	AUS_blank_decision_1 = {
+
+
+		available = {
+			always = no
+		}
+		visible = {
+			
+		}
+		cost = 0
+		days_remove = 0
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+		}
+		complete_effect = {
+			
+		}
+	}
 
 
 	AUS_nationalist_decisions_sgc = {
@@ -3207,6 +3228,35 @@ AUS_managing_bavaria_adminsitrative_decisions = {
 			#add state modifier for negative factory output
 		}
 	}
+	AUS_marxist_book_burnings_in = {
+
+
+		available = {
+
+		}
+		visible = {
+
+		}
+		cost = 15
+		days_remove = 50
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			current_sgc_selected_admin_state ={
+				add_to_variable = {
+					rowdiness = -2
+				}
+				
+			}
+			GPU = {
+				add_political_power = -10
+			}
+		}
+		complete_effect = {
+			#add state modifier for negative factory output
+		}
+	}
 
 	AUS_a_stable_sgc = {
 		available = {
@@ -3265,7 +3315,7 @@ AUS_managing_bavaria_court_factionalism = {
 		icon = generic_ignite_civil_war
 	
 		available = {
-		
+			hidden_trigger = { always = no }
 		}
 	
 		days_mission_timeout = 150
