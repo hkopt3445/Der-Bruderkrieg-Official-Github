@@ -203,13 +203,13 @@ FRA_worker_strikes = {
 	
 
 	timeout_effect = {
-		country_event = FRA_worker_strikes.4
+		
 
 		set_variable = {
 			france_strikes_var = -50
 		}
 		calc_french_strikes_vars = yes
-		
+		country_event = FRA_worker_strikes.4
 	}
   }
 
@@ -236,6 +236,10 @@ FRA_the_issue_of_refugees = {
 
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_emperor_approve_var > 55}
+			}
 		}
 
 		complete_effect = {
@@ -266,6 +270,10 @@ FRA_the_issue_of_refugees = {
 
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_emperor_approve_var > 55}
+			}
 		}
 
 		complete_effect = {
@@ -301,6 +309,13 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				OR = {
+					check_variable = {FRA_senate_var > 50}
+					check_variable = {FRA_chamber_of_deputies_var > 50}
+				}
+			}
 		}
 	
 		complete_effect = {
@@ -330,6 +345,13 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				OR = {
+					check_variable = {FRA_senate_var > 50}
+					check_variable = {FRA_chamber_of_deputies_var > 50}
+				}
+			}
 		}
 	
 		complete_effect = {
@@ -362,6 +384,13 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				OR = {
+					check_variable = {FRA_senate_var > 50}
+					check_variable = {FRA_chamber_of_deputies_var > 50}
+				}
+			}
 		}
 	
 		complete_effect = {
@@ -391,6 +420,13 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				OR = {
+					check_variable = {FRA_senate_var > 50}
+					check_variable = {FRA_chamber_of_deputies_var > 50}
+				}
+			}
 		}
 	
 		complete_effect = {
@@ -423,6 +459,10 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_doctrinaire_party_support > 60}
+			}
 		}
 	
 		complete_effect = {
@@ -452,6 +492,10 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_doctrinaire_party_support > 60}
+			}
 		}
 	
 		complete_effect = {
@@ -485,6 +529,10 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_leftist_party_support > 30}
+			}
 		}
 	
 		complete_effect = {
@@ -514,6 +562,10 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_leftist_party_support > 30}
+			}
 		}
 	
 		complete_effect = {
@@ -546,6 +598,10 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_business_leaders > 70}
+			}
 		}
 	
 		complete_effect = {
@@ -575,6 +631,10 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_business_leaders > 70}
+			}
 		}
 	
 		complete_effect = {
@@ -608,6 +668,10 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_workers_support > 30}
+			}
 		}
 	
 		complete_effect = {
@@ -637,6 +701,10 @@ FRA_the_issue_of_refugees = {
 	
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				check_variable = {FRA_workers_support > 30}
+			}
 		}
 	
 		complete_effect = {
@@ -663,7 +731,7 @@ FRA_the_issue_of_refugees = {
 			check_variable = {FRA_senate_var > 50}
 			check_variable = {FRA_chamber_of_deputies_var > 50}
 			check_variable = {FRA_doctrinaire_party_support > 30}
-			check_variable = {FRA_business_leaders > 33}
+			NOT = { check_variable = {FRA_business_leaders < 30} }
 			check_variable = {FRA_workers_support > 50}
 		}
 		}
@@ -703,9 +771,9 @@ FRA_the_issue_of_refugees = {
 			check_variable = {FRA_emperor_approve_var > 55}
 			OR = { check_variable = {FRA_senate_var > 50}
 			check_variable = {FRA_chamber_of_deputies_var > 50}}
-			NOT = {
-				check_variable = {FRA_business_leaders > 30}
-			}
+			check_variable = {FRA_business_leaders > 70}
+			check_variable = {FRA_doctrinaire_party_support > 60}
+			
 			check_variable = {FRA_leftist_party_support > 30}
 			check_variable = {FRA_workers_support > 30}
 		}
@@ -718,7 +786,7 @@ FRA_the_issue_of_refugees = {
 	
 		cost = 5 
 	
-		fire_only_once = no
+		fire_only_once = yes
 	
 		ai_will_do = {
 			factor = 1000
@@ -728,7 +796,7 @@ FRA_the_issue_of_refugees = {
 		}
 	
 		remove_effect = {	
-		complete_national_focus = FRA_the_bill_was_approved
+		complete_national_focus = FRA_the_bill_was_rejected
 		}
 	}
 }

@@ -139,7 +139,7 @@ country_event = {
 	option = {
 		name = USA_long_events.4.a
         
-		
+		add_political_power = 50
 	}
 }
 
@@ -193,6 +193,22 @@ country_event = {
 	
 	option = {
 		name = USA_long_events.7.a
+        
+		
+	}
+}
+
+##equality to all americans!
+country_event = {
+	id = USA_long_events.8
+	title = USA_long_events.8.t
+	desc = USA_long_events.8.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_long_events.8.a
         
 		
 	}
@@ -346,15 +362,47 @@ country_event = {
 	option = {
 		name = USA_wallace_events.2.a
         
-		
+		for_each_loop = {
+			array = USA.dustbowl_states
+			THIS = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	option = {
 		name = USA_wallace_events.2.b
-        
+		add_equipment_to_stockpile = { type = support_equipment amount = -100 }
+		add_timed_idea = {
+			idea = USA_free_seeds
+			days = 365
+		}
 		
 	}
 	option = {
 		name = USA_wallace_events.2.c
+        add_equipment_to_stockpile = { type = support_equipment amount = -200 }
+		add_timed_idea = {
+			idea = USA_food_for_starving_farmers
+			days = 365
+		}
+	}
+}
+
+###wallace plan conclusion
+country_event = {
+	id = USA_wallace_events.3
+	title = USA_wallace_events.3.t
+	desc = USA_wallace_events.3.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_wallace_events.3.a
         
 		
 	}
