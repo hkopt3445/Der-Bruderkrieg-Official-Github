@@ -769,6 +769,144 @@ country_event = {
 	}
  }
 
+add_namespace = militia_revolts
+
+ country_event = {
+	id = militia_revolts.1  # Freikorps Revolt
+	title = militia_revolts.1.t
+	desc = militia_revolts.1.d
+	#picture =
+	
+	trigger = {
+		if = {
+			limit = {
+			check_variable = { var = freikorps_support value = 1 compare = less_than_or_equals }
+			check_variable = { var = state_influence value = 10 compare = less_than_or_equals }
+			}
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = militia_revolts.1.a
+		ai_chance = { factor = 1000 }
+		activate_mission = GER_freikorps_revolt_imminent
+		}
+	}
+ country_event = {
+	id = militia_revolts.2  # Aftermath of Freikorps Revolt
+	title = militia_revolts.2.t
+	desc = militia_revolts.2.d
+	#picture =
+	
+	trigger = {
+		
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = militia_revolts.2.a
+		ai_chance = { factor = 1000 }
+		}
+	}
+ country_event = {
+	id = militia_revolts.3  # The Freikorps Revolt!
+	title = militia_revolts.3.t
+	desc = militia_revolts.3.d
+	#picture =
+	
+	trigger = {
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = militia_revolts.3.a
+		ai_chance = { factor = 1000 }
+			FRE = {
+				transfer_state = 188
+				transfer_state = 763
+				transfer_state = 5
+				transfer_state = 85
+				transfer_state = 86
+				declare_war_on = { type = annex_everything    target = FROM }
+			}
+		}
+	}
+
+	country_event = {
+		id = militia_revolts.4  # SA Revolt
+		title = militia_revolts.4.t
+		desc = militia_revolts.4.d
+		#picture =
+		
+		trigger = {
+			if = {
+				limit = {
+				check_variable = { var = ss_support value = 1 compare = less_than_or_equals }
+				check_variable = { var = state_influence value = 10 compare = less_than_or_equals }
+				}
+			}
+		}
+	
+		fire_only_once = yes
+		is_triggered_only = yes
+	
+		option = {
+			name = militia_revolts.4.a
+			ai_chance = { factor = 1000 }
+			activate_mission = GER_sa_revolt_imminent
+			}
+		}
+	 country_event = {
+		id = militia_revolts.5  # Aftermath of SA Revolt
+		title = militia_revolts.5.t
+		desc = militia_revolts.5.d
+		#picture =
+		
+		trigger = {
+			
+		}
+	
+		fire_only_once = yes
+		is_triggered_only = yes
+	
+		option = {
+			name = militia_revolts.5.a
+			ai_chance = { factor = 1000 }
+			}
+		}
+	 country_event = {
+		id = militia_revolts.6  # The SA Revolt!
+		title = militia_revolts.6.t
+		desc = militia_revolts.6.d
+		#picture =
+		
+		trigger = {
+		}
+	
+		fire_only_once = yes
+		is_triggered_only = yes
+	
+		option = {
+			name = militia_revolts.6.a
+			ai_chance = { factor = 1000 }
+				SAR = {
+					transfer_state = 61
+					transfer_state = 62
+					transfer_state = 63
+					transfer_state = 68
+					transfer_state = 950
+					declare_war_on = { type = annex_everything    target = FROM }
+				}
+			}
+		}	
+
 
  add_namespace = prussia_easter_egg_meme_events
  

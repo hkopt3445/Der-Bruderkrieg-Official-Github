@@ -336,13 +336,13 @@ GER_ss_waffen_cat = {
 	
 		complete_effect = {
 			add_ideas = {
-				GER_workplace_reforms
+				GER_workplace_reforms_idea
 			}
 		}
 
 		remove_effect = {
 			remove_ideas = {
-				GER_workplace_reforms
+				GER_workplace_reforms_idea
 			}
 			add_to_variable = { ss_loyalty = 5 }
 			custom_effect_tooltip = GER_workplace_reforms_tt
@@ -574,6 +574,170 @@ GER_ss_waffen_cat = {
 			subtract_from_variable = { ss_loyalty = 5 }
 			subtract_from_variable = { ss_power = 5 }
 			custom_effect_tooltip = GER_infiltrate_radical_regiments_tt
+		}
+	}
+	GER_freikorps_revolt_imminent = {
+		allowed = { tag = GER }
+		available = {
+			has_country_flag = invest_pp
+			has_country_flag = invest_manpower
+		}
+		activation = {	always = no	}
+		days_mission_timeout = 20
+		is_good = no
+		selectable_mission = no
+		timeout_effect = {
+			if = {
+				limit = {
+					OR = {
+					has_country_flag = invest_pp
+					has_country_flag = invest_manpower
+					}
+				}
+				activate_mission = GER_freikorps_influencing_states
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = invest_pp has_country_flag = invest_manpower }
+				}
+				country_event = militia_revolts.3
+			}
+		}
+		complete_effect = {
+			clr_country_flag = chose_wermacht
+			clr_country_flag = chose_sa
+			custom_effect_tooltip = GER_freikorps_revolt_tt
+			complete_national_focus = GER_negotiate_with_rohm
+			remove_ideas = GER_Clash_Of_The_Militias
+			country_event = militia_revolts.2
+		}
+	}
+	GER_freikorps_influencing_states = {
+		allowed = { tag = GER }
+		available = {
+			always = no
+		}
+		activation = { always = no }
+		days_mission_timeout = 4
+		is_good = no
+		selectable_mission = no
+		timeout_effect = {
+			country_event = militia_revolts.3
+		}
+		complete_effect = {
+			country_event = militia_revolts.3
+		}
+	}
+	GER_invest_pp = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+		OR = {
+			has_country_flag = chose_wermacht
+			has_country_flag = chose_sa
+		}
+		OR = {
+			has_active_mission = GER_freikorps_revolt_imminent
+			has_active_mission = GER_sa_revolt_imminent
+			}
+		}
+
+		visible = {
+			OR = {
+				has_active_mission = GER_freikorps_revolt_imminent
+				has_active_mission = GER_sa_revolt_imminent
+				}
+		}
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 1
+		complete_effect = {
+			set_country_flag = invest_pp
+			add_political_power = -250
+		} 
+	}
+	GER_invest_manpower = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+		OR = {
+			has_country_flag = chose_wermacht
+			has_country_flag = chose_sa
+		}
+		OR = {
+			has_active_mission = GER_freikorps_revolt_imminent
+			has_active_mission = GER_sa_revolt_imminent
+			}	
+		}
+
+		visible = {
+			OR = {
+				has_active_mission = GER_freikorps_revolt_imminent
+				has_active_mission = GER_sa_revolt_imminent
+			}
+		}
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 1
+		complete_effect = {
+			set_country_flag = invest_manpower
+			add_manpower = -25000
+		} 
+	}
+	GER_sa_revolt_imminent = {
+		allowed = { tag = GER }
+		available = {
+			has_country_flag = invest_pp
+			has_country_flag = invest_manpower
+		}
+		activation = {	always = no	}
+		days_mission_timeout = 20
+		is_good = no
+		selectable_mission = no
+		timeout_effect = {
+			if = {
+				limit = {
+					OR = {
+					has_country_flag = invest_pp
+					has_country_flag = invest_manpower
+					}
+				}
+				activate_mission = GER_sa_influencing_states
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = invest_pp has_country_flag = invest_manpower }
+				}
+				country_event = militia_revolts.6
+			}
+		}
+		complete_effect = {
+			clr_country_flag = chose_wermacht
+			clr_country_flag = chose_sa
+			custom_effect_tooltip = GER_sa_revolt_tt
+			complete_national_focus = GER_reintegrate_the_freikorps
+			remove_ideas = GER_Clash_Of_The_Militias
+			country_event = militia_revolts.5
+		}
+	}
+	GER_sa_influencing_states = {
+		allowed = { tag = GER }
+		available = {
+			always = no
+		}
+		activation = { always = no }
+		days_mission_timeout = 4
+		is_good = no
+		selectable_mission = no
+		timeout_effect = {
+			country_event = militia_revolts.6
+		}
+		complete_effect = {
+			country_event = militia_revolts.6
 		}
 	}
 }
