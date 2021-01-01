@@ -2926,6 +2926,32 @@ AUS_managing_bavaria_adminsitrative_decisions = {
 		}
 	}
 
+	AUS_crackdown_on_pan_germanic_sympathizers_in = {
+
+
+		available = {
+
+		}
+		visible = {
+
+		}
+		cost = 15
+		days_remove = 50
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			current_sgc_selected_admin_state ={
+				add_to_variable = {
+					rowdiness = -2
+				}
+			}
+		}
+		complete_effect = {
+			#add state modifier for negative factory output
+		}
+	}
+
 	AUS_anti_prussian_propoganda_in = {
 
 
@@ -3179,7 +3205,53 @@ AUS_managing_bavaria_adminsitrative_decisions = {
 		}
 	}
 
+	AUS_a_stable_sgc = {
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SGC_HAS_BEEN_STABILIZED
+				50 = {
+					check_variable = { var = rowdiness value = 5 compare = less_than_or_equals  }
+				}
 
+				##Baden
+				954 = {
+					check_variable = { var = rowdiness value = 5 compare = less_than_or_equals  }
+				}
+
+				##Franken
+				54 = {
+					check_variable = { var = rowdiness value = 5 compare = less_than_or_equals  }
+				}
+
+				##Niederbayern
+				53 = {
+					check_variable = { var = rowdiness value = 5 compare = less_than_or_equals  }
+				}
+
+				##Hessen
+				55 = {
+					check_variable = { var = rowdiness value = 5 compare = less_than_or_equals  }
+				}
+			}
+		}
+		visible = {
+			
+		}
+		cost = 0
+		days_remove = 0
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+		}
+		complete_effect = {
+			GPU = {
+				remove_ideas = GPU_unstable_nation
+			}
+			set_country_flag = SGC_has_been_stabilized
+		}
+	}
 }
 
 AUS_managing_bavaria_court_factionalism = {
@@ -3211,8 +3283,11 @@ AUS_managing_bavaria_court_factionalism = {
 		is_good = yes
 	 
 		timeout_effect = {
-		
-	
+			GPU = {
+				SGC_court_coup_effect = yes
+				remove_ideas = GPU_court_factionalism
+			}
+			
 
 		}
 	}

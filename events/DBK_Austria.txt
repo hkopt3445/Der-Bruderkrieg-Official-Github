@@ -2420,13 +2420,32 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = austria_military_events.4.a #needs to be localized
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-	
+		ai_chance = { factor = 100 } #this factor me	ans the AI will almost always pick this one
+		set_country_flag = franz_ferdinand_stays
+		unlock_national_focus = AUS_reinforce_the_sgc_garrison
 	}
 	option = { # This option will give the war goal
 		name = austria_military_events.4.b #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-	
+		unlock_national_focus = AUS_recalling_franz_ferdinand
+		kill_country_leader = yes
+			add_popularity = {
+				popularity = 0.25
+				ideology = neutrality
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			create_country_leader = {
+				name = "Rupprecht, Duke of Bavaria"
+				desc = ""
+				picture = "gfx/leaders/Prince_Ruprect.dds"
+				expire = "1965.1.1"
+				ideology = despotic
+				traits = {
+					#
+				}
+			}
 	}	
 }
 
@@ -2649,6 +2668,133 @@ news_event = {
 	}
 
 }
+
+add_namespace=  southgermanconfederationcoup
+
+###Rupprecht Coup
+country_event = {
+	id = southgermanconfederationcoup.1
+	title = southgermanconfederationcoup.1.t
+	desc = southgermanconfederationcoup.1.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = southgermanconfederationcoup.1.a
+		ai_chance = { factor = 1}
+		AUS = {
+			add_war_support = -0.1
+		}
+		hidden_effect = {
+			kill_country_leader = yes
+			add_popularity = {
+				popularity = 0.25
+				ideology = neutrality
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			create_country_leader = {
+				name = "Rupprecht, Duke of Bavaria"
+				desc = ""
+				picture = "gfx/leaders/Prince_Ruprect.dds"
+				expire = "1965.1.1"
+				ideology = despotic
+				traits = {
+					#
+				}
+			}
+
+		}
+	}
+}
+
+country_event = {
+	id = southgermanconfederationcoup.2
+	title = southgermanconfederationcoup.2.t
+	desc = southgermanconfederationcoup.2.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = southgermanconfederationcoup.2.a
+		ai_chance = { factor = 1}
+		declare_war_on = {
+			target = GPU
+			type = puppet_wargoal_focus
+		}
+	}
+	option = {
+		name = southgermanconfederationcoup.2.b
+		ai_chance = { factor = 1}
+		add_political_power = -50
+	}
+}
+
+###Von Rundstent Coup
+country_event = {
+	id = southgermanconfederationcoup.3
+	title = southgermanconfederationcoup.3.t
+	desc = southgermanconfederationcoup.3.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = southgermanconfederationcoup.3.a
+		ai_chance = { factor = 1}
+		AUS = {
+			add_war_support = -0.1
+		}
+		hidden_effect = {
+			kill_country_leader = yes
+			add_popularity = {
+				popularity = 0.25
+				ideology = ultranationalism
+			}
+			set_politics = {
+				ruling_party = ultranationalism
+			}
+			create_country_leader = {
+				name = "Count Gerd von Rundstedt"
+				desc = ""
+				picture = "gfx/leaders/vonrundstent.dds"
+				expire = "1965.1.1"
+				ideology = ultranationalist
+				traits = {
+					#
+				}
+			}
+
+		}
+	}
+}
+
+country_event = {
+	id = southgermanconfederationcoup.5
+	title = southgermanconfederationcoup.5.t
+	desc = southgermanconfederationcoup.5.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = southgermanconfederationcoup.5.a
+		ai_chance = { factor = 1}
+		GPU = {
+			add_stability = 0.05
+			add_political_power = 50
+
+		}
+	}
+}
+
 
 add_namespace = austrianimperialelections
 
