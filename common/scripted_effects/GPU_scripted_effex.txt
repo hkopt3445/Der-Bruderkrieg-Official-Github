@@ -53,7 +53,49 @@ calc_court_influence = {
 	}
 }
 
-opposition_coup_sgc_outcome = {
-	
+SGC_court_coup_effect = {
+	if = {
+		limit = {
+			check_variable = { prince_rupprecht_influence > von_rundstent_influence }
+			check_variable = { prince_rupprecht_influence > franz_ferdinand_influence }
+		}
+		country_event = southgermanconfederationcoup.1
+	}
+	if = {
+		limit = {
+			check_variable = { prince_rupprecht_influence = von_rundstent_influence }
+			check_variable = { prince_rupprecht_influence > franz_ferdinand_influence }
+		}
+		country_event = southgermanconfederationcoup.1
+	}
+	if = {
+		limit = {
+			check_variable = { von_rundstent_influence > prince_rupprecht_influence }
+			check_variable = { von_rundstent_influence > franz_ferdinand_influence }
+		}
+		country_event = southgermanconfederationcoup.3
+	}
+
+	if = {
+		limit = {
+			check_variable = { franz_ferdinand_influence > prince_rupprecht_influence }
+			check_variable = { franz_ferdinand_influence > von_rundstent_influence }
+		}
+		country_event = southgermanconfederationcoup.5
+	}
+	if = {
+		limit = {
+			check_variable = { franz_ferdinand_influence = prince_rupprecht_influence }
+			check_variable = { franz_ferdinand_influence > von_rundstent_influence }
+		}
+		country_event = southgermanconfederationcoup.5
+	}
+	if = {
+		limit = {
+			check_variable = { franz_ferdinand_influence > prince_rupprecht_influence }
+			check_variable = { franz_ferdinand_influence = von_rundstent_influence }
+		}
+		country_event = southgermanconfederationcoup.5
+	}
 }
 
