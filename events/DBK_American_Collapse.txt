@@ -17,6 +17,8 @@ country_event = {
 		TEX = {
 			transfer_state = 375
 			transfer_state = 1043
+			add_state_core = 375
+			add_state_core = 1043
 			load_oob = "TEX_1936"
 		}
 		375 = {
@@ -71,6 +73,7 @@ country_event = {
 	immediate = {
 		TEX = {
 			transfer_state = 1089
+			add_state_core = 1089
 			1089 = {
 				create_unit = {
 					division = "name = \"Guymon Militia\" division_template = \"Militia\" start_experience_factor = 0.1 start_equipment_factor = 0.5" 
@@ -105,27 +108,31 @@ country_event = {
 	#picture = 
 	
 	is_triggered_only = yes
-	trigger = {
-		tag = TEX 
-		375 = {
-			is_fully_controlled_by = TEX
-		}
-		1088 = {
-			is_fully_controlled_by = TEX 
-		}
-		1043 = {
-			is_fully_controlled_by = TEX
-		}
-		1089 = {
-			is_fully_controlled_by = TEX
-		}
-	}
+	#trigger = {
+	#	tag = TEX 
+	#	375 = {
+	#		is_fully_controlled_by = TEX
+	#	}
+	#	1088 = {
+	#		is_fully_controlled_by = TEX 
+	#	}
+	#	1043 = {
+	#		is_fully_controlled_by = TEX
+	#	}
+	#	1089 = {
+	#		is_fully_controlled_by = TEX
+	#	}
+	#}
 	immediate = {
-		USA = {
-			white_peace = {
-				tag = TEX
-				message = "America has recognized the Provisional Government of Texas and has ended the conflict."
+		hidden_effect = {
+			USA = {
+				white_peace = {
+					tag = TEX
+					message = "America has recognized the Provisional Government of Texas and has ended the conflict."
+				}
 			}
+			transfer_state = 1088
+			add_state_core = 1088
 		}
 	}
 	option = {
