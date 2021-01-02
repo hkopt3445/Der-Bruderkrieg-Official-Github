@@ -37,9 +37,9 @@
 	icon = GFX_focus_research
 	text = FRA_expand_the_sorbonne_university
 	#prerequisite = { focus = FRA_the_state_of_the_nation }
-	x = 13 
+	x = 19 
 	y = 7
-	#relative_position_id = FRA_ARMEE_FRANCAISE
+	relative_position_id = FRA_solving_frances_problems
 	cost = 5
 	ai_will_do = {
 	  factor = 1
@@ -1090,7 +1090,7 @@
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_goal_FRA_conservative_vic
     text = FRA_CONSERVATIVES_PREVAIL
-    x = -17
+    x = -20
     y = 0
     #relative_position_id = FRA_national_development_bureau
     cost = 0
@@ -1131,7 +1131,7 @@
     relative_position_id = FRA_NOBLE_RULE
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1162,7 +1162,7 @@
     relative_position_id = FRA_DOCTRINAIRE_VIC
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1186,7 +1186,7 @@
     relative_position_id = FRA_DOCTRINAIRE_RIGHT
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1195,6 +1195,10 @@
     completion_reward = {
       remove_ideas = {
 				Constitution_of_1927
+			}
+
+			hidden_effect = {
+				news_event = francestart.8
 			}
     }
   }
@@ -1209,7 +1213,7 @@
     relative_position_id = FRA_RESTORE_1852
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1233,7 +1237,7 @@
     relative_position_id = FRA_LE_EMPEROR
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1262,6 +1266,21 @@
 			set_politics = {
 				ruling_party = neutrality
 			}
+
+			hidden_effect = {
+			create_country_leader = {
+				name = "Napoleon VI"
+				desc = "NAPOELEON_DESC"
+				picture = "gfx/leaders/NapoleonVIPortrait.dds"
+				expire = "1965.1.1"
+				ideology = despotic
+				traits = {
+					napoleon_ancestor
+					
+				}
+			}
+		}
+			
     }
   }
 
@@ -1281,7 +1300,7 @@
 	}
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1310,7 +1329,7 @@
     relative_position_id = FRA_DOCTRINAIRE_LEFT
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
 		available = {
@@ -1330,6 +1349,20 @@
 			set_politics = {
 				ruling_party = democratic_conservatism
 			}
+
+			hidden_effect = {
+				create_country_leader = {
+					name = "Napoleon VI"
+					desc = "NAPOELEON_DESC"
+					picture = "gfx/leaders/NapoleonVIPortrait.dds"
+					expire = "1965.1.1"
+					ideology = despotic
+					traits = {
+						napoleon_ancestor
+						
+					}
+				}
+			}
     }
   }
 
@@ -1343,7 +1376,7 @@
     relative_position_id = FRA_KEEP_1827
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1352,6 +1385,11 @@
     completion_reward = {
       add_ideas = {
 				Rex_Regnat
+			}
+
+			add_popularity  = {
+				ideology = democratic_conservatism
+				popularity = 0.08
 			}
     }
   }
@@ -1366,7 +1404,7 @@
     relative_position_id = FRA_REX_REGNAT
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1375,6 +1413,11 @@
     completion_reward = {
       add_ideas = {
 				Lafayette_Dream
+			}
+
+			add_popularity  = {
+				ideology = democratic_conservatism
+				popularity = 0.05
 			}
     }
   }
@@ -1930,7 +1973,7 @@
     relative_position_id = FRA_MILITARY_GOVERNMENT
     cost = 1
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1953,7 +1996,7 @@
     relative_position_id = FRA_FASCIST_VIC
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -1987,7 +2030,7 @@
     relative_position_id = FRA_CAGOULE_CABINET
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -2011,7 +2054,7 @@
     relative_position_id = FRA_END_CONSTITUTIONALISM
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 		completion_reward = {
       
@@ -2031,7 +2074,7 @@
     relative_position_id = FRA_VIVE_LE_FRANCE
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 	completion_reward = {
 		add_ideas = FRA_cult_of_napoleon
@@ -2049,7 +2092,7 @@
     relative_position_id = FRA_VIVE_LE_FRANCE
     cost = 5
     ai_will_do = {
-      factor = 20
+      factor = 2000
     }
 
     available_if_capitulated = yes
@@ -2076,7 +2119,7 @@
 	}
 	cost = 5
 	ai_will_do = {
-		factor = 20
+		factor = 2000
 	}
 
 	available_if_capitulated = yes
@@ -2417,7 +2460,7 @@
 		relative_position_id = FRA_CONSERVATIVES_PREVAIL
 		cost = 5
 		ai_will_do = {
-			factor = 20
+			factor = 2000
 		}
 
 		available_if_capitulated = yes
@@ -2435,7 +2478,7 @@
 		icon = GFX_goal_Focus_Peasant_Rebellion
 		text = FRA_solving_frances_problems
 		#prerequisite = { focus = FRA_announce_imperial_election }
-		x = -5
+		x = -2
 		y = 0
 	#	relative_position_id = FRA_announce_imperial_election
 		cost = 2
@@ -2452,7 +2495,7 @@
 	
 	  shared_focus = { 
 		id = FRA_crush_revolting_peasents
-		icon = GFX_goal_landlordism
+		icon = GFX_goal_emanc_name
 		text = FRA_crush_revolting_peasents
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
 		prerequisite = {focus = FRA_solving_frances_problems}
@@ -2473,7 +2516,7 @@
 	
 	  shared_focus = { 
 		id = FRA_reestablish_feudalism
-		icon = GFX_goal_emanc_name
+		icon = GFX_goal_landlordism
 		text = FRA_reestablish_feudalism
 		prerequisite = { focus = FRA_solving_frances_problems}
 		x = -3
@@ -3036,7 +3079,7 @@
 		relative_position_id = FRA_AUTOCRACY
 		cost = 5
 		ai_will_do = {
-			factor = 20 
+			factor = 9000 
 		}
 		available = {
 			custom_trigger_tooltip = {
@@ -3069,7 +3112,7 @@
 		relative_position_id = FRA_AUTOCRACY
 		cost = 5
 		ai_will_do = {
-			factor = 20
+			factor = 2000
 		}
 
 		available = {
@@ -3102,7 +3145,7 @@
 		
 		cost = 5
 		ai_will_do = {
-			factor = 20
+			factor = 2000
 		}
 
 		available_if_capitulated = yes
@@ -3126,7 +3169,7 @@
 		relative_position_id = FRA_MILITARY_HIEARCHY
 		cost = 5
 		ai_will_do = {
-			factor = 20
+			factor = 2000
 		}
 
 		available_if_capitulated = yes
@@ -3549,59 +3592,92 @@
 			set_country_flag = chose_napoleon_over_petain
 		}
 	}
+
+
+	##redone SCW tree
+
+
+	##will be completed when the Spanish Civil War starts
 	shared_focus = {
-		id = FRA_SPAIN_IS_BROKEN
-		icon = GFX_focus_intervention_spain_nationalists
-		text = FRA_SPAIN_IS_BROKEN
-		#prerequisite = { focus = FRA_PATH_AGGRESSION }
-		x = -26
-		y = 8
-		#relative_position_id = FRA_PATH_AGGRESSION
+		id = FRA_spain_is_broken
+		icon = unkown
+		text = FRA_spain_is_broken
+		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = -11
+		y = 0
+		#relative_position_id = FRA_MILITARY_GOVERNMENT
 		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SPN
-				}
-				FRA = {
-					has_war_with = SPN
-				}
-			}
+		available = {
+			always = no
 		}
+		
 
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			SPN = {country_event = {id = supplies.2}}
+			
 		}
 	}
+	shared_focus = {
+		id = FRA_cboosing_a_side
+		icon = unkown
+		text = FRA_cboosing_a_side
+		prerequisite = { focus = FRA_spain_is_broken }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = -1
+		y = 1
+		relative_position_id = FRA_spain_is_broken
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			always = no
+		}
+		
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
 
 	shared_focus = {
 		id = FRA_SUPPLY_NATIONALIST
 		icon = GFX_focus_intervention_spain_nationalists
 		text = FRA_SUPPLY_NATIONALIST
-		prerequisite = { focus = FRA_SPAIN_IS_BROKEN }
+		prerequisite = { focus = FRA_cboosing_a_side }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
 		x = -1
 		y = 1
-		relative_position_id = FRA_SPAIN_IS_BROKEN
+		relative_position_id = FRA_cboosing_a_side
 		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SPN
-				}
+		available = {
+			country_exists = SPN
+			NOT = {
 				FRA = {
 					has_war_with = SPN
 				}
 			}
 		}
+		
 
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -3612,76 +3688,54 @@
 	}
 
 	shared_focus = {
-		id = FRA_SPANISH_INTERVENTION
-		icon = GFX_focus_focus_fra_intervention_spain
-		text = FRA_SPANISH_INTERVENTION
+		id = FRA_reinforcing_the_caudillos_ruke
+		icon = unkown
+		text = FRA_reinforcing_the_caudillos_ruke
 		prerequisite = { focus = FRA_SUPPLY_NATIONALIST }
-		x = 0
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = -1
 		y = 1
 		relative_position_id = FRA_SUPPLY_NATIONALIST
 		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SPN
-				}
-				FRA = {
-					has_war_with = SPN
-				}
-				SPN = {
-					OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-				}
-			}
-		}
-
 		available = {
-			
+			always = no
 		}
+		
 
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			######every_country
-			every_country = {
-				limit = {
-					has_war_with = SPN
-					NOT = {
-						has_war_with = ROOT
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						target = PREV
-						type = annex_everything
-					}
-				}
-			}
-
+			
 		}
 	}
+
+	
 
 	
 	shared_focus = {
 		id = FRA_SUPPLY_CARLIST
 		icon = GFX_goal_Supply_Carlist_Spain
 		text = FRA_SUPPLY_CARLIST
-		prerequisite = { focus = FRA_SPAIN_IS_BROKEN }
+		prerequisite = { focus = FRA_cboosing_a_side }
+	#	mutually_exclusive = {
+	#		focus = FRA_SUPPLY_NATIONALIST
+	#	}
 		x = 1
 		y = 1
-		relative_position_id = FRA_SPAIN_IS_BROKEN
+		relative_position_id = FRA_cboosing_a_side
 		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SPR
-				}
+		available = {
+			country_exists = SPR
+			NOT = {
 				FRA = {
 					has_war_with = SPR
 				}
@@ -3698,11 +3752,14 @@
 	}
 
 	shared_focus = {
-		id = FRA_CATALONIA_FOR_ALLIANCE
-		icon = GFX_goal_Catalonian_Alliance
-		text = FRA_CATALONIA_FOR_ALLIANCE
-		prerequisite = { focus = FRA_SUPPLY_CARLIST }
-		x = 0
+		id = FRA_to_the_front_lines
+		icon = unkown
+		text = FRA_to_the_front_lines
+		prerequisite = { focus = FRA_SUPPLY_CARLIST focus = FRA_SUPPLY_NATIONALIST }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = -1
 		y = 1
 		relative_position_id = FRA_SUPPLY_CARLIST
 		cost = 5
@@ -3710,31 +3767,157 @@
 			factor = 20
 		}
 		available = {
-			SPR = {
-				owns_state = 165
-			}
+			always = no
 		}
-		bypass = {
-			OR = {
-				NOT = {
-					country_exists = SPR
-				}
-				FRA = {
-					has_war_with = SPR
-				}
-			}
-		}
+		
 
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_to_faction = SPR
-			FRA = {
-				transfer_state = 165
-			}
+			
 		}
 	}
+
+	shared_focus = {
+		id = FRA_the_peoples_army_problem
+		icon = unkown
+		text = FRA_the_peoples_army_problem
+		prerequisite = { focus = FRA_SUPPLY_CARLIST }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = 1
+		y = 1
+		relative_position_id = FRA_SUPPLY_CARLIST
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			always = no
+		}
+		
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+
+	shared_focus = {
+		id = FRA_dealing_with_public_backlash
+		icon = unkown
+		text = FRA_dealing_with_public_backlash
+		prerequisite = { focus = FRA_spain_is_broken }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = 2
+		y = 1
+		relative_position_id = FRA_spain_is_broken
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			always = no
+		}
+		
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	shared_focus = {
+		id = FRA_dealing_with_public_backlash
+		icon = unkown
+		text = FRA_dealing_with_public_backlash
+		prerequisite = { focus = FRA_spain_is_broken }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = 3
+		y = 1
+		relative_position_id = FRA_spain_is_broken
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			always = no
+		}
+		
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+	shared_focus = {
+		id = FRA_our_troops_our_heroes
+		icon = unkown
+		text = FRA_our_troops_our_heroes
+		prerequisite = { focus = FRA_dealing_with_public_backlash }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = 0
+		y = 1
+		relative_position_id = FRA_dealing_with_public_backlash
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			always = no
+		}
+		
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = FRA_french_warhawks
+		icon = unkown
+		text = FRA_french_warhawks
+		prerequisite = { focus = FRA_our_troops_our_heroes }
+	#	mutually_exclusive = {
+		#	focus = FRA_SUPPLY_CARLIST
+	#	}
+		x = 0
+		y = 1
+		relative_position_id = FRA_our_troops_our_heroes
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			always = no
+		}
+		
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+		}
+	}
+
 
 
 

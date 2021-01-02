@@ -16,8 +16,9 @@ focus_tree = {
 	shared_focus = FRA_the_french_imperium
 	shared_focus = FRA_national_development_bureau
 		shared_focus = FRA_CONSERVATIVES_PREVAIL
-		shared_focus = FRA_SPAIN_IS_BROKEN
-		shared_focus = FRA_LAISEZE_FAIRE
+	#	shared_focus = FRA_SPAIN_IS_BROKEN
+	shared_focus = FRA_solving_frances_problems
+	shared_Focus = FRA_colonial_investments
 		
 }
 
@@ -207,7 +208,7 @@ shared_focus = {
 	relative_position_id = FRA_BRUSSELLS_CONFERENCE
 	cost = 5
 	ai_will_do = {
-		factor = 20
+		factor = 2000
 	}
 
 	bypass = {
@@ -296,7 +297,7 @@ shared_focus = {
 	icon = GFX_goal_Claims_On_Alliance
 	text = FRA_ANTI_AUSTRIAN_PACT
 	prerequisite = { focus = FRA_JOIN_AUSTRIA focus = FRA_FRANCE_ALONE }
-	x = -1
+	x = 0
 	y = 1
 	relative_position_id = FRA_FRANCE_ALONE
 	cost = 3
@@ -322,7 +323,7 @@ shared_focus = {
 	icon = GFX_goal_Demand_Italia
 	text = FRA_DEMAND_WEST_ITALY
 	prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = FRA_ANTI_AUSTRIAN_PACT
 	cost = 5
@@ -359,7 +360,7 @@ shared_focus = {
 	icon = GFX_goal_French_Empire
 	text = FRA_REESTABLISH_EMPIRE
 	prerequisite = { focus = FRA_JOIN_AUSTRIA focus = FRA_FRANCE_ALONE }
-	x = 1
+	x = 2
 	y = 1
 	relative_position_id = FRA_FRANCE_ALONE
 	cost = 5
@@ -383,6 +384,7 @@ shared_focus = {
 	icon = GFX_goal_Napoleonic_Wars
 	text = FRA_RESTART_WARS
 	prerequisite = { focus = FRA_REESTABLISH_EMPIRE }
+	prerequisite = {focus = FRA_ANTI_AUSTRIAN_PACT }
 	x = 0
 	y = 1
 	relative_position_id = FRA_REESTABLISH_EMPIRE
@@ -421,7 +423,7 @@ shared_focus = {
 		
 
 		hidden_effect = {
-			news_event = {id = napoleanfrance.19}
+			#news_event = {id = napoleanfrance.19}
 		}
 	}
 }
@@ -431,7 +433,7 @@ shared_focus = {
 	icon = GFX_goal_Monego_Campaign
 	text = FRA_MANEGO_CAMPAIGN
 	prerequisite = { focus = FRA_DEMAND_WEST_ITALY }
-	x = -1
+	x = 0
 	y = 1
 	relative_position_id = FRA_DEMAND_WEST_ITALY
 	cost = 5
@@ -940,40 +942,8 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = FRA_ANNEX_HOL
-	icon = GFX_goal_invadedutch
-	text = FRA_ANNEX_HOL
-	prerequisite = { focus = FRA_JOIN_GERMANY focus = FRA_FRANCE_ALONE}
 
-	x = 4
-	y = 1
-	relative_position_id = FRA_JOIN_GERMANY
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	bypass = {
-		OR = {
-			NOT = {
-				country_exists = HOL
-			}
-			FRA = {
-				has_war_with = HOL
-			}
-			HOL = {
-				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-			}
-		}
-	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		
-	}
-}
 
 shared_focus = {
 	id = FRA_JOIN_GERMANY
