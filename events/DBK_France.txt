@@ -236,7 +236,8 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = france.204.a #needs to be localized
-}
+		set_country_flag = FRA_balancing_the_autocracy
+	}
 }
 
 news_event = {
@@ -466,8 +467,20 @@ country_event = {
 		add_stability = -0.03
 		add_political_power = -20
 		set_country_flag = FRA_strikes_begin_monthly
-		random_owned_controlled_state = { france_give_state_strikes_effect = yes }
-		random_owned_controlled_state = { france_give_state_strikes_effect = yes }
+		random_owned_controlled_state = { 
+			set_variable = {
+				france_strikes_var = global.france_strikes_ref_var
+			}
+			calc_french_strikes_vars = yes
+			france_give_state_strikes_effect = yes 
+		}
+		random_owned_controlled_state = { 
+			set_variable = {
+				france_strikes_var = global.france_strikes_ref_var
+			}
+			calc_french_strikes_vars = yes
+			france_give_state_strikes_effect = yes 
+		}
 	}
 }
 
