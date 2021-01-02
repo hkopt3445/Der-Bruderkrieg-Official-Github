@@ -742,7 +742,7 @@ AUS_infilitrating_the_prussian_palace = {
 		fire_only_once = yes 
 	
 		activation = {
-			tag = AUS
+			has_country_flag = unlock_AUS_infilitrating_the_prussian_palace
 		}
 	
 		visible = {
@@ -928,7 +928,7 @@ AUS_infilitrating_the_prussian_palace = {
 
 		days_remove = 20 
 
-		cost = 10
+		cost = 35
 
 		fire_only_once = no
 
@@ -1113,7 +1113,13 @@ AUS_infilitrating_the_prussian_palace = {
 		}
 
 		remove_effect = {
-		
+			add_political_power = -30
+			add_to_variable = {
+				funding_for_infil_mission = 10
+			}
+			add_to_variable = {
+				prussian_infiltration_succeed_prob = 5
+			}
 		}
 	}
 }
@@ -1987,7 +1993,47 @@ AUS_imperial_senate = {
 
 		remove_effect = {
 		add_political_power = 30
-		add_stability = 0.05
+		add_stability = 0.03
+		}
+	}
+
+	AUS_increasing_evinzebureau_funding = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			tag = AUS 
+		}
+
+		available = {
+				has_completed_focus = AUS_reverse_the_language_laws
+		
+		}
+
+		visible = {
+		}
+
+		days_remove = 3
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		add_political_power = -30
+		add_to_variable = {
+			funding_for_infil_mission = 10
+		}
+		add_to_variable = {
+			prussian_infiltration_succeed_prob = 5
+		}
 		}
 	}
 
@@ -2016,7 +2062,7 @@ AUS_post_massacre_cat = {
 		icon = generic_ignite_civil_war
 	
 		available = {
-		
+			hidden_trigger = { always = no }
 		}
 	
 		days_mission_timeout = 400
@@ -4100,7 +4146,7 @@ AUS_offensives_against_the_fbc = {
 
 		remove_effect = {
 			GPU = {
-				e
+				
 				add_ideas = AUS_westfalen_offensive
 			}
 		}
