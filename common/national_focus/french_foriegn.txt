@@ -114,6 +114,7 @@ shared_focus = {
 	icon = GFX_goal_Solidify_Control
 	text = FRA_SOLIDIFY_CONTROL
 	prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
+	
 	x = 1
 	y = 1
 	relative_position_id = FRA_BRUSSELLS_CONFERENCE
@@ -149,10 +150,10 @@ shared_focus = {
 	id = FRA_FORTIFY_BENELUX_BORDER
 	icon = GFX_goal_Fortify_Benelux
 	text = FRA_FORTIFY_BENELUX_BORDER
-	prerequisite = { focus = FRA_SOLIDIFY_CONTROL }
-	x = 0
+	prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
+	x = -1
 	y = 1
-	relative_position_id = FRA_SOLIDIFY_CONTROL
+	relative_position_id = FRA_BRUSSELLS_CONFERENCE
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -296,10 +297,10 @@ shared_focus = {
 	id = FRA_ANTI_AUSTRIAN_PACT
 	icon = GFX_goal_Claims_On_Alliance
 	text = FRA_ANTI_AUSTRIAN_PACT
-	prerequisite = { focus = FRA_JOIN_AUSTRIA focus = FRA_FRANCE_ALONE }
-	x = 0
+	prerequisite = { focus = FRA_REESTABLISH_EMPIRE }
+	x = -2
 	y = 1
-	relative_position_id = FRA_FRANCE_ALONE
+	relative_position_id = FRA_REESTABLISH_EMPIRE
 	cost = 3
 	ai_will_do = {
 		factor = 20
@@ -317,6 +318,222 @@ shared_focus = {
 		}
 	}
 }
+
+#Focus for Law on the Country in Danger
+shared_focus = {
+	id = FRA_law_on_the_country_in_danger
+	icon = GFX_goal_generic_construct_mil_factory
+	x = 4
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_FRANCE_ALONE }
+	relative_position_id = FRA_FRANCE_ALONE
+	mutually_exclusive = {
+		focus = FRA_REESTABLISH_EMPIRE
+	}
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas= La_Patrie_En_Danger
+	}
+}
+
+#Focus for Keep out the Reichsmarshall
+shared_focus = {
+	id = FRA_keep_out_the_reichsmarshall
+	icon = GFX_goal_generic_fortify_city
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_law_on_the_country_in_danger }
+	relative_position_id = FRA_law_on_the_country_in_danger
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_building_construction= {
+type = bunker
+province = 3512
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 6469
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 9482
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 9547
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 9486
+level = 3
+instant_build = yes }
+	}
+}
+
+#Focus for Defend against the Kaiser
+shared_focus = {
+	id = FRA_defend_against_the_kaiser
+	icon = GFX_goal_generic_fortify_city
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_keep_out_the_reichsmarshall }
+	relative_position_id = FRA_keep_out_the_reichsmarshall
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_building_construction= {
+type = bunker
+province = 6444
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 11560
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 3558
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 6568
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 3530
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 6542
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 6712
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 11640
+level = 3
+instant_build = yes }
+	}
+}
+
+#Focus for Hold Back the Duce
+shared_focus = {
+	id = FRA_hold_back_the_duce
+	icon = GFX_goal_generic_fortify_city
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_keep_out_the_reichsmarshall }
+	relative_position_id = FRA_keep_out_the_reichsmarshall
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_building_construction= {
+type = bunker
+province = 9909
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 3959
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 6975
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 3764
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 764
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 9745
+level = 3
+instant_build = yes }
+add_building_construction= {
+type = bunker
+province = 778
+level = 3
+instant_build = yes }
+	}
+}
+
+#Focus for Ils ne Passeront Pas
+shared_focus = {
+	id = FRA_ils_ne_passeront_pas
+	icon = GFX_goal_generic_demand_territory
+	prerequisite = {focus = FRA_hold_back_the_duce}
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_defend_against_the_kaiser }
+	relative_position_id = FRA_defend_against_the_kaiser
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		swap_ideas= {
+remove_idea = La_Patrie_En_Danger
+add_idea = FRA_Ils_Ne_Passeront_Pas
+}
+	}
+}
+
+shared_focus = {
+	id = FRA_kalterkrieg
+	icon = unkown
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = FRA_ils_ne_passeront_pas focus = FRA_DANUBE_CAMPAIGN }
+	mutually_exclusive = {focus = FRA_TAKING_OUT_THE_SGC}
+	relative_position_id = FRA_ils_ne_passeront_pas
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		swap_ideas= {
+remove_idea = La_Patrie_En_Danger
+add_idea = FRA_Ils_Ne_Passeront_Pas
+}
+	}
+}
+
 
 shared_focus = {
 	id = FRA_DEMAND_WEST_ITALY
@@ -360,12 +577,15 @@ shared_focus = {
 	icon = GFX_goal_French_Empire
 	text = FRA_REESTABLISH_EMPIRE
 	prerequisite = { focus = FRA_JOIN_AUSTRIA focus = FRA_FRANCE_ALONE }
-	x = 2
+	x = 1
 	y = 1
 	relative_position_id = FRA_FRANCE_ALONE
 	cost = 5
 	ai_will_do = {
 		factor = 20
+	}
+	mutually_exclusive = {
+		focus = FRA_law_on_the_country_in_danger
 	}
 
 	available_if_capitulated = yes
@@ -386,7 +606,7 @@ shared_focus = {
 	prerequisite = { focus = FRA_REESTABLISH_EMPIRE }
 	prerequisite = {focus = FRA_ANTI_AUSTRIAN_PACT }
 	x = 0
-	y = 1
+	y = 2
 	relative_position_id = FRA_REESTABLISH_EMPIRE
 	cost = 5
 	ai_will_do = {
@@ -470,7 +690,7 @@ shared_focus = {
 	icon = GFX_goal_Danubian_Regions
 	text = FRA_DANUBE_CAMPAIGN
 	prerequisite = { focus = FRA_RESTART_WARS }
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = FRA_RESTART_WARS
 	cost = 5
@@ -510,8 +730,9 @@ shared_focus = {
 	text = FRA_TAKING_OUT_THE_SGC
 	prerequisite = { focus = FRA_DANUBE_CAMPAIGN }
 	prerequisite = { focus = FRA_BLITZ_ISLAND }
+	mutually_exclusive = {focus = FRA_kalterkrieg}
 	#prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
-	x = 1
+	x = -1
 	y = 1
 	relative_position_id = FRA_DANUBE_CAMPAIGN
 	cost = 5
@@ -548,7 +769,7 @@ shared_focus = {
 	icon = GFX_goal_Napoleonic_Superpower
 	text = FRA_NAPOLEONIC_SUPERPOWER
 	prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
-	x = -1
+	x = 1
 	y = 1
 	relative_position_id = FRA_TAKING_OUT_THE_SGC
 	cost = 5
@@ -574,11 +795,11 @@ shared_focus = {
 	icon = GFX_goal_Napoleonic_Superpower
 	text = FRA_the_confederation_of_the_rhine
 	prerequisite = { focus = FRA_REVENGE_RUSSIA }
-	prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
+	#prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
 	prerequisite = {focus = FRA_demand_hannovers_integration}
-	x = 3
+	x = 0
 	y = 1
-	relative_position_id = FRA_TAKING_OUT_THE_SGC
+	relative_position_id = FRA_demand_hannovers_integration
 	cost = 5
 	ai_will_do = {
 		factor = 20
