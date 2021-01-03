@@ -181,3 +181,15 @@ calc_french_strikes_vars = {
   set_variable = {french_strikes_conscription_debuff = france_strikes_var }
   divide_variable = {french_strikes_conscription_debuff = 250}
 }
+
+update_french_strike_vars = {
+  every_owned_state = {
+    limit = {
+      has_country_flag = currently_being_striked
+    }
+    set_variable = {
+      france_strikes_var = global.france_strikes_ref_var
+    }
+    calc_french_strikes_vars = yes
+  }
+}

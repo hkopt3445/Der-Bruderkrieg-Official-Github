@@ -167,10 +167,14 @@ shared_focus = {
 				every_owned_state = {
 						limit = {
 								any_neighbor_state = {
+									OR = {
 										is_controlled_by = GER
 										is_controlled_by = HAN
 										is_controlled_by = FGD
-								}
+							
+									}
+						
+								}		
 						}
 						add_building_construction = {
 								type = bunker
@@ -354,31 +358,25 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		add_building_construction= {
-type = bunker
-province = 3512
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 6469
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 9482
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 9547
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 9486
-level = 3
-instant_build = yes }
+		FGD = {
+			every_owned_state = {
+				limit = {
+					any_neighbor_state = {
+						OR = { is_controlled_by = GER 
+						is_controlled_by = HAN }
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -396,46 +394,25 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		add_building_construction= {
-type = bunker
-province = 6444
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 11560
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 3558
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 6568
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 3530
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 6542
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 6712
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 11640
-level = 3
-instant_build = yes }
+		FGD = {
+			every_owned_state = {
+				limit = {
+					any_neighbor_state = {
+						OR = { is_controlled_by = GPU 
+						is_controlled_by = AUS }
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -453,41 +430,25 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		add_building_construction= {
-type = bunker
-province = 9909
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 3959
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 6975
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 3764
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 764
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 9745
-level = 3
-instant_build = yes }
-add_building_construction= {
-type = bunker
-province = 778
-level = 3
-instant_build = yes }
+		FRA = {
+			every_owned_state = {
+				limit = {
+					any_neighbor_state = {
+						
+						is_controlled_by = ITA 
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -636,7 +597,7 @@ shared_focus = {
 
 	completion_reward = {
 		#######Declares war on the UK and Prussia gets event the Next Napoleonic War
-		create_wargoal_on = {
+		create_wargoal = {
 			target = GER
 			type = annex_everything
 		}
@@ -757,7 +718,7 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		FGD = { create_wargoal_on = {
+		FGD = { create_wargoal = {
 			target = SGC
 			type = annex_everything
 		} }
@@ -1181,9 +1142,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
-	available = {
-		has_country_flag = path_of_aggresssion_flag
-	}
+	#available = {
+	#	has_country_flag = path_of_aggresssion_flag
+#	}
 	bypass = {
 		OR = {
 			NOT = {
@@ -1276,7 +1237,7 @@ shared_focus = {
 
 	completion_reward = {
 		FRA = {
-			create_wargoal_on = {
+			create_wargoal = {
 				target = AUS
 				type = puppet_wargoal_focus
 			}
