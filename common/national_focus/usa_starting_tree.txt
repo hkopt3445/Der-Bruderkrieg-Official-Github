@@ -57,7 +57,28 @@ focus_tree = {
 		id = USA_king_of_the_democrats
 		icon = unkown
 		prerequisite = { focus = USA_denounce_conservativetism }
-		x = 0
+		x = -1
+		y = 1
+		relative_position_id = USA_denounce_conservativetism
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = USA_the_alternative_option
+		icon = unkown
+		prerequisite = { focus = USA_denounce_conservativetism }
+		x = 1
 		y = 1
 		relative_position_id = USA_denounce_conservativetism
 		cost = 2
@@ -77,8 +98,8 @@ focus_tree = {
 	focus = {
 		id = USA_longs_tour_of_america
 		icon = unkown
-		prerequisite = { focus = USA_king_of_the_democrats }
-		x = 0
+		prerequisite = { focus = USA_king_of_the_democrats focus = USA_the_alternative_option }
+		x = 1
 		y = 1
 		relative_position_id = USA_king_of_the_democrats
 		cost = 2
@@ -160,7 +181,7 @@ focus_tree = {
 		}
 	}
     focus = {
-		id = USA_promoting_longs_new_deal
+		id = USA_promoting_longs_economic_policies
 		icon = unkown
 		prerequisite = { focus = USA_lousiana_visit }
 		x = -2
@@ -183,10 +204,10 @@ focus_tree = {
     focus = {
 		id = USA_promise_great_depression_stimulus
 		icon = unkown
-		prerequisite = { focus = USA_promoting_longs_new_deal }
+		prerequisite = { focus = USA_promoting_longs_economic_policies }
 		x = 0
 		y = 1
-		relative_position_id = USA_promoting_longs_new_deal
+		relative_position_id = USA_promoting_longs_economic_policies
 		cost = 2
 		ai_will_do = {
 			factor = 1
