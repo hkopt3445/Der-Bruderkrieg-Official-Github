@@ -468,6 +468,12 @@ country_event = {
 		add_political_power = -20
 		set_country_flag = FRA_strikes_begin_monthly
 		random_owned_controlled_state = { 
+			limit = {
+				is_in_array = {
+					array = french_owned_core_states
+					value = THIS
+				}
+			}
 			set_variable = {
 				france_strikes_var = global.france_strikes_ref_var
 			}
@@ -499,6 +505,10 @@ country_event = {
 		add_stability = -0.03
 		add_political_power = -20
 		set_country_flag = FRA_strikes_begin_two_weeks
+		add_to_variable = {
+			global.france_strikes_ref_var = -25
+		}
+		update_french_strike_vars = yes
 	}
 }
 
@@ -516,6 +526,7 @@ country_event = {
 		add_stability = -0.03
 		add_political_power = -20
 		set_country_flag = FRA_strikes_begin_weekly
+		update_french_strike_vars = yes
 	}
 }
 
