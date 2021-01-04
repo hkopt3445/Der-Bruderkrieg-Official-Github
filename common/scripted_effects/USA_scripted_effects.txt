@@ -99,24 +99,24 @@ progressbar_calc_usa_election_stuff = {
 
 usa_modify_electoral_college_effect ={
 	set_temp_variable = {temp_long_var = long_support}
-	subtract_from_variable = {temp_long_var= 3}
+	subtract_from_temp_variable = {temp_long_var= 3}
 	if = {
 		limit = {
 			check_variable = {var = temp_long_var value = borah_support compare = less_than}
 		}
-		add_to_variable = {long_electoral = electoral_college_value}
-		subtract_from_variable = {borah_electoral = electoral_college_value}
-		set_country_flag = already_subtracted_from_borah_flag
+		add_to_variable = {USA.long_electoral = electoral_college_value}
+		subtract_from_variable = {USA.borah_electoral = electoral_college_value}
+		set_state_flag = already_subtracted_from_borah_flag
 	}
 	if = {
 		limit = {
 			check_variable = {var = temp_long_var value = smith_support compare = less_than}
 			NOT = {
-				has_country_flag = already_subtracted_from_borah_flag
+				has_state_flag = already_subtracted_from_borah_flag
 			}
 		}
-		add_to_variable = {long_electoral = electoral_college_value}
-		subtract_from_variable = {borah_electoral = electoral_college_value}
+		add_to_variable = {USA.long_electoral = electoral_college_value}
+		subtract_from_variable = {USA.borah_electoral = electoral_college_value}
 	}
 
 }
