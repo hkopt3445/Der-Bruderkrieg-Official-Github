@@ -64,14 +64,14 @@ AUS_calc_mission_fund_var = {
 }
 
 AUS_modify_cost = {
-	multiply_variable = {funding_for_infil_mission = temp_value}
-
+	add_to_variable = {funding_for_infil_mission = temp_value}
+	AUS_calc_mission_fund_var = yes
 
 
 
 	# scroll position
 	set_variable = { slider_x_position = 72 }
-	set_temp_variable = { temp_x = sphere_loyalty }
+	set_temp_variable = { temp_x = funding_for_infil_mission }
 	multiply_temp_variable = { temp_x = 245 }
 	divide_temp_variable = { temp_x = 100 }
 	round_temp_variable = temp_x
@@ -81,6 +81,20 @@ AUS_modify_cost = {
 		var = slider_x_position
 		max = 317
 	}
+}
+
+AUS_slider_setup = {
+	set_variable = { slider_x_position = 72 }
+		set_temp_variable = { temp_x = funding_for_infil_mission }
+		multiply_temp_variable = { temp_x = 245 }
+		divide_temp_variable = { temp_x = 100 }
+		round_temp_variable = temp_x
+		add_to_variable = { slider_x_position = temp_x }
+
+		clamp_variable = {
+			var = slider_x_position
+			max = 317
+		}
 }
 
 hungary_civil_war = {
