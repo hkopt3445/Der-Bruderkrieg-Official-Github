@@ -818,9 +818,6 @@ add_namespace = militia_revolts
 	title = militia_revolts.3.t
 	desc = militia_revolts.3.d
 	#picture =
-	
-	trigger = {
-	}
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -834,44 +831,48 @@ add_namespace = militia_revolts
 				transfer_state = 5
 				transfer_state = 85
 				transfer_state = 86
-				declare_war_on = { type = annex_everything    target = FROM }
-				85 = {	
-			create_unit = {
-				division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-	
-				owner = FRE
-			  }	
-			create_unit = {
-				division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-	
-				owner = FRE
-			  }
-			create_unit = {
-				division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-	
-				owner = FRE
-			  }	  	  
-			}
-		763 = {
-			create_unit = {
-				division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-	
-				owner = FRE
-			  }
-			  create_unit = {
-				division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-	
-				owner = FRE
-			  }	  	
-			}
-		5 = {
-			create_unit = {
-				division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-	
-				owner = FRE
-			  		}	
+				every_owned_state = {
+					teleport_armies = {
+						limit = {
+							tag = GER
+						}
+						to_state_array = owned_controlled_states
+					}
 				}
-			}		
+				declare_war_on = { type = annex_everything    target = FROM }
+				load_oob = "FRE_civil_war"
+			}
+			
+			85 = {	
+				create_unit = {
+					division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }	
+				create_unit = {
+					division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }
+				create_unit = {
+					division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }	  	  
+				}
+			763 = {
+				create_unit = {
+					division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }
+				  create_unit = {
+					division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }	  	
+				}
+			5 = {
+				create_unit = {
+					division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }	
+			}			
 		}
 	}
 
@@ -939,6 +940,50 @@ add_namespace = militia_revolts
 					transfer_state = 68
 					transfer_state = 950
 					declare_war_on = { type = annex_everything    target = FROM }
+					every_owned_state = {
+						teleport_armies = {
+							limit = {
+								tag = GER
+							}
+							to_state_array = owned_controlled_states
+						}
+					}
+					load_oob = "SAR_civil_war"
+				}
+				
+				63 = {	
+					create_unit = {
+						division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }	
+					create_unit = {
+						division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }
+					create_unit = {
+						division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }	  	  
+					}
+				62 = {
+					create_unit = {
+						division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }
+					  create_unit = {
+						division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }	  	
+					}
+				68 = {
+					create_unit = {
+						division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }
+					create_unit = {
+						division = "name = \"7th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }	  	
 				}
 			}
 		}	
