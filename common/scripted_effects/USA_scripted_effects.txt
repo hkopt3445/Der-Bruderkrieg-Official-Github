@@ -97,14 +97,140 @@ progressbar_calc_usa_election_stuff = {
 }
 
 
-usa_modify_election_effect ={
-	
+usa_modify_electoral_college_effect ={
+	set_temp_variable = {temp_long_var = long_support}
+	subtract_from_variable = {temp_long_var= 3}
+	if = {
+		limit = {
+			check_variable = {var = temp_long_var value = borah_support compare = less_than}
+		}
+		add_to_variable = {long_electoral = electoral_college_value}
+		subtract_from_variable = {borah_electoral = electoral_college_value}
+		set_country_flag = already_subtracted_from_borah_flag
+	}
+	if = {
+		limit = {
+			check_variable = {var = temp_long_var value = smith_support compare = less_than}
+			NOT = {
+				has_country_flag = already_subtracted_from_borah_flag
+			}
+		}
+		add_to_variable = {long_electoral = electoral_college_value}
+		subtract_from_variable = {borah_electoral = electoral_college_value}
+	}
+
 }
 
 d_us_election_debug = {
 	379 = {
 		add_to_variable = {
 			long_support = 100
+		}
+	}
+}
+
+USA_electoral_vars_setup = {
+		set_variable = { long_electoral = 243}
+		set_variable = { borah_electoral = 51}
+		set_variable = { smith_electoral = 171}
+
+		progressbar_calc_usa_election_stuff = yes
+	
+}
+
+
+
+
+USA_mafia_initial = {
+		set_variable = { nyc_mafia_var = 8 }
+		set_variable = { chicago_mafia_var =6 }
+		set_variable = { new_orleans_mafia_var = 3 }
+
+
+		set_country_flag = nyc_mafia_gui_flag
+		set_variable = { staten_island_var = 3 }
+		set_variable = { queens_var =7 }
+		set_variable = { manhattan_var = 5 }
+		set_variable = { harlem_var = 8 }
+
+		set_variable = { south_side_chicago_var = 9 }
+		set_variable = { north_side_chicago_var = 3 }
+
+		set_variable = { beverly_hills_var = 3 }
+		set_variable = { hollywood_var = 8 }
+		set_variable = { downtown_la_var = 6 }
+
+
+
+		
+		
+}
+
+USA_sphere_initial = {
+	 ###USA influence
+		set_variable = {
+			var = CUB_USA_Influence
+			value = 300
+		}
+		
+		set_variable = {
+			var = MEX_USA_Influence
+			value = 200
+		}
+		
+		set_variable = {
+			var = CEN_USA_Influence
+			value = 200
+		}
+		
+		set_variable = {
+			var = PAR_USA_Influence
+			value = -
+		}
+		set_variable = {
+			var = CHL_USA_Influence
+			value = 200
+		}
+		set_variable = {
+			var = PRU_USA_Influence
+			value = 0
+		}
+		set_variable = {
+			var = HAI_USA_Influence
+			value = 0
+		}
+	
+}
+
+USA_dustbowl_states_setup = {
+	375 = {
+		add_to_array = {
+			array = USA.dustbowl_states
+			value = THIS
+		}
+	}
+	374 = {
+		add_to_array = {
+			array = USA.dustbowl_states
+			value = THIS
+		}
+	}
+	383 = {
+		add_to_array = {
+			array = USA.dustbowl_states
+			value = THIS
+		}
+	}
+	384 = {
+		add_to_array = {
+			array = USA.dustbowl_states
+			value = THIS
+		}
+	}
+	382 = {
+		add_to_array = {
+			array = USA.dustbowl_states
+			value = THIS
 		}
 	}
 }
