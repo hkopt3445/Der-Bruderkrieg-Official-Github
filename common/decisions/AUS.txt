@@ -819,7 +819,7 @@ AUS_infilitrating_the_prussian_palace = {
 			}
 			}
 			else = {
-				##mission failed
+				clr_country_flag = unlock_AUS_infilitrating_the_prussian_palace
 			}
 			
 
@@ -866,7 +866,7 @@ AUS_infilitrating_the_prussian_palace = {
 				##Mission success
 			}
 			else = {
-				##mission failed
+				clr_country_flag = unlock_AUS_infilitrating_the_prussian_palace
 			}
 			
 
@@ -909,7 +909,7 @@ AUS_infilitrating_the_prussian_palace = {
 				##Mission success
 			}
 			else = {
-				##mission failed
+				clr_country_flag = unlock_AUS_infilitrating_the_prussian_palace
 			}
 			
 
@@ -1051,13 +1051,7 @@ AUS_infilitrating_the_prussian_palace = {
 		}
 
 		remove_effect = {
-			add_to_variable = {
-				funding_for_infil_mission = 20
-			}
-			AUS_calc_mission_fund_var = yes
-			add_to_variable = {
-				prussian_infiltration_succeed_prob = 10
-			}
+			set_country_flag = player_allowed_to_change_mission_funding_flag
 		}
 	}
 
@@ -1124,6 +1118,39 @@ AUS_infilitrating_the_prussian_palace = {
 			add_to_variable = {
 				prussian_infiltration_succeed_prob = 5
 			}
+		}
+	}
+
+	AUS_mission_to_increase_funding_budget = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+	
+		days_mission_timeout = 10 
+	
+		fire_only_once = no 
+	
+		activation = {
+			has_country_flag = player_allowed_to_change_mission_funding_flag
+		}
+	
+		visible = {
+			tag = AUS
+		} 
+	
+		#cancel_if_not_visible = yes
+	
+		#is_good = yes
+		
+	
+		timeout_effect = {
+			clr_country_flag = player_allowed_to_change_mission_funding_flag
 		}
 	}
 }
@@ -1654,13 +1681,7 @@ AUS_imperial_senate = {
 		}
 
 		remove_effect = {
-		add_political_power = -30
-		add_to_variable = {
-			funding_for_infil_mission = 10
-		}
-		add_to_variable = {
-			prussian_infiltration_succeed_prob = 5
-		}
+			set_country_flag = player_allowed_to_change_mission_funding_flag
 		}
 	}
 

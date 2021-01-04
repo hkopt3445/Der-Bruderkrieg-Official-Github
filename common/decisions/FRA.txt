@@ -228,10 +228,7 @@ FRA_worker_strikes = {
 
 	ai_will_do = {
 		factor = 1000
-		modifier = {
-			add = -1000
-			check_variable = {FRA_emperor_approve_var > 55}
-		}
+		
 	}
 
 	complete_effect = {
@@ -1793,11 +1790,7 @@ influencing_belgium = {
 		fire_only_once = yes 
 
 		activation = {
-			OR = {
-				tag = FRA
-				tag = ENG
-				tag = BEL
-			}
+			has_global_flag = belgian_elections_start
 		}
 
 		visible = {
@@ -1820,7 +1813,7 @@ influencing_belgium = {
 		timeout_effect = {
 			set_global_flag = belgian_elections_are_over
 	FRA = {		belgian_elections_effect = yes }
-	ENG = { belgian_elections_effect = yes }
+	#ENG = { belgian_elections_effect = yes }
 		}
 	}
 }
