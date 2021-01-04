@@ -209,6 +209,39 @@ FRA_worker_strikes = {
 		country_event = FRA_worker_strikes.4
 	}
   }
+  FRA_crush_the_strikers = {
+
+	icon = eng_trade_unions_demand
+
+	allowed = {
+	}
+
+	visible = {
+		has_country_flag = FRA_strikes_begin_weekly
+	}
+
+	days_remove = 10
+
+	cost = 10
+
+	fire_only_once = no
+
+	ai_will_do = {
+		factor = 1000
+		modifier = {
+			add = -1000
+			check_variable = {FRA_emperor_approve_var > 55}
+		}
+	}
+
+	complete_effect = {
+	}
+
+	remove_effect = {
+		add_to_variable = { global.france_strikes_ref_var = -5 }
+		update_french_strike_vars = yes
+	}
+}
 
 }
 
