@@ -350,6 +350,49 @@ country_event = {
 }
 }
 
+country_event = {
+	id = france.212
+	title = france.212.t
+	desc = france.212.d
+	picture = GFX_report_event_generic_rifles
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = france.212.a #needs to be localized
+		unlock_national_focus = FRA_DOCTRINAIRE_LEFT
+}
+option = { # This option will give the war goal
+		name = france.212.b #needs to be localized
+		unlock_national_focus = FRA_DOCTRINAIRE_RIGHT
+}
+
+}
+
+###napoleons new constitution
+
+country_event = {
+	id = france.213
+	title = france.213.t
+	desc = france.213.d
+	picture = GFX_report_event_generic_rifles
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = france.213.a #needs to be localized
+		add_stability = -0.05
+		add_political_power = -50
+		add_ideas = Constitution_of_1852
+		hidden_effect = {
+			news_event = francestart.8
+		}
+}
+}
+
+
 
 
 add_namespace = france_policy_tree_events
