@@ -1122,7 +1122,7 @@
 	######Doctrinaire
 	shared_focus = {
     id = FRA_DOCTRINAIRE_VIC
-    icon = GFX_focus_generic_monarchy_2
+    icon = GFX_goal_FRA_a_meeting_with_the_doctrinaires
     text = FRA_DOCTRINAIRE_VIC
 
     x = 2
@@ -1138,13 +1138,14 @@
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
+		country_event = france.212
       add_popularity = {
 				ideology = authoritarian_democratic
-				popularity = 0.1
+				popularity = 0.05
 			}
 			add_popularity = {
 				ideology = democratic_conservatism
-				popularity = 0.1
+				popularity = 0.05
 			}
 
 		
@@ -1157,6 +1158,9 @@
     text = FRA_DOCTRINAIRE_RIGHT
 		prerequisite = { focus = FRA_DOCTRINAIRE_VIC }
 		mutually_exclusive = {focus = FRA_DOCTRINAIRE_LEFT}
+		available = {
+			always = no
+		}
     x = 1
     y = 1
     relative_position_id = FRA_DOCTRINAIRE_VIC
@@ -1178,7 +1182,7 @@
 
 	shared_focus = {
     id = FRA_RESTORE_1852
-	icon = GFX_goal_FRA_restore_1852
+	icon = GFX_goal_FRA_restore_the_constitution_to_1852
     text = FRA_RESTORE_1852
 		prerequisite = { focus = FRA_DOCTRINAIRE_RIGHT }
     x = 1
@@ -1197,15 +1201,14 @@
 				Constitution_of_1927
 			}
 
-			hidden_effect = {
-				news_event = francestart.8
-			}
+				country_event = france.213
+			
     }
   }
 
 	shared_focus = {
     id = FRA_LE_EMPEROR
-    icon = GFX_focus_hun_elect_a_king
+    icon = GFX_goal_FRA_le_empereur
     text = FRA_LE_EMPEROR
 		prerequisite = { focus = FRA_RESTORE_1852 }
     x = 0
@@ -1229,7 +1232,7 @@
 
 	shared_focus = {
     id = FRA_BONAPARTIST_ABSOLUTISM
-    icon = GFX_goal_FRA_BONAPARTIST_ABSOLUTISM
+    icon = GFX_goal_FRA_bonapartist_absolutism
     text = FRA_BONAPARTIST_ABSOLUTISM
 		prerequisite = { focus = FRA_LE_EMPEROR }
     x = 0
@@ -1286,10 +1289,13 @@
 
 	shared_focus = {
     id = FRA_DOCTRINAIRE_LEFT
-    icon = GFX_goal_support_democracy
+    icon = GFX_goal_FRA_doctrinaire_left
     text = FRA_DOCTRINAIRE_LEFT
 		prerequisite = { focus = FRA_DOCTRINAIRE_VIC }
 		mutually_exclusive = {focus = FRA_DOCTRINAIRE_RIGHT}
+		available = {
+			always = no
+		}
     x = 3
     y = 1
 	relative_position_id = FRA_DOCTRINAIRE_VIC
@@ -1321,7 +1327,7 @@
 
 	shared_focus = {
     id = FRA_KEEP_1827
-    icon = GFX_focus_generic_strike_at_democracy3
+    icon = GFX_goal_FRA_keep_1927_constitution
     text = FRA_KEEP_1827
 		prerequisite = { focus = FRA_DOCTRINAIRE_LEFT }
     x = 1
@@ -1368,7 +1374,7 @@
 
 	shared_focus = {
     id = FRA_REX_REGNAT
-    icon = GFX_focus_rom_handle_king
+    icon = GFX_goal_FRA_rex_regnat_non_gubernat
     text = FRA_REX_REGNAT
 		prerequisite = { focus = FRA_KEEP_1827 }
     x = 0
@@ -1396,7 +1402,7 @@
 
 	shared_focus = {
     id = FRA_LAFAYETTE_DREAM
-    icon = GFX_focus_chi_reach_out_to_france
+    icon = GFX_goal_FRA_lafyettes_dream
     text = FRA_LAFAYETTE_DREAM
 		prerequisite = { focus = FRA_REX_REGNAT }
     x = 0
@@ -2364,7 +2370,7 @@
 
 	shared_focus = {
 		id = FRA_IMPERIAL_GLORY
-		icon = GFX_focus_fra_le_deluge
+		icon = GFX_goal_FRA_imperial_glory
 		text = FRA_IMPERIAL_GLORY
 		prerequisite = { focus = FRA_LEGACY_OF_CHARLEGMEGNE}
 		x = 0
@@ -2384,7 +2390,7 @@
 	}
 	shared_focus = {
 		id = FRA_PEPIN
-		icon = GFX_focus_focus_fra_orleans_restoration
+		icon = GFX_goal_FRA_charity_handouts
 		text = FRA_PEPIN
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
 		x = -1
@@ -2404,8 +2410,7 @@
 	}
 	shared_focus = {
 		id = FRA_DEUS_OMNIA
-		#icon = GFX_goal_FRA_deus_omnia_vincit
-		icon =  unkown
+		icon = GFX_goal_FRA_deus_omnia_vincit
 		text = FRA_DEUS_OMNIA
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
 		x = 1
@@ -2427,7 +2432,7 @@
 	}
 	shared_focus = {
 		id = FRA_RULE_FRANKIA
-		icon = GFX_focus_fra_milice
+		icon = GFX_goal_FRA_rule_of_the_franks
 		text = FRA_RULE_FRANKIA
 		prerequisite = { focus = FRA_PEPIN}
 		prerequisite = { focus = FRA_DEUS_OMNIA}
