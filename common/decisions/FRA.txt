@@ -1710,15 +1710,52 @@ FRA_colonial_investments_decision_cat = {
 }
 
 FRA_hunting_westfalen_nationalists = {
+	FRA_nationalist_coup = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 350
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = FRA_managing_the_instability
+		}
+	
+		visible = {
+		tag = FRA
+		
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+
+		}
+	}
 	FRA_supress_nationalist_rally = {
 		icon = generic_operation
 		available = {
-			
-				
+		
+				always = yes
 		}
 		visible = {
 			tag = FRA
+			
 		}
+		custom_cost_trigger = {
+			command_power > 10
+		}
+		custom_cost_text = FRA_westflen_cost_text_tt
 		ai_will_do = {
 			factor = 1
 		}
@@ -1730,12 +1767,15 @@ FRA_hunting_westfalen_nationalists = {
 					nationalist_influence = -2
 				}	
 			}
+			hidden_effect = {
+				add_command_power = -10
+			}
 		}
 	}
 	FRA_arrest_nationalist_leaders = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 			
 		}
 		visible = {
@@ -1745,6 +1785,7 @@ FRA_hunting_westfalen_nationalists = {
 			factor = 1
 		}
 		fire_only_once = no
+		cost = 25
 		days_remove = 10
 		remove_effect = {
 			current_westfalen_gui_state = {
@@ -1757,7 +1798,7 @@ FRA_hunting_westfalen_nationalists = {
 	FRA_promoting_invidualism = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 			
 		}
 		visible = {
@@ -1767,6 +1808,7 @@ FRA_hunting_westfalen_nationalists = {
 			factor = 1
 		}
 		fire_only_once = no
+		cost = 10
 		days_remove = 10
 		remove_effect = {
 			current_westfalen_gui_state = {
@@ -1779,29 +1821,7 @@ FRA_hunting_westfalen_nationalists = {
 	FRA_limiting_german_polticial_rights = {
 		icon = generic_operation
 		available = {
-			
-			
-		}
-		visible = {
-			tag = FRA
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = no
-		days_remove = 10
-		remove_effect = {
-			current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -2
-				}	
-			}
-		}
-	}
-	FRA_hinder_prussian_arms_shipments = {
-		icon = generic_operation
-		available = {
-			
+			always = yes
 			
 		}
 		visible = {
@@ -1811,6 +1831,7 @@ FRA_hunting_westfalen_nationalists = {
 			factor = 1
 		}
 		fire_only_once = no
+		cost = 15
 		days_remove = 10
 		remove_effect = {
 			current_westfalen_gui_state = {
@@ -1820,10 +1841,11 @@ FRA_hunting_westfalen_nationalists = {
 			}
 		}
 	}
+	
 	FRA_ban_fascist_organizings = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 			
 		}
 		visible = {
@@ -1832,7 +1854,9 @@ FRA_hunting_westfalen_nationalists = {
 		ai_will_do = {
 			factor = 1
 		}
+	
 		fire_only_once = no
+		cost = 30
 		days_remove = 15
 		remove_effect = {
 			current_westfalen_gui_state = {
@@ -1840,12 +1864,13 @@ FRA_hunting_westfalen_nationalists = {
 					nationalist_influence = -2
 				}	
 			}
+			
 		}
 	}
-	FRA_raid_hideout = {
+	FRA_hinder_prussian_arms_shipments = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 			
 		}
 		visible = {
@@ -1854,7 +1879,46 @@ FRA_hunting_westfalen_nationalists = {
 		ai_will_do = {
 			factor = 1
 		}
+		cost = 20
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FRA_hinder_prussian_arms_shipments_tt
 		fire_only_once = no
+		days_remove = 10
+		remove_effect = {
+			current_westfalen_gui_state = {
+				add_to_variable = {
+					nationalist_influence = -2
+				}	
+			}
+			hidden_effect = {
+				add_manpower = -100
+			}
+		}
+	}
+	FRA_raid_hideout = {
+		icon = generic_operation
+		available = {
+			always = yes
+			
+		}
+		visible = {
+			tag = FRA
+		}	
+		ai_will_do = {
+			factor = 1
+		}
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_trigger = FRA_raid_hideout_tt
+		fire_only_once = no
+		cost = 10
 		days_remove = 5
 		remove_effect = {
 			current_westfalen_gui_state = {
@@ -1870,7 +1934,7 @@ influencing_belgium = {
 	FRA_boost_public_support_for_degrelle = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 		}
 		visible = {
 			tag = FRA
@@ -1889,7 +1953,7 @@ influencing_belgium = {
 	FRA_fund_a_military_parade_for_degrelle = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 		}
 		visible = {
 			tag = FRA
@@ -1911,7 +1975,7 @@ influencing_belgium = {
 	FRA_invest_in_wallonian_infrastructure = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 		}
 		visible = {
 			tag = FRA
