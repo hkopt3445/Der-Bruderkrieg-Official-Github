@@ -1730,7 +1730,9 @@ FRA_hunting_westfalen_nationalists = {
 	
 		visible = {
 		tag = FRA
-		
+		NOT = {
+			has_country_flag = FRA_westfalen_nationalist_coup_crushed
+		}
 		} 
 	
 		cancel_if_not_visible = yes
@@ -1745,8 +1747,7 @@ FRA_hunting_westfalen_nationalists = {
 	FRA_supress_nationalist_rally = {
 		icon = generic_operation
 		available = {
-		
-				always = yes
+			command_power > 10
 		}
 		visible = {
 			tag = FRA
@@ -1870,7 +1871,9 @@ FRA_hunting_westfalen_nationalists = {
 	FRA_hinder_prussian_arms_shipments = {
 		icon = generic_operation
 		available = {
-			always = yes
+			has_army_manpower = {
+				size > 100
+			}
 			
 		}
 		visible = {
@@ -1902,7 +1905,9 @@ FRA_hunting_westfalen_nationalists = {
 	FRA_raid_hideout = {
 		icon = generic_operation
 		available = {
-			always = yes
+			has_army_manpower = {
+				size > 100
+			}
 			
 		}
 		visible = {
@@ -1916,7 +1921,7 @@ FRA_hunting_westfalen_nationalists = {
 				size > 100
 			}
 		}
-		custom_cost_trigger = FRA_raid_hideout_tt
+		custom_cost_text = FRA_raid_hideout_tt
 		fire_only_once = no
 		cost = 10
 		days_remove = 5
@@ -1926,6 +1931,39 @@ FRA_hunting_westfalen_nationalists = {
 					nationalist_influence = -1
 				}	
 			}
+		}
+	}
+	FRA_stop_the_coup = {
+		icon = generic_operation
+		available = {
+			FGD = {
+				every_owned_state = {
+					limit = {
+						is_in_array = {
+							array = FGD.nationalist_states_array
+							value = THIS
+						}
+					}
+					check_variable = { nationalist_influence > 7 }
+				}
+			}
+			
+		}
+		visible = {
+			tag = FRA
+		}	
+		ai_will_do = {
+			factor = 1
+		}
+		
+		fire_only_once = no
+		cost = 5
+		days_remove = 5
+		remove_effect = {
+			FGD = {
+				remove_ideas = Nationalist_Sympathisers
+			}
+			set_country_flag = FRA_westfalen_nationalist_coup_crushed
 		}
 	}
 }
