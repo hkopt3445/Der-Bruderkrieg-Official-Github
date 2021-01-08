@@ -18,6 +18,7 @@ focus_tree = {
 	shared_focus = FRA_solving_frances_problems
 	shared_Focus = FRA_colonial_investments
 	shared_focus = FRA_expand_the_sorbonne_university
+	shared_focus = FRA_spain_is_broken
 }
 
 
@@ -37,13 +38,14 @@ shared_focus = {
 	relative_position_id = FRA_reinforcing_neue_code_napoleon
 	cost = 5
 	ai_will_do = {
-		factor = 20
+		factor = 30
+	}
+	available = {
+	
 	}
 	bypass = {
 		OR = {
-			NOT = {
-				country_exists = BEL
-			}
+			NOT = { country_exists = BEL }
 			FRA = {
 				has_war_with = BEL
 			}
@@ -80,6 +82,8 @@ shared_focus = {
 		focus = FRA_ANNEX_BELGIUM
 	}
 
+	
+
 	x = 1
 	y = 3
 	relative_position_id = FRA_reinforcing_neue_code_napoleon
@@ -87,23 +91,25 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
-	bypass = {
-		OR = {
-			NOT = {
-				country_exists = BEL
-			}
+	
+
+	available = {
+		NOT = {
+			has_global_flag = degrelle_loses_electionns
+		}
+		country_exists = BEL
+		NOT = {
 			FRA = {
 				has_war_with = BEL
 			}
 		}
-
+	
 	}
-
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		
+		country_event = brussells_conference.1
 	}
 }
 
@@ -121,10 +127,7 @@ shared_focus = {
 		factor = 20
 	}
 	available = {
-		NOT = {
-			country_exists = HOL
-			country_exists = LUX
-		}
+	
 	}
 	bypass = {
 		OR = {
@@ -135,12 +138,18 @@ shared_focus = {
 				has_war_with = BEL
 			}
 		}
+		has_country_flag = brussells_conference_success
 	}
 
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
+		BEL = {
+			add_stability = 0.05
+			add_war_suport = 0.05
+			add_political_power = 40
+		}
 	}
 }
 
@@ -155,6 +164,9 @@ shared_focus = {
 	cost = 5
 	ai_will_do = {
 		factor = 20
+	}
+	available = {
+		has_country_flag = brussells_conference_success
 	}
 
 	available_if_capitulated = yes
@@ -808,7 +820,7 @@ shared_focus = {
 		id = FRA_the_chaotic_westfalen
 		icon = GFX_goal_FRA_chaotic_westfalen
 		text = FRA_the_chaotic_westfalen
-		x = -14
+		x = -20
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -822,6 +834,7 @@ shared_focus = {
 
 		completion_reward = {
 			country_event = westfalen_subtree_events.1
+			
 		}
 }
 
@@ -846,6 +859,10 @@ shared_focus = {
 			set_country_flag = allow_westfalen_gui
 
 			set_variable = {FRA_weekly_crackdown_westfalen_var = 0}
+			FRA_westfalen_setup_crackdown_variable = yes
+			add_dynamic_modifier = {
+				modifier =  westfalen_dynamic_modifier
+			}
 		}
 }
 shared_focus = {
@@ -1090,42 +1107,6 @@ shared_focus = {
 
 
 
-shared_focus = {
-	id = FRA_ANNEX_LUX
-	icon = GFX_goal_invadeluxembourg
-	text = FRA_ANNEX_LUX
-	prerequisite = { focus = FRA_the_luxemburg_colony }
-	allow_branch = {
-		always = no
-	}
-	x = -1
-	y = 1
-	relative_position_id = FRA_the_luxemburg_colony
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	bypass = {
-		OR = {
-			NOT = {
-				country_exists = HOL
-			}
-			FRA = {
-				has_war_with = HOL
-			}
-			HOL = {
-				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-			}
-		}
-	}
-
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		LUX = {country_event = {id = napoleanfrance.4}}
-	}
-}
 
 
 
@@ -1376,39 +1357,7 @@ shared_focus = {
 
 
 
-shared_focus = {
-	id = FRA_SPREAD_FASCISM
-	icon = GFX_goal_eurofascism
-	text = FRA_SPREAD_FASCISM
-	prerequisite = { focus = FRA_INVITE_SPAIN }
 
-	x = 1	
-	y = 1
-	relative_position_id = FRA_INVITE_SPAIN
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	allow_branch = {
-		always = no
-	}
-
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		every_country = {
-			limit = {
-				is_on_continent = europe
-				NOT = {
-					OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-					has_government = fascism
-				}
-			}
-				PREV = {add_ideas = fascist_influence}
-		}
-	}
-}
 
 shared_focus = {
 	id = FRA_LOOKING_EAST
@@ -1429,51 +1378,5 @@ shared_focus = {
 
 	completion_reward = {
 		
-	}
-}
-
-shared_focus = {
-	id = FRA_DEMAND_SUBMISSION
-	icon = GFX_goal_forcedsubimission
-	text = FRA_DEMAND_SUBMISSION
-	prerequisite = { focus = FRA_SPREAD_FASCISM	}
-	x = 1
-	y = 1
-	relative_position_id = FRA_SPREAD_FASCISM
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
-	bypass = {
-		OR = {
-			NOT = {
-				country_exists = GER
-			}
-			FRA = {
-				has_war_with = GER
-			}
-			GER = {
-				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-			}
-		}
-		OR = {
-			NOT = {
-				country_exists = ITA
-			}
-			FRA = {
-				has_war_with = ITA
-			}
-			ITA = {
-				OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-			}
-		}
-	}
-
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		GER = {country_event = {id = napoleanfrance.1}}
-		ITA = {country_event = {id = napoleanfrance.1}}
 	}
 }

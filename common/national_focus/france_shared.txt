@@ -1223,10 +1223,9 @@
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_popularity = {
-				ideology = authoritarian_democratic
-				popularity = 0.1
-			}
+	 add_political_power = 50
+	 add_stability = 0.05
+	 add_war_suport = 0.05
     }
   }
 
@@ -1362,7 +1361,7 @@
 					desc = "NAPOELEON_DESC"
 					picture = "gfx/leaders/NapoleonVIPortrait.dds"
 					expire = "1965.1.1"
-					ideology = despotic
+					ideology = democratic_conservative
 					traits = {
 						napoleon_ancestor
 						
@@ -1987,7 +1986,10 @@
 
     completion_reward = {
       country_event = france.211
-
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.1
+		}
 			
     }
   }
@@ -2015,7 +2017,7 @@
 
     completion_reward = {
 			add_popularity  = {
-				ideology = authoritarian_democratic
+				ideology = ultranationalism
 				popularity = 0.05
 			}
 			add_political_power = 75
@@ -2046,6 +2048,30 @@
       add_ideas = {
 				National_Syndicalism
 			}
+
+			add_popularity = {
+				ideology = ultranationalism
+				popularity = 0.05
+			}
+
+			set_politics = {
+				ruling_party = ultranationalism
+			}
+
+			hidden_effect = {
+			create_country_leader = {
+				name = "Napoleon VI"
+				desc = "NAPOELEON_DESC"
+				picture = "gfx/leaders/NapoleonVIPortrait.dds"
+				expire = "1965.1.1"
+				ideology = ultranationalist
+				traits = {
+					napoleon_ancestor
+					
+				}
+			}
+			
+		}
     }
   }
 
@@ -2516,6 +2542,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
+			custom_effect_tooltip = unlock_strike_related_decisions_tt
 		}
 	  }
 	
@@ -2536,6 +2563,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
+			custom_effect_tooltip = unlock_strike_related_decisions_tt
 		}
 	  }
 
@@ -2546,6 +2574,9 @@
 		prerequisite = { focus = FRA_reestablish_feudalism}
 		prerequisite = {
 			focus = FRA_crush_revolting_peasents
+		}
+		available = {
+			always = no
 		}
 		x = 1
 		y = 1
@@ -2559,6 +2590,9 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
+			remove_dynamic_modifier = {
+				modifier = french_strikes_modifier
+			}
 		}
 	  }
 	
@@ -2579,7 +2613,7 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 	
 		completion_reward = {
-		  add_timed_idea =  { idea = FRA_local_infrastructure days = 100 }
+		#  add_timed_idea =  { idea = FRA_local_infrastructure days = 100 }
 	
 		  unlock_decision_tooltip = FRA_build_infrastructure_in_from
 		 }
@@ -2655,7 +2689,7 @@
 		completion_reward = {
 			
 			unlock_decision_tooltip = FRA_expand_local_villages_in_from
-				add_timed_idea =  { idea = FRA_local_villages days = 100 }
+			#	add_timed_idea =  { idea = FRA_local_villages days = 100 }
 		 }
 	  }
 
@@ -3611,7 +3645,7 @@
 	#	mutually_exclusive = {
 		#	focus = FRA_SUPPLY_CARLIST
 	#	}
-		x = -11
+		x = -10
 		y = 0
 		#relative_position_id = FRA_MILITARY_GOVERNMENT
 		cost = 5
@@ -3812,34 +3846,6 @@
 		}
 	}
 
-
-	shared_focus = {
-		id = FRA_dealing_with_public_backlash
-		icon = unkown
-		text = FRA_dealing_with_public_backlash
-		prerequisite = { focus = FRA_spain_is_broken }
-	#	mutually_exclusive = {
-		#	focus = FRA_SUPPLY_CARLIST
-	#	}
-		x = 2
-		y = 1
-		relative_position_id = FRA_spain_is_broken
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-		available = {
-			always = no
-		}
-		
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			
-		}
-	}
 	shared_focus = {
 		id = FRA_dealing_with_public_backlash
 		icon = unkown
