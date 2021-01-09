@@ -154,7 +154,7 @@ country_event = {  #######France says no
 		name = germany.205.b #needs to be localized
 		ai_chance = { factor = 100 } #AI will NOT do
 
-		remove_country_flag = "Succesful"
+		clr_country_flag = "Succesful"
 	}
 }
 
@@ -769,6 +769,29 @@ country_event = {
 	}
  }
 
+ add_namespace = GER_goering_internal_stabilization
+
+ country_event = {
+	id = GER_goering_internal_stabilization.1 # The War on Occultism 
+	title = GER_goering_internal_stabilization.1.t
+	desc = GER_goering_internal_stabilization.1.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { # Don't what it is supposed to do yet
+		name = GER_goering_internal_stabilization.1.a
+		ai_chance = { factor = 1000 } 
+		set_country_flag = GER_volkisch
+	}
+	option = { # Don't what it is supposed to do yet
+		name = GER_goering_internal_stabilization.1.b
+		ai_chance = { factor = 1000 } 
+		set_country_flag = GER_church
+	}
+ }
+
+
 add_namespace = militia_revolts
 
  country_event = {
@@ -802,7 +825,9 @@ add_namespace = militia_revolts
 	#picture =
 	
 	trigger = {
-		
+		FRE = {
+			has_capitulated = yes
+		}
 	}
 
 	fire_only_once = yes
@@ -810,6 +835,7 @@ add_namespace = militia_revolts
 
 	option = {
 		name = militia_revolts.2.a
+		set_country_flag = GER_militia_pacified
 		ai_chance = { factor = 1000 }
 		}
 	}
@@ -907,7 +933,9 @@ add_namespace = militia_revolts
 		#picture =
 		
 		trigger = {
-			
+			SAR = {
+				has_capitulated = yes
+			}
 		}
 	
 		fire_only_once = yes
@@ -915,6 +943,7 @@ add_namespace = militia_revolts
 	
 		option = {
 			name = militia_revolts.5.a
+			set_country_flag = GER_militia_pacified
 			ai_chance = { factor = 1000 }
 			}
 		}
@@ -986,7 +1015,7 @@ add_namespace = militia_revolts
 					  }	  	
 				}
 			}
-		}	
+		}		
 
 
  add_namespace = prussia_easter_egg_meme_events

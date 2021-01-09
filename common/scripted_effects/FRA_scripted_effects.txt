@@ -193,3 +193,53 @@ update_french_strike_vars = {
     calc_french_strikes_vars = yes
   }
 }
+
+
+update_westfalen_crackdown_vars = {
+  every_owned_state = {
+    limit = {
+      is_in_array = {
+        array = FGD.nationalist_states_array
+        value = THIS
+      }
+    }
+    add_to_variable = {
+      nationalist_influence =FRA_weekly_crackdown_westfalen_var
+    }
+  }
+}
+
+FRA_westfalen_setup_crackdown_variable = {
+
+  set_variable = {westfalen_suppression_var_loc_showcase =westfalen_suppression_var}
+  divide_variable = {westfalen_suppression_var_loc_showcase = 10}
+  set_variable = {manpower_loss_westfalen_crackdown_var = westfalen_suppression_var} 
+  divide_variable = {manpower_loss_westfalen_crackdown_var = -4000}
+  set_variable = {command_power_loss_westfalen_crackdown_var = westfalen_suppression_var}
+  divide_variable = {command_power_loss_westfalen_crackdown_var = -500}
+
+  set_variable = {FRA_weekly_crackdown_westfalen_var = westfalen_suppression_var}
+  divide_variable = {FRA_weekly_crackdown_westfalen_var = -100}
+
+  
+
+}
+
+FRA_modify_westfalen_suppression = {
+  add_to_variable = {westfalen_suppression_var = temp_value}
+  FRA_westfalen_setup_crackdown_variable = yes
+
+
+  # scroll position 
+  set_variable = { slider_x_position = 72 }
+  set_temp_variable = { temp_x = westfalen_suppression_var }
+  multiply_temp_variable = { temp_x = 245 }
+  divide_temp_variable = { temp_x = 100 }
+  round_temp_variable = temp_x
+  add_to_variable = { slider_x_position = temp_x }
+
+  clamp_variable = {
+      var = slider_x_position
+      max = 317
+  }
+}
