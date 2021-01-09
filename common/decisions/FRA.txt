@@ -219,6 +219,9 @@ FRA_worker_strikes = {
 	visible = {
 		has_country_flag = FRA_strikes_begin_weekly
 	}
+	available = {
+		has_completed_focus = FRA_crush_revolting_peasents
+	}
 
 	days_remove = 10
 
@@ -248,6 +251,9 @@ FRA_set_up_guards_around_factories = {
 
 	visible = {
 		has_country_flag = FRA_strikes_begin_weekly
+	}
+	available = {
+		has_completed_focus = FRA_crush_revolting_peasents
 	}
 
 	days_remove = 10
@@ -279,6 +285,9 @@ FRA_threaten_their_pensions = {
 	visible = {
 		has_country_flag = FRA_strikes_begin_weekly
 	}
+	available = {
+		has_completed_focus = FRA_crush_revolting_peasents
+	}
 
 	days_remove = 10
 
@@ -309,6 +318,9 @@ FRA_round_up_the_leaders = {
 	visible = {
 		has_country_flag = FRA_strikes_begin_weekly
 	}
+	available = {
+		has_completed_focus = FRA_crush_revolting_peasents
+	}
 
 	days_remove = 10
 
@@ -334,6 +346,9 @@ FRA_factory_occupation_initiation = {
 	icon = eng_trade_unions_demand
 
 	allowed = {
+	}
+	available = {
+		has_completed_focus = FRA_reestablish_feudalism
 	}
 
 	visible = {
@@ -370,6 +385,9 @@ FRA_factory_occupation_large = {
 	visible = {
 		has_country_flag = FRA_strikes_begin_weekly
 	}
+	available = {
+		has_completed_focus = FRA_reestablish_feudalism
+	}
 
 	days_remove = 10
 
@@ -401,6 +419,9 @@ FRA_send_in_the_military_forces = {
 	visible = {
 		has_country_flag = FRA_strikes_begin_weekly
 	}
+	available = {
+		has_completed_focus = FRA_reestablish_feudalism
+	}
 
 	days_remove = 10
 
@@ -431,6 +452,9 @@ FRA_declare_a_state_of_emergency = {
 
 	visible = {
 		has_country_flag = FRA_strikes_begin_weekly
+	}
+	available = {
+		has_completed_focus = FRA_reestablish_feudalism
 	}
 
 	days_remove = 10
@@ -484,7 +508,7 @@ FRA_declare_the_strikes_cleared = {
 	}
 
 	remove_effect = {
-		
+		complete_national_focus = FRA_the_workers_crushed
 	}
 }
 
@@ -1244,6 +1268,11 @@ FRA_balancing_the_autocracy = {
 
 
   ###nobility
+  FRA_blank_1 = {
+	  available = {
+		   always = no
+	  }
+  }
   
   FRA_appoint_noblility_to_government = {
 
@@ -1710,50 +1739,73 @@ FRA_colonial_investments_decision_cat = {
 }
 
 FRA_hunting_westfalen_nationalists = {
+	FRA_nationalist_coup = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 350
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = FRA_managing_the_instability
+		}
+	
+		visible = {
+		tag = FRA
+		NOT = {
+			has_country_flag = FRA_westfalen_nationalist_coup_crushed
+		}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+
+		}
+	}
 	FRA_supress_nationalist_rally = {
 		icon = generic_operation
 		available = {
-			OR = {
-				current_westfalen_gui_state = { id = 42 }
-				current_westfalen_gui_state = { id = 51 }
-				current_westfalen_gui_state = { id = 57 }
- 				current_westfalen_gui_state = { id = 798 }
-				current_westfalen_gui_state = { id = 955 }
-				current_westfalen_gui_state = { id = 957 }
-				current_westfalen_gui_state = { id = 959 }
-				current_westfalen_gui_state = { id = 960 }
-			}
-				
+			command_power > 10
+			
 		}
 		visible = {
 			tag = FRA
+			
 		}
+		custom_cost_trigger = {
+			command_power > 10
+		}
+		custom_cost_text = FRA_westflen_cost_text_tt
 		ai_will_do = {
 			factor = 1
 		}
 		fire_only_once = no
 		days_remove = 10
 		remove_effect = {
-			current_westfalen_gui_state = {
+			event_target:current_westfalen_gui_state = {
 				add_to_variable = {
-					nationalist_influence = -2
+					nationalist_influence = -1
 				}	
+			}
+			hidden_effect = {
+				add_command_power = -10
 			}
 		}
 	}
 	FRA_arrest_nationalist_leaders = {
 		icon = generic_operation
 		available = {
-			OR = {
-				current_westfalen_gui_state = { id = 42 }
-				current_westfalen_gui_state = { id = 51 }
-				current_westfalen_gui_state = { id = 57 }
- 				current_westfalen_gui_state = { id = 798 }
-				current_westfalen_gui_state = { id = 955 }
-				current_westfalen_gui_state = { id = 957 }
-				current_westfalen_gui_state = { id = 959 }
-				current_westfalen_gui_state = { id = 960 }
-			}
 			
 		}
 		visible = {
@@ -1763,11 +1815,12 @@ FRA_hunting_westfalen_nationalists = {
 			factor = 1
 		}
 		fire_only_once = no
+		cost = 25
 		days_remove = 10
 		remove_effect = {
-			current_westfalen_gui_state = {
+			event_target:current_westfalen_gui_state = {
 				add_to_variable = {
-					nationalist_influence = -2
+					nationalist_influence = -1
 				}	
 			}
 		}
@@ -1775,16 +1828,6 @@ FRA_hunting_westfalen_nationalists = {
 	FRA_promoting_invidualism = {
 		icon = generic_operation
 		available = {
-			OR = {
-				current_westfalen_gui_state = { id = 42 }
-				current_westfalen_gui_state = { id = 51 }
-				current_westfalen_gui_state = { id = 57 }
- 				current_westfalen_gui_state = { id = 798 }
-				current_westfalen_gui_state = { id = 955 }
-				current_westfalen_gui_state = { id = 957 }
-				current_westfalen_gui_state = { id = 959 }
-				current_westfalen_gui_state = { id = 960 }
-			}
 			
 		}
 		visible = {
@@ -1794,11 +1837,12 @@ FRA_hunting_westfalen_nationalists = {
 			factor = 1
 		}
 		fire_only_once = no
+		cost = 10
 		days_remove = 10
 		remove_effect = {
-			current_westfalen_gui_state = {
+			event_target:current_westfalen_gui_state = {
 				add_to_variable = {
-					nationalist_influence = -2
+					nationalist_influence = -1
 				}	
 			}
 		}
@@ -1806,16 +1850,7 @@ FRA_hunting_westfalen_nationalists = {
 	FRA_limiting_german_polticial_rights = {
 		icon = generic_operation
 		available = {
-			OR = {
-				current_westfalen_gui_state = { id = 42 }
-				current_westfalen_gui_state = { id = 51 }
-				current_westfalen_gui_state = { id = 57 }
- 				current_westfalen_gui_state = { id = 798 }
-				current_westfalen_gui_state = { id = 955 }
-				current_westfalen_gui_state = { id = 957 }
-				current_westfalen_gui_state = { id = 959 }
-				current_westfalen_gui_state = { id = 960 }
-			}
+			
 			
 		}
 		visible = {
@@ -1825,28 +1860,49 @@ FRA_hunting_westfalen_nationalists = {
 			factor = 1
 		}
 		fire_only_once = no
+		cost = 15
 		days_remove = 10
 		remove_effect = {
-			current_westfalen_gui_state = {
+			event_target:current_westfalen_gui_state = {
 				add_to_variable = {
-					nationalist_influence = -2
+					nationalist_influence = -1
 				}	
 			}
+		}
+	}
+	
+	FRA_ban_fascist_organizings = {
+		icon = generic_operation
+		available = {
+			
+			
+		}
+		visible = {
+			tag = FRA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	
+		fire_only_once = no
+		cost = 30
+		days_remove = 15
+		remove_effect = {
+			event_target:current_westfalen_gui_state = {
+				add_to_variable = {
+					nationalist_influence = -1
+				}	
+			}
+			
 		}
 	}
 	FRA_hinder_prussian_arms_shipments = {
 		icon = generic_operation
 		available = {
-			OR = {
-				current_westfalen_gui_state = { id = 42 }
-				current_westfalen_gui_state = { id = 51 }
-				current_westfalen_gui_state = { id = 57 }
- 				current_westfalen_gui_state = { id = 798 }
-				current_westfalen_gui_state = { id = 955 }
-				current_westfalen_gui_state = { id = 957 }
-				current_westfalen_gui_state = { id = 959 }
-				current_westfalen_gui_state = { id = 960 }
+			has_army_manpower = {
+				size > 100
 			}
+			
 			
 		}
 		visible = {
@@ -1855,76 +1911,88 @@ FRA_hunting_westfalen_nationalists = {
 		ai_will_do = {
 			factor = 1
 		}
+		cost = 20
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FRA_hinder_prussian_arms_shipments_tt
 		fire_only_once = no
 		days_remove = 10
 		remove_effect = {
-			current_westfalen_gui_state = {
+			event_target:current_westfalen_gui_state = {
 				add_to_variable = {
-					nationalist_influence = -2
+					nationalist_influence = -1
 				}	
 			}
-		}
-	}
-	FRA_ban_fascist_organizings = {
-		icon = generic_operation
-		available = {
-			OR = {
-				current_westfalen_gui_state = { id = 42 }
-				current_westfalen_gui_state = { id = 51 }
-				current_westfalen_gui_state = { id = 57 }
- 				current_westfalen_gui_state = { id = 798 }
-				current_westfalen_gui_state = { id = 955 }
-				current_westfalen_gui_state = { id = 957 }
-				current_westfalen_gui_state = { id = 959 }
-				current_westfalen_gui_state = { id = 960 }
-			}
-			
-		}
-		visible = {
-			tag = FRA
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		fire_only_once = no
-		days_remove = 15
-		remove_effect = {
-			current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -2
-				}	
+			hidden_effect = {
+				add_manpower = -100
 			}
 		}
 	}
 	FRA_raid_hideout = {
 		icon = generic_operation
 		available = {
-			OR = {
-				current_westfalen_gui_state = { id = 42 }
-				current_westfalen_gui_state = { id = 51 }
-				current_westfalen_gui_state = { id = 57 }
- 				current_westfalen_gui_state = { id = 798 }
-				current_westfalen_gui_state = { id = 955 }
-				current_westfalen_gui_state = { id = 957 }
-				current_westfalen_gui_state = { id = 959 }
-				current_westfalen_gui_state = { id = 960 }
+			has_army_manpower = {
+				size > 100
 			}
 			
 		}
 		visible = {
 			tag = FRA
-		}
+		}	
 		ai_will_do = {
 			factor = 1
 		}
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FRA_raid_hideout_tt
 		fire_only_once = no
+		cost = 10
 		days_remove = 5
 		remove_effect = {
-			current_westfalen_gui_state = {
+			event_target:current_westfalen_gui_state = {
 				add_to_variable = {
 					nationalist_influence = -1
 				}	
 			}
+		}
+	}
+	FRA_stop_the_coup = {
+		icon = generic_operation
+		available = {
+			FGD = {
+				all_owned_state = {
+				
+					is_in_array = {
+						array = FGD.nationalist_states_array
+						value = THIS
+					}
+					
+					check_variable = { nationalist_influence > 7 }
+				}
+			}
+			
+		}
+		visible = {
+			tag = FRA
+		}	
+		ai_will_do = {
+			factor = 1
+		}
+		
+		fire_only_once = no
+		cost = 5
+		days_remove = 5
+		remove_effect = {
+			FGD = {
+				remove_ideas = Nationalist_Sympathisers
+			}
+			set_country_flag = FRA_westfalen_nationalist_coup_crushed
 		}
 	}
 }
@@ -1933,7 +2001,7 @@ influencing_belgium = {
 	FRA_boost_public_support_for_degrelle = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 		}
 		visible = {
 			tag = FRA
@@ -1945,14 +2013,14 @@ influencing_belgium = {
 		days_remove = 10
 		remove_effect = {
 			add_to_variable = {
-				degrelle_win_prob = 6
+				global.degrelle_win_prob = 6
 			}
 		}
 	}
 	FRA_fund_a_military_parade_for_degrelle = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 		}
 		visible = {
 			tag = FRA
@@ -1964,7 +2032,7 @@ influencing_belgium = {
 		days_remove = 10
 		remove_effect = {
 			add_to_variable = {
-				degrelle_win_prob = 3
+				global.degrelle_win_prob = 3
 			}
 			BEL = {
 				add_war_support = 0.03
@@ -1974,7 +2042,7 @@ influencing_belgium = {
 	FRA_invest_in_wallonian_infrastructure = {
 		icon = generic_operation
 		available = {
-			
+			always = yes
 		}
 		visible = {
 			tag = FRA
@@ -1986,7 +2054,7 @@ influencing_belgium = {
 		days_remove = 30
 		remove_effect = {
 			add_to_variable = {
-				degrelle_win_prob = 3
+				global.degrelle_win_prob = 3
 			}
 			34 = {
 				add_building_construction = {
@@ -2012,7 +2080,7 @@ influencing_belgium = {
 		days_remove = 30
 		remove_effect = {
 			add_to_variable = {
-				degrelle_win_prob = 3
+				global.degrelle_win_prob = 3
 			}
 			35 = {
 				add_building_construction = {
@@ -2054,7 +2122,7 @@ influencing_belgium = {
 			
 		} 
 
-		cancel_if_not_visible = yes
+		#cancel_if_not_visible = yes
 
 		is_good = yes
 		

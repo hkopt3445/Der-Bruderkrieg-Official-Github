@@ -45,42 +45,70 @@ on_actions = {
 				set_variable = {
 					nationalist_influence = 7
 				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
+				}
 			}
 			51 = {
 				set_variable = { 
 					nationalist_influence = 3
+				
+				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
 				}
 			}
 			57 = {
 				set_variable = {
 					nationalist_influence = 9
 				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
+				}
 			}
 			798 = {
 				set_variable = {
 					nationalist_influence = 7
+				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
 				}
 			}
 			955 = {
 				set_variable = {
 					nationalist_influence = 4
 				}
-			}
-			957 = {
-				set_variable = {
-					nationalist_influence = 5
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
 				}
 			}
+		
 			959 = {
 				set_variable = {
 					nationalist_influence = 8
+				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
 				}
 			}
 			960 = {
 				set_variable = {
 					nationalist_influence = 2
 				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
+				}
 			}
+
+			FRA = { set_variable = {slider_x_position = 72} }
+
 
         }
 	}
@@ -98,6 +126,29 @@ on_actions = {
 				}
 			}
 			
+		}
+	}
+
+	on_weekly_FRA = {
+		if = {
+			limit = {
+				has_completed_focus = FRA_managing_the_instability
+				NOT = {
+					has_country_flag = FRA_westfalen_nationalist_coup_crushed
+				}
+			}
+			FGD = {
+				every_owned_state = {
+					limit = {
+						is_in_array = {
+							array = FGD.nationalist_states_array
+							value = THIS
+						}
+					}
+					add_to_variable = { nationalist_influence = FRA_weekly_crackdown_westfalen_var }
+				}
+			}
+		
 		}
 	}
 
