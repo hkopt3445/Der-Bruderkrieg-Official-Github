@@ -2237,7 +2237,7 @@ add_idea = GER_Nation_At_Arms
 
 
 	focus = {
-		id = GER_four_year_plan2
+		id = GER_goerings_industrial_plan
 		icon = GFX_goal_generic_construction
 		x = 3
 		y = 1
@@ -2250,7 +2250,7 @@ add_idea = GER_Nation_At_Arms
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_tech_bonus = {
-				name = GER_four_year_plan2
+				name = GER_goerings_industrial_plan
 				bonus = 1.0
 				uses = 2
 				category = industry
@@ -2262,12 +2262,12 @@ add_idea = GER_Nation_At_Arms
 	}
 
 	focus = {
-		id = GER_autarky2
+		id = GER_continuing_ataurky
 		icon = GFX_goal_generic_construct_civilian
-		prerequisite = { focus = GER_four_year_plan2 }
+		prerequisite = { focus = GER_goerings_industrial_plan }
 		x = 0
 		y = 1
-		relative_position_id = GER_four_year_plan2
+		relative_position_id = GER_goerings_industrial_plan
 		cost = 5
 
 		ai_will_do = {
@@ -2292,10 +2292,10 @@ add_idea = GER_Nation_At_Arms
 		id = GER_hermann_goring_werke2
 		icon = GFX_goal_generic_construct_civ_factory
 		dynamic = yes
-		prerequisite = { focus = GER_autarky2 }
+		prerequisite = { focus = GER_continuing_ataurky }
 		x = -2
 		y = 1
-		relative_position_id = GER_autarky2
+		relative_position_id = GER_continuing_ataurky
 		cost = 5
 		ai_will_do = {
 			factor = 9
@@ -2368,10 +2368,10 @@ add_idea = GER_Nation_At_Arms
 	}
 
 	focus = {
-		id = GER_kdf_wagen2
+		id = GER_volkswagen_factories
 		icon = GFX_goal_generic_construct_civ_factory
 		dynamic = yes
-		prerequisite = { focus = GER_autarky2 }
+		prerequisite = { focus = GER_continuing_ataurky }
 		x = 4
 		y = 0
 		relative_position_id = GER_hermann_goring_werke2
@@ -2447,7 +2447,7 @@ add_idea = GER_Nation_At_Arms
 	}
 
 	focus = {
-		id = GER_coal_liquidization2
+		id = GER_coal_production
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = GER_hermann_goring_werke2 }
 		x = 0
@@ -2462,7 +2462,7 @@ add_idea = GER_Nation_At_Arms
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_tech_bonus = {
-				name = GER_coal_liquidization2
+				name = GER_coal_production
 				bonus = 3.0
 				uses = 1
 				category = synth_resources
@@ -2484,12 +2484,12 @@ add_idea = GER_Nation_At_Arms
 	}
 
 	focus = {
-		id = GER_synthetic_rubber2
+		id = GER_rubber_production
 		icon = GFX_focus_generic_rubber
-		prerequisite = { focus = GER_kdf_wagen2 }
+		prerequisite = { focus = GER_volkswagen_factories }
 		x = 0
 		y = 1
-		relative_position_id = GER_kdf_wagen2
+		relative_position_id = GER_volkswagen_factories
 		cost = 5
 		ai_will_do = {
 			factor = 4
@@ -2506,13 +2506,13 @@ add_idea = GER_Nation_At_Arms
 	}
 
 	focus = {
-		id = GER_extra_tech_slot2
+		id = GER_expand_berlin_university
 		icon = GFX_focus_research
 		text = extra_tech_slot2
-		prerequisite = { focus = GER_coal_liquidization2 focus = GER_synthetic_rubber2 }
+		prerequisite = { focus = GER_coal_production focus = GER_rubber_production }
 		x = 2
 		y = 1
-		relative_position_id = GER_coal_liquidization2
+		relative_position_id = GER_coal_production
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -2526,12 +2526,12 @@ add_idea = GER_Nation_At_Arms
 	}
 
 	focus = {
-		id = GER_autobahn2
+		id = GER_the_autobahn
 		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = GER_extra_tech_slot2 }
+		prerequisite = { focus = GER_expand_berlin_university }
 		x = 0
 		y = 1
-		relative_position_id = GER_extra_tech_slot2
+		relative_position_id = GER_expand_berlin_university
 		cost = 5
 		ai_will_do = {
 			factor = 12
@@ -2595,12 +2595,12 @@ add_idea = GER_Nation_At_Arms
 	}
 
 	focus = {
-		id = GER_german_war_economy2
+		id = GER_german_war_economy
 		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = GER_autobahn2 }
+		prerequisite = { focus = GER_the_autobahn }
 		x = -1
 		y = 1
-		relative_position_id = GER_autobahn2
+		relative_position_id = GER_the_autobahn
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -2612,7 +2612,7 @@ add_idea = GER_Nation_At_Arms
 		}
 		complete_tooltip = {
 			every_state = {
-				limit = { has_state_flag = GER_german_war_economy2 }
+				limit = { has_state_flag = GER_german_war_economy }
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -2644,7 +2644,7 @@ add_idea = GER_Nation_At_Arms
 					level = 2
 					instant_build = yes
 				}
-				set_state_flag = GER_german_war_economy2
+				set_state_flag = GER_german_war_economy
 			}
 			random_owned_controlled_state = {
 				limit = {
@@ -2660,7 +2660,7 @@ add_idea = GER_Nation_At_Arms
 					level = 2
 					instant_build = yes
 				}
-				set_state_flag = GER_german_war_economy2
+				set_state_flag = GER_german_war_economy
 			}
 			random_owned_controlled_state = {
 				limit = {
@@ -2676,18 +2676,18 @@ add_idea = GER_Nation_At_Arms
 					level = 2
 					instant_build = yes
 				}
-				set_state_flag = GER_german_war_economy2
+				set_state_flag = GER_german_war_economy
 			}
 		}
 	}
 
 	focus = {
-		id = GER_grosraumwirtschaft2
+		id = GER_infrastructure_investments
 		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = GER_autobahn2 }
+		prerequisite = { focus = GER_the_autobahn }
 		x = 1
 		y = 1
-		relative_position_id = GER_autobahn2
+		relative_position_id = GER_the_autobahn
 		cost = 5
 
 		ai_will_do = {

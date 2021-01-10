@@ -1,0 +1,503 @@
+focus_tree = {
+	id = PRC
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRC
+		}
+	}
+	#Focus for Formalise The PVA
+	focus = {
+		id = PRC_formalise_the_pva
+		icon = GFX_PRC_formalise_the_pva-26067
+		x = 2
+		y = 6
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_formalise_the_pla }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_ideas = PRC_peoples_volunteer_army
+		}
+	}
+
+	#Focus for Formalise The PLA
+	focus = {
+		id = PRC_formalise_the_pla
+		icon = GFX_goal_generic_attack_allies
+		x = 2
+		y = 5
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_establish_revolutionary_millitary_commision }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			remove_ideas = PRC_red_army_weakened
+		}
+	}
+
+	#Focus for Start Recovery From The March
+	focus = {
+		id = PRC_start_recovery_from_the_march
+		icon = GFX_focus_chi_army_reform
+		x = 2
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_a_communist_china }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_stability = 0.05
+add_war_support
+= 0.05
+		}
+	}
+
+	#Focus for Combat Deafitism Everywhere!
+	focus = {
+		id = PRC_combat_deafitism_everywhere
+		icon = GFX_goal_generic_propaganda
+		x = 7
+		y = 4
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_enforcing_the_three_vital_rules }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_stability = 0.05
+add_war_support
+= 0.05
+add_political_power
+= -120
+		}
+	}
+
+	#Focus for Civilian Focus
+	focus = {
+		id = PRC_civilian_focus
+		icon = GFX_focus_usa_honor_the_confederacy
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_reorganizing_civillian_industry }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Military Factory Project
+	focus = {
+		id = PRC_military_factory_project
+		icon = GFX_goal_generic_production
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_reorganizing_millitary_production }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for A Balanced Economy
+	focus = {
+		id = PRC_a_balanced_economy
+		icon = GFX_goal_generic_position_armies
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_civilian_focus }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Abolish The Hated Land Rent
+	focus = {
+		id = PRC_abolish_the_hated_land_rent
+		icon = GFX_goal_support_communism
+		x = 7
+		y = 5
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_combat_deafitism_everywhere }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			remove_ideas = PRC_low_popular_support_5
+add_political_power
+= -140
+		}
+	}
+
+	#Focus for Antagonise The Japanese
+	focus = {
+		id = PRC_antagonise_the_japanese
+		icon = GFX_focus_attack_japan
+		x = 4
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_a_communist_china }
+		ai_will_do = {
+			factor = 40
+		}
+	}
+
+	#Focus for Communist Economy
+	focus = {
+		id = PRC_communist_economy
+		icon = GFX_goal_support_communism
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRC_a_balanced_economy 
+			focus = PRC_organized_economy 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Organized Economy
+	focus = {
+		id = PRC_organized_economy
+		icon = GFX_focus_eng_special_air_service
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_military_factory_project }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Chinese Nationalism And Unity!
+	focus = {
+		id = PRC_chinese_nationalism_and_unity
+		icon = GFX_PRC_chinese_nationalism_and_unity-26065
+		x = 10
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_a_communist_china }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_political_power= 80
+add_stability = 0.05
+		}
+	}
+
+	#Focus for Reorganizing the Economy
+	focus = {
+		id = PRC_reorganizing_the_economy
+		icon = GFX_goal_generic_soviet_construction
+		x = 18
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			add_political_power= 50
+		}
+	}
+
+	#Focus for Warfare Tactics
+	focus = {
+		id = PRC_warfare_tactics
+		icon = GFX_goal_generic_position_armies
+		x = 0
+		y = 6
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_expand_the_revolutionary_millitary_commision }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			army_experience = 5
+add_tech_bonus = {
+    bonus = 0.5
+    uses = 2
+    category = land_doctrine
+}
+		}
+	}
+
+	#Focus for Reorganizing The Command Corps
+	focus = {
+		id = PRC_reorganizing_the_command_corps
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 2
+		y = 3
+		cost = 6
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_start_recovery_from_the_march }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			army_experience= 10
+
+create_corps_commander = {
+	name = "Mao Anying"
+	portrait_path = "gfx/leaders/Asia/Portrait_Asia_Generic_land_2.dds"
+	traits = { organisational_leader defensive_doctrine }
+	skill = 2
+    attack_skill = 1
+    defense_skill = 1
+    planning_skill = 1
+    logistics_skill = 1
+}
+		}
+	}
+
+	#Focus for Reorganizing Millitary Production
+	focus = {
+		id = PRC_reorganizing_millitary_production
+		icon = GFX_goal_continuous_reduce_training_time
+		x = 17
+		y = 2
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_reorganizing_the_economy }
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power = -80
+		}
+	}
+
+	#Focus for A Communist China
+	focus = {
+		id = PRC_a_communist_china
+		icon = GFX_focus_chi_one_china_policy
+		x = 4
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_political_power= 50
+add_stability= 0.05
+		}
+	}
+
+	#Focus for Reorganizing Civillian Industry
+	focus = {
+		id = PRC_reorganizing_civillian_industry
+		icon = GFX_focus_generic_industry_2
+		x = 19
+		y = 2
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_reorganizing_the_economy }
+		ai_will_do = {
+			factor = 39
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_political_power= -80
+		}
+	}
+
+	#Focus for Redistribute Land
+	focus = {
+		id = PRC_redistribute_land
+		icon = GFX_goal_generic_construct_civilian
+		x = 7
+		y = 2
+		cost = 7
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_a_communist_china }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_stability = 0.05
+add_war_support
+= 0.05
+add_political_power
+= -100
+		}
+	}
+
+	#Focus for Expand The Revolutionary Millitary Commision
+	focus = {
+		id = PRC_expand_the_revolutionary_millitary_commision
+		icon = GFX_goal_generic_military_sphere
+		x = 0
+		y = 5
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_establish_revolutionary_millitary_commision }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = PRC_revolutionary_military_commission
+    add_idea = PRC_central_military_commission
+}
+		}
+	}
+
+	#Focus for Establish Revolutionary Millitary Commision
+	focus = {
+		id = PRC_establish_revolutionary_millitary_commision
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 2
+		y = 4
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_reorganizing_the_command_corps }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_ideas = PRC_revolutionary_military_commission
+		}
+	}
+
+	#Focus for Create A Millitary Intelligence Department
+	focus = {
+		id = PRC_create_a_millitary_intelligence_department
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 4
+		y = 5
+		cost = 8
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_establish_revolutionary_millitary_commision }
+		ai_will_do = {
+			factor = 40
+		}
+		completion_reward = {
+			add_stability= 0.10
+add_political_power= 100
+		}
+	}
+
+	#Focus for Enforcing The Three Vital Rules
+	focus = {
+		id = PRC_enforcing_the_three_vital_rules
+		icon = GFX_goal_tripartite_pact
+		x = 7
+		y = 3
+		cost = 9
+		available_if_capitulated = yes
+		prerequisite = { focus = PRC_redistribute_land }
+		ai_will_do = {
+			factor = 35
+		}
+		completion_reward = {
+			add_stability = 0.05
+add_war_support
+= 0.05
+add_political_power
+= -120
+		}
+	}
+
+#End of focuses 
+ }
