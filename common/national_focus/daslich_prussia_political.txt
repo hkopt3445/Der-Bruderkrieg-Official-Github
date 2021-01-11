@@ -14,8 +14,8 @@
     shared_focus = {
 		id = GER_a_german_triumph
 		icon = GFX_a_german_triumph 
-		x = -1
-		y = 2
+		x = -2
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_venerate_new_karl  }
@@ -97,7 +97,7 @@
 		y = 1
 		cost = 10
 		available_if_capitulated = yes
-		prerequisite = { focus = GER_support_ethnic_militias }
+		prerequisite = { focus = GER_support_ethnic_militias focus = GER_central_control }
 		relative_position_id = GER_support_ethnic_militias
 		ai_will_do = {
 			factor = 1 
@@ -148,8 +148,8 @@
 	shared_focus = {
 		id = GER_von_das_slavenvolk
 		icon = GFX_von_das_slavenvolk 
-		x = 23
-		y = 16
+		x = 5
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_venerate_new_karl }
@@ -162,8 +162,8 @@
 	shared_focus = {
 		id = GER_the_last_war
 		icon = GFX_the_last_war
-		x = 21
-		y = 17
+		x = -1
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_von_das_slavenvolk }
@@ -176,8 +176,8 @@
 	shared_focus = {
 		id = GER_prepare_for_the_struggle
 		icon = GFX_prepare_struggle
-		x = 21
-		y = 18
+		x = 0
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_the_last_war }
@@ -190,8 +190,8 @@
 	shared_focus = {
 		id = GER_the_greatest_war
 		icon = GFX_the_greatest_war
-		x = 21
-		y = 19
+		x = 0
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_prepare_for_the_struggle }
@@ -201,25 +201,13 @@
 		}
 	}
 
-	shared_focus = {
-		id = GER_the_greatest_war
-		icon = GFX_the_greatest_war
-		x = 23
-		y = 20
-		cost = 10
-		available_if_capitulated = yes
-		prerequisite = { focus = GER_prepare_for_the_struggle }
-		relative_position_id = GER_prepare_for_the_struggle
-		ai_will_do = {
-			factor = 1 
-		}
-	}
+	
 
 	shared_focus = {
 		id = GER_our_theories_tested
 		icon = GFX_our_theories_tested
-		x = 25
-		y = 17
+		x = 1
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_von_das_slavenvolk }
@@ -232,8 +220,8 @@
 	shared_focus = {
 		id = GER_winter_clothing
 		icon = GFX_winter_clothing
-		x = 25
-		y = 18
+		x = 0
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_our_theories_tested }
@@ -246,8 +234,8 @@
 	shared_focus = {
 		id = GER_surpass_general_winter
 		icon = GFX_general_winter
-		x = 25
-		y = 19
+		x = 0
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_winter_clothing }
@@ -260,12 +248,13 @@
 	shared_focus = {
 		id = GER_streik
 		icon = GFX_streik
-		x = 23
-		y = 20
+		x = -1
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_surpass_general_winter }
 		prerequisite = { focus = GER_the_greatest_war }
+		relative_position_id = GER_surpass_general_winter
 		ai_will_do = {
 			factor = 1 
 		}
@@ -274,12 +263,12 @@
 	shared_focus = {
 		id = GER_moskowien_awaits
 		icon = GFX_moscow
-		x = 23
-		y = 20
+		x = 2
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_streik }
-		mutually_exclusive = { GER_securing_the_south }
+		mutually_exclusive = { focus = GER_securing_the_south }
 		relative_position_id = GER_streik 
 		ai_will_do = {
 			factor = 1 
@@ -289,12 +278,12 @@
 	shared_focus = {
 		id = GER_securing_the_south
 		icon = GFX_oil_fields
-		x = 24
-		y = 21
+		x = -2
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { focus = GER_streik }
-		mutually_exclusive = { GER_moskowien_awaits }
+		mutually_exclusive = {focus = GER_moskowien_awaits }
 		relative_position_id = GER_streik
 		ai_will_do = {
 			factor = 1 
@@ -304,8 +293,8 @@
 	shared_focus = {
 		id = GER_the_fuel_for_autarky
 		icon = GFX_autarky
-		x = 22
-		y = 22
+		x = 1
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { 
@@ -322,8 +311,8 @@
 	shared_focus = {
 		id = GER_exploit_separatism
 		icon = GFX_separatism
-		x = 24
-		y = 22
+		x = -1
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { 
@@ -340,14 +329,15 @@
 	shared_focus = {
 		id = GER_death_to_partisans
 		icon = GFX_partisans
-		x = 23
-		y = 23
+		x = 1
+		y = 1
 		cost = 10
 		available_if_capitulated = yes
 		prerequisite = { 
 			focus = GER_the_fuel_for_autarky
 			focus = GER_exploit_separatism
 			 }
+			 relative_position_id = GER_the_fuel_for_autarky
 		ai_will_do = {
 			factor = 1 
 		}
