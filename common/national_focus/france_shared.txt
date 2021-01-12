@@ -2523,16 +2523,42 @@
 		completion_reward = {
 		}
 	  }
+
+	  shared_focus = { 
+		id = FRA_the_strikers_hit
+		icon = GFX_goal_emanc_name
+		text = FRA_the_strikers_hit
+		#prerequisite = { focus = FRA_the_bill_was_rejected }
+		prerequisite = {focus = FRA_solving_frances_problems}
+		x = -2
+		y = 1
+		relative_position_id = FRA_solving_frances_problems
+		cost = 2
+		ai_will_do = {
+		  factor = 100
+		}
+		available = {
+			always = no
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			add_political_power = -25
+			add_stability = -0.05	
+		}
+	  }
 	
 	  shared_focus = { 
 		id = FRA_crush_revolting_peasents
 		icon = GFX_goal_emanc_name
 		text = FRA_crush_revolting_peasents
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		prerequisite = {focus = FRA_solving_frances_problems}
+		prerequisite = {focus = FRA_the_strikers_hit}
 		x = -1
 		y = 1
-		relative_position_id = FRA_solving_frances_problems
+		relative_position_id = FRA_the_strikers_hit
 		cost = 2
 		ai_will_do = {
 		  factor = 100
@@ -2550,10 +2576,10 @@
 		id = FRA_reestablish_feudalism
 		icon = GFX_goal_landlordism
 		text = FRA_reestablish_feudalism
-		prerequisite = { focus = FRA_solving_frances_problems}
-		x = -3
+		prerequisite = { focus = FRA_the_strikers_hit}
+		x = 1
 		y = 1
-		relative_position_id = FRA_solving_frances_problems
+		relative_position_id = FRA_the_strikers_hit
 		cost = 2
 		ai_will_do = {
 		  factor = 100
@@ -2578,7 +2604,7 @@
 		available = {
 			always = no
 		}
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = FRA_reestablish_feudalism
 		cost = 2
@@ -2595,15 +2621,37 @@
 			}
 		}
 	  }
+
+	  shared_focus = { 
+		id = FRA_countryside_development_scheme
+		icon = GFX_goal_emanc_name
+		text = FRA_countryside_development_scheme
+		#prerequisite = { focus = FRA_the_bill_was_rejected }
+		prerequisite = {focus = FRA_solving_frances_problems}
+		x = 2
+		y = 1
+		relative_position_id = FRA_solving_frances_problems
+		cost = 2
+		ai_will_do = {
+		  factor = 100
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+		
+		}
+	  }
 	
 	  shared_focus = {
 		id = FRA_encourage_infrastructure
 		icon = GFX_goal_generic_roads
 		text = FRA_encourage_infrastructure
-		prerequisite = { focus = FRA_solving_frances_problems }
-		x = 3
+		prerequisite = { focus = FRA_countryside_development_scheme }
+		x = 1
 		y = 1
-		relative_position_id = FRA_solving_frances_problems
+		relative_position_id = FRA_countryside_development_scheme
 		cost = 5
 		ai_will_do = {
 		  factor = 10
@@ -2618,6 +2666,8 @@
 		  unlock_decision_tooltip = FRA_build_infrastructure_in_from
 		 }
 	  }
+
+	  
 	
 	  shared_focus = {
 		id = FRA_a_better_economy
@@ -2667,6 +2717,8 @@
 		}
 	  }
 	
+
+	  
 	
 	
 	
@@ -2674,10 +2726,10 @@
 		id = FRA_expand_local_villages
 		icon = GFX_goal_FRA_expand_local_villages
 		text = FRA_expand_local_villages
-		prerequisite = { focus = FRA_solving_frances_problems }
-		x = 1
+		prerequisite = { focus = FRA_countryside_development_scheme }
+		x = -1
 		y = 1
-		relative_position_id = FRA_solving_frances_problems
+		relative_position_id = FRA_countryside_development_scheme
 		cost = 5
 		ai_will_do = {
 		  factor = 10
@@ -2717,6 +2769,7 @@
 
 		completion_reward = {
 			add_political_power = 30
+			country_event =  france_policy_tree_events.1
 		}
 	}
 

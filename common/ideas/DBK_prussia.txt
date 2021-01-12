@@ -487,7 +487,7 @@ ideas = {
 			modifier = {
 				conscription = 0.01
 				max_planning = 0.1
-				#planning_speed_factor = 0.12
+				#planning_speed = 0.12
 			}
 		}
 
@@ -553,7 +553,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				planning_speed_factor = -0.15
+				planning_speed = -0.15
 				army_org_factor = -0.08
 				army_attack_factor = -0.1
 				army_defence_factor = -0.1
@@ -572,7 +572,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				planning_speed_factor = -0.05
+				planning_speed = -0.05
 				army_org_factor = -0.05
 				army_attack_factor = -0.05
 				army_defence_factor = -0.05
@@ -826,7 +826,7 @@ ideas = {
 			targeted_modifier = {
 				tag = GER
 				attack_bonus_against = -0.1
-				defence_bonus_against = -0.1
+				defense_bonus_against = -0.1
 			}
 		}
 
@@ -953,7 +953,7 @@ ideas = {
 
 			removal_cost = -1
 
-			modifier {
+			modifier = {
 				stability_factor = 0.1
 				resistance_target = -0.2
 				resistance_damage_to_garrison = -0.25
@@ -974,7 +974,7 @@ ideas = {
 
 			removal_cost = -1
 
-			modifier {
+			modifier = {
 				stability_factor = 0.1
 				political_power_gain = 0.1
 				communism_drift = 0.1
@@ -983,21 +983,20 @@ ideas = {
 
 		}
 
-		GER_The_Prussian_Worker = {
+	GER_The_Prussian_Worker = {
 
       allowed = {
         always = yes
-      }
+       }
 
       allowed_civil_war = {
         always = yes
-      }
+       }
 
       removal_cost = -1
 
       modifier = {
-	production_factory_efficiency_gain_factor = 0.1
-
+		production_factory_efficiency_gain_factor = 0.1
       }
 	}
 	
@@ -1170,7 +1169,7 @@ ideas = {
       modifier = {
 	war_support_factor = 0.15
 	army_org_factor = 0.15
-	army_defense_factor = 0.10
+	army_defence_factor = 0.10
 	army_attack_factor = 0.10
       }
     }
@@ -1355,6 +1354,100 @@ ideas = {
 			socialism_democratic_drift = -0.02
 			communism_drift = -0.02
 			neutrality_drift = -0.02
+		}
+	}
+	GER_pact_with_britain = {
+		allowed = {
+			always = no
+		}
+		cancel = {
+			has_completed_focus = GER_unternehmen_attila
+			NOT = {
+				has_war_with = FRA
+			}
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			industrial_capacity_dockyard = -0.3
+		}
+	}
+	GER_fortbuster = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			
+		}
+	}
+	GER_modernized_luftwaffe = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			ground_attack_factor = 0.15
+			air_strategic_bomber_bombing_factor	= 0.15
+		}
+	}
+	GER_workers_rights_1867 = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			production_factory_efficiency_gain_factor = 0.05
+		}
+	}
+	GER_state_investment = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			consumer_goods_factor = 0.05
+			production_speed_buildings_factor = 0.2
+		}
+	}
+	GER_production_overdrive = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			consumer_goods_factor = 0.05
+			industrial_capacity_factory = 0.25
+		}
+	}
+	GER_forced_labor = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			recruitable_population = 0.05
+			production_speed_buildings_factor = 0.1
 		}
 	}
 

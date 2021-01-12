@@ -1,0 +1,387 @@
+shared_focus = {
+    id = GER_goerings_industrial_plan
+    icon = GFX_goal_generic_construction
+    x = 3
+    y = 1
+    cost = 5
+    ai_will_do = {
+        factor = 12
+    }
+    prerequisite = {focus = GER_GERMAN_INDUSTRY}
+    relative_position_id = GER_GERMAN_INDUSTRY
+    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+    completion_reward = { 
+        add_tech_bonus = {
+            name = GER_goerings_industrial_plan
+            bonus = 1.0
+            uses = 2
+            category = industry
+        }
+        custom_effect_tooltip = available_political_advisor
+        show_ideas_tooltip = hjalmar_schacht
+    }
+
+}
+
+shared_focus = {
+    id = GER_continuing_ataurky
+    icon = GFX_goal_generic_construct_civilian
+    prerequisite = { focus = GER_goerings_industrial_plan }
+    x = 0
+    y = 1
+    relative_position_id = GER_goerings_industrial_plan
+    cost = 5
+
+    ai_will_do = {
+        factor = 9
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        add_tech_bonus = {
+            name = GER_autarky
+            bonus = 1.0
+            uses = 2
+            technology = excavation1
+            technology = excavation2
+            technology = excavation3
+            technology = excavation4
+            technology = excavation5
+        }
+    }
+}
+
+
+
+shared_focus = {
+    id = GER_volkswagen_factories
+    icon = GFX_goal_generic_construct_civ_factory
+    dynamic = yes
+    prerequisite = { focus = GER_continuing_ataurky }
+    x = 0
+    y = 1
+    relative_position_id = GER_continuing_ataurky
+    cost = 5
+    ai_will_do = {
+        factor = 5
+    }
+
+    available_if_capitulated = no
+
+    complete_tooltip = {
+        every_state = {
+            limit = { has_state_flag = GER_industrial_effort_2_2IC }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = industrial_complex
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_industrial_effort_2_2IC
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = industrial_complex
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_industrial_effort_2_2IC
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = industrial_complex
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_industrial_effort_2_2IC
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_coal_production
+    icon = GFX_goal_generic_oil_refinery
+    prerequisite = { focus = GER_continuing_ataurky }
+    x = -2
+    y = 1
+    relative_position_id = GER_continuing_ataurky
+    cost = 5
+    ai_will_do = {
+        factor = 4
+    }
+
+    
+    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        add_tech_bonus = {
+            name = GER_coal_production
+            bonus = 3.0
+            uses = 1
+            category = synth_resources
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 65
+            }
+            65 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = synthetic_refinery
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_rubber_production
+    icon = GFX_focus_generic_rubber
+    prerequisite = { focus = GER_continuing_ataurky }
+    x = 2
+    y = 1
+    relative_position_id = GER_continuing_ataurky
+    cost = 5
+    ai_will_do = {
+        factor = 4
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+
+        modify_building_resources = {
+           building = synthetic_refinery
+           resource = rubber
+           amount = 2
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_expand_berlin_university
+    icon = GFX_focus_research
+    prerequisite = { focus = GER_coal_production focus = GER_rubber_production }
+    prerequisite = {focus = GER_volkswagen_factories}
+    x = 2
+    y = 1
+    relative_position_id = GER_coal_production
+    cost = 5
+    ai_will_do = {
+        factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+    completion_reward = {
+        add_research_slot = 1
+    }
+}
+
+shared_focus = {
+    id = GER_the_autobahn
+    icon = GFX_goal_generic_construct_infrastructure
+    prerequisite = { focus = GER_expand_berlin_university }
+    x = 0
+    y = 1
+    relative_position_id = GER_expand_berlin_university
+    cost = 5
+    ai_will_do = {
+        factor = 12
+    }
+
+    available = {
+        OR = {
+            has_full_control_of_state = 64
+            has_full_control_of_state = 59
+            has_full_control_of_state = 60
+            has_full_control_of_state = 54
+        }
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        custom_effect_tooltip = GER_autobahn_tt
+        hidden_effect = {
+            64 = {l
+                if = {
+                    limit = { is_controlled_by = ROOT }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+            59 = {
+                if = {
+                    limit = { is_controlled_by = ROOT }
+
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+            60 = {
+                if = {
+                    limit = { is_controlled_by = ROOT }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+            54 = {
+                if = {
+                    limit = { is_controlled_by = ROOT }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_german_war_economy
+    icon = GFX_goal_generic_construct_mil_factory
+    prerequisite = { focus = GER_the_autobahn }
+    x = -1
+    y = 1
+    relative_position_id = GER_the_autobahn
+    cost = 5
+    ai_will_do = {
+        factor = 1
+    }
+
+    available_if_capitulated = no
+    available = {
+        has_war_support > 0.49
+    }
+    complete_tooltip = {
+        every_state = {
+            limit = { has_state_flag = GER_german_war_economy }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        if = {
+            limit = {
+                NOT = { has_idea = war_economy }
+                NOT = { has_idea = tot_economic_mobilisation }
+            }
+            add_ideas = war_economy
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = arms_factory
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_german_war_economy
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = arms_factory
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_german_war_economy
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = arms_factory
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_german_war_economy
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_infrastructure_investments
+    icon = GFX_goal_generic_construct_infrastructure
+    prerequisite = { focus = GER_the_autobahn }
+    x = 1
+    y = 1
+    relative_position_id = GER_the_autobahn
+    cost = 5
+
+    ai_will_do = {
+        factor = 1
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        add_ideas = {
+            Booming_Economy
+        }
+    }
+}
