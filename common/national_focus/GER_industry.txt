@@ -1,14 +1,373 @@
+	########################
+		# Economy
+		########################
+		shared_focus = {
+			id = GER_herman_goering_werke
+			icon = unkown 
+			cost = 5
+			x = 14
+			y = 0
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_tech_bonus = {
+					name = industry
+					uses = 1
+					bonus = 1
+					category = industry
+			  }
+			}
+		}
+		shared_focus = {
+			id = GER_form_the_preubisches_arbeitsfront
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_herman_goering_werke
+			}
+			relative_position_id = GER_herman_goering_werke 
+			x = -2
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_ideas = GER_The_Prussian_Worker
+			}
+		}
+		shared_focus = {
+			id = GER_volksgemeinschaft_program
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_form_the_preubisches_arbeitsfront
+			}
+			relative_position_id = GER_form_the_preubisches_arbeitsfront 
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				swap_ideas= {
+					remove_idea = GER_The_Prussian_Worker
+					add_idea = GER_Volkgemeinschaft
+				   }
+			}
+		}
+		shared_focus = {
+			id = GER_strasserism
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_volksgemeinschaft_program
+			}
+			relative_position_id = GER_volksgemeinschaft_program
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				swap_ideas= {
+					remove_idea = GER_Volkgemeinschaft
+				   add_idea = GER_Strasserist_Economy
+				   }
+			}
+		}
+		shared_focus = {
+			id = GER_reaffirm_workes_right_laws
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_herman_goering_werke
+			}
+			relative_position_id = GER_herman_goering_werke
+			x = 2
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_stability = 0.01
+				add_ideas = GER_workers_rights_1867
+			}
+		}
+		shared_focus = {
+			id = GER_national_socialist_work_policies
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_reaffirm_workes_right_laws
+			}
+			relative_position_id = GER_reaffirm_workes_right_laws
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				random_owned_controlled_state = {
+					add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		} 
+		shared_focus = {
+			id = GER_increase_state_investment
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_national_socialist_work_policies
+			}
+			relative_position_id = GER_national_socialist_work_policies
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_timed_idea = { idea = GER_state_investment days = 365 }
+			}
+		}
+		shared_focus = {
+			id = GER_prewar_buildup
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_increase_state_investment
+			}
+			relative_position_id = GER_increase_state_investment
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+			id = GER_untersmench_labour
+			icon = unkown 
+			cost = 5
+		
+			prerequisite = {
+				focus = GER_strasserism
+			}
+			relative_position_id = GER_strasserism
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_ideas = GER_forced_labor
+			}
+		}
+		shared_focus = {
+			id = GER_the_blade_forged
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_prewar_buildup
+			}
+			prerequisite = {
+				focus = GER_untersmench_labour
+			}
+			relative_position_id = GER_untersmench_labour
+			x = 2
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				country_event = GER_goering_economic_policy_tree_events.1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_industrial_cooperations
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_herman_goering_werke
+			}
+			relative_position_id = GER_herman_goering_werke
+			x = 10
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_anglo_german_industrial_movement
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_industrial_cooperations
+			}
+			relative_position_id = GER_industrial_cooperations
+			x = -3
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_ask_for_british_investments
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_anglo_german_industrial_movement
+			}
+			relative_position_id = GER_anglo_german_industrial_movement
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_cooperation_with_the_ottomans
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_industrial_cooperations
+			}
+			relative_position_id = GER_industrial_cooperations
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_blueprint_of_the_berlin_baghadad_future_line
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_cooperation_with_the_ottomans
+			}
+			relative_position_id = GER_cooperation_with_the_ottomans
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_construction_of_the_german_baghadad_railway
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_blueprint_of_the_berlin_baghadad_future_line
+			}
+			relative_position_id = GER_blueprint_of_the_berlin_baghadad_future_line
+			x = 1
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_german_petrolium_in_the_ottomans
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_blueprint_of_the_berlin_baghadad_future_line
+			}
+			relative_position_id = GER_blueprint_of_the_berlin_baghadad_future_line
+			x = -1
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_german_petrols_risk_in_ottomans
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_german_petrolium_in_the_ottomans
+			}
+			relative_position_id = GER_german_petrolium_in_the_ottomans
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_pro_german_coup_in_ottomans
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_german_petrols_risk_in_ottomans
+			}
+			relative_position_id = GER_german_petrols_risk_in_ottomans
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_closer_ties_with_russia
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_industrial_cooperations
+			}
+			relative_position_id = GER_industrial_cooperations
+			x = 3
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_russo_german_investment_protocal_signment
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_closer_ties_with_russia
+			}
+			relative_position_id = GER_closer_ties_with_russia
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
 shared_focus = {
     id = GER_goerings_industrial_plan
     icon = GFX_goal_generic_construction
-    x = 3
+    x = -7
     y = 1
     cost = 5
     ai_will_do = {
         factor = 12
     }
-    prerequisite = {focus = GER_GERMAN_INDUSTRY}
-    relative_position_id = GER_GERMAN_INDUSTRY
+    prerequisite = {focus = GER_herman_goering_werke}
+    relative_position_id = GER_herman_goering_werke
     search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
     completion_reward = { 
         add_tech_bonus = {
@@ -259,7 +618,7 @@ shared_focus = {
                 if = {
                     limit = { is_controlled_by = ROOT }
                     add_building_construction = {
-                        type = infrastructure
+                        type = infrastructure 
                         level = 10
                         instant_build = yes
                     }
