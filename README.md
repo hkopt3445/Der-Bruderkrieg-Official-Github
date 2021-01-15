@@ -1,2 +1,2 @@
-# Der-Bruderkrieg-Official-Github
-Hoi4 Mod Where Austria Beats Prussia and the Ottomans exist
+# Der Bruderkrieg
+Der Bruderkrieg is a Hearts of Iron 4 mod which asks what if Austria won the Austro-Prussian War, leading to a never unified Germany and an Austrian Superpower.
