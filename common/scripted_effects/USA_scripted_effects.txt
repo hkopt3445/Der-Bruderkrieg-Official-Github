@@ -1,6 +1,6 @@
 USA_senate_initial = {
 	# put simply parliament_seat_array contains seat numbers of each party and parliament_id_array contains the id of the corresponding party
-	add_to_array = { global.usa_senate_seat_array = 48 } # Party A
+	add_to_array = { global.usa_senate_seat_array = 48 } # Party A 
 	add_to_array = { global.usa_senate_seat_array = 15 } # Party B
 	add_to_array = { global.usa_senate_seat_array = 20} # Party C
 	add_to_array = { global.usa_senate_seat_array = 17 } # Party D
@@ -139,7 +139,27 @@ USA_electoral_vars_setup = {
 }
 
 USA_election_timeout_effect = {
-	
+	if = {
+		limit = {
+			check_variable = { long_electoral > 266 }
+		}
+		country_event = { id = USA_long_victory.1  days = 1}
+	}
+	else_if = {
+		limit = {
+			check_variable = { smith_electoral > 266 }
+		}
+		country_event = { id = USA_smith_victory.1  days = 1}
+	}
+	else_if = {
+		limit = {
+			check_variable = { borah_electoral > 266 }
+		}
+		country_event = { id = USA_borah_victory.1  days = 1}
+	}
+	else = {
+		country_event = { id = USA_electoral_standoff.1  days = 1}
+	}
 }
 
 
