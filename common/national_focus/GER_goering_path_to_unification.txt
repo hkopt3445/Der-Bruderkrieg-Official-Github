@@ -2,7 +2,7 @@ focus_tree = {
 	id = GER_goering_the_path_to_unification
 
 	country = {
-		factor = 0
+		factor = 100
 		modifier = {
 			add = 99
 			tag = GER
@@ -15,7 +15,7 @@ focus_tree = {
 	shared_focus = GER_goerings_industrial_plan
 
  
-	default = no
+	#default = no
 
 	continuous_focus_position = { x = 12000 y = 1000 }
 }	
@@ -336,7 +336,6 @@ shared_focus = {
 #The Untersmensch Path#
 #######################
 shared_focus = {
-cancelable = no
 	id = GER_the_untersmensch_tyrants
 	icon = unkown
 	cost = 5
@@ -349,9 +348,21 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		add_war_support = 0.05
+		add_opinion_modifier = {
+			target = AUS
+			modifier = mortal_enemies
+		}
+		AUS = {
+			add_opinion_modifier = {
+				target = GER
+				modifier = mortal_enemies
+			}
+		}
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_defending_to_the_last
 	icon = unkown
 	cost = 5
@@ -367,9 +378,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		add_ideas = GER_defending_the_fatherland
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_for_a_free_germany
 	icon = unkown
 	cost = 5
@@ -385,9 +398,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		add_ideas = GER_vorwarts
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_breaking_the_chains
 	icon = unkown
 	cost = 5
@@ -401,9 +416,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		declare_war_on= { target = AUS type = annex_everything }
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_magyar_contracts
 	icon = unkown
 	cost = 5
@@ -416,9 +433,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		country_event = GER_austrian_ethnic_revolts.1
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_forment_italian_revolt
 	icon = unkown
 	cost = 5
@@ -431,9 +450,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		country_event = GER_austrian_ethnic_revolts.2
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_the_greater_german_revolt
 	icon = unkown
 	cost = 5
@@ -446,9 +467,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		country_event = GER_austrian_ethnic_revolts.3
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_fortify_the_silesian_front
 	icon = unkown
 	cost = 5
@@ -461,9 +484,20 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		950 = {
+			add_building_construction = { type = bunker level = 2 province = 6534 instant_build = yes }
+			add_building_construction = { type = bunker level = 2 province = 552 instant_build = yes }
+			add_building_construction = { type = bunker level = 2 province = 3510 instant_build = yes }
+		}
+		86 = {
+			add_building_construction = { type = bunker level = 2 province = 3460 instant_build = yes }
+			add_building_construction = { type = bunker level = 2 province = 9532 instant_build = yes }
+			add_building_construction = { type = bunker level = 2 province = 11588 instant_build = yes }
+		}
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_weaken_the_confederal_army
 	icon = unkown
 	cost = 5
@@ -476,9 +510,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		custom_effect_tooltip = GER_weaken_the_confederal_army_tt
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_alpenfestung
 	icon = unkown
 	cost = 5
@@ -491,9 +527,17 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		ITA = {
+			159 = {
+				add_building_construction = { type = bunker level = 2 province = 11587 instant_build = yes }
+				add_building_construction = { type = bunker level = 2 province = 11568 instant_build = yes }
+				add_building_construction = { type = bunker level = 2 province = 3776 instant_build = yes }	
+			}
+		}
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_ready_for_anything
 	icon = unkown
 	cost = 5
@@ -506,9 +550,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		add_ideas = GER_ready_for_anything_idea
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_a_new_kind_of_war
 	icon = unkown
 	cost = 5
@@ -521,9 +567,16 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		add_tech_bonus = {
+			name = armor_bonus
+			uses = 2
+			bonus = 0.75
+			category = armor
+		}
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_austrian_sabotage
 	icon = unkown
 	cost = 5
@@ -536,9 +589,11 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		custom_effect_tooltip = GER_austrian_sabotage_tt
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_unternehmen_steigend
 	icon = unkown
 	cost = 5
@@ -551,9 +606,15 @@ cancelable = no
 	ai_will_do = {
 		factor = 1
 	}
+	completion_reward = {
+		add_manpower = 100000
+		GPU = {
+			add_manpower = -100000
+			add_timed_idea = { idea = GPU_defections days = 100 }
+		}
+	}
 }
 shared_focus = {
-cancelable = no
 	id = GER_the_final_push
 	icon = unkown
 	cost = 5
@@ -565,5 +626,11 @@ cancelable = no
 	relative_position_id = GER_unternehmen_steigend
 	ai_will_do = {
 		factor = 1
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = GER_vorwarts
+			add_idea = GER_vorwarts1
+		}
 	}
 }
