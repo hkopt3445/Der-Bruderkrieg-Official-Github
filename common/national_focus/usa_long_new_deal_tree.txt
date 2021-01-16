@@ -53,9 +53,9 @@ focus_tree = {
 		}
 	}
 	shared_focus = {
-		id = USA_ease_racial_laws
+		id = USA_hueys_dream_for_america
 		icon = unkown
-		x = -2
+		x = 0
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
@@ -64,6 +64,26 @@ focus_tree = {
 
 		}
 		relative_position_id = USA_the_long_plan
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power = 10
+			country_event = USA_long_events.4
+		}
+	}
+	shared_focus = {
+		id = USA_ease_racial_laws
+		icon = unkown
+		x = -2
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_hueys_dream_for_america
+
+		}
+		relative_position_id = USA_hueys_dream_for_america
 		ai_will_do = {
 			factor = 1
 		}
@@ -144,10 +164,10 @@ focus_tree = {
 		cost = 2
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_the_long_plan
+			focus = USA_hueys_dream_for_america
 	
 		}
-		relative_position_id = USA_the_long_plan
+		relative_position_id = USA_hueys_dream_for_america
 		ai_will_do = {
 			factor = 1
 		}
@@ -223,10 +243,10 @@ focus_tree = {
 		cost = 2
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_the_long_plan
+			focus = USA_hueys_dream_for_america
 
 		}
-		relative_position_id = USA_the_long_plan
+		relative_position_id = USA_hueys_dream_for_america
 		ai_will_do = {
 			factor = 1
 		}
@@ -707,26 +727,11 @@ focus_tree = {
 	shared_focus = {
 		id = USA_deify_the_common_man
 		icon = unkown
-		x = -11
+		x = -13
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
-		prerequisite = {
-			focus = USA_jobs_for_the_middle_class
-	
-		}
-		prerequisite = {
-			focus = USA_grub_for_the_poor
-		}
-		prerequisite = {
-			focus = USA_republican_bipartisanship
-		}
-		prerequisite = {
-			focus = USA_fund_public_unversities
-		}
-		prerequisite = {
-			focus = USA_antidiscrimination_organizations
-		}
+
 		prerequisite = {
 			focus = USA_agriculture_minimum_wage
 		}
@@ -745,7 +750,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_work_with_the_unions
 		icon = unkown
-		x = -3
+		x = -1
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
@@ -756,21 +761,7 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_grub_for_the_poor
 		}
-		prerequisite = {
-			focus = USA_republican_bipartisanship
-		}
-		prerequisite = {
-			focus = USA_fund_public_unversities
-		}
-		prerequisite = {
-			focus = USA_antidiscrimination_organizations
-		}
-		prerequisite = {
-			focus = USA_agriculture_minimum_wage
-		}
-		prerequisite = {
-			focus = USA_reinforce_the_breadbasket_of_america
-		}
+		
 		relative_position_id = USA_jobs_for_the_middle_class
 		ai_will_do = {
 			factor = 1
@@ -780,21 +771,194 @@ focus_tree = {
 		}
 	}
 
+
 	shared_focus = {
-		id = USA_united_as_americans
+		id = USA_an_educated_america
 		icon = unkown
-		x = 6
+		x = 2
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+
+		prerequisite = {
+			focus = USA_fund_public_unversities
+		}
+		prerequisite = {
+			focus = USA_republican_bipartisanship
+		}
+		relative_position_id = USA_fund_public_unversities
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		}
+	}
+	shared_focus = {
+		id = USA_no_more_slums
+		icon = unkown
+		x = 2
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_deify_the_common_man
+			focus = USA_work_with_the_unions
+		}
+		prerequisite = {
+			focus = USA_republican_bipartisanship
+		}
+	
+		relative_position_id = USA_republican_bipartisanship
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = USA_great_depression_5
+				remove_idea =  USA_great_depression_4
+			}
+		}
+	}
+	
+	
+	shared_focus = {
+		id = USA_regulate_wall_street
+		icon = unkown
+		x = -1
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_no_more_slums
+	
+		}
+		prerequisite = {
+			focus = USA_an_educated_america
+		}
+		relative_position_id = USA_no_more_slums
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = USA_great_depression_6
+				remove_idea =  USA_great_depression_5
+			}
+			add_stability = 0.03
+			add_political_power = 40
+		}
+	}
+	
+	
+	
+	shared_focus = {
+		id = USA_the_american_dream_reborn
+		icon = unkown
+		x = 2
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_united_as_americans
+	
+		}
+		prerequisite = {
+			focus = USA_an_educated_america
+		}
+		relative_position_id = USA_united_as_americans
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = USA_the_american_dream_reborn	
+		}
+	}
+	
+	
+	
+	shared_focus = {
+		id = USA_all_hail_the_kingfish
+		icon = unkown
+		x = 4
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_a_thriving_and_supporting_hollywood
+	
+		}
+		prerequisite = {focus = USA_the_american_dream_reborn}
+		prerequisite = {focus = USA_regulate_wall_street}
+		relative_position_id = USA_a_thriving_and_supporting_hollywood
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_country_leader_trait = USA_kingfish_2
+			remove_country_leader_trait = USA_kingfish
+		}
+	}
+	shared_focus = {
+		id = USA_large_and_prosperous_middle_class
+		icon = unkown
+		x = 2
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_a_thriving_and_supporting_hollywood
+	
+		}
+		prerequisite = {focus = USA_the_american_dream_reborn}
+		prerequisite = {focus = USA_regulate_wall_street}
+		relative_position_id = USA_a_thriving_and_supporting_hollywood
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas = USA_great_depression_6
+		}
+	}
+	
+	shared_focus = {
+		id = USA_a_thriving_and_supporting_hollywood
+		icon = unkown
+		x = 1
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_the_end_of_prohibition
+			
+		}
+		prerequisite = {focus = USA_united_as_americans}
+		relative_position_id = USA_the_end_of_prohibition
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			country_event = USA_long_events.9
+		}
+	}
+	
+	
+	
+	
+	shared_focus = {
+		id = USA_united_as_americans
+		icon = unkown
+		x = 0
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = USA_antidiscrimination_organizations
 	
 		}
 		prerequisite = {
 			focus = USA_work_with_the_unions
 		}
-		relative_position_id = USA_deify_the_common_man
+		relative_position_id = USA_antidiscrimination_organizations
 		ai_will_do = {
 			factor = 1
 		}
@@ -815,7 +979,7 @@ focus_tree = {
 	
 		}
 		prerequisite = {
-			focus = USA_work_with_the_unions
+			focus = USA_antidiscrimination_organizations
 		}
 		relative_position_id = USA_deify_the_common_man
 		ai_will_do = {
@@ -829,23 +993,23 @@ focus_tree = {
 	shared_focus = {
 		id = USA_a_new_dawn_for_america
 		icon = unkown
-		x = 2
+		x = 1
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_the_end_of_prohibition
+			focus = USA_large_and_prosperous_middle_class
 	
 		}
 		prerequisite = {
-			focus = USA_united_as_americans
+			focus = USA_all_hail_the_kingfish
 		}
-		relative_position_id = USA_the_end_of_prohibition
+		relative_position_id = USA_large_and_prosperous_middle_class
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
-			remove_ideas = USA_great_depression_4
+			country_event = USA_long_events.10
 		}
 	}
 
