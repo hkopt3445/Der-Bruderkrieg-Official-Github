@@ -764,14 +764,7 @@ GER_westfalen_guerilla = {
 		days_remove = 1
 
 		remove_effect = {
-			load_oob = "GER_westfalen"
-			957 = {
-				create_unit = {
-				division = "name = \"Westfalen Militia 1\" division_template = \"Westfalen Militia\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-				owner = GER
-			  }
-			}	
-			
+			load_oob = "GER_westfalen"			
 		}	
 	}
 	damage_infrastructure = {
@@ -858,6 +851,66 @@ GER_westfalen_guerilla = {
 						damage = 1
 					}
 				}
+			}
+		}	
+	}
+}
+GER_operations = {
+	GER_sabotage_south_germans = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_weaken_the_confederal_army
+			has_war_with = GPU
+			has_equipment = {
+				infantry_equipment > 4999
+			}
+		}
+
+		visible = {
+			has_completed_focus = GER_weaken_the_confederal_army
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -5000
+			}
+			GPU = {
+				add_timed_idea = { idea = GPU_germany_sabotage days = 120 }
+			}
+		}	
+	}
+	GER_sabotage_austrians = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_austrian_sabotage
+			has_war_with = GPU
+			has_equipment = {
+				infantry_equipment > 4999
+			}
+		}
+
+		visible = {
+			has_completed_focus = GER_austrian_sabotage
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -5000
+			}
+			AUS = {
+				add_timed_idea = { idea = AUS_germany_sabotage days = 120 }
 			}
 		}	
 	}
