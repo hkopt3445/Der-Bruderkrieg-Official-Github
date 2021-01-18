@@ -1,0 +1,74 @@
+##Created by Tsar Giraldo
+##Special thanks to Yard1 for his tutorials
+scripted_gui = {
+
+	aus_espionage_window_open = {
+		context_type = player_context
+		parent_window_token = politics_tab
+		window_name = "aus_espionage_window_open"
+
+		visible = {
+			tag = AUS
+			NOT = {
+				AUS = {
+					is_puppet = yes
+				}
+			}
+			always = no
+		}
+
+		effects = {
+			aus_espionage_menu_open_click = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = AUS_espionage_window_open_flag }
+					}
+					set_country_flag = AUS_espionage_window_open_flag
+				}
+				else_if = {
+					limit = {
+						has_country_flag = AUS_espionage_window_open_flag
+					}
+					clr_country_flag = AUS_espionage_window_open_flag
+				}
+			}
+		}
+	}
+
+	aus_espionage_window_main_open = {
+		context_type = player_context
+		window_name = "aus_espionage_window_main"
+		dirty = austrian_espionage_budget_dirty
+		visible = {
+			has_country_flag = AUS_espionage_window_open_flag
+			NOT = {
+				AUS = {
+					is_puppet = yes
+				}
+			}
+		}
+
+		effects = {
+			AUS_espionage_budget_slider_minus_click = {
+				add_to_variable = { austrian_espionage_budget_slider_dot_cel = -5 }
+				add_to_variable = { austrian_espionage_budget_dirty = 1 }
+				if = {
+					set_variable = { austrian_espionage_budget_slider_dot_cel = 34 }
+					limit = { check_variable = { austrian_espionage_budget_slider_dot_cel < 34 } }
+				}
+			}
+			AUS_espionage_budget_slider_plus_click = {
+				add_to_variable = { austrian_espionage_budget_slider_dot_cel = 5 }
+				add_to_variable = { austrian_espionage_budget_dirty = 1 }
+				if = {
+					set_variable = { austrian_espionage_budget_slider_dot_x = 231 }
+					limit = { check_variable = { austrian_espionage_budget_slider_dot_cel > 231 } }
+				}
+			}
+			AUS_Espionage_GUI_Close_Button_click = {
+				clr_country_flag = AUS_espionage_window_open_flag
+			}
+		}
+	}
+}
+ 
