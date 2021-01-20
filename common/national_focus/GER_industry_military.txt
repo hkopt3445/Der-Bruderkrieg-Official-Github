@@ -1,0 +1,1961 @@
+	########################
+		# Economy
+		########################
+		shared_focus = {
+			id = GER_herman_goering_werke
+			icon = unkown 
+			cost = 5
+			x = 23
+			y = 0
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_tech_bonus = {
+					name = industry
+					uses = 1
+					bonus = 1
+					category = industry
+			  }
+			}
+		}
+		shared_focus = {
+			id = GER_form_the_preubisches_arbeitsfront
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_herman_goering_werke
+			}
+			relative_position_id = GER_herman_goering_werke 
+			x = -2
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_ideas = GER_The_Prussian_Worker
+			}
+		}
+		shared_focus = {
+			id = GER_volksgemeinschaft_program
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_form_the_preubisches_arbeitsfront
+			}
+			relative_position_id = GER_form_the_preubisches_arbeitsfront 
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				swap_ideas= {
+					remove_idea = GER_The_Prussian_Worker
+					add_idea = GER_Volkgemeinschaft
+				   }
+			}
+		}
+		shared_focus = {
+			id = GER_strasserism
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_volksgemeinschaft_program
+			}
+			relative_position_id = GER_volksgemeinschaft_program
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				swap_ideas= {
+					remove_idea = GER_Volkgemeinschaft
+				   add_idea = GER_Strasserist_Economy
+				   }
+			}
+		}
+		shared_focus = {
+			id = GER_reaffirm_workes_right_laws
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_herman_goering_werke
+			}
+			relative_position_id = GER_herman_goering_werke
+			x = 2
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_stability = 0.01
+				add_ideas = GER_workers_rights_1867
+			}
+		}
+		shared_focus = {
+			id = GER_national_socialist_work_policies
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_reaffirm_workes_right_laws
+			}
+			relative_position_id = GER_reaffirm_workes_right_laws
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				random_owned_controlled_state = {
+					add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		} 
+		shared_focus = {
+			id = GER_increase_state_investment
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_national_socialist_work_policies
+			}
+			relative_position_id = GER_national_socialist_work_policies
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_timed_idea = { idea = GER_state_investment days = 365 }
+			}
+		}
+		shared_focus = {
+			id = GER_prewar_buildup
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_increase_state_investment
+			}
+			relative_position_id = GER_increase_state_investment
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_ideas = GER_production_overdrive
+			}
+		}
+		shared_focus = {
+			id = GER_untersmench_labour
+			icon = unkown 
+			cost = 5
+		
+			prerequisite = {
+				focus = GER_strasserism
+			}
+			relative_position_id = GER_strasserism
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				add_ideas = GER_forced_labor
+			}
+		}
+		shared_focus = {
+			id = GER_the_blade_forged
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_prewar_buildup
+			}
+			prerequisite = {
+				focus = GER_untersmench_labour
+			}
+			relative_position_id = GER_untersmench_labour
+			x = 2
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+			completion_reward = {
+				country_event = GER_goering_economic_policy_tree_events.1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_industrial_cooperations
+			icon = unkown 
+			cost = 5
+			#prerequisite = {
+			#	focus = GER_herman_goering_werke
+			#}
+			relative_position_id = GER_herman_goering_werke
+			x = 10
+			y = 0
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_anglo_german_industrial_movement
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_industrial_cooperations
+			}
+			relative_position_id = GER_industrial_cooperations
+			x = -3
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_ask_for_british_investments
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_anglo_german_industrial_movement
+			}
+			relative_position_id = GER_anglo_german_industrial_movement
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_cooperation_with_the_ottomans
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_industrial_cooperations
+			}
+			relative_position_id = GER_industrial_cooperations
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_blueprint_of_the_berlin_baghadad_future_line
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_cooperation_with_the_ottomans
+			}
+			relative_position_id = GER_cooperation_with_the_ottomans
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_construction_of_the_german_baghadad_railway
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_blueprint_of_the_berlin_baghadad_future_line
+			}
+			relative_position_id = GER_blueprint_of_the_berlin_baghadad_future_line
+			x = 1
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_german_petrolium_in_the_ottomans
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_blueprint_of_the_berlin_baghadad_future_line
+			}
+			relative_position_id = GER_blueprint_of_the_berlin_baghadad_future_line
+			x = -1
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_german_petrols_risk_in_ottomans
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_german_petrolium_in_the_ottomans
+			}
+			relative_position_id = GER_german_petrolium_in_the_ottomans
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_pro_german_coup_in_ottomans
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_german_petrols_risk_in_ottomans
+			}
+			relative_position_id = GER_german_petrols_risk_in_ottomans
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_closer_ties_with_russia
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_industrial_cooperations
+			}
+			relative_position_id = GER_industrial_cooperations
+			x = 3
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		shared_focus = {
+		cancelable = no
+			id = GER_russo_german_investment_protocal_signment
+			icon = unkown 
+			cost = 5
+			prerequisite = {
+				focus = GER_closer_ties_with_russia
+			}
+			relative_position_id = GER_closer_ties_with_russia
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+shared_focus = {
+    id = GER_goerings_industrial_plan
+    icon = GFX_goal_generic_construction
+    x = -3
+    y = 6
+    cost = 5
+    ai_will_do = {
+        factor = 12
+    }
+    #prerequisite = {focus = GER_herman_goering_werke}
+    relative_position_id = GER_herman_goering_werke
+    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+    completion_reward = { 
+        add_tech_bonus = {
+            name = GER_goerings_industrial_plan
+            bonus = 1.0
+            uses = 2
+            category = industry
+        }
+        custom_effect_tooltip = available_political_advisor
+        show_ideas_tooltip = hjalmar_schacht
+    }
+
+}
+
+shared_focus = {
+    id = GER_continuing_ataurky
+    icon = GFX_goal_generic_construct_civilian
+    prerequisite = { focus = GER_goerings_industrial_plan }
+    x = 0
+    y = 1
+    relative_position_id = GER_goerings_industrial_plan
+    cost = 5
+
+    ai_will_do = {
+        factor = 9
+    }
+    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        add_tech_bonus = {
+            name = GER_autarky
+            bonus = 1.0
+            uses = 2
+            technology = excavation1
+            technology = excavation2
+            technology = excavation3
+            technology = excavation4
+            technology = excavation5
+        }
+    }
+}
+
+
+
+shared_focus = {
+    id = GER_volkswagen_factories
+    icon = GFX_goal_generic_construct_civ_factory
+    dynamic = yes
+    prerequisite = { focus = GER_continuing_ataurky }
+    x = 0
+    y = 1
+    relative_position_id = GER_continuing_ataurky
+    cost = 5
+    ai_will_do = {
+        factor = 5
+    }
+
+    available_if_capitulated = no
+
+    complete_tooltip = {
+        every_state = {
+            limit = { has_state_flag = GER_industrial_effort_2_2IC }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = industrial_complex
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_industrial_effort_2_2IC
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = industrial_complex
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_industrial_effort_2_2IC
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = industrial_complex
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_industrial_effort_2_2IC
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_coal_production
+    icon = GFX_goal_generic_oil_refinery
+    prerequisite = { focus = GER_continuing_ataurky }
+    x = -2
+    y = 1
+    relative_position_id = GER_continuing_ataurky
+    cost = 5
+    ai_will_do = {
+        factor = 4
+    }
+
+    
+    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        add_tech_bonus = {
+            name = GER_coal_production
+            bonus = 3.0
+            uses = 1
+            category = synth_resources
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 65
+            }
+            65 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = synthetic_refinery
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_rubber_production
+    icon = GFX_focus_generic_rubber
+    prerequisite = { focus = GER_continuing_ataurky }
+    x = 2
+    y = 1
+    relative_position_id = GER_continuing_ataurky
+    cost = 5
+    ai_will_do = {
+        factor = 4
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+
+        modify_building_resources = {
+           building = synthetic_refinery
+           resource = rubber
+           amount = 2
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_expand_berlin_university
+    icon = GFX_focus_research
+    prerequisite = { focus = GER_coal_production focus = GER_rubber_production }
+    prerequisite = {focus = GER_volkswagen_factories}
+    x = 2
+    y = 1
+    relative_position_id = GER_coal_production
+    cost = 5
+    ai_will_do = {
+        factor = 1
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+    completion_reward = {
+        add_research_slot = 1
+    }
+}
+
+shared_focus = {
+    id = GER_the_autobahn
+    icon = GFX_goal_generic_construct_infrastructure
+    prerequisite = { focus = GER_expand_berlin_university }
+    x = 0
+    y = 1
+    relative_position_id = GER_expand_berlin_university
+    cost = 5
+    ai_will_do = {
+        factor = 12
+    }
+
+    available = {
+        OR = {
+            has_full_control_of_state = 64
+            has_full_control_of_state = 59
+            has_full_control_of_state = 60
+            has_full_control_of_state = 54
+        }
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        custom_effect_tooltip = GER_autobahn_tt
+        hidden_effect = {
+            64 = {l
+                if = {
+                    limit = { is_controlled_by = ROOT }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+            59 = {
+                if = {
+                    limit = { is_controlled_by = ROOT }
+
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+            60 = {
+                if = {
+                    limit = { is_controlled_by = ROOT }
+                    add_building_construction = {
+                        type = infrastructure 
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+            54 = {
+                if = {
+                    limit = { is_controlled_by = ROOT }
+                    add_building_construction = {
+                        type = infrastructure
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_arms_investments
+    icon = GFX_goal_generic_construct_mil_factory
+    prerequisite = { focus = GER_the_autobahn }
+    x = -1
+    y = 1
+    relative_position_id = GER_the_autobahn
+    cost = 5
+    ai_will_do = {
+        factor = 1
+    }
+
+    available_if_capitulated = no
+    available = {
+        has_war_support > 0.49
+    }
+    complete_tooltip = {
+        every_state = {
+            limit = { has_state_flag = GER_arms_investments }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        if = {
+            limit = {
+                NOT = { has_idea = war_economy }
+                NOT = { has_idea = tot_economic_mobilisation }
+            }
+            add_ideas = war_economy
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = arms_factory
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_arms_investments
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = arms_factory
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_arms_investments
+        }
+        random_owned_controlled_state = {
+            limit = {
+                free_building_slots = {
+                    building = arms_factory
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+            set_state_flag = GER_arms_investments
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_infrastructure_investments
+    icon = GFX_goal_generic_construct_infrastructure
+    prerequisite = { focus = GER_the_autobahn }
+    x = 1
+    y = 1
+    relative_position_id = GER_the_autobahn
+    cost = 5
+
+    ai_will_do = {
+        factor = 1
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        add_ideas = {
+            Booming_Economy
+        }
+    }
+}
+
+
+	#BEEG FOCUS WAr SHIT
+	
+	shared_focus = { 
+		id = GER_the_goring_doctorine
+		icon = unkown
+		x = 37
+		y = 6
+		#relative_position_id = 
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+#		prerequisite = { focus =  }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	
+	###AIR FORCE
+	
+	
+	shared_focus = { 
+		id = GER_luftstreltkrafte_innovations
+		icon = unkown
+		x = 10
+		y = 1
+		relative_position_id = GER_the_goring_doctorine
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_the_goring_doctorine }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_evolved_aerial_tactics
+		icon = unkown
+		x = -2
+		y = 1
+		relative_position_id = GER_luftstreltkrafte_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_luftstreltkrafte_innovations }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_air_base_construction
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_luftstreltkrafte_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_luftstreltkrafte_innovations }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_modernization_of_our_airforce
+		icon = unkown
+		x = 2
+		y = 1
+		relative_position_id = GER_luftstreltkrafte_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_luftstreltkrafte_innovations }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_start_of_a_new_luftstreltkrafte
+		icon = unkown
+		x = 0
+		y = 2
+		relative_position_id = GER_luftstreltkrafte_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_modernization_of_our_airforce }
+		prerequisite = { focus = GER_air_base_construction }
+		prerequisite = { focus = GER_evolved_aerial_tactics }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	###UUUH HOW DO I DIVIDE THIS?
+	shared_focus = { 
+		id = GER_combined_warfare
+		icon = unkown
+		x = -3
+		y = 3
+		relative_position_id = GER_luftstreltkrafte_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+	#	prerequisite = { focus = GER_the_goring_doctorine }
+		prerequisite = { focus = GER_start_of_a_new_luftstreltkrafte }
+		mutually_exclusive = { focus = GER_strategic_bombing }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_ground_support_planes
+		icon = unkown
+		x = 2
+		y = 1
+		relative_position_id = GER_combined_warfare
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_combined_warfare }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_improving_combined_tactics
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_combined_warfare
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_combined_warfare }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_final_ground_support_investments
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_improving_combined_tactics
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_improving_combined_tactics }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_a_reformed_luftstreltkrafte
+		icon = unkown
+		x = 3
+		y = 1
+		relative_position_id = GER_final_ground_support_investments
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_final_ground_support_investments }
+		prerequisite = { focus = GER_final_strategic_bombing_improvements }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	#yo
+	shared_focus = { 
+		id = GER_strategic_bombing
+		icon = unkown
+		x = 3
+		y = 3
+		relative_position_id = GER_luftstreltkrafte_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		#prerequisite = { focus = GER_the_goring_doctorine }
+		prerequisite = { focus = GER_start_of_a_new_luftstreltkrafte }
+		mutually_exclusive = { focus = GER_combined_warfare }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_strategic_bombers
+		icon = unkown
+		x = -2
+		y = 1
+		relative_position_id = GER_strategic_bombing
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_strategic_bombing }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_improved_fighters
+		icon = unkown
+		x = -1
+		y = 1
+		relative_position_id = GER_strategic_bombers
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_strategic_bombers focus = GER_ground_support_planes}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_improving_bombing_tactics
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_strategic_bombing
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_strategic_bombing }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_final_strategic_bombing_improvements
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_improving_bombing_tactics
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_improving_bombing_tactics }
+		#prerequisite = { focus = GER_improved_fighters }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	###ARMY
+	
+	###ARMY 1
+	shared_focus = { 
+		id = GER_the_reichsheer_capabillities
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_the_goring_doctorine
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_the_goring_doctorine }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_capacity
+		icon = unkown
+		x = 3
+		y = 1
+		relative_position_id = GER_the_reichsheer_capabillities
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_the_reichsheer_capabillities }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	#Army 1.1
+	shared_focus = { 
+		id = GER_kohleverflussigung
+		icon = unkown
+		x = 1
+		y = 1
+		relative_position_id = GER_capacity
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_capacity }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_politz_oil
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_kohleverflussigung
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_kohleverflussigung }
+		mutually_exclusive = { focus = GER_superior_production_methods }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	#ARMY 1.2
+	shared_focus = { 
+		id = GER_production_abillity
+		icon = unkown
+		x = -1
+		y = 1
+		relative_position_id = GER_capacity
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_capacity }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_superior_production_methods
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_production_abillity
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_production_abillity }
+		mutually_exclusive = { focus = GER_politz_oil }
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	shared_focus = { 
+		id = GER_mauser
+		icon = unkown
+		x = 1
+		y = 1
+		relative_position_id = GER_superior_production_methods
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_superior_production_methods }
+		prerequisite = { focus = GER_politz_oil }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	###ARMY 2
+	shared_focus = { 
+		id = GER_capabillity
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_the_reichsheer_capabillities
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_the_reichsheer_capabillities }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_preussische_propaganda_initiative
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_capabillity
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_capabillity }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_improved_methods_of_training
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_preussische_propaganda_initiative
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_preussische_propaganda_initiative }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_improved_general_academies
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_improved_methods_of_training
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_improved_methods_of_training }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	####ARMY 3
+	shared_focus = { 
+		id = GER_technology
+		icon = unkown
+		x = -3
+		y = 1
+		relative_position_id = GER_the_reichsheer_capabillities
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_the_reichsheer_capabillities }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	#Army 3.1
+	shared_focus = { 
+		id = GER_german_armour
+		icon = unkown
+		x = 1
+		y = 1
+		relative_position_id = GER_technology
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_technology }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_tank_upgrades
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_german_armour
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_german_armour }
+		mutually_exclusive = { focus = GER_more_inclusive_training }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	#ARMY 3.2
+	shared_focus = { 
+		id = GER_mountain_gear
+		icon = unkown
+		x = -1
+		y = 1
+		relative_position_id = GER_technology
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_technology }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_more_inclusive_training
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_mountain_gear
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_mountain_gear }
+		mutually_exclusive = { focus = GER_tank_upgrades }
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	shared_focus = { 
+		id = GER_preussische_genious
+		icon = unkown
+		x = 1
+		y = 1
+		relative_position_id = GER_more_inclusive_training
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_more_inclusive_training }
+		prerequisite = { focus = GER_tank_upgrades }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	shared_focus = { 
+		id = GER_a_revived_reichsheer
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_improved_general_academies
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_preussische_genious }
+		prerequisite = { focus = GER_improved_general_academies }
+		prerequisite = { focus = GER_mauser }		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	###NAVAL
+	
+	shared_focus = { 
+		id = GER_preussische_reichsmarine
+		icon = unkown
+		x = -10
+		y = 1
+		relative_position_id = GER_the_goring_doctorine
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_the_goring_doctorine }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	###NAVAL 1
+	shared_focus = { 
+		id = GER_rudeltaktik
+		icon = unkown
+		x = 2
+		y = 1
+		relative_position_id = GER_preussische_reichsmarine
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_preussische_reichsmarine }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_further_improvement
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_rudeltaktik
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_rudeltaktik }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_improve_the_naval_academies
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_further_improvement
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_further_improvement }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	###NAVAL 2
+	shared_focus = { 
+		id = GER_ship_innovations
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_preussische_reichsmarine
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_preussische_reichsmarine }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_the_u-boat
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_ship_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_ship_innovations }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_the_bismarck_class
+		icon = unkown
+		x = 0
+		y = 1
+		relative_position_id = GER_the_u-boat
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_the_u-boat }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	
+	###NAVAL 3
+	shared_focus = { 
+		id = GER_the_ports_of_rostock
+		icon = unkown
+		x = -2
+		y = 1
+		relative_position_id = GER_preussische_reichsmarine
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_preussische_reichsmarine }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	shared_focus = { 
+		id = GER_naval_expansion
+		icon = unkown
+		x = 0
+		y = 2
+		relative_position_id = GER_the_ports_of_rostock
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_the_ports_of_rostock }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
+	
+	shared_focus = { 
+		id = GER_a_revitalized_reichsmarine
+		icon = unkown
+		x = 0
+		y = 2
+		relative_position_id = GER_the_bismarck_class
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 10
+		prerequisite = { focus = GER_naval_enpansion }
+		prerequisite = { focus = GER_the_bismarck_class }
+		prerequisite = { focus = GER_improve_the_naval_academies }
+		prerequisite = {
+			focus = GER_naval_expansion
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+		}
+	}
