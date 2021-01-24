@@ -21,7 +21,7 @@ focus_tree = {
 shared_focus = {
     id = USA_the_long_doctrine
     icon = unkown
-    x = 8
+    x = -5
     y = 0 
     cost = 2
     available_if_capitulated = yes
@@ -56,7 +56,7 @@ shared_focus = {
 shared_focus = {
     id = USA_the_detroit_conference
     icon = unkown
-    x = 2
+    x = 5
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -95,7 +95,7 @@ shared_focus = {
 shared_focus = {
     id = USA_the_dying_lion
     icon = unkown
-    x = 7
+    x = 0
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -408,7 +408,7 @@ shared_focus = {
 shared_focus = {
     id = USA_the_continent_down_south
     icon = unkown
-    x = -2
+    x = -5
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -427,7 +427,7 @@ shared_focus = {
 shared_focus = {
     id = USA_land_of_the_rising_moon
     icon = unkown
-    x = -4
+    x = -2
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -499,7 +499,22 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        COL = {
+            random_owned_controlled_state = {
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            random_owned_controlled_state = {
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
     }
 }
 
@@ -612,7 +627,7 @@ shared_focus = {
 shared_focus = {
     id = USA_the_argentinian_threat
     icon = unkown
-    x = 0
+    x = 2
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -621,6 +636,114 @@ shared_focus = {
 
     }
     relative_position_id = USA_the_continent_down_south
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+
+shared_focus = {
+    id = USA_guarantee_paraguay
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_the_argentinian_threat
+
+    }
+    relative_position_id = USA_the_argentinian_threat
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        add_guarantee = PAR
+    }
+}
+shared_focus = {
+    id = USA_boost_their_oil_reseerves
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_guarantee_paraguay
+
+    }
+    relative_position_id = USA_guarantee_paraguay
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        PAR = {
+            random_owned_controlled_state = {
+                add_resource = {
+                    type = oil
+                    amount = 12
+                    state = THIS
+                }
+            }
+            add_political_power = 30
+        }
+    }
+}
+shared_focus = {
+    id = USA_fortify_the_three_rivers
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_guarantee_paraguay
+
+    }
+    relative_position_id = USA_guarantee_paraguay
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        PAR = {
+            every_owned_state = {
+                limit = {
+                    any_neighbor_state = {
+                        is_controlled_by = ARG
+                    }
+                }
+                add_building_construction = {
+                    type = bunker
+                    level = 3
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_border = yes
+                    }
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = USA_contact_chile
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_fortify_the_three_rivers
+
+    }
+    prerequisite = {
+        focus = USA_boost_their_oil_reseerves
+    }
+    relative_position_id = USA_fortify_the_three_rivers
     ai_will_do = {
         factor = 1
     }
@@ -630,17 +753,18 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_the_argentinian_threat
+    id = USA_an_ultimatum_to_peron
     icon = unkown
     x = 0
     y = 1
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-        focus = USA_the_continent_down_south
+        focus = USA_contact_chile
 
     }
-    relative_position_id = USA_the_continent_down_south
+  
+    relative_position_id = USA_contact_chile
     ai_will_do = {
         factor = 1
     }
@@ -649,6 +773,26 @@ shared_focus = {
     }
 }
 
+shared_focus = {
+    id = USA_a_continent_free_from_tyranny
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_an_ultimatum_to_peron
+
+    }
+  
+    relative_position_id = USA_an_ultimatum_to_peron
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
 
 shared_focus = {
     id = USA_the_melting_pot
