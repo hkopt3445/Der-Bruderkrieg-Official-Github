@@ -5,6 +5,9 @@ on_actions = {
 			austrian_imperial_senate_initial = yes
             }
 
+            AUS = {
+                AUS_infilitration_mission_budget = 0
+            }
         
 
             ##Wurtemmburg
@@ -54,9 +57,13 @@ on_actions = {
             set_variable = {
                 von_rundstent_influence = 4
             }
-
-
+            set_variable = {
+                popular_anger = 50
+            }
             calc_court_influence = yes
+
+
+            
         }
             
             
@@ -67,6 +74,44 @@ on_actions = {
         effect = {
             
             
+        }
+    }
+    on_weekly = {
+        effect = {
+            if = {
+                limit = {
+                    has_country_flag = support_loyalists_decision_flag
+                }
+                add_to_variable = {
+                    popular_anger = 2
+                }
+                add_to_variable = {
+                    franz_ferdinand_influence = 2
+                }
+                calc_court_influence = yes
+            }
+            if = {
+                limit = {
+                    has_country_flag = arrest_courrt_distenter_flag
+                }
+                add_to_variable = {
+                    popular_anger = -1
+                }
+         
+            }
+        }
+    }
+
+    on_weekly = {
+        effect = {
+            if = {
+                limit = {
+                    has_country_flag = unlock_AUS_infilitrating_the_prussian_palace
+                }
+                add_to_variable = {
+                    prussian_infiltration_succeed_prob = mission_infil_success_rate_increase_weekly
+                }
+            }
         }
     }
 
@@ -109,191 +154,32 @@ on_actions = {
     }
 
 
-
-
-
-    #Used for 2nd Bruderkrieg Counter Thing???
-    on_daily_AUS = {
-        count_inflicted_casualties_on_current_enemies = {
-            set_temp_variable = { effect_root = THIS }
-            every_enemy_country = {
-                limit = {
-                    var:original_tag = {
-                        OR = {
-                            NOT = { has_variable = effect_root:current_inflicted_casualties_on_@THIS }
-                            casualties_inflicted_by = {
-                                opponent = var:effect_root
-                                thousands > effect_root:current_inflicted_casualties_on_@THIS
-                            }
-                        }
-                    }
-                }
-                clear_array = effect_root:digits
-                resize_array = {
-                    array = effect_root:digits
-                    size = 9
-                }
-                for_each_loop = {
-                    array = effect_root:digits
-                    index = i
-                    value = v
-                    break = b
-                    for_loop_effect = {
-                        start = 0
-                        end = 10
-                        value = j
-                        set_variable = { effect_root:digits^i = j }
-                        meta_effect = {
-                            text = {
-                                set_temp_variable = {
-                                    inflicted_casualties_temp = [DIGIT0][DIGIT1][DIGIT2][DIGIT3][DIGIT4][DIGIT5].[DIGIT6][DIGIT7][DIGIT8]
-                                }
-                            }
-                            DIGIT0 = "[?effect_root:digits^0|0]"
-                            DIGIT1 = "[?effect_root:digits^1|0]"
-                            DIGIT2 = "[?effect_root:digits^2|0]"
-                            DIGIT3 = "[?effect_root:digits^3|0]"
-                            DIGIT4 = "[?effect_root:digits^4|0]"
-                            DIGIT5 = "[?effect_root:digits^5|0]"
-                            DIGIT6 = "[?effect_root:digits^6|0]"
-                            DIGIT7 = "[?effect_root:digits^7|0]"
-                            DIGIT8 = "[?effect_root:digits^8|0]"
-                        }
-                        if = {
-                            limit = {
-                                casualties_inflicted_by = {
-                                    opponent = PREV
-                                    thousands < inflicted_casualties_temp
-                                }
-                            }
-                            subtract_from_variable = { effect_root:digits^i = 1 }
-                            set_temp_variable = { break = 1 }
-                        }
-                    }
-                }
-                subtract_from_temp_variable = { inflicted_casualties_temp = 0.001 }
-                set_temp_variable = { inflicted_casualties_diff = inflicted_casualties_temp }
-                var:original_tag = {
-                    subtract_from_temp_variable = { inflicted_casualties_diff = effect_root:current_inflicted_casualties_on_@THIS }
-                    add_to_variable = { effect_root:inflicted_casualties = inflicted_casualties_diff }
-                    add_to_variable = { effect_root:current_inflicted_casualties_on_@THIS = inflicted_casualties_diff }
-                    add_to_variable = { effect_root:inflicted_casualties_on_@THIS = inflicted_casualties_diff }
-                }
-            }
-            clear_array = digits
-        }
-        
-        # put this in on_peace
-        clear_current_inflicted_casualties = {
-            for_each_scope_loop = {
-                array = global.countries
-                if = {
-                    limit = {
-                        NOT = { has_war_with = PREV }
-                    }
-                    clear_variable = PREV.current_inflicted_casualties_on_@THIS
-                    clear_variable = current_inflicted_casualties_on_@PREV
-                }
-            }
-        }
-    }
-    on_daily_GER = {
-        count_inflicted_casualties_on_current_enemies = {
-            set_temp_variable = { effect_root = THIS }
-            every_enemy_country = {
-                limit = {
-                    var:original_tag = {
-                        OR = {
-                            NOT = { has_variable = effect_root:current_inflicted_casualties_on_@THIS }
-                            casualties_inflicted_by = {
-                                opponent = var:effect_root
-                                thousands > effect_root:current_inflicted_casualties_on_@THIS
-                            }
-                        }
-                    }
-                }
-                clear_array = effect_root:digits
-                resize_array = {
-                    array = effect_root:digits
-                    size = 9
-                }
-                for_each_loop = {
-                    array = effect_root:digits
-                    index = i
-                    value = v
-                    break = b
-                    for_loop_effect = {
-                        start = 0
-                        end = 10
-                        value = j
-                        set_variable = { effect_root:digits^i = j }
-                        meta_effect = {
-                            text = {
-                                set_temp_variable = {
-                                    inflicted_casualties_temp = [DIGIT0][DIGIT1][DIGIT2][DIGIT3][DIGIT4][DIGIT5].[DIGIT6][DIGIT7][DIGIT8]
-                                }
-                            }
-                            DIGIT0 = "[?effect_root:digits^0|0]"
-                            DIGIT1 = "[?effect_root:digits^1|0]"
-                            DIGIT2 = "[?effect_root:digits^2|0]"
-                            DIGIT3 = "[?effect_root:digits^3|0]"
-                            DIGIT4 = "[?effect_root:digits^4|0]"
-                            DIGIT5 = "[?effect_root:digits^5|0]"
-                            DIGIT6 = "[?effect_root:digits^6|0]"
-                            DIGIT7 = "[?effect_root:digits^7|0]"
-                            DIGIT8 = "[?effect_root:digits^8|0]"
-                        }
-                        if = {
-                            limit = {
-                                casualties_inflicted_by = {
-                                    opponent = PREV
-                                    thousands < inflicted_casualties_temp
-                                }
-                            }
-                            subtract_from_variable = { effect_root:digits^i = 1 }
-                            set_temp_variable = { break = 1 }
-                        }
-                    }
-                }
-                subtract_from_temp_variable = { inflicted_casualties_temp = 0.001 }
-                set_temp_variable = { inflicted_casualties_diff = inflicted_casualties_temp }
-                var:original_tag = {
-                    subtract_from_temp_variable = { inflicted_casualties_diff = effect_root:current_inflicted_casualties_on_@THIS }
-                    add_to_variable = { effect_root:inflicted_casualties = inflicted_casualties_diff }
-                    add_to_variable = { effect_root:current_inflicted_casualties_on_@THIS = inflicted_casualties_diff }
-                    add_to_variable = { effect_root:inflicted_casualties_on_@THIS = inflicted_casualties_diff }
-                }
-            }
-            clear_array = digits
-        }
-        
-        # put this in on_peace
-        clear_current_inflicted_casualties = {
-            for_each_scope_loop = {
-                array = global.countries
-                if = {
-                    limit = {
-                        NOT = { has_war_with = PREV }
-                    }
-                    clear_variable = PREV.current_inflicted_casualties_on_@THIS
-                    clear_variable = current_inflicted_casualties_on_@PREV
+    ###Revolts in the Austrian Empire
+    on_state_control_changed = {
+        if = {
+            limit = {
+                FROM.FROM = {
+                    state = 79
                 }
             }
         }
     }
 
-    on_peace = {
-        clear_current_inflicted_casualties = {
-            for_each_scope_loop = {
-                array = global.countries
-                if = {
-                    limit = {
-                        NOT = { has_war_with = PREV }
-                    }
-                    clear_variable = PREV.current_inflicted_casualties_on_@THIS
-                    clear_variable = current_inflicted_casualties_on_@PREV
-                }
-            }
-        }
+
+    on_capitulation = {
+        AUS_transfer_all_german_minor_states_to_sgc = yes
     }
+
+
+   on_weekly = {
+       if = {
+           limit = {
+               has_decision = AUS_opposition_coup
+            
+           }
+           add_to_variable = {
+               popular_anger = 5
+           }
+       }
+   }
 }

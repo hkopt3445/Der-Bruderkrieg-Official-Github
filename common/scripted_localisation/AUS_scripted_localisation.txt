@@ -42,30 +42,29 @@ defined_text = { # Country
 	name = industrial_industrial_capacity_factory_get_text_scripted_loc
 	text = {
 		trigger = {
-			check_variable = { var = industrial_industrial_capacity_factory value = -0.45 compare = less_than }
+			check_variable = { var = industrial_industrial_capacity_factory value = -0.45 compare = greater_than_or_equals }
 		}
 		localization_key = AUS_INDUSTRIAL_PRODUCTION_EFFECT_LOC_1
 	}
 	text = {
 		trigger = {
-			check_variable = { var = industrial_industrial_capacity_factory value = -0.30 compare = less_than }
-			check_variable = { var = industrial_industrial_capacity_factory value = -0.45 compare = greater_than_or_equals }
+			check_variable = { var = industrial_industrial_capacity_factory value = -0.30 compare = greater_than_or_equals }
+			check_variable = { var = industrial_industrial_capacity_factory value = -0.45 compare = less_than }
 		}
 		localization_key = AUS_INDUSTRIAL_PRODUCTION_EFFECT_LOC_2
 	}
 
 	text = {
 		trigger = {
-			check_variable = { var = industrial_industrial_capacity_factory value = -0.15 compare = less_than }
-			check_variable = { var = industrial_industrial_capacity_factory value = -0.30 compare = greater_than_or_equals }
+			check_variable = { var = industrial_industrial_capacity_factory value = -0.15 compare = greater_than_or_equals }
+			check_variable = { var = industrial_industrial_capacity_factory value = -0.30 compare = less_than }
 		}
 		localization_key = AUS_INDUSTRIAL_PRODUCTION_EFFECT_LOC_3
 	}
 
 	text = {
 		trigger = {
-			check_variable = { var = industrial_industrial_capacity_factory value = 0 compare = less_than_or_equals }
-			check_variable = { var = industrial_industrial_capacity_factory value = -0.15 compare = greater_than_or_equals }
+			check_variable = { var = industrial_industrial_capacity_factory value = -0.15 compare = less_than }
 		}
 		localization_key = AUS_INDUSTRIAL_PRODUCTION_EFFECT_LOC_4
 	}
@@ -76,38 +75,37 @@ defined_text = { # Country
 	name = industrial_production_speed_buildings_factor_get_text_scripted_loc
 	text = {
 		trigger = {
-			check_variable = { var = industrial_production_speed_buildings_factor value = -0.40 compare = less_than }
+			check_variable = { var = industrial_production_speed_buildings_factor value = -0.25 compare = greater_than_or_equals }
 		}
 		localization_key = AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_1
 	}
 	text = {
 		trigger = {
-			check_variable = { var = industrial_production_speed_buildings_factor value = -0.30 compare = less_than }
-			check_variable = { var = industrial_production_speed_buildings_factor value = -0.40 compare = greater_than_or_equals }
+			check_variable = { var = industrial_production_speed_buildings_factor value = -0.20 compare = greater_than_or_equals }
+			check_variable = { var = industrial_production_speed_buildings_factor value = -0.25 compare = less_than }
 		}
 		localization_key = AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_2
 	}
 
 	text = {
 		trigger = {
+			check_variable = { var = industrial_production_speed_buildings_factor value = -0.10 compare = greater_than_or_equals }
 			check_variable = { var = industrial_production_speed_buildings_factor value = -0.20 compare = less_than }
-			check_variable = { var = industrial_production_speed_buildings_factor value = -0.30 compare = greater_than_or_equals }
 		}
 		localization_key = AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_3
 	}
 
 	text = {
 		trigger = {
+			check_variable = { var = industrial_production_speed_buildings_factor value = -0.05 compare = greater_than_or_equals }
 			check_variable = { var = industrial_production_speed_buildings_factor value = -0.10 compare = less_than }
-			check_variable = { var = industrial_production_speed_buildings_factor value = -0.20 compare = greater_than_or_equals }
 		}
 		localization_key = AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_4
 	}
 
 	text = {
 		trigger = {
-			check_variable = { var = industrial_production_speed_buildings_factor value = 0 compare = less_than_or_equals }
-			check_variable = { var = industrial_production_speed_buildings_factor value = -0.10 compare = greater_than_or_equals }
+			check_variable = { var = industrial_production_speed_buildings_factor value = -0.05 compare = less_than }
 		}
 		localization_key = AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_5
 	} 
@@ -422,6 +420,43 @@ defined_text = { # Country
 
 
 defined_text = {
+	name = GetCurrentMissionStageInfilMission
+	text = {
+		localization_key = AUS_INFIL_MISSION_IS_ON_CHECKPOINT_1
+	}
+	text = {
+		trigger = {
+			has_country_flag = checkpoint_1_infil_passes
+			NOT = {
+				has_country_flag = checkpoint_2_infil_passes
+			}
+		}
+		localization_key = AUS_INFIL_MISSION_IS_ON_CHECKPOINT_2
+	}
+	text = {
+		trigger = {
+			has_country_flag = checkpoint_1_infil_passes
+			has_country_flag = checkpoint_2_infil_passes
+			NOT = {
+				has_country_flag = checkpoint_3_infil_passes
+			}
+		}
+		localization_key = AUS_INFIL_MISSION_IS_ON_CHECKPOINT_3
+	}
+	text = {
+		trigger = {
+			has_country_flag = checkpoint_1_infil_passes
+			has_country_flag = checkpoint_2_infil_passes
+			has_country_flag = checkpoint_3_infil_passes
+		
+		}
+		localization_key = AUS_INFIL_MISSION_IS_ON_CHECKPOINT_4
+	}
+
+}
+
+
+defined_text = {
 	name = GetKarlChoice
 
 	text = {
@@ -507,5 +542,18 @@ defined_text = {
 		}
 		localization_key = Bavarian_State_Stable
 
+	}
+}
+
+defined_text = {
+	name = GetCurrentSGCKingName
+
+	text = {
+		trigger = {
+			event_target:current_sgc_selected_admin_state = {
+				id = 954
+			}
+		}
+		localization_key = KING_ALBRECHT_VON_WURTTEMBURG_BADEN
 	}
 }

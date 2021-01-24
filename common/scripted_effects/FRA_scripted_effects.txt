@@ -133,7 +133,7 @@ FRA_peasent_revolt_effect = {
           target = FPR
           type = annex_everything
       }
-
+ 
  
   }
   else_if = {
@@ -156,8 +156,90 @@ belgian_elections_effect = {
   subtract_from_variable = {temp_degrelle_win_prob = 100}
   multiply_variable = {temp_degrelle_win_prob = -1}
 
-  random_events = {
-			global.degrelle_win_prob = belgian_election_events.1
-			temp_degrelle_win_prob = belgian_election_events.3			
+  random_list = {
+			global.degrelle_win_prob =  { country_event = belgian_election_events.1 ENG = {country_event = belgian_election_events.1}}
+			temp_degrelle_win_prob = { country_event = belgian_election_events.3 ENG = {country_event = belgian_election_events.3} }
 		}
+}
+
+france_give_state_strikes_effect = { 
+    set_state_flag = { flag = currently_being_striked value = 300 }
+    hidden_effect = {
+      add_dynamic_modifier = {
+        modifier = french_strikes_modifier
+        days = 300
+      } 
+    }
+  
+}
+
+calc_french_strikes_vars = {
+
+  set_variable = {french_strikes_state_production_speed_industrial_complex_factor_debuff = france_strikes_var }
+  divide_variable = {french_strikes_state_production_speed_industrial_complex_factor_debuff = 500}
+
+  set_variable = {french_strikes_conscription_debuff = france_strikes_var }
+  divide_variable = {french_strikes_conscription_debuff = 250}
+}
+
+update_french_strike_vars = {
+  every_owned_state = {
+    limit = {
+      has_country_flag = currently_being_striked
+    }
+    set_variable = {
+      france_strikes_var = global.france_strikes_ref_var
+    }
+    calc_french_strikes_vars = yes
+  }
+}
+
+
+update_westfalen_crackdown_vars = {
+  every_owned_state = {
+    limit = {
+      is_in_array = {
+        array = FGD.nationalist_states_array
+        value = THIS
+      }
+    }
+    add_to_variable = {
+      nationalist_influence =FRA_weekly_crackdown_westfalen_var
+    }
+  }
+}
+
+FRA_westfalen_setup_crackdown_variable = {
+
+  set_variable = {westfalen_suppression_var_loc_showcase =westfalen_suppression_var}
+  divide_variable = {westfalen_suppression_var_loc_showcase = 10}
+  set_variable = {manpower_loss_westfalen_crackdown_var = westfalen_suppression_var} 
+  divide_variable = {manpower_loss_westfalen_crackdown_var = -1000}
+  set_variable = {command_power_loss_westfalen_crackdown_var = westfalen_suppression_var}
+  divide_variable = {command_power_loss_westfalen_crackdown_var = -500}
+
+  set_variable = {FRA_weekly_crackdown_westfalen_var = westfalen_suppression_var}
+  divide_variable = {FRA_weekly_crackdown_westfalen_var = -100}
+
+  
+
+}
+
+FRA_modify_westfalen_suppression = {
+  add_to_variable = {westfalen_suppression_var = temp_value}
+  FRA_westfalen_setup_crackdown_variable = yes
+
+
+  # scroll position 
+  set_variable = { slider_x_position = 72 }
+  set_temp_variable = { temp_x = westfalen_suppression_var }
+  multiply_temp_variable = { temp_x = 245 }
+  divide_temp_variable = { temp_x = 100 }
+  round_temp_variable = temp_x
+  add_to_variable = { slider_x_position = temp_x }
+
+  clamp_variable = {
+      var = slider_x_position
+      max = 317
+  }
 }

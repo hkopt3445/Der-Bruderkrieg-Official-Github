@@ -1,0 +1,469 @@
+focus_tree = {
+	id = GER_goering_post_unification 
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 98
+			tag = GER
+		}
+	}
+
+	shared_focus = GER_venerate_new_karl
+	shared_focus = GER_herman_goering_werke
+	shared_focus = GER_industrial_cooperations
+	shared_focus = GER_goerings_industrial_plan
+	shared_focus = GER_the_goring_doctorine
+
+ 
+	#default = no
+
+	continuous_focus_position = { x = 12000 y = 1000 }
+}	
+
+shared_focus = {
+	id = GER_venerate_new_karl
+	icon = GFX_venerate_new_karl 
+	x = 4
+	y = 0
+	cost = 5
+	available_if_capitulated = yes
+
+	available = {
+		AUS = {
+			has_capitulated = yes
+		}
+		FRA = {
+			has_capitulated = yes
+		}
+	}
+
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		country_event = GER_goering_post_unification.1
+	}
+
+}
+shared_focus = {
+	id = GER_a_german_triumph
+	icon = GFX_a_german_triumph 
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_venerate_new_karl  }
+	relative_position_id = GER_venerate_new_karl
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		add_stability = 0.1
+		add_war_support = 0.1
+		add_political_power = 200
+	}
+}
+shared_focus = {
+	id = GER_age_of_the_eagle
+	icon = GFX_age_of_the_eagle 
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_a_german_triumph  }
+	relative_position_id =  GER_a_german_triumph 
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		add_ideas = GER_age_of_the_eagle
+	}
+}
+shared_focus = {
+	id = GER_la_resistance
+	icon = GFX_la_resistance 
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_age_of_the_eagle }
+	relative_position_id = GER_age_of_the_eagle 
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_la_resistance_tt
+	}
+}
+shared_focus = {
+	id = GER_an_inherited_problem
+	icon = GFX_inherited_problem 
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_age_of_the_eagle }
+	relative_position_id = GER_age_of_the_eagle
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_an_inherited_problem_tt
+	}
+}
+shared_focus = {
+	id = GER_support_ethnic_militias
+	icon = GFX_support_ethnic_militias 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_an_inherited_problem }
+	relative_position_id = GER_an_inherited_problem
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_support_ethnic_militias_tt ## Placeholder for Resistance Mechanic
+	}
+}
+shared_focus = {
+	id = GER_central_control
+	icon = GFX_central_control 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_an_inherited_problem }
+	relative_position_id = GER_an_inherited_problem
+	mutually_exclusive = { focus = GER_support_ethnic_militias }
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_central_control_tt ## Placeholder for Resistance Mechanic
+	}
+}
+shared_focus = {
+	id = GER_deploy_the_orpo
+	icon = GFX_deploy_the_orpo 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_support_ethnic_militias focus = GER_central_control }
+	relative_position_id = GER_support_ethnic_militias
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		add_manpower= -7000
+		## Austria Resistance -5
+	}
+}
+shared_focus = {
+	id = GER_form_the_okf
+	icon = GFX_form_the_okf 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_la_resistance }
+	relative_position_id = GER_la_resistance
+	mutually_exclusive = { focus = GER_cagoule_loyalty }
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		## No effect listed
+	}
+}
+shared_focus = {
+	id = GER_cagoule_loyalty
+	icon = GFX_cagoule_loyalty 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_la_resistance }
+	relative_position_id = GER_la_resistance
+	mutually_exclusive = { focus = GER_form_the_okf }
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		custom_effect_tooltip = GER_cagoule_loyalty_tt
+	}
+}
+shared_focus = {
+	id = GER_staatspolezei
+	icon = GFX_staatspolezei 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_cagoule_loyalty focus = GER_form_the_okf }
+	relative_position_id = GER_cagoule_loyalty
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		add_stability = 0.05
+		## French Resistance -5
+	}
+}
+
+shared_focus = {
+	id = GER_von_das_slavenvolk
+	icon = GFX_von_das_slavenvolk 
+	x = 5
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_venerate_new_karl }
+	relative_position_id = GER_venerate_new_karl
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		## No effect listed
+	}
+}
+
+shared_focus = {
+	id = GER_the_last_war
+	icon = GFX_the_last_war
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_von_das_slavenvolk }
+	relative_position_id = GER_von_das_slavenvolk
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		add_ideas = GER_the_last_war_idea
+	}
+}
+
+shared_focus = {
+	id = GER_prepare_for_the_struggle
+	icon = GFX_prepare_struggle
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_the_last_war }
+	relative_position_id = GER_the_last_war
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = GER_the_last_war_idea
+			add_idea = GER_the_last_war_idea1
+		}
+	}
+}
+
+shared_focus = {
+	id = GER_the_greatest_war
+	icon = GFX_the_greatest_war
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_prepare_for_the_struggle }
+	relative_position_id = GER_prepare_for_the_struggle
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = GER_the_last_war_idea1
+			add_idea = GER_the_greatest_war_idea
+		}
+	}
+}
+
+
+
+shared_focus = {
+	id = GER_our_theories_tested
+	icon = GFX_our_theories_tested
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_von_das_slavenvolk }
+	relative_position_id = GER_von_das_slavenvolk
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			name = armor_bonus
+			uses = 1
+			bonus = 1
+			category = armor
+		}
+		add_tech_bonus = {
+			name = land_doctrine_bonus
+			uses = 1
+			bonus = 1
+			category = cat_mobile_warfare
+		}
+	}
+}
+
+shared_focus = {
+	id = GER_winter_clothing
+	icon = GFX_winter_clothing
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_our_theories_tested }
+	relative_position_id = GER_our_theories_tested
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		add_ideas = GER_winter_clothing_overdrive
+	}
+}
+
+shared_focus = {
+	id = GER_surpass_general_winter
+	icon = GFX_general_winter
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_winter_clothing }
+	relative_position_id = GER_winter_clothing
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		## Adds Infrastructre in Eastern Provinces (arj has a script, gimme)
+	}
+}
+
+shared_focus = {
+	id = GER_streik
+	icon = GFX_streik
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_surpass_general_winter }
+	prerequisite = { focus = GER_the_greatest_war }
+	relative_position_id = GER_surpass_general_winter
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		declare_war_on = { target = SOV type = annex_everything }	### Will be changed once Successor states are fully implemented		
+	}
+}
+
+shared_focus = {
+	id = GER_moskowien_awaits
+	icon = GFX_moscow
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_streik }
+	mutually_exclusive = { focus = GER_securing_the_south }
+	relative_position_id = GER_streik 
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		## No effect listed
+	}
+}
+
+shared_focus = {
+	id = GER_securing_the_south
+	icon = GFX_oil_fields
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = GER_streik }
+	mutually_exclusive = {focus = GER_moskowien_awaits }
+	relative_position_id = GER_streik
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		## No effect listed
+	}
+}
+
+shared_focus = {
+	id = GER_the_fuel_for_autarky
+	icon = GFX_autarky
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { 
+		focus = GER_moskowien_awaits
+		focus = GER_securing_the_south
+		 }
+	mutually_exclusive = { focus = GER_exploit_separatism }
+	ai_will_do = {
+		factor = 1 
+	}
+	relative_position_id = GER_securing_the_south
+	completion_reward = {
+		add_ideas = GER_eastern_exploitation
+	}
+}
+
+shared_focus = {
+	id = GER_exploit_separatism
+	icon = GFX_separatism
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { 
+		focus = GER_moskowien_awaits
+		focus = GER_securing_the_south
+		 }
+	mutually_exclusive = { focus = GER_the_fuel_for_autarky }
+	ai_will_do = {
+		factor = 1 
+	}
+	relative_position_id = GER_moskowien_awaits
+	completion_reward = {
+		## No effect listed
+	}
+}
+
+shared_focus = {
+	id = GER_death_to_partisans
+	icon = GFX_partisans
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { 
+		focus = GER_the_fuel_for_autarky
+		focus = GER_exploit_separatism
+		 }
+		 relative_position_id = GER_the_fuel_for_autarky
+	ai_will_do = {
+		factor = 1 
+	}
+	completion_reward = {
+		add_ideas = GER_death_to_partisans_idea
+	}
+}

@@ -58,3 +58,190 @@ AUS_calc_infil_var = {
  
 
 
+AUS_calc_mission_fund_var = {
+	set_variable = {mission_infil_success_rate_increase_weekly = funding_for_infil_mission}
+	divide_variable = {
+		mission_infil_success_rate_increase_weekly = 10
+	}
+
+	set_variable = {mission_fund_cost = funding_for_infil_mission}
+	divide_variable = {mission_fund_cost = -200}
+}
+
+AUS_modify_cost = {
+	add_to_variable = {funding_for_infil_mission = temp_value}
+	AUS_calc_mission_fund_var = yes
+
+
+	# scroll position 
+	set_variable = { slider_x_position = 72 }
+	set_temp_variable = { temp_x = funding_for_infil_mission }
+	multiply_temp_variable = { temp_x = 245 }
+	divide_temp_variable = { temp_x = 100 }
+	round_temp_variable = temp_x
+	add_to_variable = { slider_x_position = temp_x }
+
+	clamp_variable = {
+		var = slider_x_position
+		max = 317
+	}
+}
+
+AUS_slider_setup = {
+	set_variable = { slider_x_position = 72 }
+		set_temp_variable = { temp_x = funding_for_infil_mission }
+		multiply_temp_variable = { temp_x = 245 }
+		divide_temp_variable = { temp_x = 100 }
+		round_temp_variable = temp_x
+		add_to_variable = { slider_x_position = temp_x }
+
+		clamp_variable = {
+			var = slider_x_position
+			max = 317
+		}
+}
+
+hungary_civil_war = {
+	953 = {
+		add_core_of = HUN
+	}
+	952 = {
+		add_core_of = HUN
+	}
+
+	154 = {
+		add_core_of = HUN
+	}
+	155 = {
+		add_core_of = HUN
+	}
+	43 = {
+		add_core_of = HUN
+	}
+	83 = {
+		add_core_of = HUN 
+	}
+	76 = {
+		add_core_of = HUN
+	}
+	84 = {
+		add_core_of = HUN
+	}
+	82 = {
+		add_core_of = HUN
+	}
+	764 = {
+		add_core_of = HUN
+	}
+
+	664 = {
+		add_core_of = HUN
+	}
+	73 = {
+		add_core_of = HUN
+	}
+	71 = {
+		add_core_of = HUN
+	}
+	70 = {
+		add_core_of = HUN
+	}
+	45 = {
+		add_core_of = HUN
+	}
+	109 = {
+		add_core_of = HUN
+	}
+	823 = {
+		add_core_of = HUN
+	}
+	812 = {
+		add_core_of = HUN
+	}
+	809 = {
+		add_core_of = HUN
+	}
+
+	release = HUN
+
+
+
+	declare_war_on = {
+		target = HUN
+		type = annex_everything
+	}
+
+	GER = { country_event = hungary.170 }
+
+	HUN = {load_oob = Hungary_Civil_War}
+
+	
+
+	while_loop_effect = {
+		limit = {
+			num_armies > 25
+		}
+		random_owned_controlled_state = {
+			limit = {
+				NOT = {
+					any_neighbor_state ={
+						is_owned_by = HUN
+					}
+				}
+			}
+			delete_unit = { 
+				state = THIS             
+				disband = no
+			}		
+		}
+	}
+}
+
+
+AUS_transfer_all_german_minor_states_to_sgc = {
+	if = {
+		limit = {
+			FROM = {
+				tag = AUS
+			}
+			tag = SAX
+		}
+		GPU = {
+			annex_country = {
+				target = SAX
+				transfer_troops = no
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = {
+				tag = AUS
+			}
+			tag = HAN
+		}
+		GPU = {
+			annex_country = {
+				target = HAN
+				transfer_troops = no
+			}
+		}
+	}
+}
+
+
+AUS_industrial_level_down = {
+	add_to_variable = {industrial_stuff = 10}
+		set_variable = {industrial_industrial_capacity_factory = industrial_stuff}
+		divide_variable = {industrial_industrial_capacity_factory = 250}
+
+		set_variable = {industrial_production_speed_buildings_factor = industrial_stuff}
+		divide_variable = {industrial_production_speed_buildings_factor = 400}
+
+		set_variable = {industrial_consumer_goods_factor = industrial_stuff}
+		divide_variable = {industrial_consumer_goods_factor = -250}
+
+		set_variable = {vienna_progress_bar_var = industrial_stuff}
+		add_to_variable = {vienna_progress_bar_var = 100}
+add_to_variable = {industrial_stuff = 10}
+}

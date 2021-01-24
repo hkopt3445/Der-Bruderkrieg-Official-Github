@@ -18,9 +18,9 @@ static const float3 DayAmbientMapPosX = float3(0.1, 0.1, 0.05);  // right
 static const float3 DayAmbientMapNegX = float3(0.15, 0.15, 0.15);  // left
 static const float3 DayAmbientMapPosY = float3(0.03, 0.03, 0.06);  // kills everything
 static const float3 DayAmbientMapNegY = float3(0.0, 0.0, 0.0);  // from under
-static const float3 DayAmbientMapPosZ = float3(0.0502, 0.05023, 0.1023);  // top 
+static const float3 DayAmbientMapPosZ = float3(0.0502, 0.05023, 0.1023);  // top
 static const float3 DayAmbientMapNegZ = float3(0.03, 0.033, 0.033);  // bottom
- 
+
 static const float3 NightAmbientMapPosX = float3(0.2, 0.2, 0.2);  // right
 static const float3 NightAmbientMapNegX = float3(0.0, 0.0, 0.0);  // left
 static const float3 NightAmbientMapPosY = float3(0.01, 0.01, 0.01);  // kills everything
@@ -85,10 +85,10 @@ static const float 	SNOW_FROST_MIN_EFFECT  		= 0.4f;
 static const float3 ICE_COLOR 					= float3( 0.5f, 0.6f, 0.9f );
 static const float 	ICE_NOISE_TILING  			= 0.1f; //0.068f;
 
-static const float WATER_COLOR_LIGHTNESS = 0.25;
+static const float WATER_COLOR_LIGHTNESS = 0.5;
 static const float WATER_RIPPLE_EFFECT = 0.0025;
 
-static const float COLORMAP_OVERLAY_STRENGTH 	= 0.73f; //0.7f;
+static const float COLORMAP_OVERLAY_STRENGTH 	= 0.75f; //0.7f;
 static const float3 FAKE_CUBEMAP_COLOR 			= float3(0.0f, 0.0f, 0.0f);
 
 // MILD_WINTER_VALUE = ###,						defines.lua   (reload defines)
@@ -145,7 +145,7 @@ static const float  WATER_HEIGHT_RECP_SQUARED = WATER_HEIGHT_RECP * WATER_HEIGHT
 // ------------------    FOG            -------------------------
 // --------------------------------------------------------------
 
-static const float3 FOG_COLOR 					= float3( 0.15, 0.30, 0.6 );
+static const float3 FOG_COLOR 					= float3( 0.12, 0.28, 0.6 );
 static const float 	FOG_BEGIN					= 1.0f;
 static const float 	FOG_END 					= 150.0f;
 static const float 	FOG_MAX 					= 0.35f; 
@@ -188,17 +188,17 @@ static const float  SHADOW_WEIGHT_TREE   		= 0.7f;
 // ------------------    GRADIENT BORDERS   ---------------------
 // --------------------------------------------------------------
 
-static const float GB_CAM_MIN = 80.0f;
-static const float GB_CAM_MAX = 250.0f;
-static const float GB_CAM_MAX_FILLING_CLAMP = 0.95f; // 0 to 1 value for clamping the fill when camera is at max distance
-static const float GB_THRESHOLD = 0.05f; // interpolation time
-static const float GB_THRESHOLD2 = 0.15f; // interpolation time
+static const float GB_CAM_MIN = 220.0f;
+static const float GB_CAM_MAX = 225.0f;
+static const float GB_CAM_MAX_FILLING_CLAMP = 0.6f; // 0 to 1 value for clamping the fill when camera is at max distance
+static const float GB_THRESHOLD = 0.37f; // interpolation time
+static const float GB_THRESHOLD2 = 0.05f; // interpolation time
 //static const float3 GB_OUTLINE_COLOR = float3( 0.0f, 0.0f, 0.0f );
 static const float GB_OUTLINE_CUTOFF_SEA = 0.990f; // Magic number to balance cutoff on edges without neighbor (over Sea)
-static const float GB_OPACITY_NEAR = 1.0f; // Transparency when camera is near 
-static const float GB_OPACITY_FAR = 0.8f;  // Transparency when camera is far
+static const float GB_OPACITY_NEAR = 1.0f; // Transparency when camera is near
+static const float GB_OPACITY_FAR = 0.85f;  // Transparency when camera is far
 static const float BORDER_NIGHT_DESATURATION_MAX = 0.2f; // how much border colors can get desaturated at night. 1.0f is full grey
-static const float BORDER_FOW_REMOVAL_FACTOR = 0.9f; // How much of the FOW that is removed from the borders. 1.0f is no FOW
+static const float BORDER_FOW_REMOVAL_FACTOR = .8f; // How much of the FOW that is removed from the borders. 1.0f is no FOW
 static const float BORDER_LIGHT_REMOVAL_FACTOR = 0.8f; // How much of the light calculations that are removed from the borders. 1.0f is no light
 static const float GB_STRENGTH_CH1 = 1.0; // Opacity of bottom layer
 static const float GB_STRENGTH_CH2 = 1.0; // Opacity of top layer
@@ -217,7 +217,7 @@ static const float SEC_MAP_TILE = 6000.0f;
 // --------------------------------------------------------------
 
 static const float MAP_ARROW_SEL_BLINK_SPEED = 5.5f;
-static const float MAP_ARROW_SEL_BLINK_RANGE = 0.7f; 
+static const float MAP_ARROW_SEL_BLINK_RANGE = 0.7f;
 static const float MAP_ARROW_NORMALS_STR_TERR = 0.0125f;
 static const float MAP_ARROW_NORMALS_STR_WATER = 0.08f;
 

@@ -291,7 +291,11 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_the_issue_of_the_militias
+			has_completed_focus = GER_crush_the_freikorps
+			has_country_flag = chose_sa
+		}
+
+		visible = {
 			has_country_flag = chose_sa
 		}
 
@@ -305,12 +309,12 @@ GER_ss_waffen_cat = {
 		}
 		
 		remove_effect = {
+			add_manpower = 10000
 			add_to_variable = { ss_loyalty = 5 }
 			add_to_variable = { ss_power = 5 }
 			subtract_from_variable = { state_influence = 5 }
 			add_to_variable = { ss_influence = 5 }
-			custom_effect_tooltip = GER_sa_commissions_tt
-			add_manpower = 10000
+			custom_effect_tooltip = GER_sa_commissions_tt	
 		}
 	}
 	GER_decision_workplace_reforms = {
@@ -318,10 +322,13 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_the_issue_of_the_militias
+			has_completed_focus = GER_crush_the_freikorps
 			has_country_flag = chose_sa
 		}
 
+		visible = {
+			has_country_flag = chose_sa
+		}
 
 		fire_only_once = yes
 
@@ -329,13 +336,13 @@ GER_ss_waffen_cat = {
 	
 		complete_effect = {
 			add_ideas = {
-				GER_workplace_reforms
+				GER_workplace_reforms_idea
 			}
 		}
 
 		remove_effect = {
 			remove_ideas = {
-				GER_workplace_reforms
+				GER_workplace_reforms_idea
 			}
 			add_to_variable = { ss_loyalty = 5 }
 			custom_effect_tooltip = GER_workplace_reforms_tt
@@ -353,9 +360,13 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_the_issue_of_the_militias
+			has_completed_focus = GER_crush_the_freikorps
 			has_country_flag = chose_sa
 			has_country_flag = GER_flag_workplace_reforms
+		}
+
+		visible = {
+			has_country_flag = chose_sa
 		}
 
 		fire_only_once = yes
@@ -377,7 +388,11 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_the_issue_of_the_militias
+			has_completed_focus = GER_crush_the_freikorps
+			has_country_flag = chose_sa
+		}
+
+		visible = {
 			has_country_flag = chose_sa
 		}
 
@@ -387,10 +402,10 @@ GER_ss_waffen_cat = {
 		days_remove = 14
 
 		remove_effect = {
+			add_stability = -0.05
 			add_to_variable = { freikorps_loyalty = 5 }
 			subtract_from_variable = { ss_loyalty = 5 }
 			custom_effect_tooltip = GER_concessions_freikorps_tt
-			add_stability = -0.05
 		}
 	}
 	GER_infiltrate_reactionary_regiments = {
@@ -398,7 +413,11 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_the_issue_of_the_militias
+			has_completed_focus = GER_crush_the_freikorps
+			has_country_flag = chose_sa
+		}
+
+		visible = {
 			has_country_flag = chose_sa
 		}
 
@@ -410,8 +429,531 @@ GER_ss_waffen_cat = {
 		remove_effect = {
 			add_to_variable = { state_influence = 5 }
 			subtract_from_variable = { freikorps_loyalty = 5 }
-			subtract_from_variable = { freikorps_loyalty = 5 }
+			subtract_from_variable = { freikorps_power = 5 }
 			custom_effect_tooltip = GER_infiltrate_reactionary_regiments_tt
+		}
+	}
+	GER_freikorps_commissions = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
+		}
+
+		visible = {
+			has_country_flag = chose_wermacht
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
+			add_manpower = 10000
+			add_to_variable = { freikorps_loyalty = 5 }
+			add_to_variable = { freikorps_power = 5 }
+			subtract_from_variable = { state_influence = 5 }
+			add_to_variable = { freikorps_influence = 5 }
+			custom_effect_tooltip = GER_freikorps_commissions_tt			
+		}
+	}
+	GER_decision_pro_magnate_legislation = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
+		}
+
+		visible = {
+			has_country_flag = chose_wermacht
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+	
+		complete_effect = {
+			add_ideas = {
+				GER_pro_magnate_legislation
+			}
+		}
+
+		remove_effect = {
+			remove_ideas = {
+				GER_pro_magnate_legislation
+			}
+			add_to_variable = { freikorps_loyalty = 5 }
+			custom_effect_tooltip = GER_decision_pro_magnate_legislation_tt
+			set_country_flag = GER_flag_pro_magnate_legislation
+		}
+		
+		days_remove = 90
+
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	GER_neuter_the_daf = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
+			has_country_flag = GER_flag_pro_magnate_legislation
+		}
+
+		visible = {
+			has_country_flag = chose_wermacht
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+		days_remove = 21
+
+		remove_effect = {
+			add_to_variable = { freikorps_loyalty = 10 }
+			add_to_variable = { freikorps_power = 15 }
+			custom_effect_tooltip = GER_neuter_daf_tt
+			add_ideas = {
+				GER_increase_corporate_power
+			}		
+		}
+	}
+	GER_concessions_to_sa = {
+		icon =  generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
+		}
+
+		visible = {
+			has_country_flag = chose_wermacht
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
+			add_stability = -0.05
+			add_to_variable = { ss_loyalty = 5 }
+			subtract_from_variable = { freikorps_loyalty = 5 }
+			custom_effect_tooltip = GER_concessions_sa_tt		
+		}
+	}
+	GER_infiltrate_radical_regiments = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
+		}
+
+		visible = {
+			has_country_flag = chose_wermacht
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 28
+
+		remove_effect = {
+			add_to_variable = { state_influence = 5 }
+			subtract_from_variable = { ss_loyalty = 5 }
+			subtract_from_variable = { ss_power = 5 }
+			custom_effect_tooltip = GER_infiltrate_radical_regiments_tt
+		}
+	}
+	GER_freikorps_revolt_imminent = {
+		allowed = { tag = GER }
+		available = {
+			has_country_flag = invest_pp
+			has_country_flag = invest_manpower
+		}
+		activation = {	always = no	}
+		days_mission_timeout = 20
+		is_good = no
+		selectable_mission = no
+		timeout_effect = {
+			if = {
+				limit = {
+					OR = {
+					has_country_flag = invest_pp
+					has_country_flag = invest_manpower
+					}
+				}
+				activate_mission = GER_freikorps_influencing_states
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = invest_pp has_country_flag = invest_manpower }
+				}
+				country_event = militia_revolts.3
+			}
+		}
+		complete_effect = {
+			clr_country_flag = chose_wermacht
+			clr_country_flag = chose_sa
+			custom_effect_tooltip = GER_freikorps_revolt_tt
+			complete_national_focus = GER_negotiate_with_rohm
+			complete_national_focus = GER_retire_reactionary_officers
+			remove_ideas = GER_Clash_Of_The_Militias
+			country_event = militia_revolts.2
+		}
+	}
+	GER_freikorps_influencing_states = {
+		allowed = { tag = GER }
+		available = {
+			always = no
+		}
+		activation = { always = no }
+		days_mission_timeout = 4
+		is_good = no
+		selectable_mission = no
+		timeout_effect = {
+			country_event = militia_revolts.3
+		}
+		complete_effect = {
+			country_event = militia_revolts.3
+		}
+	}
+	GER_invest_pp = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+		OR = {
+			has_country_flag = chose_wermacht
+			has_country_flag = chose_sa
+		}
+		OR = {
+			has_active_mission = GER_freikorps_revolt_imminent
+			has_active_mission = GER_sa_revolt_imminent
+			}
+		}
+
+		visible = {
+			OR = {
+				has_active_mission = GER_freikorps_revolt_imminent
+				has_active_mission = GER_sa_revolt_imminent
+				}
+		}
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 1
+		complete_effect = {
+			set_country_flag = invest_pp
+			add_political_power = -250
+		} 
+	}
+	GER_invest_manpower = {
+		icon = generic_construction
+
+		available = {
+			tag = GER
+		OR = {
+			has_country_flag = chose_wermacht
+			has_country_flag = chose_sa
+		}
+		OR = {
+			has_active_mission = GER_freikorps_revolt_imminent
+			has_active_mission = GER_sa_revolt_imminent
+			}	
+		}
+
+		visible = {
+			OR = {
+				has_active_mission = GER_freikorps_revolt_imminent
+				has_active_mission = GER_sa_revolt_imminent
+			}
+		}
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 1
+		complete_effect = {
+			set_country_flag = invest_manpower
+			add_manpower = -25000
+		} 
+	}
+	GER_sa_revolt_imminent = {
+		allowed = { tag = GER }
+		available = {
+			has_country_flag = invest_pp
+			has_country_flag = invest_manpower
+		}
+		activation = {	always = no	}
+		days_mission_timeout = 20
+		is_good = no
+		selectable_mission = no
+		timeout_effect = {
+			if = {
+				limit = {
+					OR = {
+					has_country_flag = invest_pp
+					has_country_flag = invest_manpower
+					}
+				}
+				activate_mission = GER_sa_influencing_states
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = invest_pp has_country_flag = invest_manpower }
+				}
+				country_event = militia_revolts.6
+			}
+		}
+		complete_effect = {
+			clr_country_flag = chose_wermacht
+			clr_country_flag = chose_sa
+			custom_effect_tooltip = GER_sa_revolt_tt
+			complete_national_focus = GER_reintegrate_the_freikorps
+			complete_national_focus = GER_ensure_army_loyalty
+			remove_ideas = GER_Clash_Of_The_Militias
+			country_event = militia_revolts.5
+		}
+	}
+	GER_sa_influencing_states = {
+		allowed = { tag = GER }
+		available = {
+			always = no
+		}
+		activation = { always = no }
+		days_mission_timeout = 4
+		is_good = no
+		selectable_mission = no
+		timeout_effect = {
+			country_event = militia_revolts.6
+		}
+		complete_effect = {
+			country_event = militia_revolts.6
+		}
+	}
+}
+
+GER_westfalen_guerilla = {
+	spawn_divisions = {
+		icon =  generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_a_failed_state
+			has_war_with = FGD
+		}
+
+		visible = {
+			has_completed_focus = GER_a_failed_state
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 1
+
+		remove_effect = {
+			load_oob = "GER_westfalen"			
+		}	
+	}
+	damage_infrastructure = {
+		icon =  generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_a_failed_state
+			has_war_with = FGD
+		}
+
+		visible = {
+			has_completed_focus = GER_a_failed_state
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 28
+
+		remove_effect = {
+			FGD = {
+				random_owned_controlled_state = {
+					damage_building	= {
+						type = infrastructure
+						damage = 1
+					}
+				}
+			}
+		}	
+	}
+	damage_civ = {
+		icon =  generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_a_failed_state
+			has_war_with = FGD
+		}
+
+		visible = {
+			has_completed_focus = GER_a_failed_state
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 28
+
+		remove_effect = {
+			FGD = {
+				random_owned_controlled_state = {
+					damage_building	= {
+						type = industrial_complex
+						damage = 1
+					}
+				}
+			}
+		}	
+	}
+	damage_mil = {
+		icon =  generic_construction
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_a_failed_state
+			has_war_with = FGD
+		}
+
+		visible = {
+			has_completed_focus = GER_a_failed_state
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 28
+
+		remove_effect = {
+			FGD = {
+				random_owned_controlled_state = {
+					damage_building	= {
+						type = arms_factory
+						damage = 1
+					}
+				}
+			}
+		}	
+	}
+}
+GER_operations = {
+	GER_sabotage_south_germans = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_weaken_the_confederal_army
+			has_war_with = GPU
+			has_equipment = {
+				infantry_equipment > 4999
+			}
+		}
+
+		visible = {
+			has_completed_focus = GER_weaken_the_confederal_army
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -5000
+			}
+			GPU = {
+				add_timed_idea = { idea = GPU_germany_sabotage days = 120 }
+			}
+		}	
+	}
+	GER_sabotage_austrians = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_austrian_sabotage
+			has_war_with = GPU
+			has_equipment = {
+				infantry_equipment > 4999
+			}
+		}
+
+		visible = {
+			has_completed_focus = GER_austrian_sabotage
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -5000
+			}
+			AUS = {
+				add_timed_idea = { idea = AUS_germany_sabotage days = 120 }
+			}
+		}	
+	}
+}
+
+GER_french_resistance = {
+	GER_french_resistance_placeholder = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_la_resistance
+		}
+
+		visible = {
+			has_completed_focus = GER_la_resistance
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
+		}
+	}
+}
+
+GER_austrian_resistance = {
+	GER_austrian_resistance_placeholder = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_an_inherited_problem
+		}
+
+		visible = {
+			has_completed_focus = GER_an_inherited_problem
+		}
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 14
+
+		remove_effect = {
 		}
 	}
 }

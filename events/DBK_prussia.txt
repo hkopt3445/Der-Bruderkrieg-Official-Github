@@ -154,7 +154,7 @@ country_event = {  #######France says no
 		name = germany.205.b #needs to be localized
 		ai_chance = { factor = 100 } #AI will NOT do
 
-		remove_country_flag = "Succesful"
+		clr_country_flag = "Succesful"
 	}
 }
 
@@ -765,6 +765,352 @@ country_event = {
 		 target = FROM
 		 type = annex_everything
 		}
+
+	}
+ }
+
+ add_namespace = GER_goering_internal_stabilization
+
+ country_event = {
+	id = GER_goering_internal_stabilization.1 # The War on Occultism 
+	title = GER_goering_internal_stabilization.1.t
+	desc = GER_goering_internal_stabilization.1.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { # Don't what it is supposed to do yet
+		name = GER_goering_internal_stabilization.1.a
+		ai_chance = { factor = 1000 } 
+		set_country_flag = GER_volkisch
+	}
+	option = { # Don't what it is supposed to do yet
+		name = GER_goering_internal_stabilization.1.b
+		ai_chance = { factor = 1000 } 
+		set_country_flag = GER_church
+	}
+ }
+ 
+add_namespace = GER_goering_economic_policy_tree_events
+country_event = {
+	id = GER_goering_economic_policy_tree_events.1 # The Blade Forged
+	title = GER_goering_economic_policy_tree_events.1.t
+	desc = GER_goering_economic_policy_tree_events.1.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_economic_policy_tree_events.1.a
+		ai_chance = { factor = 1000 } 
+	}
+ }
+
+add_namespace = GER_austrian_ethnic_revolts
+country_event = {
+	id = GER_austrian_ethnic_revolts.1 # Operation Margarethe
+	title = GER_austrian_ethnic_revolts.1.t
+	desc = GER_austrian_ethnic_revolts.1.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_austrian_ethnic_revolts.1.a
+		ai_chance = { factor = 1000 } 
+	}
+}
+
+country_event = {
+	id = GER_austrian_ethnic_revolts.2 # Operation Alaric
+	title = GER_austrian_ethnic_revolts.2.t
+	desc = GER_austrian_ethnic_revolts.2.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_austrian_ethnic_revolts.2.a
+		ai_chance = { factor = 1000 } 
+	}
+}
+
+country_event = {
+	id = GER_austrian_ethnic_revolts.3 # The Fatherland Stands Up
+	title = GER_austrian_ethnic_revolts.3.t
+	desc = GER_austrian_ethnic_revolts.3.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_austrian_ethnic_revolts.3.a
+		ai_chance = { factor = 1000 } 
+		load_oob = "GER_austria_revolt"
+	}
+}
+
+add_namespace = GER_goering_post_unification
+
+country_event = {
+	id = GER_goering_post_unification.1 # Venerate New Karl
+	title = GER_goering_post_unification.1.t
+	desc = GER_goering_post_unification.1.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_post_unification.1.a
+		ai_chance = { factor = 1000 } 
+	}
+}
+
+
+
+add_namespace = militia_revolts
+
+ country_event = {
+	id = militia_revolts.1  # Freikorps Revolt
+	title = militia_revolts.1.t
+	desc = militia_revolts.1.d
+	#picture =
+	
+	trigger = {
+		if = {
+			limit = {
+			check_variable = { var = freikorps_support value = 1 compare = less_than_or_equals }
+			check_variable = { var = state_influence value = 10 compare = less_than_or_equals }
+			}
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = militia_revolts.1.a
+		ai_chance = { factor = 1000 }
+		activate_mission = GER_freikorps_revolt_imminent
+		}
+	}
+ country_event = {
+	id = militia_revolts.2  # Aftermath of Freikorps Revolt
+	title = militia_revolts.2.t
+	desc = militia_revolts.2.d
+	#picture =
+	
+	trigger = {
+		FRE = {
+			has_capitulated = yes
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = militia_revolts.2.a
+		set_country_flag = GER_militia_pacified
+		ai_chance = { factor = 1000 }
+		}
+	}
+ country_event = {
+	id = militia_revolts.3  # The Freikorps Revolt!
+	title = militia_revolts.3.t
+	desc = militia_revolts.3.d
+	#picture =
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = militia_revolts.3.a
+		ai_chance = { factor = 1000 }
+			FRE = {
+				transfer_state = 188
+				transfer_state = 763
+				transfer_state = 5
+				transfer_state = 85
+				transfer_state = 86
+				every_owned_state = {
+					teleport_armies = {
+						limit = {
+							tag = GER
+						}
+						to_state_array = owned_controlled_states
+					}
+				}
+				declare_war_on = { type = annex_everything    target = FROM }
+				load_oob = "FRE_civil_war"
+			}
+			
+			85 = {	
+				create_unit = {
+					division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }	
+				create_unit = {
+					division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }
+				create_unit = {
+					division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }	  	  
+				}
+			763 = {
+				create_unit = {
+					division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }
+				  create_unit = {
+					division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }	  	
+				}
+			5 = {
+				create_unit = {
+					division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					owner = FRE
+				  }	
+			}			
+		}
+	}
+
+	country_event = {
+		id = militia_revolts.4  # SA Revolt
+		title = militia_revolts.4.t
+		desc = militia_revolts.4.d
+		#picture =
+		
+		trigger = {
+			if = {
+				limit = {
+				check_variable = { var = ss_support value = 1 compare = less_than_or_equals }
+				check_variable = { var = state_influence value = 10 compare = less_than_or_equals }
+				}
+			}
+		}
+	
+		fire_only_once = yes
+		is_triggered_only = yes
+	
+		option = {
+			name = militia_revolts.4.a
+			ai_chance = { factor = 1000 }
+			activate_mission = GER_sa_revolt_imminent
+			}
+		}
+	 country_event = {
+		id = militia_revolts.5  # Aftermath of SA Revolt
+		title = militia_revolts.5.t
+		desc = militia_revolts.5.d
+		#picture =
+		
+		trigger = {
+			SAR = {
+				has_capitulated = yes
+			}
+		}
+	
+		fire_only_once = yes
+		is_triggered_only = yes
+	
+		option = {
+			name = militia_revolts.5.a
+			set_country_flag = GER_militia_pacified
+			ai_chance = { factor = 1000 }
+			}
+		}
+	 country_event = {
+		id = militia_revolts.6  # The SA Revolt!
+		title = militia_revolts.6.t
+		desc = militia_revolts.6.d
+		#picture =
+		
+		trigger = {
+		}
+	
+		fire_only_once = yes
+		is_triggered_only = yes
+	
+		option = {
+			name = militia_revolts.6.a
+			ai_chance = { factor = 1000 }
+				SAR = {
+					transfer_state = 61
+					transfer_state = 62
+					transfer_state = 63
+					transfer_state = 68
+					transfer_state = 950
+					declare_war_on = { type = annex_everything    target = FROM }
+					every_owned_state = {
+						teleport_armies = {
+							limit = {
+								tag = GER
+							}
+							to_state_array = owned_controlled_states
+						}
+					}
+					load_oob = "SAR_civil_war"
+				}
+				
+				63 = {	
+					create_unit = {
+						division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }	
+					create_unit = {
+						division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }
+					create_unit = {
+						division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }	  	  
+					}
+				62 = {
+					create_unit = {
+						division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }
+					  create_unit = {
+						division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }	  	
+					}
+				68 = {
+					create_unit = {
+						division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }
+					create_unit = {
+						division = "name = \"7th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = SAR
+					  }	  	
+				}
+			}
+		}		
+
+
+ add_namespace = prussia_easter_egg_meme_events
+ 
+
+ ##gottadamuering
+ country_event = {
+	id = prussia_easter_egg_meme_events.1
+	title = prussia_easter_egg_meme_events.1.t
+	desc = prussia_easter_egg_meme_events.1.d
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = prussia_easter_egg_meme_events.1.a #needs to be localized
+		ai_chance = { factor = 1000 } #this factor means the AI will almost always pick this one
+		
 
 	}
  }

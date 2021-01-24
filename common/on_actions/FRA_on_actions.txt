@@ -1,14 +1,37 @@
 on_actions = {
     on_startup = {
         effect = {
+
+			FRA = {
+				country_event = {	id = belgian_election_events.5 days = 47 }
+			}
+
+			FRA = {
+				every_owned_state = {
+					limit = {
+					  is_core_of = THIS
+					}
+				FRA = {
+				  add_to_array = {
+					array = french_owned_core_states
+					value = PREV
+				  }
+				}
+				}
+			}
+
+			FRA = {
+				country_event = { id = FRA_worker_strikes.4 days = 28 }
+			}
+
             FRA = {
 				set_variable = {FRA_emperor_approve_var = 50}
-				set_variable = {FRA_senate_var = 57}
-				set_variable = {FRA_chamber_of_deputies_var = 50}
-				set_variable = {FRA_doctrinaire_party_support = 18}
-				set_variable = {FRA_leftist_party_support = 91}
-				set_variable = {FRA_business_leaders = 0}
-				set_variable = {FRA_workers_support = 61}
+				set_variable = {FRA_senate_var = 47}
+				set_variable = {FRA_chamber_of_deputies_var = 40}
+				set_variable = {FRA_doctrinaire_party_support = 52}
+				set_variable = {FRA_leftist_party_support = 21}
+				set_variable = {FRA_business_leaders = 40}
+				set_variable = {FRA_workers_support = 21}
 			} 
 
 			FRA =  {
@@ -25,42 +48,70 @@ on_actions = {
 				set_variable = {
 					nationalist_influence = 7
 				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
+				}
 			}
 			51 = {
-				set_variable = {
+				set_variable = { 
 					nationalist_influence = 3
+				
+				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
 				}
 			}
 			57 = {
 				set_variable = {
 					nationalist_influence = 9
 				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
+				}
 			}
 			798 = {
 				set_variable = {
 					nationalist_influence = 7
+				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
 				}
 			}
 			955 = {
 				set_variable = {
 					nationalist_influence = 4
 				}
-			}
-			957 = {
-				set_variable = {
-					nationalist_influence = 5
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
 				}
 			}
+		
 			959 = {
 				set_variable = {
 					nationalist_influence = 8
+				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
 				}
 			}
 			960 = {
 				set_variable = {
 					nationalist_influence = 2
 				}
+				add_to_array = {
+					array = FGD.nationalist_states_array
+					value = THIS
+				}
 			}
+
+			FRA = { set_variable = {slider_x_position = 72} }
+
 
         }
 	}
@@ -82,27 +133,121 @@ on_actions = {
 	}
 
 	on_weekly_FRA = {
+		if = {
+			limit = {
+				has_completed_focus = FRA_managing_the_instability
+				NOT = {
+					has_country_flag = FRA_westfalen_nationalist_coup_crushed
+				}
+			}
+			FGD = {
+				every_owned_state = {
+					limit = {
+						is_in_array = {
+							array = FGD.nationalist_states_array
+							value = THIS
+						}
+					}
+					add_to_variable = { nationalist_influence = FRA_weekly_crackdown_westfalen_var }
+				}
+			}
+		
+		}
+	}
+
+	on_monthly_FRA = {
 		effect = {
 			if = {
-				limit = { 
-					FRA = {OR = {NOT = {has_country_flag = FRA_peasentrevolt_crushed_flag}  has_war_with = FPR }   }
+				limit = {
+					has_country_flag = FRA_strikes_begin_monthly
 				}
 				random_owned_controlled_state = {
 					limit = {
-						OR = {has_state_category = city has_state_category = large_city}
-						is_on_continent = europe
+						NOT = {
+							has_state_flag = currently_being_striked
+						}
+						
+						is_in_array = {
+							array = FRA.french_owned_core_states
+							value = THIS
+						}
+						
 					}
-					THIS = {
-						save_global_event_target_as = france_peasant_damaged_state
-					}
+					save_global_event_target_as = france_worker_strike_state
+					
 				}
 				random_list = {
-					50 = {
-						country_event = francestart.9
+					50  = { country_event = FRA_worker_strikes.1 }
+					50  = { country_event = FRA_worker_strikes.2 }
+					50  = {country_event = FRA_worker_strikes.3 }
+				}
+			}
+		}
+	}
+
+	on_weekly_FRA = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = second_week_flag
+				}
+				clr_country_flag = second_week_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = FRA_strikes_begin_two_weeks
+					NOT = {
+						has_country_flag = second_week_flag
 					}
-					50 = {
-						country_event = francestart.10
+				}
+				random_owned_controlled_state = {
+					limit = {
+						NOT = {
+							has_state_flag = currently_being_striked
+						}
+						is_in_array = {
+							array = FRA.french_owned_core_states
+							value = THIS
+						}
 					}
+					save_global_event_target_as = france_worker_strike_state
+					
+				}
+				random_list = {
+					50  = { country_event = FRA_worker_strikes.1 }
+					50  = { country_event = FRA_worker_strikes.2 }
+					50  = {country_event = FRA_worker_strikes.3 }
+				}
+				set_country_flag = second_week_flag
+			}
+		}
+	}
+
+	on_weekly_FRA = {
+		effect = {
+			
+			if = {
+				limit = {
+					has_country_flag = FRA_strikes_begin_weekly
+					
+				}
+				random_owned_controlled_state = {
+					limit = {
+						NOT = {
+							has_state_flag = currently_being_striked
+						}
+						is_in_array = {
+							array = FRA.french_owned_core_states
+							value = THIS
+						}
+					}
+					save_global_event_target_as = france_worker_strike_state
+					
+				}
+				random_list = {
+					50  = { country_event = FRA_worker_strikes.1 }
+					50  = { country_event = FRA_worker_strikes.2 }
+					50  = {country_event = FRA_worker_strikes.3 }
 				}
 			}
 		}
