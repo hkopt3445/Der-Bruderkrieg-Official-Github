@@ -4,7 +4,7 @@ shared_focus = {
   text = AUS_ABSOLUTISM
   #prerequisite = { focus = AUS_KAISER_SPEECH }
   #mutually_exclusive = {focus = AUS_concessions_to_people}
-  x = 0
+  x = 7
   y = 0 
   #relative_position_id = AUS_announce_the_kaiser_speech
   cost = 2
@@ -31,9 +31,9 @@ shared_focus = {
   x = 0
   y = 1
   relative_position_id = AUS_ABSOLUTISM
-  cost = 5
+  cost = 5 
   ai_will_do = {
-    factor = 200 
+    factor = 2000 
   }
 
   available_if_capitulated = yes
@@ -58,7 +58,7 @@ shared_focus = {
   relative_position_id = AUS_CENTRALISM
   cost = 5
   ai_will_do = {
-    factor = 20
+    factor = 200
   }
 
   available_if_capitulated = yes
@@ -81,7 +81,7 @@ shared_focus = {
   relative_position_id = AUS_CENTRALISM
   cost = 5
   ai_will_do = {
-    factor = 20
+    factor = 200
   }
 
   available = {
@@ -107,7 +107,7 @@ shared_focus = {
   relative_position_id = AUS_AUTOCRACY
   cost = 4
   ai_will_do = {
-    factor = 20
+    factor = 200
   }
   available = {
     has_country_flag = vote_succesful_bohemia_act
@@ -162,7 +162,7 @@ shared_focus = {
       }
   }
 }
-
+  
 shared_focus = {
   id = AUS_EXECUTE_BELA_KUN
   icon = GFX_goal_AUS_execute_hungarians
@@ -176,7 +176,7 @@ shared_focus = {
   relative_position_id = AUS_BAN_CZECHS
   cost = 4
   ai_will_do = {
-    factor = 20
+    factor = 200
   }
   bypass = {
     has_war_with = HUN
@@ -189,9 +189,13 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = { 
-      AUS = { country_event =  austria.1 days = 3 }
+      
       remove_ideas = {
         Nemetzi_dal
+      }
+
+      hidden_effect = {
+        AUS = { country_event =  austria.1 }
       }
   }
 }
@@ -206,7 +210,7 @@ shared_focus = {
   relative_position_id = AUS_AUTOCRACY
   cost = 4
   ai_will_do = {
-    factor = 20
+    factor = 200
   }
   available = {
     has_country_flag = vote_succesful_italia_act
@@ -221,7 +225,7 @@ shared_focus = {
       }
       add_timed_idea = {
         idea = Sixty_Days_Milan
-        days = 60 #######NO SHIT SHERLOCK
+        days = 720 #######NO SHIT SHERLOCK
       }
       country_event = { id = austria.3 hours = 2 }
 
@@ -244,9 +248,9 @@ shared_focus = {
   x = 0
   y = 1
   relative_position_id = AUS_EXECUTE_BELA_KUN
-  cost = 15
+  cost = 12
   ai_will_do = {
-    factor = 20
+    factor = 200
   }
 
   available_if_capitulated = yes
@@ -259,16 +263,16 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_ANNEX_BUCOVINA
-  icon = GFX_Attack_Romania
+  icon = GFX_goal_AUS_annex_bucovina
   text = AUS_ANNEX_BUCOVINA
   prerequisite = { focus = AUS_ALL_HAIL_KAISER }
   prerequisite = {focus = AUS_expand_recruitment_imperial_army}
   x = 2
   y = 1
   relative_position_id = AUS_ALL_HAIL_KAISER
-  cost = 5
+  cost = 7
   ai_will_do = {
-    factor = 20
+    factor = 200
   }
 
   available_if_capitulated = yes
@@ -287,22 +291,23 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_the_austrian_superpower
-  icon = unkown
+  icon = GFX_goal_AUS_the_austrian_superpower
   text = AUS_the_austrian_superpower
   prerequisite = { focus = AUS_ANNEX_BUCOVINA}
   x = 0
   y = 1
   relative_position_id = AUS_ANNEX_BUCOVINA
-  cost = 2
+  cost = 8
   ai_will_do = {
-    factor = 20
+    factor = 200
   }
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_war_suport = 0.05
+    add_war_support = 0.1
+    add_political_power = 50
   }
 }
 

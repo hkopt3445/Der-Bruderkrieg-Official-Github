@@ -8,25 +8,29 @@ FRA_solve_countryside_problem = {
 
 	visible = {
 		tag = FRA
+		
 	NOT = {
 		has_country_flag = FRA_countryside_developed_flag
 	}
 	}
 }
 
-FRA_countryside_revolt = {
+FRA_worker_strikes = {
 	icon = army_reform
 	allowed = {
     tag = FRA
 	}
 
+	scripted_gui = france_strikes_scripted_gui
+
   visible_when_empty = yes
 
 	visible = {
-		tag = FRA
+		has_country_flag = FRA_strikes_have_begun
 		NOT = {
-			has_country_flag = FRA_peasentrevolt_crushed_flag
-		} 
+			has_country_flag = FRA_the_strikes_crushed
+		}
+		
 	}
 }
 
@@ -51,14 +55,12 @@ FRA_balancing_the_autocracy = {
 	icon = army_reform
 	allowed = {
 	tag = FRA
-	has_country_flag = balance_aristrocracy_flag 
 	}
 
   visible_when_empty = yes
   
 	visible = {
-		tag = FRA
-		has_country_flag = balance_aristrocracy_flag
+		has_country_flag = FRA_balancing_the_autocracy
 	}
 }
 
@@ -72,8 +74,10 @@ FRA_the_issue_of_refugees = {
   visible_when_empty = yes
  
 	visible = {
-		tag = FRA
-		
+		has_completed_focus = FRA_the_issue_or_refugees
+		NOT = {
+			has_country_flag = napoleon_wins
+		}
 	}
 }
 
@@ -122,8 +126,7 @@ FRA_hunting_westfalen_nationalists = {
   visible_when_empty = yes
 
 	visible = {
-		tag = FRA
-		
+		has_country_flag = allow_westfalen_gui		
 	}
 }
 
@@ -143,6 +146,9 @@ influencing_belgium = {
 
 	visible = {
 		has_global_flag = belgian_elections_start
+		NOT = {
+			has_global_flag = belgian_elections_are_over
+		}
 		
 	}
 }

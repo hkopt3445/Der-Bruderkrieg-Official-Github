@@ -27,16 +27,81 @@ GER_german_sphere = {
 	allowed = {
 	OR = {
     tag = GER
-	tag = AUS
-	tag = FRA
+	AND = {
+		tag = AUS
+		has_completed_focus = AUS_war_of_ideology
+	}
+	AND = {
+		tag = FRA
+		has_completed_focus = FRA_french_imperium
+	}
 	}
 	}
 }
 
-
 GER_ss_waffen_cat =  {
 	icon = army_reform
 	scripted_gui = GER_militia_decisions_gui
+	visible = {
+		OR = {
+			has_country_flag = chose_sa
+			has_country_flag = chose_wermacht
+		}
+	}
+	visible_when_empty = yes
+	allowed = {
+		tag = GER
+	}
+}
+
+GER_westfalen_guerilla =  {
+	icon = army_reform
+	visible = {
+		has_completed_focus = GER_a_failed_state
+		NOT = {
+			has_completed_focus = GER_venerate_new_karl
+		}
+	}
+	visible_when_empty = yes
+	allowed = {
+		tag = GER
+	}
+}
+
+GER_operations =  {
+	icon = army_reform
+	visible = {
+		OR = {
+			has_completed_focus = GER_weaken_the_confederal_army
+			has_completed_focus = GER_austrian_sabotage
+		}	
+		
+		NOT = {
+			has_completed_focus = GER_venerate_new_karl
+		}
+	}
+	visible_when_empty = yes
+	allowed = {
+		tag = GER
+	}
+}
+
+GER_french_resistance =  {
+	icon = army_reform
+	visible = {
+		has_completed_focus = GER_la_resistance
+	}
+	visible_when_empty = yes
+	allowed = {
+		tag = GER
+	}
+}
+
+GER_austrian_resistance =  {
+	icon = army_reform
+	visible = {
+		has_completed_focus = GER_an_inherited_problem
+	}
 	visible_when_empty = yes
 	allowed = {
 		tag = GER

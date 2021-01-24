@@ -170,7 +170,7 @@ country_event = {
 	id = second_treaty_of_vienna.1
 	title = second_treaty_of_vienna.1.t
 	desc = second_treaty_of_vienna.1.d
-	picture = GFX_report_event_czech_soldiers_02.dds
+	#picture = GFX_report_event_czech_soldiers_02.dds
 	is_triggered_only = yes
 	fire_only_once = yes
 
@@ -185,13 +185,97 @@ country_event = {
 		unlock_decision_category_tooltip = post_war_prussia_loses
 		set_country_flag = second_treaty_of_vienna_enacted
 		add_ideas = AUS_post_war_occupation
+
+		GER = {
+			set_cosmetic_tag = RAU_prussia
+		}
+ 
+ 
+		#Masuria
+		763 = {
+			add_core_of = MAS
+		}
+		5 = {
+		 add_core_of = MAS
+		 }
+		 85 = {
+			 add_core_of = MAS
+		 }
+		 188 = {
+			 add_core_of = MAS
+		 }
+		
+		MAS = {
+			 transfer_state = 763
+			 transfer_state = 5
+			 transfer_state = 85
+			 transfer_state = 188
+		 }
+		 GPU = {
+			 transfer_state = 60
+			 transfer_state = 65
+		 }
+		 58 = {
+			 add_core_of = SHL
+		 }
+		 SHL = {
+			 transfer_state = 58
+		 }
+		
+		 HAN = {
+			 transfer_state = 56
+			 transfer_state = 59
+			 transfer_state = 817
+			 transfer_state = 962
+			 set_cosmetic_tag = RAU_hannover
+		 }
+		 release = HAN
 		
 		hidden_effect = {
 			news_event = {id = econd_treaty_of_vienna.3}
 			country_event = {id = post_wiltkrieg_trials.1 days = 2}
+
+
 			GER = {
 				load_focus_tree = generic_focus
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.1
+				}
+				kill_ideology_leader = neutrality
+				set_politics = {
+					ruling_party = neutrality
+				}
+
+				create_country_leader = {
+					name = "Erwin Rommel"
+					desc = ""
+					picture = "gfx/leaders/Erwin_Rommel.dds"
+					expire = "1965.1.1"
+					ideology = despotic
+					traits = {
+						#
+					}
+				}
+
+
+				
 			}
+
+			HAN = {
+				kill_ideology_leader = neutrality
+				create_country_leader = {
+					name = "Hans Speidel"
+					desc = ""
+					picture = "gfx/leaders/Hans_Steidel.dds"
+					expire = "1965.1.1"
+					ideology = despotic
+					traits = {
+						#
+					}
+				}
+			}
+
 		}
 	}
 }

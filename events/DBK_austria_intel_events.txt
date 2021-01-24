@@ -1,15 +1,141 @@
-add_namespace = austria_intel_events
+add_namespace = austria_infil_prussian_gov
 
+
+###infilitrating prussian arms place
 country_event = {
-	id = austria_intel_events.1
-	title = austria_intel_events.1.t
-	desc = austria_intel_events.1.d
+	id = austria_infil_prussian_gov.1
+	title = austria_infil_prussian_gov.1.t
+	desc = austria_infil_prussian_gov.1.d
 	picture = GFX_report_event_election_vote
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = austria_intel_events.1.a
+		name = austria_infil_prussian_gov.1.a
 
+	}
+}
+
+##check point 1 passes
+country_event = {
+	id = austria_infil_prussian_gov.2
+	title = austria_infil_prussian_gov.2.t
+	desc = austria_infil_prussian_gov.2.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_infil_prussian_gov.2.a
+
+	}
+}
+
+##checkpoint 2 passes
+country_event = {
+	id = austria_infil_prussian_gov.3
+	title = austria_infil_prussian_gov.3.t
+	desc = austria_infil_prussian_gov.3.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_infil_prussian_gov.3.a
+
+	}
+}
+
+##checkpoint 3 passes
+country_event = {
+	id = austria_infil_prussian_gov.4
+	title = austria_infil_prussian_gov.4.t
+	desc = austria_infil_prussian_gov.4.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_infil_prussian_gov.4.a
+
+	}
+}
+
+
+##mission success!
+country_event = {
+	id = austria_infil_prussian_gov.5
+	title = austria_infil_prussian_gov.5.t
+	desc = austria_infil_prussian_gov.5.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_infil_prussian_gov.5.a
+		country_event = {
+			id = austria_infil_prussian_gov.6
+			days = 1
+		}
+	}
+}
+
+
+##mission success
+country_event = {
+	id = austria_infil_prussian_gov.6
+	title = austria_infil_prussian_gov.6.t
+	desc = austria_infil_prussian_gov.6.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_infil_prussian_gov.6.a
+		add_political_power = 20
+		set_country_flag = AUS_infil_mission_success_flag
+
+			add_ideas = {
+				AUS_infilitration_in_prussians_arms_dev
+			}
+
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = infantry_weapons
+			}
+		
+	}
+}
+
+add_namespace = austria_infil_prussian_gov_diet_events
+
+##pass
+country_event = {
+	id = austria_infil_prussian_gov_diet_events.1
+	title = austria_infil_prussian_gov_diet_events.1.t
+	desc = austria_infil_prussian_gov_diet_events.1.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_infil_prussian_gov_diet_events.1.a
+		
+	}
+}
+
+##fail
+country_event = {
+	id = austria_infil_prussian_gov_diet_events.2
+	title = austria_infil_prussian_gov_diet_events.2.t
+	desc = austria_infil_prussian_gov_diet_events.2.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_infil_prussian_gov_diet_events.2.a
+		
 	}
 }
