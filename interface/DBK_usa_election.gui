@@ -1,7 +1,7 @@
  guiTypes = {  	
         containerWindowType = { 
                 name = "us_election_counters"
-                size= {width=100%% height = 800}
+                size= {width=100%% height = 840}
                 position = { x = 0 y = 0 }
                 instantTextBoxType = {
                         maxWidth = 500
@@ -11,9 +11,10 @@
                         format = center
                         fixedsize = yes
                 }
+           
                 containerWindowType = {
                         name = "us_election_graph_container"
-                        position = { x = 20 y = 30}
+                        position = { x = 20 y = 50}
                         iconType = {
 			        name = "grpah"
 			        spriteType = "GFX_USA_election_graph"
@@ -47,7 +48,7 @@
                 }
                 
                 containerWindowType = {
-                        position  = {x = 0 y= 40}
+                        position  = {x = 0 y= 65}
                 iconType = {
 			name = "huey long the chad"
 			spriteType = "GFX_long_chad"
@@ -60,8 +61,8 @@
 			name = "long electoral desc"
 			position = { x= 49 y = 670 }
 			font = "hoi_18mbs"
-			text = "long_electoral_desc"
 			format = center
+                        text = "long_electoral_desc"
 			fixedsize = yes
 		}
 
@@ -150,8 +151,57 @@
                           maxWidth = 500
                           scale = 2
                   }
+                  containerWindowType = {
+                          name = "state_camapign_window"
+                          position = {x = 40 y= 800}
 
-                  instantTextBoxType = {
+                instantTextBoxType = {
+                        name = "state_title"
+                        position = {
+                                x = 0 
+                                y = 0
+                        }
+                        maxWidth = 400
+                        text = "Selected: [USA_targeted_campaign_state.GetName]"
+                        font = "hoi_36header"
+                        format = center
+                }
+                instantTextBoxType = {
+                        name = "state_pop"
+                        position = {
+                                x = 0
+                                y = 70
+                        }
+                        text = "Population: [?USA_targeted_campaign_state.state_population]"
+                        font = "hoi_30header"
+                        maxWidth = 500
+                        maxHeight = 30
+                }
+                instantTextBoxType = {
+                        name = "state_currently_supports"
+                        position = {
+                                x = 0
+                                y = 140
+                        }
+                        text = "Currently Supports: [USA_targeted_campaign_state.GetStateCurrentlySupportsCandidate]"
+                        font = "hoi_30header"
+                        maxWidth = 500
+                        maxHeight = 30
+                }
+                buttonType = {
+                        name = "campaign_button_in"
+                        position = {
+                                x = 0
+                                y = 210
+                        }
+                        buttonText = "Campaign in [USA_targeted_campaign_state.GetStateCurrentlySupportsCandidate]"
+                        buttonFont = "hoi_30header"
+                }
+               }
+                  containerWindowType = {
+                          name = "legend"
+                          position = {x = 0 y = 0}
+                        instantTextBoxType = {
                         name = "legend_title"
                         text = "Legend"
                         position = {
@@ -201,6 +251,7 @@
                         }
                         font = "hoi_36header"
                         maxWidth = 200
+                }
                 }
                 containerWindowType = {
                         name = "states_contianer"
