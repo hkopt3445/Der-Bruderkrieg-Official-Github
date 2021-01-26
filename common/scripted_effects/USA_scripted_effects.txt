@@ -379,3 +379,27 @@ USA_dustbowl_states_setup = {
 		}
 	}
 }
+
+USA_update_senate_effect_elections = {
+	set_temp_variable = { temp_long_senate_var = long_electoral }
+	divide_temp_variable = { temp_long_senate_var = 5.31 }
+	
+	round_variable = temp_long_senate_var
+	
+	set_temp_variable = { temp_borah_senate_var = borah_electoral }
+	divide_temp_variable = { temp_borah_senate_var = 5.31 }
+	
+	round_variable = temp_borah_senate_var
+	
+	set_temp_variable = { k = 0 }
+	add_to_temp_variable = { k = temp_long_senate_var }
+	add_to_temp_variable = { k = temp_borah_senate_var }
+	
+	subtract_from_temp_variable = { k = 100 }
+	multiply_temp_variable = { k = -1 }
+	
+	set_variable = { usa_senate_seat_array^0 = temp_long_senate_var }
+	set_variable = { usa_senate_seat_array^2 = temp_borah_senate_var }
+	set_variable = { usa_senate_seat_array^1 = k }
+	
+}
