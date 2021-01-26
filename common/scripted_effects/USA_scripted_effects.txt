@@ -1,9 +1,8 @@
 USA_senate_initial = {
 	# put simply parliament_seat_array contains seat numbers of each party and parliament_id_array contains the id of the corresponding party
-	add_to_array = { global.usa_senate_seat_array = 48 } # Party A 
-	add_to_array = { global.usa_senate_seat_array = 15 } # Party B
-	add_to_array = { global.usa_senate_seat_array = 20} # Party C
-	add_to_array = { global.usa_senate_seat_array = 17 } # Party D
+	add_to_array = { global.usa_senate_seat_array = 41 } # Party A 
+	add_to_array = { global.usa_senate_seat_array = 37 } # Party B
+	add_to_array = { global.usa_senate_seat_array = 32 } # Party C
 
 	# the loop below just populates the parliament_id_array with values starting from 1 to 5
 	for_loop_effect = {
@@ -423,4 +422,28 @@ USA_dustbowl_states_setup = {
 			value = THIS
 		}
 	}
+}
+
+USA_update_senate_effect_elections = {
+	set_temp_variable = { temp_long_senate_var = long_electoral }
+	divide_temp_variable = { temp_long_senate_var = 5.31 }
+	
+	round_variable = temp_long_senate_var
+	
+	set_temp_variable = { temp_borah_senate_var = borah_electoral }
+	divide_temp_variable = { temp_borah_senate_var = 5.31 }
+	
+	round_variable = temp_borah_senate_var
+	
+	set_temp_variable = { k = 0 }
+	add_to_temp_variable = { k = temp_long_senate_var }
+	add_to_temp_variable = { k = temp_borah_senate_var }
+	
+	subtract_from_temp_variable = { k = 100 }
+	multiply_temp_variable = { k = -1 }
+	
+	set_variable = { usa_senate_seat_array^0 = temp_long_senate_var }
+	set_variable = { usa_senate_seat_array^2 = temp_borah_senate_var }
+	set_variable = { usa_senate_seat_array^1 = k }
+	
 }
