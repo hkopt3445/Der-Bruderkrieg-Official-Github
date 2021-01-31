@@ -1,9 +1,8 @@
 USA_senate_initial = {
 	# put simply parliament_seat_array contains seat numbers of each party and parliament_id_array contains the id of the corresponding party
-	add_to_array = { global.usa_senate_seat_array = 48 } # Party A 
-	add_to_array = { global.usa_senate_seat_array = 15 } # Party B
-	add_to_array = { global.usa_senate_seat_array = 20} # Party C
-	add_to_array = { global.usa_senate_seat_array = 17 } # Party D
+	add_to_array = { global.usa_senate_seat_array = 40 } # Party A 
+	add_to_array = { global.usa_senate_seat_array = 35 } # Party B
+	add_to_array = { global.usa_senate_seat_array = 21 } # Party C
 
 	# the loop below just populates the parliament_id_array with values starting from 1 to 5
 	for_loop_effect = {
@@ -43,10 +42,9 @@ modify_senate_id_seats = {
 
 USA_house_initial = {
 	# put simply house_seat_array contains seat numbers of each party and house_id_array contains the id of the corresponding party
-	add_to_array = { global.usa_house_seat_array = 193 } # Party A
-	add_to_array = { global.usa_house_seat_array = 50 } # Party B
-	add_to_array = { global.usa_house_seat_array = 98} # Party C
-	add_to_array = { global.usa_house_seat_array = 97 } # Party D
+	add_to_array = { global.usa_house_seat_array = 178 } # Party A
+	add_to_array = { global.usa_house_seat_array = 161 } # Party B
+	add_to_array = { global.usa_house_seat_array = 96 } # Party D
 
 	# the loop below just populates the house_id_array with values starting from 1 to 5
 	for_loop_effect = {
@@ -96,6 +94,33 @@ progressbar_calc_usa_election_stuff = {
 	divide_variable = {borah_progressbar_var = 5.31}
 }
 
+d_long_test_stuff = {
+	378 = {
+		add_to_variable = {
+		  long_support = 3
+		}
+		usa_modify_electoral_college_effect = yes
+		custom_effect_tooltip = USA_increase_borah_support_by_three
+	}
+}
+d_smith_test_stuff = {
+	378 = {
+		add_to_variable = {
+		  smith_support = 3
+		}
+		usa_smith_modify_electoral_college_effect = yes
+		custom_effect_tooltip = USA_increase_borah_support_by_three
+	}
+}
+d_borah_test_stuff = {
+	378 = {
+		add_to_variable = {
+		  borah_support = 3
+		}
+		usa_borah_modify_electoral_college_effect = yes
+		custom_effect_tooltip = USA_increase_borah_support_by_three
+	}
+}
 
 usa_modify_electoral_college_effect ={
 	set_temp_variable = {temp_long_var = long_support}
@@ -103,6 +128,7 @@ usa_modify_electoral_college_effect ={
 	if = {
 		limit = {
 			check_variable = {var = temp_long_var value = borah_support compare = less_than}
+			check_variable = {var = long_support value = borah_support compare = greater_than_or_equals}
 			NOT = {
 				check_variable = {var = temp_long_var value = smith_support compare = less_than}
 			}
@@ -113,6 +139,7 @@ usa_modify_electoral_college_effect ={
 	if = {
 		limit = {
 			check_variable = {var = temp_long_var value = smith_support compare = less_than}
+			check_variable = {var = long_support value = smith_support compare = less_than}
 			NOT = {
 				check_variable = {var = temp_long_var value = borah_support compare = less_than}
 			}
@@ -124,9 +151,12 @@ usa_modify_electoral_college_effect ={
 		limit = {
 			check_variable = {var = temp_long_var value = smith_support compare = less_than}
 			check_variable = {var = temp_long_var value = borah_support compare = less_than}
+			
+			
 		}
 		if = {
 			limit = {
+				check_variable = {var = long_support value = smith_support compare = greater_than_or_equals}
 				check_variable = {var = smith_support value = borah_support compare = greater_than}
 			}
 			add_to_variable = {USA.long_electoral = electoral_college_value}
@@ -134,6 +164,7 @@ usa_modify_electoral_college_effect ={
 		}
 		if = {
 			limit = {
+				check_variable = {var = long_support value = borah_support compare = greater_than_or_equals}
 				check_variable = {var = borah_support value = smith_support compare = greater_than}
 			}
 			add_to_variable = {USA.long_electoral = electoral_college_value}
@@ -141,6 +172,7 @@ usa_modify_electoral_college_effect ={
 		}
 			
 	}
+
 	USA = {
 	progressbar_calc_usa_election_stuff = yes
 	}
@@ -152,6 +184,7 @@ usa_smith_modify_electoral_college_effect ={
 	if = {
 		limit = {
 			check_variable = {var = temp_smith_var value = borah_support compare = less_than}
+			check_variable = {var = smith_support value = borah_support compare = greater_than}
 			NOT = {
 				check_variable = {var = temp_smith_var value = long_support compare = less_than}
 			}
@@ -162,8 +195,10 @@ usa_smith_modify_electoral_college_effect ={
 	if = {
 		limit = {
 			check_variable = {var = temp_smith_var value = long_support compare = less_than}
+			check_variable = {var = smith_support value = long_support compare = greater_than}
 			NOT = {
 				check_variable = {var = temp_smith_var value = borah_support compare = less_than}
+				
 			}
 		}
 		add_to_variable = {USA.smith_electoral = electoral_college_value}
@@ -176,7 +211,8 @@ usa_smith_modify_electoral_college_effect ={
 		}
 		if = {
 			limit = {
-				check_variable = {var = smith_support value = borah_support compare = greater_than}
+				check_variable = {var = long_support value = borah_support compare = greater_than}
+				check_variable = {var = smith_support value = long_support compare = greater_than}
 			}
 			add_to_variable = {USA.smith_electoral = electoral_college_value}
 			subtract_from_variable = {USA.long_electoral = electoral_college_value}
@@ -184,12 +220,14 @@ usa_smith_modify_electoral_college_effect ={
 		if = {
 			limit = {
 				check_variable = {var = borah_support value = long_support compare = greater_than}
+				check_variable = {var = smith_support value = borah_support compare = greater_than}
 			}
 			add_to_variable = {USA.smith_electoral = electoral_college_value}
 			subtract_from_variable = {USA.borah_electoral = electoral_college_value}
 		}
 			
 	}
+
 	USA = {
 		progressbar_calc_usa_election_stuff = yes
 		}
@@ -201,6 +239,7 @@ usa_borah_modify_electoral_college_effect ={
 	if = {
 		limit = {
 			check_variable = {var = temp_borah_var value = smith_support compare = less_than}
+			check_variable = {var = borah_support value = smith_support compare = greater_than}
 			NOT = {
 				check_variable = {var = temp_borah_var value = long_support compare = less_than}
 			}
@@ -211,6 +250,7 @@ usa_borah_modify_electoral_college_effect ={
 	if = {
 		limit = {
 			check_variable = {var = temp_borah_var value = long_support compare = less_than}
+			check_variable = {var = borah_support value = long_support compare = greater_than}
 			NOT = {
 				check_variable = {var = temp_borah_var value = smith_support compare = less_than}
 			}
@@ -226,6 +266,7 @@ usa_borah_modify_electoral_college_effect ={
 		if = {
 			limit = {
 				check_variable = {var = long_support value = smith_support compare = greater_than}
+				check_variable = {var = borah_support value = long_support compare = greater_than}
 			}
 			add_to_variable = {USA.borah_electoral = electoral_college_value}
 			subtract_from_variable = {USA.long_electoral = electoral_college_value}
@@ -233,6 +274,7 @@ usa_borah_modify_electoral_college_effect ={
 		if = {
 			limit = {
 				check_variable = {var = smith_support value = long_support compare = greater_than}
+				check_variable = {var = borah_support value = smith_support compare = greater_than_or_equals}
 			}
 			add_to_variable = {USA.borah_electoral = electoral_college_value}
 			subtract_from_variable = {USA.smith_electoral = electoral_college_value}
@@ -379,4 +421,63 @@ USA_dustbowl_states_setup = {
 			value = THIS
 		}
 	}
+}
+
+USA_update_congress_effect_elections = {
+
+	clear_array = global.usa_senate_main_array
+	clear_array = global.usa_house_main_array
+	
+	set_temp_variable = { temp_long_senate_var = long_electoral }
+	divide_temp_variable = { temp_long_senate_var = 5.31 }
+	
+	round_variable = temp_long_senate_var
+	
+	set_temp_variable = { temp_borah_senate_var = borah_electoral }
+	divide_temp_variable = { temp_borah_senate_var = 5.31 }
+	
+	round_variable = temp_borah_senate_var
+	
+	set_temp_variable = { k = 0 }
+	add_to_temp_variable = { k = temp_long_senate_var }
+	add_to_temp_variable = { k = temp_borah_senate_var }
+	
+	subtract_from_temp_variable = { k = 100 }
+	multiply_temp_variable = { k = -1 }
+	
+	set_variable = { global.usa_senate_seat_array^0 = temp_long_senate_var }
+	set_variable = { global.usa_senate_seat_array^2 = temp_borah_senate_var }
+	set_variable = { global.usa_senate_seat_array^1 = k }
+
+	modify_senate_seats = yes
+
+
+	set_temp_variable = { temp_long_house_var = long_electoral }
+	divide_temp_variable = { temp_long_house_var = 5.31 }
+	
+	round_variable = temp_long_house_var
+	
+	set_temp_variable = { temp_borah_house_var = borah_electoral }
+	divide_temp_variable = { temp_borah_house_var = 5.31 }
+	
+	round_variable = temp_borah_house_var
+	
+	set_temp_variable = { k = 0 }
+	add_to_temp_variable = { k = temp_long_house_var }
+	add_to_temp_variable = { k = temp_borah_house_var }
+	
+	subtract_from_temp_variable = { k = 100 }
+	multiply_temp_variable = { k = -1 }
+	
+	set_variable = { global.usa_house_seat_array^0 = temp_long_house_var }
+	set_variable = { global.usa_house_seat_array^2 = temp_borah_house_var }
+	set_variable = { global.usa_house_seat_array^1 = k }
+
+	modify_house_seats = yes
+}
+
+d_USA_election_vars_debug = {
+	set_variable = { long_electoral = 531 }
+	set_variable = { smith_electoral = 531 }
+	set_variable = { borah_electoral = 531 }
 }
