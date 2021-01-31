@@ -4,7 +4,293 @@ DBK_USA_senate = {
 
 
 DBK_USA_house = {
+	USA_lobby_for_liberals_senate_small = {
 
+		available = {
+			tag = USA
+			NOT = {
+				has_country_flag = USA_already_campainging_senate
+			}
+		}
+		allowed = {
+			tag = USA
+		}
+	
+		visible = {
+		 
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 10
+		days_remove = 20
+		ai_will_do = {
+		  factor = 20
+		}
+		complete_effect = {
+			set_country_flag = USA_already_campainging_senate
+		}
+		remove_effect = {
+			clr_country_flag = USA_already_campainging_senate
+			clear_array = global.usa_senate_main_array
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_1
+				global.usa_senate_seat_array^0 = 1
+			}
+			add_to_variable = {
+				global.usa_senate_seat_array^2 = -1
+			}
+			modify_senate_seats = yes
+		}
+	}
+	
+	USA_lobby_for_liberals_senate_large = {
+	
+		available = {
+			tag = USA
+			NOT = {
+				has_country_flag = USA_already_campainging_senate
+			}
+		}
+		allowed = {
+			tag = USA
+		}
+	
+		visible = {
+		 
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 30
+		days_remove = 60
+		ai_will_do = {
+		  factor = 20
+		}
+		complete_effect = {
+			set_country_flag = USA_already_campainging_senate
+		}
+		remove_effect = {
+			clr_country_flag = USA_already_campainging_senate
+			clear_array = global.usa_senate_main_array
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_3
+				global.usa_senate_seat_array^0 = 3
+			}
+			add_to_variable = {
+				global.usa_senate_seat_array^2 = -3
+			}
+			modify_senate_seats = yes
+		}
+	}
+	
+	
+	USA_lobby_for_conservatives_senate_small = {
+	
+		available = {
+			tag = USA
+			NOT = {
+				has_country_flag = USA_already_campainging_senate
+			}
+		}
+		allowed = {
+			tag = USA
+		}
+	
+		visible = {
+		 
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 10
+		days_remove = 20
+		ai_will_do = {
+		  factor = 20
+		}
+		complete_effect = {
+			set_country_flag = USA_already_campainging_senate
+		}
+		remove_effect = {
+			random_list = {
+				40 = { country_event = USA_congress_lobbying.1 }
+				60 = { country_event = USA_congress_lobbying.2 }
+			}
+		}
+	}
+	
+	USA_lobby_for_conservatives_senate_large = {
+	
+		available = {
+			tag = USA
+			NOT = {
+				has_country_flag = USA_already_campainging_senate
+			}
+		}
+		allowed = {
+			tag = USA
+		}
+	
+		visible = {
+		 
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 30
+		days_remove = 60
+		ai_will_do = {
+		  factor = 20
+		}
+		complete_effect = {
+			set_country_flag = USA_already_campainging_senate
+		}
+		remove_effect = {
+			random_list = {
+				40 = { country_event = USA_congress_lobbying.3 }
+				60 = { country_event = USA_congress_lobbying.4 }
+			}
+		}
+	}
+
+	USA_blank_1 = {
+		available = {
+			always = no
+		}
+	}
+
+	USA_lobby_for_liberals_house_small = {
+
+		available = {
+			tag = USA
+			NOT = {
+				has_country_flag = USA_already_campainging_house
+			}
+		}
+		allowed = {
+			tag = USA
+		}
+	
+		visible = {
+		 
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 10
+		days_remove = 20
+		ai_will_do = {
+		  factor = 20
+		}
+		complete_effect = {
+			set_country_flag = USA_already_campainging_house
+		}
+		remove_effect = {
+			clr_country_flag = USA_already_campainging_house
+			clear_array = global.usa_house_main_array
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_1
+				global.usa_house_seat_array^0 = 5
+			}
+			add_to_variable = {
+				global.usa_house_seat_array^2 = -5
+			}
+			modify_house_seats = yes
+		}
+	}
+	
+	USA_lobby_for_liberals_house_large = {
+	
+		available = {
+			tag = USA
+			NOT = {
+				has_country_flag = USA_already_campainging_house
+			}
+		}
+		allowed = {
+			tag = USA
+		}
+	
+		visible = {
+		 
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 30
+		days_remove = 60
+		ai_will_do = {
+		  factor = 20
+		}
+		complete_effect = {
+			set_country_flag = USA_already_campainging_house
+		}
+		remove_effect = {
+			clr_country_flag = USA_already_campainging_house
+			clear_array = global.usa_house_main_array
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_3
+				global.usa_house_seat_array^0 = 10
+			}
+			add_to_variable = {
+				global.usa_house_seat_array^2 = -10
+			}
+			modify_house_seats = yes
+		}
+	}
+	
+	
+	USA_lobby_for_conservatives_house_small = {
+	
+		available = {
+			tag = USA
+			NOT = {
+				has_country_flag = USA_already_campainging_house
+			}
+		}
+		allowed = {
+			tag = USA
+		}
+	
+		visible = {
+		 
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 10
+		days_remove = 20
+		ai_will_do = {
+		  factor = 20
+		}
+		complete_effect = {
+			set_country_flag = USA_already_campainging_house
+		}
+		remove_effect = {
+			random_list = {
+				40 = { country_event = USA_congress_lobbying.5 }
+				60 = { country_event = USA_congress_lobbying.6 }
+			}
+		}
+	}
+	
+	USA_lobby_for_conservatives_house_large = {
+	
+		available = {
+			tag = USA
+			NOT = {
+				has_country_flag = USA_already_campainging_house
+			}
+		}
+		allowed = {
+			tag = USA
+		}
+	
+		visible = {
+		 
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 30
+		days_remove = 60
+		ai_will_do = {
+		  factor = 20
+		}
+		complete_effect = {
+			set_country_flag = USA_already_campainging_house
+		}
+		remove_effect = {
+			random_list = {
+				40 = { country_event = USA_congress_lobbying.7 }
+				60 = { country_event = USA_congress_lobbying.8 }
+			}
+		}
+	}
 }
 
  
@@ -470,159 +756,159 @@ DBK_USA_election = {
 
 USA_the_mafia = {
 
-USA_nyc_mafia_revolt = {
-		priority = 10
+	USA_nyc_mafia_revolt = {
+			priority = 10
 
-		fire_only_once = yes
+			fire_only_once = yes
 
-		icon = generic_political_rally
+			icon = generic_political_rally
 
-		available = {
-			hidden_trigger = { always = no }
+			available = {
+				hidden_trigger = { always = no }
+			}
+
+			activation = {
+				tag = USA
+			}
+
+			visible = {
+				tag = USA
+				has_country_flag = nyc_mafia_gui_flag
+			}
+
+		#	cancel_if_not_visible = yes
+
+			days_mission_timeout = 500
+			timeout_effect = {
+				##Nothing for now
+			}
 		}
 
-		activation = {
-			tag = USA
-		}
+		USA_crush_the_mafia_in_queens = {
 
-		visible = {
-			tag = USA
-			has_country_flag = nyc_mafia_gui_flag
-		}
-
-	#	cancel_if_not_visible = yes
-
-		days_mission_timeout = 500
-		timeout_effect = {
-			##Nothing for now
-		}
+	available = {
+		tag = USA
+	
+	}
+	allowed = {
+		tag = USA
 	}
 
-	USA_crush_the_mafia_in_queens = {
+	visible = {
+	has_country_flag = nyc_mafia_gui_flag
+	}
+	cost = 15
+	days_remove = 25
+	ai_will_do = {
+	factor = 20
+	}
+	remove_effect = {
+		add_to_variable = {
+		queens_var = -2
+		}
+	}
+	}
+	USA_crush_the_mafia_in_staten_island = {
 
-  available = {
-    tag = USA
-  
-  }
-  allowed = {
-    tag = USA
-  }
+	available = {
+		tag = USA
+	
+	}
+	allowed = {
+		tag = USA
+	}
 
-  visible = {
-  has_country_flag = nyc_mafia_gui_flag
-  }
-  cost = 15
-  days_remove = 25
-  ai_will_do = {
-  factor = 20
-  }
-  remove_effect = {
-    add_to_variable = {
-      queens_var = -2
-    }
-  }
-}
-USA_crush_the_mafia_in_staten_island = {
-
-  available = {
-    tag = USA
-  
-  }
-  allowed = {
-    tag = USA
-  }
-
-  visible = {
-  has_country_flag = nyc_mafia_gui_flag
-  }
-  cost = 15
-  days_remove = 25
-  ai_will_do = {
-  factor = 20
-  }
-  remove_effect = {
-    add_to_variable = {
-      staten_island_var = -2
-    }
-  }
-}
+	visible = {
+	has_country_flag = nyc_mafia_gui_flag
+	}
+	cost = 15
+	days_remove = 25
+	ai_will_do = {
+	factor = 20
+	}
+	remove_effect = {
+		add_to_variable = {
+		staten_island_var = -2
+		}
+	}
+	}
 
 
-USA_crush_the_mafia_in_manhattan = {
+	USA_crush_the_mafia_in_manhattan = {
 
-  available = {
-    tag = USA
-  
-  }
-  allowed = {
-    tag = USA
-  }
+	available = {
+		tag = USA
+	
+	}
+	allowed = {
+		tag = USA
+	}
 
-  visible = {
-  has_country_flag = nyc_mafia_gui_flag
-  }
-  cost = 15
-  days_remove = 25
-  ai_will_do = {
-  factor = 20
-  }
-  remove_effect = {
-    add_to_variable = {
-      manhattan_var = -2
-    }
-  }
-}
+	visible = {
+	has_country_flag = nyc_mafia_gui_flag
+	}
+	cost = 15
+	days_remove = 25
+	ai_will_do = {
+	factor = 20
+	}
+	remove_effect = {
+		add_to_variable = {
+		manhattan_var = -2
+		}
+	}
+	}
 
-USA_crush_the_mafia_in_harlem = {
+	USA_crush_the_mafia_in_harlem = {
 
-  available = {
-    tag = USA
-  
-  }
-  allowed = {
-    tag = USA
-  }
+	available = {
+		tag = USA
+	
+	}
+	allowed = {
+		tag = USA
+	}
 
-  visible = {
-  has_country_flag = nyc_mafia_gui_flag
-  }
-  cost = 15
-  days_remove = 25
-  ai_will_do = {
-  factor = 20
-  }
-  remove_effect = {
-    add_to_variable = {
-      harlem_var = -2
-    }
-  }
-}
+	visible = {
+	has_country_flag = nyc_mafia_gui_flag
+	}
+	cost = 15
+	days_remove = 25
+	ai_will_do = {
+	factor = 20
+	}
+	remove_effect = {
+		add_to_variable = {
+		harlem_var = -2
+		}
+	}
+	}
 
-USA_declare_the_new_york_mafia_crushed = {
+	USA_declare_the_new_york_mafia_crushed = {
 
-  available = {
-    check_variable = { harlem_var < 4 }
-    check_variable = { queens_var < 4 }
-    check_variable = { staten_island_var < 4 }
-    check_variable = { manhattan_var < 4 }
-  
-  }
-  allowed = {
-    tag = USA
-  }
+	available = {
+		check_variable = { harlem_var < 4 }
+		check_variable = { queens_var < 4 }
+		check_variable = { staten_island_var < 4 }
+		check_variable = { manhattan_var < 4 }
+	
+	}
+	allowed = {
+		tag = USA
+	}
 
-  visible = {
-  has_country_flag = nyc_mafia_gui_flag
-  }
-  cost = 0
-  days_remove = 0
-  ai_will_do = {
-  factor = 20
-  }
-  remove_effect = {
-    set_country_flag = USA_nyc_mafia_crushed
-  }
-}
+	visible = {
+	has_country_flag = nyc_mafia_gui_flag
+	}
+	cost = 0
+	days_remove = 0
+	ai_will_do = {
+	factor = 20
+	}
+	remove_effect = {
+		set_country_flag = USA_nyc_mafia_crushed
+	}
+	}
 
 }
 
@@ -1094,6 +1380,10 @@ USA_the_banana_war = {
 		}
 	}
 
+}
+
+USA_huey_longs_road_plan = {
+	
 }
 
 USA_mobilization_decisions = {
