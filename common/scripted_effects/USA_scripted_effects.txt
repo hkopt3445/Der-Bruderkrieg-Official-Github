@@ -331,20 +331,20 @@ USA_election_timeout_effect = {
 USA_mafia_initial = {
 		set_variable = { nyc_mafia_var = 8 }
 		set_variable = { chicago_mafia_var =6 }
-		set_variable = { new_orleans_mafia_var = 3 }
+		set_variable = { la_mafia_var = 6 }
 
 
 		set_country_flag = nyc_mafia_gui_flag
-		set_variable = { staten_island_var = 3 }
-		set_variable = { queens_var =7 }
+		set_variable = { staten_island_var = 9 }
+		set_variable = { queens_var =8 }
 		#set_variable = { brooklyn_var =7 }
-		set_variable = { manhattan_var = 5 }
+		set_variable = { manhattan_var = 7 }
 		set_variable = { harlem_var = 8 }
 
 		set_variable = { south_side_chicago_var = 9 }
 		set_variable = { north_side_chicago_var = 3 }
 
-		set_variable = { beverly_hills_var = 3 }
+		set_variable = { beverly_hills_var = 4 }
 		set_variable = { hollywood_var = 8 }
 		set_variable = { downtown_la_var = 6 }
 
@@ -352,6 +352,40 @@ USA_mafia_initial = {
 
 		
 		
+}
+
+USA_update_nyc_mafia_var = {
+	set_temp_variable = {
+		 temp_nyc_mafia_var = 0
+	}
+	add_to_temp_variable = {
+		temp_nyc_mafia_var = staten_island_var
+	}
+	add_to_temp_variable = {
+		temp_nyc_mafia_var = queens_var
+	}
+	add_to_temp_variable = {
+		temp_nyc_mafia_var = manhattan_var
+	}
+	add_to_temp_variable = {
+		temp_nyc_mafia_var = harlem_var
+	}
+
+	divide_temp_variable = {
+		temp_nyc_mafia_var = 4
+	}
+
+	set_variable = { nyc_mafia_var = temp_nyc_mafia_var }
+
+	set_variable = { nyc_mafia_var_production_speed_buildings_factor = nyc_mafia_var }
+	divide_variable = {
+		nyc_mafia_var_production_speed_buildings_factor = -50
+	}
+
+	set_variable = { nyc_mafia_var_conscription_factor = nyc_mafia_var }
+	divide_variable = {
+		nyc_mafia_var_conscription_factor = -40
+	}
 }
 
 USA_sphere_initial = {
@@ -480,4 +514,12 @@ d_USA_election_vars_debug = {
 	set_variable = { long_electoral = 531 }
 	set_variable = { smith_electoral = 531 }
 	set_variable = { borah_electoral = 531 }
+}
+
+USA_add_roads_in_state = {
+	add_building_construction = {
+		type = infrastructure
+		level = 4 
+		instant_build = yes
+	}
 }
