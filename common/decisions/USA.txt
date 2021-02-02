@@ -755,34 +755,37 @@ DBK_USA_election = {
 
 
 USA_the_mafia = {
-
 	USA_nyc_mafia_revolt = {
-			priority = 10
+		priority = 10
 
-			fire_only_once = yes
+		fire_only_once = yes
 
-			icon = generic_political_rally
+		icon = generic_political_rally
 
-			available = {
-				hidden_trigger = { always = no }
-			}
+		available = {
+			hidden_trigger = { always = no }
+		}
 
-			activation = {
-				tag = USA
-			}
+		activation = {
+			
+			has_completed_focus =  USA_the_end_of_prohibition
+		}
 
-			visible = {
-				tag = USA
-				has_country_flag = nyc_mafia_gui_flag
-			}
-
-		#	cancel_if_not_visible = yes
-
-			days_mission_timeout = 500
-			timeout_effect = {
-				##Nothing for now
+		visible = {
+			tag = USA
+			has_country_flag = nyc_mafia_gui_flag
+			NOT = {
+				has_country_flag = USA_nyc_mafia_crushed
 			}
 		}
+
+		cancel_if_not_visible = yes
+
+		days_mission_timeout = 250
+		timeout_effect = {
+			add_stability = -0.15
+		}
+	}
 
 		USA_crush_the_mafia_in_queens = {
 
@@ -806,6 +809,7 @@ USA_the_mafia = {
 		add_to_variable = {
 		queens_var = -2
 		}
+		USA_update_nyc_mafia_var = yes
 	}
 	}
 	USA_crush_the_mafia_in_staten_island = {
@@ -830,6 +834,7 @@ USA_the_mafia = {
 		add_to_variable = {
 		staten_island_var = -2
 		}
+		USA_update_nyc_mafia_var = yes
 	}
 	}
 
@@ -856,6 +861,7 @@ USA_the_mafia = {
 		add_to_variable = {
 		manhattan_var = -2
 		}
+		USA_update_nyc_mafia_var = yes
 	}
 	}
 
@@ -881,17 +887,20 @@ USA_the_mafia = {
 		add_to_variable = {
 		harlem_var = -2
 		}
+		USA_update_nyc_mafia_var = yes
 	}
 	}
 
 	USA_declare_the_new_york_mafia_crushed = {
 
 	available = {
+		custom_trigger_tooltip =  {
+		tooltip = USA_crush_the_mafia_tt
 		check_variable = { harlem_var < 4 }
 		check_variable = { queens_var < 4 }
 		check_variable = { staten_island_var < 4 }
 		check_variable = { manhattan_var < 4 }
-	
+		}
 	}
 	allowed = {
 		tag = USA
@@ -907,6 +916,11 @@ USA_the_mafia = {
 	}
 	remove_effect = {
 		set_country_flag = USA_nyc_mafia_crushed
+		358 = {
+			remove_dynamic_modifier = {
+				modifier =  USA_mafia_effect_var
+			}
+		}
 	}
 	}
 
@@ -1383,8 +1397,340 @@ USA_the_banana_war = {
 }
 
 USA_huey_longs_road_plan = {
+	USA_highway_1 = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 150
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		
+		}
+
+		complete_effect = {
+			set_country_flag = USA_highway_1_being_built
+		}
+
+		remove_effect = {
+			
+			
+
+		}
+	}
 	
+	USA_highway_2 = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 150
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		
+		}
+
+		complete_effect = {
+			set_country_flag = USA_highway_2_being_built
+		}
+
+		remove_effect = {
+			
+
+		}
+	}
+
+	USA_highway_3 = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 200
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		
+		}
+
+		complete_effect = {
+			set_country_flag = USA_highway_3_being_built
+		}
+
+		remove_effect = {
+			
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+	###missions
+	USA_highway_1_mission = {
+		priority = 1
+
+		fire_only_once = yes
+
+		icon = generic_political_rally
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		activation = {
+			has_country_flag = USA_highway_1_being_built
+		}
+
+		visible = {
+			always = no
+		}
+
+		#cancel_if_not_visible = yes
+
+		days_mission_timeout = 300
+		timeout_effect = {
+			clr_country_flag = USA_highway_1_being_built
+			set_country_flag = USA_highway_1_built
+
+			386 = {
+				USA_add_roads_in_state = yes
+			}
+			385 = {
+				USA_add_roads_in_state = yes
+			}
+			387 = {
+				USA_add_roads_in_state = yes
+			}
+			388 = {
+				USA_add_roads_in_state = yes
+			}
+			390 = {
+				USA_add_roads_in_state = yes
+			}
+
+			391 = {
+				USA_add_roads_in_state = yes
+			}
+			392 = {
+				USA_add_roads_in_state = yes
+			}
+			394 = {
+				USA_add_roads_in_state = yes
+			}
+			395 = {
+				USA_add_roads_in_state = yes
+			}
+			261 = {
+				USA_add_roads_in_state = yes
+			}
+			360 = {
+				USA_add_roads_in_state = yes
+			}
+			358 = {
+				USA_add_roads_in_state = yes
+			}
+			1089 = {
+				USA_add_roads_in_state = yes
+			}
+			1096 = {
+				USA_add_roads_in_state = yes
+			}
+			357 = {
+				USA_add_roads_in_state = yes
+			}
+		}
+	}
+	USA_highway_2_mission = {
+		priority = 1
+
+		fire_only_once = yes
+
+		icon = generic_political_rally
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		activation = {
+			has_country_flag = USA_highway_2_being_built
+		}
+
+		visible = {
+			always = no
+		}
+
+		#cancel_if_not_visible = yes
+
+		days_mission_timeout = 300
+		timeout_effect = {
+			clr_country_flag = USA_highway_2_being_built
+			set_country_flag = USA_highway_2_built
+
+			378 = {
+				USA_add_roads_in_state = yes
+			}
+			379 = {
+				USA_add_roads_in_state = yes
+			}
+			380 = {
+				USA_add_roads_in_state = yes
+			}
+			382 = {
+				USA_add_roads_in_state = yes
+			}
+			383 = {
+				USA_add_roads_in_state = yes
+			}
+
+			373 = {
+				USA_add_roads_in_state = yes
+			}
+			395 = {
+				USA_add_roads_in_state = yes
+			}
+			396 = {
+				USA_add_roads_in_state = yes
+			}
+			1092 = {
+				USA_add_roads_in_state = yes
+			}
+			362 = {
+				USA_add_roads_in_state = yes
+			}
+			361 = {
+				USA_add_roads_in_state = yes
+			}
+			358 = {
+				USA_add_roads_in_state = yes
+			}
+			1099 = {
+				USA_add_roads_in_state = yes
+			}
+		}
+	}
+	USA_highway_3_mission = {
+		priority = 1
+
+		fire_only_once = yes
+
+		icon = generic_political_rally
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		activation = {
+			has_country_flag = USA_highway_3_being_built
+		}
+
+		visible = {
+			always = no
+		}
+
+		#cancel_if_not_visible = yes
+
+		days_mission_timeout = 300
+		timeout_effect = {
+			clr_country_flag = USA_highway_3_being_built
+			set_country_flag = USA_highway_3_built
+
+			378 = {
+				USA_add_roads_in_state = yes
+			}
+			377 = {
+				USA_add_roads_in_state = yes
+			}
+			376 = {
+				USA_add_roads_in_state = yes
+			}
+			375 = {
+				USA_add_roads_in_state = yes
+			}
+			371 = {
+				USA_add_roads_in_state = yes
+			}
+			370 = {
+				USA_add_roads_in_state = yes
+			}
+			367 = {
+				USA_add_roads_in_state = yes
+			}
+			231 = {
+				USA_add_roads_in_state = yes
+			}
+			366 = {
+				USA_add_roads_in_state = yes
+			}
+			374 = {
+				USA_add_roads_in_state = yes
+			}
+			372 = {
+				USA_add_roads_in_state = yes
+			}
+			368 = {
+				USA_add_roads_in_state = yes
+			}
+			363 = {
+				USA_add_roads_in_state = yes
+			}
+			364 = {
+				USA_add_roads_in_state = yes
+			}
+			set_country_flag = USA_highway_3_built
+		}
+	}
 }
+
 
 USA_mobilization_decisions = {
 	
