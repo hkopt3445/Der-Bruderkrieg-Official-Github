@@ -8,8 +8,24 @@ focus_tree = {
 		}
 	}
 	default = no
-	shared_focus = SOV_the_return_of_the_tsar
+    shared_focus = SOV_the_return_of_the_tsar
+    
+    continuous_focus_position = {
+        x = 2000
+        y = 3000
+    }
+}
+focus_tree = {
+    id = SOV_the_return_of_the_tsar_foriegn_tree
+    country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SOV
+		}
+	}
 	shared_focus = SOV_expand_the_russian_sphere
+
 }
 shared_focus = {
     id = SOV_the_return_of_the_tsar
@@ -27,8 +43,12 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
-        
+        add_political_power = 50
+        country_event = SOV_return_of_the_tsar_path.1
+
+        unlock_decision_category_tooltip = SOV_tsars_regime
+        set_variable = { SOV_russian_peoples_support = 7 }
+        set_variable = { SOV_russian_duma_support = 4 }
     }
 }
 shared_focus = {
@@ -44,7 +64,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        custom_effect_tooltip = SOV_public_popularity_tt
         
     }
 }
@@ -61,7 +81,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        custom_effect_tooltip = SOV_minority_support_tt
         
     }
 }
@@ -78,7 +98,14 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        10 = {
+            add_building_construction = {
+                type = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+        }
         
     }
 }
@@ -95,7 +122,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_ideas = SOV_romanov_foundation_idea
+
+        country_event = SOV_return_of_the_tsar_path.2
         
     }
 }
@@ -113,7 +142,10 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        swap_ideas = {
+            remove_idea = SOV_romanov_foundation_idea
+            add_idea = SOV_romanov_foundation_idea_2
+        }
     }
 }
 shared_focus = {
@@ -130,6 +162,11 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
+        add_popularity = {
+            ideology = conservative_democracy
+            popularity = 0.05
+        }
+        add_political_power = 75
         
         
     }
@@ -147,7 +184,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        custom_effect_tooltip = SOV_political_popularity_tt
         
     }
 }
@@ -165,7 +202,8 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        add_ideas = SOV_conservative_lobbying
+        ##unlock dumo lobbying decisions
     }
 }
 shared_focus = {
@@ -182,7 +220,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        ##probs unlock an adivsor for the church, increase support from the church
     }
 }
 shared_focus = {
@@ -199,7 +237,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        add_ideas = SOV_anti_left_propoganda
     }
 }
 shared_focus = {
@@ -215,7 +253,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        ###epic anti communist event chain, basically going off, and increasing your support among the people
         
     }
 }
@@ -233,7 +271,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        custom_effect_tooltip = SOV_secure_the_conservatives_tt
         
     }
 }
@@ -251,7 +289,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        country_event = SOV_return_of_the_tsar_path.3
         
     }
 }
@@ -268,7 +306,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = SOV_crackdowns_on_the_military
         
     }
 }
@@ -286,7 +324,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_cracking_down_on_naval_corruption
         
     }
 }
@@ -304,7 +342,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_cracking_down_on_aerial_corruption
         
     }
 }
@@ -323,7 +361,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        unlock_decision_tooltip = SOV_cracking_down_on_field_marshals
     }
 }
 
@@ -340,7 +378,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_cracking_down_on_generals
         
     }
 }
@@ -359,7 +397,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_ideas = SOV_the_tsars_army_idea
         
     }
 }
@@ -377,7 +415,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = SOV_the_tsars_constitution
         
     }
 }
@@ -428,7 +466,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_ideas = SOV_tsars_lineage
         
     }
 }
@@ -446,7 +484,12 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        custom_effect_tooltip = SOV_the_left_menace_tt
+        add_stability = -0.05   
+
+        set_variable = {
+            SOV_commie_extermination_progress = 0
+        }
     }
 }
 shared_focus = {
@@ -462,7 +505,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = SOV_far_eastern_hideout_raids
         
     }
 }
@@ -497,7 +540,10 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_popularity = {
+            ideology = communism
+            popularity = -0.07
+        }
         
     }
 }
@@ -531,7 +577,8 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = SOV_urp_development_scheme
+
         
     }
 }
@@ -548,8 +595,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
-        
+        unlock_decision_tooltip = SOV_reconstruct_the_trans_siberian_railroad
     }
 }
 shared_focus = {
@@ -566,7 +612,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        unlock_decision_tooltip = SOV_far_eastern_development_scheme
     }
 }
 shared_focus = {
@@ -582,7 +628,20 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        571 = {
+            add_resource = {
+                type = oil
+                amount = 12
+                state = THIS
+            }
+        }
+        572 = {
+            add_resource = {
+                type = oil
+                amount = 12
+                state = THIS
+            }
+        }
         
     }
 }
@@ -600,7 +659,14 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        568 = {
+            add_resource = {
+                type = steel
+                amount = 12
+                state = THIS
+            }
+        }
+    
     }
 }
 
@@ -618,7 +684,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        add_ideas = SOV_ukranian_agricultural_exports
     }
 }
 shared_focus = {
@@ -634,7 +700,19 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        202 = {
+            add_building_construction = {
+                type  = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type  = infrastructure
+                level = 3
+                instant_build = yes
+            }
+        }
         
     }
 }
@@ -653,7 +731,11 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_tech_bonus = {
+            category = artillery_folder
+            bonus = 1
+            uses = 1
+        }
         
     }
 }
@@ -673,8 +755,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
-        set_country_flag = SOV_tsar_path_load_in_path_2_flag
+        load_focus_tree = SOV_the_return_of_the_tsar_foriegn_tree
     }
 }
 
@@ -685,14 +766,12 @@ shared_focus = {
     y = 0 
     cost = 2
 	available_if_capitulated = yes
-	allow_branch = {
-		has_country_flag = SOV_tsar_path_load_in_path_2_flag
-	}
+	
     ai_will_do = {
         factor = 1
     }
     completion_reward = {
-        
+        add_war_support = 0.05
         
     }
 }
@@ -743,7 +822,24 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        YUG = {
+            every_owned_state = {
+                limit = {
+                    any_neighbor_state = {
+                        is_controlled_by = AUS
+                    }
+                }
+                add_building_construction = {
+                    type = bunker
+                    level = 3
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_border = yes
+                    }
+                }
+            }
+        }
         
     }
 }
@@ -778,7 +874,24 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        46 = {
+            add_building_construction = {
+                type  = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+            add_building_construction = {
+                type  = arms_factory
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type  = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
         
     }
 }
@@ -813,7 +926,25 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        BUL = {
+            add_war_support = 0.03
+            every_owned_state = {
+                limit = {
+                    any_neighbor_state = {
+                        is_controlled_by = TUR
+                    }
+                }
+                add_building_construction = {
+                    type = bunker
+                    level = 3
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_border = yes
+                    }
+                }
+            }
+        }
         
     }
 }
@@ -850,7 +981,19 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        44 = {
+            add_building_construction = {
+                type  = industrial_complex
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type  = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
     }
 }
 shared_focus = {
@@ -885,7 +1028,19 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        47 = {
+            add_building_construction = {
+                type  = dockyard
+                level = 2
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type  = infrastructure
+                level = 2
+                instant_build = yes
+            }
+        }
         
     }
 }
@@ -919,7 +1074,17 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        189 = {
+            add_building_construction = {
+                type = dockyard
+                level = 1
+            }
+            add_building_construction = {
+                type = industrial_complex
+                level = 1
+            }
+            add_extra_state_shared_building_slots = 2
+        }
         
     }
 }
@@ -937,7 +1102,17 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        12 = {
+            add_building_construction = {
+                type = dockyard
+                level = 2
+            }
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+            }
+            add_extra_state_shared_building_slots = 2
+        }
         
     }
 }
@@ -956,7 +1131,14 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        FOB = {
+            every_owned_state = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                }
+            }
+        }
     }
 }
 
@@ -974,7 +1156,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        add_ideas = SOV_baltic_equality
     }
 }
 
@@ -992,8 +1174,12 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
-        
+        FGD = {
+        add_autonomy_ratio = {
+            value = -100
+        }
+        add_ideas = FOB_russian_incorporation
+    }
     }
 }
 
@@ -1045,6 +1231,18 @@ shared_focus = {
     }
     completion_reward = {
         
+            412 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 3
+                }
+                add_extra_state_shared_building_slots = 1
+                add_resource = {
+                    type = oil
+                    amount = 12
+                    state = THIS
+                }
+            }
         
     }
 }
@@ -1079,6 +1277,17 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
+            267 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                }
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                }
+            }
         
         
     }
@@ -1098,7 +1307,27 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        419 = {
+            add_building_construction = {
+                type = infrastructure
+                level = 1
+            }
+            add_extra_state_shared_building_slots = 1
+        }
+        266 = {
+            add_building_construction = {
+                type = infrastructure
+                level = 1
+            }
+            add_extra_state_shared_building_slots = 1
+        }
+        411 = {
+            add_building_construction = {
+                type = infrastructure
+                level = 1
+            }
+            add_extra_state_shared_building_slots = 1
+        }
     }
 }
 shared_focus = {
@@ -1114,7 +1343,44 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        SOV = {
+            
+            every_owned_state = {
+                limit = {
+                    any_neighbor_state = {
+                        is_controlled_by = TUR
+                    }
+                }
+                add_building_construction = {
+                    type = bunker
+                    level = 3
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_border = yes
+                    }
+                }
+            }
+        }
+        PER = {
+            
+            every_owned_state = {
+                limit = {
+                    any_neighbor_state = {
+                        is_controlled_by = TUR
+                    }
+                }
+                add_building_construction = {
+                    type = bunker
+                    level = 3
+                    instant_build = yes
+                    province = {
+                        all_provinces = yes
+                        limit_to_border = yes
+                    }
+                }
+            }
+        }
         
     }
 }
