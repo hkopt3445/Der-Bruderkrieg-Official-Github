@@ -713,7 +713,85 @@ SOV_presidential_elections = {
 
 
 SOV_tsars_regime = {
+	SOV_lobby_small_for_conservatives = {
 
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		days_re_enable = 15
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				SOV_russian_duma_support = 2
+				tooltip = SOV_increase_tsars_support_in_duma_by_2
+			}
+
+		}
+	}
+
+	SOV_lobby_large_for_conservatives = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 100
+
+		days_re_enable = 15
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				SOV_russian_duma_support = 4
+				tooltip = SOV_increase_tsars_support_in_duma_by_4
+			}
+
+		}
+	}
 }
 
 SOV_crackdowns_on_the_military = {
@@ -1080,7 +1158,188 @@ SOV_urp_development_scheme = {
 }
 
 SOV_the_tsars_constitution = {
-	
+	SOV_expose_constitutional_vulnerabilities = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_begin_consolidation_of_power
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				SOV_current_support_for_tsars_constitution = 5
+				tooltip = SOV_increase_current_support_for_tsars_constitution_by_5
+			}
+		}
+
+		
+	}
+	SOV_support_pro_constitutional_change_press = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = no
+
+		cost = 25
+		days_remove = 40
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_begin_consolidation_of_power
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				SOV_current_support_for_tsars_constitution = 7
+				tooltip = SOV_increase_current_support_for_tsars_constitution_by_7
+			}	
+		}
+
+		
+	}
+	SOV_deal_with_anti_constitutional_leaders = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 40
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_begin_consolidation_of_power
+		}
+
+		complete_effect = {
+			add_stability = -0.03
+			add_political_power = -40
+			add_to_variable = {
+				SOV_current_support_for_tsars_constitution = 10
+				tooltip = SOV_increase_current_support_for_tsars_constitution_by_10
+			}	
+		}
+
+		
+	}
+
+	SOV_constitutional_limits_speech = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 30
+		days_remove = 50
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_begin_consolidation_of_power
+		}
+
+		complete_effect = {
+			add_political_power = 40
+			add_to_variable = {
+				SOV_current_support_for_tsars_constitution = 10
+				tooltip = SOV_increase_current_support_for_tsars_constitution_by_10
+			}	
+		}
+
+		
+	}
+
+	SOV_ban_anti_constitutional_change_press = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 60
+		days_remove = 100
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_begin_consolidation_of_power
+		}
+
+		complete_effect = {
+			add_political_power = -90
+			add_stability = -0.05
+			add_to_variable = {
+				SOV_current_support_for_tsars_constitution = 15
+				tooltip = SOV_increase_current_support_for_tsars_constitution_by_15
+			}	
+		}
+
+		
+	}
 }
 
 SOV_far_eastern_hideout_raids = {
@@ -1143,4 +1402,197 @@ SOV_far_eastern_hideout_raids = {
 			}
 		}
 	}
+}
+
+SOV_expand_the_russian_sphere_tsar = {
+	SOV_puppet_romania = {
+
+		icon = generic_construction
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_influence_greater_than_100_ROM
+
+				check_variable = {
+					ROM.russian_influence = 100
+				}
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			puppet = ROM
+		}
+
+		
+	}
+
+	SOV_puppet_serbia = {
+
+		icon = generic_construction
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_influence_greater_than_100_YUG
+
+				check_variable = {
+					YUG.russian_influence = 100
+				}
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			puppet = YUG
+		}
+
+		
+	}
+
+	SOV_puppet_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_influence_greater_than_100_BUL
+
+				check_variable = {
+					BUL.russian_influence = 100
+				}
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			puppet = BUL
+		}
+
+		
+	}
+
+	SOV_puppet_albania = {
+
+		icon = generic_construction
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_influence_greater_than_100_ALB
+
+				check_variable = {
+					ALB.russian_influence = 100
+				}
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			puppet = ALB
+		}
+
+		
+	}
+
+	SOV_puppet_greece = {
+
+		icon = generic_construction
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_influence_greater_than_100_GRE
+
+				check_variable = {
+					GRE.russian_influence = 100
+				}
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			puppet = GRE
+		}
+
+		
+	}
+
 }

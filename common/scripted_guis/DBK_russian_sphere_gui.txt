@@ -1,0 +1,145 @@
+scripted_gui = {
+    DBK_russian_sphere_scripted_gui = {
+		window_name = "DBK_russian_sphere_container"
+		context_type = decision_category
+
+		effects = {
+			russian_serbia_click = {
+				YUG = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			russian_romania_click = {
+				ROM = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			russian_bulgaria_click = {
+				BUL = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			austrian_greece_click = {
+				GRE = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			austrian_albania_click = {
+				ALB = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+
+			spread_influence_click = {
+				set_country_flag = {
+					flag = SOV_doing_sphere_action
+					value = 15
+				}
+				add_political_power = -20
+				add_to_variable = {
+					event_target:SOV_current_selected_balkan_state.russian_influence = 5
+				}
+			}
+
+			threaten_then_click = {
+				set_country_flag = {
+					flag = SOV_doing_sphere_action
+					value = 15
+				}
+				event_target:SOV_current_selected_balkan_state = {
+					add_opinion_modifier = {
+						target = THIS
+						modifier = small_decrease
+					}
+				}
+				add_to_variable = {
+					event_target:SOV_current_selected_balkan_state.russian_influence = 5
+				}
+			}
+
+			army_exercises_click = {
+				set_country_flag = {
+					flag = SOV_doing_sphere_action
+					value = 15
+				}
+				event_target:SOV_current_selected_balkan_state = {
+					army_experience = 10
+				}
+				add_to_variable = {
+					event_target:SOV_current_selected_balkan_state.russian_influence = 5
+				}
+			}
+
+			provide_aid_click = {
+				set_country_flag = {
+					flag = SOV_doing_sphere_action
+					value = 15
+				}
+				event_target:SOV_current_selected_balkan_state = {
+					add_political_power = 50
+				}
+				add_to_variable = {
+					event_target:SOV_current_selected_balkan_state.russian_influence = 5
+				}
+			}
+		}
+
+		triggers = {
+			russian_serbia_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			russian_romania_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			russian_bulgaria_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			austrian_greece_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			austrian_albania_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			
+			spread_influence_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			
+			threaten_then_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			
+			army_exercises_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			
+			provide_aid_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+		}
+
+		properties = {
+			russian_sphere_influence_bar = {
+				frame = event_target:SOV_current_selected_balkan_state.russian_influence
+			}
+		}
+    }
+}
