@@ -1,3 +1,116 @@
+SOV_political_instability_people_effect = {
+	if = {
+		limit = {
+			check_variable = {
+				SOV_peoples_support_for_current_regime < -5
+			}
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.1
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.2
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.3
+		}
+	}
+	
+	if = {
+		limit = {
+			check_variable = {
+				var = SOV_peoples_support_for_current_regime value = -5 compare = greater_than_or_equals 
+			}
+			check_variable = {
+				var = SOV_peoples_support_for_current_regime value = -3 compare = less_than 
+			}
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.4
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.5
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.6
+		}
+	}
+
+	if = {
+		limit = {
+			check_variable = {
+				var = SOV_peoples_support_for_current_regime value = -3 compare = greater_than_or_equals 
+			}
+			check_variable = {
+				var = SOV_peoples_support_for_current_regime value = 0 compare = less_than 
+			}
+		}
+		random_list = {
+		50 = {
+			country_event = SOV_political_instability_people_events.4
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.5
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.6
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.7
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.8
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.9
+		}
+	}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = SOV_peoples_support_for_current_regime value = 0 compare = greater_than_or_equals 
+			}
+			check_variable = {
+				var = SOV_peoples_support_for_current_regime value = 3 compare = less_than 
+			}
+		}
+		random_list = {
+		50 = {
+			country_event = SOV_political_instability_people_events.7
+		}
+		50 = {
+			country_event = SOV_political_instability_people_events.8
+		}
+		10 = {
+			country_event = SOV_political_instability_people_events.9
+		}
+	}
+	}
+
+	if = {
+		limit = {
+			check_variable = {
+				var = SOV_peoples_support_for_current_regime value = 3 compare = greater_than_or_equals 
+			}
+		}
+		random_list = {
+		50 = {
+			country_event = SOV_political_instability_people_events.9
+		}
+	
+		50 = {
+			country_event = SOV_political_instability_people_events.10
+		}
+	}
+	}
+}
+
+
+
+
+
+
 SOV_level_up_lenin_economic_reforms = {
 		if = {
 			limit = {
@@ -31,7 +144,7 @@ SOV_level_up_lenin_economic_reforms = {
 
 SOV_calculate_tsar_popularity_effect = {
 	set_variable = {
-		SOV_russian_peoples_support_stability = SOV_russian_peoples_support
+		SOV_russian_peoples_support_stability = SOV_peoples_support_for_current_regime
 	}
 	divide_variable = {
 		SOV_russian_peoples_support_stability = 100
@@ -706,5 +819,14 @@ SOV_elections_completion_effect = {
 		set_politics = {
 			ruling_party = democratic_conservatism
 		}
+	}
+}
+
+d_fire_russian_civil_war_debug = {
+	set_variable = {
+		SOV_peoples_support_for_current_regime = -4
+	}
+	set_variable = {
+		SOV_military_support_for_kerenskys_regime = -4
 	}
 }

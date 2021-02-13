@@ -13,7 +13,14 @@ on_actions = {
                 set_variable = {tsar_support = 9}
             }
 
-
+            SOV = {
+                set_variable = {
+                    SOV_peoples_support_for_current_regime = 2   
+                }
+                set_variable = {
+                    SOV_military_support_for_kerenskys_regime = -4   
+                }
+            }
 
 
 
@@ -173,5 +180,25 @@ on_actions = {
                     }
                 }
         }
-    }
+
+    on_weekly_SOV = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = second_week_flag
+				}
+				clr_country_flag = second_week_flag
+			}
+			if = {
+				limit = {
+					has_idea = SOV_political_divide
+					NOT = {
+						has_country_flag = second_week_flag
+					}
+				}
+				SOV_political_instability_people_effect = yes
+				set_country_flag = second_week_flag
+			}
+		}
+	}
 }
