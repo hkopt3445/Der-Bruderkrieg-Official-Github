@@ -11,3 +11,4 @@ Tsar Giraldo <br />
 
 Contributors
 ######
+Please remove me from this GitHub yall are so disorganized its been like a few weeks now
