@@ -16,7 +16,7 @@ shared_focus = {
     id = SOV_begin_the_duma_campaign
     icon = GFX_goal_SOV_duma_elections
 	#prerequisite = {focus = SOV_military_crackdowns}
-    x = 1
+    x = 2
     y = 0
     #relative_position_id = SOV_military_crackdowns
     cost = 2
@@ -85,7 +85,7 @@ shared_focus = {
     id = SOV_favoring_lenin
     icon = GFX_goal_SOV_favoring_lenin
 	#prerequisite = {focus = SOV_side_with_the_rlsdp}
-    x = 0
+    x = 2
     y = 0
     #relative_position_id = SOV_side_with_the_rlsdp
     cost = 2
@@ -350,6 +350,8 @@ shared_focus = {
         unlock_decision_tooltip = SOV_denouncing_pavel_as_an_autocrat
         unlock_decision_tooltip = SOV_condemn_his_okhrana_ties
         unlock_decision_tooltip = SOV_attacking_his_liberal_policies
+
+        
         
     }
 }
@@ -425,7 +427,7 @@ shared_focus = {
     id = SOV_contiuning_kerenskys_rule
     icon = GFX_goal_SOV_continiuing_kerenskys_rule
 	#prerequisite = {focus = SOV_side_with_the_trudoviks}
-    x = 0
+    x = 2
     y = 0
     #relative_position_id = SOV_side_with_the_trudoviks
     cost = 2
@@ -518,7 +520,7 @@ shared_focus = {
     id = SOV_spreading_pavels_influence
     icon = GFX_goal_SOV_spreading_pavels_influence
 	#prerequisite = {focus = SOV_side_with_the_CDP}
-    x = 0
+    x = 2
     y = 0
     relative_position_id = SOV_side_with_the_CDP
     cost = 2
@@ -528,6 +530,108 @@ shared_focus = {
     }
     completion_reward = {
         
+        
+    }
+}
+shared_focus = {
+    id = SOV_path_to_liberal_society
+    icon = GFX_goal_SOV_path_to_liberal_society
+	prerequisite = {focus = SOV_spreading_pavels_influence}
+    x = -1
+    y = 1
+    relative_position_id = SOV_spreading_pavels_influence
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        country_event = SOV_starting_events_pavel.1
+    }
+}
+shared_focus = {
+    id = SOV_encouraging_freedom_of_press
+    icon = unkown
+	prerequisite = {focus = SOV_path_to_liberal_society}
+    x = -1
+    y = 1
+    relative_position_id = SOV_path_to_liberal_society
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        unlock_decision_tooltip = SOV_campaign_against_prohibition
+        unlock_decision_tooltip = SOV_reopening_shutdown_newspapers
+        unlock_decision_tooltip = SOV_lessening_kerenskys_anti_corruption_policies
+    }
+}
+
+shared_focus = {
+    id = SOV_attacking_the_rsdlp
+    icon = unkown
+    prerequisite = {focus = SOV_path_to_liberal_society}
+    prerequisite = {
+        focus = SOV_on_the_campaign_trail
+    }
+    x = 1
+    y = 1
+    relative_position_id = SOV_path_to_liberal_society
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        unlock_decision_tooltip = SOV_denouncing_the_rsdlp_as_authoritarian
+        unlock_decision_tooltip = SOV_point_out_their_impracticalness
+        unlock_decision_tooltip = SOV_paint_them_as_radicals
+    }
+}
+
+shared_focus = {
+    id = SOV_secure_corporate_funding
+    icon = unkown
+    prerequisite = {focus = SOV_attacking_the_rsdlp}
+    prerequisite = {
+        focus = SOV_encouraging_freedom_of_press
+    }
+    x = -1
+    y = 1
+    relative_position_id = SOV_attacking_the_rsdlp
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        subtract_from_variable = {
+            city_campaign_cost = 10
+        }
+        subtract_from_variable = {
+            farm_campaign_cost = 10
+        }
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_on_the_campaign_trail
+    icon = unkown
+	prerequisite = {focus = SOV_spreading_pavels_influence}
+    x = 1
+    y = 1
+    relative_position_id = SOV_spreading_pavels_influence
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
         unlock_decision_tooltip = SOV_campaign_in_poland
         unlock_decision_tooltip = SOV_campaign_in_belarus
         unlock_decision_tooltip = SOV_campaign_in_ukraine
@@ -540,15 +644,39 @@ shared_focus = {
         unlock_decision_tooltip = SOV_camapign_in_the_northern_oblasts
         unlock_decision_tooltip = SOV_camapign_in_finland
         unlock_decision_tooltip = SOV_campaign_in_moskow
+        
     }
 }
+
 shared_focus = {
-    id = SOV_path_to_liberal_society
-    icon = GFX_goal_SOV_path_to_liberal_society
-	prerequisite = {focus = SOV_spreading_pavels_influence}
-    x = 0
+    id = SOV_the_tsar
+    icon = unkown
+	prerequisite = {focus = SOV_on_the_campaign_trail}
+    x = 1
     y = 1
-    relative_position_id = SOV_spreading_pavels_influence
+    relative_position_id = SOV_on_the_campaign_trail
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        country_event = SOV_starting_events_pavel.2
+     
+    }
+}
+
+shared_focus = {
+    id = SOV_is_our_ally
+    icon = unkown
+    prerequisite = {focus = SOV_the_tsar}
+   
+    x = -1
+    y = 1
+    relative_position_id = SOV_the_tsar
+    mutually_exclusive = {
+        focus = SOV_should_be_ignored
+    }
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
@@ -556,6 +684,65 @@ shared_focus = {
     }
     completion_reward = {
         
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_secure_his_support
+    icon = unkown
+    prerequisite = {focus = SOV_is_our_ally}
+   
+    x = 0
+    y = 1
+    relative_position_id = SOV_is_our_ally
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        country_event = SOV_starting_events_pavel.3
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_should_be_ignored
+    icon = unkown
+    prerequisite = {focus = SOV_the_tsar}
+    mutually_exclusive = {
+        focus =  SOV_is_our_ally
+    }
+    x = 1
+    y = 1
+    relative_position_id = SOV_the_tsar
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        
+    }
+}
+shared_focus = {
+    id = SOV_attacking_the_URP
+    icon = unkown
+    prerequisite = {focus = SOV_should_be_ignored}
+    x = 0
+    y = 1
+    relative_position_id = SOV_should_be_ignored
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        unlock_decision_tooltip = SOV_depict_the_urp_as_elitist
+        unlock_decision_tooltip = SOV_question_their_ties_to_the_church
+        unlock_decision_tooltip = SOV_attack_their_conservative_policies
         
     }
 }
@@ -611,7 +798,7 @@ shared_focus = {
     id = SOV_promoting_tsar_nicholas
     icon = GFX_goal_SOV_promoting_tsar_nicholas
 	#prerequisite = {focus = SOV_side_with_the_URP}
-    x = 0
+    x = 2
     y = 0
     relative_position_id = SOV_side_with_the_URP
     cost = 2
@@ -674,8 +861,8 @@ shared_focus = {
     id = SOV_the_elections
     icon = GFX_goal_SOV_the_elections
 	#prerequisite = {focus = SOV_path_to_former_glory focus = SOV_path_to_liberal_society focus =  SOV_the_path_to_true_democracy focus = SOV_path_to_social_revolution }
-    x = -3
-    y = 1
+    x = 2
+    y = 0
     relative_position_id = SOV_path_to_former_glory 
     cost = 2
     available_if_capitulated = yes
