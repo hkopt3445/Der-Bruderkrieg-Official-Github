@@ -1423,10 +1423,10 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_encouraging_freedom_of_press
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
-				pavel_support = 1
+				pavel_support = 1f
 			}
 			add_to_variable = {
 				tooltip = SOV_decrease_kerenskys_support_by_1
@@ -1464,7 +1464,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_encouraging_freedom_of_press
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
 				pavel_support = 1
@@ -1503,7 +1503,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_encouraging_freedom_of_press
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
 				pavel_support = 1
@@ -1542,7 +1542,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_attacking_the_rsdlp
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
 				pavel_support = 1
@@ -1580,7 +1580,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_attacking_the_rsdlp
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
 				pavel_support = 1
@@ -1618,7 +1618,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_attacking_the_rsdlp
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
 				pavel_support = 1
@@ -1657,7 +1657,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_attacking_the_URP
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
 				pavel_support = 1
@@ -1695,7 +1695,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_attacking_the_URP
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
 				pavel_support = 1
@@ -1733,7 +1733,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_attacking_the_URP
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
 				pavel_support = 1
@@ -1776,7 +1776,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_encourage_voter_turnout_from_the_left
 		}
 
-		complete_effect = {
+		remove_effect = {
 			SOV_level_up_duma_large_decision = yes
 		}
 
@@ -1810,7 +1810,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_the_martov_worshippers
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_lenins_support_by_1
 				lenin_support = 1
@@ -1850,7 +1850,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_the_martov_worshippers
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_lenins_support_by_1
 				lenin_support = 1
@@ -1891,7 +1891,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_the_martov_worshippers
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_lenins_support_by_1
 				lenin_support = 1
@@ -1933,7 +1933,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_the_imperalist_bulldogs
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_lenins_support_by_1
 				lenin_support = 1
@@ -1973,7 +1973,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_the_imperalist_bulldogs
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_lenins_support_by_1
 				lenin_support = 1
@@ -2013,7 +2013,7 @@ SOV_presidential_elections = {
 			has_completed_focus = SOV_the_imperalist_bulldogs
 		}
 
-		complete_effect = {
+		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_lenins_support_by_1
 				lenin_support = 1
@@ -2305,7 +2305,478 @@ SOV_political_instability = {
 
 ##lenin stuff
 SOV_balancing_the_rsdlp = {
+	SOV_lenin_operation_arrest_tsertelli = {
 
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_tsertelli_arrested_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_arresting_tsertelli
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_tsertelli_compliance_by_5
+				SOV_tsertelli_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.1
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.2
+				}
+			}
+		}
+
+		
+	}
+
+	SOV_lenin_operation_arrest_konstantin = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_konstantin_arrested_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_arresting_konstantin
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_mezhraionstyists_compliance_by_5
+				SOV_mezhraionstyists_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.3
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.4
+				}
+			}
+		}
+
+		
+	}
+
+	SOV_lenin_operation_arrest_admovich = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_admovich_arrested_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_arresting_admovich
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_mezhraionstyists_compliance_by_5
+				SOV_mezhraionstyists_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.5
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.6
+				}
+			}
+		}
+
+		
+	}
+	SOV_lenin_operation_arrest_novosyolov = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_novosyolov_arrested_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_arresting_novosyolov
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_mezhraionstyists_compliance_by_5
+				SOV_mezhraionstyists_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.7
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.8
+				}
+			}
+		}
+
+		
+	}
+	SOV_lenin_operation_arrest_plekhanov = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_plekhanov_arrested_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_arresting_martovs_last_supporters
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_tsertelli_compliance_by_5
+				SOV_tsertelli_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.11
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.12
+				}
+			}
+		}
+
+		
+	}
+	SOV_lenin_operation_arrest_bogdanov = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_bogdanov_arrested_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_arresting_martovs_last_supporters
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_tsertelli_compliance_by_5
+				SOV_tsertelli_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.13
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.14
+				}
+			}
+		}
+
+		
+	}
+	SOV_lenin_operation_arrest_bubnov = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_bubnov_arrested_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_arresting_martovs_last_supporters
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_tsertelli_compliance_by_5
+				SOV_tsertelli_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.15
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.16
+				}
+			}
+		}
+
+		
+	}
+
+	SOV_lenin_operation_arrest_lunacharski = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_lunacharski_arrested_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_arresting_martovs_last_supporters
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_tsertelli_compliance_by_5
+				SOV_tsertelli_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.17
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.18
+				}
+			}
+		}
+
+		
+	}
+
+	SOV_lenin_operation_assinating_trotsky = {
+
+		icon = generic_construction
+
+		available = {
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_trotsky_assisinated_successfully
+			}
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_assasinating_trotsky
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_trotsky_compliance_by_5
+				SOV_trotsky_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				60 = {
+					country_event = SOV_rsdlp_forceful_unification.19
+				}
+				40 = {
+					country_event = SOV_rsdlp_forceful_unification.20
+				}
+			}
+		}
+
+		
+	}
 }
 
 ##Milyukov Stuff
