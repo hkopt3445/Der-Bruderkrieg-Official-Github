@@ -1999,7 +1999,11 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = SOV_rebirthing_the_okhrana
+
+        set_variable = {
+            SOV_current_support_for_reversing_kerenskys_decision = 0
+        }
     }
 }
 
@@ -2007,7 +2011,7 @@ shared_focus = {
     id = SOV_campaign_in_the_duma
     icon = unkown
 	prerequisite = {focus = SOV_the_secret_service_of_the_tsar }
-	x = 0
+	x = -1
 	y = 1
     relative_position_id = SOV_the_secret_service_of_the_tsar 
     cost = 5
@@ -2016,29 +2020,13 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-     
+        unlock_decision_tooltip = SOV_campaign_small_for_passing_the_law
+        unlock_decision_tooltip = SOV_campaign_large_for_passing_the_law   
     }
 }
 
 shared_focus = {
     id = SOV_reverse_kerenskys_decision
-    icon = unkown
-	prerequisite = {focus = SOV_campaign_in_the_duma }
-	x = -2
-	y = 1
-    relative_position_id = SOV_campaign_in_the_duma 
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-     
-    }
-}
-
-shared_focus = {
-    id = SOV_secure_okhrana_loyalty
     icon = unkown
 	prerequisite = {focus = SOV_campaign_in_the_duma }
 	x = 0
@@ -2050,17 +2038,34 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-     
+        custom_effect_tooltip = SOV_reverse_kerenskys_decision_tt
+    }
+}
+
+shared_focus = {
+    id = SOV_secure_okhrana_loyalty
+    icon = unkown
+	prerequisite = {focus = SOV_the_secret_service_of_the_tsar }
+	x = 1
+	y = 1
+    relative_position_id = SOV_the_secret_service_of_the_tsar 
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
     }
 }
 
 shared_focus = {
     id = SOV_find_leadership
     icon = unkown
-	prerequisite = {focus = SOV_campaign_in_the_duma }
-	x = 2
+	prerequisite = {focus = SOV_secure_okhrana_loyalty }
+	x = 0
 	y = 1
-    relative_position_id = SOV_campaign_in_the_duma 
+    relative_position_id = SOV_secure_okhrana_loyalty 
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -2075,13 +2080,11 @@ shared_focus = {
     id = SOV_the_cargo
     icon = unkown
     prerequisite = {focus = SOV_find_leadership }
-    prerequisite = {
-        focus = SOV_secure_okhrana_loyalty
-    }
+    
     prerequisite = {
         focus = SOV_reverse_kerenskys_decision
     }
-	x = -2
+	x = -1
 	y = 1
     relative_position_id = SOV_find_leadership 
     cost = 5
@@ -2135,7 +2138,33 @@ shared_focus = {
     prerequisite = {
         focus = SOV_protecting_the_cargo
     }
-	x = 1
+    mutually_exclusive = {
+        focus = SOV_the_throat_is_slit
+    }
+	x = -1
+	y = 1
+    relative_position_id = SOV_transporting_the_cargo 
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+     
+    }
+}
+
+shared_focus = {
+    id = SOV_the_throat_is_slit
+    icon = unkown
+    prerequisite = {focus = SOV_transporting_the_cargo }
+    prerequisite = {
+        focus = SOV_protecting_the_cargo
+    }
+    mutually_exclusive = {
+        focus = SOV_the_new_leader
+    }
+	x = 3
 	y = 1
     relative_position_id = SOV_transporting_the_cargo 
     cost = 5
@@ -2151,8 +2180,8 @@ shared_focus = {
 shared_focus = {
     id = SOV_slaughter_remaining_resistance
     icon = unkown
-	prerequisite = {focus = SOV_the_new_leader }
-	x = -2
+	prerequisite = {focus = SOV_the_new_leader focus = SOV_the_throat_is_slit }
+	x = 1
 	y = 1
     relative_position_id = SOV_the_new_leader 
     cost = 5
@@ -2168,10 +2197,10 @@ shared_focus = {
 shared_focus = {
     id = SOV_consolidate_the_white_rose
     icon = unkown
-	prerequisite = {focus = SOV_the_new_leader }
-	x = 2
+	prerequisite = {focus = SOV_the_new_leader focus = SOV_the_throat_is_slit }
+	x = -1
 	y = 1
-    relative_position_id = SOV_the_new_leader 
+    relative_position_id = SOV_the_throat_is_slit 
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -2189,7 +2218,7 @@ shared_focus = {
     prerequisite = {
         focus = SOV_slaughter_remaining_resistance
     }
-	x = -2
+	x = -1
 	y = 1
     relative_position_id = SOV_consolidate_the_white_rose 
     cost = 5
