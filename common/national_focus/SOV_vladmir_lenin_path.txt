@@ -9,7 +9,7 @@ focus_tree = {
 	}
 	default = no
     shared_focus = SOV_lenins_presidency
-	
+	continuous_focus_position = { x = -50, y = 4000 }
 }
 
 shared_focus = {
@@ -24,26 +24,25 @@ shared_focus = {
     }
     completion_reward = {
         ###ideas sap
+        set_variable = { SOV_lenin_influence_in_party = 180 }
+        set_variable = { SOV_tsertelli_influence_in_party = 128 }
+        set_variable = { SOV_mezhraionstyists_influence_in_party = 40 }
+        set_variable = { SOV_trotsky_influence_in_party = 52 }
+
+        set_variable = { SOV_tsertelli_compliance = 37 }
+        set_variable = { SOV_mezhraionstyists_compliance = 45 }
+        set_variable = { SOV_trotsky_compliance = 14 }
+
+        SOV_modify_rsdlp_progressbar = yes
         set_variable = {
-            SOV_lenin_influence_in_party = 45
-            
+            SOV_peoples_support_for_current_regime = lenin_support
         }
-        set_variable = { SOV_tsertelli_influence_in_party = 32 }
-            set_variable = { SOV_mezhraionstyists_influence_in_party = 10 }
-            set_variable = { SOV_trotsky_influence_in_party = 13 }
-
-
-            set_variable = { SOV_tsertelli_compliance = 37 }
-                set_variable = { SOV_mezhraionstyists_compliance = 45 }
-                set_variable = { SOV_trotsky_compliance = 14 }
-
-
-                set_variable = {
-                    SOV_peoples_support_for_current_regime = lenin_support
-                }
+        divide_variable = {
+            SOV_peoples_support_for_current_regime = 20
+        }
 
         set_variable = {
-            SOV_military_support_for_current_regime = 15
+            SOV_military_support_for_current_regime = 1.5
         }
 
         unlock_decision_category_tooltip = SOV_political_instability
@@ -53,11 +52,7 @@ shared_focus = {
     id = SOV_expanding_the_lefts_grip
     icon = unkown
     prerequisite = {focus = SOV_a_loyal_army  }
-    prerequisite = {
-        focus = SOV_the_russian_social_democratic_labour_party_reformed
-        focus = SOV_our_rule_reigns_supreme
-    }
-
+    
     x = 0
     y = 1
     relative_position_id = SOV_a_loyal_army
@@ -395,7 +390,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        ###event chain
         
     }
 }
@@ -414,7 +409,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        add_ideas = SOV_a_fledgling_tsar
     }
 }
 
@@ -430,9 +425,15 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+    available = {
+        has_completed_focus = SOV_removing_his_government_ties
+    }
     completion_reward = {
         
-        
+        swap_ideas = {
+            add_idea = SOV_a_fledgling_tsar_2
+            remove_idea = SOV_a_fledgling_tsar
+        }
     }
 }
 
@@ -452,7 +453,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        ##event + news event for the Tsar, country event gives 50pp and 5% radsoc support
         
     }
 }
@@ -470,8 +471,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
-        
+        ##Reward The Player!
+        add_political_power = 100
+        add_stability = 0.05
     }
 }
 
@@ -502,7 +504,7 @@ shared_focus = {
         focus = SOV_peaceful_unification
     }
 
-    x = -4
+    x = -8
     y = 1
     relative_position_id = SOV_uniting_the_parties_of_the_rsdlp
     cost = 2
@@ -512,7 +514,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        ###unlock decisions to establish secret police
     }
 }
 
@@ -522,7 +524,7 @@ shared_focus = {
     icon = unkown
 	prerequisite = {focus = SOV_forceful_unification  }
 
-    x = -1
+    x = 4
     y = 1
     relative_position_id = SOV_forceful_unification
     cost = 2
@@ -550,7 +552,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_tsertelli
         
     }
 }
@@ -568,8 +570,10 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
-        
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_plekhanov
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_bogdanov
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_bubnov
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_lunacharski
     }
 }
 
@@ -590,7 +594,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        country_event = SOV_rsdlp_forceful_unification.10
     }
 }
 
@@ -600,7 +604,7 @@ shared_focus = {
     icon = unkown
 	prerequisite = {focus = SOV_forceful_unification  }
 
-    x = -5
+    x = 0
     y = 1
     relative_position_id = SOV_forceful_unification
     cost = 2
@@ -628,7 +632,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_lenin_operation_assinating_trotsky
         
     }
 }
@@ -698,7 +702,7 @@ shared_focus = {
     icon = unkown
 	prerequisite = {focus = SOV_forceful_unification  }
 
-    x = -10
+    x = -5
     y = 1
     relative_position_id = SOV_forceful_unification
     cost = 2
@@ -726,7 +730,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_konstantin
         
     }
 }
@@ -745,7 +749,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_admovich
         
     }
 }
@@ -764,7 +768,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_novosyolov
         
     }
 }
@@ -779,6 +783,11 @@ shared_focus = {
     prerequisite = {
         focus = SOV_arresting_konstantin
     }
+    available = {
+        has_country_flag = SOV_admovich_arrested_successfully
+        has_country_flag = SOV_novosyolov_arrested_successfully
+        has_country_flag = SOV_konstantin_arrested_successfully
+    }
 
     x = -2
     y = 2
@@ -790,7 +799,7 @@ shared_focus = {
     }
     completion_reward = {
         
-        
+        country_event = SOV_rsdlp_forceful_unification.9
     }
 }
 
@@ -825,7 +834,7 @@ shared_focus = {
     mutually_exclusive = {
         focus = SOV_forceful_unification
     }
-    x = 4
+    x = 8
     y = 1
     relative_position_id = SOV_uniting_the_parties_of_the_rsdlp
     cost = 2
@@ -844,7 +853,7 @@ shared_focus = {
     icon = unkown
 	prerequisite = {focus = SOV_peaceful_unification  }
 
-    x = 1
+    x = -4
     y = 1
     relative_position_id = SOV_peaceful_unification
     cost = 2
@@ -922,7 +931,7 @@ shared_focus = {
     icon = unkown
 	prerequisite = {focus = SOV_peaceful_unification  }
 
-    x = 5
+    x = 0
     y = 1
     relative_position_id = SOV_peaceful_unification
     cost = 2
@@ -1038,7 +1047,7 @@ shared_focus = {
     icon = unkown
 	prerequisite = {focus = SOV_peaceful_unification  }
 
-    x = 10
+    x = 4
     y = 1
     relative_position_id = SOV_peaceful_unification
     cost = 2
@@ -1120,7 +1129,7 @@ shared_focus = {
     prerequisite = {
         focus = SOV_the_mensheviks_reunified
     }
-    x = -5
+    x = -4
     y = 1
     relative_position_id = SOV_integrating_their_members
     cost = 2
@@ -1137,18 +1146,18 @@ shared_focus = {
 shared_focus = {
     id = SOV_military_reforms
     icon = unkown
-    x = -4
-    y = 1
+    x = 0
+    y = 7
     cost = 2
 	available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
     prerequisite = {
-        focus = SOV_forceful_unification
-        focus = SOV_peaceful_unification
+        focus = SOV_our_rule_reigns_supreme
+        focus = SOV_the_russian_social_democratic_labour_party_reformed
     }
-    relative_position_id = SOV_peaceful_unification
+    relative_position_id = SOV_uniting_the_parties_of_the_rsdlp
     completion_reward = {
         
         

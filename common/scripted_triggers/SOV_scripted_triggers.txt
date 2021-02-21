@@ -37,3 +37,35 @@ tsar_wins_elections = {
 		tsar_support > lenin_support
 	}
 }
+
+SOV_lenin_fire_coalition_collapse = {
+	check_variable = {
+		SOV_lenin_influence_in_party < 33
+	}
+	OR = {
+		AND = {
+			check_variable = {
+				SOV_trotsky_compliance < 25
+			}
+			check_variable = {
+				SOV_mezhraionstyists_compliance < 25
+			}
+		}
+		AND = {
+			check_variable = {
+				SOV_trotsky_compliance < 25
+			}
+			check_variable = {
+				SOV_tsertelli_compliance < 25
+			}
+		}
+		AND = {
+			check_variable = {
+				SOV_mezhraionstyists_compliance < 25
+			}
+			check_variable = {
+				SOV_tsertelli_compliance < 25
+			}
+		}
+	}	
+}
