@@ -19,7 +19,7 @@ https://arjthegreat.github.io/
 https://www.tayronaworks.com/derbruderkrieg
 
 # Visual Studio
-https://code.visualstudio.com/download
+https://code.visualstudio.com/download <br />
 https://marketplace.visualstudio.com/items?itemName=Chaofan.hoi4modutilities
 
 # Hoi4modding.com 
