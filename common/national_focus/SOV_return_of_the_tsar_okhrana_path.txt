@@ -18,7 +18,7 @@ focus_tree = {
 focus_tree = {
     id = SOV_the_return_of_the_tsar_foriegn_tree
     country = {
-		factor = 0
+		factor = 0 
 		modifier = {
 			add = 10
 			tag = SOV
@@ -45,7 +45,7 @@ shared_focus = {
         add_political_power = 50
         country_event = SOV_return_of_the_tsar_path.1
 
-        unlock_decision_category_tooltip = SOV_tsars_regime
+        unlock_decision_category_tooltip = SOV_political_instability
         set_variable = { SOV_peoples_support_for_current_regime = 1 }
         set_variable = { SOV_russian_duma_support = -1 }
 
@@ -2037,8 +2037,12 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+    available = {
+        always = no
+    }
     completion_reward = {
         custom_effect_tooltip = SOV_reverse_kerenskys_decision_tt
+        set_country_flag = SOV_duma_bill_to_reverse_kerensky_decision_of_passed
     }
 }
 
@@ -2055,7 +2059,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        ###event about the okhrana
     }
 }
 
@@ -2072,7 +2076,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-     
+        unlock_decision_tooltip = SOV_finding_dmitry_bogrov
     }
 }
 
@@ -2087,13 +2091,20 @@ shared_focus = {
 	x = -1
 	y = 1
     relative_position_id = SOV_find_leadership 
-    cost = 5
+    cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
+
+    select_effect = {
+        ##Dmitry Bogrov will tell us his story
+    }
+
     completion_reward = {
-     
+        set_variable = {
+            SOV_probability_of_dmitry_bogrov_returning_safely = 20
+        }
     }
 }
 
@@ -2110,7 +2121,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-     
+        unlock_decision_tooltip = SOV_boost_bogrovs_protection
+        unlock_decision_tooltip = SOV_leak_decoy_plans
+        unlock_decision_tooltip = SOV_recruit_a_novoy_okhrana_double_agent
     }
 }
 

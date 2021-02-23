@@ -1220,6 +1220,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = { 
 		tag = SOV
+		has_completed_focus = SOV_lenins_presidency
 		SOV = {
 			SOV_lenin_fire_coalition_collapse = yes
 		}
@@ -1636,6 +1637,179 @@ country_event = {
 	option = {
 		name = SOV_debug_events.1.e
 		load_focus_tree = SOV_the_okhrana_takeover_tree
+	}
+	
+}
+
+
+add_namespace = SOV_okhrana_tree_events
+
+###finding bogrhov
+country_event = {
+	id = SOV_okhrana_tree_events.1
+	title = SOV_okhrana_tree_events.1.t
+	desc = SOV_okhrana_tree_events.1.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_okhrana_tree_events.1.a 
+		ai_chance = { factor = 1} ##africa
+		country_event = {
+			id = SOV_okhrana_tree_events.4
+			days = 4
+		}
+	}
+	option = {
+		name = SOV_okhrana_tree_events.1.b
+		ai_chance = { factor = 1} ##sa
+		country_event = {
+			id = SOV_okhrana_tree_events.4
+			days = 6
+		}
+	}
+	option = {
+		name = SOV_okhrana_tree_events.1.c
+		ai_chance = { factor = 1} ##western europe
+		country_event = {
+			id = SOV_okhrana_tree_events.4
+			days = 6
+		}
+	}
+}
+
+###africa
+country_event = {
+	id = SOV_okhrana_tree_events.2
+	title = SOV_okhrana_tree_events.2.t
+	desc = SOV_okhrana_tree_events.2.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_okhrana_tree_events.2.a
+		ai_chance = { factor = 1}
+		hidden_effect = {
+			country_event = {
+				id = SOV_okhrana_tree_events.3
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = SOV_okhrana_tree_events.2.b
+		ai_chance = { factor = 1}
+		hidden_effect = {
+			country_event = {
+				id = SOV_okhrana_tree_events.3
+				days = 3
+			}
+		}
+	}
+	
+}
+
+##Bogrhov not found!
+country_event = {
+	id = SOV_okhrana_tree_events.3
+	title = SOV_okhrana_tree_events.3.t
+	desc = SOV_okhrana_tree_events.3.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_okhrana_tree_events.3.a
+		ai_chance = { factor = 1}
+		
+	}
+	
+}
+
+###sa
+country_event = {
+	id = SOV_okhrana_tree_events.4
+	title = SOV_okhrana_tree_events.4.t
+	desc = SOV_okhrana_tree_events.4.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_okhrana_tree_events.4.a
+		ai_chance = { factor = 1}
+		hidden_effect = {
+			country_event = {
+				id = SOV_okhrana_tree_events.3
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = SOV_okhrana_tree_events.4.b
+		ai_chance = { factor = 1}
+		hidden_effect = {
+			country_event = {
+				id = SOV_okhrana_tree_events.3
+				days = 3
+			}
+		}
+	}
+	
+}
+
+country_event = {
+	id = SOV_okhrana_tree_events.5
+	title = SOV_okhrana_tree_events.5.t
+	desc = SOV_okhrana_tree_events.5.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_okhrana_tree_events.5.a
+		ai_chance = { factor = 1}
+		hidden_effect = {
+			country_event = {
+				id = SOV_okhrana_tree_events.3
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = SOV_okhrana_tree_events.5.b
+		ai_chance = { factor = 1}
+		hidden_effect = {
+			country_event = {
+				id = SOV_okhrana_tree_events.6
+				days = 3
+			}
+		}
+	}
+	
+}
+
+##bogrov found!!
+country_event = {
+	id = SOV_okhrana_tree_events.6
+	title = SOV_okhrana_tree_events.6.t
+	desc = SOV_okhrana_tree_events.6.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_okhrana_tree_events.6.a
+		ai_chance = { factor = 1}
+		set_country_flag =  SOV_bogrov_finally_found
 	}
 	
 }
