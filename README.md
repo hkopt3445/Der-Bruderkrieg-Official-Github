@@ -15,3 +15,13 @@ Contributors
 # Website
 https://arjthegreat.github.io/
 
+# Tayrona Works
+https://www.tayronaworks.com/derbruderkrieg
+
+# Visual Studio
+https://code.visualstudio.com/download <br />
+https://marketplace.visualstudio.com/items?itemName=Chaofan.hoi4modutilities
+
+# Hoi4modding.com 
+https://hoi4modding.com/mod/46726
+
