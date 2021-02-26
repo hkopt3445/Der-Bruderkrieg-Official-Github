@@ -701,7 +701,208 @@ SOV_virgin_land = {
   }
 }
 
+SOV_the_duma = {
 
+	##okhrana decision
+	SOV_duma_votes_on_the_okhrana = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+	
+		days_mission_timeout = 120 
+	
+		fire_only_once = yes 
+	
+		activation = {
+			tag = SOV
+			has_completed_focus = SOV_the_question_of_the_okhrana
+		}
+	
+		visible = {
+			tag = SOV
+		} 
+	
+		#cancel_if_not_visible = yes
+	
+		#is_good = yes
+		
+	
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {total_support_for_current_bill > 236}
+				}
+				complete_national_focus = SOV_rearming_the_okhrana
+			}
+			else = {
+				complete_national_focus = SOV_dearming_the_okhrana
+			}
+		}
+	}
+
+	SOV_cdp_lobby_for_support_for_the_current_bill = {
+
+		#icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 40
+		days_remove = 50
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_the_question_of_the_okhrana
+			}
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				SOV_cdp_support_for_current_bill = 5
+				tooltip = 	SOV_cdp_support_for_current_bill_by_5
+			}
+			
+			SOV_modify_current_duma_total_support_for_bill = yes
+		}
+
+		
+	}
+	SOV_trudovik_lobby_for_support_for_the_current_bill = {
+
+		#icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 40
+		days_remove = 50
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_the_question_of_the_okhrana
+			}
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				SOV_trudovik_support_for_current_bill = 5
+				tooltip = 	SOV_trudovik_support_for_current_bill_by_5
+			}
+			
+			SOV_modify_current_duma_total_support_for_bill = yes
+		}
+
+		
+	}
+	SOV_rsdlp_lobby_for_support_for_the_current_bill = {
+
+		#icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 40
+		days_remove = 50
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_the_question_of_the_okhrana
+			}
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				SOV_rsdlp_support_for_current_bill = 5
+				tooltip = 	SOV_rsdlp_support_for_current_bill_by_5
+			}
+			
+			SOV_modify_current_duma_total_support_for_bill = yes
+		}
+
+		
+	}
+	SOV_urp_lobby_for_support_for_the_current_bill = {
+
+		#icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = yes
+
+		cost = 40
+		days_remove = 50
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_the_question_of_the_okhrana
+			}
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				SOV_urp_support_for_current_bill = 5
+				tooltip = 	SOV_urp_support_for_current_bill_by_5
+			}
+			
+			SOV_modify_current_duma_total_support_for_bill = yes
+		}
+
+		
+	}
+}
 
 
 
@@ -2305,6 +2506,44 @@ SOV_political_instability = {
 
 ##lenin stuff
 SOV_balancing_the_rsdlp = {
+	SOV_establishing_the_cheka = {
+		available = {
+			
+		}
+
+		visible = {
+			has_completed_focus = SOV_forceful_unification
+		}
+
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 50
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		
+
+		complete_effect = {
+			##cheka short 2-3 event chain
+		}
+
+		modifier = {
+			political_power_gain = -0.05
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_cheka_has_been_established
+			custom_effect_tooltip = SOV_establishing_the_cheka_tt
+		}
+	}
 	SOV_lenin_operation_arrest_tsertelli = {
 
 		#icon = generic_construction

@@ -1,12 +1,12 @@
 russian_duma_generate_party_seats = {
 	set_variable = { trudovik_seats = 242 } ###Trudoviks
 	set_variable = { cdp_seats = 129 } ###CDP
-	set_variable = { rlsdp_seats = 59 }  ###RLSDP
+	set_variable = { rsdlp_seats = 59 }  ###RLSDP
 	set_variable = { urp_seats = 42 }   ###URP
 
 	set_variable = { russian_duma_party1_seats = trudovik_seats } ###Trudoviks
 	set_variable = { russian_duma_party2_seats = cdp_seats } ###CDP
-	set_variable = { russian_duma_party3_seats = rlsdp_seats }  ###RLSDP
+	set_variable = { russian_duma_party3_seats = rsdlp_seats }  ###RLSDP
 	set_variable = { russian_duma_party4_seats = urp_seats }   ###URP
     
 
@@ -20,7 +20,7 @@ russian_duma_generate_party_seats = {
 
 	multiply_variable = { russian_duma_party1_seats = 300 }
 	multiply_variable = { russian_duma_party2_seats = 300 }
-	multiply_variable = { russian_duma_party3_seats = 300 }
+	multiply_variable = { russian_duma_party3_seats = 300 } 
 	round_variable = russian_duma_party1_seats
 	round_variable = russian_duma_party2_seats
 	round_variable = russian_duma_party3_seats
@@ -683,7 +683,7 @@ russia_duma_modify_parliament = {
 
 	set_variable = { russian_duma_party1_seats = trudovik_seats } ###Trudoviks
 	set_variable = { russian_duma_party2_seats = cdp_seats } ###CDP
-	set_variable = { russian_duma_party3_seats = rlsdp_seats }  ###RLSDP
+	set_variable = { russian_duma_party3_seats = rsdlp_seats }  ###RLSDP
 	set_variable = { russian_duma_party4_seats = urp_seats }   ###URP
 
 	set_temp_variable = { total = russian_duma_party1_seats }
@@ -742,5 +742,25 @@ russia_duma_modify_parliament = {
 		array = russian_duma_seat_frame
 		value = 4
 		size = t4
+	}
+}
+
+
+SOV_modify_current_duma_total_support_for_bill = {
+	set_variable = {
+		total_support_for_current_bill = 0
+	}
+
+	add_to_variable = {
+		total_support_for_current_bill = SOV_cdp_support_for_current_bill
+	}
+	add_to_variable = {
+		total_support_for_current_bill = SOV_trudovik_support_for_current_bill
+	}
+	add_to_variable = {
+		total_support_for_current_bill = SOV_rsdlp_support_for_current_bill
+	}
+	add_to_variable = {
+		total_support_for_current_bill = SOV_urp_support_for_current_bill
 	}
 }
