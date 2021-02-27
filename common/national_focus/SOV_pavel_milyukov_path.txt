@@ -49,7 +49,7 @@ focus_tree = {
 		id = SOV_the_question_of_the_okhrana
 		icon = unkown
 		prerequisite = { focus = SOV_pavel_milyukovs_presidency }
-		x = -6
+		x = -3
 		y = 1
 		relative_position_id = SOV_pavel_milyukovs_presidency
 		cost = 2
@@ -614,7 +614,7 @@ focus_tree = {
 	shared_focus = { 
 		id = SOV_the_question_of_our_econonomy
 		icon = unkown
-		x = 4
+		x = 6
 		y = 1
 		relative_position_id = SOV_pavel_milyukovs_presidency
 		
@@ -912,7 +912,7 @@ focus_tree = {
 	shared_focus = { 
 		id = SOV_pavels_army_reforms
 		icon = unkown
-		x = 10
+		x = 12
 		y = 1
 		relative_position_id = SOV_pavel_milyukovs_presidency
 		
@@ -1197,4 +1197,333 @@ focus_tree = {
 		}
 		ai_will_do = {
 		}
+	}
+
+
+	###ethnic his tree should comprise of converting karelians to russian, integrating the balachka ukrainians into russia, and integrating the siberian turks
+	shared_focus = {
+		id = SOV_continuing_russification
+		icon = unkown
+		prerequisite = { focus = SOV_pavel_milyukovs_presidency }
+		x = -12
+		y = 1
+		relative_position_id = SOV_pavel_milyukovs_presidency
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			add_political_power = 50
+			
+		  }
+	}
+	shared_focus = {
+		id = SOV_opening_russian_language_schools
+		icon = unkown
+		prerequisite = { focus = SOV_continuing_russification }
+		x = -1
+		y = 1
+		relative_position_id = SOV_continuing_russification
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			add_ideas = SOV_pavel_language_minority_reforms
+			
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_russifying_the_army
+		icon = unkown
+		prerequisite = { focus = SOV_continuing_russification }
+		x = 1
+		y = 1
+		relative_position_id = SOV_continuing_russification
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			add_ideas = SOV_pavel_army_minority_reforms
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_strengthening_press_censorship
+		icon = unkown
+		prerequisite = { focus = SOV_opening_russian_language_schools }
+		x = 0
+		y = 1
+		relative_position_id = SOV_opening_russian_language_schools
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SOV_pavel_language_minority_reforms
+				add_idea = SOV_pavel_language_minority_reforms_2
+			}
+			
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_minority_conscription_laws
+		icon = unkown
+		prerequisite = { focus = SOV_russifying_the_army }
+		x = 0
+		y = 1
+		relative_position_id = SOV_russifying_the_army
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			swap_ideas = {
+				remove_idea = SOV_pavel_army_minority_reforms
+				add_idea = SOV_pavel_army_minority_reforms_2
+			}
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_crushing_finnish_resistance_movements
+		icon = unkown
+		prerequisite = { focus = SOV_minority_conscription_laws }
+		prerequisite = {
+			focus = SOV_strengthening_press_censorship
+		}
+		x = 1
+		y = 1
+		relative_position_id = SOV_minority_conscription_laws
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_the_integration_of_karelia
+		icon = unkown
+		prerequisite = { focus = SOV_crushing_finnish_resistance_movements }
+		x = 0
+		y = 1
+		relative_position_id = SOV_crushing_finnish_resistance_movements
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			
+		  }
+	}
+
+
+	shared_focus = {
+		id = SOV_targeting_the_cossacks
+		icon = unkown
+		prerequisite = { focus = SOV_minority_conscription_laws }
+		prerequisite = {
+			focus = SOV_strengthening_press_censorship
+		}
+		x = -1
+		y = 1
+		relative_position_id = SOV_minority_conscription_laws
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_incorporating_the_cossacks
+		icon = unkown
+		prerequisite = { focus = SOV_targeting_the_cossacks }
+		x = 0
+		y = 1
+		relative_position_id = SOV_targeting_the_cossacks
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_missions_in_eastern_siberia
+		icon = unkown
+		prerequisite = { focus = SOV_minority_conscription_laws }
+		prerequisite = {
+			focus = SOV_strengthening_press_censorship
+		}
+		x = -3
+		y = 1
+		relative_position_id = SOV_minority_conscription_laws
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_incorporating_the_siberian_turks
+		icon = unkown
+		prerequisite = { focus = SOV_missions_in_eastern_siberia }
+		x = 0
+		y = 1
+		relative_position_id = SOV_missions_in_eastern_siberia
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_all_shall_speak_russian
+		icon = unkown
+		prerequisite = { focus = SOV_incorporating_the_siberian_turks }
+		prerequisite = {
+			focus = SOV_the_integration_of_karelia
+		}
+		prerequisite = {
+			focus = SOV_incorporating_the_cossacks
+		}
+		x = 1
+		y = 1
+		relative_position_id = SOV_incorporating_the_siberian_turks
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			swap_ideas = {
+				add_idea = SOV_pavel_language_minority_reforms_3
+				remove_idea = SOV_pavel_language_minority_reforms_2
+			}
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_all_shall_fight_for_the_motherland
+		icon = unkown
+		prerequisite = { focus = SOV_incorporating_the_siberian_turks }
+		prerequisite = {
+			focus = SOV_the_integration_of_karelia
+		}
+		prerequisite = {
+			focus = SOV_incorporating_the_cossacks
+		}
+		x = 3
+		y = 1
+		relative_position_id = SOV_incorporating_the_siberian_turks
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			
+		  }
+	}
+
+	shared_focus = {
+		id = SOV_a_united_russia
+		icon = unkown
+		prerequisite = { focus = SOV_all_shall_fight_for_the_motherland }
+		prerequisite = {
+			focus = SOV_all_shall_speak_russian
+		}
+		x = 1
+		y = 1
+		relative_position_id = SOV_all_shall_speak_russian
+		cost = 2
+		ai_will_do = {
+		  factor = 20
+		}
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			
+			
+		  }
 	}
