@@ -150,17 +150,34 @@ scripted_gui = {
 				add_extra_state_shared_building_slots = 1
 			}
 		}
+		AUS_national_mission_3_click = {
+			create_corps_commander = {
+				name = "Polarn"
+				picture = ""
+				traits = { offensive_doctrine brilliant_strategist }
+				skill = 4
+				id = 10
+				attack_skill = 4
+				defense_skill = 3
+				planning_skill = 4
+				logistics_skill = 3
+			}
+			add_ideas = AUS_all_imperial_army
+		}
 	}
 
 	triggers = {
 		AUS_national_mission_1_click_enabled = {
-			76.infrastructure_level > 7	
-			76.industrial_complex_level > 7
+			check_variable =  { 76.infrastructure_level > 7 }	
+			check_variable =  {  76.industrial_complex_level > 7 }
 		}
 		AUS_national_mission_2_click_enabled = {
 			all_owned_state = {
-				infrastructure_level > 7
+				check_variable =  {  infrastructure_level > 5 }
 			}
+		}
+		AUS_national_mission_3_click_enabled = {
+			has_army_manpower = { size > 1499999 }
 		}
 	}
 }
@@ -202,7 +219,7 @@ GER_national_missions_conatiner_scripted_gui = {
 			}
 		}
 		GER_national_mission_3_click = {
-			create_field_marshal = {
+			create_corps_commander = {
 				name = "Polarn"
 				picture = "Portrait_Germany_Walter_Model.dds"
 				traits = { offensive_doctrine brilliant_strategist }
