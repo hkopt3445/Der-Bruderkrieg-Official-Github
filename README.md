@@ -11,7 +11,7 @@ Tsar Giraldo <br />
 Alithron <br />
 
 
-Contributors
+Contributors  <br />
 and trible LMFAO <br />
 
 # Website
