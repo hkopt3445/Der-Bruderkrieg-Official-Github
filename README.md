@@ -9,10 +9,13 @@ Shark28 <br />
 Elysian <br />
 Tsar Giraldo <br />
 Alithron <br />
+Bruno <br />
+Huey Long <br />
 
 
 Contributors  <br />
-and trible LMFAO <br />
+Trible  <br />
+
 
 # Website
 https://arjthegreat.github.io/
