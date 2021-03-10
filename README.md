@@ -8,10 +8,14 @@ Polarn <br />
 Shark28 <br />
 Elysian <br />
 Tsar Giraldo <br />
-and trible LMFAO <br />
+Alithron <br />
+Bruno <br />
+Huey Long <br />
 
-Contributors
-######
+
+Contributors  <br />
+Trible  <br />
+
 
 # Website
 https://arjthegreat.github.io/
