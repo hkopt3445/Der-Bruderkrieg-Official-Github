@@ -902,6 +902,35 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = GER_goering_post_unification.2 # The Convention
+	title = GER_goering_post_unification.2.t
+	desc = GER_goering_post_unification.2.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_post_unification.2.a
+		if = {
+			limit = {
+				check_variable = { GER_idealist_power > GER_pragmatist_power }
+			}
+			set_country_flag = GER_idealists_win
+			custom_effect_tooltip = GER_idealists_win_tt
+		}
+		if = {
+			limit = {
+				check_variable = { GER_pragmatist_power > GER_idealist_power }
+			}
+			set_country_flag = GER_pragmatists_win
+			custom_effect_tooltip = GER_pragmatists_win_tt
+		}
+
+		ai_chance = { factor = 1000 } 
+	}
+}
+
 
 
 add_namespace = militia_revolts
@@ -1127,8 +1156,86 @@ add_namespace = militia_revolts
 					  }	  	
 				}
 			}
-		}		
+		}
+		
+ add_namespace = prussia_goerings_addiction_to_morphine
+ 
+ country_event = {
+	id = prussia_goerings_addiction_to_morphine.1  # Goering's first dab at morphine
+	title = prussia_goerings_addiction_to_morphine.1.t
+	desc = prussia_goerings_addiction_to_morphine.1.d
+	#picture =
 
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = prussia_goerings_addiction_to_morphine.1.a
+		ai_chance = { factor = 1000 }
+		hidden_effect = {
+			country_event = { id = prussia_goerings_addiction_to_morphine.2 days = 7 }
+			}
+		}
+	}
+
+	country_event = {
+		id = prussia_goerings_addiction_to_morphine.2  # Goering's starts to gain an addiction
+		title = prussia_goerings_addiction_to_morphine.2.t
+		desc = prussia_goerings_addiction_to_morphine.2.d
+		#picture =
+	
+		fire_only_once = yes
+		is_triggered_only = yes
+	
+		option = {
+			name = prussia_goerings_addiction_to_morphine.2.a
+			ai_chance = { factor = 1000 }
+			hidden_effect = {
+				country_event = { id = prussia_goerings_addiction_to_morphine.3 days = 14 }
+				}
+			}
+		}
+
+		country_event = {
+			id = prussia_goerings_addiction_to_morphine.3  # Goering's addiction knows no bounds
+			title = prussia_goerings_addiction_to_morphine.3.t
+			desc = prussia_goerings_addiction_to_morphine.3.d
+			#picture =
+		
+			fire_only_once = yes
+			is_triggered_only = yes
+		
+			option = {
+				name = prussia_goerings_addiction_to_morphine.3.a
+				ai_chance = { factor = 1000 }
+				hidden_effect = {
+					country_event = { id = prussia_goerings_addiction_to_morphine.4 days = 28 }
+				}
+			}
+		}
+
+		country_event = {
+			id = prussia_goerings_addiction_to_morphine.4  # Goering overdoses and fucking dies
+			title = prussia_goerings_addiction_to_morphine.4.t
+			desc = prussia_goerings_addiction_to_morphine.4.d
+			#picture =
+		
+			fire_only_once = yes
+			is_triggered_only = yes
+		
+			option = {
+				name = prussia_goerings_addiction_to_morphine.4.a
+				ai_chance = { factor = 1000 }
+					kill_country_leader = yes
+					create_country_leader = {
+						name = "German Council"
+						desc = ""
+						picture = ""
+						expire = "1965.1.1"
+						ideology = ultranationalist
+					}
+				}
+			}	
 
  add_namespace = prussia_easter_egg_meme_events
  
