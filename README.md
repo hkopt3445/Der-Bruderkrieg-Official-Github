@@ -33,8 +33,8 @@ https://hoi4modding.com/mod/46726
  
 
 
-# And ofc your's truly furry contributor
-
+### And ofc your's truly furry contributor
+```
                                  
                             ▒▒▒▒ ▒▒▒▒ ░░░░                                        
         ░░░░              ▒▒▒  ▒▒▒ ▒▒▒▒▒░░                                  
@@ -63,3 +63,4 @@ https://hoi4modding.com/mod/46726
                                       ▒▒░░                          
                                     ▒▒                              
                                     ░░                              
+```
