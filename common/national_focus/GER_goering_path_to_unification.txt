@@ -10,8 +10,6 @@ focus_tree = {
 	}
 
 	shared_focus = GER_the_petty_kings
-	shared_focus = GER_herman_goering_werke
-	shared_focus = GER_industrial_cooperations
 	shared_focus = GER_goerings_industrial_plan
 	shared_focus = GER_the_goring_doctorine
  
@@ -26,23 +24,31 @@ focus_tree = {
 shared_focus = {
 	id = GER_the_petty_kings
 	icon = unkown
-	cost = 5
-	x = 4
+	cost = 2
+	x = 9
 	y = 0
 	
 	#relative_position_id = GER_rachekrieg
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 
 	completion_reward = {
 		add_political_power = 50
+		add_relation_modifier = {
+			target = SAX
+			modifier = medium_decrease
+		}
+		add_relation_modifier = {
+			target = HAN
+			modifier = medium_decrease
+		}
 	}
 }
 shared_focus = {
 	id = GER_overrun_saxony
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = -1
 	y = 1
 	prerequisite = {
@@ -50,8 +56,9 @@ shared_focus = {
 	}
 	relative_position_id = GER_the_petty_kings
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
+	will_lead_to_war_with = SAX
 	completion_reward = {
 		create_wargoal = { target = SAX type = annex_everything }		
 	}
@@ -59,7 +66,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_annex_hanover
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = 1
 	y = 1
 	prerequisite = {
@@ -67,8 +74,9 @@ shared_focus = {
 	}
 	relative_position_id = GER_the_petty_kings
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
+	will_lead_to_war_with = HAN
 	completion_reward = {
 		create_wargoal = { target = HAN type = annex_everything }		
 	}
@@ -76,7 +84,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_bismarks_plan
 	icon = unkown
-	cost = 5
+	cost = 3
 	x = 1
 	y = 1
 	prerequisite = {
@@ -87,7 +95,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_overrun_saxony
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		unlock_decision_category_tooltip = form_ngc_category
@@ -99,15 +107,15 @@ shared_focus = {
 shared_focus = {
 	id = GER_legacy_of_tilsit
 	icon = unkown
-	cost = 5
-	x = -4
+	cost = 3
+	x = -3
 	y = 1
 	prerequisite = {
 		focus = GER_bismarks_plan
 	}
 	relative_position_id = GER_bismarks_plan
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		hidden_effect = {
@@ -128,7 +136,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_der_wacht_am_rhein
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = 0
 	y = 1
 	prerequisite = {
@@ -136,7 +144,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_legacy_of_tilsit
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		59 = {
@@ -157,7 +165,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_der_wacht_am_rhein
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		custom_effect_tooltip = GER_a_failed_state_tt
@@ -174,7 +182,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_a_failed_state
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		ENG = {
@@ -196,7 +204,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_securing_british_neutrality
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		if = {
@@ -221,9 +229,10 @@ shared_focus = {
 	prerequisite = {
 		focus = GER_securing_british_neutrality
 	}
+	will_lead_to_war_with = BEL
 	relative_position_id = GER_securing_british_neutrality
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		custom_effect_tooltip = GER_reviving_an_old_plan_tt
@@ -232,7 +241,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_exercising_the_army
 	icon = unkown
-	cost = 5
+	cost = 3
 	x = -1
 	y = 1
 	prerequisite = {
@@ -241,7 +250,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_reviving_an_old_plan
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		army_experience = 25
@@ -250,7 +259,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_breaking_the_painleve_wall
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = 2
 	y = 1
 	prerequisite = {
@@ -258,7 +267,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_a_failed_state
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		add_ideas = GER_fortbuster
@@ -267,7 +276,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_supporting_the_italians
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = 0
 	y = 1
 	prerequisite = {
@@ -275,7 +284,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_breaking_the_painleve_wall
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		ITA = {
@@ -286,7 +295,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_preparing_the_luftwaffe
 	icon = unkown
-	cost = 5
+	cost = 3
 	x = 0
 	y = 1
 	prerequisite = {
@@ -294,7 +303,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_supporting_the_italians
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		add_equipment_to_stockpile = {
@@ -311,16 +320,17 @@ shared_focus = {
 shared_focus = {
 	id = GER_unternehmen_attila
 	icon = unkown
-	cost = 5
+	cost = 2
 	x = -2
 	y = 1
 	prerequisite = {
 		focus = GER_preparing_the_luftwaffe
 		focus = GER_exercising_the_army
 	}
+	will_lead_to_war_with = FRA
 	relative_position_id = GER_preparing_the_luftwaffe
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		country_event = GER_goering_path_to_unification.1
@@ -332,7 +342,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_the_untersmensch_tyrants
 	icon = unkown
-	cost = 5
+	cost = 3
 	x = 4
 	y = 1
 	prerequisite = {
@@ -340,7 +350,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_bismarks_plan
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		add_war_support = 0.05
@@ -359,8 +369,8 @@ shared_focus = {
 shared_focus = {
 	id = GER_defending_to_the_last
 	icon = unkown
-	cost = 5
-	x = -2
+	cost = 4
+	x = -1
 	y = 1
 	mutually_exclusive = {
 		focus = GER_for_a_free_germany
@@ -370,7 +380,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_the_untersmensch_tyrants
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		add_ideas = GER_defending_the_fatherland
@@ -379,8 +389,8 @@ shared_focus = {
 shared_focus = {
 	id = GER_for_a_free_germany
 	icon = unkown
-	cost = 5
-	x = 2
+	cost = 4
+	x = 1
 	y = 1
 	mutually_exclusive = {
 		focus = GER_defending_to_the_last
@@ -390,7 +400,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_the_untersmensch_tyrants
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		add_ideas = GER_vorwarts
@@ -400,33 +410,34 @@ shared_focus = {
 shared_focus = {
 	id = GER_breaking_the_chains
 	icon = unkown
-	cost = 5
-	x = 0
-	y = 3
+	cost = 3
+	x = -1
+	y = 1
 	prerequisite = {
-		focus = GER_for_a_free_germany
-		focus = GER_defending_to_the_last
+		focus = GER_ready_for_anything
+		focus = GER_the_final_push
 	}
-	relative_position_id = GER_the_untersmensch_tyrants
+	relative_position_id = GER_the_final_push
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
+	will_lead_to_war_with = AUS
 	completion_reward = {
-		declare_war_on= { target = AUS type = annex_everything }
+		create_wargoal = { target = AUS type = annex_everything }
 	}
 }
 shared_focus = {
 	id = GER_magyar_contracts
 	icon = unkown
-	cost = 5
-	x = 0
+	cost = 4
+	x = -1
 	y = 1
 	prerequisite = {
 		focus = GER_breaking_the_chains
 	}
 	relative_position_id = GER_breaking_the_chains
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		country_event = GER_austrian_ethnic_revolts.1
@@ -435,15 +446,15 @@ shared_focus = {
 shared_focus = {
 	id = GER_forment_italian_revolt
 	icon = unkown
-	cost = 5
-	x = 0
+	cost = 4
+	x = 1
 	y = 1
 	prerequisite = {
-		focus = GER_magyar_contracts
+		focus = GER_breaking_the_chains
 	}
-	relative_position_id = GER_magyar_contracts
+	relative_position_id = GER_breaking_the_chains
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		country_event = GER_austrian_ethnic_revolts.2
@@ -452,15 +463,18 @@ shared_focus = {
 shared_focus = {
 	id = GER_the_greater_german_revolt
 	icon = unkown
-	cost = 5
-	x = 0
+	cost = 7
+	x = -1
 	y = 1
 	prerequisite = {
 		focus = GER_forment_italian_revolt
 	}
+	prerequisite = {
+		focus = GER_magyar_contracts
+	}
 	relative_position_id = GER_forment_italian_revolt
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		country_event = GER_austrian_ethnic_revolts.3
@@ -478,7 +492,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_defending_to_the_last
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		950 = {
@@ -496,7 +510,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_weaken_the_confederal_army
 	icon = unkown
-	cost = 5
+	cost = 3
 	x = 0
 	y = 1
 	prerequisite = {
@@ -504,7 +518,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_fortify_the_silesian_front
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		custom_effect_tooltip = GER_weaken_the_confederal_army_tt
@@ -513,7 +527,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_alpenfestung
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = 1
 	y = 1
 	prerequisite = {
@@ -521,7 +535,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_weaken_the_confederal_army
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		ITA = {
@@ -536,7 +550,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_ready_for_anything
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = 0
 	y = 1
 	prerequisite = {
@@ -544,7 +558,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_alpenfestung
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		add_ideas = GER_ready_for_anything_idea
@@ -561,7 +575,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_for_a_free_germany
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		add_tech_bonus = {
@@ -575,7 +589,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_austrian_sabotage
 	icon = unkown
-	cost = 5
+	cost = 3
 	x = 0
 	y = 1
 	prerequisite = {
@@ -583,7 +597,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_a_new_kind_of_war
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		custom_effect_tooltip = GER_austrian_sabotage_tt
@@ -592,7 +606,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_unternehmen_steigend
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = -1
 	y = 1
 	prerequisite = {
@@ -600,7 +614,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_austrian_sabotage
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		add_manpower = 100000
@@ -613,7 +627,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_the_final_push
 	icon = unkown
-	cost = 5
+	cost = 4
 	x = 0
 	y = 1
 	prerequisite = {
@@ -621,7 +635,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_unternehmen_steigend
 	ai_will_do = {
-		factor = 1
+		factor = 60
 	}
 	completion_reward = {
 		swap_ideas = {
