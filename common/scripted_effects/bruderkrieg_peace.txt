@@ -1,19 +1,5 @@
 austria_loses_peace_deal = {
-    if = {
-        limit = {
-            country_exists = GPU
-            GPU = {
-                has_war_with = GER
-            }
-            GPU = {
-                is_puppet_of = AUS
-            }
-        }
-
-        GER = {
-            annex_country =  { target = GPU transfer_troops = no}
-        }
-    }
+  
 
     if = {
         limit = { 
@@ -37,7 +23,23 @@ austria_loses_peace_deal = {
 }
 
 prussia_wins_states = {
+    if = {
+        limit = {
+            country_exists = GPU
+            GPU = {
+                has_war_with = GER
+            }
+            GPU = {
+                is_puppet_of = AUS
+            }
+        }
 
+        GER = {
+            annex_country =  { target = GPU transfer_troops = no}
+            annex_country =  { target = WUR transfer_troops = no}
+            annex_country =  { target = HES transfer_troops = no}
+        }
+    }
     GER = {
        transfer_state = 69
        transfer_state = 9
@@ -101,6 +103,10 @@ polish_states = {
         transfer_state = 88
         transfer_state = 951
     }
+
+    GER = {
+        puppet = GLC
+    }
 }
 
 ukrainian_states = {
@@ -153,7 +159,7 @@ serbia_states = {
 
 slovak_states = {
     GER = {
-        puppet = HUN
+        puppet = SLO
     }
     SLO = {
         transfer_state = 70
