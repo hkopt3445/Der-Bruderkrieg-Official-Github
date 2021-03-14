@@ -1,4 +1,21 @@
 guiTypes = {
+
+	containerWindowType = {
+		name = "open_german_sphere"
+		position = {
+			x = 400
+			y = 445
+		}
+		iconType = {
+			name = "german_sphere_open_button"
+			position = {
+				x = 0
+				y = 0 
+			}
+			spriteType = "GFX_german_sphere_open_button"
+		}
+	}
+
     containerWindowType = {
 		name = "DBK_german_sphere"
 		position = {x=530 y=100}
@@ -8,12 +25,19 @@ guiTypes = {
 			name = "Background"
 			quadTextureSprite ="GFX_tiled_window"
 		}
+		buttonType = {
+			name = "exit"
+			position = {x=0 y=0}
+			##Orientation = "UPPER_RIGHT"
+			spriteType = "GFX_closebutton"
+			shortcut = "ESCAPE"
+		  } 
 		instantTextBoxType = {
 			name = "german_sphere_title"
 			font = "hoi_36header"
 			position = {
 				x = 0
-				y = 0
+				y = 10
 			}
 			format = center
 			text = "The German Sphere"
@@ -28,25 +52,25 @@ guiTypes = {
 
 			buttonType = {
 				name = "neutral_hanover" 
-				position = {x=23 y=67}
+				position = {x=28 y=75}
 				##Orientation = "UPPER_RIGHT"
 				spriteType = "GFX_hannover_neutral"
 			}
 			buttonType = {
 				name = "prussian_hanover" 
-				position = {x=23 y=67}
+				position = {x=28 y=75}
 				##Orientation = "UPPER_RIGHT"
 				spriteType = "GFX_hannover_prussian"
 			}
 			buttonType = {
 				name = "austrian_hanover" 
-				position = {x=23 y=67}
+				position = {x=28 y=75}
 				##Orientation = "UPPER_RIGHT"
 				spriteType = "GFX_hannover_austrian"
 			}
 			buttonType = {
 				name = "french_hanover" 
-				position = {x=23 y=67}
+				position = {x=28 y=75}
 				##Orientation = "UPPER_RIGHT"
 				spriteType = "GFX_hannover_french"
 			}
@@ -179,7 +203,7 @@ guiTypes = {
 
 			buttonType = {
 				name = "prussian_prussia"
-				position = {x=74 y=0}
+				position = {x=74 y=-2}
 				##Orientation = "UPPER_RIGHT"
 				spriteType = "GFX_prussian_prussia"
 			}
@@ -222,8 +246,23 @@ guiTypes = {
 			
 		}
 		containerWindowType = {
-			name = "german_interactions_container"
+			name = "legend"
+			position = {
+				x = 453
+				y = 271
+			}
+			##gfx, x = 488, y =291
+			iconType = {
+				name = "legend_icon"
+				position = {
+					x = 0
+					y = 0
+				}
+				spriteType = "GFX_german_sphere_legend"
+			}
 		}
+
+		
 	}
 
 
@@ -234,12 +273,12 @@ guiTypes = {
 	####decision open thing
 	containerWindowType = {
 		name = "german_sphere_desc_container"
-		position = { x = 500 y = 300 }
+		position = { x = 1210 y = 100 }
 		size = { width = 330 height = 300 }
 
 		background = {
 			name = "Background"
-			spriteType = "GFX_tiled_paper_bg"
+			spriteType = "GFX_tiled_window"
 		}
 
 		buttonType = {
@@ -259,57 +298,55 @@ guiTypes = {
 				name = "german_sphere_desc_container_title"
 				position = { x = 0 y = 10 }
 				font = "hoi_36header"
-				text = "State of [german_sphere_country_this.GetName]"
+				text = "Interact with [german_sphere_country_this.GetName]"
 				format = center
 				maxwidth = 300
 				maxHeight = 35
 				fixedsize = no
 			  }
 
-			  instantTextboxType = {
-				name = "german_sphere_desc_container_prussian_influence"
-				position = { x = 20 y = 100 }
-				font = "hoi_20b"
-				text = "GERMAN_SPHERE_PRUSSIAN"
-				format = "UPPER_RIGHT"
-				maxwidth = 300
-				maxHeight = 35
-				fixedsize = no
-			  }
+			  containerWindowType = {
+				name = "interactions"
+				position = {
+					x = 0
+					y = 0
+				}
+	
+				##x = 360, y = 303, 370, 433\
+				buttonType = {
+					name = "FGD_interaction_1"
+					position = {
+						x = 101
+						y = 100
+					}
+					spriteType = "GFX_german_sphere_button"
+					buttonFont = "hoi_18b"
+					buttonText = "Boost Nationalism"
+				}
+				buttonType = {
+					name = "FGD_interaction_2"
+					position = {
+						x = 101
+						y = 140
+					}
+					spriteType = "GFX_german_sphere_button"
+					buttonFont = "hoi_18b"
+					buttonText = "Fund Partisans"
+				}
+				buttonType = {
+					name = "FGD_interaction_3"
+					position = {
+						x = 101
+						y = 180
+					}
+					spriteType = "GFX_german_sphere_button"
+					buttonFont = "hoi_18b"
+					buttonText = "Kill the King!"
+				}
+	
+			}
 
-			  instantTextboxType = {
-				name = "german_sphere_desc_container_french_influence"
-				position = { x = 20 y = 140 }
-				font = "hoi_20b"
-				text = "GERMAN_SPHERE_FRENCH"
-				format = "UPPER_RIGHT"
-				maxwidth = 300
-				maxHeight = 35
-				fixedsize = no
-			  }
 
-			  instantTextboxType = {
-				name = "german_sphere_desc_container_austrian_influence"
-				position = { x = 20 y = 180 }
-				font = "hoi_20b"
-				text = "GERMAN_SPHERE_AUSTRIAN"
-				format = "UPPER_RIGHT"
-				maxwidth = 300
-				maxHeight = 35
-				fixedsize = no
-			  }
-
-
-			  instantTextboxType = {
-				name = "german_sphere_desc_container_puppet"
-				position = { x = 20 y = 250 }
-				font = "hoi_20b"
-				text = "[GetGermanSphereMech]"
-				format = "UPPER_RIGHT"
-				maxwidth = 300
-				maxHeight = 35
-				fixedsize = no
-			  }
 		}
 	}
 }
