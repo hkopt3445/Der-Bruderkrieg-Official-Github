@@ -288,3 +288,56 @@ french_civil_war = {
         }
     }
 }
+
+france_loses_peace_deal = {
+    GER = {
+        annex_country = {
+            target = FGD
+        }
+        annex_country = {
+            target = LUX
+        }
+        transfer_state = 956
+        transfer_state = 28
+        transfer_state = 802
+        transfer_state = 803
+        if = {
+            limit = {
+                BEL = { NOT = { is_in_faction_with = GER }
+                    has_war_with = GER
+                }
+            }
+            transfer_state = 800
+            puppet = BEL
+        }
+        white_peace = FRA
+        puppet = FRA
+        set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
+    }
+    BEL = {
+        if = {
+            limit = {
+               is_in_faction_with = GER
+            }
+            transfer_state = 29
+            white_peace = FRA
+        }
+    }
+    ITA = {
+        if = {
+            limit = {
+               is_in_faction_with = GER
+            }
+            transfer_state = 735
+            transfer_state = 21
+            transfer_state = 1
+            transfer_state = 32
+            transfer_state = 458
+            transfer_state = 665
+            transfer_state = 797
+            transfer_state = 269
+            transfer_state = 268
+            white_peace = FRA
+        }
+    }
+}
