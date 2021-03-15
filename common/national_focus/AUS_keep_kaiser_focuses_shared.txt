@@ -26,33 +26,7 @@ shared_focus = AUS_improve_relations_ottomans
 shared_focus = AUS_the_majors_europe
 }
 
-focus_tree = {
-  id = AUS_political_part_2
 
-  country = {
-		factor = 0
-
-		modifier = {
-			add = 10
-			tag = AUS
-		}
-	}
-  default = no
-  continuous_focus_position = {
-    x = 0
-    y = 4000
-  }
-	shared_focus = AUS_karls_cabinet 
-  shared_focus = AUS_denounce_the_treaty_of_vienna
-  shared_focus = AUS_expand_the_imperial_ministry
-  shared_focus = AUS_state_of_parliment
-  shared_focus = AUS_recover_from_black_monday
-  shared_focus = AUS_karls_cabinet
-  shared_focus = AUS_PREP_WAR 
-#shared_focus = AUS_colonial_ambitions
-shared_focus = AUS_improve_relations_ottomans
-shared_focus = AUS_the_majors_europe
-}
 
 
 focus_tree = {
@@ -82,7 +56,63 @@ focus_tree = {
 shared_focus = AUS_improve_relations_ottomans
 }
 
- 
+focus_tree = {
+  id = AUS_political_part_2
+
+  country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = AUS
+		}
+	}
+  default = no
+  continuous_focus_position = {
+    x = 0
+    y = 4000
+  }
+	shared_focus = AUS_karls_cabinet 
+  shared_focus = AUS_denounce_the_treaty_of_vienna
+  shared_focus = AUS_expand_the_imperial_ministry
+  shared_focus = AUS_state_of_parliment
+  shared_focus = AUS_recover_from_black_monday
+  shared_focus = AUS_karls_cabinet
+  shared_focus = AUS_PREP_WAR 
+#shared_focus = AUS_colonial_ambitions
+shared_focus = AUS_improve_relations_ottomans
+shared_focus = AUS_the_majors_europe
+}
+
+focus_tree = {
+  id = AUS_post_bruderkrieg_tree
+
+  country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = AUS
+		}
+	}
+  default = no
+  continuous_focus_position = {
+    x = 0
+    y = 4000
+  }
+	shared_focus = AUS_karls_cabinet 
+  shared_focus = AUS_denounce_the_treaty_of_vienna
+  shared_focus = AUS_expand_the_imperial_ministry
+  shared_focus = AUS_state_of_parliment
+  shared_focus = AUS_recover_from_black_monday
+  shared_focus = AUS_karls_cabinet
+  shared_focus = AUS_PREP_WAR 
+#shared_focus = AUS_colonial_ambitions
+shared_focus = AUS_improve_relations_ottomans
+shared_focus = AUS_the_majors_europe
+shared_focus = AUS_a_new_european_order
+}
+
 shared_focus = {
   id = AUS_recover_from_black_monday
   icon = GFX_goal_deregulate_the_banking_industury
@@ -100,6 +130,13 @@ shared_focus = {
   available = { 
     has_country_flag = stocks_crash
   }
+  offset = {
+    x = 10
+    trigger = {
+      has_country_flag = AUS_move_tree_over
+    }
+  }
+  
  
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
@@ -580,6 +617,12 @@ shared_focus = {
     OR = {
       has_completed_focus = AUS_CENTRALISM
       has_completed_focus = AUS_FEDERALISM
+    }
+  }
+  offset = {
+    x = 10
+    trigger = {
+      has_country_flag = AUS_move_tree_over
     }
   }
   
@@ -1605,6 +1648,13 @@ shared_focus = {
       has_completed_focus = AUS_FEDERALISM
     }
   }
+  offset = {
+    x = 10
+    trigger = {
+      has_country_flag = AUS_move_tree_over
+    }
+  }
+  
 
   bypass = {
   
@@ -2008,27 +2058,7 @@ shared_focus = {
 }
 
 
-shared_focus = {
-  id = AUS_the_german_question
-  icon = GFX_goal_AUS_the_german_question
- 
-  text = AUS_the_german_question
-  prerequisite = {focus = AUS_they_are_our_puppet focus = AUS_supporting_ohv_autonomy}
-  x = 1
-  y = 1
-  relative_position_id = AUS_they_are_our_puppet
-  cost = 15
-  ai_will_do = {
-    factor = 2000
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-  set_country_flag = german_question_decided
-  }
-}
 shared_focus = {
   id = AUS_the_french_complication
  icon = GFX_goal_FRA_defend_against_the_kaiser
@@ -2138,16 +2168,20 @@ shared_focus = {
     factor = 1
   }
 
-  allowed = {
-    tag = AUS
+  offset = {
+    x = 10
+    trigger = {
+      has_country_flag = AUS_move_tree_over
+    }
   }
+  
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
 
-    add_war_suport = 0.03
+    add_war_support = 0.03
    }
 }
 
@@ -5261,4 +5295,283 @@ shared_focus = {
   completion_reward = {
     BUL = {country_event = austria.17}
   }
+}
+
+
+
+
+
+
+###post bruderkrieg tree
+shared_focus = {
+  id = AUS_a_new_european_order
+  icon = unkown
+  text = AUS_a_new_european_order
+  #prerequisite = { focus = AUS_karls_cabinet }
+  available = {
+    always = no
+  }
+  x = 7
+  y = 0
+  #relative_position_id = AUS_karls_cabinet
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+shared_focus = {
+  id = AUS_the_remnants_of_prussia
+  icon = unkown
+  text = AUS_the_remnants_of_prussia
+  prerequisite = { focus = AUS_a_new_european_order }
+  available = {
+    always = no
+  }
+  x = 0
+  y = 1
+  relative_position_id = AUS_a_new_european_order
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+shared_focus = {
+  id = AUS_the_german_question
+  icon = unkown
+  text = AUS_the_german_question
+  prerequisite = { focus = AUS_the_remnants_of_prussia }
+  available = {
+    always = no
+  }
+  x = 2
+  y = 1
+  relative_position_id = AUS_the_remnants_of_prussia
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_grobdeutches_reich
+  icon = unkown
+  text = AUS_grobdeutches_reich
+  prerequisite = { focus = AUS_the_german_question }
+  available = {
+    always = no
+  }
+  x = -1
+  y = 1
+  relative_position_id = AUS_the_german_question
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+shared_focus = {
+  id = AUS_the_german_confederation
+  icon = unkown
+  text = AUS_the_german_confederation
+  prerequisite = { focus = AUS_the_german_question }
+  available = {
+    always = no
+  }
+  x = 1
+  y = 1
+  relative_position_id = AUS_the_german_question
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_the_greatest_austria
+  icon = unkown
+  text = AUS_the_greatest_austria
+  prerequisite = { focus = AUS_the_german_confederation focus = AUS_grobdeutches_reich }
+  available = {
+    always = no
+  }
+  x = -1
+  y = 1
+  relative_position_id = AUS_the_german_confederation
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_stabilizing_europe
+  icon = unkown
+  text = AUS_stabilizing_europe
+  prerequisite = { focus = AUS_the_remnants_of_prussia }
+  available = {
+    always = no
+  }
+  x = -2
+  y = 1
+  relative_position_id = AUS_the_remnants_of_prussia
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_sending_out_otto
+  icon = unkown
+  text = AUS_sending_out_otto
+  prerequisite = { focus = AUS_stabilizing_europe }
+  available = {
+    always = no
+  }
+  x = -1
+  y = 1
+  relative_position_id = AUS_stabilizing_europe
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+shared_focus = {
+  id = AUS_peace_with_france
+  icon = unkown
+  text = AUS_peace_with_france
+  prerequisite = { focus = AUS_stabilizing_europe }
+  available = {
+    always = no
+  }
+  x = 1
+  y = 1
+  relative_position_id = AUS_stabilizing_europe
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+
+shared_focus = {
+  id = AUS_proposing_the_conference
+  icon = unkown
+  text = AUS_proposing_the_conference
+  prerequisite = { focus = AUS_peace_with_france focus = AUS_sending_out_otto }
+  available = {
+    always = no
+  }
+  x = -1
+  y = 1
+  relative_position_id = AUS_peace_with_france
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
+}
+shared_focus = {
+  id = AUS_the_european_accords
+  icon = unkown
+  text = AUS_the_european_accords
+  prerequisite = { focus = AUS_proposing_the_conference}
+  prerequisite = {
+    focus = AUS_the_greatest_austria
+  }
+  available = {
+    always = no
+  }
+  x = 2
+  y = 1
+  relative_position_id = AUS_proposing_the_conference
+  cost = 0
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+
+   }
 }
