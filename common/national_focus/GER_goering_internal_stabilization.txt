@@ -1,4 +1,111 @@
 focus_tree = {
+	id = GER_goering_start_tree 
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 101
+			tag = GER
+		}
+	}
+
+	shared_focus = GER_gorings_speech
+	shared_focus = GER_goerings_industrial_plan
+	shared_focus = GER_the_goring_doctorine
+
+ 
+
+	continuous_focus_position = { x = 12000 y = 1000 }
+}	
+
+
+shared_focus = {
+	id = GER_gorings_speech
+	icon = unkown
+	x = 3
+	y = 0
+	#relative_position_id = GER_aftermath_of_the_fuhrerdammerung
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 0.5
+	#prerequisite = { focus = GER_aftermath_of_the_fuhrerdammerung }
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		##goerings speech event :flushed:
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+shared_focus = {
+	id = GER_damage_control
+	icon = unkown
+	x = 0
+	y = 1
+	relative_position_id = GER_gorings_speech
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 0.5
+	prerequisite = { focus = GER_gorings_speech }
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = -50
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = -0.05
+		}
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+shared_focus = {
+	id = GER_uternehmen_einheit
+	icon = unkown
+	x = 0
+	y = 1
+	relative_position_id = GER_damage_control
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 0.5
+	prerequisite = { focus = GER_damage_control }
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		country_event = germangame.1
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+
+focus_tree = {
 	id = GER_goering_internal_stabilization 
 
 	country = {
@@ -1249,7 +1356,15 @@ shared_focus = {
     cost = 5
     ai_will_do = {
         factor = 12
-    }
+	}
+	offset = {
+		x = -12
+		trigger = {
+			NOT = {
+				has_completed_focus = GER_gorings_speech
+			}
+		}
+	}
     #prerequisite = {focus = GER_herman_goering_werke}
     #relative_position_id = GER_herman_goering_werke
     search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
@@ -1643,6 +1758,14 @@ shared_focus = {
 		}
 		bypass = {
 
+		}
+		offset = {
+			x = -12
+			trigger = {
+				NOT = {
+					has_completed_focus = GER_gorings_speech
+				}
+			}
 		}
 
 		cost = 10
