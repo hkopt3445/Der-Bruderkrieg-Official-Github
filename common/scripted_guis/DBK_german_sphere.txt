@@ -395,6 +395,18 @@ scripted_gui = {
 				##event
 				set_country_flag = FGD_interaction_3_click_flag 
 			}
+
+			SGC_interaction_1_click = {
+				event_target:german_sphere_country_this = { add_stability = -0.05 add_political_power = -50 }
+				set_country_flag = { flag = SGC_interaction_1_click_flag value = 50 }
+			}
+			SGC_interaction_2_click = {
+				event_target:german_sphere_country_this = { add_popularity = { ideology = ultranationalism popularity = 0.05 }}
+				set_country_flag = { flag = SGC_interaction_2_click_flag value = 50 }
+			}
+			SGC_interaction_3_click = {
+				##variable shit
+			}
 		}
 
 		triggers = {
@@ -406,6 +418,16 @@ scripted_gui = {
 			}
 			FGD_interaction_3_visible = {
 				event_target:german_sphere_country_this = { tag = FGD }
+			}
+
+			SGC_interaction_1_visible = {
+				event_target:german_sphere_country_this = { is_in_array = { array = global.sgc_members value = THIS } }
+			}
+			SGC_interaction_2_visible = {
+				event_target:german_sphere_country_this = { is_in_array = { array = global.sgc_members value = THIS } }
+			}
+			SGC_interaction_3_visible = {
+				event_target:german_sphere_country_this = { is_in_array = { array = global.sgc_members value = THIS } }
 			}
 			
 		}
