@@ -2,9 +2,11 @@ SOV_political_instability_people_effect = {
 	if = {
 		limit = {
 			check_variable = {
-				SOV_peoples_support_for_current_regime < -5
+				SOV_peoples_support_for_current_regime < 20
 			}
 		}
+		random_list = {
+
 		50 = {
 			country_event = SOV_political_instability_people_events.1
 		}
@@ -15,16 +17,19 @@ SOV_political_instability_people_effect = {
 			country_event = SOV_political_instability_people_events.3
 		}
 	}
+	}
 	
 	if = {
 		limit = {
 			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = -5 compare = greater_than_or_equals 
+				var = SOV_peoples_support_for_current_regime value = 20 compare = greater_than_or_equals 
 			}
 			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = -3 compare = less_than 
+				var = SOV_peoples_support_for_current_regime value = 40 compare = less_than 
 			}
 		}
+		random_list = {
+
 		50 = {
 			country_event = SOV_political_instability_people_events.4
 		}
@@ -35,14 +40,15 @@ SOV_political_instability_people_effect = {
 			country_event = SOV_political_instability_people_events.6
 		}
 	}
+	}
 
 	if = {
 		limit = {
 			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = -3 compare = greater_than_or_equals 
+				var = SOV_peoples_support_for_current_regime value = 40 compare = greater_than_or_equals 
 			}
 			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = 0 compare = less_than 
+				var = SOV_peoples_support_for_current_regime value = 60 compare = less_than 
 			}
 		}
 		random_list = {
@@ -69,10 +75,10 @@ SOV_political_instability_people_effect = {
 	if = {
 		limit = {
 			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = 0 compare = greater_than_or_equals 
+				var = SOV_peoples_support_for_current_regime value = 60 compare = greater_than_or_equals 
 			}
 			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = 3 compare = less_than 
+				var = SOV_peoples_support_for_current_regime value = 80 compare = less_than 
 			}
 		}
 		random_list = {
@@ -91,7 +97,7 @@ SOV_political_instability_people_effect = {
 	if = {
 		limit = {
 			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = 3 compare = greater_than_or_equals 
+				var = SOV_peoples_support_for_current_regime value = 80 compare = greater_than_or_equals 
 			}
 		}
 		random_list = {
@@ -817,6 +823,12 @@ d_fire_russian_civil_war_debug = {
 	}
 }
 
+d_reduce_russian_civil_election_mission_by_all = {
+	add_days_mission_timeout = {
+		mission = SOV_duma_elections_mission
+		days = -179
+	}
+}
 
 SOV_modify_rsdlp_progressbar = {
 	set_variable = { tsertelli_progressbar_x = SOV_trotsky_influence_in_party }
