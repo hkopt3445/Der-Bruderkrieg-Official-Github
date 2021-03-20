@@ -657,6 +657,8 @@ form_germany_category = {
 			}
 		}
 
+		fire_only_once = yes
+
 		available = {
 			OR = {
 				is_subject = no
@@ -696,6 +698,14 @@ form_germany_category = {
 			controls_state = 955
 			controls_state = 957
 			controls_state = 960
+			
+			OR = {
+				AND = { tag = GER NOT = { country_exists = FRA } NOT = { country_exists = AUS } }
+				tag = GPU
+				tag = FGD
+				tag = HAN
+				tag = SAX
+			}
 		}
 
 		visible = {
@@ -708,6 +718,7 @@ form_germany_category = {
 			}
 			NOT = { has_global_flag = form_germany_flag }
 		}
+
 
 		complete_effect = {
 			set_cosmetic_tag = united_germany
@@ -825,7 +836,7 @@ form_ngc_category = {
 				news_event = { id = formablenations.2 hours = 6 }
 				set_global_flag = form_ngc_flag
 
-				
+				add_threat = 10
 			}
 		}
 

@@ -120,8 +120,13 @@ on_actions = {
             if = {
                 limit = {
                     ROOT = { tag = AUS }
-                    FROM = {
-                        tag = GER
+                    OR = {
+                        FROM = {
+                            tag = GER
+                        }
+                        FROM = {
+                            is_in_faction_with = GER
+                        }
                     }
                 }
                 austria_loses_peace_deal = yes
@@ -129,8 +134,18 @@ on_actions = {
             if = {
                 limit = {
                     ROOT = { tag = GER }
-                    FROM = {
-                        tag = AUS
+                    OR = {
+                        FROM = {
+                            tag = AUS
+                        }
+                        FROM = {
+                            is_in_faction_with = AUS
+                        }
+                    }
+                    NOT = {
+                        FROM = {
+                            tag = FRA
+                        }
                     }
                 }
                 prussia_loses_peace_deal = yes
@@ -172,14 +187,16 @@ on_actions = {
 
 
    on_weekly = {
-       if = {
-           limit = {
-               has_decision = AUS_opposition_coup
-            
-           }
-           add_to_variable = {
-               popular_anger = 5
-           }
+       effect = {
+        if = {
+            limit = {
+                has_decision = AUS_opposition_coup
+             
+            }
+            add_to_variable = {
+                popular_anger = 5
+            }
+        }
        }
    }
 }
