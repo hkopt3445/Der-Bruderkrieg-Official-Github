@@ -2021,8 +2021,8 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        unlock_decision_tooltip = SOV_campaign_small_for_passing_the_law
-        unlock_decision_tooltip = SOV_campaign_large_for_passing_the_law   
+        custom_effect_tooltip = SOV_campaign_in_the_duma_tt
+        set_country_flag = SOV_vote_for_reverse_kerensky_decision_going_on   
     }
 }
 
@@ -2044,6 +2044,39 @@ shared_focus = {
     completion_reward = {
         custom_effect_tooltip = SOV_reverse_kerenskys_decision_tt
         set_country_flag = SOV_duma_bill_to_reverse_kerensky_decision_of_passed
+
+        set_variable = {
+            SOV_cdp_support_for_current_bill =  cdp_seats
+        }
+        divide_variable = {
+            SOV_cdp_support_for_current_bill = 2
+        }
+        round_variable = SOV_cdp_support_for_current_bill
+
+        set_variable = {
+            SOV_urp_support_for_current_bill =  urp_seats
+        }
+        divide_variable = {
+            SOV_urp_support_for_current_bill = 1.5
+        }
+        round_variable = SOV_urp_support_for_current_bill
+
+        set_variable = {
+            SOV_rsdlp_support_for_current_bill =  rsdlp_seats
+        }
+        divide_variable = {
+            SOV_rsdlp_support_for_current_bill = 3
+        }
+        round_variable = SOV_rsdlp_support_for_current_bill
+
+        
+        set_variable = {
+            SOV_trudovik_support_for_current_bill =  trudovik_seats
+        }
+        divide_variable = {
+            SOV_trudovik_support_for_current_bill = 3
+        }
+        round_variable = SOV_trudovik_support_for_current_bill
     }
 }
 
@@ -2066,7 +2099,8 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_find_leadership
-    icon = GFX_goal_SOV_the_new_leadership_of_okharahna
+    
+    icon = GFX_goal_SOV_find_leadership
 	prerequisite = {focus = SOV_secure_okhrana_loyalty }
 	x = 0
 	y = 1
@@ -2147,7 +2181,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_the_new_leader
-    icon = unkown
+    icon = GFX_goal_SOV_the_new_leadership_of_okharahna
     prerequisite = {focus = SOV_transporting_the_cargo }
     prerequisite = {
         focus = SOV_protecting_the_cargo
