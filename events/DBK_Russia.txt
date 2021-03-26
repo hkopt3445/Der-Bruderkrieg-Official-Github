@@ -1852,3 +1852,141 @@ country_event = {
 	}
 	
 }
+
+add_namespace = SOV_duma_voting_events
+
+###vote for okhrana?
+country_event = {
+	id = SOV_duma_voting_events.1
+	title = SOV_duma_voting_events.1.t
+	desc = SOV_duma_voting_events.1.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_duma_voting_events.1.a
+		ai_chance = { factor = 1}
+
+			set_variable = {
+				SOV_cdp_support_for_current_bill = cdp_seats
+			}
+			divide_variable = {
+				SOV_cdp_support_for_current_bill = 2
+			}
+
+			round_variable = SOV_cdp_support_for_current_bill
+
+			set_variable = {
+				SOV_trudovik_support_for_current_bill = trudovik_seats
+			}
+			divide_variable = {
+				SOV_trudovik_support_for_current_bill = 4
+			}
+
+			round_variable = SOV_trudovik_support_for_current_bill
+
+			set_variable = {
+				SOV_rsdlp_support_for_current_bill = rsdlp_seats
+			}
+			divide_variable = {
+				SOV_rsdlp_support_for_current_bill = 4
+			}
+
+			round_variable = SOV_rsdlp_support_for_current_bill
+
+			set_variable = {
+				SOV_urp_support_for_current_bill = urp_seats
+			}
+			divide_variable = {
+				SOV_urp_support_for_current_bill = 2
+			}
+			round_variable = SOV_urp_support_for_current_bill
+
+			SOV_modify_current_duma_total_support_for_bill = yes
+
+			set_country_flag = SOV_vote_for_pavels_okrana_bill_going_on
+
+			activate_mission = SOV_duma_votes_on_the_okhrana
+	}
+	option = {
+		name = SOV_duma_voting_events.1.b
+		ai_chance = { factor = 1}
+		add_political_power = 40
+	}
+	
+}
+
+##vote for okrhana successful
+country_event = {
+	id = SOV_duma_voting_events.2
+	title = SOV_duma_voting_events.2.t
+	desc = SOV_duma_voting_events.2.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_duma_voting_events.2.a
+		ai_chance = { factor = 2}
+
+		custom_effect_tooltip = SOV_greatly_reduce_the_cost_of_finding_and_raiding_hideouts_tt
+
+		subtract_from_variable = {
+			SOV_find_hideout_in_FROM_get_cost = 10
+		}
+		subtract_from_variable = {
+			SOV_raid_hideout_in_FROM_get_cost = 10
+		}
+
+		hidden_effect = {
+			country_event = {
+				id = SOV_duma_voting_events.4
+				days = 1
+			}
+		}
+	}
+
+}
+
+#vote fr okhrana fails
+country_event = {
+	id = SOV_duma_voting_events.3
+	title = SOV_duma_voting_events.3.t
+	desc = SOV_duma_voting_events.3.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_duma_voting_events.3.a
+		ai_chance = { factor = 2}
+	}
+
+}
+
+##empowering the okhrana even more?
+country_event = {
+	id = SOV_duma_voting_events.4
+	title = SOV_duma_voting_events.4.t
+	desc = SOV_duma_voting_events.4.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	trigger = { 
+
+	}
+	option = {
+		name = SOV_duma_voting_events.4.a
+		ai_chance = { factor = 2}
+		add_political_power = 70
+	}
+	option = {
+		name = SOV_duma_voting_events.4.b
+		ai_chance = { factor = 2}
+		load_focus_tree = SOV_the_okhrana_takeover_tree
+	}
+
+}
