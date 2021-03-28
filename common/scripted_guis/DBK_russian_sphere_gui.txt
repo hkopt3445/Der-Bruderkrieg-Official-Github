@@ -9,26 +9,57 @@ scripted_gui = {
 					save_global_event_target_as = SOV_current_selected_balkan_state
 				}
 			}
-			russian_romania_click = {
+			SOV_romania_sphere_high_click = {
 				ROM = {
 					save_global_event_target_as = SOV_current_selected_balkan_state
 				}
 			}
-			russian_bulgaria_click = {
+			SOV_romania_sphere_medium_click = {
+				ROM = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_romania_sphere_low_click = {
+				ROM = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_bulgaria_sphere_high_click = {
 				BUL = {
 					save_global_event_target_as = SOV_current_selected_balkan_state
 				}
 			}
-			austrian_greece_click = {
-				GRE = {
+			SOV_bulgaria_sphere_medium_click = {
+				BUL = {
 					save_global_event_target_as = SOV_current_selected_balkan_state
 				}
 			}
-			austrian_albania_click = {
+			SOV_bulgaria_sphere_low_click = {
+				BUL = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_albania_sphere_high_click = {
 				ALB = {
 					save_global_event_target_as = SOV_current_selected_balkan_state
 				}
 			}
+			SOV_albania_sphere_medium_click = {
+				ALB = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_albania_sphere_low_click = {
+				ALB = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_chaotic_greece_click = {
+				GRE = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+		
 
 			spread_influence_click = {
 				set_country_flag = {
@@ -85,31 +116,140 @@ scripted_gui = {
 		}
 
 		triggers = {
-			russian_serbia_click_enabled = {
+
+			SOV_romania_sphere_high_visible = {
+				ROM = {
+					check_variable = {
+						russian_influence > 70
+					}
+				}
+			}
+			SOV_romania_sphere_medium_visible = {
+				ROM = {
+					check_variable = {
+						russian_influence > 40
+					}
+					check_variable = {
+						russian_influence < 71
+					}
+				}
+			}
+			SOV_romania_sphere_low_visible = {
+				ROM = {
+					check_variable = {
+						russian_influence < 41
+					}
+				}
+			}
+
+			SOV_bulgaria_sphere_high_visible = {
+				BUL = {
+					check_variable = {
+						russian_influence > 70
+					}
+				}
+			}
+			SOV_bulgaria_sphere_medium_visible = {
+				BUL = {
+					check_variable = {
+						russian_influence > 40
+					}
+					check_variable = {
+						russian_influence < 71
+					}
+				}
+			}
+			SOV_bulgaria_sphere_low_visible = {
+				BUL = {
+					check_variable = {
+						russian_influence < 41
+					}
+				}
+			}
+
+			SOV_albania_sphere_high_visible = {
+				ALB = {
+					check_variable = {
+						russian_influence > 70
+					}
+				}
+			}
+			SOV_albania_sphere_medium_visible = {
+				ALB = {
+					check_variable = {
+						russian_influence > 40
+					}
+					check_variable = {
+						russian_influence < 71
+					}
+				}
+			}
+			SOV_albania_sphere_low_visible = {
+				ALB = {
+					check_variable = {
+						russian_influence < 41
+					}
+				}
+			}
+			
+
+			SOV_chaotic_serbia_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+				has_country_flag = SOV_serbia_stabilized_flag
+			}
+			SOV_romania_sphere_high_click_enabled = {
 				NOT = {
 					has_country_flag = SOV_doing_sphere_action
 				}
 			}
-			russian_romania_click_enabled = {
+			SOV_romania_sphere_medium_click_enabled = {
 				NOT = {
 					has_country_flag = SOV_doing_sphere_action
 				}
 			}
-			russian_bulgaria_click_enabled = {
+			SOV_romania_sphere_low_click_enabled = {
 				NOT = {
 					has_country_flag = SOV_doing_sphere_action
 				}
 			}
-			austrian_greece_click_enabled = {
+			SOV_bulgaria_sphere_high_click_enabled = {
 				NOT = {
 					has_country_flag = SOV_doing_sphere_action
 				}
 			}
-			austrian_albania_click_enabled = {
+			SOV_bulgaria_sphere_medium_click_enabled = {
 				NOT = {
 					has_country_flag = SOV_doing_sphere_action
 				}
 			}
+			SOV_bulgaria_sphere_low_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_albania_sphere_high_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_albania_sphere_medium_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_albania_sphere_low_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_chaotic_greece_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+		
 			
 			spread_influence_click_enabled = {
 				NOT = {
@@ -134,6 +274,10 @@ scripted_gui = {
 					has_country_flag = SOV_doing_sphere_action
 				}
 			}
+
+
+
+			
 		}
 
 		properties = {
