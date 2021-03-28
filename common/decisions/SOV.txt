@@ -3869,23 +3869,49 @@ SOV_far_eastern_hideout_raids = {
 		fire_only_once = no
 
 		target_array = SOV.far_eastern_states
-		target_root_trigger = {
-			is_in_array = {
-				array = SOV.far_eastern_states
-				value = THIS
+		target_trigger = {
+			FROM = { 
+				is_in_array = {
+					array = SOV.far_eastern_states
+					value = THIS
+				}
 			}
 		}
+		visible = {
+			has_completed_focus = SOV_eastern_crackdown
+			FROM = { 
+				is_in_array = {
+					array = SOV.far_eastern_states
+					value = THIS
+				}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+
 		cost = SOV.SOV_find_hideout_in_FROM_get_cost
 		state_target = yes
 		remove_effect = {
 			FROM = {
 				set_state_flag = SOV_hideout_found_state_flag
 			}
+			custom_effect_tooltip = SOV_we_will_locate_the_hideout_in_the_state_and_can_raid_it
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
+					}
+				}
+				set_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
+
+			}
 		}
 	}
 	SOV_blank_1 = {
 		available = {
 			always = no
+		}
+		visible = {
+			has_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
 		}
 	}
 
@@ -3904,9 +3930,11 @@ SOV_far_eastern_hideout_raids = {
 		cost = SOV.SOV_raid_hideout_in_FROM_get_cost
 		target_array = SOV.far_eastern_states
 		target_root_trigger = {
-			is_in_array = {
-				array = SOV.far_eastern_states
-				value = THIS
+			FROM = { 
+				is_in_array = {
+					array = SOV.far_eastern_states
+					value = THIS
+				}
 			}
 		}
 		state_target = yes
