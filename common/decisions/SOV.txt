@@ -1683,7 +1683,7 @@ SOV_presidential_elections = {
 		remove_effect = {
 			add_to_variable = {
 				tooltip = SOV_increase_pavels_support_by_1
-				pavel_support = 1f
+				pavel_support = 1
 			}
 			add_to_variable = {
 				tooltip = SOV_decrease_kerenskys_support_by_1
@@ -2284,6 +2284,122 @@ SOV_presidential_elections = {
 		
 	}
 
+
+	###URP
+	SOV_rsdlp_will_be_the_end_of_russia = {
+
+		#icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = no
+
+		cost = 10
+		days_remove = 15
+		days_re_enable = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_attacking_the_socialists
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = SOV_increase_tsars_support_by_1
+				tsar_support = 1
+			}
+			add_to_variable = {
+				tooltip = SOV_decrease_lenins_support_by_1
+				lenin_support = -1
+			}
+		}
+	}
+	SOV_socialism_will_never_work = {
+
+		#icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = no
+
+		cost = 10
+		days_remove = 15
+		days_re_enable = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_attacking_the_socialists
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = SOV_increase_tsars_support_by_1
+				tsar_support = 1
+			}
+			add_to_variable = {
+				tooltip = SOV_decrease_lenins_support_by_1
+				lenin_support = -1
+			}
+		}
+	}	
+	SOV_marx_was_a_german = {
+
+		#icon = generic_construction
+
+		available = {
+			
+		}
+
+
+		fire_only_once = no
+
+		cost = 10
+		days_remove = 15
+		days_re_enable = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		visible = {
+			has_completed_focus = SOV_attacking_the_socialists
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = SOV_increase_tsars_support_by_1
+				tsar_support = 1
+			}
+			add_to_variable = {
+				tooltip = SOV_decrease_lenins_support_by_1
+				lenin_support = -1
+			}
+		}
+	}
 	
 }
 
@@ -3925,16 +4041,16 @@ SOV_expand_the_russian_sphere_tsar = {
 		
 	}
 
-	SOV_puppet_albania = {
+	SOV_non_agression_with_albania = {
 
 		#icon = generic_construction
 
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SOV_influence_greater_than_100_ALB
+				tooltip = SOV_influence_greater_than_50_ALB
 
 				check_variable = {
-					ALB.russian_influence = 100
+					ALB.russian_influence = 50
 				}
 			}
 		}
@@ -3957,22 +4073,26 @@ SOV_expand_the_russian_sphere_tsar = {
 		}
 
 		complete_effect = {
-			puppet = ALB
+			diplomatic_relation = {
+				country = ALB
+				relation = non_aggression_pact
+				active = yes
+			}
 		}
 
 		
 	}
 
-	SOV_puppet_greece = {
+	SOV_non_agression_with_greece = {
 
 		#icon = generic_construction
 
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SOV_influence_greater_than_100_GRE
+				tooltip = SOV_influence_greater_than_50_GRE
 
 				check_variable = {
-					GRE.russian_influence = 100
+					GRE.russian_influence = 50
 				}
 			}
 		}
@@ -3995,7 +4115,11 @@ SOV_expand_the_russian_sphere_tsar = {
 		}
 
 		complete_effect = {
-			puppet = GRE
+			diplomatic_relation = {
+				country = ALB
+				relation = non_aggression_pact
+				active = yes
+			}
 		}
 
 		 
