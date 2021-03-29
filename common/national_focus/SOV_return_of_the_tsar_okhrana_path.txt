@@ -65,7 +65,7 @@ shared_focus = {
     id = SOV_public_popularity
     icon = unkown
     prerequisite = {focus = SOV_the_return_of_the_tsar}
-    x = -3
+    x = -2
     y = 1
     relative_position_id = SOV_the_return_of_the_tsar
     cost = 5
@@ -103,7 +103,7 @@ shared_focus = {
     x = 0
     y = 1
     relative_position_id = SOV_minority_support
-    cost = 5
+    cost = 7
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -115,7 +115,17 @@ shared_focus = {
                 level = 1
                 instant_build = yes
             }
-            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = arms_factory
+                level = 1
+                instant_build = yes
+            }
+            add_building_construction = {
+                type = infrastructure
+                level = 3
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 2
         }
         
     }
@@ -184,7 +194,7 @@ shared_focus = {
     }
     completion_reward = {
         add_popularity = {
-            ideology = conservative_democracy
+            ideology = democratic_conservatism
             popularity = 0.05
         }
         add_political_power = 75
@@ -196,7 +206,7 @@ shared_focus = {
     id = SOV_political_popularity
     icon = unkown
     prerequisite = {focus = SOV_the_return_of_the_tsar}
-    x = 3
+    x = 2
     y = 1
     relative_position_id = SOV_the_return_of_the_tsar
     cost = 5
@@ -301,7 +311,7 @@ shared_focus = {
     icon = unkown
 	prerequisite = {focus = SOV_secure_the_conservatives}
 	prerequisite = {focus = SOV_nikolas_iis_image}
-    x = -3
+    x = -2
     y = 1
     relative_position_id = SOV_secure_the_conservatives
     cost = 5
@@ -427,7 +437,7 @@ shared_focus = {
     id = SOV_begin_consolidation_of_power
     icon = unkown
 	prerequisite = {focus = SOV_the_restoration_of_the_tsar}
-    x = -3
+    x = -2
     y = 1
     relative_position_id = SOV_the_restoration_of_the_tsar
     cost = 5
@@ -472,7 +482,7 @@ shared_focus = {
     id = SOV_propose_the_draft
     icon = unkown
 	prerequisite = {focus = SOV_draft_a_new_constitution}
-	x = 0
+	x = 1
 	y = 1
     relative_position_id = SOV_draft_a_new_constitution
     available = {
@@ -497,8 +507,11 @@ shared_focus = {
 shared_focus = {
     id = SOV_embrace_tsar_lineage
     icon = unkown
-	prerequisite = {focus = SOV_propose_the_draft}
-	x = 0
+	prerequisite = {focus = SOV_propose_the_draft }
+    prerequisite = {
+        focus = SOV_ban_leftist_parties
+    }
+	x = 1
 	y = 1
     relative_position_id = SOV_propose_the_draft
     cost = 5
@@ -515,7 +528,7 @@ shared_focus = {
     id = SOV_the_left_menace
     icon = unkown
 	prerequisite = {focus = SOV_the_restoration_of_the_tsar}
-	x = 0
+	x = 1
 	y = 1
     relative_position_id = SOV_the_restoration_of_the_tsar
     cost = 5
@@ -554,31 +567,14 @@ shared_focus = {
         
     }
 }
+
 shared_focus = {
-    id = SOV_european_crackdown
+    id = SOV_illegalize_leftist_press
     icon = unkown
 	prerequisite = {focus = SOV_the_left_menace}
 	x = 1
 	y = 1
     relative_position_id = SOV_the_left_menace
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        
-    }
-}
-shared_focus = {
-    id = SOV_illegalize_leftist_press
-    icon = unkown
-	prerequisite = {focus = SOV_european_crackdown}
-	prerequisite = { focus = SOV_eastern_crackdown }
-	x = -1
-	y = 1
-    relative_position_id = SOV_european_crackdown
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -594,7 +590,10 @@ shared_focus = {
     id = SOV_ban_leftist_parties
     icon = unkown
 	prerequisite = { focus = SOV_illegalize_leftist_press }
-	x = 0
+    prerequisite = {
+        focus = SOV_eastern_crackdown
+    }
+	x = -1
 	y = 1
     relative_position_id = SOV_illegalize_leftist_press
     cost = 5
@@ -611,7 +610,7 @@ shared_focus = {
     id = SOV_russian_development
     icon = unkown
 	prerequisite = {focus = SOV_the_restoration_of_the_tsar}
-	x = 5
+	x = 6
 	y = 1
     relative_position_id = SOV_the_restoration_of_the_tsar
     cost = 5
@@ -788,8 +787,8 @@ shared_focus = {
 	prerequisite = {focus = SOV_russian_artillery}
 	prerequisite = {focus = SOV_the_tsars_army }
 	prerequisite = {focus = SOV_embrace_tsar_lineage }
-	prerequisite = { focus = SOV_ban_leftist_parties }
-	x = -5
+	#prerequisite = { focus = SOV_ban_leftist_parties }
+	x = -6
 	y = 1
     relative_position_id = SOV_russian_artillery
     cost = 5
