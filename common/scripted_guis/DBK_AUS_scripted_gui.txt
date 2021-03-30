@@ -1,0 +1,396 @@
+scripted_gui = {
+
+	imperial_senate_gui = {
+		
+
+		context_type = decision_category
+        window_name = "AUS_imperial_senate_gridbox_container"
+
+		dynamic_lists = {
+			AUS_imperial_senate_main_grid = {
+				array = global.imperial_senate_main_array
+				change_scope = yes
+				entry_container = AUS_imperial_senate_main_entry
+			}
+		}
+
+		properties = {
+			member_icon = {
+				frame = v
+			}
+		}
+	}
+
+	aus_vienna_riot_decision_ui = {
+		context_type = decision_category
+		window_name = "AUS_RIOTS_CONTAINER"
+	}
+
+	aus_vienna_industrial_decision_ui = {
+		context_type = decision_category
+		window_name = "AUS_INDUSTRIAL_CONTAINER"
+
+		properties = {
+			industrial_recovery_progress_bar = {
+				frame = vienna_progress_bar_var
+			}
+		}
+	}
+
+
+	AUS_sixty_days_in_milan_gui = {
+		context_type = decision_category
+		window_name = "AUS_sixty_days_in_milan"
+
+		effects = {
+			milan_very_bad_click = {
+				set_country_flag = open_milan_sidebar
+			}
+		}
+	}
+
+	AUS_sixty_days_in_milan_gui_sidebar = {
+		context_type = player_context
+		window_name = "sixty_days_in_milan_sidebar"
+
+		visible = {
+			has_country_flag = open_milan_sidebar
+		}
+
+		effects = {
+			exit_click = {
+            clr_country_flag = open_milan_sidebar
+        }		
+		}
+	}
+
+
+	AUS_prague_massacre_scripted_gui = {
+		context_type = decision_category
+		window_name = "AUS_prague_massacre_gui"
+
+
+		properties = {
+			prague_massacre_progress_bar = {
+				#frame = 50
+				frame = loc_showcase_bohmia
+			}
+			prague_massacre_timeout_bar = {
+				#frame = 200
+				frame = days_mission_timeout@AUS_bohemian_revolt
+			}
+		}
+
+		
+	}
+
+	imperial_senate_gui = {
+		
+
+		context_type = decision_category
+        window_name = "AUS_imperial_senate_gridbox_container"
+
+		dynamic_lists = {
+			AUS_imperial_senate_main_grid = {
+				array = global.imperial_senate_main_array
+				change_scope = yes
+				entry_container = AUS_imperial_senate_main_entry
+			}
+		}
+
+		properties = {
+			member_icon = {
+				frame = v
+			}
+		}
+	}
+
+
+	AUS_managing_bavaria_scripted_gui = {
+        context_type = decision_category
+		window_name = "bavarian_management_container"
+
+		#visible = {
+			#has_country_flag = "open_bavarian_gui_flag"
+		#}
+		dynamic_lists = {
+			bavarian_management_state_grid = {
+					array = GPU.owned_controlled_states
+					change_scope = yes
+					entry_container = bavarian_management_state_entry
+			}
+		}
+
+		triggers = {
+			bavarian_management_baden_crazy_visible = {
+				check_variable = {
+					954.rowdiness > 5
+				}
+			}
+			bavarian_management_baden_not_crazy_visible = {
+				check_variable = {
+					var = 954.rowdiness
+					value = 5
+					compare = less_than_or_equals
+				}
+			}
+
+			bavarian_management_franken_crazy_visible = {
+				check_variable = {
+					54.rowdiness > 5
+				}
+			}
+			bavarian_management_franken_not_crazy_visible = {
+				check_variable = {
+					var = 54.rowdiness
+					value = 5
+					compare = less_than_or_equals
+				}
+			}
+
+			bavarian_management_hessen_crazy_visible = {
+				check_variable = {
+					55.rowdiness > 5
+				}
+			}
+			bavarian_management_hessen_not_crazy_visible = {
+				check_variable = {
+					var = 55.rowdiness
+					value = 5
+					compare = less_than_or_equals
+				}
+			}
+
+			bavarian_management_neiderbayern_crazy_visible = {
+				check_variable = {
+					53.rowdiness > 5
+				}
+			}
+			bavarian_management_neiderbayern_not_crazy_visible = {
+				check_variable = {
+					var = 53.rowdiness
+					value = 5
+					compare = less_than_or_equals
+				}
+			}
+
+			bavarian_management_wurtemmburg_crazy_visible = {
+				check_variable = {
+					50.rowdiness > 5
+				}
+			}
+			bavarian_management_wurtemmburg_not_crazy_visible = {
+				check_variable = {
+					var = 50.rowdiness
+					value = 5
+					compare = less_than_or_equals
+				}
+			}
+		}
+		effects = {
+			bavarian_management_baden_crazy_click = {
+				954 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+			bavarian_management_baden_not_crazy_click = {
+				954 = { 
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+		
+			bavarian_management_franken_crazy_click = {
+				54 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+			bavarian_management_franken_not_crazy_click = {
+				54 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+		
+			bavarian_management_hessen_crazy_click = {
+				55 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+			bavarian_management_hessen_not_crazy_click = {
+				55 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+		
+			bavarian_management_neiderbayern_crazy_click = {
+				53 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+			bavarian_management_neiderbayern_not_crazy_click = {
+				53 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+		
+			bavarian_management_wurtemmburg_crazy_click = {
+				50 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+			bavarian_management_wurtemmburg_not_crazy_click = {
+				50 = {
+					save_global_event_target_as = current_sgc_selected_admin_state
+				}
+			}
+		}
+	}
+	
+	
+	AUS_solving_court_factionalism_scripted_gui = {
+		window_name = "bavarian_court_stuff"
+		context_type = decision_category
+	}
+
+	##
+	DBK_second_bruderkrieg_austria_decision_ui = {
+		context_type = decision_category
+		window_name = "DBK_second_bruderkrieg_austria"
+		effects = {
+			open_spy_window_click = {
+				set_country_flag = open_spy_window_flag
+			}
+		}
+
+		 
+		properties = {
+			GFX_high_infiltration_austria_visible = {
+				check_variable = { var = AUS_prussian_infil_var value = 20 compare = greater_than_or_equals }
+			}
+
+			GFX_kinda_high_infiltration_austria_visible = {
+				check_variable = { var = AUS_prussian_infil_var value = 15 compare = equals }
+			}
+
+			GFX_medium_infiltration_austria_visible = {
+				check_variable = { var = AUS_prussian_infil_var value = 10 compare = equals }
+			}
+
+			GFX_kinda_low_infiltration_austria_visible = {
+				check_variable = { var = AUS_prussian_infil_var value = 5 compare = equals }
+			}
+
+			GFX_low_infiltration_austria_visible = {
+				check_variable = { var = AUS_prussian_infil_var value = 0 compare = lesser_than_or_equals }
+			}
+ 
+
+
+
+
+
+
+
+
+			###arms war gui
+			austrian_progress_bar = {
+				frame = austrian_tech_var
+			}
+		}
+	}
+
+
+	##created by Arj and TsarGiraldo, thanks to the TNO team
+
+	spy_window_aus_gui = {
+		context_type = player_context
+		window_name = "spy_window_aus_container" 
+
+		visible = {
+			has_country_flag = open_spy_window_flag
+		}
+
+		dirty = austrian_espionage_budget_dirty
+
+		effects = {
+			AUS_Espionage_GUI_Close_Button_click = {
+				clr_country_flag = open_spy_window_flag
+			} 
+
+			AUS_espionage_budget_slider_minus_click = {
+				add_to_variable = { austrian_espionage_budget_slider_dot_cel = -5 }
+				add_to_variable = { austrian_espionage_budget_dirty = 1 }
+				if = {
+					set_variable = { austrian_espionage_budget_slider_dot_cel = 34 }
+					limit = { check_variable = { austrian_espionage_budget_slider_dot_cel < 34 } }
+				}
+				add_to_variable = {
+					AUS_infilitration_mission_budget = -1
+				}
+			}
+			AUS_espionage_budget_slider_plus_click = {
+				add_to_variable = { austrian_espionage_budget_slider_dot_cel = 5 }
+				add_to_variable = { austrian_espionage_budget_dirty = 1 }
+				if = {
+					set_variable = { austrian_espionage_budget_slider_dot_x = 231 }
+					limit = { check_variable = { austrian_espionage_budget_slider_dot_cel > 231 } }
+				}
+				add_to_variable = {
+					AUS_infilitration_mission_budget = 1
+				}
+			}
+		
+		}
+			
+	}
+
+
+	prussian_weapons_dev_infil_scripted_gui = {
+		window_name = "prussian_weapons_development_infil_container"
+		context_type = decision_category 
+
+ 
+		properties = {
+			funding_pbar = {
+				frame = funding_for_infil_mission
+			}
+			AUS_mission_funding_slider_infil_slider_drager = {
+				x = slider_x_position
+			}
+		}
+
+		triggers = {
+			AUS_mission_funding_slider_infil_slider_container_visible = {
+				has_country_flag = player_allowed_to_change_mission_funding_flag
+			}
+		}
+
+		effects = {
+			AUS_mission_funding_slider_infil_slider_subtract_button_click = {
+				set_temp_variable = { temp_value = -1 }
+				AUS_modify_cost = yes
+			}
+			AUS_mission_funding_slider_infil_slider_subtract_button_control_click = {
+				set_temp_variable = { temp_value = -5 }
+				AUS_modify_cost = yes
+			}
+			AUS_mission_funding_slider_infil_slider_subtract_button_shift_click = {
+				set_temp_variable = { temp_value = -10 }
+				AUS_modify_cost = yes
+			}
+			AUS_mission_funding_slider_infil_slider_add_button_click = {
+				set_temp_variable = { temp_value = 1 }
+				AUS_modify_cost = yes
+			}
+			AUS_mission_funding_slider_infil_slider_add_button_control_click = {
+				set_temp_variable = { temp_value = 5 }
+				AUS_modify_cost = yes
+			}
+			AUS_mission_funding_slider_infil_slider_add_button_shift_click = {
+				set_temp_variable = { temp_value = 10 }
+				AUS_modify_cost = yes
+			}
+		}
+	}
+}
+
+#
