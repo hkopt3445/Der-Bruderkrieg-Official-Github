@@ -1,0 +1,361 @@
+scripted_gui = {
+	parliament_russian_duma_scripted_gui = {
+		window_name = "russian_duma_gui_container"
+		context_type = decision_category
+
+		visible = {
+		}
+
+		dynamic_lists = {
+			duma_diagram = {
+				array = russian_duma_seat_x
+				change_scope = no
+				entry_container = duma_seat
+				index = seat_idx
+			}
+		}
+
+		properties = {
+			duma_dot_icon = {
+				x = russian_duma_seat_x^seat_idx
+				y = russian_duma_seat_y^seat_idx
+				frame = russian_duma_seat_frame^seat_idx
+			}
+		}
+
+		
+	}
+
+
+	russian_duma_elections_scripted_gui = {
+		window_name = "russian_duma_presidential_elections_container"
+		context_type = decision_category
+
+		properties = {
+			duma_elections_kerensky_progress_bar =  {
+				frame = kerensky_support
+			}
+			duma_elections_pavel_progress_bar =  {
+				frame = pavel_support
+			}
+			duma_elections_lenin_progress_bar =  {
+				frame = lenin_support
+			}
+			duma_elections_tsar_progress_bar =  {
+				frame = tsar_support
+			}
+		}
+	}
+
+	SOV_rsdlp_balance_mechanic_scripted_gui = {
+        window_name = "SOV_rsdlp_balance_mechanic_container"
+        context_type = decision_category
+        
+        
+        properties = {
+            lenin_influence_progressbar = {
+                frame = 400
+            }
+            tsertelli_influence_progressbar = {
+				frame = SOV_tsertelli_influence_in_party
+				x = tsertelli_progressbar_x
+            }
+            mezhraionstyists_influence_progressbar = {
+				frame = SOV_mezhraionstyists_influence_in_party
+            }
+            trotsky_influence_progressbar = {
+                frame = SOV_trotsky_influence_in_party
+				x = SOV_mezhraionstyists_influence_in_party
+			}
+        }
+    }
+
+	###sphere
+	DBK_russian_sphere_scripted_gui = {
+		window_name = "DBK_russian_sphere_container"
+		context_type = decision_category
+
+		effects = {
+			russian_serbia_click = {
+				YUG = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_romania_sphere_high_click = {
+				ROM = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_romania_sphere_medium_click = {
+				ROM = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_romania_sphere_low_click = {
+				ROM = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_bulgaria_sphere_high_click = {
+				BUL = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_bulgaria_sphere_medium_click = {
+				BUL = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_bulgaria_sphere_low_click = {
+				BUL = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_albania_sphere_high_click = {
+				ALB = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_albania_sphere_medium_click = {
+				ALB = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_albania_sphere_low_click = {
+				ALB = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+			SOV_chaotic_greece_click = {
+				GRE = {
+					save_global_event_target_as = SOV_current_selected_balkan_state
+				}
+			}
+		
+
+			spread_influence_click = {
+				set_country_flag = {
+					flag = SOV_doing_sphere_action
+					value = 15
+				}
+				add_political_power = -20
+				add_to_variable = {
+					event_target:SOV_current_selected_balkan_state.russian_influence = 5
+				}
+			}
+
+			threaten_then_click = {
+				set_country_flag = {
+					flag = SOV_doing_sphere_action
+					value = 15
+				}
+				event_target:SOV_current_selected_balkan_state = {
+					add_opinion_modifier = {
+						target = THIS
+						modifier = small_decrease
+					}
+				}
+				add_to_variable = {
+					event_target:SOV_current_selected_balkan_state.russian_influence = 5
+				}
+			}
+
+			army_exercises_click = {
+				set_country_flag = {
+					flag = SOV_doing_sphere_action
+					value = 15
+				}
+				event_target:SOV_current_selected_balkan_state = {
+					army_experience = 10
+				}
+				add_to_variable = {
+					event_target:SOV_current_selected_balkan_state.russian_influence = 5
+				}
+			}
+
+			provide_aid_click = {
+				set_country_flag = {
+					flag = SOV_doing_sphere_action
+					value = 15
+				}
+				event_target:SOV_current_selected_balkan_state = {
+					add_political_power = 50
+				}
+				add_to_variable = {
+					event_target:SOV_current_selected_balkan_state.russian_influence = 5
+				}
+			}
+		}
+
+		triggers = {
+
+			SOV_romania_sphere_high_visible = {
+				ROM = {
+					check_variable = {
+						russian_influence > 70
+					}
+				}
+			}
+			SOV_romania_sphere_medium_visible = {
+				ROM = {
+					check_variable = {
+						russian_influence > 40
+					}
+					check_variable = {
+						russian_influence < 71
+					}
+				}
+			}
+			SOV_romania_sphere_low_visible = {
+				ROM = {
+					check_variable = {
+						russian_influence < 41
+					}
+				}
+			}
+
+			SOV_bulgaria_sphere_high_visible = {
+				BUL = {
+					check_variable = {
+						russian_influence > 70
+					}
+				}
+			}
+			SOV_bulgaria_sphere_medium_visible = {
+				BUL = {
+					check_variable = {
+						russian_influence > 40
+					}
+					check_variable = {
+						russian_influence < 71
+					}
+				}
+			}
+			SOV_bulgaria_sphere_low_visible = {
+				BUL = {
+					check_variable = {
+						russian_influence < 41
+					}
+				}
+			}
+
+			SOV_albania_sphere_high_visible = {
+				ALB = {
+					check_variable = {
+						russian_influence > 70
+					}
+				}
+			}
+			SOV_albania_sphere_medium_visible = {
+				ALB = {
+					check_variable = {
+						russian_influence > 40
+					}
+					check_variable = {
+						russian_influence < 71
+					}
+				}
+			}
+			SOV_albania_sphere_low_visible = {
+				ALB = {
+					check_variable = {
+						russian_influence < 41
+					}
+				}
+			}
+			
+
+			SOV_chaotic_serbia_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+				has_country_flag = SOV_serbia_stabilized_flag
+			}
+			SOV_romania_sphere_high_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_romania_sphere_medium_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_romania_sphere_low_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_bulgaria_sphere_high_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_bulgaria_sphere_medium_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_bulgaria_sphere_low_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_albania_sphere_high_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_albania_sphere_medium_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_albania_sphere_low_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			SOV_chaotic_greece_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+		
+			
+			spread_influence_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			
+			threaten_then_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			
+			army_exercises_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+			
+			provide_aid_click_enabled = {
+				NOT = {
+					has_country_flag = SOV_doing_sphere_action
+				}
+			}
+
+
+
+			
+		}
+
+		properties = {
+			russian_sphere_influence_bar = {
+				frame = event_target:SOV_current_selected_balkan_state.russian_influence
+			}
+		}
+    }
+}

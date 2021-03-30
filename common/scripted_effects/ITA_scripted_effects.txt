@@ -66,14 +66,64 @@ ITA_calc_economic_recovery = {
 }
 
 ITA_give_italian_cores = {
-	every_state = {
-		limit = {
-			OR = {
-				is_owned_by = ITA
-				is_owned_by = CMI
-			}
-		}
+	CMI = {
+		every_owned_state = {
 		add_core_of = ITA
-		add_core_of = CMI
+		}
 	}
+} 
+
+
+ITA_MVSN_radar_graph_set_up = {
+	# Sets up random values from 4-9 for each of the axes on the radar graph
+
+	set_variable = { ITA_MVSN_radar_0 = 35 }
+	multiply_variable = { ITA_MVSN_radar_0 = 4 }
+	add_to_variable = { ITA_MVSN_radar_0 = 3 }
+	subtract_from_variable = { ITA_MVSN_radar_0 = 0.5 }
+	round_variable = ITA_MVSN_radar_0
+
+	set_variable = { ITA_MVSN_radar_1 = 26 }
+	multiply_variable = { ITA_MVSN_radar_1 = 4 }
+	add_to_variable = { ITA_MVSN_radar_1 = 3 }
+	subtract_from_variable = { ITA_MVSN_radar_1 = 0.5 }
+	round_variable = ITA_MVSN_radar_1
+
+	set_variable = { ITA_MVSN_radar_2 = 21 }
+	multiply_variable = { ITA_MVSN_radar_2 = 4 }
+	add_to_variable = { ITA_MVSN_radar_2 = 3 }
+	subtract_from_variable = { ITA_MVSN_radar_2 = 0.5 }
+	round_variable = ITA_MVSN_radar_2
+
+	set_variable = { ITA_MVSN_radar_3 = 18 }
+	multiply_variable = { ITA_MVSN_radar_3 = 4 }
+	add_to_variable = { ITA_MVSN_radar_3 = 3 }
+	subtract_from_variable = { ITA_MVSN_radar_3 = 0.5 }
+	round_variable = ITA_MVSN_radar_3
+
+}
+
+ITA_MVSN_convert_axes_values_to_frames = {
+	# Computes the frame values for each of the radar graph progress bars, based on these inputs
+
+	set_variable = { ITA_MVSN_radar_display_0 = ITA_MVSN_radar_0 }
+	multiply_variable = { ITA_MVSN_radar_display_0 = 10 }
+	add_to_variable = { ITA_MVSN_radar_display_0 = ITA_MVSN_radar_1 }
+
+	set_variable = { ITA_MVSN_radar_display_1 = ITA_MVSN_radar_1  }
+	multiply_variable = { ITA_MVSN_radar_display_1 = 10 }
+	add_to_variable = { ITA_MVSN_radar_display_1 = ITA_MVSN_radar_2 }
+
+	set_variable = { ITA_MVSN_radar_display_2 = ITA_MVSN_radar_2 }
+	multiply_variable = { ITA_MVSN_radar_display_2 = 10 }
+	add_to_variable = { ITA_MVSN_radar_display_2 = ITA_MVSN_radar_3 }
+
+	set_variable = { ITA_MVSN_radar_display_3 = ITA_MVSN_radar_3 }
+	multiply_variable = { ITA_MVSN_radar_display_3 = 10 }
+	add_to_variable = { ITA_MVSN_radar_display_3 = ITA_MVSN_radar_display_0  }
+
+}
+
+d_ITA_MVSN_radar_graph_set_up_debug = {
+	ITA_MVSN_radar_graph_set_up = yes
 }

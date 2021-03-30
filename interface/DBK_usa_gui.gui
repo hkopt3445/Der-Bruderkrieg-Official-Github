@@ -1,0 +1,1553 @@
+guiTypes = {
+	containerWindowType = {
+		name = "USA_congress_container"
+		position = {x = 0 y= 20}
+		size = {width = 900 height = 500}
+
+		#background = {
+		#	name = "usa_congress_bg"
+		#	spriteType = "GFX_USA_congress_bg"
+		#}
+
+		instantTextBoxType = {
+			name = "USA Seante"
+			position = {
+				x = 200
+				y = 230
+			}
+			font = Bomb_24
+			text = "United States Senate"
+		}
+	
+		gridboxtype = {
+			name = "USA_senate_main_grid" # same as what you defined in dynamic_lists
+			position = { x = -600 y =270 }
+			size = { width = 100%% height = 100%% }
+			padding = { top = 0 bottom = 10 }
+			slotsize = { width = 22 height = 13 }
+			max_slots_vertical = 10
+		
+		
+			add_horizontal = no
+		}
+
+		instantTextBoxType = {
+			name = "USA house"
+			position = {
+				x = 200
+				y = 10
+			}
+			font = Bomb_24
+			text = "United States House"
+		}
+		gridboxtype = {
+			name = "USA_house_main_grid" # same as what you defined in dynamic_lists
+			position = { x = -860 y = 40 }
+			size = { width = 100%% height = 100%% }
+			padding = { top = 0 bottom = 10 }
+			slotsize = { width = 13 height = 13 }
+			max_slots_vertical = 13
+			add_horizontal = no
+		}
+	}
+	# entry is a separate container from the main interface container
+	# basically governs what shows up in the grid
+	containerWindowType = {
+        name = "USA_senate_main_entry" # same as what you defined in dynamic_lists
+        position = { x = 0 y = 0 }
+		size = { width = 28 height = 26 }
+
+		iconType = {
+			name = "member_icon"
+			spriteType = "GFX_USA_house_strip" # this should be a strip with 5 frames, with each frame representing each unique party (goes in the order Party A-E)
+			position = { x = 0 y = 0 }
+		}
+	}
+
+	containerWindowType = {
+        name = "USA_house_main_entry" # same as what you defined in dynamic_lists
+        position = { x = 0 y = 0 }
+		size = { width = 14 height = 13 }
+
+		iconType = {
+			name = "member_icon"
+			spriteType = "GFX_USA_house_strip" # this should be a strip with 5 frames, with each frame representing each unique party (goes in the order Party A-E)
+			position = { x = 0 y = 0 }
+		}
+	}
+	
+
+
+
+
+	containerWindowType = { 
+		name = "us_election_counters"
+		size= {width=100%% height = 840}
+		position = { x = 0 y = 0 }
+		instantTextBoxType = {
+				maxWidth = 500
+				maxHeight = 20
+				font = "hoi_36header"
+				text = "Road to 266"
+				format = center
+				fixedsize = yes
+		}
+   
+		containerWindowType = {
+				name = "us_election_graph_container"
+				position = { x = 20 y = 50}
+				iconType = {
+			name = "grpah"
+			spriteType = "GFX_USA_election_graph"
+						position = {x = 0 y=0}
+				}
+
+				iconType = {
+	name = "long_count"
+	spriteType = "GFX_long_count"
+
+				position = {x = 19 y=0}
+				#frame = 59 
+
+				}
+
+				iconType = {
+	name = "borah_count"
+	spriteType = "GFX_borah_count"
+
+				position = {x = 313 y=0}
+			 #   frame = 59
+				
+		}
+		iconType = {
+	name = "smith_count"
+	spriteType = "GFX_smith_count"
+
+				position = {x = 166 y=0}
+			 #   frame = 59
+		}
+		}
+		
+		containerWindowType = {
+				position  = {x = 0 y= 65}
+		iconType = {
+	name = "huey long the chad"
+	spriteType = "GFX_long_chad"
+
+				position = {x = 49 y=525}
+		} 
+		instantTextBoxType = {
+				maxWidth = 100
+	maxHeight = 100 
+	name = "long electoral desc"
+	position = { x= 49 y = 670 }
+	font = "hoi_18mbs"
+	format = center
+				text = "long_electoral_desc"
+	fixedsize = yes
+}
+
+		
+
+		iconType = {
+	name = "borah weird"
+	spriteType = "GFX_borah_weird"
+
+				position = {x = 343 y=525}
+		} 
+		instantTextBoxType = {
+				maxWidth = 100
+	maxHeight = 100 
+	name = "borah electoral desc"
+	position = { x= 343 y = 670 }
+	font = "hoi_18mbs"
+	text = "borah_electoral_desc"
+	format = center
+	fixedsize = no
+
+
+}
+		
+
+		
+		iconType = {
+	name = "smith_Himself"
+	spriteType = "GFX_smith_himself"
+
+				
+				position = {x = 196 y=525}
+		} 
+		instantTextBoxType = {
+				maxWidth = 100
+	maxHeight = 100 
+	name = "smith electoral desc"
+	position = { x= 196 y = 670 }
+	font = "hoi_18mbs"
+	text = "smith_electoral_desc"
+	format = center
+	fixedsize = no
+
+
+		}
+
+		instantTextBoxType = {
+				maxWidth = 500
+				maxHeight = 60
+				position = {
+						x = 0
+						y = 760
+				}
+				text = "                                         "
+		}
+}
+		
+}
+containerWindowType = { 		
+		name = "USA_election_container" 		
+		position = {x = 100 y = 15} 	
+			
+		size = {width = 1780 height = 1050}
+
+		 background = {
+	name = "Background"		
+	spriteType ="GFX_tiled_bg"
+		}
+		
+		buttonType = {
+				name = "exit"
+				position = {x=0 y=0}
+				##Orientation = "UPPER_RIGHT"
+				spriteType = "GFX_closebutton"
+				shortcut = "ESCAPE"
+		  }
+
+		  instantTextBoxType = {
+				  name = "title"
+				  text = "The Electoral College"
+				  position = {
+						  x = 800
+						  y = 20
+				  }
+				  font = "hoi_36header"
+				  maxWidth = 500
+				  scale = 2
+		  }
+		  containerWindowType = {
+				  name = "state_camapign_window"
+				  position = {x = 40 y= 800}
+
+		instantTextBoxType = {
+				name = "state_title"
+				position = {
+						x = 0 
+						y = 0
+				}
+				maxWidth = 400
+				text = "Selected: [USA_targeted_campaign_state.GetName]"
+				font = "hoi_36header"
+				format = center
+		}
+		instantTextBoxType = {
+				name = "state_pop"
+				position = {
+						x = 0
+						y = 70
+				}
+				text = "Population: [?USA_targeted_campaign_state.state_population]"
+				font = "hoi_30header"
+				maxWidth = 500
+				maxHeight = 30
+		}
+		instantTextBoxType = {
+				name = "state_currently_supports"
+				position = {
+						x = 0
+						y = 140
+				}
+				text = "Currently Supports: [USA_targeted_campaign_state.GetStateCurrentlySupportsCandidate]"
+				font = "hoi_30header"
+				maxWidth = 500
+				maxHeight = 30
+		}
+		buttonType = {
+				name = "campaign_button_in"
+				position = {
+						x = 0
+						y = 210
+				}
+				buttonText = "Campaign in [USA_targeted_campaign_state.GetStateCurrentlySupportsCandidate]"
+				buttonFont = "hoi_30header"
+		}
+	   }
+		  containerWindowType = {
+				  name = "legend"
+				  position = {x = 0 y = 0}
+				instantTextBoxType = {
+				name = "legend_title"
+				text = "Legend"
+				position = {
+						x = 1580
+						y = 450
+				}
+				font = "hoi_36header"
+				maxWidth = 260
+		}
+
+		  instantTextBoxType = {
+				name = "huey_long_key"
+				text = "long_electoral_key"
+				position = {
+						x = 1520
+						y = 500
+				}
+				font = "hoi_36header"
+				maxWidth = 200
+		}
+		instantTextBoxType = {
+				name = "borah_key"
+				text = "borah_electoral_key"
+				position = {
+						x = 1520
+						y = 550
+				}
+				font = "hoi_36header"
+				maxWidth = 230
+		}
+		instantTextBoxType = {
+				name = "smith_key"
+				text = "smith_electoral_key"
+				position = {
+						x = 1520
+						y = 600
+				}
+				font = "hoi_36header"
+				maxWidth = 200
+		}
+		instantTextBoxType = {
+				name = "undecided_key"
+				text = "undecided_electoral_key"
+				position = {
+						x = 1520
+						y = 650
+				}
+				font = "hoi_36header"
+				maxWidth = 200
+		}
+		}
+		containerWindowType = {
+				name = "states_contianer"
+				position = {x = 100 y = 80}
+				iconType = {
+						name = "usa_election_bg"
+						spriteType = "GFX_USA_election_USA_election_map"
+						position = {
+								x =  0
+								y = 0
+						}
+				}
+		
+		iconType = {
+		name = "arizona_blue"        
+		pdx_tooltip = "USA_arizona_electoral_tt"
+		spriteType = "GFX_USA_election_arizona_blue"
+		position = { x = 207 y = 478 }
+		}
+		iconType = {
+		name = "arizona_green"        
+		pdx_tooltip = "USA_arizona_electoral_tt"
+		spriteType = "GFX_USA_election_arizona_green"
+		position = { x = 207 y = 478 }
+		}
+		iconType = {
+		name = "arizona_red"        
+		pdx_tooltip = "USA_arizona_electoral_tt"
+		spriteType = "GFX_USA_election_arizona_red"
+		position = { x = 207 y = 478 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_arkansas_electoral_tt"
+		name = "arkanas_blue"        
+		spriteType = "GFX_USA_election_arkansas_blue"
+		position = { x = 810 y = 531 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_arkansas_electoral_tt"
+		name = "arkanas_green"        
+		spriteType = "GFX_USA_election_arkansas_green"
+		position = { x = 810 y = 531 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_arkansas_electoral_tt"
+		name = "arkanas_red"        
+		spriteType = "GFX_USA_election_arkansas_red"
+		position = { x = 810 y = 531 }
+		}
+	   
+		iconType = {
+		pdx_tooltip = "USA_california_electoral_tt"        
+		name = "california_blue"        
+		spriteType = "GFX_USA_election_california_blue"
+		position = { x = 10 y = 239 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_california_electoral_tt"        
+		name = "california_green"        
+		spriteType = "GFX_USA_election_california_green"
+		position = { x = 10 y = 239 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_california_electoral_tt"        
+		name = "california_red"        
+		spriteType = "GFX_USA_election_california_red"
+		position = { x = 10 y = 239 }
+		}
+		
+		iconType = {
+		pdx_tooltip = "USA_colorado_electoral_tt" 
+		name = "colorado_blue"        
+		spriteType = "GFX_USA_election_colorado_blue"
+		position = { x = 399 y = 355 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_colorado_electoral_tt" 
+		name = "colorado_green"        
+		spriteType = "GFX_USA_election_colorado_green"
+		position = { x = 399 y = 355 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_colorado_electoral_tt" 
+		name = "colorado_red"        
+		spriteType = "GFX_USA_election_colorado_red"
+		position = { x = 399 y = 355 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_delware_electoral_tt" 
+		name = "delware_blue"        
+		spriteType = "GFX_USA_election_delware_blue"
+		position = { x = 1320 y = 350 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_delware_electoral_tt" 
+		name = "delware_green"        
+		spriteType = "GFX_USA_election_delware_green"
+		position = { x = 1320 y = 350 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_delware_electoral_tt" 
+		name = "delware_red"        
+		spriteType = "GFX_USA_election_delware_red"
+		position = { x = 1320 y = 350 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_florida_electoral_tt"
+		name = "florida_blue"        
+		spriteType = "GFX_USA_election_florida_blue"
+		position = { x = 1027 y = 707 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_florida_electoral_tt"
+		name = "florida_green"        
+		spriteType = "GFX_USA_election_florida_green"
+		position = { x = 1027 y = 707 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_florida_electoral_tt"
+		name = "florida_red"        
+		spriteType = "GFX_USA_election_florida_red"
+		position = { x = 1027 y = 707 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_georgia_electoral_tt"
+		name = "georgia_blue"        
+		spriteType = "GFX_USA_election_georgia_blue"
+		position = { x = 1075 y = 564 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_georgia_electoral_tt"
+		name = "georgia_green"        
+		spriteType = "GFX_USA_election_georgia_green"
+		position = { x = 1075 y = 564 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_georgia_electoral_tt"
+		name = "georgia_red"        
+		spriteType = "GFX_USA_election_georgia_red"
+		position = { x = 1075 y = 564 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_idaho_electoral_tt"
+		name = "idaho_blue"        
+		spriteType = "GFX_USA_election_idaho_blue"
+		position = { x = 214 y = 38 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_idaho_electoral_tt"
+		name = "idaho_green"        
+		spriteType = "GFX_USA_election_idaho_green"
+		position = { x = 214 y = 38 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_idaho_electoral_tt"
+		name = "idaho_red"        
+		spriteType = "GFX_USA_election_idaho_red"
+		position = { x = 214 y = 38 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_indiana_electoral_tt"
+		name = "iindiana_blue"        
+		spriteType = "GFX_USA_election_iindiana_blue"
+		position = { x = 994 y = 328 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_indiana_electoral_tt"
+		name = "iindiana_green"        
+		spriteType = "GFX_USA_election_iindiana_green"
+		position = { x = 994 y = 328 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_indiana_electoral_tt"
+		name = "iindiana_red"        
+		spriteType = "GFX_USA_election_iindiana_red"
+		position = { x = 994 y = 328 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_illinois_electoral_tt"
+		name = "illinois_blue"        
+		spriteType = "GFX_USA_election_illionois_blue"
+		position = { x = 891 y = 310 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_illinois_electoral_tt"
+		name = "illinois_green"        
+		spriteType = "GFX_USA_election_illionois_green"
+		position = { x = 891 y = 310 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_illinois_electoral_tt"
+		name = "illinois_red"        
+		spriteType = "GFX_USA_election_illionois_red"
+		position = { x = 891 y = 310 }
+		}
+		iconType = {
+		pdx_tooltip  = "USA_iowa_electoral_tt"
+		name = "iowa_blue"        
+		spriteType = "GFX_USA_election_iowa_blue"
+		position = { x = 753 y = 279 }
+		}
+		iconType = {
+		pdx_tooltip  = "USA_iowa_electoral_tt"
+		name = "iowa_green"        
+		spriteType = "GFX_USA_election_iowa_green"
+		position = { x = 753 y = 279 }
+		}
+		iconType = {
+		pdx_tooltip  = "USA_iowa_electoral_tt"
+		name = "iowa_red"        
+		spriteType = "GFX_USA_election_iowa_red"
+		position = { x = 753 y = 279 }
+		}
+		iconType = {
+		pdx_tooltip  = "USA_kentucky_electoral_tt"
+		name = "kentucky_blue"        
+		spriteType = "GFX_USA_election_kentucky_blue"
+		position = { x = 965 y = 422 }
+		}
+		iconType = {
+		pdx_tooltip  = "USA_kentucky_electoral_tt"
+		name = "kentucky_green"        
+		spriteType = "GFX_USA_election_kentucky_green"
+		position = { x = 965 y = 422 }
+		}
+		iconType = {
+		pdx_tooltip  = "USA_kentucky_electoral_tt"
+		name = "kentucky_red"        
+		spriteType = "GFX_USA_election_kentucky_red"
+		position = { x = 965 y = 422 }
+		}
+		iconType = {
+		 pdx_tooltip  = "USA_lousiana_electoral_tt"
+		name = "lousiana_blue"        
+		spriteType = "GFX_USA_election_lousiana_blue"
+		position = { x = 831 y = 660 }
+		}
+		iconType = {
+		 pdx_tooltip  = "USA_lousiana_electoral_tt"
+		name = "lousiana_green"        
+		spriteType = "GFX_USA_election_lousiana_green"
+		position = { x = 831 y = 660 }
+		}
+		iconType = {
+		 pdx_tooltip  = "USA_lousiana_electoral_tt"
+		name = "lousiana_red"        
+		spriteType = "GFX_USA_election_lousiana_red"
+		position = { x = 831 y = 660 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_maryland_electoral_tt"
+		name = "maryland_blue"        
+		spriteType = "GFX_USA_election_maryland_blue"
+		position = { x = 1261 y = 357 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_maryland_electoral_tt"
+		name = "maryland_green"        
+		spriteType = "GFX_USA_election_maryland_green"
+		position = { x = 1261 y = 357 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_maryland_electoral_tt"
+		name = "maryland_red"        
+		spriteType = "GFX_USA_election_maryland_red"
+		position = { x = 1261 y = 357 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_michigan_electoral_tt"
+		name = "michigan_blue"        
+		spriteType = "GFX_USA_election_michigan_blue"
+		position = { x = 908 y = 143 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_michigan_electoral_tt"
+		name = "michigan_green"        
+		spriteType = "GFX_USA_election_michigan_green"
+		position = { x = 908 y = 143 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_michigan_electoral_tt"
+		name = "michigan_red"        
+		spriteType = "GFX_USA_election_michigan_red"
+		position = { x = 908 y = 143 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_minnesota_electoral_tt"
+		name = "minnesota_blue"        
+		spriteType = "GFX_USA_election_minnesota_blue"
+		position = { x = 737 y = 75 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_minnesota_electoral_tt"
+		name = "minnesota_green"        
+		spriteType = "GFX_USA_election_minnesota_green"
+		position = { x = 737 y = 75 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_minnesota_electoral_tt"
+		name = "minnesota_red"        
+		spriteType = "GFX_USA_election_minnesota_red"
+		position = { x = 737 y = 75 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_mississipi_electoral_tt"
+		name = "mississipi_blue"        
+		spriteType = "GFX_USA_election_mississipi_blue"
+		position = { x = 907 y = 580 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_mississipi_electoral_tt"
+		name = "mississipi_green"        
+		spriteType = "GFX_USA_election_mississipi_green"
+		position = { x = 907 y = 580 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_mississipi_electoral_tt"
+		name = "mississipi_red"        
+		spriteType = "GFX_USA_election_mississipi_red"
+		position = { x = 907 y = 580 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_missouri_electoral_tt"
+		name = "missouri_blue"        
+		spriteType = "GFX_USA_election_missouri_blue"
+		position = { x = 776 y = 385 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_missouri_electoral_tt"
+		name = "missouri_green"        
+		spriteType = "GFX_USA_election_missouri_green"
+		position = { x = 776 y = 385 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_missouri_electoral_tt"
+		name = "missouri_red"        
+		spriteType = "GFX_USA_election_missouri_red"
+		position = { x = 776 y = 385 }
+		}
+		iconType = {
+		dx_tooltip = "USA_montana_electoral_tt"
+		name = "montana_blue"        
+		spriteType = "GFX_USA_election_montana_blue"
+		position = { x = 281 y = 43 }
+		}
+		iconType = {
+		dx_tooltip = "USA_montana_electoral_tt"
+		name = "montana_green"        
+		spriteType = "GFX_USA_election_montana_green"
+		position = { x = 281 y = 43 }
+		}
+		iconType = {
+		dx_tooltip = "USA_montana_electoral_tt"
+		name = "montana_red"        
+		spriteType = "GFX_USA_election_montana_red"
+		position = { x = 281 y = 43 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nevada_electoral_tt"
+		name = "nevada_blue"        
+		spriteType = "GFX_USA_election_nevada_blue"
+		position = { x = 111 y = 267 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nevada_electoral_tt"
+		name = "nevada_green"        
+		spriteType = "GFX_USA_election_nevada_green"
+		position = { x = 111 y = 267 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nevada_electoral_tt"
+		name = "nevada_red"        
+		spriteType = "GFX_USA_election_nevada_red"
+		position = { x = 111 y = 267 }
+		}
+
+		iconType = {
+		pdx_tooltip = "USA_new_jersey_electoral_tt"
+		name = "new_jersey_blue"        
+		spriteType = "GFX_USA_election_new_jersey_blue"
+		position = { x = 1327 y = 293 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_new_jersey_electoral_tt"
+		name = "new_jersey_green"        
+		spriteType = "GFX_USA_election_new_jersey_green"
+		position = { x = 1327 y = 293 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_new_jersey_electoral_tt"
+		name = "new_jersey_red"        
+		spriteType = "GFX_USA_election_new_jersey_red"
+		position = { x = 1327 y = 293 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_new_mexico_electoral_tt"
+		name = "new_mexico_blue"        
+		spriteType = "GFX_USA_election_new_mexico_blue"
+		position = { x = 374 y = 500 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_new_mexico_electoral_tt"
+		name = "new_mexico_green"        
+		spriteType = "GFX_USA_election_new_mexico_green"
+		position = { x = 374 y = 500 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_new_mexico_electoral_tt"
+		name = "new_mexico_red"        
+		spriteType = "GFX_USA_election_new_mexico_red"
+		position = { x = 374 y = 500 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_new_york_electoral_tt"
+		name = "new_york_blue"        
+		spriteType = "GFX_USA_election_new_york_blue"
+		position = { x = 1196 y = 157 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_new_york_electoral_tt"
+		name = "new_york_green"        
+		spriteType = "GFX_USA_election_new_york_green"
+		position = { x = 1196 y = 157 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_new_york_electoral_tt"
+		name = "new_york_red"        
+		spriteType = "GFX_USA_election_new_york_red"
+		position = { x = 1196 y = 157 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nc_electoral_tt"
+		name = "north_carlonia_blue"        
+		spriteType = "GFX_USA_election_north_carolina_blue"
+		position = { x = 1110 y = 471 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nc_electoral_tt"
+		name = "north_carlonia_green"        
+		spriteType = "GFX_USA_election_north_carolina_green"
+		position = { x = 1110 y = 471 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nc_electoral_tt"
+		name = "north_carlonia_red"        
+		spriteType = "GFX_USA_election_north_carolina_red"
+		position = { x = 1110 y = 471 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_ohio_electoral_tt"
+		name = "ohio_blue"        
+		spriteType = "GFX_USA_election_ohio_blue"
+		position = { x = 1067 y = 303 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_ohio_electoral_tt"
+		name = "ohio_green"        
+		spriteType = "GFX_USA_election_ohio_green"
+		position = { x = 1067 y = 303 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_ohio_electoral_tt"
+		name = "ohio_red"        
+		spriteType = "GFX_USA_election_ohio_red"
+		position = { x = 1067 y = 303 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_oklahoma_electoral_tt"
+		name = "oklhahoma_blue"        
+		spriteType = "GFX_USA_election_oklhoma_blue"
+		position = { x = 570 y = 516 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_oklahoma_electoral_tt"
+		name = "oklhahoma_green"        
+		spriteType = "GFX_USA_election_oklhoma_green"
+		position = { x = 570 y = 516 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_oklahoma_electoral_tt"
+		name = "oklhahoma_red"        
+		spriteType = "GFX_USA_election_oklhoma_red"
+		position = { x = 570 y = 516 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_oregon_electoral_tt"
+		name = "oregon_blue"        
+		spriteType = "GFX_USA_election_oregon_blue"
+		position = { x = 26 y = 95 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_oregon_electoral_tt"
+		name = "oregon_green"        
+		spriteType = "GFX_USA_election_oregon_green"
+		position = { x = 26 y = 95 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_oregon_electoral_tt"
+		name = "oregon_red"        
+		spriteType = "GFX_USA_election_oregon_red"
+		position = { x = 26 y = 95 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_pensylvania_electoral_tt"
+		name = "pensylvania_blue"        
+		spriteType = "GFX_USA_election_pensylvanai_blue"
+		position = { x = 1179 y = 274 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_pensylvania_electoral_tt"
+		name = "pensylvania_green"        
+		spriteType = "GFX_USA_election_pensylvanai_green"
+		position = { x = 1179 y = 274 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_pensylvania_electoral_tt"
+		name = "pensylvania_red"        
+		spriteType = "GFX_USA_election_pensylvanai_red"
+		position = { x = 1179 y = 274 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_south_carolina_electoral_tt"
+		name = "south_carolina_blue"        
+		spriteType = "GFX_USA_election_south carolina_blue"
+		position = { x =1142 y = 550 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_south_carolina_electoral_tt"
+		name = "south_carolina_green"        
+		spriteType = "GFX_USA_election_south carolina_green"
+		position = { x =1142 y = 550 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_south_carolina_electoral_tt"
+		name = "south_carolina_red"        
+		spriteType = "GFX_USA_election_south carolina_red"
+		position = { x =1142 y = 550 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_utah_electoral_tt"
+		name = "utah_blue"        
+		spriteType = "GFX_USA_election_utah_blue"
+		position = { x = 258 y = 299 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_utah_electoral_tt"
+		name = "utah_green"        
+		spriteType = "GFX_USA_election_utah_green"
+		position = { x = 258 y = 299 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_utah_electoral_tt"
+		name = "utah_red"        
+		spriteType = "GFX_USA_election_utah_red"
+		position = { x = 258 y = 299 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_tenessee_electoral_tt"
+		name = "tennessee_blue"        
+		spriteType = "GFX_USA_election_tennessee_blue"
+		position = { x = 939 y = 501 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_tenessee_electoral_tt"
+		name = "tennessee_green"        
+		spriteType = "GFX_USA_election_tennessee_green"
+		position = { x = 939 y = 501 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_tenessee_electoral_tt"
+		name = "tennessee_red"        
+		spriteType = "GFX_USA_election_tennessee_red"
+		position = { x = 939 y = 501 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_texas_electoral_tt"
+		name = "texas_blue"        
+		spriteType = "GFX_USA_election_texas_blue"
+		position = { x = 450 y = 533 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_texas_electoral_tt"
+		name = "texas_green"        
+		spriteType = "GFX_USA_election_texas_green"
+		position = { x = 450 y = 533 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_texas_electoral_tt"
+		name = "texas_red"        
+		spriteType = "GFX_USA_election_texas_red"
+		position = { x = 450 y = 533 }
+		}
+	   
+	   
+		iconType = {
+		pdx_tooltip = "USA_virginia_electoral_tt"
+		name = "virginia_blue"        
+		spriteType = "GFX_USA_election_virginia_blue"
+		position = { x = 1134 y = 383 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_virginia_electoral_tt"
+		name = "virginia_green"        
+		spriteType = "GFX_USA_election_virginia_green"
+		position = { x = 1134 y = 383 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_virginia_electoral_tt"
+		name = "virginia_red"        
+		spriteType = "GFX_USA_election_virginia_red"
+		position = { x = 1134 y = 383 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_washington_electoral_tt"
+		name = "washington_blue"        
+		spriteType = "GFX_USA_election_washington_blue"
+		position = { x = 75 y = 6 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_washington_electoral_tt"
+		name = "washington_green"        
+		spriteType = "GFX_USA_election_washington_green"
+		position = { x = 75 y = 6 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_washington_electoral_tt"
+		name = "washington_red"        
+		spriteType = "GFX_USA_election_washington_red"
+		position = { x = 75 y = 6 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_west_virginia_electoral_tt"
+		name = "west_virginia_blue"        
+		spriteType = "GFX_USA_election_west virginia_blue"
+		position = { x = 1144 y = 365 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_west_virginia_electoral_tt"
+		name = "west_virginia_green"        
+		spriteType = "GFX_USA_election_west virginia_green"
+		position = { x = 1144 y = 365 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_west_virginia_electoral_tt"
+		name = "west_virginia_red"        
+		spriteType = "GFX_USA_election_west virginia_red"
+		position = { x = 1144 y = 365 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_wisconsin_electoral_tt"
+		name = "wisconsin_blue"        
+		spriteType = "GFX_USA_election_wisconsin_blue"
+		position = { x = 845 y = 154 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_wisconsin_electoral_tt"
+		name = "wisconsin_green"        
+		spriteType = "GFX_USA_election_wisconsin_green"
+		position = { x = 845 y = 154 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_wisconsin_electoral_tt"
+		name = "wisconsin_red"        
+		spriteType = "GFX_USA_election_wisconsin_red"
+		position = { x = 845 y = 154 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_wyoming_electoral_tt"
+		name = "wyoming_blue"        
+		spriteType = "GFX_USA_election_wyoming_blue"
+		position = { x = 364 y = 205 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_wyoming_electoral_tt"
+		name = "wyoming_green"        
+		spriteType = "GFX_USA_election_wyoming_green"
+		position = { x = 364 y = 205 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_wyoming_electoral_tt"
+		name = "wyoming_red"        
+		spriteType = "GFX_USA_election_wyoming_red"
+		position = { x = 364 y = 205 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_dakota_electoral_tt"
+		name = "dakota_blue"        
+		spriteType = "GFX_USA_election_dakota_blue"
+		position = { x = 558 y = 82 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_dakota_electoral_tt"
+		name = "dakota_green"        
+		spriteType = "GFX_USA_election_dakota_green"
+		position = { x = 558 y = 82 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_dakota_electoral_tt"
+		name = "dakota_red"        
+		spriteType = "GFX_USA_election_dakota_red"
+		position = { x = 558 y = 82 }
+		}
+
+		iconType = {
+		pdx_tooltip = "USA_alabama_electoral_tt"
+		name = "alabama_blue"        
+		spriteType = "GFX_USA_election_alabama_blue"
+		position = { x = 1001 y = 574 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_alabama_electoral_tt"
+		name = "alabama_green"        
+		spriteType = "GFX_USA_election_alabama_green"
+		position = { x = 1001 y = 574 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_alabama_electoral_tt"
+		name = "alabama_red"        
+		spriteType = "GFX_USA_election_alabama_red"
+		position = { x = 1001 y = 574 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nebraska_electoral_tt"
+		name = "nebraska_blue"        
+		spriteType = "GFX_USA_election_nebraska_blue"
+		position = { x = 553 y = 296 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nebraska_electoral_tt"
+		name = "nebraska_green"        
+		spriteType = "GFX_USA_election_nebraska_green"
+		position = { x = 553 y = 296 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_nebraska_electoral_tt"
+		name = "nebraska_red"        
+		spriteType = "GFX_USA_election_nebraska_red"
+		position = { x = 553 y = 296 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_kansas_electoral_tt"
+		name = "kansas_blue"        
+		spriteType = "GFX_USA_election_kansas_blue"
+		position = { x = 599 y = 408 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_kansas_electoral_tt"
+		name = "kansas_green"        
+		spriteType = "GFX_USA_election_kansas_green"
+		position = { x = 599 y = 408 }
+		}
+		iconType = {
+		pdx_tooltip = "USA_kansas_electoral_tt"
+		name = "kansas_red"        
+		spriteType = "GFX_USA_election_kansas_red"
+		position = { x = 599 y = 408 }
+		}
+
+		
+
+		
+		##new england todo
+		iconType = {
+				pdx_tooltip = "USA_new_hampshire_electoral_tt"
+				name = "new_hampshire_blue"        
+				spriteType = "GFX_USA_election_new_hampshire_blue"
+				position = { x = 1338 y = 142 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_new_hampshire_electoral_tt"
+				name = "new_hampshire_green"        
+				spriteType = "GFX_USA_election_new_hampshire_green"
+				position = { x = 1338 y = 142 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_new_hampshire_electoral_tt"
+				name = "new_hampshire_red"        
+				spriteType = "GFX_USA_election_new_hampshire_red"
+				position = { x = 1338 y = 142 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_vermont_electoral_tt"
+				name = "vermont_blue"        
+				spriteType = "GFX_USA_election_vermont_blue"
+				position = { x = 1372 y = 130 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_vermont_electoral_tt"
+				name = "vermont_green"        
+				spriteType = "GFX_USA_election_vermont_green"
+				position = { x = 1372 y = 130 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_vermont_electoral_tt"
+				name = "vermont_red"        
+				spriteType = "GFX_USA_election_vermont_red"
+				position = { x = 1372 y = 130 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_massachustets_electoral_tt"
+				name = "massachusetts_blue"        
+				spriteType = "GFX_USA_election_massachusetts_blue"
+				position = { x = 1354 y = 212 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_massachustets_electoral_tt"
+				name = "massachusetts_green"        
+				spriteType = "GFX_USA_election_massachusetts_green"
+				position = { x = 1354 y = 212 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_massachustets_electoral_tt"
+				name = "massachusetts_red"        
+				spriteType = "GFX_USA_election_massachusetts_red"
+				position = { x = 1354 y = 212 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_conneticut_electoral_tt"
+				name = "conneticut_blue"        
+				spriteType = "GFX_USA_election_conneticut_blue"
+				position = { x = 1360 y = 248 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_conneticut_electoral_tt"
+				name = "conneticut_green"        
+				spriteType = "GFX_USA_election_conneticut_green"
+				position = { x = 1360 y = 248 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_conneticut_electoral_tt"
+				name = "conneticut_red"        
+				spriteType = "GFX_USA_election_conneticut_red"
+				position = { x = 1360 y = 248 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_rhode_island_electoral_tt"
+				name = "rhode_island_blue"        
+				spriteType = "GFX_USA_election_rhode_island_blue"
+				position = { x = 1403 y = 246 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_rhode_island_electoral_tt"
+				name = "rhode_island_green"        
+				spriteType = "GFX_USA_election_rhode_island_green"
+				position = { x = 1403 y = 246 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_rhode_island_electoral_tt"
+				name = "rhode_island_red"        
+				spriteType = "GFX_USA_election_rhode_island_red"
+				position = { x = 1403 y = 246 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_maine_electoral_tt"
+				name = "maine_blue"        
+				spriteType = "GFX_USA_election_maine_blue"
+				position = { x = 1391 y = 40 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_maine_electoral_tt"
+				name = "maine_green"        
+				spriteType = "GFX_USA_election_maine_green"
+				position = { x = 1391 y = 40 }
+		}
+		iconType = {
+				pdx_tooltip = "USA_maine_electoral_tt"
+				name = "maine_red"        
+				spriteType = "GFX_USA_election_maine_red"
+				position = { x = 1391 y = 40 }
+		}
+}
+}
+
+
+
+
+###mafia
+containerWindowType = {
+	name = "mafia_container"
+	position = { x=0 y=30 }
+	size = { width=500 height=500 }
+
+
+#	#buttonType = {
+#	#	#name = "nyc_show_button"
+#	#	#position = {x = 20 y = 10}
+#	#	#size = { x = 140 y = 30 }
+#	#	#quadTextureSprite = "GFX_tiling_sort_button"
+#	#	#buttonText = "New York City"
+#	#	#buttonFont = "Bomb_24"
+#	#}
+#	#buttonType = {
+#	#	#name = "chicago_show_button"
+#	#	#position = {x = 180 y = 10}
+#	#	#size = { x = 140 y = 30 }
+#	#	#quadTextureSprite = "GFX_tiling_sort_button"
+#	#	#buttonText = "Chicago"
+#	#	#buttonFont = "Bomb_24"
+#	#}
+#	#buttonType = { 
+#	#	#name = "losangeles_show_button"
+#	#	#position = {x = 340 y = 10}
+#	#	#size = { x = 140 y = 30 }
+#	#	#quadTextureSprite = "GFX_tiling_sort_button"
+#	#	#buttonText = "Los Angeles"
+#	#	#buttonFont = "Bomb_24" 
+#	}
+
+	###Nyc
+	iconType = {
+		name = "statenisland_very_low"        
+		spriteType = "GFX_staten_island_very_low"
+		position = { x = 15 y = 346 }
+	
+	}
+	iconType = {
+		name = "statenisland_low"        
+		spriteType = "GFX_staten_island_low"
+		position = { x = 15 y = 346 }
+	
+	}
+	iconType = {
+		name = "statenisland_medium"        
+		spriteType = "GFX_staten_island_medium"
+		position = { x = 15 y = 346 }
+	
+	}
+	iconType = {
+		name = "statenisland_high"        
+		spriteType = "GFX_staten_island_high"
+		position = { x = 15 y = 346 }
+	
+	}
+	iconType = {
+		name = "statenisland_very_high"        
+		spriteType = "GFX_staten_very_island_high"
+		position = { x = 15 y = 346 }
+	
+	} 
+	
+
+	iconType = {
+		name = "queensbrooklyn_very_low"        
+		spriteType = "GFX_queensbrooklyn_very_low"
+		position = { x = 182 y = 185 }
+	
+	}
+	iconType = {
+		name = "queensbrooklyn_low"        
+		spriteType = "GFX_queensbrooklyn_low"
+		position = { x = 182 y = 185 }
+	
+	}
+	iconType = {
+		name = "queensbrooklyn_medium"        
+		spriteType = "GFX_queensbrooklyn_medium"
+		position = { x = 182 y = 185 }
+	
+	}
+	iconType = {
+		name = "queensbrooklyn_high"        
+		spriteType = "GFX_queensbrooklyn_high"
+		position = { x = 182 y = 185 }
+	
+	}
+	iconType = {
+		name = "queensbrooklyn_very_high"        
+		spriteType = "GFX_queensbrooklyn_very_high"
+		position = { x = 182 y = 185 }
+	
+	}
+	
+
+	iconType = {
+		name = "harlem_very_low"        
+		spriteType = "GFX_harlem_very_low"
+		position = { x = 269 y = 66 }
+	
+	}
+	iconType = {
+		name = "harlem_low"        
+		spriteType = "GFX_harlem_low"
+		position = { x = 269 y = 66 }
+	
+	}
+	iconType = {
+		name = "harlem_medium"        
+		spriteType = "GFX_harlem_medium"
+		position = { x = 269 y = 66 }
+	
+	}
+	iconType = {
+		name = "harlem_high"        
+		spriteType = "GFX_harlem_high"
+		position = { x = 269 y = 66 }
+	
+	}
+	iconType = {
+		name = "harlem_very_high"        
+		spriteType = "GFX_harlem_very_high"
+		position = { x = 269 y = 66 }
+	
+	}
+	
+
+	iconType = {
+		name = "manhattan_very_low"        
+		spriteType = "GFX_manhattan_very_low"
+		position = { x = 200 y = 105 }
+	
+	}
+	iconType = {
+		name = "manhattan_low"        
+		spriteType = "GFX_manhattan_low"
+		position = { x = 200 y = 105 }
+	
+	}
+	iconType = {
+		name = "manhattan_medium"        
+		spriteType = "GFX_manhattan_medium"
+		position = { x = 200 y = 105 }
+	
+	}
+	iconType = {
+		name = "manhattan_high"        
+		spriteType = "GFX_manhattan_high"
+		position = { x = 200 y = 105 }
+	
+	}
+	iconType = {
+		name = "manhattan_very_high"        
+		spriteType = "GFX_manhattan_very_high"
+		position = { x = 200 y = 105 }
+	
+	}
+	
+
+
+	##chiago
+	iconType = {
+		name = "south_side_chicago_very_low"
+		spriteType = "GFX_south_side_very_low"
+		position = { x = 0 y = 30}
+	}
+	iconType = {
+		name = "south_side_chicago_low"
+		spriteType = "GFX_south_side_low"
+		position = { x = 0 y = 30}
+	}
+	iconType = {
+		name = "south_side_chicago_medium"
+		spriteType = "GFX_south_side_medium"
+		position = { x = 0 y = 30}
+	}
+	iconType = {
+		name = "south_side_chicago_high"
+		spriteType = "GFX_south_side_high"
+		position = { x = 0 y = 30}
+	}
+	iconType = {
+		name = "south_side_chicago_very_high"
+		spriteType = "GFX_south_side_very_high"
+		position = { x = 0 y = 30}
+	}
+
+	iconType = {
+		name = "north_side_chicago_very_low"
+		spriteType = "GFX_north_side_very_low"
+		position = { x = 132 y = 256}
+	}
+	iconType = {
+		name = "north_side_chicago_low"
+		spriteType = "GFX_north_side_low"
+		position = { x = 132 y = 256}
+	}
+	iconType = {
+		name = "north_side_chicago_medium"
+		spriteType = "GFX_north_side_medium"
+		position = { x = 132 y = 256}
+	}
+	iconType = {
+		name = "north_side_chicago_high"
+		spriteType = "GFX_north_side_high"
+		position = { x = 132 y = 256}
+	}
+	iconType = {
+		name = "north_side_chicago_very_high"
+		spriteType = "GFX_north_side_very_high"
+		position = { x = 132 y = 256}
+	}
+
+
+	###La
+	iconType = {
+		name = "beverleyhills_very_low"
+		spriteType = "GFX_beverleyhills_very_low"
+		position = { x = 0 y = 14}
+	}
+	iconType = {
+		name = "beverleyhills_low"
+		spriteType = "GFX_beverleyhills_low"
+		position = { x = 0 y = 14}
+	}
+	iconType = {
+		name = "beverleyhills_medium"
+		spriteType = "GFX_beverleyhills_medium"
+		position = { x = 0 y = 14}
+	}
+	iconType = {
+		name = "beverleyhills_high"
+		spriteType = "GFX_beverleyhills_high"
+		position = { x = 0 y = 14}
+	}
+	iconType = {
+		name = "beverleyhills_very_high"
+		spriteType = "GFX_beverleyhills_very_high"
+		position = { x = 0 y = 14}
+	}
+	
+	iconType = {
+		name = "hollywood_very_low"
+		spriteType = "GFX_hollywood_very_low"
+		position = { x = 143 y = 0}
+	}
+	iconType = {
+		name = "hollywood_low"
+		spriteType = "GFX_hollywood_low"
+		position = { x = 143 y = 0}
+	}
+	iconType = {
+		name = "hollywood_medium"
+		spriteType = "GFX_hollywood_medium"
+		position = { x = 143 y = 0}
+	}
+	iconType = {
+		name = "hollywood_high"
+		spriteType = "GFX_hollywood_high"
+		position = { x = 143 y = 0}
+	}
+	iconType = {
+		name = "hollywood_very_high"
+		spriteType = "GFX_hollywood_very_high"
+		position = { x = 143 y = 0}
+	}
+	
+	iconType = {
+		name = "downtown_very_low"
+		spriteType = "GFX_downtown_very_low"
+		position = { x = 143 y = 2}
+	}
+	iconType = {
+		name = "downtown_low"
+		spriteType = "GFX_downtown_low"
+		position = { x = 143 y = 2}
+	}
+	iconType = {
+		name = "downtown_medium"
+		spriteType = "GFX_downtown_medium"
+		position = { x = 143 y = 2}
+	}
+	iconType = {
+		name = "downtown_high"
+		spriteType = "GFX_downtown_high"
+		position = { x = 143 y = 2}
+	}
+	iconType = {
+		name = "downtown_very_high"
+		spriteType = "GFX_downtown_very_high"
+		position = { x = 143 y = 2}
+	}
+	
+
+
+	
+}
+
+
+##new roads
+containerWindowType = {
+	name = "DBK_new_roads_container"
+	size = {
+		width = 100%%
+		height = 350
+	}
+
+	iconType = {
+		name = "USA_new_roads_map_bg"
+		spriteType = "GFX_USA_new_roads_map_bg"
+
+		position = {x = 0 y = 0}
+	}
+
+	iconType = {
+		name = "USA_highway_1_progressbar"
+		spriteType = "GFX_USA_highway_1_progressbar"
+
+		position = {x = 33 y = 24}
+	}
+
+	iconType = {
+		name = "USA_highway_2_progressbar"
+		spriteType = "GFX_USA_highway_2_progressbar"
+
+		position = {x = 16 y = 121}
+	}
+
+	iconType = {
+		name = "USA_highway_3_progressbar"
+		spriteType = "GFX_USA_highway_3_progressbar"
+
+		position = {x = 41 y = 170}
+	}
+
+	
+}
+	
+}
+
