@@ -18,3 +18,46 @@ defined_text = {
     }
 
 }
+
+defined_text = {
+	name = GetNFPStability
+
+	text = {
+		trigger = {
+			check_variable = {
+				var = ITA_NFP_party_stability value = 40 compare = less_than
+			}
+		}
+		localization_key = ITA_NFP_heavily_divided
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = ITA_NFP_party_stability value = 60 compare = less_than
+			}
+			check_variable = {
+				var = ITA_NFP_party_stability value = 40 compare = greater_than_or_equals
+			}
+		}
+		localization_key = ITA_NFP_divided
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = ITA_NFP_party_stability value = 70 compare = less_than
+			}
+			check_variable = {
+				var = ITA_NFP_party_stability value = 60 compare = greater_than_or_equals
+			}
+		}
+		localization_key = ITA_NFP_neutral
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = ITA_NFP_party_stability value = 70 compare = greater_than_or_equals
+			}
+		}
+		localization_key = ITA_NFP_united
+	}
+}
