@@ -130,4 +130,30 @@ ITA_MVSN_convert_axes_values_to_frames = {
 	set_variable = { ITA_MVSN_radar_display_4 = ITA_MVSN_radar_4 }
 	multiply_variable = { ITA_MVSN_radar_display_4 = 10 }
 	add_to_variable = { ITA_MVSN_radar_display_4 = ITA_MVSN_radar_0 }
+
+	ITA_calc_party_stability_var = yes
+}
+
+ITA_calc_party_stability_var = { #average
+	set_variable = { ITA_NFP_party_stability = 0 }
+
+	add_to_variable = {
+		ITA_NFP_party_stability = ITA_MVSN_radar_display_0
+	}
+	add_to_variable = {
+		ITA_NFP_party_stability = ITA_MVSN_radar_display_1
+	}
+	add_to_variable = {
+		ITA_NFP_party_stability = ITA_MVSN_radar_display_2
+	}
+	add_to_variable = {
+		ITA_NFP_party_stability = ITA_MVSN_radar_display_3
+	}
+	add_to_variable = {
+		ITA_NFP_party_stability = ITA_MVSN_radar_display_4
+	}
+
+	divide_variable = {
+		ITA_NFP_party_stability = 5
+	}
 }
