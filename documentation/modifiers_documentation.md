@@ -21,7 +21,7 @@ The listed decimal places is for display only. All numbers support up to
 * [naval](#modifiers-for-scope-naval)
 * [peace](#modifiers-for-scope-peace)
 * [politics](#modifiers-for-scope-politics)
-* [state](#modifiers-for-scope-state)
+* [state](#modifiers-for-scope-state) 
 * [unit_leader](#modifiers-for-scope-unit_leader)
 * [war_production](#modifiers-for-scope-war_production)
 
