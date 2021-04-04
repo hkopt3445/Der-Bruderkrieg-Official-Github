@@ -1,3 +1,237 @@
+
+
+
+shared_focus = {
+	id = ITA_begin_the_recovery_process	
+	icon = unkown
+	x = 10
+	y = 0
+	cost = 2
+	
+	available_if_capitulated = yes
+	ai_will_do = { 
+		factor = 1
+	}
+	completion_reward = {
+		add_stability = 0.03
+		add_political_power = 15
+	}
+}
+
+shared_focus = {
+	id = ITA_ending_the_last_resistance	
+	icon = unkown
+	x = 2
+	y = 1
+	cost = 4
+	prerequisite = {focus = ITA_begin_the_recovery_process}
+	relative_position_id = ITA_begin_the_recovery_process
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		ITA_level_down_recovery = yes
+	}
+}
+shared_focus = {
+	id = ITA_second_round_purges	
+	icon = unkown
+	x = -1
+	y = 1
+	cost = 5
+	prerequisite = {focus = ITA_ending_the_last_resistance}
+	relative_position_id = ITA_ending_the_last_resistance
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		ITA_level_down_recovery = yes
+	}
+}
+shared_focus = {
+	id = ITA_purifying_the_army	
+	icon = unkown
+	x = 1
+	y = 1
+	cost = 5
+	prerequisite = {focus = ITA_ending_the_last_resistance}
+	relative_position_id = ITA_ending_the_last_resistance
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		swap_ideas = {
+			add_idea = ITA_broken_army_2
+			remove_idea = ITA_broken_army
+		}
+	}
+}
+
+shared_focus = {
+	id = ITA_executing_socialist_generals	
+	icon = unkown
+	x = -1
+	y = 1
+	cost = 3.5
+	prerequisite = {focus = ITA_purifying_the_army}
+	prerequisite = {focus = ITA_second_round_purges}
+	relative_position_id = ITA_purifying_the_army
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		remove_ideas = ITA_broken_army_2
+	}
+}
+shared_focus = {
+	id = ITA_sending_troops_to_genoa	
+	icon = unkown
+	x = -1
+	y = 1
+	cost = 2.5
+	prerequisite = {focus = ITA_second_round_purges}
+	relative_position_id = ITA_second_round_purges
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		ITA_level_down_recovery = yes
+	}
+}
+
+shared_focus = {
+	id = ITA_northern_investments	
+	icon = unkown
+	x = 1
+	y = 1
+	cost = 5
+	prerequisite = {focus = ITA_boost_the_north}
+	relative_position_id = ITA_boost_the_north
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		unlock_decision_category_tooltip = ITA_northern_investments
+	}
+}
+shared_focus = {
+	id = ITA_boost_the_north	
+	icon = unkown
+	x = -2
+	y = 1
+	cost = 5
+	prerequisite = {focus = ITA_begin_the_recovery_process }
+	#prerequisite = {focus = ITA_ending_the_last_resistance}
+	relative_position_id = ITA_begin_the_recovery_process
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		random_owned_controlled_state = {
+			prioritize = {162 161 158}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			prioritize = {162 161 158}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+
+		unlock_decision_category_tooltip = ITA_road_to_recovery
+	}
+}
+shared_focus = {
+	id = ITA_repairing_broken_factories	
+	icon = unkown
+	x = -1
+	y = 1
+	cost = 4
+	prerequisite = {focus = ITA_boost_the_north }
+	
+	relative_position_id = ITA_boost_the_north
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		unlock_decision_category_tooltip = ITA_factory_repairing
+	}
+}
+shared_focus = {
+	id = ITA_the_true_problem	
+	icon = unkown
+	x = 1
+	y = 1
+	cost = 4
+	prerequisite = {focus = ITA_repairing_broken_factories }
+	prerequisite = {focus = ITA_northern_investments}
+	relative_position_id = ITA_repairing_broken_factories
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = full_recovered_economy_ita_tt
+			OR = { check_variable = {ITA_economic_civil_war_var > 0} check_variable = {ITA_economic_civil_war_var = 0} }
+		}
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_a_nation_reborn	
+	icon = unkown
+	x = 3
+	y = 2
+	cost = 4
+	prerequisite = {focus = ITA_executing_socialist_generals }
+	prerequisite = {focus = ITA_sending_troops_to_genoa }
+	prerequisite = {focus = ITA_the_true_problem}
+	relative_position_id = ITA_repairing_broken_factories
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_political_power = 75
+		add_stability = 0.05
+
+		if = {
+			limit = {
+				has_country_flag = evola_coup
+			}
+			##load evola
+
+			else = {
+				##load mussolini
+			}
+		}
+		
+	}
+}
+
+
+
 shared_focus = {
 	id = ITA_MAFIA_FOCUS
 	icon = GFX_goal_ITA_the_mafia_problem
@@ -441,7 +675,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = ITA_PEACE_IN_SICILY
-	cost = 7
+	cost = 5
 	ai_will_do = {
 	  factor = 1
 	}
