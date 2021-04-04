@@ -1319,3 +1319,175 @@ country_event = {
 		army_experience = 20
 	}
 }
+
+
+
+add_namespace = italymafia
+
+##mafia sabotage
+country_event = {
+	id = italymafia.1
+	title = italymafia.1.t
+	desc = italymafia.1.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+  option = {
+    name = italymafia.1.a
+
+	115 = {
+		damage_building = { type = industrial_complex damage = 2 }
+		damage_building = { type = infrastructure damage = 3 }
+	}
+  }
+}
+
+##police assasination
+country_event = {
+	id = italymafia.2
+	title = italymafia.2.t
+	desc = italymafia.2.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+  option = {
+    name = italymafia.2.a
+	add_stability = -0.03
+	add_political_power = -25
+  }
+}
+
+###spread of the mafia
+country_event = {
+	id = italymafia.3
+	title = italymafia.3.t
+	desc = italymafia.3.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+  option = {
+    name = italymafia.3.a
+	custom_effect_tooltip = ITA_spread_of_the_mafia_tt
+  }
+}
+
+##via appa attack
+country_event = {
+	id = italymafia.4
+	title = italymafia.4.t
+	desc = italymafia.4.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+  option = {
+    name = italymafia.4.a
+	add_stability = -0.05
+	add_manpower = -200
+}
+}
+
+
+
+###Naples State House Attack
+
+country_event = {
+	id = italymafia.5
+	title = italymafia.5.t
+	desc = italymafia.5.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+  option = {
+    name = italymafia.5.a
+	add_political_power = -100
+  }
+}
+
+##prussian embassy bombing
+
+country_event = {
+	id = italymafia.6
+	title = italymafia.6.t
+	desc = italymafia.6.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+  option = {
+    name = italymafia.6.a
+	add_political_power = -50
+	GER = {
+		add_opinion_modifier = {
+			target = ITA
+			modifier = small_decrease	
+		}
+	}
+}
+}
+
+##gang mobilize
+country_event = {
+	id = italymafia.7
+	title = italymafia.7.t
+	desc = italymafia.7.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+  option = {
+	name = italymafia.7.a
+	hidden_effect = { country_event = {id = italymafia.8 days = 30} }
+  }
+}
+
+##siclia vespers
+country_event = {
+	id = italymafia.8
+	title = italymafia.8.t
+	desc = italymafia.8.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_completed_focus = ITA_VICTORY_FOR_LAW
+		}
+	}
+
+  option = {
+    name = italymafia.8.a
+  }
+  option = {
+    name = italymafia.8.b
+  }
+}
+
+
+
+
+
+add_namespace = ITA_debug_events
+country_event = {
+	id = ITA_debug_events.1
+	title = ITA_debug_events.1.t
+	desc = ITA_debug_events.1.d
+	picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = ITA_debug_events.1.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = ITA_debug_events.1.b #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+	}
+}
