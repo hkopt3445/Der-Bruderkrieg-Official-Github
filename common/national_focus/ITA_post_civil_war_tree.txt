@@ -60,7 +60,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = ITA_MOBILIZE_POLICE_BATALLIONS
-	cost = 5
+	cost = 3
 	ai_will_do = {
 	  factor = 1
 	}
@@ -74,9 +74,9 @@ shared_focus = {
 			  remove_idea = ITA_mafia_idea_2
 		  }
 		  hidden_effect = {
-			  random_events = {
-				  50 = italymafia.1
-				  100 = italymafia.2
+			  random_list = {
+				  50 = { country_event = italymafia.1 }
+				  100 = {country_event = italymafia.2 }
 			  }
 			  country_event = {id = italymafia.3 days = 5}
 		  }
@@ -91,7 +91,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = ITA_DEPLOY_ARMY
-	cost = 5
+	cost = 4
 	ai_will_do = {
 	  factor = 1
 	}
@@ -106,9 +106,9 @@ shared_focus = {
 		  }
 		  hidden_effect = {
 			  hidden_effect = {
-				  random_events = {
-					  50 = italymafia.3
-					  100 = italymafia.4
+				  random_list = {
+					  50 = {country_event = italymafia.3 }
+					  100 = {country_event = italymafia.4 }
 				  }
 				  country_event = {id = italymafia.5 days = 5}
 			  }
@@ -124,7 +124,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = ITA_INFILTRATE_CLANS
-	cost = 5
+	cost = 4
 	ai_will_do = {
 	  factor = 1
 	}
@@ -137,11 +137,16 @@ shared_focus = {
 		  add_stability = 0.1
 
 		  hidden_effect = {
-			  random_events = {
-				  50 = italymafia.6
-				  10 = italymafia.1
+			  random_list = {
+				  50 = {country_event =  italymafia.6 }
 			  }
-			  country_event = {id = italymafia.7 days = 5}
+
+			  if = {
+				  limit = {
+					has_completed_focus = ITA_EXECUTE_TRAITORS
+				  }
+				  country_event = {id = italymafia.7 days = 5}
+			  }
 			  
 			  
 		  }
@@ -178,7 +183,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = ITA_PURGE_CORRUPT
-	cost = 5
+	cost = 4
 	ai_will_do = {
 	  factor = 1
 	}
@@ -202,7 +207,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = ITA_ANAHILATE_SPIES
-	cost = 5
+	cost = 4
 	ai_will_do = {
 	  factor = 1
 	}
@@ -217,7 +222,7 @@ shared_focus = {
 		  }
 		  hidden_effect = {
 
-		  }
+		  }	
 	}
   }
 
@@ -230,7 +235,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = ITA_EXECUTE_TRAITORS
-	cost = 5
+	cost = 4
 	ai_will_do = {
 	  factor = 1
 	}
@@ -318,7 +323,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = ITA_BRIBE_MAFIA_LEADERS
-	cost = 5
+	cost = 6
 	ai_will_do = {
 	  factor = 1
 	}
@@ -347,7 +352,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = ITA_CONCESSIONS_TO_THE_CELLS
-	cost = 5
+	cost = 4
 	ai_will_do = {
 	  factor = 1
 	}
@@ -372,7 +377,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = ITA_DEAL_WITH_CLANS
-	cost = 5
+	cost = 6
 	ai_will_do = {
 	  factor = 1
 	}
@@ -436,7 +441,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = ITA_PEACE_IN_SICILY
-	cost = 5
+	cost = 7
 	ai_will_do = {
 	  factor = 1
 	}
@@ -1561,7 +1566,7 @@ shared_focus = {
 	  cost = 5
 	  ai_will_do = {
 		  factor = 1
-	  }
+	  } 
 
 	  available_if_capitulated = yes
 	  search_filters = { FOCUS_FILTER_RESEARCH }
