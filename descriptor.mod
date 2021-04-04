@@ -10,5 +10,21 @@ tags={
 name="Der Bruderkrieg: What if Austria won the Austro-Prussian War?"
 replace_path="gfx/loadingscreens"
 replace_path="history/states"
+replace_path="common/ideas"
+replace_path="common/national_focus"
+replace_path="common/technology_sharing"
+replace_path="common/decisions"
+replace_path="common/scripted_triggers"
+replace_path="common/scripted_effects"
+replace_path="common/scripted_localisation"
+replace_path="common/ai_strategy_plans"
+replace_path="common/ai_strategy"
+
+replace_path="common/ai_focuses"
+
+replace_path="events"
+
+
+
 supported_version="1.10.4"
 remote_file_id="2112802713"

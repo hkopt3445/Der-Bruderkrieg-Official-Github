@@ -500,7 +500,7 @@ ITA_the_kings_men = {
         custom_effect_tooltip = increase_mussolini
     }
   }
-  ITA_declare_evola_a_lunatic = {
+  ITA_declare_evola_a_lunatic = { #which he is
     available = {
       tag = ITA
 
@@ -618,11 +618,9 @@ ITA_the_kings_men = {
     fire_only_once = yes
 
     remove_effect = {
-        add_to_variable = {
-          mussolini_influence = 5
-        }
+        set_country_flag = ITA_evola_has_been_arrested
+        ##also include an event here
 
-        complete_national_focus = ITA_assert_the_power_of_mussolini
     }
   }
 
@@ -734,7 +732,7 @@ ITA_the_kings_men = {
       custom_effect_tooltip = increase_evola
     }
   }
-  ITA_evolas_coup_decision = {
+  ITA_evolas_coup_decision = { #not really a coup because he needs the MVSNs support
     available = {
       custom_trigger_tooltip = {
 				tooltip = launch_evola_coups_tt		
@@ -760,15 +758,28 @@ ITA_the_kings_men = {
     fire_only_once = yes
 
     remove_effect = {
-      set_country_flag = ITA_evolas_coup_complete
-
+      set_country_flag = ITA_evolas_coup_first_part_done
+      unlock_decision_category_tooltip = ITA_evola_interactions_with_the_mvsn_militias
     }
   }
 }
 
 
+ITA_evola_interactions_with_the_mvsn_militias = {
+  #EVOLA INTERACTIONS - will be unlocked when Evola has the king on his side
+  
 
-ITA_spread_italian_race_decision = {
+
+}
+
+ITA_mussolini_interactions_with_the_mvsn_militias = {
+    #MUSSOLINI INTERACTIONS - will be unlocked when Mussolini has the king on his side
+
+}
+
+
+
+ITA_spread_italian_race_decision = { #ok wtf is this
   ITA_spread_italian_race_decision_to_FROM = {
     available = {
       tag = ITA
