@@ -85,6 +85,138 @@ ITA_calc_economic_recovery = {
 	divide_variable = {ITA_economic_civil_war_factory_var = 4000}
 }
 
+ITA_civil_war_fire_effect = {
+	every_owned_state = {
+		limit = {
+			any_neighbor_state = {
+				is_owned_by = CMI 
+			}
+		}
+		add_to_array = {
+			array = ITA_place_army_states
+			value = THIS
+		}
+	}
+	teleport_armies = {
+		limit = {
+			tag = ITA
+		}
+		to_state_array = ITA_place_army_states
+	}
+
+	ITA = {
+		remove_ideas = ITA_socialist_revolt
+
+
+	}
+
+	
+
+	hidden_effect = {
+		if = { 
+			limit = { 
+				158 = {check_variable = {socialist_influence > fascist_influence }} 
+			}
+			158 = {
+				add_core_of = CMI
+			} 
+		}
+		if = { 
+			limit = { 
+				159 = {check_variable = {socialist_influence > fascist_influence}} 
+			}
+			159 = {
+				add_core_of = CMI
+			} 
+		}
+
+		if = { 
+			limit = { 
+				161 = {check_variable = {socialist_influence > fascist_influence}} 
+			}
+			161 = {
+				add_core_of = CMI
+			} 
+		}
+
+		if = { 
+			limit = { 
+				162 = {check_variable = {socialist_influence > fascist_influence}} 
+			}
+			162 = {
+				add_core_of = CMI
+			} 
+		}
+
+		if = { 
+			limit = { 
+				892 = {check_variable = {socialist_influence > fascist_influence}} 
+			}
+			892 = {
+				add_core_of = CMI
+			} 
+		}
+		if = { 
+			limit = { 
+				891 = {check_variable = {socialist_influence > fascist_influence}} 
+			}
+			891 = {
+				add_core_of = CMI
+			} 
+		}
+
+		if = { 
+			limit = { 
+				157 = {check_variable = {socialist_influence > fascist_influence}} 
+			}
+			157 = {
+				add_core_of = CMI
+			} 
+			888 = {
+				add_core_of = CMI
+			} 
+		}
+		
+
+		for_each_scope_loop = {
+			array = ITA.socialist_GUI_array_target_states
+			
+			
+
+			if = {
+				limit = {
+					is_core_of = CMI
+				}
+				for_loop_effect = {
+					start = num_of_militas_divisions
+					end = 1
+					add = -1
+					create_unit = {
+						division = "name = \"People's Army of Italy\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+						owner = CMI
+					}
+				}
+			}
+			
+	
+		}
+			
+		  
+		
+	
+	
+		  release = CMI
+		
+		
+		declare_war_on = {
+			target = CMI
+			type = civil_war
+		}
+		ITA_give_italian_cores = yes
+	}
+}
+
 ITA_give_italian_cores = {
 	CMI = {
 		every_owned_state = {
@@ -92,6 +224,8 @@ ITA_give_italian_cores = {
 		}
 	}
 } 
+
+
 
 
 ITA_MVSN_radar_graph_set_up = {
@@ -177,3 +311,21 @@ ITA_calc_party_stability_var = { #average
 		ITA_NFP_party_stability = 5
 	}
 }
+
+
+ITA_socialist_militia_population_setup = {
+	for_each_scope_loop = {
+		array = ITA.socialist_GUI_array_target_states
+		
+		set_variable = { num_of_militas_divisions = THIS.state_population_k }
+
+		multiply_variable = {num_of_militas_divisions = socialist_influence}
+
+		divide_variable = {num_of_militas_divisions = 50000}
+
+		round_variable = num_of_militas_divisions
+
+
+	}
+}
+
