@@ -182,15 +182,19 @@ ITA_civil_war_fire_effect = {
 			array = ITA.socialist_GUI_array_target_states
 			
 			
-
+			log = "Array runs"
 			if = {
 				limit = {
 					is_core_of = CMI
 				}
+				log = "Core Check runs"
+        log = "[?num_of_militas_divisions] VARIABLE"
 				for_loop_effect = {
-					start = num_of_militas_divisions
-					end = 1
-					add = -1
+					start = 1
+					end = num_of_militas_divisions
+					add = 1
+					
+					log = "[?v] Created"
 					create_unit = {
 						division = "name = \"People's Army of Italy\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
 
