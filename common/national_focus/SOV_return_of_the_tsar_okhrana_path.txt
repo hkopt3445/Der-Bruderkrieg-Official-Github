@@ -2156,7 +2156,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_the_cargo
-    icon = unkown
+    icon = GFX_goal_SOV_the_cargo
     prerequisite = {focus = SOV_find_leadership }
     
     prerequisite = {
@@ -2229,7 +2229,7 @@ shared_focus = {
     mutually_exclusive = {
         focus = SOV_the_throat_is_slit
     }
-	x = -1
+	x = 1
 	y = 1
     relative_position_id = SOV_transporting_the_cargo 
     cost = 5
@@ -2243,33 +2243,12 @@ shared_focus = {
     }
 }
 
-shared_focus = {
-    id = SOV_the_throat_is_slit
-    icon = unkown
-    prerequisite = {focus = SOV_transporting_the_cargo }
-    prerequisite = {
-        focus = SOV_protecting_the_cargo
-    }
-    mutually_exclusive = {
-        focus = SOV_the_new_leader
-    }
-	x = 3
-	y = 1
-    relative_position_id = SOV_transporting_the_cargo 
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-     custom_effect_tooltip = SOV_the_throat_is_slit_tt
-    }
-}
+
 
 shared_focus = {
     id = SOV_slaughter_remaining_resistance
-    icon = unkown
-	prerequisite = {focus = SOV_the_new_leader focus = SOV_the_throat_is_slit }
+    icon = GFX_goal_SOV_slaughter_remaining_resistance
+	prerequisite = {focus = SOV_the_new_leader }
 	x = 1
 	y = 1
     relative_position_id = SOV_the_new_leader 
@@ -2285,11 +2264,11 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_consolidate_the_white_rose
-    icon = unkown
+    icon = GFX_goal_SOV_consolidating_power
 	prerequisite = {focus = SOV_the_new_leader focus = SOV_the_throat_is_slit }
 	x = -1
 	y = 1
-    relative_position_id = SOV_the_throat_is_slit 
+    relative_position_id = SOV_the_new_leader 
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -2302,12 +2281,12 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_loyal_okhrana
-    icon = unkown
+    icon = GFX_goal_SOV_a_loyal_okhrana
     prerequisite = {focus = SOV_consolidate_the_white_rose }
     prerequisite = {
         focus = SOV_slaughter_remaining_resistance
     }
-	x = -1
+	x = 1
 	y = 1
     relative_position_id = SOV_consolidate_the_white_rose 
     cost = 5
@@ -2323,7 +2302,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_loyal_okhrana_2
-    icon = unkown
+    icon = GFX_goal_SOV_a_loyal_okhrana_2
     prerequisite = {focus = SOV_a_loyal_okhrana }
 	x = 0
 	y = 1
@@ -2340,7 +2319,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_empoweing_the_okhrana
-    icon = unkown
+    icon = GFX_goal_SOV_empowering_the_okhrana
     prerequisite = {focus = SOV_a_loyal_okhrana_2 }
 	x = -3
 	y = 1
@@ -2351,13 +2330,13 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-     
+        SOV_level_up_the_power_of_the_okrhana = yes
     }
 }
 
 shared_focus = {
     id = SOV_securing_more_manpower
-    icon = unkown
+    icon = GFX_goal_SOV_securing_more_manpower
     prerequisite = {focus = SOV_a_loyal_okhrana_2 }
 	x = 0
 	y = 1
@@ -2368,13 +2347,13 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-     
+        add_ideas = SOV_okhrana_manpower_recruitment_drive
     }
 }
 
 shared_focus = {
     id = SOV_pulling_the_strings_behind_the_curtain
-    icon = unkown
+    icon = GFX_goal_SOV_pulling_the_strings_behind_the_curtain
     prerequisite = {focus = SOV_a_loyal_okhrana_2 }
 	x = 3
 	y = 1
@@ -2391,7 +2370,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_preperations
-    icon = unkown
+    icon = GFX_goal_SOV_preperations
     prerequisite = {focus = SOV_pulling_the_strings_behind_the_curtain }
     prerequisite = {
         focus = SOV_securing_more_manpower
@@ -2415,7 +2394,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_secret_campaigning
-    icon = unkown
+    icon = GFX_goal_SOV_the_secret_campaign
     prerequisite = {focus = SOV_pulling_the_strings_behind_the_curtain }
     prerequisite = {
         focus = SOV_securing_more_manpower
@@ -2438,7 +2417,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_gain_support
-    icon = unkown
+    icon = GFX_goal_SOV_gain_support
     prerequisite = {focus = SOV_pulling_the_strings_behind_the_curtain }
     prerequisite = {
         focus = SOV_securing_more_manpower
@@ -2461,7 +2440,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_coup_of_the_black_sun
-    icon = unkown
+    icon = GFX_goal_SOV_coup_of_the_black_sun
     prerequisite = {focus = SOV_gain_support }
     prerequisite = {
         focus = SOV_secret_campaigning
@@ -2474,6 +2453,9 @@ shared_focus = {
     relative_position_id = SOV_gain_support 
     mutually_exclusive = {
         focus = SOV_council_of_the_okhrana
+    }
+    available = {
+        has_completed_focus = SOV_the_new_leader
     }
     cost = 5
     available_if_capitulated = yes
@@ -2488,7 +2470,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_council_of_the_okhrana
-    icon = unkown
+    icon = GFX_goal_SOV_council_of_the_okhrana
     prerequisite = {focus = SOV_gain_support }
     prerequisite = {
         focus = SOV_secret_campaigning
@@ -2514,7 +2496,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_launch_the_uprising
-    icon = unkown
+    icon = GFX_goal_SOV_launch_the_uprising
     prerequisite = {focus = SOV_council_of_the_okhrana }
     prerequisite = {
         focus = SOV_coup_of_the_black_sun
