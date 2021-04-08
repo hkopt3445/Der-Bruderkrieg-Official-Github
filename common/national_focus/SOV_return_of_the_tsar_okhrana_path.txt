@@ -47,6 +47,9 @@ shared_focus = {
 
         unlock_decision_category_tooltip = SOV_political_instability
         set_variable = { SOV_peoples_support_for_current_regime = tsar_support }
+        add_to_variable = {
+            SOV_peoples_support_for_current_regime = 10
+        }
         set_variable = { SOV_military_support_for_current_regime = 55 }
         set_variable = { SOV_russian_duma_support = -1 }
 
@@ -80,7 +83,7 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_minority_support
+    id = SOV_support_russian_small_business
     icon = unkown
     prerequisite = {focus = SOV_public_popularity}
     x = -1
@@ -92,17 +95,16 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        custom_effect_tooltip = SOV_minority_support_tt
-        
+        add_ideas = SOV_conservative_economics
     }
 }
 shared_focus = {
     id = SOV_polish_development
     icon = unkown
-    prerequisite = {focus = SOV_minority_support}
+    prerequisite = {focus = SOV_support_russian_small_business}
     x = 0
     y = 1
-    relative_position_id = SOV_minority_support
+    relative_position_id = SOV_support_russian_small_business
     cost = 7
     available_if_capitulated = yes
     ai_will_do = {
@@ -475,7 +477,7 @@ shared_focus = {
     }
     completion_reward = {
         ###event chain for drafting the tsars constitution
-        
+        country_event = SOV_return_of_the_tsar_path.4
     }
 }
 shared_focus = {

@@ -465,7 +465,10 @@ country_event = {
 		name = SOV_return_of_the_tsar_path.5.a ###yes, he is a true leader
 		ai_chance = { factor = 1}
 		hidden_effect = {
-			country_event = SOV_return_of_the_tsar_path.5
+			country_event = SOV_return_of_the_tsar_path.6
+			add_to_variable = {
+				SOV_peoples_support_for_current_regime = -3
+			}
 		}
 
 	}
@@ -473,14 +476,20 @@ country_event = {
 		name = SOV_return_of_the_tsar_path.5.b ###no, impeding on our democratic values too much
 		ai_chance = { factor = 1}
 		hidden_effect = {
-			country_event = SOV_return_of_the_tsar_path.5
+			country_event = SOV_return_of_the_tsar_path.6
+			add_to_variable = {
+				SOV_peoples_support_for_current_regime = 3
+			}
 		}
 	}
 	option = { 
 		name = SOV_return_of_the_tsar_path.5.c ###yes, yes, in fact lets give him more power and lessen the duma's power like pre-1905
 		ai_chance = { factor = 2}
 		hidden_effect = {
-			country_event = SOV_return_of_the_tsar_path.5
+			country_event = SOV_return_of_the_tsar_path.6
+			add_to_variable = {
+				SOV_peoples_support_for_current_regime = -6
+			}
 		}
 	}
 }
@@ -497,6 +506,9 @@ country_event = {
 		ai_chance = { factor = 1}
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.7
+			add_to_variable = {
+				SOV_peoples_support_for_current_regime = -4
+			}
 		}
 	}
 	option = {
@@ -504,7 +516,9 @@ country_event = {
 		ai_chance = { factor = 1}
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.7
+
 		}
+
 	}
 }
 
@@ -520,6 +534,10 @@ country_event = {
 		ai_chance = { factor = 1}
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.8
+			add_to_variable = {
+				SOV_military_support_for_current_regime = -15
+			}
+			set_country_flag = SOV_slashed_military_spending
 		}
 	}
 	option = {
@@ -527,6 +545,9 @@ country_event = {
 		ai_chance = { factor = 1}
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.8
+			add_to_variable = {
+				SOV_military_support_for_current_regime = 5
+			}
 		}
 	}
 }
@@ -543,6 +564,17 @@ country_event = {
 		ai_chance = { factor = 1}
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.9
+			add_to_variable = {
+				SOV_peoples_support_for_current_regime = -4
+			}
+			if = {
+				limit = {
+					has_country_flag = SOV_slashed_military_spending
+				}
+				add_to_variable = {
+					SOV_military_support_for_current_regime = -10
+				}
+			}
 		}
 	}
 	option = {
@@ -564,17 +596,25 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.9.a ###yes, lets ban far left newspapers
 		ai_chance = { factor = 1}
+		add_to_variable = {
+			SOV_peoples_support_for_current_regime = -3
+		}
 		
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.9.b ###no, we cant
 		ai_chance = { factor = 1}
+		add_to_variable = {
+			SOV_peoples_support_for_current_regime = 3
+		}
 		
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.9.c ###yes, yes, none shall speak out against our tsar!
 		ai_chance = { factor = 1}
-		
+		add_to_variable = {
+			SOV_peoples_support_for_current_regime = -8
+		}
 	}
 }
 
@@ -2030,6 +2070,467 @@ country_event = {
 		ai_chance = { factor = 2}
 	}
 
+}
+
+
+###########################
+# Der Bruderkrieg Russian Civil War Events
+###########################
+# By WorldMapper3, a total chad
+###########################
+
+add_namespace = ruscivwar
+
+## Yakuita Splits away ##
+country_event = { # Yakutia Declares Independence 
+	id = ruscivwar.1
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.1" }
+	title = ruscivwar.1.t
+	desc = ruscivwar.1.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_YAK = yes
+	}
+
+	option = {
+		name = ruscivwar.1.a
+		ai_chance = {
+			factor = 100
+		}
+		YAK = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.2 } #Adjust this to what you want
+			YAK = { country_event = { id = yakutia.1 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+
+## Korlinov Rises up ##
+
+## Zhelto Amur Splits Away ##
+country_event = { # Zhelto Amur Declares Independence 
+	id = ruscivwar.3
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.3" }
+	title = ruscivwar.3.t
+	desc = ruscivwar.3.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_ZMU = yes
+	}
+
+	option = {
+		name = ruscivwar.3.a
+		ai_chance = {
+			factor = 100
+		}
+		ZMU = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.4 }
+		}
+	}
+}
+
+## Krasnoyarsk declares independendce ##
+country_event = { # Krasnoyarsk Declares Independence 
+	id = ruscivwar.4
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.4" }
+	title = ruscivwar.4.t
+	desc = ruscivwar.4.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_KRK = yes
+	}
+
+	option = {
+		name = ruscivwar.4.a
+		ai_chance = {
+			factor = 100
+		}
+		KRK = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.5 }
+		}
+	}
+}
+
+## Perm Splits away ##
+country_event = { # Perm Declares Independence 
+	id = ruscivwar.2
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.2" }
+	title = ruscivwar.2.t
+	desc = ruscivwar.2.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_PRM = yes
+	}
+
+	option = {
+		name = ruscivwar.2.a
+		ai_chance = {
+			factor = 100
+		}
+		PRM = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.3 } #Adjust this to what you want
+			PRM = { country_event = { id = ruscivwar.2 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+## Chchen Islamic Republic Splits away ##
+country_event = { # Chchen Islamic Republic Declares Independence 
+	id = ruscivwar.5
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.5" }
+	title = ruscivwar.5.t
+	desc = ruscivwar.5.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_CHE = yes
+	}
+
+	option = {
+		name = ruscivwar.5.a
+		ai_chance = {
+			factor = 100
+		}
+		CHE = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.6 } #Adjust this to what you want
+			CHE = { country_event = { id = ruscivwar.5 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+## Surgut Splits away ##
+country_event = { # Surgut Declares Independence 
+	id = ruscivwar.6
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.5" }
+	title = ruscivwar.6.t
+	desc = ruscivwar.6.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_SRG = yes
+	}
+
+	option = {
+		name = ruscivwar.6.a
+		ai_chance = {
+			factor = 100
+		}
+		SRG = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.7 } #Adjust this to what you want
+			SRG = { country_event = { id = ruscivwar.6 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+country_event = { # Green Armies Declares Independence 
+	id = ruscivwar.7
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.7" }
+	title = ruscivwar.7.t
+	desc = ruscivwar.7.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_GRN = yes
+	}
+
+	option = {
+		name = ruscivwar.7.a
+		ai_chance = {
+			factor = 100
+		}
+		GRN = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.8 } #Adjust this to what you want
+			GRN = { country_event = { id = ruscivwar.7 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+
+country_event = { # Kornilov's Clique Declares Independence 
+	id = ruscivwar.8
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.8" }
+	title = ruscivwar.8.t
+	desc = ruscivwar.8.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_KLV = yes
+	}
+
+	option = {
+		name = ruscivwar.8.a
+		ai_chance = {
+			factor = 100
+		}
+		KLV = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.9 } #Adjust this to what you want
+			KLV = { country_event = { id = ruscivwar.8 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+
+
+country_event = { # Novosibirsk Declares Independence 
+	id = ruscivwar.9
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.9" }
+	title = ruscivwar.9.t
+	desc = ruscivwar.9.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_central_asia = yes
+	}
+
+	option = {
+		name = ruscivwar.9.a
+		ai_chance = {
+			factor = 100
+		}
+		NSK = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.10 } #Adjust this to what you want
+			NSK = { country_event = { id = ruscivwar.9 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+
+country_event = { # Novyy Kuban Declares Independence 
+	id = ruscivwar.10
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.10" }
+	title = ruscivwar.10.t
+	desc = ruscivwar.10.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_NYK = yes
+	}
+
+	option = {
+		name = ruscivwar.10.a
+		ai_chance = {
+			factor = 100
+		}
+		NYK = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.11 } #Adjust this to what you want
+			NYK = { country_event = { id = ruscivwar.10 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+
+country_event = { # Urangel's Clique Declares Independence 
+	id = ruscivwar.11
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.11" }
+	title = ruscivwar.11.t
+	desc = ruscivwar.11.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_UGL = yes
+	}
+
+	option = {
+		name = ruscivwar.11.a
+		ai_chance = {
+			factor = 100
+		}
+		UGL = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.12 } #Adjust this to what you want
+			NVY = { country_event = { id = ruscivwar.11 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+
+country_event = { # Finland Declares Independence 
+	id = ruscivwar.12
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.12" }
+	title = ruscivwar.12.t
+	desc = ruscivwar.12.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_FIN = yes
+	}
+
+	option = {
+		name = ruscivwar.12.a
+		ai_chance = {
+			factor = 100
+		}
+		FIN = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.13 } #Adjust this to what you want
+			FIN = { country_event = { id = ruscivwar.12 hours = 3 }}#Adjust this to what you want
+		}
+	}
+}
+
+country_event = { # Caucusus Declares Independence 
+	id = ruscivwar.13
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.13" }
+	title = ruscivwar.13.t
+	desc = ruscivwar.13.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_caucusus = yes
+	}
+
+	option = {
+		name = ruscivwar.13.a
+		ai_chance = {
+			factor = 100
+		}
+		GEO = {
+			set_country_flag = choice_made
+		}
+		AZR = {
+			set_country_flag = choice_made
+		}
+		ARM = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			country_event = { id = ruscivwar.14 } #Adjust this to what you want
+			GEO = { country_event = { id = ruscivwar.12 hours = 3 }}#Adjust this to what you want
+			AZR = { country_event = { id = ruscivwar.12 hours = 3 }}
+			ARM = { country_event = { id = ruscivwar.12 hours = 3 }}
+		}
+	}
+}
+
+country_event = { # Caucusus Declares Independence 
+	id = ruscivwar.14
+	#immediate = { log = "[GetDateText]: [Root.GetName]: event ruscivwar.14" }
+	title = ruscivwar.14.t
+	desc = ruscivwar.14.d
+	
+
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_eastern_europe = yes
+	}
+
+	option = {
+		name = ruscivwar.14.a
+		ai_chance = {
+			factor = 100
+		}
+		POL = {
+			set_country_flag = choice_made
+		}
+		UKR = {
+			set_country_flag = choice_made
+		}
+		BLR = {
+			set_country_flag = choice_made
+		}
+		hidden_effect = {
+			#country_event = { id = ruscivwar.15 } #Adjust this to what you want
+			POL = { country_event = { id = ruscivwar.14 hours = 3 }}#Adjust this to what you want
+			UKR = { country_event = { id = ruscivwar.14 hours = 3 }}
+			BLR = { country_event = { id = ruscivwar.14 hours = 3 }}
+		}
+	}
+}
+
+
+country_event = {
+	id = ruscivwar.15
+	title = ruscivwar.15.t
+	desc = ruscivwar.15.d
+	#picture = GFX_hitlerartisteventpic
+	#is_triggered_only = yes
+	fire_only_once = yes
+	trigger = { 
+		OR = {
+			AND = {
+				check_variable = {
+					SOV_peoples_support_for_current_regime < 30
+				}
+				check_variable = {
+					SOV_military_support_for_current_regime < 20
+				}
+			}
+			AND = {
+				check_variable = {
+					SOV_peoples_support_for_current_regime < 20
+				}
+				check_variable = {
+					SOV_military_support_for_current_regime < 40
+				}
+			}
+		}
+		tag = SOV
+	}
+	option = {
+		name = ruscivwar.15.a
+		ai_chance = { factor = 1}
+
+		country_event = ruscivwar.1
+
+		set_global_flag = SOV_russian_collapse_flag
+		play_song = "Russian_Collapse_Song"
+	}
 }
 
 ##empowering the okhrana even more?
