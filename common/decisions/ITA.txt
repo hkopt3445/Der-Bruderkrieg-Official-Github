@@ -36,7 +36,263 @@ ITA_incoming_socialist_revolution = {
       }
     }
   }
+
+  ITA_send_in_shocktroopers_to_FROM = {
+    available = {
+      tag = ITA
+      NOT = {
+        has_country_flag = ITA_currently_doing_shocktrooper_operation_deicision
+      }
+    }
+    visible = {
+      has_country_flag = open_civil_war_sidebar
+      has_completed_focus = ITA_Send_in_the_Shocktroopers
+    }
+
+    cost = 20
+    days_remove = 10
+
+    fire_only_once = no
+    days_re_enable = 10
+
+    complete_effect = {
+       set_country_flag = ITA_currently_doing_shocktrooper_operation_deicision
+       event_target:italian_civil_war_state = {
+         save_global_event_target_as = ITA_shocktrooper_civil_war_state
+       }
+    }
+
+    remove_effect = {
+      event_target:ITA_shocktrooper_civil_war_state = {
+      add_to_variable = {
+        tooltip = ITA_increase_fasicst_influence_by_5_in_state
+        socialist_influence = -5
+      }
+      set_variable = {fascist_influence = 0}
+				set_temp_variable = {
+					socialist_temp_var = socialist_influence
+				}
+
+				subtract_from_temp_variable  = {socialist_temp_var = 100}
+				multiply_temp_variable = {socialist_temp_var = -1}
+
+				add_to_variable = {fascist_influence = socialist_temp_var}
+    }
+      clr_country_flag =ITA_currently_doing_shocktrooper_operation_deicision
+    }
+  }
+  ITA_socialist_torture_campaign_in_FROM = {
+    available = {
+      tag = ITA
+      NOT = {
+        has_country_flag = ITA_currently_doing_socialist_torture_campaign_operation_deicision
+      }
+    }
+    visible = {
+      has_country_flag = open_civil_war_sidebar
+      has_completed_focus = ITA_They_arent_Italians
+    }
+
+    cost = 25
+    days_remove = 15
+
+    fire_only_once = no
+    days_re_enable = 10
+
+    complete_effect = {
+       set_country_flag = ITA_currently_doing_socialist_torture_campaign_operation_deicision
+       event_target:italian_civil_war_state = {
+         save_global_event_target_as = ITA_socialist_torture_campaign_civil_war_state
+       }
+    }
+
+    remove_effect = {
+      event_target:ITA_socialist_torture_campaign_civil_war_state = {
+      add_to_variable = {
+        tooltip = ITA_increase_fasicst_influence_by_5_in_state
+        socialist_influence = -5
+      }
+      set_variable = {fascist_influence = 0}
+				set_temp_variable = {
+					socialist_temp_var = socialist_influence
+				}
+
+				subtract_from_temp_variable  = {socialist_temp_var = 100}
+				multiply_temp_variable = {socialist_temp_var = -1}
+
+				add_to_variable = {fascist_influence = socialist_temp_var}
+    }
+      clr_country_flag =ITA_currently_doing_socialist_torture_campaign_operation_deicision
+    }
+  }
+
+
+
+  ITA_blank_1 = {
+    available = {
+       always = no
+    }
+
+    visible = {
+      has_completed_focus = ITA_Keep_the_Others_Out_of_It
+    }
+  }
+  ###OPERATION AXIS
+  ITA_operation_axis_decision = {
+    available = {
+      always = no
+    }
+    visible = {
+      has_completed_focus = ITA_Keep_the_Others_Out_of_It
+    }
+  }
+  ITA_increase_deflection = {
+    available = {
+      tag = ITA
+      NOT = {
+        has_country_flag = ITA_currently_doing_operation_axis_deicision
+      }
+    }
+    visible = {
+      has_completed_focus = ITA_Keep_the_Others_Out_of_It
+    }
+
+    cost = 10
+    days_remove = 15
+
+    fire_only_once = no
+    days_re_enable = 30
+
+    complete_effect = {
+       set_country_flag = ITA_currently_doing_operation_axis_deicision
+    }
+
+    remove_effect = {
+      add_to_variable = {
+        tooltip = ITA_increase_operation_axis_probability_success_by_5
+        ITA_operation_axis_probability_success = 5
+      }
+      clr_country_flag =ITA_currently_doing_operation_axis_deicision
+    }
+  }
+  ITA_contact_our_double_agents = {
+    available = {
+      tag = ITA
+      NOT = {
+        has_country_flag = ITA_currently_doing_operation_axis_deicision
+      }
+    }
+    visible = {
+      has_completed_focus = ITA_Keep_the_Others_Out_of_It
+    }
+
+    cost = 15
+    days_remove = 20
+
+    fire_only_once = no
+    days_re_enable = 40
+
+    complete_effect = {
+       set_country_flag = ITA_currently_doing_operation_axis_deicision
+    }
+
+    remove_effect = {
+      add_to_variable = {
+        tooltip = ITA_increase_operation_axis_probability_success_by_5
+        ITA_operation_axis_probability_success = 5
+      }
+      clr_country_flag =ITA_currently_doing_operation_axis_deicision
+    }
+  }
+  ITA_send_a_false_radio_signal_to_prussia = {
+    available = {
+      tag = ITA
+      NOT = {
+        has_country_flag = ITA_currently_doing_operation_axis_deicision
+      }
+    }
+    visible = {
+      has_completed_focus = ITA_Keep_the_Others_Out_of_It
+    }
+
+    cost = 15
+    days_remove = 5
+
+    fire_only_once = no
+    days_re_enable = 25
+
+    complete_effect = {
+       set_country_flag = ITA_currently_doing_operation_axis_deicision
+    }
+
+    remove_effect = {
+      add_to_variable = {
+        tooltip = ITA_increase_operation_axis_probability_success_by_5
+        ITA_operation_axis_probability_success = 5
+      }
+      clr_country_flag =ITA_currently_doing_operation_axis_deicision
+    }
+  }
+  ITA_boost_encoding_of_plans = {
+    available = {
+      tag = ITA
+      NOT = {
+        has_country_flag = ITA_currently_doing_operation_axis_deicision
+      }
+    }
+    visible = {
+      has_completed_focus = ITA_Keep_the_Others_Out_of_It
+    }
+
+    cost = 20
+    days_remove = 30
+
+    fire_only_once = no
+    days_re_enable = 15
+
+    complete_effect = {
+       set_country_flag = ITA_currently_doing_operation_axis_deicision
+    }
+
+    remove_effect = {
+      add_to_variable = {
+        tooltip = ITA_increase_operation_axis_probability_success_by_5
+        ITA_operation_axis_probability_success = 5
+      }
+      clr_country_flag =ITA_currently_doing_operation_axis_deicision
+    }
+  }
+  ITA_leak_decoy_plans = {
+    available = {
+      tag = ITA
+      NOT = {
+        has_country_flag = ITA_currently_doing_operation_axis_deicision
+      }
+    }
+    visible = {
+      has_completed_focus = ITA_Keep_the_Others_Out_of_It
+    }
+
+    cost = 30
+    days_remove = 45
+    days_re_enable = 20
+
+    fire_only_once = no
+
+    complete_effect = {
+       set_country_flag = ITA_currently_doing_operation_axis_deicision
+    }
+
+    remove_effect = {
+      add_to_variable = {
+        tooltip = ITA_increase_operation_axis_probability_success_by_7
+        ITA_operation_axis_probability_success = 7
+      }
+      clr_country_flag =ITA_currently_doing_operation_axis_deicision
+    }
+  }
 }
+
 
 ITA_mafia_decision = {
   ITA_sabotage_mafia = {
