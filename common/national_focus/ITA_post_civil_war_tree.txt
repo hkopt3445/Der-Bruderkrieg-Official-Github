@@ -117,7 +117,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		unlock_decision_category_tooltip = ITA_northern_investments
+		unlock_decision_category_tooltip = ITA_northern_investments_decision
 	}
 }
 shared_focus = {
@@ -155,7 +155,7 @@ shared_focus = {
 			add_extra_state_shared_building_slots = 1
 		}
 
-		unlock_decision_category_tooltip = ITA_road_to_recovery
+		add_ideas = ITA_road_to_recovery
 	}
 }
 shared_focus = {
@@ -172,7 +172,10 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		unlock_decision_category_tooltip = ITA_factory_repairing
+		swap_ideas = {
+			remove_idea = ITA_road_to_recovery
+			add_idea = ITA_road_to_recovery_2
+		}
 	}
 }
 shared_focus = {
@@ -188,14 +191,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1
 	}
-	available = {
-		custom_trigger_tooltip = {
-			tooltip = full_recovered_economy_ita_tt
-			OR = { check_variable = {ITA_economic_civil_war_var > 0} check_variable = {ITA_economic_civil_war_var = 0} }
-		}
-	}
+
 	completion_reward = {
-		
+		set_country_flag = ITA_unlock_mafia_tree
 	}
 }
 shared_focus = {
@@ -245,6 +243,7 @@ shared_focus = {
 	}
 	available = {
 		has_country_flag = ITA_fascist_or_neutral_win_civil_war
+		has_country_flag = ITA_unlock_mafia_tree
 	}
 
 
@@ -941,7 +940,7 @@ shared_focus = {
 	  factor = 1
 	}
 	available = {
-		has_country_flag = ITA_fascist_or_neutral_win_civil_war
+		has_completed_focus = ITA_a_nation_reborn
 	}
 
 	available_if_capitulated = yes
@@ -1539,8 +1538,7 @@ shared_focus = {
 		  factor = 1
 	  }
 	  available = {
-		has_country_flag = ITA_fascist_or_neutral_win_civil_war
-	}
+	 	has_completed_focus = ITA_a_nation_reborn	}
 
 	  available_if_capitulated = yes
 	  search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1838,8 +1836,7 @@ shared_focus = {
 		  factor = 1
 	  }
 	  available = {
-		has_country_flag = ITA_fascist_or_neutral_win_civil_war
-	}
+	 	has_completed_focus = ITA_a_nation_reborn	}
 
 	  available_if_capitulated = yes
 	  search_filters = { FOCUS_FILTER_RESEARCH }
