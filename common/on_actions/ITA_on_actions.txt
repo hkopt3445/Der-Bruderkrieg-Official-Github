@@ -9,13 +9,22 @@ on_actions = {
 					}
 				}
 				ITA = {country_event = italy.530}
-				set_country_flag = ITA_fascist_or_neutral_win_civil_war
 
 				ITA = {
 					add_ideas = ITA_legacy_of_the_civil_war
-					set_variable = {ITA_economic_civil_war_var = -100}
-					ITA_calc_economic_recovery = yes
-					add_dynamic_modifier = {modifier = italian_economoy_civil_war_modifier}
+					set_country_flag = ITA_fascist_or_neutral_win_civil_war
+					if = {
+						limit = {
+							has_country_flag = ITA_evolas_coup_complete
+						}
+						load_focus_tree = ITA_evola_tree
+					}
+					if = {
+						limit = {
+							has_country_flag = ITA_mussolini_in_power
+						}
+						load_focus_tree = ITA_mussolini_tree
+					}
 				}
 			}
 			if = {
