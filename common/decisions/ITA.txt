@@ -34,6 +34,26 @@ ITA_incoming_socialist_revolution = {
         country_event = ITA_socialist_revolution_events.1
         set_country_flag = ITA_in_civil_war
       }
+
+      hidden_effect = {
+        set_variable = {prob_of_op_axis_failing = 0}
+				set_temp_variable = {
+					prob_of_op_axis_succeeding = socialist_influence
+				}
+
+				subtract_from_temp_variable  = {prob_of_op_axis_succeeding = 100}
+				multiply_temp_variable = {prob_of_op_axis_succeeding = -1}
+
+				add_to_variable = {prob_of_op_axis_failing = ITA_operation_axis_probability_success}
+        random_list = {
+          prob_of_op_axis_succeeding = {
+            country_event = ITA_socialist_revolution_events.3
+          }
+          prob_of_op_axis_failing = {
+            country_event = ITA_socialist_revolution_events.3
+          }
+        }
+      }
     }
   }
 
