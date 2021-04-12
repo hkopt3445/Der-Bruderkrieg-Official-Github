@@ -1314,6 +1314,87 @@ news_event = {
 	}
 }
 
+###operation axis success
+country_event = {
+	id = ITA_socialist_revolution_events.3
+	title = ITA_socialist_revolution_events.3.t
+	desc = ITA_socialist_revolution_events.3.d
+	#picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = ITA_socialist_revolution_events.3.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		
+		random_owned_controlled_state = {
+			limit = {
+				any_neighbor_state = {
+					is_owned_by = CMI
+				}
+			}
+			create_unit = {
+				division = "name = \"Elite Prussian Army Division  1\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+				owner = CMI
+			}
+
+		}
+		random_owned_controlled_state = {
+			limit = {
+				any_neighbor_state = {
+					is_owned_by = CMI
+				}
+			}
+			create_unit = {
+				division = "name = \"Elite Prussian Army Division  1\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+				owner = CMI
+			}
+
+		}
+		random_owned_controlled_state = {
+			limit = {
+				any_neighbor_state = {
+					is_owned_by = CMI
+				}
+			}
+			create_unit = {
+				division = "name = \"Elite Prussian Army Division  1\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+				owner = CMI
+			}
+
+		}
+	}
+}
+
+
+#op axis failutre
+country_event = {
+	id = ITA_socialist_revolution_events.4
+	title = ITA_socialist_revolution_events.4.t
+	desc = ITA_socialist_revolution_events.4.d
+	#picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes   #this means this event can only fire one time
+	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
+
+	option = { # This option will give the war goal
+		name = ITA_socialist_revolution_events.4.a #needs to be localized
+		ai_chance = { factor = 90 } #this factor means the AI will almost always pick this one
+		
+		CMI = {
+			add_equipment_to_stockpile = {
+				type = infantry
+				amount = 1000
+			}
+		}
+
+	}
+}
+
 add_namespace = ITA_army_events
 
 country_event = {
