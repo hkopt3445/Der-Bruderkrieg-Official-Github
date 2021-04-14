@@ -150,7 +150,7 @@ focus_tree = {
 	} 
 
 	default = no
-	shared_focus = ITA_Spanish_Intervention
+	shared_focus = ITA_evolas_regime
 	shared_focus = ITA_begin_the_recovery_process
 	shared_focus = ITA_LOOK_AT_ARMY
 	shared_focus = ITA_MAFIA_FOCUS
@@ -160,3 +160,476 @@ focus_tree = {
 
 }
 
+shared_focus = {
+	id = ITA_evolas_regime
+	icon = unkown 
+	x = 3
+	y = 0
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_strengthen_the_regime
+	icon = unkown 
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_evolas_regime }
+	relative_position_id = ITA_evolas_regime
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_adopt_the_three_ideals
+	icon = unkown 
+	x = -3
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_strengthen_the_regime }
+	relative_position_id = ITA_strengthen_the_regime
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = ITA_three_ideals
+	}
+}
+shared_focus = {
+	id = ITA_populism
+	icon = unkown 
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_adopt_the_three_ideals }
+	relative_position_id = ITA_adopt_the_three_ideals
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_nationalism
+	icon = unkown 
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_adopt_the_three_ideals }
+	relative_position_id = ITA_adopt_the_three_ideals
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = ITA_spiratualism
+	icon = unkown 
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_adopt_the_three_ideals }
+	relative_position_id = ITA_adopt_the_three_ideals
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_begin_italiansiation
+	icon = unkown 
+	x = -3
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_spiratualism }
+	prerequisite = {
+		focus = ITA_populism
+	}
+	prerequisite = {
+		focus = ITA_nationalism
+	}
+	relative_position_id = ITA_spiratualism
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = ITA_italianisation
+	}
+}
+shared_focus = {
+	id = ITA_publish_the_groupo_di_ur
+	icon = unkown 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_spiratualism }
+	prerequisite = {
+		focus = ITA_populism
+	}
+	prerequisite = {
+		focus = ITA_nationalism
+	}
+	relative_position_id = ITA_spiratualism
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = ITA_uri_group
+	}
+}
+shared_focus = {
+	id = ITA_the_brotherhood_of_chivelry
+	icon = unkown 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_publish_the_groupo_di_ur }
+	prerequisite = {
+		focus = ITA_begin_italiansiation
+	}
+
+	relative_position_id = ITA_publish_the_groupo_di_ur
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_religious_intolerance
+	icon = unkown 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_spiritual_racism }
+	relative_position_id = ITA_spiritual_racism
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_spiritual_racism
+	icon = unkown 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_the_brotherhood_of_chivelry }
+	relative_position_id = ITA_the_brotherhood_of_chivelry
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_italianisation
+			add_idea = ITA_italianisation_2
+		}
+	}
+}
+shared_focus = {
+	id = ITA_national_mystacism
+	icon = unkown 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_the_brotherhood_of_chivelry }
+	relative_position_id = ITA_the_brotherhood_of_chivelry
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_uri_group
+			add_idea = ITA_uri_group_2
+		}
+	}
+}
+shared_focus = {
+	id = ITA_order_of_purity
+	icon = unkown 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_national_mystacism }
+	relative_position_id = ITA_national_mystacism
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = ITA_order_of_purity
+	}
+}
+shared_focus = {
+	id = ITA_true_feudalism
+	icon = unkown 
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_order_of_purity }
+	prerequisite = {
+		focus = ITA_religious_intolerance
+	}
+	relative_position_id = ITA_order_of_purity
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_order_of_purity
+			add_idea = ITA_carlomonic_state
+		}
+	}
+}
+shared_focus = {
+	id = ITA_the_supremacy_of_tradition
+	icon = unkown 
+	x = 3
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_true_feudalism }
+	prerequisite = {
+		focus = ITA_a_unified_party
+	}
+	
+	relative_position_id = ITA_true_feudalism
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = ITA_carlomonic_state
+			add_idea = ITA_carlomonic_state_2
+		}
+	}
+}
+
+shared_focus = {
+	id = ITA_the_remnants_of_the_NFP
+	icon = unkown 
+	x = 3
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_strengthen_the_regime }
+	relative_position_id = ITA_strengthen_the_regime
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_appointing_a_successor
+	icon = unkown 
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_the_remnants_of_the_NFP }
+	relative_position_id = ITA_the_remnants_of_the_NFP
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_piedro_badoglio
+	icon = unkown 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_appointing_a_successor }
+	mutually_exclusive = {
+		focus = ITA_alessandro_pavolini
+	}
+	relative_position_id = ITA_appointing_a_successor
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		set_country_flag = ITA_appointed_badoglio_to_quad_seat
+		custom_effect_tooltip = ITA_piedro_badolgio_tt
+	}
+}
+shared_focus = {
+	id = ITA_assert_the_kings_authority
+	icon = unkown 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_piedro_badoglio }
+	relative_position_id = ITA_piedro_badoglio
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_for_the_king_for_italia
+	icon = unkown 
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_assert_the_kings_authority }
+	relative_position_id = ITA_assert_the_kings_authority
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = ITA_for_the_king_for_the_country
+	}
+}
+shared_focus = {
+	id = ITA_alessandro_pavolini
+	icon = unkown 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_appointing_a_successor }
+	relative_position_id = ITA_appointing_a_successor
+	mutually_exclusive = {
+		focus = ITA_piedro_badoglio
+	}
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_strengthening_mvsn_control
+	icon = unkown 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_alessandro_pavolini }
+	relative_position_id = ITA_alessandro_pavolini
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_promoting_militarism
+	icon = unkown 
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_strengthening_mvsn_control }
+	relative_position_id = ITA_strengthening_mvsn_control
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_ideas = ITA_blackshirt_run_government
+	}
+}
+
+shared_focus = {
+	id = ITA_silencing_the_loyalists
+	icon = unkown 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_piedro_badoglio focus = ITA_alessandro_pavolini }
+	relative_position_id = ITA_piedro_badoglio
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.08
+		}
+		custom_effect_tooltip = ITA_silencing_the_loyalists_tt
+		add_to_variable = {
+			ITA_MVSN_radar_0 = -0.2
+		}
+		ITA_MVSN_convert_axes_values_to_frames = yes
+		ITA_MVSN_radar_graph_set_up = yes
+	}
+}
+
+shared_focus = {
+	id = ITA_demanding_de_bonos_resignation
+	icon = unkown 
+	x = 0
+	y = 2
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_for_the_king_for_italia focus = ITA_promoting_militarism }
+	prerequisite = {
+		focus = ITA_silencing_the_loyalists
+	}
+	relative_position_id = ITA_silencing_the_loyalists
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		set_country_flag = ITA_remove_de_bono_from_gui
+	}
+}
+
+shared_focus = {
+	id = ITA_a_unified_party
+	icon = unkown 
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_demanding_de_bonos_resignation }
+	relative_position_id = ITA_demanding_de_bonos_resignation
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		add_political_power = 100
+	}
+}
