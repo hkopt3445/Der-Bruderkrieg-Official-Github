@@ -1,5 +1,5 @@
 # Der Bruderkrieg
-Der Bruderkrieg is a Hearts of Iron 4 mod which asks what if Austria won the Austro-Prussian War, leading to a never unified Germany and an Austrian Superpower.
+Der Bruderkrieg is a Hearts of Iron 4 mod which asks what if Austria won the Austro-Prussian War, leading to a never unified Germany and an Austrian Superpower as well as a survived Ottoman Empire which is very unstable along with many other countries and Lenin not taking power. yet.
 
 
 ## Founder <br />
