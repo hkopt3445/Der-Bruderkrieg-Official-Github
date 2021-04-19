@@ -1,9 +1,9 @@
 # Der Bruderkrieg
-Der Bruderkrieg is a Hearts of Iron 4 mod which asks what if big floppa destroyed the suez canal with facts and logic like Comrade Shen Bapiro, dictator of Soviet Portugal?
+Der Bruderkrieg is a Hearts of Iron 4 mod which asks what if Austria won the Austro-Prussian War, leading to a never unified Germany and an Austrian Superpower as well as a survived Ottoman Empire which is very unstable along with many other countries and Lenin not taking power. yet.
 
 
 ## Founder <br />
-Big Floppa <br />
+Arj <br />
 
 ## Lead Developers <br /> 
 Polarn <br />
@@ -22,7 +22,7 @@ Chowder <br />
 
 
 # Website
-https://arjthegreat.github.io/ shut the fuck up mods dont have websites
+https://arjthegreat.github.io/ 
  
 # Tayrona Works
 https://www.tayronaworks.com/derbruderkrieg
@@ -32,4 +32,4 @@ https://code.visualstudio.com/download <br />
 https://marketplace.visualstudio.com/items?itemName=Chaofan.hoi4modutilities
 
 # Hoi4modding.com 
-https://hoi4modding.com/mod/46726 dysfunctional tool moment
+https://hoi4modding.com/mod/46726 
