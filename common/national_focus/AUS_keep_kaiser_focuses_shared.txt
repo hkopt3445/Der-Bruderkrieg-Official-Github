@@ -188,7 +188,7 @@ shared_focus = {
   icon = GFX_goal_generic_construction2
   text = AUS_HEART_DEV_SCHEME
   prerequisite = { focus = AUS_BUILD_INDUSTRY }
-  #mutually_exclusive = {focus = AUS_IMPERIAL_DEV_SCHEME}
+  mutually_exclusive = {focus = AUS_IMPERIAL_DEV_SCHEME}
   x = -2
   y = 1
   relative_position_id = AUS_BUILD_INDUSTRY
@@ -229,7 +229,7 @@ shared_focus = {
   icon = GFX_goal_generic_construction2
   text = AUS_IMPERIAL_DEV_SCHEME
   prerequisite = { focus = AUS_BUILD_INDUSTRY }
-  #mutually_exclusive = {focus = AUS_HEART_DEV_SCHEME}
+  mutually_exclusive = {focus = AUS_HEART_DEV_SCHEME}
   x = 2
   y = 1
   relative_position_id = AUS_BUILD_INDUSTRY
@@ -621,7 +621,7 @@ shared_focus = {
 	icon = GFX_focus_generic_africa_factory
 	x = 0
 	y = 1
-	cost = 10
+	cost = 8
 	available_if_capitulated = yes
 	prerequisite = { focus = AUS_minding_the_italian_border }
 	relative_position_id = AUS_minding_the_italian_border
@@ -630,8 +630,61 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1
 	}
+  available = {
+      1064 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+      547 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+    }
 	completion_reward = {
-		
+		1064 = {
+              add_building_construction = {
+                  type = arms_factory
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_building_construction = {
+                  type = industrial_complex
+                  level = 1
+                  instant_build = yes
+
+              }
+               add_building_construction = {
+                  type = infrastructure
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_extra_state_shared_building_slots = 3
+    }
+    547 = {
+              add_building_construction = {
+                  type = industrial_complex
+                  level = 1
+                  instant_build = yes
+
+              }
+               add_building_construction = {
+                  type = infrastructure
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_extra_state_shared_building_slots = 2
+    }
 	}
 }
 
@@ -649,7 +702,56 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+	 modify_building_resources = {
+     building = synthetic_refinery
+     resource = rubber
+     amount = 2
+   }
+   add_tech_bonus = {
+        name = AUS_coal_liquidization
+        bonus = 3.0
+        uses = 1
+        category = synth_resources
+      }
+      if = {
+        limit = {
+          has_full_control_of_state = 4
+        }
+        4 = {
+          add_extra_state_shared_building_slots = 2
+          add_building_construction = {
+            type = synthetic_refinery
+            level = 2
+            instant_build = yes
+          }
+        }
+      }
+       if = {
+        limit = {
+          has_full_control_of_state = 9
+        }
+        9 = {
+          add_extra_state_shared_building_slots = 1
+          add_building_construction = {
+            type = synthetic_refinery
+            level = 1
+            instant_build = yes
+          }
+        }
+      }
+      if = {
+        limit = {
+          has_full_control_of_state = 43
+        }
+        43 = {
+          add_extra_state_shared_building_slots = 1
+          add_building_construction = {
+            type = synthetic_refinery
+            level = 1
+            instant_build = yes
+          }
+        }
+      }
 	}
 }
 
@@ -687,7 +789,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		add_ideas = ORK
 	}
 }
 
@@ -718,7 +820,6 @@ shared_focus = {
 	id = AUS_minding_the_italian_border
 	icon = GFX_goal_generic_construct_military
 	cost = 5
-	available_if_capitulated = yes
 	prerequisite = { focus = AUS_exploitation_of_ostafrika }
 	relative_position_id = AUS_exploitation_of_ostafrika
 	x = 2
@@ -726,9 +827,49 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1
 	}
+  available = {
+      1059 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+    }
+
+
+    available_if_capitulated = yes
+
+    bypass = {
+      1059 = {
+        free_building_slots = {
+          building = anti_air_building
+          size < 2
+        }
+      }
+    }
 	completion_reward = {
-		
-	}
+	1059 = {
+       add_building_construction = {
+        type = bunker
+        level = 3
+        province = 11014
+        instant_build = yes
+      }
+       add_building_construction = {
+        type = bunker
+        level = 3
+        province = 12941
+        instant_build = yes
+      }
+      add_building_construction = {
+        type = anti_air_building
+        level = 2
+        instant_build = yes
+      }
+    }
+  }
 }
 
 shared_focus = {
@@ -756,7 +897,7 @@ shared_focus = {
 	relative_position_id = AUS_initiate_a_trial_run_in_togo
 	x = -1
 	y = 1
-	cost = 10
+	cost = 5
 	available_if_capitulated = yes
 	prerequisite = { focus = AUS_initiate_a_trial_run_in_togo }
 	search_filters = { FOCUS_FILTER_INDUSTRY } 
@@ -799,9 +940,28 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1
 	}
+  available = {
+      777 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+    }
 	completion_reward = {
-		
-	}
+      777 = {
+        add_resource = {
+          type = steel
+          amount = 4
+        }
+        add_resource = {
+          type = chromium
+          amount = 2
+        }
+      }
+    }
 }
 
 shared_focus = {
@@ -828,7 +988,7 @@ shared_focus = {
 	relative_position_id = AUS_sponsor_voestalpine
 	x = -2
 	y = 1
-	cost = 10
+	cost = 5
 	available_if_capitulated = yes
 	prerequisite = { focus = AUS_sponsor_voestalpine }
 	search_filters = { FOCUS_FILTER_INDUSTRY } 
