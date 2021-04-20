@@ -22,6 +22,9 @@ on_actions = {
 					if = {
 						limit = {
 							has_country_flag = ITA_mussolini_in_power
+							NOT = {
+								has_country_flag = ITA_evolas_coup_complete
+							}
 						}
 						load_focus_tree = ITA_mussolini_tree
 					}
@@ -74,8 +77,7 @@ on_actions = {
 		effect = {
 
 			ITA = {
-				ITA_MVSN_radar_graph_set_up = yes
-				ITA_MVSN_convert_axes_values_to_frames = yes
+				ITA_named_vars_NFP_graph_set_up = yes
 				set_country_flag = ITA_mussolini_in_power
 			}
 
@@ -233,6 +235,21 @@ on_actions = {
 			
 
 			
+			}
+		}
+
+		on_monthly_ITA = {
+			effect = {
+				if = {
+					limit = {
+						has_country_flag = ITA_increase_royalist_influence_monthly_by_5
+					}
+					add_to_variable = {
+						ITA_evola_influence_in_NFP = 0.05
+					}
+					ITA_NFP_radar_graph_set_up = yes
+					ITA_NFP_convert_axes_values_to_frames = yes
+				}
 			}
 		}
     }
