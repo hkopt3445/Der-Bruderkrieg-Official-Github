@@ -262,7 +262,7 @@ shared_focus = {
     completion_reward = {
         divide_variable = {
             tooltip = SOV_reduce_cost_of_campaigning_in_urban_areas_2
-            city_campaign_cost = 1
+            city_campaign_cost = 2
         }
         
     }
@@ -286,7 +286,7 @@ shared_focus = {
         
         divide_variable = {
             tooltip = SOV_reduce_cost_of_campaigning_in_rural_areas_2
-            farm_campaign_cost = 1
+            farm_campaign_cost = 2
         }
     }
 }
@@ -439,19 +439,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
-        unlock_decision_tooltip = SOV_campaign_in_poland
-        unlock_decision_tooltip = SOV_campaign_in_belarus
-        unlock_decision_tooltip = SOV_campaign_in_ukraine
-        unlock_decision_tooltip = SOV_campaign_in_the_southern_oblasts
-        unlock_decision_tooltip = SOV_camapign_in_the_caucusus
-        unlock_decision_tooltip = SOV_camapign_in_the_srednaya_azyiya
-        unlock_decision_tooltip = SOV_camapign_in_west_siberia
-        unlock_decision_tooltip = SOV_camapign_in_east_siberia
-        unlock_decision_tooltip = SOV_campaign_in_perm
-        unlock_decision_tooltip = SOV_camapign_in_the_northern_oblasts
-        unlock_decision_tooltip = SOV_camapign_in_finland
-        unlock_decision_tooltip = SOV_campaign_in_moskow
+       country_event = SOV_starting_events_kerensky.1
     }
 }
 
@@ -469,9 +457,83 @@ shared_focus = {
     }
     completion_reward = {
         
+         
+        unlock_decision_tooltip = SOV_campaign_in_poland
+        unlock_decision_tooltip = SOV_campaign_in_belarus
+        unlock_decision_tooltip = SOV_campaign_in_ukraine
+        unlock_decision_tooltip = SOV_campaign_in_the_southern_oblasts
+        unlock_decision_tooltip = SOV_camapign_in_the_caucusus
+        unlock_decision_tooltip = SOV_camapign_in_the_srednaya_azyiya
+        unlock_decision_tooltip = SOV_camapign_in_west_siberia
+        unlock_decision_tooltip = SOV_camapign_in_east_siberia
+        unlock_decision_tooltip = SOV_campaign_in_perm
+        unlock_decision_tooltip = SOV_camapign_in_the_northern_oblasts
+        unlock_decision_tooltip = SOV_camapign_in_finland
+        unlock_decision_tooltip = SOV_campaign_in_moskow
+    }
+}
+
+shared_focus = {
+    id = SOV_the_threat_of_the_socialists
+    icon = unkown
+	prerequisite = {focus = SOV_the_path_to_true_democracy}
+    x = -3
+    y = 1
+    relative_position_id = SOV_the_path_to_true_democracy
+    mutually_exclusive = {
+        focus = SOV_a_possible_compromise
+    }
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        unlock_decision_tooltip = SOV_denouncing_the_rsdlp_as_authoritarian
+        unlock_decision_tooltip = SOV_point_out_their_impracticalness
+        unlock_decision_tooltip = SOV_paint_them_as_radicals
+    }
+}
+shared_focus = {
+    id = SOV_a_possible_compromise
+    icon = unkown
+	prerequisite = {focus = SOV_the_path_to_true_democracy}
+    mutually_exclusive = {
+        focus = SOV_the_threat_of_the_socialists
+    }
+    x = -1
+    y = 1
+    relative_position_id = SOV_the_path_to_true_democracy
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+     ###compromising with tsertelli, not lenin   
         
     }
 }
+
+shared_focus = {
+    id = SOV_what_to_do_with_the_CDP
+    icon = unkown
+	prerequisite = {focus = SOV_the_threat_of_the_socialists focus = SOV_a_possible_compromise }
+    
+    x = 1
+    y = 1
+    relative_position_id = SOV_the_threat_of_the_socialists 
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
 
 shared_focus = {
     id = SOV_final_social_reforms_bill
@@ -486,7 +548,43 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        set_variable = {
+            SOV_cdp_support_for_current_bill = cdp_seats
+        }
+        divide_variable = {
+            SOV_cdp_support_for_current_bill = 2
+        }
+
+        round_variable = SOV_cdp_support_for_current_bill
+
+        set_variable = {
+            SOV_trudovik_support_for_current_bill = trudovik_seats
+        }
+        divide_variable = {
+            SOV_trudovik_support_for_current_bill = 4
+        }
+
+        round_variable = SOV_trudovik_support_for_current_bill
+
+        set_variable = {
+            SOV_rsdlp_support_for_current_bill = rsdlp_seats
+        }
+        divide_variable = {
+            SOV_rsdlp_support_for_current_bill = 4
+        }
+
+        round_variable = SOV_rsdlp_support_for_current_bill
+
+        set_variable = {
+            SOV_urp_support_for_current_bill = urp_seats
+        }
+        divide_variable = {
+            SOV_urp_support_for_current_bill = 2
+        }
+        round_variable = SOV_urp_support_for_current_bill
+
+        set_country_flag = SOV_vote_for_kerenskys_social_reform_bill_going_on
+        activate_mission = SOV_kerensky_final_social_reform_bill
         
     }
 }
@@ -539,10 +637,13 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_attacking_the_radical_left
+    id = SOV_promising_stability
     icon = unkown
 	prerequisite = {focus = SOV_appeal_the_farmers focus = SOV_appeal_to_the_workers }
-    x = 1
+    prerequisite = {
+        focus = SOV_what_to_do_with_the_CDP
+    }
+    x = -1
     y = 1
     relative_position_id = SOV_appeal_the_farmers
     cost = 1
@@ -610,7 +711,7 @@ shared_focus = {
 	#prerequisite = {focus = SOV_side_with_the_CDP}
     x = 2
     y = 0
-    relative_position_id = SOV_side_with_the_CDP
+    #relative_position_id = SOV_side_with_the_CDP
     cost = 1
     available_if_capitulated = yes
     ai_will_do = {
