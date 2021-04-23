@@ -3,14 +3,22 @@ Der Bruderkrieg is a Hearts of Iron 4 mod which asks what if Austria won the Aus
 
 
 ## Founder <br />
-Big Chungus (funny) <br />
+Arj <br />
 
 ## Lead Developers <br /> 
-Alithron <br />
+Polarn <br />
+Shark28 <br />
+Elysian <br />
+Bruno <br />
+Huey Long <br />
 
 
 ## Contributors  <br />
-daslich  <br />
+Tolz  <br />
+Samurai  <br />
+Jufkenzi <br />
+Asbestosstar <br />
+Chowder <br />
 
 
 # Website
@@ -24,4 +32,4 @@ https://code.visualstudio.com/download <br />
 https://marketplace.visualstudio.com/items?itemName=Chaofan.hoi4modutilities
 
 # Hoi4modding.com 
-amogus
+https://hoi4modding.com/mod/46726 
