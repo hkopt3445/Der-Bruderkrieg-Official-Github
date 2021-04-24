@@ -859,3 +859,216 @@ ITA_spread_italian_race_decision = { #ok wtf is this
 }
 
 
+ITA_iron_guard = {
+  
+  ITA_smuggle_weapons = {
+
+    icon = generic_industry
+
+    cost = 20
+
+    days_re_enable = 20
+
+    available = {
+      has_equipment = {
+        infantry_equipment > 250
+      }
+      check_variable = { var = iron_guard_chance value = 96 compare = less_than }
+    }
+
+    days_remove = 7
+
+    ai_will_do = {
+      factor = 2
+    }
+
+    complete_effect = {
+      add_to_variable = { var = iron_guard_chance value = 5 }
+      add_equipment_to_stockpile = {
+        type = infantry_equipment
+        amount = -250
+      }
+      custom_effect_tooltip = ITA_increase_coup_chance
+    }
+
+  }
+
+  ITA_loan_printers = {
+
+    icon = ger_mefo_bills
+
+    days_re_enable = 50
+
+    available = {
+      political_power_growth > 0.2
+      check_variable = { var = iron_guard_chance value = 96 compare = less_than }
+    }
+
+    days_remove = 30
+
+    ai_will_do = {
+      factor = 1
+      modifier = {
+        has_political_power > 100
+        factor = 2
+      }
+    }
+
+    modifier = {
+      political_power_cost = 0.2
+    }
+
+    remove_effect = {
+      add_to_variable = { var = iron_guard_chance value = 5 }
+      ROM = {
+        add_popularity = {
+          ideology = fascism
+          popularity = 0.01
+        }
+      }
+      custom_effect_tooltip = ITA_increase_coup_chance
+    }
+
+  }
+
+  ITA_ROM_mutual_training = {
+
+    cost = 25
+
+    days_re_enable = 60
+
+    icon = border_war
+
+    ai_will_do = {
+      factor = 2
+    }
+
+    days_remove = 25
+
+    remove_effect = {
+      army_experience = 5
+      ROM = {
+        army_experience = 5
+      }
+      add_to_variable = { var = iron_guard_chance value = 5 }
+      custom_effect_tooltip = ITA_increase_coup_chance
+    }
+
+  }
+
+  ITA_supply_ROM_army = {
+
+    icon = generic_industry
+
+    cost = 25
+
+    fire_only_once = yes
+
+    days_remove = 30
+
+    ai_will_do = {
+      factor = 1
+      modifier = {
+        num_of_military_factories < 25
+        factor = 0
+      }
+    }
+
+    modifier = {
+      production_speed_buildings_factor = -0.1
+    }
+
+    remove_effect = {
+      ROM = {
+        add_offsite_building = { type = arms_factory level = 1 }
+      }
+      add_to_variable = { var = iron_guard_chance value = 5 }
+      custom_effect_tooltip = ITA_increase_coup_chance
+    }
+
+  }
+
+  ITA_promise_aid_when_allied = {
+
+    cost = 50
+
+    fire_only_once = yes
+
+    icon = generic_construction
+
+    ai_will_do = {
+      factor = 1
+    }
+
+    days_remove = 25
+
+    modifier = {
+      consumer_goods_factor = 0.05
+    }
+
+    complete_effect = {
+      add_to_variable = { var = iron_guard_chance value = 5 }
+      custom_effect_tooltip = ITA_increase_coup_chance
+    }
+
+  }
+
+  ITA_investigate_carol_scandals = {
+
+      cost = 25
+
+      days_re_enable = 100
+
+      available = {
+        ROM = { has_government = neutrality }
+        check_variable = { var = iron_guard_chance value = 96 compare = less_than }
+      }
+
+      days_remove = 10
+
+      modifier = {
+        political_power_cost = 0.1
+      }
+
+      remove_effect = {
+        ROM = {
+          add_popularity = {
+            ideology = neutrality
+            popularity = -0.025
+          }
+        }
+        add_to_variable = { var = iron_guard_chance value = 5 }
+        custom_effect_tooltip = ITA_increase_coup_chance
+      }
+  }
+
+  ITA_denounce_current_ROM_govt = {
+
+    icon = generic_civil_support
+
+    cost = 50
+
+    fire_only_once = yes
+
+    ai_will_do = {
+      factor = 2
+    }
+
+    available = {
+      ROM = {
+        NOT = { has_government = fascism }
+      }
+      check_variable = { var = iron_guard_chance value = 91 compare = less_than }
+    }
+
+    complete_effect = {
+      ROM = {
+        add_opinion_modifier = { target = ITA modifier = medium_decrease }
+      }
+      add_to_variable = { var = iron_guard_chance value = 10 }
+      custom_effect_tooltip = ITA_increase_coup_chance
+    }
+
+  }
+
+}
