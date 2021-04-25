@@ -996,6 +996,115 @@ SOV_the_duma = {
 
 		
 	}
+
+	SOV_fearmonger_against_okhrana = {
+
+		cost = 25
+
+		days_remove = 20
+
+		visible = {
+			has_completed_focus = SOV_the_question_of_the_okhrana
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		remove_effect = {
+			subtract_from_variable = {
+				SOV_urp_support_for_current_bill = -2
+			}
+			subtract_from_variable = {
+				SOV_cdp_support_for_current_bill = -2
+			}
+			subtract_from_variable = {
+				SOV_trudovik_support_for_current_bill = -2
+			}
+			subtract_from_variable = {
+				SOV_rsdlp_support_for_current_bill = -2
+			}
+			custom_effect_tooltip = SOV_lowers_all_support
+			SOV_modify_current_duma_total_support_for_bill = yes
+		}
+
+	}
+
+	SOV_fearmonger_for_okhrana = {
+
+		cost = 25
+
+		days_remove = 20
+
+		visible = {
+			has_completed_focus = SOV_the_question_of_the_okhrana
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		remove_effect = {
+			subtract_from_variable = {
+				SOV_urp_support_for_current_bill = 2
+			}
+			subtract_from_variable = {
+				SOV_cdp_support_for_current_bill = 2
+			}
+			subtract_from_variable = {
+				SOV_trudovik_support_for_current_bill = 2
+			}
+			subtract_from_variable = {
+				SOV_rsdlp_support_for_current_bill = 2
+			}
+			custom_effect_tooltip = SOV_raises_all_support
+			SOV_modify_current_duma_total_support_for_bill = yes
+		}
+
+	}
+
+	SOV_allow_okhrana_reentry = {
+
+		cost = 50
+
+		days_remove = 30
+
+		visible = {
+			has_completed_focus = SOV_the_question_of_the_okhrana
+		}
+
+		fire_only_once = yes
+
+		modifier = {
+			weekly_manpower = 25
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		remove_effect = {
+			subtract_from_variable = {
+				SOV_urp_support_for_current_bill = 1
+			}
+			subtract_from_variable = {
+				SOV_cdp_support_for_current_bill = 1
+			}
+			subtract_from_variable = {
+				SOV_trudovik_support_for_current_bill = 1
+			}
+			subtract_from_variable = {
+				SOV_rsdlp_support_for_current_bill = 1
+			}
+			custom_effect_tooltip = SOV_raises_all_support
+			SOV_modify_current_duma_total_support_for_bill = yes
+		}
+
+	}
 }
 
 
@@ -3374,10 +3483,6 @@ SOV_using_the_okhrana = {
 
 }
 
-SOV_pavel_economics = {
-
-}
-
 SOV_pavels_army_reforms = {
 
 }
@@ -4873,6 +4978,448 @@ SOV_lenins_infra_plan = {
 				}
 			}
 		}
+	}
+
+}
+
+SOV_pavel_economics = {
+
+	SOV_free_trade = {
+
+		icon = generic_political_discourse
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		visible = {
+			NOT = { has_idea = free_trade }
+		}
+
+		complete_effect = {
+			add_ideas = free_trade
+		}
+
+	}
+	
+	SOV_lower_taxation_corporations = {
+
+		icon = ger_mefo_bills
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		days_re_enable = 70
+
+		days_remove = 70
+
+		modifier = {
+			political_power_gain = -0.1
+			industrial_capacity_factory = 0.1
+			industrial_capacity_dockyard = 0.1
+		}
+
+	}
+
+	SOV_cut_regulations = {
+
+		icon = generic_civil_support
+
+		cost = 25
+
+		days_remove = 50
+
+		days_re_enable = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		modifier = {
+			consumer_goods_factor = -0.1
+		}
+
+		complete_effect = {
+			add_stability = -0.05
+		}
+
+	}
+
+	SOV_step_out_of_competition = {
+
+		icon = generic_political_discourse
+
+		cost = 50
+
+		days_remove = 100
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		modifier = {
+			industrial_capacity_factory = 0.1
+			industrial_capacity_dockyard = 0.1
+			production_factory_efficiency_gain_factor = 0.1
+		}
+
+	}
+
+	SOV_defund_state_corporations = {
+
+		icon = generic_factory
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_political_power < 50
+				add = 1
+			}
+		}
+
+		days_re_enable = 75
+
+		days_remove = 33
+
+		modifier = {
+			political_power_cost = -0.3
+			consumer_goods_factor = 0.05
+		}
+
+	}
+
+	SOV_privatize_utilities = {
+
+		icon = generic_construction
+
+		cost = 25
+
+		modifier = {
+			production_speed_buildings_factor = 0.1
+			consumer_goods_factor = -0.05
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		days_remove = 60
+
+		remove_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure > 5
+				}
+				add_building_construction = {
+					level = -1
+					type = infrastructure
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure > 5
+				}
+				add_building_construction = {
+					level = -1
+					type = infrastructure
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_maximize_corporate_business = {
+
+		icon = generic_factory
+
+		cost = 50
+
+		days_re_enable = 40
+
+		modifier = {
+			political_power_cost = 0.1
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		days_remove = 30
+
+		remove_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+    					building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					level = 1
+					type = industrial_complex
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_accept_corporate_sponsorships = {
+
+		icon = generic_political_discourse
+
+		cost = 75
+
+		fire_only_once = yes
+
+		modifier = {
+			political_power_cost = -0.1
+			consumer_goods_factor = -0.05
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		days_remove = 180
+
+		complete_effect = {
+			add_popularity = {
+				ideology = democratic_liberal
+				popularity = 0.05
+			}
+		}
+
+	}
+
+}
+
+SOV_future_okhrana = {
+	#rearm decisions
+	SOV_reestablish_okhrana = {
+
+		icon = generic_civil_support
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = SOV_rearming_the_okhrana
+		}
+
+		modifier = {
+			civilian_factory_use = 5
+			political_power_cost = 0.5
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		days_remove = 20
+
+		remove_effect = {
+			set_country_flag = SOV_reestablished_okhrana
+			add_political_power = 100
+		}
+
+	}
+
+	SOV_empower_over_police = {
+
+		icon = generic_political_discourse
+
+		fire_only_once = yes
+
+		cost = 25
+
+		visible = {
+			has_country_flag = SOV_reestablished_okhrana
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		days_remove = 45
+
+		modifier = {
+			stability_weekly = 0.012
+		}
+
+		complete_effect = {
+			add_stability = -0.05
+		}
+
+	}
+
+	SOV_freedom_to_arrest = {
+
+		icon = generic_civil_support
+
+		visible = {
+			has_country_flag = SOV_reestablished_okhrana
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			add_stability = -0.05
+		}
+
+	}
+
+	SOV_distribute_weapons = {
+
+		icon = generic_industry
+
+		visible = {
+			has_country_flag = SOV_reestablished_okhrana
+		}
+
+		days_re_enable = 30
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 100
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		days_remove = 10
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -100
+			}
+		}
+
+		remove_effect = {
+			add_political_power = 25
+		}
+
+	}
+	#dearm
+	SOV_request_foreign_countries_turn_over_okhrana = {
+
+		icon = generic_political_discourse
+
+		fire_only_once = yes
+
+		cost = 50
+
+		visible = {
+			has_completed_focus = SOV_dearming_the_okhrana
+		}
+
+		modifier = {
+			political_power_cost = 0.5
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		days_remove = 30
+
+		remove_effect = {
+			add_stability = 0.05
+		}
+
+	}
+
+	SOV_try_okhrana_members = {
+
+		icon = generic_political_discourse
+
+		days_re_enable = 80
+
+		cost = 25
+
+		visible = {
+			has_completed_focus = SOV_dearming_the_okhrana
+		}
+
+		modifier = {
+			political_power_cost = 0.1
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		days_remove = 20
+
+		remove_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.025
+			}
+		}
+
+	}
+
+	SOV_raid_okhrana_safehouses = {
+
+		icon = generic_prepare_civil_war
+
+		days_re_enable = 125
+
+		cost = 10
+
+		visible = {
+			has_completed_focus = SOV_dearming_the_okhrana
+		}
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 50
+			}
+		}
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -50
+			}
+		}
+
+		days_remove = 25
+
+		remove_effect = {
+			add_political_power = 50
+			add_stability = 0.005
+		}
+
 	}
 
 }
