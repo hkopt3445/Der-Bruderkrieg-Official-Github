@@ -75,7 +75,7 @@ on_actions = {
 	}
     on_startup = {
 		effect = {
-
+			ITA = { set_variable = { var = iron_guard_chance value = 40 } }
 			ITA = {
 				ITA_named_vars_NFP_graph_set_up = yes
 				set_country_flag = ITA_mussolini_in_power
@@ -252,4 +252,21 @@ on_actions = {
 				}
 			}
 		}
+
+		on_government_change = {
+			effect = {
+				if = {
+					limit = {
+						tag = ROM
+						has_government = fascism
+						has_opinion_modifier = medium_decrease
+					}
+					remove_opinion_modifier = {
+						target = ITA
+						modifier = medium_decrease
+					}
+				}
+			}
+		}
+		
     }
