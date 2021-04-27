@@ -1301,6 +1301,32 @@ country_event = {
 	}
 }
 
+###plan for disarmenent
+country_event = {
+	id = SOV_pavel_tree_events.2
+	title = SOV_pavel_tree_events.2.t
+	desc = SOV_pavel_tree_events.2.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_tree_events.2.a
+		ai_chance = { factor = 1}		
+	}
+}
+
+###starting rearement
+country_event = {
+	id = SOV_pavel_tree_events.3
+	title = SOV_pavel_tree_events.3.t
+	desc = SOV_pavel_tree_events.3.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_tree_events.3.a
+		ai_chance = { factor = 1}		
+	}
+}
+
 
 
 
@@ -2162,12 +2188,15 @@ country_event = {
 		subtract_from_variable = {
 			SOV_raid_hideout_in_FROM_get_cost = 10
 		}
+		
+		set_country_flag = SOV_okhrana_duma_vote_passes
 
 		hidden_effect = {
 			country_event = {
 				id = SOV_duma_voting_events.4
 				days = 1
 			}
+			complete_national_focus = SOV_the_duma_votes
 		}
 	}
 
@@ -2183,6 +2212,12 @@ country_event = {
 	option = {
 		name = SOV_duma_voting_events.3.a
 		ai_chance = { factor = 2}
+
+		set_country_flag = SOV_okhrana_duma_vote_fails
+
+		hidden_effect = {
+			complete_national_focus = SOV_the_duma_votes
+		}
 	}
 
 }
