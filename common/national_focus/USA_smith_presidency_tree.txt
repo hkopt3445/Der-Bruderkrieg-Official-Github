@@ -1,5 +1,5 @@
 focus_tree = {
-	id = usa_smith_presidency_tree
+	id = USA_democratic_schism_tree
 	country = {
 		factor = 0
 		modifier = {
@@ -35,7 +35,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_Smiths_Moderate_Policy
 	icon = unkown
-	x = -2
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -50,7 +50,23 @@ shared_focus = {
 	}
 }
 shared_focus = {
-	id = USA_Investigate_the_KKK
+	id = USA_Separate_but_Equal
+	icon = unkown
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	relative_position_id = USA_Smiths_Moderate_Policy
+	prerequisite = { focus = USA_Smiths_Moderate_Policy }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = USA_Police_Minority_Neighborhoods
 	icon = unkown
 	x = 0
 	y = 1
@@ -68,12 +84,13 @@ shared_focus = {
 shared_focus = {
 	id = USA_Protect_Catholics_and_Blacks
 	icon = unkown
-	x = 0
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	relative_position_id = USA_Investigate_the_KKK
-	prerequisite = { focus = USA_Investigate_the_KKK }
+	relative_position_id = USA_Separate_but_Equal
+	prerequisite = { focus = USA_Separate_but_Equal }
+	prerequisite = { focus = USA_Police_Minority_Neighborhoods }
 	ai_will_do = {
 		factor = 1
 	}
@@ -82,9 +99,9 @@ shared_focus = {
 	}
 }
 shared_focus = {
-	id = USA_Separate_but_Equal
+	id = USA_Investigate_the_KKK
 	icon = unkown
-	x = 0
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -97,26 +114,12 @@ shared_focus = {
 		
 	}
 }
-shared_focus = {
-	id = USA_Police_Minority_Neighborhoods
-	icon = unkown
-	x = 0
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	relative_position_id = USA_Separate_but_Equal
-	prerequisite = { focus = USA_Separate_but_Equal }
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		
-	}
-}
+
+
 shared_focus = {
 	id = USA_McAdoos_Wilsonian_Policies
 	icon = unkown
-	x = 2
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -149,39 +152,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_Commemorate_the_Confederates
 	icon = unkown
-	x = 0
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	relative_position_id = USA_Segregate_Buildings
-	prerequisite = { focus = USA_Segregate_Buildings }
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		
-	}
-}
-shared_focus = {
-	id = USA_A_Blind_Eye_to_Radical_Violence
-	icon = unkown
-	x = 0
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	relative_position_id = USA_Commemorate_the_Confederates
-	prerequisite = { focus = USA_Commemorate_the_Confederates }
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		
-	}
-}
-shared_focus = {
-	id = USA_McAdoos_Nativist_Rallies
-	icon = unkown
-	x = 0
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -195,15 +166,15 @@ shared_focus = {
 	}
 }
 shared_focus = {
-	id = USA_Temporary_Solutions_to_Permanent_Problems
+	id = USA_A_Blind_Eye_to_Radical_Violence
 	icon = unkown
-	x = -2
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	relative_position_id = USA_McAdoos_Nativist_Rallies
+	relative_position_id = USA_Segregate_Buildings
+	prerequisite = { focus = USA_Segregate_Buildings }
 	prerequisite = { focus = USA_McAdoos_Nativist_Rallies }
-	prerequisite = { focus = USA_Police_Minority_Neighborhoods }
 	ai_will_do = {
 		factor = 1
 	}
@@ -211,9 +182,63 @@ shared_focus = {
 		
 	}
 }
+shared_focus = {
+	id = USA_McAdoos_Nativist_Rallies
+	icon = unkown
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	relative_position_id = USA_McAdoos_Wilsonian_Policies
+	prerequisite = { focus = USA_McAdoos_Wilsonian_Policies }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = USA_Temporary_Solutions_to_Permanent_Problems
+	icon = unkown
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	relative_position_id = USA_Commemorate_the_Confederates
+	prerequisite = { focus = USA_Commemorate_the_Confederates }
+	prerequisite = { focus = USA_Investigate_the_KKK }
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		load_focus_tree = usa_smith_presidency_tree
+	}
+}
 ###################
 # Under Al's Wing #
 ###################
+
+focus_tree = {
+	id = usa_smith_presidency_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = USA
+		}
+	}
+	default = no
+	continuous_focus_position = {
+		x = 0
+		y = 1500
+	}
+	
+	shared_focus = USA_Under_Als_Wing
+	shared_focus = USA_the_us_military
+
+}
+
 shared_focus = {
 	id = USA_Under_Als_Wing
 	icon = unkown
