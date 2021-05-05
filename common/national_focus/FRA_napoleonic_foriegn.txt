@@ -147,7 +147,7 @@ shared_focus = {
 	completion_reward = {
 		BEL = {
 			add_stability = 0.05
-			add_war_suport = 0.05
+			add_war_support = 0.05
 			add_political_power = 40
 		}
 	}
@@ -217,9 +217,7 @@ shared_focus = {
 
 	x = -1
 	y = 1
-	mutually_exclusive = {
-		focus = FRA_JOIN_AUSTRIA
-	}
+	
 	relative_position_id = FRA_BRUSSELLS_CONFERENCE
 	cost = 5
 	ai_will_do = {
@@ -235,7 +233,7 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		create_faction = FRA_napoleonic_faction
+		add_war_support = 0.1
 	}
 }
 
@@ -580,9 +578,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
-	allowed = {
-	
-	}
+
 	bypass = {
 		
 		OR = {
@@ -657,7 +653,7 @@ shared_focus = {
 	id = FRA_DANUBE_CAMPAIGN
 	icon = GFX_goal_Danubian_Regions
 	text = FRA_DANUBE_CAMPAIGN
-	prerequisite = { focus = FRA_RESTART_WARS }
+	prerequisite = { focus = FRA_RESTART_WARS focus = FRA_keep_out_the_reichsmarshall }
 	x = 1
 	y = 1
 	relative_position_id = FRA_RESTART_WARS
@@ -685,6 +681,7 @@ shared_focus = {
 
 	completion_reward = {
 		add_ideas = FRA_danube_campaign
+		##replace with unlock decision
 	}
 }
 
@@ -697,7 +694,6 @@ shared_focus = {
 	icon = GFX_goal_Finishaustria
 	text = FRA_TAKING_OUT_THE_SGC
 	prerequisite = { focus = FRA_DANUBE_CAMPAIGN }
-	prerequisite = { focus = FRA_BLITZ_ISLAND }
 	mutually_exclusive = {focus = FRA_kalterkrieg}
 	#prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
 	x = -1
@@ -778,6 +774,10 @@ shared_focus = {
 
 	completion_reward = {
 		###Unlock decision to form germany
+		FGD = {
+			add_stability = 0.1
+			add_political_power = 100
+		}
 	}
 }
 
@@ -908,8 +908,8 @@ shared_focus = {
 	completion_reward = {
 		FGD = {
 			swap_ideas = {
-				add_idea = Neue_Code_Napolean_2
-				remove_idea = Neue_Code_Napolean
+				add_idea = Neue_Code_Napoleon_2
+				remove_idea = Neue_Code_Napoleon
 			}
 		}
 	}
