@@ -40,6 +40,99 @@ country_event = {
 		set_country_flag = SOV_elections_are_over
 	}
 }
+##Glug stuff
+country_event = { #first event, bar riots
+	id = SOV_starting_events.4
+	title = SOV_starting_events.4.t
+	desc = SOV_starting_events.4.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = SOV_starting_events.4.a
+		add_manpower = -5
+		add_stability = -0.02
+		ai_chance = { factor = 1}
+	}
+}
+country_event = { #sixth event, ukraine burns
+	id = SOV_starting_events.5
+	title = SOV_starting_events.5.t
+	desc = SOV_starting_events.5.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_starting_events.5.a
+		#an idea that reduces stability and monthly pop growth because of the vandalization of fields? Otherwise this works
+		add_stability = -0.05
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = -0.02
+		}
+		ai_chance = { factor = 1}
+	}
+}
+country_event = { #second event, bombing in Kiev
+	id = SOV_starting_events.6
+	title = SOV_starting_events.6.t
+	desc = SOV_starting_events.6.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = SOV_starting_events.6.a
+		193 = {
+			damage_building = {
+				type = infrastructure
+				damage = 1.5
+			}
+		}
+		ai_chance = { factor = 1}
+	}
+}
+country_event = { #third event, weapon shipment stolen
+	id = SOV_starting_events.7
+	title = SOV_starting_events.7.t
+	desc = SOV_starting_events.7.d
+	#picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = SOV_starting_events.7.a
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -100
+		}
+		add_manpower = -200
+		ai_chance = { factor = 1}
+	}
+}
+country_event = { #fourth event, police brutality
+	id = SOV_starting_events.8
+	title = SOV_starting_events.8.t
+	desc = SOV_starting_events.8.d
+	#picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = SOV_starting_events.8.a
+		add_political_power = -50
+		hidden_effect = { country_event = { id = SOV_starting_events.9 days = 5 } }
+		ai_chance = { factor = 1}
+	}
+}
+country_event = { #fifth event, police brutality protests turn violent
+	id = SOV_starting_events.9
+	title = SOV_starting_events.9.t
+	desc = SOV_starting_events.9.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	option = {
+		name = SOV_starting_events.8.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.03
+		}
+		ai_chance = { factor = 1}
+	}
+}
 
 add_namespace = SOV_starting_events_belogurov
 
