@@ -183,10 +183,11 @@ focus_tree = {
 	search_filters = { FOCUS_FILTER_INDUSTRY }
 
 	completion_reward = {
-			remove_ideas = {
-				FRA_outdated_military_tech
-			}
 			
+			swap_ideas = {
+				remove_idea = FRA_wiltkrieg_neutrality
+				add_idea = FRA_wiltkrieg_neutrality_2
+			}
 	 }
   }
 
@@ -1115,7 +1116,7 @@ focus_tree = {
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_goal_FRA_conservative_vic
     text = FRA_CONSERVATIVES_PREVAIL
-    x = -24
+    x = 0
     y = 0
     #relative_position_id = FRA_national_development_bureau
     cost = 0
@@ -1150,8 +1151,8 @@ focus_tree = {
     icon = GFX_goal_FRA_a_meeting_with_the_doctrinaires
     text = FRA_DOCTRINAIRE_VIC
 
-    x = 2
-    y = 2
+    x = 1
+    y = 1
 		prerequisite = {focus = FRA_NOBLE_RULE}
     relative_position_id = FRA_NOBLE_RULE
     cost = 5
@@ -1705,8 +1706,8 @@ focus_tree = {
     icon = GFX_goal_FRA_FASCIST_VIC
     text = FRA_FASCIST_VIC
 		prerequisite = { focus = FRA_MILITARY_GOVERNMENT }
-    x = -2
-    y = 2
+    x = -1
+    y = 1
     relative_position_id = FRA_MILITARY_GOVERNMENT
     cost = 1
     ai_will_do = {
@@ -1731,7 +1732,7 @@ focus_tree = {
     icon = GFX_focus_focus_fra_fascist_threat
     text = FRA_CAGOULE_CABINET
 		prerequisite = { focus = FRA_FASCIST_VIC }
-    x = 0
+    x = -4
     y = 1
     relative_position_id = FRA_FASCIST_VIC
     cost = 5
@@ -1875,8 +1876,11 @@ focus_tree = {
 	text = FRA_PATH_AGGRESSION
 	prerequisite = { focus = FRA_GARDE_DE_FRATIRNITE }
 	prerequisite = { focus = FRA_the_cult_of_napoleon }
+	prerequisite = {
+		focus = FRA_CHRISTUS_REX
+	}
 	x = -1
-	y = 1
+	y = 2
 	relative_position_id = FRA_the_cult_of_napoleon
 	mutually_exclusive = {
 		#focus = FRA_NAPOLEON
@@ -2057,35 +2061,14 @@ focus_tree = {
 		}
 	}
 
-
-	shared_focus = {
-		id = FRA_CHRISTINAITY
-		icon = GFX_focus_focus_fra_national_resistance_council
-		text = FRA_CHRISTINAITY
-		prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
-		x = 1
-		y = 1
-		relative_position_id = FRA_MILITARY_GOVERNMENT
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_stability = 0.1
-		}
-	}
 	shared_focus = {
 		id = FRA_PIETY
 		icon = GFX_focus_por_concordat
 		text = FRA_PIETY
-		prerequisite = { focus = FRA_CHRISTINAITY}
-		x = 0
+		prerequisite = { focus = FRA_IMPERIAL_GLORY}
+		x = -1
 		y = 1
-		relative_position_id = FRA_CHRISTINAITY
+		relative_position_id = FRA_IMPERIAL_GLORY
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2105,10 +2088,9 @@ focus_tree = {
 		id = FRA_CHRISTUS_REX
 		icon = GFX_focus_spa_no_compromise_on_carlist_ideals
 		text = FRA_CHRISTUS_REX
-		prerequisite = { focus = FRA_BURN_HERETICS}
 		prerequisite = { focus = FRA_PIETY}
-		x = 0
-		y = 1
+		x = -1
+		y = 2
 		relative_position_id = FRA_PIETY
 		cost = 5
 		ai_will_do = {
@@ -2146,26 +2128,7 @@ focus_tree = {
 			add_war_support = 0.05
 		}
 	}
-	shared_focus = {
-		id = FRA_PEPIN
-		icon = GFX_goal_FRA_charity_handouts
-		text = FRA_PEPIN
-		prerequisite = { focus = FRA_IMPERIAL_GLORY}
-		x = -1
-		y = 1
-		relative_position_id = FRA_IMPERIAL_GLORY
-		cost = 2
-		ai_will_do = {
-			factor = 20
-		}
 
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_political_power = 20
-		}
-	}
 	shared_focus = {
 		id = FRA_DEUS_OMNIA
 		icon = GFX_goal_FRA_deus_omnia_vincit
@@ -2192,7 +2155,7 @@ focus_tree = {
 		id = FRA_RULE_FRANKIA
 		icon = GFX_goal_FRA_rule_of_the_franks
 		text = FRA_RULE_FRANKIA
-		prerequisite = { focus = FRA_PEPIN}
+		prerequisite = { focus = FRA_PIETY}
 		prerequisite = { focus = FRA_DEUS_OMNIA}
 		x = -1
 		y = 1
@@ -2241,7 +2204,7 @@ focus_tree = {
 		icon = GFX_goal_Focus_Peasant_Rebellion
 		text = FRA_solving_frances_problems
 		#prerequisite = { focus = FRA_announce_imperial_election }
-		x = -1
+		x = 11
 		y = 0
 	#	relative_position_id = FRA_announce_imperial_election
 		cost = 2
@@ -2251,15 +2214,16 @@ focus_tree = {
 		available = {
 			has_country_flag = FRA_unlock_new_branch
 		}
-		offset = {
-			x = -12
-			y = 0
-			trigger = {
-				NOT = {
-					has_country_flag = FRA_unlock_new_branch
-				}
-			}
-		}
+		
+		# offset = {
+		# 	x = -12
+		# 	y = 0
+		# 	trigger = {
+		# 		NOT = {
+		# 			has_country_flag = FRA_unlock_new_branch
+		# 		}
+		# 	}
+		# }
 	
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2370,6 +2334,9 @@ focus_tree = {
 		text = FRA_countryside_development_scheme
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
 		prerequisite = {focus = FRA_solving_frances_problems}
+		prerequisite = {
+			focus = FRA_national_development_bureau
+		}
 		x = 2
 		y = 1
 		relative_position_id = FRA_solving_frances_problems
@@ -2665,7 +2632,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_ideas = FRA_colonial_grain_shipments
+			add_ideas = FRA_colonial_grain_shipments_idea
 		}
 	}
 
@@ -3399,9 +3366,11 @@ focus_tree = {
 		text = FRA_NAPOLEON
 		prerequisite = { focus = FRA_RULE_FRANKIA }
 		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
-		
+		prerequisite = {
+			focus = FRA_CHRISTUS_REX
+		}
 		x = 2
-		y = 1
+		y = 2
 		relative_position_id = FRA_RULE_FRANKIA
 		mutually_exclusive = {
 			#focus = FRA_PATH_AGGRESSION
@@ -4397,7 +4366,7 @@ focus_tree = {
 		shared_focus = {
 			id = FRA_on_the_frontier
 			icon = GFX_goal_generic_construct_mil_factory
-			x = 0
+			x = -1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -4459,11 +4428,14 @@ focus_tree = {
 		shared_focus = {
 			id = FRA_in_paris
 			icon = GFX_goal_generic_construct_civ_factory
-			x = 0
+			x = -1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_in_the_south }
+			prerequisite = {
+				focus = FRA_in_the_loire
+			}
 			relative_position_id = FRA_in_the_south
 			ai_will_do = {
 				factor = 1
@@ -4546,7 +4518,7 @@ focus_tree = {
 		shared_focus = {
 			id = FRA_jobs_for_the_workers
 			icon = GFX_goal_generic_consumer_goods
-			x = -1
+			x = -2
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -4563,7 +4535,7 @@ focus_tree = {
 		shared_focus = {
 			id = FRA_in_the_loire
 			icon = GFX_goal_generic_construct_civ_factory
-			x = 0
+			x = -1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -4573,42 +4545,42 @@ focus_tree = {
 				factor = 1
 			}
 			completion_reward = {
-				30={
+								30={
 
 
-	 add_extra_state_shared_building_slots = 1
-	 add_building_construction = {
-	 type = industrial_complex
-	 level = 1
-	 instant_build = yes
-	 }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+					}
 
-	 set_state_flag = 24
-	 }
-	 14={
+					set_state_flag = 24
+					}
+					14={
 
 
-add_extra_state_shared_building_slots = 1
-add_building_construction = {
-type = industrial_complex
-level = 1
-instant_build = yes
-}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+				}
 
-set_state_flag = 24
-}
+				set_state_flag = 24
+				}
 			}
 		}
 
 		shared_focus = {
 			id = FRA_in_the_south
 			icon = GFX_goal_generic_construct_civ_factory
-			x = 0
+			x = 1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_in_the_loire }
-			relative_position_id = FRA_in_the_loire
+			prerequisite = { focus = FRA_jobs_for_the_workers }
+			relative_position_id = FRA_jobs_for_the_workers
 			ai_will_do = {
 				factor = 1
 			}
@@ -4643,7 +4615,7 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_guns_for_the_soldiers
 			icon = GFX_goal_generic_build_tank
-			x = 1
+			x = 2
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -4660,12 +4632,12 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_in_provence
 			icon = GFX_goal_generic_construct_mil_factory
-			x = 0
+			x = 1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_on_the_frontier }
-			relative_position_id = FRA_on_the_frontier
+			prerequisite = { focus = FRA_guns_for_the_soldiers }
+			relative_position_id = FRA_guns_for_the_soldiers
 			ai_will_do = {
 				factor = 1
 			}
@@ -4692,11 +4664,14 @@ set_state_flag = 24
 		shared_focus = {
 			id = FRA_in_bretagne
 			icon = GFX_goal_generic_construct_mil_factory
-			x = 0
+			x = -1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_in_provence }
+			prerequisite = {
+				focus = FRA_on_the_frontier
+			}
 			relative_position_id = FRA_in_provence
 			ai_will_do = {
 				factor = 1

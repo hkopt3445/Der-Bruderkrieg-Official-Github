@@ -2,15 +2,28 @@ scripted_gui = {
     france_strikes_scripted_gui = {
 			window_name = "DBK_france_strikes_container"
 		context_type = decision_category
+        effects = {
+            open_icon_button_click = {
+                set_country_flag = FRA_open_strikes_sidebar_flag
+            }
+        }
+		
+	}
 
-		dynamic_lists = {
+    france_strikes_open_window_scripted_gui = {
+        window_name = "DBK_france_strikes_window_container"
+        context_type = player_context
+        dynamic_lists = {
 			french_states_strikes_grid = {
 				array = french_owned_core_states
 				change_scope = yes
 				entry_container = french_states_strikes_entry
 			}
 		}
-	}
+        visible = {
+            has_country_flag = FRA_open_strikes_sidebar_flag
+        }
+    }
 
 	##westfalen
 	westfalen_scripted_gui = {
