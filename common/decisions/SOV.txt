@@ -3536,7 +3536,188 @@ SOV_using_the_okhrana = {
 
 }
 
-SOV_pavels_army_reforms = {
+#
+ SOV_pavels_army_reforms = {
+  
+  SOV_purge_nationalist_high_command = {
+
+    icon = generic_civil_support
+
+    fire_only_once = yes
+
+    cost = 50
+
+    custom_cost_trigger = {
+      command_power > 10
+    }
+    custom_cost_text = command_power_10
+
+    available = {
+      command_power > 10
+    }
+
+    complete_effect = {
+      add_popularity = {
+        ideology = fascism
+        popularity = -0.01
+      }
+      add_popularity = {
+        ideology = neutrality
+        popularity = -0.01
+      }
+      add_command_power = -10
+    }
+
+  }
+
+  SOV_promote_moderates_high_command = {
+
+    icon = generic_army_support
+
+    fire_only_once = yes
+
+    custom_cost_trigger = {
+      command_power > 10
+    }
+    custom_cost_text = command_power_10
+
+    available = {
+      command_power > 10
+    }
+
+    complete_effect = {
+      add_popularity = {
+        ideology = ROOT
+        popularity = 0.01
+      }
+      add_command_power = -10
+    }
+
+  }
+
+  SOV_put_allies_in_command = {
+
+    icon = generic_political_discourse
+
+    fire_only_once = yes
+
+    custom_cost_trigger = {
+      has_army_experience > 5
+    }
+    custom_cost_text = has_army_experience_5
+
+    available = {
+      has_army_experience > 5
+    }
+
+    complete_effect = {
+      add_stability = 0.02
+      army_experience = -5
+    }
+
+  }
+
+  SOV_show_favoritism_officer = {
+
+    icon = generic_army_support
+
+    cost = 50
+
+    fire_only_once = yes
+
+    available = {
+      command_power < 85
+    }
+
+    complete_effect = {
+      add_command_power = 15
+    }
+
+  }
+
+  SOV_train_up_loyal_officers = {
+
+    icon = generic_prepare_civil_war
+
+    cost = 50
+
+    fire_only_once = yes
+
+    days_remove = 30
+
+    remove_effect = {
+      army_experience = 10
+    }
+
+  }
+
+  SOV_demote_extremist_officers = {
+
+    icon = oppression
+
+    custom_cost_trigger = {
+      command_power > 10
+    }
+    custom_cost_text = command_power_10
+
+    available = {
+      command_power > 10
+    }
+
+    fire_only_once = yes
+
+    complete_effect = {
+      add_popularity = {
+        ideology = ROOT
+        popularity = 0.02
+      }
+      add_command_power = -10
+    }
+
+  }
+
+  SOV_prioritize_loyal_infantry = {
+
+    icon = generic_industry
+
+    custom_cost_trigger = {
+      command_power > 10
+    }
+    custom_cost_text = command_power_10
+
+    available = {
+      command_power > 10
+    }
+
+    fire_only_once = yes
+
+    days_remove = 30
+
+    modifier = {
+      industrial_capacity_factory = -0.1
+      political_power_gain = 0.1
+    }
+
+    complete_effect = {
+      add_command_power = -10
+    }
+
+  }
+
+  SOV_tangle_recruitment_extremist_areas = {
+
+  	cost = 50
+
+  	fire_only_once = yes
+
+  	days_remove = 35
+
+  	modifier = {
+  		weekly_manpower = -100
+  		stability_weekly = 0.002
+  	}
+
+  }
 
 }
 
