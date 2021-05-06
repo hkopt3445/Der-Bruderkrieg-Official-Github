@@ -9,27 +9,13 @@ focus_tree = {
 	} 
 	default = no
     shared_focus = SOV_the_return_of_the_tsar
-    
+    shared_focus = SOV_expand_the_russian_sphere
     continuous_focus_position = {
         x = 2000
         y = 3000
     }
 }
-focus_tree = {
-    id = SOV_the_return_of_the_tsar_foriegn_tree
-    country = {
-		factor = 0 
-		modifier = {
-			add = 10
-			tag = SOV
-		}
-	}
-	shared_focus = SOV_expand_the_russian_sphere
-    continuous_focus_position = {
-        x = 2000
-        y = 3000
-    }
-}
+
 shared_focus = {
     id = SOV_the_return_of_the_tsar
     icon = unkown
@@ -799,20 +785,22 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        load_focus_tree = SOV_the_return_of_the_tsar_foriegn_tree
     }
 }
 
 shared_focus = {
     id = SOV_expand_the_russian_sphere
     icon = unkown
-    x = 0
+    x = 16
     y = 0 
     cost = 5
 	available_if_capitulated = yes
 	
     ai_will_do = {
         factor = 1
+    }
+    available = {
+        has_completed_focus = SOV_restore_the_empire
     }
     completion_reward = {
         add_war_support = 0.05

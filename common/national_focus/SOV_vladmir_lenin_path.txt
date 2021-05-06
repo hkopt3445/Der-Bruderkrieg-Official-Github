@@ -10,6 +10,7 @@ focus_tree = {
 	default = no
     shared_focus = SOV_lenins_presidency
     shared_focus = SOV_uniting_the_parties_of_the_rsdlp
+    shared_focus = SOV_the_beacon_of_socialism
 	continuous_focus_position = { x = -50 y = 4000 }
 }
 
@@ -39,7 +40,6 @@ shared_focus = {
 
         unlock_decision_category_tooltip = SOV_political_instability
 
-        country_event = SOV_lenin_tree_events.1
 
 
         ###add lenin's cabinet with this scripted effect
@@ -204,6 +204,9 @@ shared_focus = {
     }
     prerequisite = {
         focus = SOV_socialist_trade_policy
+    }
+    available = {
+        has_country_flag = SOV_rsdlp_unified
     }
 	x = -2
     y = 2
@@ -496,7 +499,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        country_event = SOV_lenin_tree_events.1
         unlock_decision_category_tooltip = SOV_balancing_the_rsdlp
         ###ideas sap
         set_variable = { SOV_lenin_influence_in_party = 180 }
@@ -1097,9 +1100,7 @@ shared_focus = {
     id = SOV_integrating_their_members
     icon = unkown
 	prerequisite = {focus = SOV_integrating_mezhraionsty  }
-    prerequisite = {
-        focus = SOV_constultng_the_3_mezhraionstyists
-    }
+    
     x = 0
     y = 1
     relative_position_id = SOV_integrating_mezhraionsty
@@ -1363,5 +1364,22 @@ shared_focus = {
     completion_reward = {
         
      add_ideas = SOV_russias_new_savior_idea   
+    }
+}
+
+
+###FP
+shared_focus = {
+    id = SOV_the_beacon_of_socialism
+    icon = unkown
+    x = 11
+    y = 6
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
     }
 }
