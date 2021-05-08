@@ -17,13 +17,18 @@ focus_tree = {
 shared_focus = {
     id = SOV_lenins_presidency
     icon = unkown
-    x = 21
-    y = 0 
+    x = -2
+    y = 1
     cost = 5
 	available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
+    prerequisite = {
+        focus = SOV_the_russian_social_democratic_labour_party_reformed
+        focus = SOV_our_rule_reigns_supreme
+    }
+    relative_position_id = SOV_the_russian_social_democratic_labour_party_reformed
     completion_reward = {
         
         set_variable = {
@@ -72,7 +77,7 @@ shared_focus = {
     id = SOV_slandering_the_opposition
     icon = GFX_goal_SOV_slandering_the_opposition
     prerequisite = {focus = SOV_expanding_the_lefts_grip}
-    x = -3
+    x = -2
     y = 1
     relative_position_id = SOV_expanding_the_lefts_grip
     cost = 5
@@ -90,7 +95,7 @@ shared_focus = {
     id = SOV_propoganda_campaigns 
     icon = GFX_goal_SOV_propoganda_movement
     prerequisite = {focus = SOV_expanding_the_lefts_grip}
-    x = -1
+    x = 0
     y = 1
     relative_position_id = SOV_expanding_the_lefts_grip
     cost = 5
@@ -108,7 +113,7 @@ shared_focus = {
     id = SOV_pro_rsdlp_agenda
     icon = GFX_goal_SOV_pro_rsdlp_agenda
     prerequisite = {focus = SOV_expanding_the_lefts_grip}
-    x = 1
+    x = 2
     y = 1
     relative_position_id = SOV_expanding_the_lefts_grip
     cost = 5
@@ -122,28 +127,12 @@ shared_focus = {
     }
 }
 
-shared_focus = {
-    id = SOV_left_wing_dominated_politics
-    icon = GFX_goal_SOV_left_wing_dominated_politics
-    prerequisite = {focus = SOV_expanding_the_lefts_grip}
-    x = 3
-    y = 1
-    relative_position_id = SOV_expanding_the_lefts_grip
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        
-    }
-}
+
 
 shared_focus = {
     id = SOV_the_opposition_shrinks
     icon = GFX_goal_SOV_extra_1
-    prerequisite = {focus = SOV_left_wing_dominated_politics  }
+    prerequisite = {focus = SOV_pro_rsdlp_agenda  }
 	prerequisite = {
 		focus = SOV_pro_rsdlp_agenda
 	}
@@ -151,9 +140,9 @@ shared_focus = {
 	prerequisite = {
 		focus = SOV_slandering_the_opposition
 	}
-	x = -5
+	x = -3
     y = 1
-    relative_position_id = SOV_left_wing_dominated_politics  
+    relative_position_id = SOV_pro_rsdlp_agenda  
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -167,7 +156,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_the_growing_hands_of_lenin
     icon = GFX_goal_SOV_extra_2
-    prerequisite = {focus = SOV_left_wing_dominated_politics  }
+    prerequisite = {focus = SOV_pro_rsdlp_agenda  }
 	prerequisite = {
 		focus = SOV_pro_rsdlp_agenda
 	}
@@ -177,7 +166,7 @@ shared_focus = {
 	}
 	x = -1
     y = 1
-    relative_position_id = SOV_left_wing_dominated_politics  
+    relative_position_id = SOV_pro_rsdlp_agenda  
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -208,7 +197,7 @@ shared_focus = {
     available = {
         has_country_flag = SOV_rsdlp_unified
     }
-	x = -2
+	x = -1
     y = 2
     relative_position_id = SOV_the_growing_hands_of_lenin  
     cost = 5
@@ -518,7 +507,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_forceful_unification
-    icon = unkown
+    icon = GFX_goal_demand_sudetenland
     prerequisite = {focus = SOV_uniting_the_parties_of_the_rsdlp  }
     mutually_exclusive = {
         focus = SOV_peaceful_unification
@@ -537,59 +526,87 @@ shared_focus = {
         ###unlock decisions to establish secret police
         set_country_flag = SOV_cheka_has_been_established
 		custom_effect_tooltip = SOV_establishing_the_cheka_tt
-    }
-}
 
-
-shared_focus = {
-    id = SOV_arresting_the_menshevik_dissidents	
-    icon = unkown
-	prerequisite = {focus = SOV_forceful_unification  }
-
-    x = 0
-    y = 1
-    relative_position_id = SOV_forceful_unification
-    cost = 3
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        has_country_flag = SOV_cheka_has_been_established
-    }
-    completion_reward = {
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_konstantin
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_novosyolov
+        unlock_decision_tooltip = SOV_lenin_operation_arrest_admovich
+        unlock_decision_tooltip = SOV_lenin_operation_assinating_trotsky
         unlock_decision_tooltip = SOV_lenin_operation_arrest_tsertelli
         unlock_decision_tooltip = SOV_lenin_operation_arrest_plekhanov
         unlock_decision_tooltip = SOV_lenin_operation_arrest_bogdanov
         unlock_decision_tooltip = SOV_lenin_operation_arrest_bubnov
         unlock_decision_tooltip = SOV_lenin_operation_arrest_lunacharski
-        
     }
 }
 
-# shared_focus = {
-#     id = SOV_arresting_tsertelli	
-#     icon = unkown
-# 	prerequisite = {focus = SOV_arresting_the_menshevik_dissidents  }
 
-#     x = -1
+# shared_focus = {
+#     id = SOV_arresting_the_menshevik_dissidents	
+#     icon = unkown
+# 	prerequisite = {focus = SOV_forceful_unification  }
+
+#     x = 0
 #     y = 1
-#     relative_position_id = SOV_arresting_the_menshevik_dissidents
-#     cost = 1
+#     relative_position_id = SOV_forceful_unification
+#     cost = 3
 #     available_if_capitulated = yes
 #     ai_will_do = {
 #         factor = 1
 #     }
+#     available = {
+#         has_country_flag = SOV_cheka_has_been_established
+#     }
 #     completion_reward = {
+#         unlock_decision_tooltip = SOV_lenin_operation_arrest_tsertelli
+#         unlock_decision_tooltip = SOV_lenin_operation_arrest_plekhanov
+#         unlock_decision_tooltip = SOV_lenin_operation_arrest_bogdanov
+#         unlock_decision_tooltip = SOV_lenin_operation_arrest_bubnov
+#         unlock_decision_tooltip = SOV_lenin_operation_arrest_lunacharski
         
 #     }
 # }
+
+# # shared_focus = {
+# #     id = SOV_arresting_tsertelli	
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_arresting_the_menshevik_dissidents  }
+
+# #     x = -1
+# #     y = 1
+# #     relative_position_id = SOV_arresting_the_menshevik_dissidents
+# #     cost = 1
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+# #     }
+# # }
+# # shared_focus = {
+# #     id = SOV_arresting_martovs_last_supporters	
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_arresting_the_menshevik_dissidents  }
+
+# #     x = 1
+# #     y = 1
+# #     relative_position_id = SOV_arresting_the_menshevik_dissidents
+# #     cost = 3
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+# #     }
+# # }
+
 # shared_focus = {
-#     id = SOV_arresting_martovs_last_supporters	
+#     id = SOV_arresting_the_tsertellists	
 #     icon = unkown
 # 	prerequisite = {focus = SOV_arresting_the_menshevik_dissidents  }
 
-#     x = 1
+#     x = 0
 #     y = 1
 #     relative_position_id = SOV_arresting_the_menshevik_dissidents
 #     cost = 3
@@ -599,79 +616,98 @@ shared_focus = {
 #     }
 #     completion_reward = {
         
+#         country_event = SOV_rsdlp_forceful_unification.10
 #     }
 # }
 
-shared_focus = {
-    id = SOV_arresting_the_tsertellists	
-    icon = unkown
-	prerequisite = {focus = SOV_arresting_the_menshevik_dissidents  }
-
-    x = 0
-    y = 1
-    relative_position_id = SOV_arresting_the_menshevik_dissidents
-    cost = 3
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        country_event = SOV_rsdlp_forceful_unification.10
-    }
-}
-
-
-shared_focus = {
-    id = SOV_arrest_prominent_trotskyists	
-    icon = unkown
-	prerequisite = {focus = SOV_forceful_unification  }
-
-    x = -2
-    y = 1
-    relative_position_id = SOV_forceful_unification
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        has_country_flag = SOV_cheka_has_been_established
-    }
-    completion_reward = {
-        unlock_decision_tooltip = SOV_lenin_operation_assinating_trotsky
-
-        
-    }
-}
 
 # shared_focus = {
-#     id = SOV_assasinating_trotsky	
+#     id = SOV_arrest_prominent_trotskyists	
 #     icon = unkown
-# 	prerequisite = {focus = SOV_arrest_prominent_trotskyists  }
+# 	prerequisite = {focus = SOV_forceful_unification  }
+
+#     x = -2
+#     y = 1
+#     relative_position_id = SOV_forceful_unification
+#     cost = 4
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     available = {
+#         has_country_flag = SOV_cheka_has_been_established
+#     }
+#     completion_reward = {
+#         unlock_decision_tooltip = SOV_lenin_operation_assinating_trotsky
+
+        
+#     }
+# }
+
+# # shared_focus = {
+# #     id = SOV_assasinating_trotsky	
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_arrest_prominent_trotskyists  }
+
+# #     x = 0
+# #     y = 1
+# #     relative_position_id = SOV_arrest_prominent_trotskyists
+# #     cost = 1
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+# #     }
+# # }
+
+# # shared_focus = {
+# #     id = SOV_integrate_moderate_marxists
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_assasinating_trotsky  }
+
+# #     x = -1
+# #     y = 1
+# #     relative_position_id = SOV_assasinating_trotsky
+# #     cost = 1.5
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+        
+# #     }
+# # }
+
+# # shared_focus = {
+# #     id = SOV_banning_the_trotskyists
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_assasinating_trotsky  }
+
+# #     x = 1
+# #     y = 1
+# #     relative_position_id = SOV_assasinating_trotsky
+# #     cost = 2.5
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+        
+# #     }
+# # }
+# shared_focus = {
+#     id = SOV_triumph_over_marx
+#     icon = unkown
+# 	prerequisite = {focus = SOV_arrest_prominent_trotskyists }
 
 #     x = 0
 #     y = 1
 #     relative_position_id = SOV_arrest_prominent_trotskyists
-#     cost = 1
-#     available_if_capitulated = yes
-#     ai_will_do = {
-#         factor = 1
-#     }
-#     completion_reward = {
-        
-#     }
-# }
-
-# shared_focus = {
-#     id = SOV_integrate_moderate_marxists
-#     icon = unkown
-# 	prerequisite = {focus = SOV_assasinating_trotsky  }
-
-#     x = -1
-#     y = 1
-#     relative_position_id = SOV_assasinating_trotsky
-#     cost = 1.5
+#     cost = 4
 #     available_if_capitulated = yes
 #     ai_will_do = {
 #         factor = 1
@@ -682,162 +718,119 @@ shared_focus = {
 #     }
 # }
 
-# shared_focus = {
-#     id = SOV_banning_the_trotskyists
-#     icon = unkown
-# 	prerequisite = {focus = SOV_assasinating_trotsky  }
 
-#     x = 1
+# shared_focus = {
+#     id = SOV_arresting_the_mezhraionsty_members
+#     icon = unkown
+# 	prerequisite = {focus = SOV_forceful_unification  }
+
+#     x = -4
 #     y = 1
-#     relative_position_id = SOV_assasinating_trotsky
-#     cost = 2.5
+#     relative_position_id = SOV_forceful_unification
+#     cost = 3
 #     available_if_capitulated = yes
 #     ai_will_do = {
 #         factor = 1
 #     }
-#     completion_reward = {
-        
-        
-#     }
-# }
-shared_focus = {
-    id = SOV_triumph_over_marx
-    icon = unkown
-	prerequisite = {focus = SOV_arrest_prominent_trotskyists }
-
-    x = 0
-    y = 1
-    relative_position_id = SOV_arrest_prominent_trotskyists
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        
-    }
-}
-
-
-shared_focus = {
-    id = SOV_arresting_the_mezhraionsty_members
-    icon = unkown
-	prerequisite = {focus = SOV_forceful_unification  }
-
-    x = -4
-    y = 1
-    relative_position_id = SOV_forceful_unification
-    cost = 3
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        has_country_flag = SOV_cheka_has_been_established
-    }
-    completion_reward = {
-        
-        unlock_decision_tooltip = SOV_lenin_operation_arrest_konstantin
-        unlock_decision_tooltip = SOV_lenin_operation_arrest_novosyolov
-        unlock_decision_tooltip = SOV_lenin_operation_arrest_admovich
-
-    }
-}
-
-# shared_focus = {
-#     id = SOV_arresting_konstantin
-#     icon = unkown
-# 	prerequisite = {focus = SOV_arresting_the_mezhraionsty_members  }
-
-#     x = -2
-#     y = 1
-#     relative_position_id = SOV_arresting_the_mezhraionsty_members
-#     cost = 1
-#     available_if_capitulated = yes
-#     ai_will_do = {
-#         factor = 1
+#     available = {
+#         has_country_flag = SOV_cheka_has_been_established
 #     }
 #     completion_reward = {
         
-#     }
-# }
-
-# shared_focus = {
-#     id = SOV_arresting_admovich
-#     icon = unkown
-# 	prerequisite = {focus = SOV_arresting_the_mezhraionsty_members  }
-
-#     x = 0
-#     y = 1
-#     relative_position_id = SOV_arresting_the_mezhraionsty_members
-#     cost = 1
-#     available_if_capitulated = yes
-#     ai_will_do = {
-#         factor = 1
-#     }
-#     completion_reward = {
-        
-#     }
-# }
-
-# shared_focus = {
-#     id = SOV_arresting_novosyolov
-#     icon = unkown
-# 	prerequisite = {focus = SOV_arresting_the_mezhraionsty_members  }
-
-#     x = 2
-#     y = 1
-#     relative_position_id = SOV_arresting_the_mezhraionsty_members
-#     cost = 1
-#     available_if_capitulated = yes
-#     ai_will_do = {
-#         factor = 1
-#     }
-#     completion_reward = {
+#         unlock_decision_tooltip = SOV_lenin_operation_arrest_konstantin
 #         unlock_decision_tooltip = SOV_lenin_operation_arrest_novosyolov
 #         unlock_decision_tooltip = SOV_lenin_operation_arrest_admovich
 
 #     }
 # }
 
-shared_focus = {
-    id = SOV_disbanding_the_mezhraionsty
-    icon = unkown
-    prerequisite = {focus = SOV_arresting_the_mezhraionsty_members }
-    available = {
-        has_country_flag = SOV_admovich_arrested_successfully
-        has_country_flag = SOV_novosyolov_arrested_successfully
-        has_country_flag = SOV_konstantin_arrested_successfully
-    }
+# # shared_focus = {
+# #     id = SOV_arresting_konstantin
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_arresting_the_mezhraionsty_members  }
 
-    x = 0
-    y = 1
-    relative_position_id = SOV_arresting_the_mezhraionsty_members
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
+# #     x = -2
+# #     y = 1
+# #     relative_position_id = SOV_arresting_the_mezhraionsty_members
+# #     cost = 1
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
         
-        country_event = SOV_rsdlp_forceful_unification.9
-    }
-}
+# #     }
+# # }
+
+# # shared_focus = {
+# #     id = SOV_arresting_admovich
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_arresting_the_mezhraionsty_members  }
+
+# #     x = 0
+# #     y = 1
+# #     relative_position_id = SOV_arresting_the_mezhraionsty_members
+# #     cost = 1
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+# #     }
+# # }
+
+# # shared_focus = {
+# #     id = SOV_arresting_novosyolov
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_arresting_the_mezhraionsty_members  }
+
+# #     x = 2
+# #     y = 1
+# #     relative_position_id = SOV_arresting_the_mezhraionsty_members
+# #     cost = 1
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+# #         unlock_decision_tooltip = SOV_lenin_operation_arrest_novosyolov
+# #         unlock_decision_tooltip = SOV_lenin_operation_arrest_admovich
+
+# #     }
+# # }
+
+# shared_focus = {
+#     id = SOV_disbanding_the_mezhraionsty
+#     icon = unkown
+#     prerequisite = {focus = SOV_arresting_the_mezhraionsty_members }
+#     available = {
+#         has_country_flag = SOV_admovich_arrested_successfully
+#         has_country_flag = SOV_novosyolov_arrested_successfully
+#         has_country_flag = SOV_konstantin_arrested_successfully
+#     }
+
+#     x = 0
+#     y = 1
+#     relative_position_id = SOV_arresting_the_mezhraionsty_members
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
+        
+#         country_event = SOV_rsdlp_forceful_unification.9
+#     }
+# }
 
 shared_focus = {
     id = SOV_our_rule_reigns_supreme
     icon = unkown
-	prerequisite = {focus = SOV_disbanding_the_mezhraionsty  }
-	prerequisite = {
-		focus = SOV_arresting_the_tsertellists
-	}
-    prerequisite = {
-        focus = SOV_triumph_over_marx
-    }
-    x = 2
+	prerequisite = {focus = SOV_forceful_unification }
+    x = -1
     y = 1
-    relative_position_id = SOV_disbanding_the_mezhraionsty
+    relative_position_id = SOV_forceful_unification
     cost = 6
     available_if_capitulated = yes
     ai_will_do = {
@@ -851,7 +844,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_peaceful_unification
-    icon = unkown
+    icon = GFX_goal_support_communism
 	prerequisite = {focus = SOV_uniting_the_parties_of_the_rsdlp  }
     mutually_exclusive = {
         focus = SOV_forceful_unification
@@ -870,95 +863,152 @@ shared_focus = {
     }
 }
 
-shared_focus = {
-    id = SOV_integrating_the_tsertellists
-    icon = unkown
-	prerequisite = {focus = SOV_peaceful_unification  }
-
-    x = 0
-    y = 1
-    relative_position_id = SOV_peaceful_unification
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        
-    }
-}
 # shared_focus = {
-#     id = SOV_entering_a_compromise_with_tsertelli
-#     icon = unkown
-# 	prerequisite = {focus = SOV_integrating_the_tsertellists  }
-
-#     x = -1
-#     y = 1
-#     relative_position_id = SOV_integrating_the_tsertellists
-#     cost = 5
-#     available_if_capitulated = yes
-#     ai_will_do = {
-#         factor = 1
-#     }
-#     completion_reward = {
-        
-        
-#     }
-# }
-
-# shared_focus = {
-#     id = SOV_gain_tsertelli_support
-#     icon = unkown
-# 	prerequisite = {focus = SOV_integrating_the_tsertellists  }
-
-#     x = 1
-#     y = 1
-#     relative_position_id = SOV_integrating_the_tsertellists
-#     cost = 5
-#     available_if_capitulated = yes
-#     ai_will_do = {
-#         factor = 1
-#     }
-#     completion_reward = {
-        
-        
-#     }
-# }
-
-shared_focus = {
-    id = SOV_the_mensheviks_reunified
-    icon = unkown
-    prerequisite = {focus = SOV_integrating_the_tsertellists  }
-
-
-    x = 0
-    y = 1
-    relative_position_id = SOV_integrating_the_tsertellists
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        custom_effect_tooltip = SOV_the_mensheviks_reunified_tt
-
-        add_to_variable = {
-            SOV_lenin_influence_in_party = SOV_tsertelli_influence_in_party
-        }
-        set_variable = {
-            SOV_tsertelli_influence_in_party = 0
-        }
-        
-    }
-}
-
-# shared_focus = {
-#     id = SOV_integrating_the_trotskyists
+#     id = SOV_integrating_the_tsertellists
 #     icon = unkown
 # 	prerequisite = {focus = SOV_peaceful_unification  }
 
-#     x = 3
+#     x = 0
+#     y = 1
+#     relative_position_id = SOV_peaceful_unification
+#     cost = 5
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
+        
+        
+#     }
+# }
+# # shared_focus = {
+# #     id = SOV_entering_a_compromise_with_tsertelli
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_integrating_the_tsertellists  }
+
+# #     x = -1
+# #     y = 1
+# #     relative_position_id = SOV_integrating_the_tsertellists
+# #     cost = 5
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+        
+# #     }
+# # }
+
+# # shared_focus = {
+# #     id = SOV_gain_tsertelli_support
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_integrating_the_tsertellists  }
+
+# #     x = 1
+# #     y = 1
+# #     relative_position_id = SOV_integrating_the_tsertellists
+# #     cost = 5
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+        
+# #     }
+# # }
+
+# shared_focus = {
+#     id = SOV_the_mensheviks_reunified
+#     icon = unkown
+#     prerequisite = {focus = SOV_integrating_the_tsertellists  }
+
+
+#     x = 0
+#     y = 1
+#     relative_position_id = SOV_integrating_the_tsertellists
+#     cost = 5
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
+#         custom_effect_tooltip = SOV_the_mensheviks_reunified_tt
+
+#         add_to_variable = {
+#             SOV_lenin_influence_in_party = SOV_tsertelli_influence_in_party
+#         }
+#         set_variable = {
+#             SOV_tsertelli_influence_in_party = 0
+#         }
+        
+#     }
+# }
+
+# # shared_focus = {
+# #     id = SOV_integrating_the_trotskyists
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_peaceful_unification  }
+
+# #     x = 3
+# #     y = 1
+# #     relative_position_id = SOV_peaceful_unification
+# #     cost = 5
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+        
+# #     }
+# # }
+
+# # shared_focus = {
+# #     id = SOV_this_isnt_working
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_integrating_the_trotskyists  }
+
+# #     x = 0
+# #     y = 1
+# #     relative_position_id = SOV_integrating_the_trotskyists
+# #     cost = 5
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+        
+# #     }
+# # }
+
+# # shared_focus = {
+# #     id = SOV_this_isnt_working
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_integrating_the_trotskyists  }
+
+# #     x = 0
+# #     y = 1
+# #     relative_position_id = SOV_integrating_the_trotskyists
+# #     cost = 5
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+        
+# #     }
+# # }
+
+# shared_focus = {
+#     id = SOV_having_to_denounce_trotsky
+#     icon = unkown
+# 	prerequisite = {focus = SOV_peaceful_unification  }
+
+#     x = 2
 #     y = 1
 #     relative_position_id = SOV_peaceful_unification
 #     cost = 5
@@ -973,13 +1023,13 @@ shared_focus = {
 # }
 
 # shared_focus = {
-#     id = SOV_this_isnt_working
+#     id = SOV_banning_communism
 #     icon = unkown
-# 	prerequisite = {focus = SOV_integrating_the_trotskyists  }
+# 	prerequisite = {focus = SOV_having_to_denounce_trotsky  }
 
 #     x = 0
 #     y = 1
-#     relative_position_id = SOV_integrating_the_trotskyists
+#     relative_position_id = SOV_having_to_denounce_trotsky
 #     cost = 5
 #     available_if_capitulated = yes
 #     ai_will_do = {
@@ -991,14 +1041,42 @@ shared_focus = {
 #     }
 # }
 
-# shared_focus = {
-#     id = SOV_this_isnt_working
-#     icon = unkown
-# 	prerequisite = {focus = SOV_integrating_the_trotskyists  }
+# # shared_focus = {
+# #     id = SOV_the_bolsheviks_removed
+# #     icon = unkown
+# # 	prerequisite = {focus = SOV_banning_communism  }
+# #     prerequisite = {
+# #         focus = SOV_having_to_denounce_trotsky
+# #     }
+# #     x = -1
+# #     y = 1
+# #     relative_position_id = SOV_banning_communism
+# #     cost = 5
+# #     available_if_capitulated = yes
+# #     ai_will_do = {
+# #         factor = 1
+# #     }
+# #     completion_reward = {
+        
+# #         custom_effect_tooltip = SOV_the_SOV_the_bolsheviks_removed_tt
 
-#     x = 0
+# #         add_to_variable = {
+# #             SOV_lenin_influence_in_party = SOV_trotsky_influence_in_party
+# #         }
+# #         set_variable = {
+# #             SOV_trotsky_influence_in_party = 0
+# #         }
+# #     }
+# # }
+
+# shared_focus = {
+#     id = SOV_integrating_mezhraionsty
+#     icon = unkown
+# 	prerequisite = {focus = SOV_peaceful_unification  }
+
+#     x = 4
 #     y = 1
-#     relative_position_id = SOV_integrating_the_trotskyists
+#     relative_position_id = SOV_peaceful_unification
 #     cost = 5
 #     available_if_capitulated = yes
 #     ai_will_do = {
@@ -1010,132 +1088,40 @@ shared_focus = {
 #     }
 # }
 
-shared_focus = {
-    id = SOV_having_to_denounce_trotsky
-    icon = unkown
-	prerequisite = {focus = SOV_peaceful_unification  }
-
-    x = 2
-    y = 1
-    relative_position_id = SOV_peaceful_unification
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        
-    }
-}
-
-shared_focus = {
-    id = SOV_banning_communism
-    icon = unkown
-	prerequisite = {focus = SOV_having_to_denounce_trotsky  }
-
-    x = 0
-    y = 1
-    relative_position_id = SOV_having_to_denounce_trotsky
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        
-    }
-}
 
 # shared_focus = {
-#     id = SOV_the_bolsheviks_removed
+#     id = SOV_integrating_their_members
 #     icon = unkown
-# 	prerequisite = {focus = SOV_banning_communism  }
-#     prerequisite = {
-#         focus = SOV_having_to_denounce_trotsky
-#     }
-#     x = -1
+# 	prerequisite = {focus = SOV_integrating_mezhraionsty  }
+    
+#     x = 0
 #     y = 1
-#     relative_position_id = SOV_banning_communism
+#     relative_position_id = SOV_integrating_mezhraionsty
 #     cost = 5
 #     available_if_capitulated = yes
 #     ai_will_do = {
 #         factor = 1
 #     }
 #     completion_reward = {
-        
-#         custom_effect_tooltip = SOV_the_SOV_the_bolsheviks_removed_tt
+#         custom_effect_tooltip = SOV_integrating_their_members_tt
 
 #         add_to_variable = {
-#             SOV_lenin_influence_in_party = SOV_trotsky_influence_in_party
+#             SOV_lenin_influence_in_party = SOV_mezhraionstyists_influence_in_party
 #         }
 #         set_variable = {
-#             SOV_trotsky_influence_in_party = 0
+#             SOV_mezhraionstyists_influence_in_party = 0
 #         }
+        
 #     }
 # }
-
-shared_focus = {
-    id = SOV_integrating_mezhraionsty
-    icon = unkown
-	prerequisite = {focus = SOV_peaceful_unification  }
-
-    x = 4
-    y = 1
-    relative_position_id = SOV_peaceful_unification
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        
-    }
-}
-
-
-shared_focus = {
-    id = SOV_integrating_their_members
-    icon = unkown
-	prerequisite = {focus = SOV_integrating_mezhraionsty  }
-    
-    x = 0
-    y = 1
-    relative_position_id = SOV_integrating_mezhraionsty
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        custom_effect_tooltip = SOV_integrating_their_members_tt
-
-        add_to_variable = {
-            SOV_lenin_influence_in_party = SOV_mezhraionstyists_influence_in_party
-        }
-        set_variable = {
-            SOV_mezhraionstyists_influence_in_party = 0
-        }
-        
-    }
-}
 
 shared_focus = {
     id = SOV_the_russian_social_democratic_labour_party_reformed
     icon = unkown
-	prerequisite = {focus = SOV_integrating_their_members  }
-   
-    prerequisite = {
-        focus = SOV_the_mensheviks_reunified
-    }
-    prerequisite = {
-        focus = SOV_banning_communism
-    }
-    x = -2
+	prerequisite = {focus = SOV_peaceful_unification }
+    x = 1
     y = 1
-    relative_position_id = SOV_integrating_their_members
+    relative_position_id = SOV_peaceful_unification
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1152,7 +1138,7 @@ shared_focus = {
     icon = GFX_goal_SOV_military_reforms
 
     cost = 5
-	available_if_capitulated = yesinc
+	available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
@@ -1372,10 +1358,790 @@ shared_focus = {
 shared_focus = {
     id = SOV_the_beacon_of_socialism
     icon = unkown
-    x = 11
-    y = 6
+    x = 28
+    y = 0
     cost = 5
     available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_dealing_with_the_habsburg_hegemony
+    icon = unkown
+    x = 6
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_beacon_of_socialism
+    }
+    relative_position_id = SOV_the_beacon_of_socialism
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_the_prussian_question
+    icon = unkown
+    x = -2
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_dealing_with_the_habsburg_hegemony
+    }
+    relative_position_id = SOV_dealing_with_the_habsburg_hegemony
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_they_can_be_allies
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_prussian_question
+    }
+    mutually_exclusive = {
+        focus = SOV_no_they_are_insane
+    }
+    relative_position_id = SOV_the_prussian_question
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_prussian_russian_industrial_zone
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_they_can_be_allies
+    }
+   
+    relative_position_id = SOV_they_can_be_allies
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_lessons_from_the_europakrieg
+    icon = unkown
+    x = 0
+    y = 2
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_they_can_be_allies
+    }
+   
+    relative_position_id = SOV_they_can_be_allies
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_no_they_are_insane
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_prussian_question
+    }
+    relative_position_id = SOV_the_prussian_question
+    mutually_exclusive = {
+        focus = SOV_they_can_be_allies
+    }
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_fortify_the_polish_border
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_no_they_are_insane
+    }
+    prerequisite = {
+        focus = SOV_militarlize_the_cossacks
+    }
+    relative_position_id = SOV_no_they_are_insane
+    
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_defend_the_baltics
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+
+    prerequisite = {
+        focus = SOV_fortify_the_polish_border
+    }
+    relative_position_id = SOV_fortify_the_polish_border
+    
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_defend_the_galician_border
+    icon = unkown
+    x = 3
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_contact_hungarian_communists
+    }
+    prerequisite = {
+        focus = SOV_militarlize_the_cossacks
+    }
+    relative_position_id = SOV_no_they_are_insane
+    
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_construct_the_krakow_airfield
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_defend_the_galician_border
+    }
+    
+    relative_position_id = SOV_defend_the_galician_border
+    
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_using_the_seperatists
+    icon = unkown
+    x = 3
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_dealing_with_the_habsburg_hegemony
+    }
+    relative_position_id = SOV_dealing_with_the_habsburg_hegemony
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_contact_hungarian_communists
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_using_the_seperatists
+    }
+    relative_position_id = SOV_using_the_seperatists
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_contact_young_italy
+    icon = unkown
+    x = 1
+    y = 2
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_using_the_seperatists
+    }
+    relative_position_id = SOV_using_the_seperatists
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_preparing_for_the_worst
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_dealing_with_the_habsburg_hegemony
+    }
+    relative_position_id = SOV_dealing_with_the_habsburg_hegemony
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_militarlize_the_cossacks
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_preparing_for_the_worst
+    }
+    relative_position_id = SOV_preparing_for_the_worst
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_the_first_five_year_plan
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_beacon_of_socialism
+    }
+    relative_position_id = SOV_the_beacon_of_socialism
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_collectivization_of_farms
+    icon = unkown
+    x = -2
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_first_five_year_plan
+    }
+    relative_position_id = SOV_the_first_five_year_plan
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_collectivize_polish_farms
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_collectivization_of_farms
+    }
+    relative_position_id = SOV_collectivization_of_farms
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_build_land_around_warsawa
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_collectivize_polish_farms
+    }
+    relative_position_id = SOV_collectivize_polish_farms
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_collectivize_ukranian_farms
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_collectivization_of_farms
+    }
+    relative_position_id = SOV_collectivization_of_farms
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_mass_industralialization_of_kiev
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_collectivize_ukranian_farms
+    }
+    relative_position_id = SOV_collectivize_ukranian_farms
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_the_kulak_revolt
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_mass_industralialization_of_kiev
+    }
+    prerequisite = {
+        focus = SOV_build_land_around_warsawa
+    }
+    relative_position_id = SOV_mass_industralialization_of_kiev
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_the_prodnalog_tax
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_first_five_year_plan
+    }
+    relative_position_id = SOV_the_first_five_year_plan
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_deal_with_food_shortages
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_prodnalog_tax
+    }
+    relative_position_id = SOV_the_prodnalog_tax
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_opportunity_in_asia
+    icon = unkown
+    x = -7
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_beacon_of_socialism
+    }
+    relative_position_id = SOV_the_beacon_of_socialism
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_fund_a_peasents_coup_in_mongolia
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_opportunity_in_asia
+    }
+    relative_position_id = SOV_opportunity_in_asia
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_fund_a_peasents_coup_in_mongolia
+    icon = unkown
+    x = -2
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_opportunity_in_asia
+    }
+    relative_position_id = SOV_opportunity_in_asia
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_the_coup_fails
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_fund_a_peasents_coup_in_mongolia
+    }
+    relative_position_id = SOV_fund_a_peasents_coup_in_mongolia
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = SOV_the_coup_succeeds       
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_take_mongolia_by_force
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_coup_fails
+    }
+    relative_position_id = SOV_the_coup_fails
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_executing_the_khan
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_take_mongolia_by_force
+    }
+    relative_position_id = SOV_take_mongolia_by_force
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_the_coup_succeeds
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_fund_a_peasents_coup_in_mongolia
+    }
+    relative_position_id = SOV_fund_a_peasents_coup_in_mongolia
+    mutually_exclusive = {
+        focus = SOV_the_coup_fails
+    }
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_a_friendly_ultimatum
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_the_coup_succeeds
+    }
+    relative_position_id = SOV_the_coup_succeeds
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_peaceful_socialist_education
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_a_friendly_ultimatum
+    }
+    relative_position_id = SOV_a_friendly_ultimatum
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_watch_the_fengtian_border
+    icon = unkown
+    x = -2
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_peaceful_socialist_education
+        focus = SOV_executing_the_khan
+    }
+    relative_position_id = SOV_peaceful_socialist_education
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_continue_intervention_in_east_turkestan
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_opportunity_in_asia
+    }
+    relative_position_id = SOV_opportunity_in_asia
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_support_the_east_turkestan_republic
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_continue_intervention_in_east_turkestan
+    }
+    relative_position_id = SOV_continue_intervention_in_east_turkestan
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_in_we_go
+    icon = unkown
+    x = 0
+    y = 2
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_support_the_east_turkestan_republic
+    }
+    relative_position_id = SOV_support_the_east_turkestan_republic
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_a_united_turkestan
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_in_we_go
+    }
+    relative_position_id = SOV_in_we_go
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_secure_our_southern_border
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_support_the_east_turkestan_republic
+    }
+    relative_position_id = SOV_support_the_east_turkestan_republic
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_renegotiate_persian_oilfields
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_secure_our_southern_border
+    }
+    relative_position_id = SOV_secure_our_southern_border
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_protect_the_ottoman_border
+    icon = unkown
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_renegotiate_persian_oilfields
+    }
+    relative_position_id = SOV_renegotiate_persian_oilfields
     ai_will_do = {
         factor = 1
     }
