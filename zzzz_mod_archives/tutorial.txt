@@ -103,7 +103,175 @@ focus_tree = {
 			add_research_slot = 1
 		}
 	}
+
+	focus = {
+		id = ARJ_get_a_girlfriend
+		icon = placeholder
+		x = 0
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = ARJ_recruit_technology_scientists
+		}
+		relative_position_id = ARJ_recruit_technology_scientists
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		bypass = {
+		}
+		
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
 	
+}
+
+focus_tree = {
+	id = ARJ_arjland_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = ARJ
+		}
+	}
+	
+	continuous_focus_position = { x = -50, y = 2400 }
+	shared_focus = ARJ_recruit_technology_scientists
+	shared_focus = ARJ_get_big_army
+}
+
+		
+shared_focus = {
+	id = ARJ_recruit_technology_scientists
+	icon = placeholder
+	x = 0
+	y = 0
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+	}
+	bypass = {
+	}
+	
+	completion_reward = {
+		add_research_slot = 1
+	}
+}
+
+shared_focus = {
+	id = ARJ_get_a_girlfriend
+	icon = placeholder
+	x = 0
+	y = 0
+	cost = 10
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ARJ_recruit_technology_scientists
+	}
+	relative_position_id = ARJ_recruit_technology_scientists
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+	}
+	bypass = {
+	}
+	
+	completion_reward = {
+		add_stability = 0.05
+		load_focus_tree = { tree = ARJ_arjland_conquer_tree keep_completed = yes }
+
+}
+
+focus_tree = {
+	id = ARJ_arjland_conquer_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = ARJ
+		}
+	}
+	
+	continuous_focus_position = { x = -50, y = 2400 }
+	shared_focus = ARJ_conquer_westeros
+	shared_focus = ARJ_conquer_essos
+	shared_focus = ARJ_get_big_army
+}
+
+shared_focus = {
+	id = ARJ_conquer_westeros
+	icon = placeholder
+	x = 0
+	y = 0
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+	}
+	bypass = {
+	}
+	
+	completion_reward = {
+		create_wargoal = {
+			target = WES
+			type = annex_everything
+		}
+	}
+}
+
+shared_focus = {
+	id = ARJ_conquer_essos
+	icon = placeholder
+	x = 2
+	y = 0
+	cost = 10
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+	}
+	bypass = {
+	}
+	
+	completion_reward = {
+		create_wargoal = {
+			target = ESS
+			type = annex_everything
+		}
+	}
+}
+
+shared_focus = {
+	id = ARJ_get_big_army
+	icon = placeholder
+	x = 6
+	y = 0
+	cost = 10
+	available_if_capitulated = yes
+
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+	}
+	bypass = {
+	}
+	
+	completion_reward = {
+		add_manpower = 1000
+	}
 }
 
 
