@@ -2914,7 +2914,8 @@ SOV_political_instability = {
 
 ##lenin stuff
 SOV_balancing_the_rsdlp = {
-	SOV_lenin_operation_arrest_tsertelli = {
+
+	SOV_lenin_operation_mzheraistony_placeholder = {
 
 		#icon = generic_construction
 
@@ -2922,18 +2923,29 @@ SOV_balancing_the_rsdlp = {
 			has_completed_focus = SOV_forceful_unification
 		}
 
-		available = {
+		visible = {
 			NOT = {
-				has_country_flag =  SOV_tsertelli_arrested_successfully
+				has_country_flag =  SOV_novosyolov_arrested_successfully
 			}
-			has_completed_focus = SOV_arresting_the_tsertellists
+			NOT = {
+				has_country_flag =  SOV_konstantin_arrested_successfully
+			}
+			NOT = {
+				has_country_flag =  SOV_admovich_arrested_successfully
+			}
+
+			# has_completed_focus = SOV_arresting_the_tsertellists
+		}
+
+		available = {
+			always = no
 		}
 
 
-		fire_only_once = no
+		fire_only_once = yes
 
-		cost = 15
-		days_remove = 30
+		cost = 0
+		days_remove = 0
 
 		modifier = {
 
@@ -2946,25 +2958,16 @@ SOV_balancing_the_rsdlp = {
 		
 
 		complete_effect = {
-			add_to_variable = {
-				tooltip = SOV_reduce_tsertelli_compliance_by_5
-				SOV_tsertelli_compliance = -5
-			}
+			
 		}
 
 		remove_effect = {
-			random_list = {
-				75 = {
-					country_event = SOV_rsdlp_forceful_unification.1
-				}
-				25 = {
-					country_event = SOV_rsdlp_forceful_unification.2
-				}
-			}
+			
 		}
 
 		
 	}
+
 
 	SOV_lenin_operation_arrest_konstantin = {
 
@@ -2978,7 +2981,7 @@ SOV_balancing_the_rsdlp = {
 			NOT = {
 				has_country_flag =  SOV_konstantin_arrested_successfully
 			}
-			has_completed_focus = SOV_arresting_the_mezhraionsty_members
+			# has_completed_focus = SOV_arresting_the_mezhraionsty_members
 		}
 
 
@@ -3030,7 +3033,7 @@ SOV_balancing_the_rsdlp = {
 			NOT = {
 				has_country_flag =  SOV_admovich_arrested_successfully
 			}
-			has_completed_focus = SOV_arresting_the_mezhraionsty_members
+			# has_completed_focus = SOV_arresting_the_mezhraionsty_members
 		}
 
 
@@ -3081,7 +3084,7 @@ SOV_balancing_the_rsdlp = {
 			NOT = {
 				has_country_flag =  SOV_novosyolov_arrested_successfully
 			}
-			has_completed_focus = SOV_arresting_the_mezhraionsty_members
+			# has_completed_focus = SOV_arresting_the_mezhraionsty_members
 		}
 
 
@@ -3116,6 +3119,159 @@ SOV_balancing_the_rsdlp = {
 					country_event = SOV_rsdlp_forceful_unification.8
 				}
 			}
+		}	
+	}
+	SOV_mzheraistony_disband = {
+
+		#icon = generic_construction
+
+		visible = {
+			has_completed_focus = SOV_forceful_unification
+		}
+
+		available = {
+			has_country_flag =  SOV_novosyolov_arrested_successfully
+			has_country_flag =  SOV_konstantin_arrested_successfully
+			has_country_flag =  SOV_admovich_arrested_successfully
+			# has_completed_focus = SOV_arresting_the_tsertellists
+		}
+
+		
+
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		
+
+		complete_effect = {
+			 country_event = SOV_rsdlp_forceful_unification.9
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_mzheraistony_disband_complete
+		}
+
+		
+	}
+
+
+	SOV_lenin_operation_tsertelli_placeholder = {
+
+		#icon = generic_construction
+
+		visible = {
+			has_completed_focus = SOV_forceful_unification
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_tsertelli_arrested_successfully
+			}
+			NOT = {
+				has_country_flag =  SOV_plekhanov_arrested_successfully
+			}
+			NOT = {
+				has_country_flag =  SOV_bogdanov_arrested_successfully
+			}
+			NOT = {
+				has_country_flag =  SOV_bubnov_arrested_successfully
+			}
+			NOT = {
+				has_country_flag =  SOV_lunacharski_arrested_successfully
+			}
+
+			# has_completed_focus = SOV_arresting_the_tsertellists
+		}
+
+		available = {
+			always = no
+		}
+
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			
+		}
+
+		
+	}
+
+	SOV_lenin_operation_arrest_tsertelli = {
+
+		#icon = generic_construction
+
+		visible = {
+			has_completed_focus = SOV_forceful_unification
+		}
+
+		available = {
+			NOT = {
+				has_country_flag =  SOV_tsertelli_arrested_successfully
+			}
+			# has_completed_focus = SOV_arresting_the_tsertellists
+		}
+
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = SOV_reduce_tsertelli_compliance_by_5
+				SOV_tsertelli_compliance = -5
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				75 = {
+					country_event = SOV_rsdlp_forceful_unification.1
+				}
+				25 = {
+					country_event = SOV_rsdlp_forceful_unification.2
+				}
+			}
 		}
 
 		
@@ -3132,7 +3288,7 @@ SOV_balancing_the_rsdlp = {
 			NOT = {
 				has_country_flag =  SOV_plekhanov_arrested_successfully
 			}
-			has_completed_focus = SOV_arresting_the_tsertellists
+			# has_completed_focus = SOV_arresting_the_tsertellists
 		}
 
 
@@ -3183,7 +3339,7 @@ SOV_balancing_the_rsdlp = {
 			NOT = {
 				has_country_flag =  SOV_bogdanov_arrested_successfully
 			}
-			has_completed_focus = SOV_arresting_the_tsertellists
+			# has_completed_focus = SOV_arresting_the_tsertellists
 		}
 
 
@@ -3234,7 +3390,7 @@ SOV_balancing_the_rsdlp = {
 			NOT = {
 				has_country_flag =  SOV_bubnov_arrested_successfully
 			}
-			has_completed_focus = SOV_arresting_the_tsertellists
+			# has_completed_focus = SOV_arresting_the_tsertellists
 		}
 
 
@@ -3286,7 +3442,7 @@ SOV_balancing_the_rsdlp = {
 			NOT = {
 				has_country_flag =  SOV_lunacharski_arrested_successfully
 			}
-			has_completed_focus = SOV_arresting_the_tsertellists
+			# has_completed_focus = SOV_arresting_the_tsertellists
 		}
 
 
@@ -3325,7 +3481,97 @@ SOV_balancing_the_rsdlp = {
 
 		
 	}
+	SOV_destroying_the_tsertellists = {
 
+		#icon = generic_construction
+
+		visible = {
+			has_completed_focus = SOV_forceful_unification
+		}
+
+		available = {
+			has_country_flag =  SOV_tsertelli_arrested_successfully
+			has_country_flag =  SOV_plekhanov_arrested_successfully
+			has_country_flag =  SOV_bogdanov_arrested_successfully
+			has_country_flag =  SOV_bubnov_arrested_successfully
+			has_country_flag =  SOV_lunacharski_arrested_successfully
+		}
+
+		
+
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		
+
+		complete_effect = {
+			 country_event = SOV_rsdlp_forceful_unification.10
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_destroying_the_tsertellists_complete	
+		}
+
+		
+	}
+
+	SOV_lenin_operation_trotskyist_placeholder = {
+
+		#icon = generic_construction
+
+		visible = {
+			has_completed_focus = SOV_forceful_unification
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag =  SOV_trotsky_assisinated_successfully
+			}
+
+			# has_completed_focus = SOV_arresting_the_tsertellists
+		}
+
+		available = {
+			always = no
+		}
+
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			
+		}
+
+		
+	}
 	SOV_lenin_operation_assinating_trotsky = {
 
 		#icon = generic_construction
@@ -3338,7 +3584,7 @@ SOV_balancing_the_rsdlp = {
 			NOT = {
 				has_country_flag =  SOV_trotsky_assisinated_successfully
 			}
-			has_completed_focus = SOV_arrest_prominent_trotskyists
+			# has_completed_focus = SOV_arrest_prominent_trotskyists
 		}
 
 
@@ -3377,7 +3623,118 @@ SOV_balancing_the_rsdlp = {
 
 		
 	}
+	SOV_triumph_over_marx = {
+
+		#icon = generic_construction
+
+		visible = {
+			has_completed_focus = SOV_forceful_unification
+		}
+
+		available = {
+			has_country_flag =  SOV_trotsky_assisinated_successfully
+	
+		}
+
+		
+
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_triumph_over_marx_complete
+		}
+
+		
+	}
+
+	SOV_placeholder_decision_lenin_1 = {
+		visible = {
+			OR = {
+				has_completed_focus = SOV_peaceful_unification
+				has_completed_focus = SOV_forceful_unification
+			}
+		}
+		available = {
+			always = no
+		}
+	}
+	SOV_unification_of_rsdlp_complete = {
+
+		#icon = generic_construction
+
+		visible = {
+			has_completed_focus = SOV_forceful_unification
+		}
+
+		available = {
+			OR = {
+				AND = {
+					has_country_flag = SOV_mzheraistony_disband_complete
+					has_country_flag = SOV_destroying_the_tsertellists_complete
+					has_country_flag = SOV_triumph_over_marx_complete
+				}
+			}
+		}
+
+		
+
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					has_completed_focus = SOV_forceful_unification
+				}
+				complete_national_focus = SOV_our_rule_reigns_supreme
+			}
+			if = {
+				limit = {
+					has_completed_focus = SOV_peaceful_unification
+				}
+				complete_national_focus = SOV_the_russian_social_democratic_labour_party_reformed
+			}
+		}
+
+		
+	}
 }
+}
+
+
 
 SOV_lenins_military_improvements = {
 	SOV_negotiate_contracts_with_nagant = {

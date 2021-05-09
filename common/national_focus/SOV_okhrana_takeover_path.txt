@@ -18,7 +18,7 @@ focus_tree = {
 shared_focus = {
     id = SOV_the_secret_service_of_the_tsar
     icon = GFX_goal_SOV_the_secret_service_of_the_tsar
-    x = 0
+    x = 2
     y = 0 
     cost = 5
 	available_if_capitulated = yes
@@ -215,9 +215,7 @@ shared_focus = {
     prerequisite = {
         focus = SOV_protecting_the_cargo
     }
-    mutually_exclusive = {
-        focus = SOV_the_throat_is_slit
-    }
+
 	x = 1
 	y = 1
     relative_position_id = SOV_transporting_the_cargo 
@@ -254,7 +252,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_consolidate_the_white_rose
     icon = GFX_goal_SOV_consolidating_power
-	prerequisite = {focus = SOV_the_new_leader focus = SOV_the_throat_is_slit }
+	prerequisite = {focus = SOV_the_new_leader  }
 	x = -1
 	y = 1
     relative_position_id = SOV_the_new_leader 
@@ -286,6 +284,10 @@ shared_focus = {
     completion_reward = {
      add_political_power = 100
      custom_effect_tooltip = SOV_a_loyal_okhrana_tt
+
+     hidden_effect = {
+         set_country_flag = SOV_okhrana_unlock_hidden_branch
+     }
     }
 }
 
@@ -301,8 +303,14 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+    bypass = {
+        has_country_flag = SOV_okhrana_unlock_hidden_branch
+    }
+    allow_branch = {
+        has_country_flag = SOV_okhrana_unlock_hidden_branch
+    }
     completion_reward = {
-     
+     add_political_power = -50
     }
 }
 
