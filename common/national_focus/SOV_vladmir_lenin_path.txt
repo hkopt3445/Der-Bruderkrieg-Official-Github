@@ -55,10 +55,10 @@ shared_focus = {
     icon = GFX_goal_SOV_expanding_the_lefts_grip
     prerequisite = { focus = SOV_lenins_presidency  }
     
-    x = 0
+    x = 2
     y = 1
     relative_position_id = SOV_lenins_presidency
-    cost = 5
+    cost = 7
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -69,16 +69,16 @@ shared_focus = {
             popularity = 0.05
         }
         add_political_power = 60
-        
+        unlock_decision_category_tooltip = SOV_lenins_social_reforms
     }
 }
 shared_focus = {
     id = SOV_slandering_the_opposition
     icon = GFX_goal_SOV_slandering_the_opposition
-    prerequisite = {focus = SOV_expanding_the_lefts_grip}
-    x = -2
+    prerequisite = {focus = SOV_propoganda_campaigns}
+    x = 1
     y = 1
-    relative_position_id = SOV_expanding_the_lefts_grip
+    relative_position_id = SOV_propoganda_campaigns
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -129,30 +129,6 @@ shared_focus = {
 
 
 shared_focus = {
-    id = SOV_the_opposition_shrinks
-    icon = GFX_goal_SOV_extra_1
-    prerequisite = {focus = SOV_pro_rsdlp_agenda  }
-	prerequisite = {
-		focus = SOV_pro_rsdlp_agenda
-	}
-	prerequisite = { focus = SOV_propoganda_campaigns }
-	prerequisite = {
-		focus = SOV_slandering_the_opposition
-	}
-	x = -3
-    y = 1
-    relative_position_id = SOV_pro_rsdlp_agenda  
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        
-    }
-}
-shared_focus = {
     id = SOV_the_growing_hands_of_lenin
     icon = GFX_goal_SOV_extra_2
     prerequisite = {focus = SOV_pro_rsdlp_agenda  }
@@ -163,8 +139,8 @@ shared_focus = {
 	prerequisite = {
 		focus = SOV_slandering_the_opposition
 	}
-	x = -1
-    y = 1
+	x = -2
+    y = 2
     relative_position_id = SOV_pro_rsdlp_agenda  
     cost = 5
     available_if_capitulated = yes
@@ -181,23 +157,15 @@ shared_focus = {
     id = SOV_a_new_leftists_russia
     icon = GFX_goal_SOV_a_new_leftists_russia
 	prerequisite = {focus = SOV_the_growing_hands_of_lenin }
-	prerequisite = {
-		 focus = SOV_the_opposition_shrinks
-	}
+
     prerequisite = {
-        focus = SOV_relying_on_ourselves
-    }
-    prerequisite = {
-        focus = SOV_a_loyal_army
-    }
-    prerequisite = {
-        focus = SOV_socialist_trade_policy
+        focus = SOV_a_new_dawn_for_russia
     }
     available = {
         has_country_flag = SOV_rsdlp_unified
     }
-	x = -1
-    y = 2
+	x = -2
+    y = 1
     relative_position_id = SOV_the_growing_hands_of_lenin  
     cost = 5
     available_if_capitulated = yes
@@ -218,7 +186,7 @@ shared_focus = {
     icon = GFX_goal_SOV_lenins_economic_policy
     prerequisite = { focus = SOV_lenins_presidency  }
     
-    x = -6
+    x = -5
     y = 1
     relative_position_id = SOV_lenins_presidency
     cost = 5
@@ -237,7 +205,7 @@ shared_focus = {
     id = SOV_socialist_trade_policy
     icon = GFX_goal_SOV_socialist_trade_policy
     prerequisite = {focus = SOV_centralizing_our_economy}
-    x = -1
+    x = 0
     y = 2
     relative_position_id = SOV_centralizing_our_economy
     cost = 5
@@ -379,10 +347,10 @@ shared_focus = {
 shared_focus = {
     id = SOV_denouncing_the_tsar
     icon = GFX_goal_SOV_denouncing_the_tsar
-    prerequisite = {focus = SOV_a_new_leftists_russia }
-    x = 0
+    prerequisite = {focus = SOV_lenins_presidency }
+    x = -1
     y = 1
-    relative_position_id = SOV_a_new_leftists_russia 
+    relative_position_id = SOV_lenins_presidency 
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -473,6 +441,8 @@ shared_focus = {
         ##Reward The Player!
         add_political_power = 100
         add_stability = 0.05
+        add_ideas = SOV_russias_new_savior_idea   
+
     }
 }
 
@@ -1149,7 +1119,7 @@ shared_focus = {
     }
     prerequisite = { focus = SOV_lenins_presidency  }
     
-    x = 6
+    x = 7
     y = 1
     relative_position_id = SOV_lenins_presidency
     completion_reward = {
@@ -1182,28 +1152,6 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_increase_military_spending
-    icon = GFX_goal_SOV_reorganizing_the_infantry
-	prerequisite = {focus = SOV_military_reforms  }
-
-    x = 3
-    y = 1
-    relative_position_id = SOV_military_reforms
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        add_timed_idea = {
-            idea = SOV_military_subsidies
-            days = 400
-        }
-        
-    }
-}
-
-shared_focus = {
     id = SOV_demoting_disloyal_officers
     icon = GFX_goal_SOV_demoting_disloyal_officers
 	prerequisite = {focus = SOV_military_reforms  }
@@ -1226,19 +1174,25 @@ shared_focus = {
     id = SOV_using_our_industry_for_equipment
     icon = GFX_goal_SOV_using_industry_for_equipment
     prerequisite = {
-        focus = SOV_increase_military_spending
+        focus = SOV_promoting_loyal_soldiers
     }
+  
 
 
-    x = 0
+    x = -1
     y = 1
-    relative_position_id = SOV_increase_military_spending
+    relative_position_id = SOV_promoting_loyal_soldiers
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
     completion_reward = {
+        add_timed_idea = {
+            idea = SOV_military_subsidies
+            days = 400
+        }
+        
         10 = {
             add_building_construction = {
                 type = arms_factory 
@@ -1264,7 +1218,7 @@ shared_focus = {
     icon = GFX_goal_SOV_promoting_loyal_soldiers
 	prerequisite = {focus = SOV_demoting_disloyal_officers  }
     prerequisite = {
-        focus = SOV_increase_military_spending
+        focus = SOV_improving_our_military
     }
     prerequisite = {
         focus = SOV_improving_our_military
@@ -1273,9 +1227,9 @@ shared_focus = {
         focus = SOV_pro_rsdlp_agenda
     }
 
-    x = -5
+    x = -1
     y = 1
-    relative_position_id = SOV_increase_military_spending
+    relative_position_id = SOV_improving_our_military
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1292,15 +1246,15 @@ shared_focus = {
     icon = GFX_goal_SOV_promoting_loyal_officers
 	prerequisite = {focus = SOV_demoting_disloyal_officers  }
     prerequisite = {
-        focus = SOV_increase_military_spending
+        focus = SOV_improving_our_military
     }
     prerequisite = {
         focus = SOV_improving_our_military
     }
 
-    x = -3
+    x = 1
     y = 1
-    relative_position_id = SOV_increase_military_spending
+    relative_position_id = SOV_improving_our_military
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1322,8 +1276,6 @@ shared_focus = {
     prerequisite = {
         focus = SOV_promoting_loyal_soldiers
     }
-
-
     x = 0
     y = 1
     relative_position_id = SOV_enforcing_loyalty
@@ -1338,27 +1290,6 @@ shared_focus = {
     }
 }
 
-shared_focus = {
-    id = SOV_russias_new_savior
-    icon = unkown
-    prerequisite = {focus = SOV_a_new_dawn_for_russia  }
-  
-
-    x = 0
-    y = 2
-    relative_position_id = SOV_a_new_dawn_for_russia
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-     add_ideas = SOV_russias_new_savior_idea   
-    }
-}
-
-
 ###FP
 shared_focus = {
     id = SOV_the_beacon_of_socialism
@@ -1371,7 +1302,7 @@ shared_focus = {
         factor = 1
     }
     available = {
-        has_completed_focus = SOV_russias_new_savior
+        has_completed_focus = SOV_a_new_leftists_russia
     }
     completion_reward = {
         
