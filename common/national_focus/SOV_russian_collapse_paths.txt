@@ -585,7 +585,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_unifying_russia
 	icon = unkown
-	x = 16
+	x = 17
 	y = 0 
 	
 	available = {
@@ -750,6 +750,277 @@ shared_focus = {
 
 	completion_reward = {
 		
+	}
+	ai_will_do = {
+	}
+}
+
+
+focus_tree = {
+	id = GEO_sex_laws_path
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GEO
+		}
+	}
+	default = no
+	shared_focus = GEO_sex_reforms
+
+	continuous_focus_position = {
+		x = 100
+		y = 3000 
+	}
+	
+}
+shared_focus = {
+	id = GEO_sex_reforms
+	icon = unkown
+	x = 12
+	y = 0 
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = GEO_increase_age_of_consent
+	icon = unkown
+	x = -1
+	y = 1 
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	mutually_exclusive = {
+		focus = GEO_decrease_age_of_consent
+	}
+	prerequisite = {
+		focus = GEO_sex_reforms
+	}
+	relative_position_id = GEO_sex_reforms
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_political_power = -5
+		add_manpower = -1000
+		add_stability = 0.01
+		add_war_support = 0.01
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = GEO_decrease_age_of_consent
+	icon = unkown
+	x = 1
+	y = 1 
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	mutually_exclusive = {
+		focus = GEO_increase_age_of_consent
+	}
+	prerequisite = {
+		focus = GEO_sex_reforms
+	}
+	relative_position_id = GEO_sex_reforms
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_political_power = 5
+		add_manpower = 1000
+		add_stability = -0.01
+		add_war_support = -0.01
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = GEO_more_whorehouses
+	icon = unkown
+	x = 0
+	y = 1 
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = GEO_decrease_age_of_consent
+		focus = GEO_increase_age_of_consent
+	}
+	mutually_exclusive = {
+		focus = GEO_less_whorehouses
+	}
+	relative_position_id = GEO_decrease_age_of_consent
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_political_power = -5
+		add_manpower = 5
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = GEO_less_whorehouses
+	icon = unkown
+	x = -2
+	y = 1 
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	mutually_exclusive = {
+		focus = GEO_more_whorehouses
+	}
+	prerequisite = {
+		focus = GEO_decrease_age_of_consent
+		focus = GEO_increase_age_of_consent
+	}
+	relative_position_id = GEO_decrease_age_of_consent
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_political_power = 5
+	}
+	ai_will_do = {
+	}
+}
+
+shared_focus = {
+	id = GEO_buy_more_condoms
+	icon = unkown
+	x = 0
+	y = 1 
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = GEO_less_whorehouses
+		focus = GEO_more_whorehouses
+	}
+	mutually_exclusive = {
+		focus = GEO_buy_less_condoms
+	}
+	relative_position_id = GEO_less_whorehouses
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_ideas = GEO_increase_in_condom_imports
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = GEO_buy_less_condoms
+	icon = unkown
+	x = 2
+	y = 1 
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = GEO_less_whorehouses
+		focus = GEO_more_whorehouses
+	}
+	mutually_exclusive = {
+		focus = GEO_buy_more_condoms
+	}
+	relative_position_id = GEO_less_whorehouses
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_ideas = GEO_decrease_in_condom_imports
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = GEO_sex_reforms_complete
+	icon = unkown
+	x = 1
+	y = 2
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = GEO_buy_more_condoms
+		focus = GEO_buy_less_condoms
+	}
+	relative_position_id = GEO_less_whorehouses
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_political_power = 5000
 	}
 	ai_will_do = {
 	}
