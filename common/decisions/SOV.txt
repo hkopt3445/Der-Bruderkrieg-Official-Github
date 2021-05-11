@@ -5327,6 +5327,84 @@ SOV_rebirthing_the_okhrana = {
 
 		
 	}
+	SOV_expanding_bogrov_guards = {
+
+		icon = generic_industry
+
+		cost = 50
+
+		visible = {
+			has_completed_focus = SOV_transporting_the_cargo
+		}
+
+		available = {
+			has_manpower > 50
+			has_equipment = {
+				infantry_equipment > 25
+			}
+		}
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -25
+			}
+			add_manpower = -50
+			add_to_variable = {
+				var = SOV_probability_of_dmitry_bogrov_returning_safely
+				value = 10
+			}
+		}
+
+	}
+
+	SOV_investigate_railways = {
+
+		cost = 50
+
+		icon = generic_research
+
+		days_remove = 7
+
+		modifier = {
+			production_speed_infrastructure_factor = -0.25
+		}
+		visible = {
+			has_completed_focus = SOV_transporting_the_cargo
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				var = SOV_probability_of_dmitry_bogrov_returning_safely
+				value = 10
+			}
+		}
+
+	}
+
+	SOV_safehouses_bogrov = {
+
+		cost = 50
+
+		icon = eng_trade_unions_demand
+
+		days_remove = 14
+
+		modifier = {
+			production_speed_buildings_factor = -0.2
+		}
+		visible = {
+			has_completed_focus = SOV_transporting_the_cargo
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				var = SOV_probability_of_dmitry_bogrov_returning_safely
+				value = 10
+			}
+		}
+
+	}
 }
 
 SOV_lenins_infra_plan = {
@@ -6710,79 +6788,6 @@ SOV_lenins_social_reforms = {
 
 		complete_effect = {
 			country_event = { id = SOV_lenin_social_reforms_events.7 }
-		}
-
-	}
-
-}
-
-SOV_transporting_bogrov = {
-	
-	SOV_expanding_bogrov_guards = {
-
-		icon = generic_industry
-
-		cost = 50
-
-		available = {
-			has_manpower > 50
-			has_equipment = {
-				infantry_equipment > 25
-			}
-		}
-
-		complete_effect = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -25
-			}
-			add_manpower = -50
-			add_to_variable = {
-				var = SOV_probability_of_dmitry_bogrov_returning_safely
-				value = 10
-			}
-		}
-
-	}
-
-	SOV_investigate_railways = {
-
-		cost = 50
-
-		icon = generic_research
-
-		days_remove = 7
-
-		modifier = {
-			production_speed_infrastructure_factor = -0.25
-		}
-
-		complete_effect = {
-			add_to_variable = {
-				var = SOV_probability_of_dmitry_bogrov_returning_safely
-				value = 10
-			}
-		}
-
-	}
-
-	SOV_safehouses_bogrov = {
-
-		cost = 50
-
-		icon = eng_trade_unions_demand
-
-		days_remove = 14
-
-		modifier = {
-			production_speed_buildings_factor = -0.2
-		}
-
-		complete_effect = {
-			add_to_variable = {
-				var = SOV_probability_of_dmitry_bogrov_returning_safely
-				value = 10
-			}
 		}
 
 	}
