@@ -1783,6 +1783,163 @@ country_event = { #literature efforts
 	}
 }
 
+country_event = { #land reform
+	id = SOV_lenin_social_reforms_events.8
+	title = SOV_lenin_social_reforms_events.8.t
+	desc = SOV_lenin_social_reforms_events.8.d
+	is_triggered_only = yes
+
+	option = { #break up corporate farms
+		name = SOV_lenin_social_reforms_events.8.a
+		add_to_variable = { SOV_peoples_support_for_current_regime = 1 }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+    				building = industrial_complex
+    				size > 0
+   				 	include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+    				building = industrial_complex
+    				size > 0
+   				 	include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	option = { #mass land reforms
+		name = SOV_lenin_social_reforms_events.8.b
+		add_research_slots = 1
+		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+    				building = industrial_complex
+    				size > 0
+   				 	include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+    				building = industrial_complex
+    				size > 0
+   				 	include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+    				building = industrial_complex
+    				size > 0
+   				 	include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+    				building = industrial_complex
+    				size > 0
+   				 	include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		add_stability = -0.05
+	}
+}
+
+country_event = { #healthcare
+	id = SOV_lenin_social_reforms_events.9
+	title = SOV_lenin_social_reforms_events.9.t
+	desc = SOV_lenin_social_reforms_events.9.d
+	is_triggered_only = yes
+
+	option = { #just make it affordable
+		name = SOV_lenin_social_reforms_events.9.a
+	}
+	option = { #public healthcare as baseline for private companies
+		name = SOV_lenin_social_reforms_events.9.b
+		add_to_variable = { SOV_peoples_support_for_current_regime = 1 }
+		add_political_power = 25
+	}
+	option = { #state healthcare only
+		name = SOV_lenin_social_reforms_events.9.c
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.04
+		}
+		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+	}
+}
+
+country_event = { #universal suffrage
+	id = SOV_lenin_social_reforms_events.10
+	title = SOV_lenin_social_reforms_events.10.t
+	desc = SOV_lenin_social_reforms_events.10.d
+	is_triggered_only = yes
+
+	option = { #all russian men
+		name = SOV_lenin_social_reforms_events.10.a
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.01
+		}
+	}
+	option = { #all russians
+		name = SOV_lenin_social_reforms_events.10.b
+		add_to_variable = { SOV_peoples_support_for_current_regime = -1 }
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.025
+		}
+	}
+	option = { #all genders and minorities 
+		name = SOV_lenin_social_reforms_events.10.c
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.05
+		}
+		add_to_variable = { SOV_peoples_support_for_current_regime = -3 }
+	}
+}
+
+country_event = { #fighting corruption
+	id = SOV_lenin_social_reforms_events.11
+	title = SOV_lenin_social_reforms_events.11.t
+	desc = SOV_lenin_social_reforms_events.11.d
+	is_triggered_only = yes
+
+	option = { #minor efforts
+		name = SOV_lenin_social_reforms_events.11.a
+		add_political_power = 25
+		add_to_variable = { SOV_peoples_support_for_current_regime = -1 }
+	}
+	option = { #fair
+		name = SOV_lenin_social_reforms_events.11.b
+		add_political_power = 50
+		add_stability = -0.02
+	}
+	option = { #focus entirely on corruption
+		name = SOV_lenin_social_reforms_events.11.c
+		add_political_power = 100
+		add_stability = -0.05
+		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+	}
+}
+
 add_namespace = SOV_lenin_rsdlp_events
 
 
@@ -3119,7 +3276,7 @@ country_event = {
 		country_event = SOV_russian_collapse_events.1
 
 		set_global_flag = SOV_russian_collapse_flag
-		#play_song = "Russian_Collapse_Song"
+		play_song = "Russian_Collapse_Song"
 	}
 }
 
