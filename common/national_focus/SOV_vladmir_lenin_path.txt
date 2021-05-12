@@ -1305,7 +1305,7 @@ shared_focus = {
         has_completed_focus = SOV_a_new_leftists_russia
     }
     completion_reward = {
-        
+        add_ideas = SOV_beacon_of_socialism
     }
 }
 
@@ -1617,7 +1617,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_ideas = SOV_first_five_year_plan
     }
 }
 shared_focus = {
@@ -1635,7 +1635,8 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_ideas = SOV_collectivization_efforts_focus
+        unlock_decision_category_tooltip = SOV_lenin_collectivization
     }
 }
 shared_focus = {
@@ -1653,7 +1654,8 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_warsaw_farms
+        unlock_decision_tooltip = SOV_east_poland_farms
     }
 }
 shared_focus = {
@@ -1671,7 +1673,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_warsaw_industry
     }
 }
 shared_focus = {
@@ -1689,7 +1691,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_poltava_farms
+        unlock_decision_tooltip = SOV_zaporizhia_farms
+        unlock_decision_tooltip = SOV_khmelnitskiy_farms
     }
 }
 shared_focus = {
@@ -1707,7 +1711,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = SOV_kiev_industry
     }
 }
 shared_focus = {
@@ -1784,7 +1788,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_political_power = 75
     }
 }
 
@@ -1803,7 +1807,15 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = SOV_peasant_coup_mongolia
+        hidden_effect = {
+            MON = {
+                set_variable = { var = SOV_MON_COUP value = 20 }
+            }
+            SOV = {
+                set_variable = { var = SOV_MON_COUP value = 20 }
+            }
+        }
     }
 }
 shared_focus = {
@@ -1842,7 +1854,10 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        create_wargoal = {
+            target = MON
+            type = puppet_wargoal_focus
+        }
     }
 }
 shared_focus = {
@@ -1854,14 +1869,22 @@ shared_focus = {
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_take_mongolia_by_force
-
+    }
+    available = {
+        MON = {
+            is_subject_of = SOV
+        }
     }
     relative_position_id = SOV_take_mongolia_by_force
     ai_will_do = {
         factor = 1
     }
     completion_reward = {
-        
+        kill_ideology_leader = neutrality
+        set_politics = {
+            ruling_party = neutrality
+            elections_allowed = no
+        }
     }
 }
 shared_focus = {
@@ -1900,7 +1923,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        MON = {
+            country_event = { id = SOV_lenin_tree_events.5 }
+        }
     }
 }
 shared_focus = {
@@ -1918,7 +1943,12 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        MON = {
+            set_politics = {
+                ruling_party = democratic_communism
+                elections_allowed = yes
+            }
+        }
     }
 }
 
@@ -1938,7 +1968,17 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        330 = {
+            add_building_construction = {
+                type = bunker
+                level = 4
+                instant_build = yes
+                province = {
+                    all_provinces = yes
+                    limit_to_border = yes
+                }
+            }
+        }
     }
 }
 
@@ -1957,7 +1997,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        country_event = { id = SOV_lenin_tree_events.6 }
     }
 }
 
@@ -1976,7 +2016,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        country_event = { id = SOV_lenin_tree_events.7 }
     }
 }
 
@@ -1995,7 +2035,24 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        create_wargoal = {
+            target = NRX
+            type = annex_everything
+        }
+        create_wargoal = {
+            target = KUL
+            type = annex_everything
+        }
+        ETR = {
+            create_wargoal = {
+                target = NRX
+                type = annex_everything
+            }
+            create_wargoal = {
+                target = KUL
+                type = annex_everything
+            }
+        }
     }
 }
 
@@ -2009,12 +2066,16 @@ shared_focus = {
     prerequisite = {
         focus = SOV_in_we_go
     }
+    available = {
+        KUL = { exists = no }
+        NRX = { exists = no }
+    }
     relative_position_id = SOV_in_we_go
     ai_will_do = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = SOV_unite_turkestan
     }
 }
 
@@ -2033,7 +2094,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        AFG = {
+            SOV_lenin_tree_events.9
+        }
     }
 }
 shared_focus = {
@@ -2069,6 +2132,16 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        230 = {
+            add_building_construction = {
+                type = bunker
+                level = 4
+                instant_build = yes
+                province = {
+                    all_provinces = yes
+                    limit_to_border = yes
+                }
+            }
+        }
     }
 }
