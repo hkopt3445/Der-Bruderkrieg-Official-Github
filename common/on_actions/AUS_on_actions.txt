@@ -6,7 +6,7 @@ on_actions = {
             }
 
             AUS = {
-                AUS_infilitration_mission_budget = 0
+               set_variable = { AUS_infilitration_mission_budget = 0 }
             }
         
 
@@ -171,6 +171,7 @@ on_actions = {
 
     ###Revolts in the Austrian Empire
     on_state_control_changed = {
+       effect = {
         if = {
             limit = {
                 FROM.FROM = {
@@ -178,11 +179,14 @@ on_actions = {
                 }
             }
         }
+       }
     }
 
 
     on_capitulation = {
-        AUS_transfer_all_german_minor_states_to_sgc = yes
+        effect = {
+            AUS_transfer_all_german_minor_states_to_sgc = yes
+        }
     }
 
 
