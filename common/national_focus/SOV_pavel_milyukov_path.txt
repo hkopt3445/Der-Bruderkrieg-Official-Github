@@ -23,7 +23,7 @@ focus_tree = {
 shared_focus = {
 	id = SOV_pavel_milyukovs_presidency
 	icon = unkown
-	x = 15
+	x = 11
 	y = 0 
 	
 	available = {
@@ -120,7 +120,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_the_question_of_the_okhrana
-	cost = 2
+	cost = 5
 	ai_will_do = { 
 		factor = 20
 	} 
@@ -182,7 +182,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_the_question_of_the_okhrana
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -260,17 +260,17 @@ shared_focus = {
 
 	completion_reward = {
 		
-		}
+	}
 }
 
 shared_focus = {
 	id = SOV_dearming_the_okhrana
 	icon = GFX_goal_SOV_disarming_the_okhrana
 	prerequisite = { focus = SOV_the_duma_votes }
-	x = -3
+	x = -1
 	y = 1
 	relative_position_id = SOV_the_duma_votes
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -289,10 +289,10 @@ shared_focus = {
 	id = SOV_outlawing_espionage
 	icon = GFX_goal_SOV_outlaw_espoinage
 	prerequisite = { focus = SOV_dearming_the_okhrana }
-	x = -2
+	x = -3
 	y = 1
 	relative_position_id = SOV_dearming_the_okhrana
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -317,10 +317,10 @@ shared_focus = {
 	id = SOV_neutralizing_okhrana_agents
 	icon = GFX_goal_SOV_neutralizing_the_last_okhrana_agents
 	prerequisite = { focus = SOV_dearming_the_okhrana }
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = SOV_dearming_the_okhrana
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -336,11 +336,11 @@ shared_focus = {
 shared_focus = {
 	id = SOV_promoting_the_right_to_privacy
 	icon = unkown
-	prerequisite = { focus = SOV_dearming_the_okhrana }
-	x = 2
-	y = 1
-	relative_position_id = SOV_dearming_the_okhrana
-	cost = 2
+	prerequisite = { focus = SOV_outlawing_espionage }
+	x = 0
+	y = 2
+	relative_position_id = SOV_outlawing_espionage
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -364,17 +364,17 @@ shared_focus = {
 shared_focus = {
 	id = SOV_arresting_zhitomirsky
 	icon = GFX_goal_SOV_arresting_zhitomorsky
-	prerequisite = { focus = SOV_promoting_the_right_to_privacy }
+	#prerequisite = { focus = SOV_promoting_the_right_to_privacy }
 	prerequisite = {
 		focus = SOV_outlawing_espionage
 	}
 	prerequisite = {
 		focus = SOV_neutralizing_okhrana_agents
 	}
-	x = -1
+	x = 1
 	y = 1
-	relative_position_id = SOV_promoting_the_right_to_privacy
-	cost = 2
+	relative_position_id = SOV_neutralizing_okhrana_agents
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -390,17 +390,17 @@ shared_focus = {
 shared_focus = {
 	id = SOV_arresting_bogrov
 	icon = GFX_goal_SOV_arresting_bogrov
-	prerequisite = { focus = SOV_promoting_the_right_to_privacy }
+	#prerequisite = { focus = SOV_promoting_the_right_to_privacy }
 	prerequisite = {
 		focus = SOV_outlawing_espionage
 	}
 	prerequisite = {
 		focus = SOV_neutralizing_okhrana_agents
 	}
-	x = -3
+	x = 1
 	y = 1
-	relative_position_id = SOV_promoting_the_right_to_privacy
-	cost = 2
+	relative_position_id = SOV_outlawing_espionage
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -424,7 +424,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_arresting_bogrov
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -440,11 +440,13 @@ shared_focus = {
 	id = SOV_liberty_above_all_else
 	icon = GFX_goal_SOV_liberty_above_all_else
 	prerequisite = { focus =SOV_arresting_the_last_okhrana_spies }
-
+	prerequisite = {
+		focus = SOV_promoting_the_right_to_privacy
+	}
 	x = 0
 	y = 1
 	relative_position_id = SOV_arresting_the_last_okhrana_spies
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -467,10 +469,10 @@ shared_focus = {
 	id = SOV_rearming_the_okhrana
 	icon = GFX_goal_SOV_rearming_the_okhrana
 	prerequisite = { focus = SOV_the_duma_votes }
-	x = 4
+	x = 1
 	y = 1
 	relative_position_id = SOV_the_duma_votes
-	cost = 2
+	cost = 5
 	ai_will_do = { 
 		factor = 20
 	}
@@ -490,10 +492,10 @@ shared_focus = {
 	id = SOV_increasing_authoritarianism
 	icon = GFX_goal_SOV_increase_authoritarianism
 	prerequisite = { focus = SOV_rearming_the_okhrana }
-	x = -2
+	x = 1
 	y = 1
 	relative_position_id = SOV_rearming_the_okhrana
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -509,11 +511,11 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_puppetmasters_of_russia
 	icon = GFX_goal_SOV_the_puppetmasters_of_russia
-	prerequisite = { focus = SOV_rearming_the_okhrana }
+	prerequisite = { focus = SOV_increasing_authoritarianism }
 	x = 0
 	y = 1
-	relative_position_id = SOV_rearming_the_okhrana
-	cost = 2
+	relative_position_id = SOV_increasing_authoritarianism
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -526,40 +528,18 @@ shared_focus = {
 		}
 }
 
-shared_focus = {
-	id = SOV_pulling_the_strings
-	icon = GFX_goal_SOV_pulling_the_strings
-	prerequisite = { focus = SOV_rearming_the_okhrana }
-	x = 2
-	y = 1
-	relative_position_id = SOV_rearming_the_okhrana
-	cost = 2
-	ai_will_do = {
-		factor = 20
-	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		
-		}
-}
 
 shared_focus = {
 	id = SOV_capturing_tsertelli
 	icon = GFX_goal_SOV_arresting_tsertelli
-	prerequisite = { focus = SOV_pulling_the_strings }
-	prerequisite = {
-		focus = SOV_increasing_authoritarianism
-	}
 	prerequisite = {
 		focus = SOV_the_puppetmasters_of_russia
 	}
-	x = -1
+	x = 0
 	y = 1
-	relative_position_id = SOV_pulling_the_strings
-	cost = 2
+	relative_position_id = SOV_the_puppetmasters_of_russia
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -575,17 +555,13 @@ shared_focus = {
 shared_focus = {
 	id = SOV_capturing_lenin
 	icon = GFX_goal_SOV_arresting_lenin
-	prerequisite = { focus = SOV_pulling_the_strings }
-	prerequisite = {
-		focus = SOV_increasing_authoritarianism
-	}
 	prerequisite = {
 		focus = SOV_the_puppetmasters_of_russia
 	}
-	x = -3
+	x = 2
 	y = 1
-	relative_position_id = SOV_pulling_the_strings
-	cost = 2
+	relative_position_id = SOV_the_puppetmasters_of_russia
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -601,14 +577,14 @@ shared_focus = {
 shared_focus = {
 	id = SOV_capturing_kerensky
 	icon = GFX_goal_SOV_arresting_kerensky
-	prerequisite = { focus = SOV_capturing_lenin }
+
 	prerequisite = {
-		focus = SOV_capturing_tsertelli 
+		focus = SOV_the_puppetmasters_of_russia
 	}
-	x = 1
+	x = -2
 	y = 1
-	relative_position_id = SOV_capturing_lenin
-	cost = 2
+	relative_position_id = SOV_the_puppetmasters_of_russia
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -625,11 +601,16 @@ shared_focus = {
 	id = SOV_a_democracy_only_in_name
 	icon = GFX_goal_SOV_a_democracy_only_in_name
 	prerequisite = { focus = SOV_capturing_kerensky }
-	
-	x = 0
+	prerequisite = {
+		focus = SOV_capturing_tsertelli
+	}
+	prerequisite = {
+		focus = SOV_capturing_lenin
+	}
+	x = 2
 	y = 1
 	relative_position_id = SOV_capturing_kerensky
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -716,7 +697,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_the_question_of_our_econonomy
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -737,7 +718,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_the_question_of_our_econonomy
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -764,7 +745,7 @@ shared_focus = {
 	x = -3
 	y = 1
 	relative_position_id = SOV_consumerist_ideals
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -788,7 +769,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_consumerist_ideals
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -823,7 +804,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_consumerist_ideals
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -850,7 +831,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = SOV_improve_our_infrastructure
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -883,7 +864,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = SOV_siphon_funds_for_industrialization
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -911,7 +892,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_the_3_year_plan
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -939,7 +920,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_the_3_year_plan
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -967,7 +948,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_funding_government_industry
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1281,7 +1262,7 @@ shared_focus = {
 	x = -5
 	y = 1
 	relative_position_id = SOV_pavel_milyukovs_presidency
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1296,12 +1277,12 @@ shared_focus = {
 }
 shared_focus = {
 	id = SOV_opening_russian_language_schools
-	icon = unkown
+	icon = GFX_goal_USA_literacy_programs
 	prerequisite = { focus = SOV_continuing_russification }
 	x = -1
 	y = 1
 	relative_position_id = SOV_continuing_russification
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1322,7 +1303,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_continuing_russification
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1338,12 +1319,12 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_strengthening_press_censorship
-	icon = unkown
+	icon = GFX_goal_SOV_strengthening_press_censorship
 	prerequisite = { focus = SOV_opening_russian_language_schools }
 	x = 0
 	y = 1
 	relative_position_id = SOV_opening_russian_language_schools
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1362,12 +1343,12 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_minority_conscription_laws
-	icon = unkown
+	icon = GFX_goal_USA_create_social_security
 	prerequisite = { focus = SOV_russifying_the_army }
 	x = 0
 	y = 1
 	relative_position_id = SOV_russifying_the_army
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1394,7 +1375,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_minority_conscription_laws
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1415,7 +1396,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = SOV_crushing_finnish_resistance_movements
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1440,7 +1421,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_minority_conscription_laws
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1461,7 +1442,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = SOV_targeting_the_cossacks
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1477,7 +1458,7 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_missions_in_eastern_siberia
-	icon = unkown
+	icon = GFX_goal_SOV_missions_in_east_siberia
 	prerequisite = { focus = SOV_minority_conscription_laws }
 	prerequisite = {
 		focus = SOV_strengthening_press_censorship
@@ -1485,7 +1466,7 @@ shared_focus = {
 	x = -3
 	y = 1
 	relative_position_id = SOV_minority_conscription_laws
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1501,12 +1482,12 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_incorporating_the_siberian_turks
-	icon = unkown
+	icon = GFX_goal_SOV_incorporating_siberian_turks
 	prerequisite = { focus = SOV_missions_in_eastern_siberia }
 	x = 0
 	y = 1
 	relative_position_id = SOV_missions_in_eastern_siberia
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1533,7 +1514,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_incorporating_the_siberian_turks
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1563,7 +1544,7 @@ shared_focus = {
 	x = 3
 	y = 1
 	relative_position_id = SOV_incorporating_the_siberian_turks
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1579,7 +1560,7 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_a_united_russia
-	icon = unkown
+	icon = GFX_goal_SOV_a_new_dawn_for_russia
 	prerequisite = { focus = SOV_all_shall_fight_for_the_motherland }
 	prerequisite = {
 		focus = SOV_all_shall_speak_russian
@@ -1587,7 +1568,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_all_shall_speak_russian
-	cost = 2
+	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
@@ -1605,7 +1586,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_dreams_of_a_greater_russia
 	icon = unkown
-	x = 32
+	x = 27
 	y = 0 
 	
 	available = {
@@ -1692,6 +1673,7 @@ shared_focus = {
 
 	}
 	prerequisite = { focus = SOV_invade_afghanistan }
+	prerequisite = {focus = SOV_reorganizing_the_infantry }
 	relative_position_id = SOV_invade_afghanistan
 
 	cost = 10		

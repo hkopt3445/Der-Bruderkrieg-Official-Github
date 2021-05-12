@@ -1,6 +1,6 @@
 import os
  
-directory = r"C:\Users\asen9\OneDrive\Documents\Paradox Interactive\Hearts of Iron IV\mod\DBK_backup_stuff\gfx\interface\aaa_westfalen_gui"
+directory = r"Documents\Paradox Interactive\Hearts of Iron IV\mod\DBK_backup_stuff\gfx\interface\aaa_westfalen_gui"
 
 for filename in os.listdir(directory):
    filenamestorage = filename[:-4]
