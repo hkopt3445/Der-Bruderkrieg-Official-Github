@@ -7371,3 +7371,407 @@ SOV_okhrana_coup_equip = {
 	}
 
 }
+
+SOV_lenin_collectivization = {
+	
+	SOV_moscow_farms = {
+
+		icon = eng_trade_unions_demand
+
+		cost = 25
+
+		fire_only_once = yes
+
+		complete_effect = {
+			219 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = -0.01
+		}
+
+	}
+
+	SOV_warsaw_farms = {
+
+		icon = eng_trade_unions_demand
+
+		cost = 25
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = SOV_collectivize_polish_farms
+		}
+
+		complete_effect = {
+			210 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = -0.01
+		}
+
+	}
+
+	SOV_east_poland_farms = {
+
+		icon = eng_trade_unions_demand
+
+		cost = 25
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = SOV_collectivize_polish_farms
+		}
+
+		complete_effect = {
+			92 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = -0.01
+		}
+
+	}
+
+	SOV_warsaw_industry = {
+
+		icon = generic_construction
+
+		cost = 50
+
+		fire_only_once = yes
+
+		days_remove = 30
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		visible = {
+			has_completed_focus = SOV_build_land_around_warsawa
+		}
+
+		complete_effect = {
+			210 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_poltava_farms = {
+
+		icon = eng_trade_unions_demand
+
+		cost = 25
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = SOV_collectivize_ukranian_farms
+		}
+
+		complete_effect = {
+			259 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = -0.01
+		}
+
+	}
+
+	SOV_zaporizhia_farms = {
+
+		icon = eng_trade_unions_demand
+
+		cost = 25
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = SOV_collectivize_ukranian_farms
+		}
+
+		complete_effect = {
+			200 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = -0.01
+		}
+
+	}
+
+	SOV_khmelnitskiy_farms = {
+
+		icon = eng_trade_unions_demand
+
+		cost = 25
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = SOV_collectivize_ukranian_farms
+		}
+
+		complete_effect = {
+			199 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = -0.01
+		}
+
+	}
+
+	SOV_kiev_industry = {
+
+		icon = generic_construction
+
+		cost = 50
+
+		days_remove = 30
+
+		fire_only_once = yes
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		visible = {
+			has_completed_focus = SOV_mass_industralialization_of_kiev
+		}
+
+		complete_effect = {
+			202 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+}
+
+SOV_peasant_coup_mongolia = {
+	
+	SOV_MON_provide_weapons = {
+
+		cost = 25
+
+		fire_only_once = yes
+
+		icon = generic_prepare_civil_war
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 100
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = SOV_MON_COUP_WIP
+			}
+		}
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -100
+			}
+			hidden_effect = {
+				SOV = {
+					add_to_variable = { SOV_MON_COUP = 20 }
+				}
+				MON = {
+					add_to_variable = { SOV_MON_COUP = 20 }
+				}
+			}
+		}
+
+	}
+
+	SOV_MON_stir_socialist_sentiments = {
+
+		cost = 25
+
+		fire_only_once = yes
+
+		icon = eng_propaganda_campaigns
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = SOV_MON_COUP_WIP
+			}
+		}
+
+		complete_effect = {
+			MON = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}
+			}
+			hidden_effect = {
+				SOV = {
+					add_to_variable = { SOV_MON_COUP = 20 }
+				}
+				MON = {
+					add_to_variable = { SOV_MON_COUP = 20 }
+				}
+			}
+		}
+
+	}
+
+	SOV_MON_send_in_agents = {
+
+		cost = 25
+
+		fire_only_once = yes
+
+		icon = generic_civil_support
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = SOV_MON_COUP_WIP
+			}
+		}
+
+		complete_effect = {
+			MON = {
+				add_stability = -0.025
+			}
+			hidden_effect = {
+				SOV = {
+					add_to_variable = { SOV_MON_COUP = 20 }
+				}
+				MON = {
+					add_to_variable = { SOV_MON_COUP = 20 }
+				}
+			}
+		}
+
+	}
+
+	SOV_MON_confuse_bureacracy = {
+
+		cost = 25
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = SOV_MON_COUP_WIP
+			}
+		}
+
+		complete_effect = {
+			MON = {
+				add_political_power = -25
+				add_manpower = -1000
+			}
+			hidden_effect = {
+				SOV = {
+					add_to_variable = { SOV_MON_COUP = 20 }
+				}
+				MON = {
+					add_to_variable = { SOV_MON_COUP = 20 }
+				}
+			}
+		}
+
+	}
+
+	SOV_MON_coup = {
+
+		cost = 100
+
+		fire_only_once = yes
+
+		icon = generic_ignite_civil_war
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				check_variable = { SOV_MON_COUP > 50 }
+			}
+			modifier = {
+				factor = 2
+				check_variable = { SOV_MON_COUP > 75 }
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = SOV_MON_COUP_WIP
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = SOV_MON_COUP_WIP
+			MON = {
+				country_event = { id = SOV_lenin_tree_events.2 }
+			}
+		}
+
+	}
+
+}
+
+SOV_unite_turkestan = {
+	
+	SOV_unite_turkestan_dec = {
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			ETR = {
+				hidden_effect = {
+					transfer_state = 287
+					transfer_state = 617
+					transfer_state = 618
+					transfer_state = 933
+					add_state_core = 287
+					add_state_core = 617
+					add_state_core = 618
+					add_state_core = 933
+				}
+				set_cosmetic_tag = ETR_unified
+				country_event = { id = SOV_lenin_tree_events.8 }
+			}
+			add_war_support = 0.1
+		}
+
+	}
+
+}
