@@ -1504,6 +1504,235 @@ country_event = {
 	}
 }
 
+country_event = { #peasant coup in Mongolia
+	id = SOV_lenin_tree_events.2
+	title = SOV_lenin_tree_events.2.t
+	desc = SOV_lenin_tree_events.2.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.2.a #coup succeeds
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+		}
+		add_stability = -0.1
+		hidden_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.5
+			}
+			SOV = {
+				set_country_flag = SOV_MON_coup_succeeds
+				country_event = { id = SOV_lenin_tree_events.3 }
+			}
+		}
+		ai_chance = {
+			base = 3
+			modifier = {
+				check_variable = { SOV_MON_COUP < 50 }
+				factor = 0.5
+			}
+			modifier = {
+				check_variable = { SOV_MON_COUP > 60 }
+				factor = 1.1
+			}
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.2.b #coup fails
+		add_stability = -0.05
+		hidden_effect = {
+			SOV = {
+				set_country_flag = SOV_MON_coup_fails
+				country_event = { id = SOV_lenin_tree_events.4 }
+			}
+		}
+		ai_chance = {
+			base = 3
+			modifier = {
+				check_variable = { SOV_MON_COUP > 50 }
+				factor = 0.5
+			}
+			modifier = {
+				check_variable = { SOV_MON_COUP > 80 }
+				factor = 0
+			}
+		}
+	}
+}
+
+country_event = { #MON coup succeeds
+	id = SOV_lenin_tree_events.3
+	title = SOV_lenin_tree_events.3.t
+	desc = SOV_lenin_tree_events.3.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.3.a
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_the_coup_succeeds
+	}
+}
+country_event = { #MON coup fails
+	id = SOV_lenin_tree_events.4
+	title = SOV_lenin_tree_events.4.t
+	desc = SOV_lenin_tree_events.4.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.4.a
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_the_coup_fails
+	}
+}
+
+country_event = { #SOV requests puppet
+	id = SOV_lenin_tree_events.5
+	title = SOV_lenin_tree_events.5.t
+	desc = SOV_lenin_tree_events.5.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.5.a
+		ai_chance = { factor = 1}
+		SOV = {
+			puppet = MON
+		}
+		hidden_effect = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.5.b
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { #East Turkestan tl;dr
+	id = SOV_lenin_tree_events.6
+	title = SOV_lenin_tree_events.6.t
+	desc = SOV_lenin_tree_events.6.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.6.a
+		ai_chance = { factor = 1}
+		add_command_power = 10
+		add_war_support = 0.03
+	}
+}
+
+country_event = { #ETR gets guns
+	id = SOV_lenin_tree_events.7
+	title = SOV_lenin_tree_events.7.t
+	desc = SOV_lenin_tree_events.7.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.7.a
+		ai_chance = { factor = 1}
+		add_equipment = {
+			type = infantry_equipment
+			amount = 500
+		}
+	}
+}
+
+country_event = { #ETR unified
+	id = SOV_lenin_tree_events.8
+	title = SOV_lenin_tree_events.8.t
+	desc = SOV_lenin_tree_events.8.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.8.a
+		ai_chance = { factor = 1 }
+		SOV = {
+			set_autonomy = { target = ETR autonomy_state = autonomy_satellite }
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.8.b
+		ai_chance = { factor = 0 }
+		SOV = {
+			create_wargoal = {
+				target = ETR
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+}
+
+country_event = { #Afghanistan, moer like Af-gone-istan
+	id = SOV_lenin_tree_events.9
+	title = SOV_lenin_tree_events.9.t
+	desc = SOV_lenin_tree_events.9.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.9.a
+		ai_chance = { factor = 2 }
+		SOV = {
+			set_autonomy = { target = AFG autonomy_state = autonomy_satellite }
+		}
+		AFG = {
+			hidden_effect = {
+				kill_ideology_leader = democratic_communism 
+			}
+			create_country_leader = {
+				name = "Mohammed Zahir Shah"
+				desc = "POLITICS_MOHAMMED_ZAHIR_SHAH_DESC"
+				picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds"
+				expire = "1965.1.1"
+				ideology = leninism
+				traits = {
+					#
+				}
+			}
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.9.b
+		ai_chance = { factor = 1 }
+		SOV = {
+			create_wargoal = {
+				target = AFG
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+}
+
+country_event = { #RUssia wants Iran Oil
+	id = SOV_lenin_tree_events.10
+	title = SOV_lenin_tree_events.10.t
+	desc = SOV_lenin_tree_events.10.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.10.a
+		ai_chance = { factor = 3 }
+		give_resource_rights = { receiver = SOV state = 266 }
+		SOV = {
+			give_guarantee = PER
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.10.b
+		ai_chance = { factor = 2 }
+		SOV = {
+			add_opinion_modifier = {
+				modifier = minor_sanctions 
+				target = PER
+			}
+		}
+	}
+}
+
 add_namespace = SOV_lenin_social_reforms_events
 
 country_event = { #prohibition
