@@ -9,7 +9,7 @@ focus_tree = {
 	}
 	default = no
 	shared_focus = UGL_the_future_of_the_white_shock_army
-	shared_focus = UGL_unifying_russia
+	shared_focus = UGL_matters_of_state
 	continuous_focus_position = {
 		x = 100
 		y = 3000 
@@ -18,8 +18,32 @@ focus_tree = {
 }
 shared_focus = {
 	id = UGL_the_future_of_the_white_shock_army
-	icon = unkown
-	x = 3
+	icon = GFX_goal_UGL_future_of_the_white_shock_army
+	x = 7
+	y = 0 
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = UGL_matters_of_state
+	icon = GFX_goal_SOV_gain_support
+	x = 5
 	y = 0 
 	
 	available = {
@@ -42,6 +66,34 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = UGL_we_have_things_under_control
+	icon = unkown
+	x = 0
+	y = 1
+	prerequisite = {
+		focus =	UGL_matters_of_state
+	}
+	relative_position_id = UGL_matters_of_state
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+
+shared_focus = {
 	id = UGL_declaring_martial_law
 	icon = unkown
 	x = -2
@@ -98,13 +150,14 @@ shared_focus = {
 }
 shared_focus = {
 	id = UGL_declaring_martial_law
-	icon = unkown
+	icon = GFX_goal_SOV_continuing_the_reforms
 	x = -2
 	y = 1
+	
 	prerequisite = {
-		focus =	UGL_the_future_of_the_white_shock_army
+		focus = UGL_matters_of_state
 	}
-	relative_position_id = UGL_the_future_of_the_white_shock_army
+	relative_position_id = UGL_matters_of_state
 	available = {
 	}
 	bypass = {
@@ -126,7 +179,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = UGL_mandatory_white_army_drafts
-	icon = unkown
+	icon = GFX_goal_SOV_pavels_army_reforms
 	x = -1
 	y = 1
 	prerequisite = {
@@ -148,6 +201,7 @@ shared_focus = {
 
 	completion_reward = {
 		add_manpower = 10000
+		add_stability = -0.3
 	}
 	ai_will_do = {
 	}
@@ -155,7 +209,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_wrangel_on_the_front_lines
 	icon = unkown
-	x = -1
+	x = 1
 	y = 2
 	prerequisite = {
 		focus =	UGL_mandatory_white_army_drafts
@@ -186,7 +240,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = UGL_enforcing_pytors_rule
-	icon = unkown
+	icon = GFX_goal_UGL_enforcing_pytors_rule
 	x = 1
 	y = 1
 	prerequisite = {
@@ -219,13 +273,14 @@ shared_focus = {
 shared_focus = {
 	id = UGL_promoting_baltic_stability
 	icon = unkown
-	x = -1
+	x = 1
 	y = 1
 	prerequisite = {
 		focus =	UGL_enforcing_pytors_rule
 	}
+
 	prerequisite = {
-		focus = UGL_mandatory_white_army_drafts
+		focus = UGL_we_have_things_under_control
 	}
 	relative_position_id = UGL_enforcing_pytors_rule
 	available = {
@@ -287,25 +342,25 @@ shared_focus = {
 	ai_will_do = {
 	}
 }
+
+
 shared_focus = {
-	id = UGL_the_people_on_our_side
+	id = UGL_the_southern_threat
 	icon = unkown
-	x = -1
+	x = 0
 	y = 1
 	prerequisite = {
-		focus =	UGL_wrangel_on_the_front_lines
+		focus =	UGL_the_future_of_the_white_shock_army
 	}
-	prerequisite = {
-		focus = UGL_visit_the_homelands
+	relative_position_id = UGL_the_future_of_the_white_shock_army
+	mutually_exclusive = {
+		focus = UGL_a_summit_with_kornilov
 	}
-
-	relative_position_id = UGL_visit_the_homelands
 	available = {
 	}
 	bypass = {
 
 	}
-
 
 	cost = 10		
 	
@@ -321,7 +376,7 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = UGL_the_southern_threat
+	id = UGL_a_summit_with_kornilov
 	icon = unkown
 	x = 2
 	y = 1
@@ -329,6 +384,126 @@ shared_focus = {
 		focus =	UGL_the_future_of_the_white_shock_army
 	}
 	relative_position_id = UGL_the_future_of_the_white_shock_army
+	mutually_exclusive = {
+		focus = UGL_the_southern_threat
+	}
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+
+shared_focus = {
+	id = UGL_kornilov_rejects_the_pact
+	icon = unkown
+	x = -1
+	y = 1
+	prerequisite = {
+		focus =	UGL_a_summit_with_kornilov
+	}
+	relative_position_id = UGL_a_summit_with_kornilov
+	mutually_exclusive = {
+		focus = UGL_kornilov_accepts_the_pact
+	}
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = UGL_kornilov_accepts_the_pact
+	icon = unkown
+	x = 1
+	y = 1
+	prerequisite = {
+		focus =	UGL_a_summit_with_kornilov
+	}
+	relative_position_id = UGL_a_summit_with_kornilov
+	mutually_exclusive = {
+		focus = UGL_kornilov_rejects_the_pact
+	}
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = UGL_the_great_white_compromise
+	icon = unkown
+	x = 0
+	y = 1
+	prerequisite = {
+		focus =	UGL_kornilov_accepts_the_pact
+	}
+	relative_position_id = UGL_kornilov_accepts_the_pact
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = UGL_the_traitor_white_generals
+	icon = unkown
+	x = 1
+	y = 1
+	prerequisite = {
+		focus =	UGL_the_great_white_compromise
+	}
+	relative_position_id = UGL_the_great_white_compromise
+	
 	available = {
 	}
 	bypass = {
@@ -351,37 +526,11 @@ shared_focus = {
 shared_focus = {
 	id = UGL_volga_offensive
 	icon = unkown
-	x = -1
-	y = 1
+	x = 0
+	y = 2
 	prerequisite = {
 		focus =	UGL_the_southern_threat
-	}
-	relative_position_id = UGL_the_southern_threat
-	available = {
-	}
-	bypass = {
-
-	}
-
-	cost = 10		
-	
-
-	cancel_if_invalid = yes
-	continue_if_invalid = no 
-	available_if_capitulated = no
-
-	completion_reward = {
-	}
-	ai_will_do = {
-	}
-}
-shared_focus = {
-	id = UGL_volga_offensive
-	icon = unkown
-	x = -1
-	y = 1
-	prerequisite = {
-		focus =	UGL_the_southern_threat
+		focus = UGL_kornilov_rejects_the_pact
 	}
 	relative_position_id = UGL_the_southern_threat
 	available = {
@@ -407,10 +556,41 @@ shared_focus = {
 	}
 }
 shared_focus = {
+	id = UGL_push_for_moskowa
+	icon = unkown
+	x = 0
+	y = 1
+	prerequisite = {
+		focus =	UGL_volga_offensive
+	}
+	relative_position_id = UGL_volga_offensive
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		declare_war_on = {
+			target = KLV
+			type = annex_everything
+		}
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
 	id = UGL_execute_kornilov
 	icon = unkown
-	x = 1
-	y = 2
+	x = 2
+	y = 1
 	prerequisite = {
 		focus =	UGL_volga_offensive
 	}
@@ -440,12 +620,12 @@ shared_focus = {
 	x = -1
 	y = 1
 	prerequisite = {
-		focus =	UGL_volga_offensive
+		focus =	UGL_mandatory_white_army_drafts
 	}
 	prerequisite = {
 		focus = UGL_enforcing_pytors_rule
 	}
-	relative_position_id = UGL_volga_offensive
+	relative_position_id = UGL_mandatory_white_army_drafts
 	available = {
 	}
 	bypass = {
@@ -495,14 +675,19 @@ shared_focus = {
 }
 shared_focus = {
 	id = UGL_a_loyal_military
-	icon = unkown
-	x = 1
+	icon = GFX_goal_SOV_hierarchy_of_loyalty
+	x = 5
 	y = 1
 	prerequisite = {
 		focus =	UGL_the_navy_on_our_side
 	}
 	prerequisite = {
 		focus = UGL_execute_kornilov
+		focus =  UGL_the_traitor_white_generals
+	}
+	prerequisite = {
+		focus = UGL_wrangel_on_the_front_lines 
+		focus = UGL_visit_the_homelands
 	}
 	
 	relative_position_id = UGL_the_navy_on_our_side
@@ -531,9 +716,9 @@ shared_focus = {
 	x = 1
 	y = 1
 	prerequisite = {
-		focus =	UGL_the_southern_threat
+		focus =	UGL_unifying_russia
 	}
-	relative_position_id = UGL_the_southern_threat
+	relative_position_id = UGL_unifying_russia
 	available = {
 	}
 	bypass = {
@@ -585,14 +770,14 @@ shared_focus = {
 shared_focus = {
 	id = UGL_unifying_russia
 	icon = unkown
-	x = 17
-	y = 0 
+	x = 0
+	y = 1
 	
-	available = {
-		has_completed_focus = UGL_a_loyal_military
-		has_completed_focus = UGL_the_people_on_our_side
+	prerequisite = {
+		focus = UGL_a_loyal_military
 	}
-	bypass = {
+	relative_position_id = UGL_a_loyal_military
+		bypass = {
 
 	}
 
@@ -611,7 +796,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_the_war_for_karelia
 	icon = unkown
-	x = 0
+	x = -1
 	y = 1
 	prerequisite = {
 		focus =	UGL_unifying_russia
@@ -639,12 +824,45 @@ shared_focus = {
 	ai_will_do = {
 	}
 }
+shared_focus = {
+	id = UGL_crushing_finnish_resistance
+	icon = unkown
+	x = 0
+	y = 1
+	prerequisite = {
+		focus =	UGL_the_war_for_karelia
+	}
+	relative_position_id = UGL_the_war_for_karelia
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+	}
+}
+
+
+
+
+
 
 shared_focus = {
-	id = UGL_looking_southwards
+	id = UGL_the_generals
 	icon = unkown
-	x = -2
-	y = 2
+	x = -4
+	y = 1
 	prerequisite = {
 		focus =	UGL_unifying_russia
 	}
@@ -669,10 +887,11 @@ shared_focus = {
 	}
 }
 
+
 shared_focus = {
-	id = UGL_looking_eastwards
+	id = UGL_the_revolutionaries
 	icon = unkown
-	x = 6
+	x = 5
 	y = 1
 	prerequisite = {
 		focus =	UGL_unifying_russia
@@ -698,62 +917,21 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = UGL_the_generals
-	icon = unkown
-	x = 1
-	y = 1
-	prerequisite = {
-		focus =	UGL_looking_eastwards
-	}
-	relative_position_id = UGL_looking_eastwards
-	available = {
-	}
-	bypass = {
 
-	}
 
-	cost = 10		
-	
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no 
-	available_if_capitulated = no
 
-	completion_reward = {
-		
-	}
-	ai_will_do = {
-	}
-}
-shared_focus = {
-	id = UGL_the_generals
-	icon = unkown
-	x = -3
-	y = 1
-	prerequisite = {
-		focus =	UGL_looking_eastwards
-	}
-	relative_position_id = UGL_looking_eastwards
-	available = {
-	}
-	bypass = {
 
-	}
 
-	cost = 10		
-	
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no 
-	available_if_capitulated = no
 
-	completion_reward = {
-		
-	}
-	ai_will_do = {
-	}
-}
+
+
+
+
+
+
+
 
 
 focus_tree = {
@@ -777,7 +955,7 @@ focus_tree = {
 shared_focus = {
 	id = GEO_sex_reforms
 	icon = unkown
-	x = 0
+	x = 16
 	y = 0 
 	
 	available = {
