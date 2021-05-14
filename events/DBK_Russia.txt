@@ -3528,3 +3528,51 @@ country_event = {
 	}
 
 }
+
+#############################
+# Pavel Foriegn Policy Tree #
+#############################
+add_namespace = SOV_pavel_foriegn_policy_tree
+###Scripted Peace Deal Operation Aryan 
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.1
+	title = SOV_pavel_foriegn_policy_tree.1.t
+	desc = SOV_pavel_foriegn_policy_tree.1.d
+	#picture = 
+	trigger = {
+		tag = SOV
+		has_war_with = PER
+		surrender_progress > 0.5
+	}
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.1.a
+		custom_effect_tooltip = SOV_Persian_Scripted_Peace_Deal
+		hidden_effect = {
+			transfer_state = 416
+			transfer_state = 266
+			transfer_state = 420
+			transfer_state = 419
+			transfer_state = 1084
+			puppet = PER
+			set_country_flag = SOV_Persia_is_in_Sphere_of_Influence
+		}
+	}
+}
+###Occupation of Tehran
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.2
+	title = SOV_pavel_foriegn_policy_tree.2.t
+	desc = SOV_pavel_foriegn_policy_tree.2.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.2.a
+		
+	}
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.2.b
+		PER = {
+			transfer_state = 266
+		}
+	}
+}
