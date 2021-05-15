@@ -1780,11 +1780,14 @@ shared_focus = {
    }
 }
 
-	#Focus for Looking For Defense Contractors
-	focus = {
+	shared_focus = {
 		id = AUS_looking_for_defense_contractors
 		icon = GFX_goal_generic_construct_mil_factory
-		x = 19
+    prerequisite = {
+      focus = AUS_BUILD_INDUSTRY
+    }
+    relative_position_id = AUS_BUILD_INDUSTRY
+		x = -6
 		y = 1
 		cost = 1
 		available_if_capitulated = yes
@@ -1794,90 +1797,90 @@ shared_focus = {
 		}
 	}
 
-	#Focus for MAN
-	focus = {
+	shared_focus = {
 		id = AUS_man
 		icon = GFX_goal_generic_army_tanks
-		x = 21
-		y = 2
+		x = -2
+		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = AUS_looking_for_defense_contractors }
-		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		relative_position_id = AUS_looking_for_defense_contractors
+    search_filters = { FOCUS_FILTER_INDUSTRY } 
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
-	#Focus for Messerschmitt
-	focus = {
+	shared_focus = {
 		id = AUS_messerschmitt
 		icon = GFX_goal_generic_air_fighter2
-		x = 21
-		y = 3
+		x = -1
+		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = AUS_man }
+    relative_position_id = AUS_man
 		search_filters = { FOCUS_FILTER_INDUSTRY } 
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
-	#Focus for Škoda Works
-	focus = {
+	shared_focus = {
 		id = AUS_koda_works
 		icon = GFX_goal_generic_army_artillery2
-		x = 17
-		y = 2
+		x = 1
+		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = AUS_looking_for_defense_contractors }
-		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		relative_position_id = AUS_looking_for_defense_contractors
+    search_filters = { FOCUS_FILTER_INDUSTRY } 
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
-	#Focus for RAG
-	focus = {
+	shared_focus = {
 		id = AUS_rag
 		icon = GFX_goal_generic_oil_refinery
-		x = 14
-		y = 2
+		x = -5
+		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = AUS_looking_for_defense_contractors }
-		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		relative_position_id = AUS_looking_for_defense_contractors
+    search_filters = { FOCUS_FILTER_INDUSTRY } 
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
-	#Focus for BMW
-	focus = {
+	shared_focus = {
 		id = AUS_bmw
 		icon = GFX_goal_generic_air_bomber
-		x = 24
-		y = 2
+		x = 5
+		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = AUS_looking_for_defense_contractors }
-		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		relative_position_id = AUS_looking_for_defense_contractors
+    search_filters = { FOCUS_FILTER_INDUSTRY } 
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
-	#Focus for Škoda Naval Yards
-	focus = {
+	shared_focus = {
 		id = AUS_koda_naval_yards
 		icon = GFX_goal_generic_occupy_states_coastal
-		x = 17
-		y = 3
+		x = 0
+		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = AUS_koda_works }
+    relative_position_id = AUS_koda_works
 		search_filters = { FOCUS_FILTER_INDUSTRY } 
 		ai_will_do = {
 			factor = 1
