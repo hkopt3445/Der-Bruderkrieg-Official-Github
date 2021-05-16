@@ -570,11 +570,6 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.2.a
 		ai_chance = { factor = 1}
-		add_ideas = SOV_romanov_foundation_idea
-        add_to_variable = {
-            SOV_peoples_support_for_current_regime = 5
-            tooltip = SOV_increase_tsars_support_by_5
-        }
 	}
 }
 
@@ -1640,7 +1635,7 @@ country_event = { #ETR gets guns
 	option = {
 		name = SOV_lenin_tree_events.7.a
 		ai_chance = { factor = 1}
-		add_equipment = {
+		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 500
 		}
@@ -1753,6 +1748,189 @@ country_event = { #Ally with Prussia or no?:thonk:
 		name = SOV_lenin_tree_events.11.b
 		ai_chance = { factor = 3 }
 		complete_national_focus = SOV_no_they_are_insane
+	}
+}
+
+country_event = { #dealing with food shortages
+	id = SOV_lenin_tree_events.12
+	title = SOV_lenin_tree_events.12.t
+	desc = SOV_lenin_tree_events.12.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.12.a #purchase foreign foods
+		ai_chance = { factor = 3 }
+		add_political_power = -50
+		add_stability = 0.03
+		hidden_effect = {
+			country_event = { id = SOV_lenin_tree_events.13 days = 1 }
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.12.b #we can deal with this ourself
+		ai_chance = { factor = 3 }
+		add_political_power = 25
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = { id = SOV_lenin_tree_events.14 days = 1 }
+		}
+	}
+}
+
+country_event = { #dealing with food shortages after buying food, nationalists angered from needing other countries
+	id = SOV_lenin_tree_events.13
+	title = SOV_lenin_tree_events.13.t
+	desc = SOV_lenin_tree_events.13.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.13.a #
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.02
+		}
+		add_stability = -0.01
+	}
+}
+
+country_event = { #dealing with food shortages, dealing with it themselves
+	id = SOV_lenin_tree_events.14
+	title = SOV_lenin_tree_events.14.t
+	desc = SOV_lenin_tree_events.14.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.14.a #agricultural infra
+		ai_chance = { factor = 3 }
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.14.b #wait out the shortage
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.03
+		}
+		hidden_effect = {
+			country_event = { id = SOV_lenin_tree_events.15 days = 1 }
+		}
+	}
+}
+
+country_event = { #food riots
+	id = SOV_lenin_tree_events.15
+	title = SOV_lenin_tree_events.15.t
+	desc = SOV_lenin_tree_events.15.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.15.a #open up food stores for the people
+		ai_chance = { factor = 3 }
+		add_political_power = -50
+		add_stability = 0.075
+	}
+	option = {
+		name = SOV_lenin_tree_events.15.b #we refuse to buckle
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.02
+		}
+		add_stability = -0.02
+	}
+}
+
+country_event = { #contact young italy
+	id = SOV_lenin_tree_events.16
+	title = SOV_lenin_tree_events.16.t
+	desc = SOV_lenin_tree_events.16.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+
+	option = {
+		name = SOV_lenin_tree_events.16.a #fund local activity
+		ai_chance = { factor = 3 }
+		805 = {
+			add_dynamic_modifier = {
+				modifier = SOV_young_italy_activities
+				days = 180
+			}
+		}
+		160 = {
+			add_dynamic_modifier = {
+				modifier = SOV_young_italy_activities
+				days = 180
+			}
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.16.a #fund austrian-wide activity
+		ai_chance = { factor = 3 }
+		add_political_power = -50
+		every_state = {
+			limit = {
+				OR = { state = 160 state = 805 state = 153 state = 102 state = 736 }
+			}
+			add_dynamic_modifier = {
+				modifier = SOV_young_italy_activities
+				days = 180
+			}
+		}
+	}
+}
+
+country_event = { #contact hungarian communists
+	id = SOV_lenin_tree_events.17
+	title = SOV_lenin_tree_events.17.t
+	desc = SOV_lenin_tree_events.17.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+
+	option = {
+		name = SOV_lenin_tree_events.17.a #fund local activity
+		ai_chance = { factor = 3 }
+		43 = {
+			add_dynamic_modifier = {
+				modifier = SOV_hungarian_communist_activities
+				days = 180
+			}
+		}
+		155 = {
+			add_dynamic_modifier = {
+				modifier = SOV_hungarian_communist_activities
+				days = 180
+			}
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.17.a #fund austrian-wide activity
+		ai_chance = { factor = 3 }
+		add_political_power = -50
+		every_state = {
+			limit = {
+				is_core_of = HUN
+			}
+			add_dynamic_modifier = {
+				modifier = SOV_hungarian_communist_activities
+				days = 180
+			}
+		}
 	}
 }
 
@@ -3038,10 +3216,10 @@ country_event = {
 		set_country_flag = SOV_okhrana_duma_vote_passes
 
 		hidden_effect = {
-			# country_event = {
-			# 	id = SOV_duma_voting_events.4
-			# 	days = 1
-			# }
+			country_event = {
+				id = SOV_duma_voting_events.4
+				days = 1
+			}
 			complete_national_focus = SOV_the_duma_votes
 		}
 	}
@@ -3552,18 +3730,6 @@ country_event = {
 
 }
 
-##The White Shock Army
-add_namespace = UGL_wrangel_tree_events
-country_event = {
-	id = UGL_wrangel_tree_events.1
-	title = UGL_wrangel_tree_events.1.t
-	desc = UGL_wrangel_tree_events.1.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_wrangel_tree_events.1.a
-	}
-}
 #############################
 # Pavel Foriegn Policy Tree #
 #############################
