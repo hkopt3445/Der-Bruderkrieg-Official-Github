@@ -2317,7 +2317,8 @@ FRA_stir_up_war_sentiments = {
 		}
 
 		complete_effect = {
-			add_war_support = 0.05
+			add_war_support = 0.03
+			set_country_flag = FRA_protect_westfalen_done
 		}
 
 	}
@@ -2348,6 +2349,10 @@ FRA_stir_up_war_sentiments = {
 			communism_drift = -0.05
 		}
 
+		remove_effect = {
+			set_country_flag = FRA_socialist_prussian_menace_done
+		}
+
 	}
 
 	FRA_anti_austrian_ambitions = {
@@ -2362,6 +2367,7 @@ FRA_stir_up_war_sentiments = {
 
 		modifier = {
 			war_support_weekly = 0.005
+			set_country_flag = FRA_anti_austrian_ambitions_done
 		}
 
 	}
@@ -2382,6 +2388,7 @@ FRA_stir_up_war_sentiments = {
 
 		complete_effect = {
 			add_war_support = 0.02
+			set_country_flag = FRA_protect_africa_done
 		}
 
 	}
@@ -2398,6 +2405,7 @@ FRA_stir_up_war_sentiments = {
 
 		complete_effect = {
 			add_stability = -0.02
+			set_country_flag = FRA_train_for_austerity_done
 		}
 
 		modifier = {
@@ -2421,9 +2429,44 @@ FRA_stir_up_war_sentiments = {
 		complete_effect = {
 			army_experience = 5
 			add_war_support = 0.05
+			set_country_flag = FRA_prepare_for_war_done
 		}
 	}
 
+	FRA_pacifist_crackdown_complete = {
+
+		icon = generic_nationalism
+
+		cost = 0
+
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = FRA_has_completed_all_pacifist_decisions
+
+				has_country_flag = FRA_prepare_for_war_done
+				has_country_flag = FRA_train_for_austerity_done
+				has_country_flag = FRA_protect_africa_done
+				has_country_flag = FRA_anti_austrian_ambitions_done
+				has_country_flag = FRA_socialist_prussian_menace_done
+				has_country_flag = FRA_protect_westfalen_done
+			}
+		}
+
+		days_remove = 20
+
+		modifier = {
+		
+		}
+
+	
+
+		remove_effect = {
+			remove_ideas = FRA_wiltkrieg_neutrality
+		}
+
+	}
 	FRA_for_the_nation = {
 
 		icon = generic_nationalism
@@ -2452,6 +2495,8 @@ FRA_stir_up_war_sentiments = {
 		}
 
 	}
+
+	
 
 }
 
