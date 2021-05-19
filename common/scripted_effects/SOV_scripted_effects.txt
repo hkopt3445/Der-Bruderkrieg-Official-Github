@@ -547,6 +547,31 @@ SOV_release_NYK = {
 	}
 }
 
+SOV_release_djbouti = {
+	hidden_effect = {
+		DJI = {
+			add_state_core = 268
+			
+
+		}
+		release =  DJI
+			teleport_armies = {
+				limit = { tag = SOV }
+				to_state_array = owned_controlled_states
+			}
+			NYK = {
+				load_oob = SOV_civil_war
+				every_owned_state = {
+					create_unit = {
+						division = "name = \"Russian Civil War Division\" division_template = \"Generic Civil War Unit\" start_experience_factor = 0.5 start_equipment_factor = 1"
+	
+						owner = PREV
+					}
+				}
+			}
+	}
+}
+
 SOV_release_UGL = {
 	hidden_effect = {
 		FOB = {
