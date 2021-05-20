@@ -300,7 +300,48 @@ scripted_gui = {
         }
 
         
-        
+    ITA_OperationAxis_Scripted_Gui = {
+        context_type = player_context
+        window_name = "ITA_OperationAxis_Window"
+
+        visible = {
+            has_country_flag = ITA_open_operation_axis_gui
+        }
+
+        properties = {
+        }
+
+        effects = {
+            menu_entry_button_click = {
+                add_to_array = { Order = v }
+                add_to_variable = { Order_Price = Menu_Price^v }
+                add_to_variable = { Order_Kcal = Menu_Kcal^v }
+            }
+
+            order_entry_button_click = {
+                remove_from_array = {
+                    array = Order
+                    index = i
+                }
+                subtract_from_variable = { Order_Price = Menu_Price^v }
+                subtract_from_variable = { Order_Kcal = Menu_Kcal^v }
+            }
+        }
+
+        dynamic_lists = {
+            menu_grid = {
+                array = Menu
+                entry_container = "menu_entry"
+                value = v
+                index = i
+            }
+            order_grid = {
+                array = Order
+                entry_container = "order_entry"
+                value = v
+                index = i
+            }
+        }
 
 
 
