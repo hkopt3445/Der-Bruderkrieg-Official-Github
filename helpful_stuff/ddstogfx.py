@@ -1,13 +1,22 @@
-import os
- 
-directory = r"Documents\Paradox Interactive\Hearts of Iron IV\mod\DBK_backup_stuff\gfx\interface\aaa_westfalen_gui"
 
-for filename in os.listdir(directory):
+import glob
+import os
+
+path = r"gfx\interface\goals"
+
+os.chdir(path)
+print(os.listdir())
+files = glob.glob("*.dds")
+print(files)
+
+files.sort(key=os.path.getmtime)
+
+for filename in files:
    filenamestorage = filename[:-4]
    if filename.endswith(".dds"):
     print("spriteType = {")
-    print("name = GFX_bavarian_management" + filenamestorage) 
-    print("texturefile = " + "gfx/interface/aaa_westfalen_gui/" + filename )
+    print(" " + "name =" + '"' + "GFX_goal_" + filenamestorage + '"') 
+    print(" " + "texturefile = " + '"' + "gfx/interface/goals/" + filename + '"')
     print("}")
     print("")
    else:
