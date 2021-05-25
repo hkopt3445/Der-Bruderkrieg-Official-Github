@@ -438,7 +438,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		unlock_decision_category_tooltip = ITA_evolas_political_reforms_decisions
 	}
 }
 shared_focus = {
@@ -536,63 +536,16 @@ shared_focus = {
 		country_event = ITA_evola_tree.7
 	}
 }
-shared_focus = {
-	id = ITA_begin_italiansiation
-	icon = GFX_goal_ITA_italianisation 
-	x = -3
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = ITA_spiratualism }
-	prerequisite = {
-		focus = ITA_populism
-	}
-	prerequisite = {
-		focus = ITA_nationalism
-	}
-	relative_position_id = ITA_spiratualism
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		add_ideas = ITA_italianisation
-	}
-}
-shared_focus = {
-	id = ITA_publish_the_groupo_di_ur
-	icon = GFX_goal_ITA_expand_the_gruppo_di_ur 
-	x = -1
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = ITA_spiratualism }
-	prerequisite = {
-		focus = ITA_populism
-	}
-	prerequisite = {
-		focus = ITA_nationalism
-	}
-	relative_position_id = ITA_spiratualism
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		add_ideas = ITA_uri_group
-	}
-}
+
 shared_focus = {
 	id = ITA_the_brotherhood_of_chivelry
 	icon = GFX_goal_ITA_brotherhood_of_chivelry 
-	x = -1
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_publish_the_groupo_di_ur }
-	prerequisite = {
-		focus = ITA_begin_italiansiation
-	}
-
-	relative_position_id = ITA_publish_the_groupo_di_ur
+	prerequisite = { focus = ITA_populism focus = ITA_nationalism focus = ITA_spiratualism }
+	relative_position_id = ITA_nationalism
 	ai_will_do = {
 		factor = 1
 	}
@@ -619,39 +572,33 @@ shared_focus = {
 shared_focus = {
 	id = ITA_spiritual_racism
 	icon = GFX_goal_SOV_gain_support 
-	x = -1
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_begin_italiansiation }
-	relative_position_id = ITA_begin_italiansiation
+	prerequisite = { focus = ITA_populism focus = ITA_nationalism focus = ITA_spiratualism }
+	relative_position_id = ITA_populism
 	ai_will_do = {
 		factor = 1
 	}
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = ITA_italianisation
-			add_idea = ITA_italianisation_2
-		}
+		add_ideas = ITA_italianisation
 	}
 }
 shared_focus = {
 	id = ITA_national_mystacism
 	icon = GFX_goal_ITA_national_mysticism 
-	x = 1
+	x = 2
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_publish_the_groupo_di_ur }
-	relative_position_id = ITA_publish_the_groupo_di_ur
+	prerequisite = {  focus = ITA_spiratualism }
+	relative_position_id = ITA_nationalism
 	ai_will_do = {
 		factor = 1
 	}
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = ITA_uri_group
-			add_idea = ITA_uri_group_2
-		}
+			add_ideas = ITA_uri_group
 	}
 }
 shared_focus = {
@@ -661,7 +608,7 @@ shared_focus = {
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_national_mystacism }
+	prerequisite = { focus = ITA_national_mystacism focus = ITA_the_brotherhood_of_chivelry }
 	relative_position_id = ITA_national_mystacism
 	ai_will_do = {
 		factor = 1
@@ -718,30 +665,14 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = ITA_the_remnants_of_the_NFP
-	icon = GFX_goal_ITA_search_for_loopholes 
+	id = ITA_appointing_a_successor
+	icon = GFX_goal_SOV_continuing_the_reforms 
 	x = 3
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_strengthen_the_regime }
 	relative_position_id = ITA_strengthen_the_regime
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		
-	}
-}
-shared_focus = {
-	id = ITA_appointing_a_successor
-	icon = GFX_goal_SOV_continuing_the_reforms 
-	x = 0
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = ITA_the_remnants_of_the_NFP }
-	relative_position_id = ITA_the_remnants_of_the_NFP
 	ai_will_do = {
 		factor = 1
 	}
@@ -790,7 +721,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_for_the_king_for_italia
 	icon = GFX_goal_ITA_for_the_king_for_the_country 
-	x = 0
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -841,7 +772,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_promoting_militarism
 	icon = GFX_goal_SOV_hierarchy_of_loyalty 
-	x = 0
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -923,7 +854,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_evolaism
 	icon = GFX_goal_ITA_evolaism 
-	x = 15
+	x = 16
 	y = 0
 	cost = 5
 	available_if_capitulated = yes
@@ -947,7 +878,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		unlock_decision_category_tooltip = ITA_evola_neo_feudalist_reforms
 	}
 }
 shared_focus = {
