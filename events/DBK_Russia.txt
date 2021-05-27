@@ -4073,7 +4073,78 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = UGL_white_shock_army.10.a
-		
+		set_country_flag = SOV_kornilov_has_been_executed
+		add_political_power = 75
+	}
+}
+
+###contact kolchak
+country_event = {
+	id = UGL_white_shock_army.11
+	title = UGL_white_shock_army.11.t
+	desc = UGL_white_shock_army.11.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.11.a
+		hidden_effect = {
+			if = {
+				limit = {
+					KLV = {
+						has_country_flag = KLV_successfully_contacted_kolchak
+					}
+				}
+				country_event = UGL_white_shock_army.12
+			}
+			else = {
+				70 = {
+					country_event = UGL_white_shock_army.13
+				}
+				30 = {
+					country_event = UGL_white_shock_army.14
+				}
+			}
+		}
+	}
+}
+
+##hes already with kornilov mfs
+country_event = {
+	id = UGL_white_shock_army.12
+	title = UGL_white_shock_army.12.t
+	desc = UGL_white_shock_army.12.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.12.a
+		set_country_flag = UGL_the_navy_on_our_side_bypass
+	}
+}
+
+##yes
+country_event = {
+	id = UGL_white_shock_army.13
+	title = UGL_white_shock_army.13.t
+	desc = UGL_white_shock_army.13.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.13.a
+		set_variable = { global.kolchak_white_army_side = 1 }
+	}
+}
+
+##rest in peace
+country_event = {
+	id = UGL_white_shock_army.14
+	title = UGL_white_shock_army.14.t
+	desc = UGL_white_shock_army.14.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.14.a
+		set_country_flag = UGL_the_navy_on_our_side_bypass
+		set_variable = { global.kolchak_white_army_side = 3 }
 	}
 }
 
