@@ -9336,6 +9336,7 @@ SOV_Russo_Japanese_Naval_Arms_Race = {
 			clr_country_flag = Occupied_with_Other_Things
 			set_country_flag = Agitation_Efforts
 		}
+	}
 	SOV_Preparations_Finalized = {
 		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
 		fire_only_once = yes
@@ -9384,4 +9385,479 @@ SOV_Russo_Japanese_Naval_Arms_Race = {
 		}
 	}
 	
+}
+
+SOV_european_development = {
+	
+	SOV_repaving_russian_roads = {
+
+		icon = generic_construction
+
+		cost = 50
+
+		days_remove = 50
+
+		fire_only_once = yes
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		remove_effect = {
+			every_owned_state = {
+				limit = { is_on_continent = europe NOT = { OR = { is_core_of = POL is_core_of = BLR is_core_of = UKR } } }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_invite_infrastructure_engineers = {
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 180
+
+		modifier = {
+			production_speed_infrastructure_factor = 0.1
+		}
+
+	}
+
+	SOV_inviting_pipeline_engineers = {
+
+		icon = oil
+
+		fire_only_once = yes
+
+		cost = 25
+
+		days_remove = 180
+
+		modifier = {
+			production_speed_refinery_factor = 0.1
+		}
+
+	}
+
+	SOV_inviting_european_investors = {
+
+		icon = ger_mefo_bills
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 90
+
+		modifier = {
+			consumer_goods_factor = -0.05
+			production_speed_buildings_factor = 0.1
+		}
+
+	}
+
+	SOV_russian_internal_pipeline_project = {
+
+		icon = oil
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 180
+
+		modifier = {
+			local_resources_factor = 0.1
+		}
+
+	}
+
+	SOV_baku_rostov_pipeline = {
+
+		icon = oil
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 50
+
+		modifier = {
+			local_resources_factor = -0.1
+		}
+
+		remove_effect = {
+			add_resource = {
+				state = 218
+				type = oil
+				amount = 5
+			}
+		}
+
+	}
+
+	SOV_industrialize_volga = {
+
+		icon = generic_construction
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 50
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		remove_effect = {
+			217 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					level = 2
+					type = industrial_complex
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_baku_astrakhan_pipeline = {
+
+		icon = oil
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 50
+
+		modifier = {
+			local_resources_factor = -0.1
+		}
+
+		remove_effect = {
+			add_resource = {
+				state = 236
+				type = oil
+				amount = 5
+			}
+		}
+
+	}
+
+	SOV_reconstruct_volga_port = {
+
+		icon = generic_naval
+
+		fire_only_once = yes
+
+		cost = 25
+
+		days_remove = 50
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		remove_effect = {
+			add_offsite_building = { type = dockyard level = 1 }
+		}
+
+	}
+
+	SOV_inviting_oil_investors = {
+
+		icon = oil
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 180
+
+		complete_effect = {
+			random_owned_state = {
+				limit = { is_capital = yes }
+				add_resource = {
+					type = oil
+					amount = 3
+				}
+			}
+		}
+
+		remove_effect = {
+			random_owned_state = {
+				limit = { is_capital = yes }
+				add_resource = {
+					type = oil
+					amount = -3
+				}
+			}
+		}
+
+	}
+
+	SOV_rostov_oil_shipping_company = {
+
+		icon = generic_naval
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 100
+
+		modifier = {
+			min_export = 0.1
+			consumer_goods_factor = -0.1
+		}
+
+	}
+
+	SOV_rebuild_rostov_industry = {
+
+		icon = generic_construction
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 50
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		remove_effect = {
+			218 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					level = 2
+					type = industrial_complex
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_inviting_industrial_investors = {
+
+		icon = generic_industry
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 90
+
+		modifier = {
+			consumer_goods_factor = -0.05
+			industrial_capacity_factory = 0.05
+			industrial_capacity_dockyard = 0.05
+		}
+
+	}
+
+	SOV_inviting_fisherman = {
+
+		icon = generic_naval
+
+		fire_only_once = yes
+
+		cost = 25
+
+		days_remove = 90
+
+		modifier = {
+			monthly_population = 0.1
+		}
+
+	}
+
+	SOV_astrakhan_revitalization_project = {
+
+		icon = generic_construction
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 50
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		remove_effect = {
+			1 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					level = 2
+					type = industrial_complex
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_build_up_south_russian_industry = {
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 100
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		remove_effect = { #include donetsk and luhansk
+			every_state = {
+				limit = { OR = { state = 227 state = 228 state = 245 state = 265 state = 260 } }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					level = 1
+					type = industrial_complex
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_central_russian_industrial_project = {
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 100
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		remove_effect = {
+			every_state = {
+				limit = { OR = { state = 193 state = 224 state = 243 state = 205 } }		
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					level = 1
+					type = industrial_complex
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_improve_russian_infrastructure = {
+
+		fire_only_once = yes
+
+		cost = 25
+
+		days_remove = 180
+
+		modifier = {
+			production_speed_infrastructure_factor = 0.1
+		}
+
+	}
+
+	SOV_build_up_north_russian_infrastructure = {
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 100
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		remove_effect = {
+			every_state = {
+				limit = { OR = { state = 262 state = 214 state = 397 state = 215 state = 213 } }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					level = 2
+					type = infrastructure
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_petrograd_infrastructure_development_organization = {
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 100
+
+		modifier = {
+			production_speed_buildings_factor = 0.1
+		}
+
+		complete_effect = {
+			195 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					level = 2
+					type = infrastructure
+					instant_build = yes
+				}
+				add_building_construction = {
+					level = 2
+					type = industrial_complex
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+
+	SOV_expand_resource_development_near_UKR = {
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 50
+
+		modifier = {
+			local_resources_factor = -0.1
+		}
+
+		remove_effect = { 
+			add_resource = {
+				state = 222
+				type = chromium
+				amount = 5
+			}
+			add_resource = {
+				state = 234
+				type = tungsten
+				amount = 5
+			}
+		}
+
+	}
+
 }
