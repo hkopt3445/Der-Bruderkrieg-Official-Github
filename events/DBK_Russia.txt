@@ -3916,6 +3916,159 @@ country_event = {
 	}
 }
 
+##The White Shock Army
+add_namespace = UGL_white_shock_army
+
+###state of the white shock army
+country_event = {
+	id = UGL_white_shock_army.1
+	title = UGL_white_shock_army.1.t
+	desc = UGL_white_shock_army.1.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.1.a
+	}
+}
+
+###institution of martial law
+country_event = {
+	id = UGL_white_shock_army.2
+	title = UGL_white_shock_army.2.t
+	desc = UGL_white_shock_army.2.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.2.a
+		add_ideas = UGL_martial_law
+	}
+}
+
+
+###meet with kornilov in moscow
+country_event = {
+	id = UGL_white_shock_army.3
+	title = UGL_white_shock_army.3.t
+	desc = UGL_white_shock_army.3.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.3.a
+		hidden_effect = {
+			country_event = UGL_white_shock_army.4
+		}
+	}
+}
+
+##day 1
+country_event = {
+	id = UGL_white_shock_army.4
+	title = UGL_white_shock_army.4.t
+	desc = UGL_white_shock_army.4.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.4.a
+		hidden_effect = {
+			country_event = { id = UGL_white_shock_army.5 days = 1 }
+		}
+	}
+}
+##day 2
+country_event = {
+	id = UGL_white_shock_army.5
+	title = UGL_white_shock_army.5.t
+	desc = UGL_white_shock_army.5.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.5.a
+		hidden_effect = {
+			random_list = {
+				40 = {
+					country_event = { id = UGL_white_shock_army.6 days = 1  }
+				}
+				60 = {
+					country_event =  { id = UGL_white_shock_army.8 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+##korilov acceps
+country_event = {
+	id = UGL_white_shock_army.6
+	title = UGL_white_shock_army.6.t
+	desc = UGL_white_shock_army.6.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.6.a
+		complete_national_focus = UGL_kornilov_accepts_the_pact
+		hidden_effect = {
+			news_event = { id = UGL_white_shock_army.7 days = 1 }
+		}
+	}
+}
+
+news_event = {
+	id = UGL_white_shock_army.7
+	title = UGL_white_shock_army.7.t
+	desc = UGL_white_shock_army.7.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = UGL_white_shock_army.7.a
+	
+	}
+}
+
+##korilov denies
+country_event = {
+	id = UGL_white_shock_army.8
+	title = UGL_white_shock_army.8.t
+	desc = UGL_white_shock_army.8.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.8.a
+		complete_national_focus = UGL_kornilov_rejects_the_pact
+		hidden_effect = {
+			news_event = { id = UGL_white_shock_army.9 days = 1 }
+		}
+	}
+}
+
+news_event = {
+	id = UGL_white_shock_army.9
+	title = UGL_white_shock_army.9.t
+	desc = UGL_white_shock_army.9.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = UGL_white_shock_army.9.a
+	
+	}
+}
+
+
+###the execution of kornilov
+country_event = {
+	id = UGL_white_shock_army.10
+	title = UGL_white_shock_army.10.t
+	desc = UGL_white_shock_army.10.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = UGL_white_shock_army.10.a
+		
+	}
+}
+
+
 ##empowering the okhrana even more?
 country_event = {
 	id = SOV_duma_voting_events.4
