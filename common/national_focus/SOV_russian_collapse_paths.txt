@@ -102,7 +102,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_mandatory_white_army_drafts
 	icon = GFX_goal_SOV_pavels_army_reforms
-	x = -3
+	x = -1
 	y = 1
 	prerequisite = {
 		focus =	UGL_declaring_martial_law
@@ -131,7 +131,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_wrangel_on_the_front_lines
 	icon = GFX_goal_SOV_promoting_loyal_officers
-	x = 1
+	x = -3
 	y = 2
 	prerequisite = {
 		focus =	UGL_mandatory_white_army_drafts
@@ -163,7 +163,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_enforcing_pytors_rule
 	icon = GFX_goal_UGL_enforcing_pytors_rule
-	x = -1
+	x = -3
 	y = 1
 	prerequisite = {
 		focus =	UGL_declaring_martial_law
@@ -545,7 +545,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_contact_admiral_kolchak
 	icon = GFX_goal_UGL_contact_kolchaks_army
-	x = -1
+	x = 1
 	y = 1
 	prerequisite = {
 		focus =	UGL_mandatory_white_army_drafts
@@ -609,7 +609,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_a_loyal_military
 	icon = GFX_goal_SOV_hierarchy_of_loyalty
-	x = 5
+	x = 1
 	y = 1
 	prerequisite = {
 		focus =	UGL_the_navy_on_our_side
@@ -618,10 +618,7 @@ shared_focus = {
 		focus = UGL_execute_kornilov
 		focus =  UGL_the_traitor_white_generals
 	}
-	prerequisite = {
-		focus = UGL_wrangel_on_the_front_lines 
-		focus = UGL_visit_the_homelands
-	}
+
 	
 	relative_position_id = UGL_the_navy_on_our_side
 	available = {
@@ -667,6 +664,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		country_event = UGL_white_shock_army.16
 	}
 	ai_will_do = {
 	}
@@ -1167,7 +1165,7 @@ focus_tree = {
 		}
 	}
 	default = no
-	shared_focus = KLV_rivaling_wrangels_influence_of_warlords
+	shared_focus = KLV_rivaling_wrangels_influence_of_the_warlords
 
 }
 
@@ -1288,10 +1286,14 @@ shared_focus = {
 	prerequisite = { focus = KLV_ensuring_continued_kuban_cossack_loyalty  }
 	relative_position_id = KLV_ensuring_continued_kuban_cossack_loyalty
 	completion_reward = {
-		create_unit = { 
-			division = 'name = Volga Divison 1 
-			division_template = Generic Civil War Unit
-			starting_experience_factor = 1.0' 
+
+		random_owned_controlled_state = {
+			
+		create_unit = {
+			division = "name = \"Volga Divison 1\" division_template = \"Generic Civil War Unit\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+			owner = UGL
+		}
 		}
 	}
 }
