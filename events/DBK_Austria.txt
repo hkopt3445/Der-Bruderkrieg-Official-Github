@@ -34,9 +34,13 @@ country_event = {
 			}
 		}
 		add_threat = 3
-		remove_ideas = {
-			Nemetzi_dal
-		  }
+		multiply_variable = {
+			AUS_Nemetzi_dal_stability_factor = 2
+		}
+		multiply_variable = {
+			AUS_Nemetzi_dal_conscription_factor = 2
+		}
+		set_country_flag = AUS_nemzeti_dal_to_full_revolution
 	}
 }
 
@@ -97,7 +101,12 @@ country_event = {
 		add_threat = 1
 		unlock_decision_category_tooltip = AUS_post_massacre_cat
 		add_dynamic_modifier = {modifier = bohemian_modifier}
-      remove_ideas = {Bohemian_Outrage}
+		set_country_flag = AUS_bohemian_outrage_to_ban_czech_diet
+		hidden_effect = {
+			remove_dynamic_modifier = {
+				modifier = Bohemian_Outrage
+			}
+		}
 	}
 }
 
@@ -121,13 +130,21 @@ country_event = {
 		name = aus.b.3
 		#news_event = {id = austria.149 hours = 3}
 		add_threat = 1
-		remove_ideas = {
-			Giovane_Italia
+
+		subtract_from_variable = {
+			AUS_Giovane_Italia_political_power_factor = AUS_Giovane_Italia_political_power_factor
+		}
+
+		  subtract_from_variable = {
+			AUS_Giovane_Italia_consumer_goods_factor = 0.15
 		  }
-		  add_timed_idea = {
-			idea = Sixty_Days_Milan
-			days = 720 #######NO SHIT SHERLOCK
+		  subtract_from_variable = {
+			AUS_Giovane_Italia_war_support_factor = -0.05
 		  }
+		  add_to_variable = {
+			  AUS_Giovane_Italia_stability_factor = -0.15
+		  }
+		  set_country_flag = AUS_Giovane_Italia_to_Sixty_days_in_milan
 
 		  805 = { set_demilitarized_zone = no }
 		  160 = { set_demilitarized_zone = no }
@@ -361,9 +378,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	triggger = {
-
-	}
+	
 
 	option = {
 		name = austria.22.a
@@ -384,9 +399,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	triggger = {
 
-	}
 
 	option = {
 		name = austria.100.a
@@ -430,9 +443,17 @@ country_event = {
 	}
 
 
-		swap_ideas = {
-			remove_idea = Bohemian_Outrage
-			add_idea = Autonomism
+		set_country_flag = AUS_switch_from_bohemian_outrage_to_bohemian_autonomy
+		custom_effect_tooltip = AUS_switch_from_bohemian_outrage_to_bohemian_autonomy
+
+		subtract_from_variable = {
+			AUS_Bohemian_Outrage_war_support_factor = AUS_Bohemian_Outrage_war_support_factor
+		}
+		add_to_variable = {
+			AUS_Bohemian_Outrage_stability_factor = AUS_Bohemian_Outrage_political_power_factor
+		}
+		add_to_variable = {
+			AUS_Bohemian_Outrage_stability_factor = AUS_Bohemian_Outrage_political_power_factor
 		}
 	}
 }
@@ -445,9 +466,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	triggger = {
-
-	}
+	
 
 	option = {
 		name = austria.101.a
@@ -503,10 +522,14 @@ country_event = {
 
 	
 
-		swap_ideas = {
-			remove_idea = Nemetzi_dal
-			add_idea = Autonomism_2
-		}
+	
+	add_to_variable = {
+		AUS_Nemetzi_dal_conscription_factor = AUS_Nemetzi_dal_conscription_factor
+	}
+	add_to_variable = {
+		AUS_Nemetzi_dal_stability_factor = AUS_Nemetzi_dal_stability_factor
+	}
+	set_country_flag = AUS_nemzeti_dal_to_hungarian_autonomy
 	}
 }
 
@@ -518,17 +541,23 @@ country_event = {
 
 	is_triggered_only = yes
 
-	triggger = {
-
-	}
+	
 
 	option = {
 		name = austria.102.a
-
-		swap_ideas = {
-			remove_idea = Giovane_Italia
-			add_idea = Autonomism_3
+		
+		subtract_from_variable = {
+			AUS_Giovane_Italia_consumer_goods_factor = AUS_Giovane_Italia_consumer_goods_factor
 		}
+
+		add_to_variable = {
+			AUS_Giovane_Italia_war_support_factor = AUS_Giovane_Italia_war_support_factor
+		}
+		add_to_variable = {
+			AUS_Giovane_Italia_political_power_factor = AUS_Giovane_Italia_political_power_factor
+		}
+
+		set_country_flag = AUS_Giovane_Italia_to_Venetian_autonomy
 
 		hidden_effect = {
 		159 = {
@@ -549,9 +578,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	triggger = {
-
-	}
+	
 
 	option = {
 		name = austria.103.a
@@ -587,9 +614,7 @@ country_event = {
 			add_core_of = CRO
 		}
 		#release_puppet = CRO
-		remove_ideas = {
-			Croat_Support
-		}
+		
 	}
 }
 
