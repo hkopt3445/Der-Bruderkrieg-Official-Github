@@ -10,6 +10,7 @@ focus_tree = {
 	default = no
     shared_focus = SOV_the_return_of_the_tsar
     shared_focus = SOV_expand_the_russian_sphere
+    shared_focus = SOV_the_baltic_situation
     continuous_focus_position = {
         x = 2000
         y = 3000
@@ -837,7 +838,7 @@ shared_focus = {
     id = SOV_balkan_politics
     icon = unkown
 	prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = -3
+	x = -2
 	y = 1
     relative_position_id = SOV_expand_the_russian_sphere
     cost = 5
@@ -1143,10 +1144,8 @@ shared_focus = {
 shared_focus = {
     id = SOV_the_baltic_situation
     icon = unkown
-	prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = 0
-	y = 1
-    relative_position_id = SOV_expand_the_russian_sphere
+	x = 32
+	y = 0
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1161,7 +1160,7 @@ shared_focus = {
     id = SOV_the_port_of_klaipeda
     icon = unkown
 	prerequisite = {focus = SOV_the_baltic_situation}
-	x = 0
+	x = -1
 	y = 1
     relative_position_id = SOV_the_baltic_situation
     cost = 5
@@ -1188,10 +1187,10 @@ shared_focus = {
 shared_focus = {
     id = SOV_port_of_riga
     icon = unkown
-	prerequisite = {focus = SOV_the_port_of_klaipeda}
-	x = 0
+	prerequisite = {focus = SOV_the_baltic_situation }
+	x = 1
 	y = 1
-    relative_position_id = SOV_the_port_of_klaipeda
+    relative_position_id = SOV_the_baltic_situation 
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1216,10 +1215,10 @@ shared_focus = {
 shared_focus = {
     id = SOV_baltic_infrastructure
     icon = unkown
-	prerequisite = {focus = SOV_port_of_riga}
+	prerequisite = {focus = SOV_the_port_of_klaipeda }
 	x = -1
 	y = 1
-    relative_position_id = SOV_port_of_riga
+    relative_position_id = SOV_the_port_of_klaipeda 
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1239,10 +1238,13 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_baltic_equality
+    id = SOV_protect_our_new_ports
     icon = unkown
 	prerequisite = {focus = SOV_port_of_riga}
-	x = 1
+    prerequisite = {
+        focus = SOV_the_port_of_klaipeda
+    }
+	x = -1
 	y = 1
     relative_position_id = SOV_port_of_riga
     cost = 5
@@ -1252,30 +1254,45 @@ shared_focus = {
     }
     completion_reward = {
         
-        add_ideas = SOV_baltic_equality
     }
 }
 
 shared_focus = {
-    id = SOV_incorporate_the_baltics
+    id = SOV_expansion_of_helsinki
     icon = unkown
-	prerequisite = {focus = SOV_baltic_equality}
-	prerequisite = { focus = SOV_baltic_infrastructure }
-	x = -1
-	y = 1
-    relative_position_id = SOV_baltic_equality
+	prerequisite = {focus = SOV_port_of_riga}
+
+	x = 1
+	y = 2
+    relative_position_id = SOV_port_of_riga
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
     completion_reward = {
-        FGD = {
-        add_autonomy_ratio = {
-            value = -100
-        }
-        add_ideas = FOB_russian_incorporation
+        
     }
+}
+
+shared_focus = {
+    id = SOV_peters_dream_achieved
+    icon = unkown
+	prerequisite = {focus = SOV_protect_our_new_ports}
+	prerequisite = { focus = SOV_baltic_infrastructure }
+    prerequisite = {
+        focus = SOV_expansion_of_helsinki
+    }
+	x = -1
+	y = 2
+    relative_position_id = SOV_protect_our_new_ports
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
     }
 }
 
@@ -1283,7 +1300,7 @@ shared_focus = {
     id = SOV_middle_east_situation
     icon = unkown
 	prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = 3
+	x = 2
 	y = 1
     relative_position_id = SOV_expand_the_russian_sphere
     cost = 5
@@ -1292,7 +1309,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = SOV_belogurov_middle_eastern_policy
         
     }
 }
@@ -1317,8 +1334,8 @@ shared_focus = {
     id = SOV_persian_oils
     icon = unkown
 	prerequisite = {focus = SOV_persian_submission}
-	x = 0
-	y = 1
+	x = -1
+	y = 2
     relative_position_id = SOV_persian_submission
     cost = 5
     available_if_capitulated = yes
@@ -1391,11 +1408,10 @@ shared_focus = {
 shared_focus = {
     id = SOV_persian_infrastructure
     icon = unkown
-	prerequisite = {focus = SOV_afghani_industry}
-	prerequisite = {focus = SOV_persian_oils  }
-	x = -1
+	prerequisite = {focus = SOV_persian_submission  }
+	x = 0
 	y = 1
-    relative_position_id = SOV_afghani_industry
+    relative_position_id = SOV_persian_submission
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1429,8 +1445,11 @@ shared_focus = {
 shared_focus = {
     id = SOV_fortify_the_front
     icon = unkown
-	prerequisite = {focus = SOV_persian_infrastructure }
-	x = 0
+	prerequisite = {focus = SOV_persian_submission }
+	prerequisite = {
+        focus = SOV_afghan_policing
+    }
+    x = 1
 	y = 1
     relative_position_id = SOV_persian_infrastructure
     cost = 5
@@ -1485,12 +1504,14 @@ shared_focus = {
     id = SOV_russian_glory
     icon = unkown
 	prerequisite = {focus = SOV_fortify_the_front}
-	prerequisite = { focus = SOV_incorporate_the_baltics }
 	prerequisite = { focus = SOV_expansion_of_tirana }
+    prerequisite = {
+        focus = SOV_peters_dream_achieved
+    }
 	#prerequisite = { focus = SOV_greek_shipyards }
-	x = 0
-	y = 1
-    relative_position_id = SOV_incorporate_the_baltics
+	x = -2
+	y = 2
+    relative_position_id = SOV_fortify_the_front
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
