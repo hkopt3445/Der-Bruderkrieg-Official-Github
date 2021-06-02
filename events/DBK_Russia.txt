@@ -2807,9 +2807,43 @@ country_event = {
 			tooltip = SOV_hugely_decrease_support_among_people
 			SOV_peoples_support_for_current_regime = -25
 		}
-		set_country_flag = SOV_the_rsdlp_has_collapsed
+		hidden_effect = {
+			random_list = {
+				75 = {
+					set_country_flag = SOV_rsdlp_collapse_fire_russian_collapse
+				}
+				25 = {
+					country_event = { 
+						id = SOV_tsarina_coup.1
+						days = 1
+					}
+				}
+			}
+		}
 	}
 }
+
+add_namespace = SOV_tsarina_coup
+##tsarins coup
+country_event = {
+	id = SOV_tsarina_coup.1
+	title = SOV_tsarina_coup.1.t
+	desc = SOV_tsarina_coup.1.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_tsarina_coup.1.a
+		ai_chance = { factor = 1}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+		set_politics = {
+			ruling_party = neutrality
+		}
+	}
+}
+
 
 add_namespace = SOV_rsdlp_forceful_unification
 
@@ -3894,37 +3928,56 @@ country_event = { #The choice must be made
 	}
 }
 
+
+add_namespace = SOV_russian_collapse_leadup
 country_event = {
-	id = SOV_russian_collapse_events.15
-	title = SOV_russian_collapse_events.15.t
-	desc = SOV_russian_collapse_events.15.d
+	id = SOV_russian_collapse_events.1
+	title = SOV_russian_collapse_events.1.t
+	desc = SOV_russian_collapse_events.1.d
 	#picture = GFX_hitlerartisteventpic
 	#is_triggered_only = yes
 	fire_only_once = yes
 	trigger = { 
-		OR = {
-			AND = {
-				check_variable = {
-					SOV_peoples_support_for_current_regime < 30
-				}
-				check_variable = {
-					SOV_military_support_for_current_regime < 20
+		if = {
+			limit = {
+				OR = {
+					has_government = communism
+					has_government = democratic_communism
 				}
 			}
-			AND = {
-				check_variable = {
-					SOV_peoples_support_for_current_regime < 20
+			has_country_flag = SOV_rsdlp_collapse_fire_russian_collapse
+		}
+		else_if = {
+			limit = {
+				has_government = socialism_democratic
+			}
+			##kerensky
+		}
+	
+		else = {
+			OR = {
+				AND = {
+					check_variable = {
+						var = SOV_peoples_support_for_current_regime value = 30 compare = less_than_or_equals
+					}
+					check_variable = {
+						var = SOV_military_support_for_current_regime value = 20 compare = less_than_or_equals
+					}
 				}
-				check_variable = {
-					SOV_military_support_for_current_regime < 40
+				AND = {
+					check_variable = {
+						var = SOV_peoples_support_for_current_regime value = 20 compare = less_than_or_equals
+					}
+					check_variable = {
+						var = SOV_military_support_for_current_regime value = 40 compare = less_than_or_equals
+					}
 				}
 			}
-			#has_country_flag = SOV_the_rsdlp_has_collapsed
 		}
 		tag = SOV
 	}
 	option = {
-		name = SOV_russian_collapse_events.15.a
+		name = SOV_russian_collapse_events.1.a
 		ai_chance = { factor = 1}
 
 		country_event = SOV_russian_collapse_events.1
