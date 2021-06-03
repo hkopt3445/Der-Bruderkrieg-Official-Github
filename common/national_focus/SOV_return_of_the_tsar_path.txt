@@ -20,7 +20,7 @@ focus_tree = {
 shared_focus = {
     id = SOV_the_return_of_the_tsar
     icon = GFX_goal_SOV_begin_belogurovs_campaign
-    x = 12
+    x = 10
     y = 0 
     cost = 5
 	available_if_capitulated = yes
@@ -783,7 +783,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_expand_the_russian_sphere
     icon = unkown
-    x = 25
+    x = 30
     y = 0 
     cost = 5
 	available_if_capitulated = yes
@@ -838,7 +838,7 @@ shared_focus = {
     id = SOV_balkan_politics
     icon = unkown
 	prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = -2
+	x = -5
 	y = 1
     relative_position_id = SOV_expand_the_russian_sphere
     cost = 5
@@ -912,11 +912,164 @@ shared_focus = {
 # }
 
 shared_focus = {
-    id = SOV_romanian_situation
-    icon = unkown
+    id = SOV_Western_Balkan_Threat
+    #icon = 
 	prerequisite = {focus = SOV_balkan_politics}
+	x = -3
+	y = 1
+    relative_position_id = SOV_balkan_politics
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+
+    }
+}
+shared_focus = {
+    id = SOV_Investments_in_Serbia
+    #icon = 
+	prerequisite = {focus = SOV_Western_Balkan_Threat}
 	x = -1
 	y = 1
+    relative_position_id = SOV_Western_Balkan_Threat
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_The_Dinaric_Line
+    #icon = 
+	prerequisite = {focus = SOV_Investments_in_Serbia}
+	x = 0
+	y = 1
+    relative_position_id = SOV_Investments_in_Serbia
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Aid_Fabrika_Oruzja_i_Municiie_Uzice
+    #icon = 
+	prerequisite = {focus = SOV_The_Dinaric_Line}
+	x = 0
+	y = 1
+    relative_position_id = SOV_The_Dinaric_Line
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Contract_Transylvanian_Rebels
+    #icon = 
+	prerequisite = {focus = SOV_Western_Balkan_Threat}
+	x = 1
+	y = 1
+    relative_position_id = SOV_Western_Balkan_Threat
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Provide_Political_Support
+    #icon = 
+	prerequisite = {focus = SOV_Contract_Transylvanian_Rebels}
+	x = 0
+	y = 1
+    relative_position_id = SOV_Contract_Transylvanian_Rebels
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Smuggle_Weapons
+    #icon = 
+	prerequisite = {focus = SOV_Provide_Political_Support}
+	x = 0
+	y = 1
+    relative_position_id = SOV_Provide_Political_Support
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Regionalized_Defense
+    #icon = 
+    prerequisite = {focus = SOV_Smuggle_Weapons}
+    prerequisite = {focus = SOV_Aid_Fabrika_Oruzja_i_Municiie_Uzice}
+	x = -1
+	y = 1
+    relative_position_id = SOV_Smuggle_Weapons
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_The_Issue_Southern_Dobruja
+    #icon = 
+    prerequisite = {focus = SOV_balkan_politics}
+	x = 3
+	y = 1
     relative_position_id = SOV_balkan_politics
     cost = 5
     available_if_capitulated = yes
@@ -924,173 +1077,239 @@ shared_focus = {
         factor = 1
     }
     available = {
-        custom_trigger_tooltip = {
-            tooltip = SOV_this_country_is_in_our_influence_sphere
-
-            always = no
-        }
+        
     }
     completion_reward = {
-        
         
     }
 }
 shared_focus = {
-    id = SOV_little_paris
-    icon = unkown
-	prerequisite = {focus = SOV_romanian_situation}
-	x = 0
+    id = SOV_Favor_Romania
+    #icon = 
+    prerequisite = {focus = SOV_The_Issue_Southern_Dobruja}
+	x = -2
 	y = 1
-    relative_position_id = SOV_romanian_situation
+    relative_position_id = SOV_The_Issue_Southern_Dobruja
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
     available = {
-        ROM = {
-            is_puppet_of = SOV
-        }
+        
     }
     completion_reward = {
-        46 = {
-            add_building_construction = {
-                type  = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-            add_building_construction = {
-                type  = arms_factory
-                level = 1
-                instant_build = yes
-            }
-            add_extra_state_shared_building_slots = 2
-            add_building_construction = {
-                type  = infrastructure
-                level = 2
-                instant_build = yes
-            }
-        }
         
     }
 }
-
 shared_focus = {
-    id = SOV_the_second_tsars
-    icon = unkown
-	prerequisite = {focus = SOV_balkan_politics}
+    id = SOV_Carpthanian_Defenses
+    #icon = 
+    prerequisite = {focus = SOV_Favor_Romania}
+	x = -1
+	y = 1
+    relative_position_id = SOV_Favor_Romania
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_The_Lights_of_Little_Paris
+    #icon = 
+    prerequisite = {focus = SOV_Carpthanian_Defenses}
+	x = 0
+	y = 1
+    relative_position_id = SOV_Carpthanian_Defenses
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Repair_Bulgarian_Relations
+    #icon = 
+    prerequisite = {focus = SOV_Favor_Romania}
 	x = 1
 	y = 1
-    relative_position_id = SOV_balkan_politics
+    relative_position_id = SOV_Favor_Romania
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
     available = {
-        custom_trigger_tooltip = {
-            tooltip = SOV_this_country_is_in_our_influence_sphere
-
-            always = no
-        }
+        
     }
     completion_reward = {
-        
         
     }
 }
 shared_focus = {
-    id = SOV_the_bosporous_threat
-    icon = unkown
-	prerequisite = {focus = SOV_the_second_tsars}
+    id = SOV_Arsenal_AD_Aid
+    #icon = 
+    prerequisite = {focus = SOV_Repair_Bulgarian_Relations}
 	x = 0
 	y = 1
-    relative_position_id = SOV_the_second_tsars
+    relative_position_id = SOV_Repair_Bulgarian_Relations
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
     available = {
-        BUL = {
-            is_puppet_of = SOV
-        }
+        
     }
     completion_reward = {
-        BUL = {
-            add_war_support = 0.03
-            every_owned_state = {
-                limit = {
-                    any_neighbor_state = {
-                        is_controlled_by = TUR
-                    }
-                }
-                add_building_construction = {
-                    type = bunker
-                    level = 3
-                    instant_build = yes
-                    province = {
-                        all_provinces = yes
-                        limit_to_border = yes
-                    }
-                }
-            }
-        }
         
     }
 }
 shared_focus = {
-    id = SOV_the_land_of_the_eagles
-    icon = unkown
-	prerequisite = { focus = SOV_little_paris }
-	prerequisite = { focus = SOV_the_bosporous_threat }
+    id = SOV_Eastern_Balkan_Defense
+    #icon = 
+    prerequisite = {focus = SOV_Arsenal_AD_Aid}
+	x = -1
+	y = 1
+    relative_position_id = SOV_Arsenal_AD_Aid
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Favor_Bulgaria
+    #icon = 
+    prerequisite = {focus = SOV_The_Issue_Southern_Dobruja}
+	x = 2
+	y = 1
+    relative_position_id = SOV_The_Issue_Southern_Dobruja
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Repair_Romanian_Relations
+    #icon = 
+    prerequisite = {focus = SOV_Favor_Bulgaria}
+	x = -1
+	y = 1
+    relative_position_id = SOV_Favor_Bulgaria
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Romanian_Military_Training
+    #icon = 
+    prerequisite = {focus = SOV_Repair_Romanian_Relations}
+	x = 0
+	y = 1
+    relative_position_id = SOV_Repair_Romanian_Relations
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Export_to_Bulgaria
+    #icon = 
+    prerequisite = {focus = SOV_Favor_Bulgaria}
 	x = 1
 	y = 1
-    relative_position_id = SOV_little_paris 
+    relative_position_id = SOV_Favor_Bulgaria
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
     available = {
-        custom_trigger_tooltip = {
-            tooltip = SOV_this_country_has_a_non_agression_pact_with_us
-
-            always = no
-        }
+        
     }
     completion_reward = {
-        
         
     }
 }
 shared_focus = {
-    id = SOV_expansion_of_tirana
-    icon = unkown
-	prerequisite = {focus = SOV_the_land_of_the_eagles }
+    id = SOV_Heavy_Bulgarian_Industry
+    #icon = 
+    prerequisite = {focus = SOV_Export_to_Bulgaria}
 	x = 0
 	y = 1
-    relative_position_id = SOV_the_land_of_the_eagles 
+    relative_position_id = SOV_Export_to_Bulgaria
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
+    available = {
+        
+    }
     completion_reward = {
         
-        44 = {
-            add_building_construction = {
-                type  = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-            add_extra_state_shared_building_slots = 1
-            add_building_construction = {
-                type  = infrastructure
-                level = 2
-                instant_build = yes
-            }
-        }
+    }
+}
+shared_focus = {
+    id = SOV_Eastern_Balkan_Industry
+    #icon = 
+    prerequisite = {focus = SOV_Heavy_Bulgarian_Industry}
+    prerequisite = {focus = SOV_Romanian_Military_Training}
+	x = -1
+	y = 1
+    relative_position_id = SOV_Heavy_Bulgarian_Industry
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
     }
 }
 # shared_focus = {
@@ -1144,7 +1363,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_the_baltic_situation
     icon = unkown
-	x = 32
+	x = 40
 	y = 0
     cost = 5
     available_if_capitulated = yes
@@ -1300,7 +1519,7 @@ shared_focus = {
     id = SOV_middle_east_situation
     icon = unkown
 	prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = 2
+	x = 5
 	y = 1
     relative_position_id = SOV_expand_the_russian_sphere
     cost = 5
