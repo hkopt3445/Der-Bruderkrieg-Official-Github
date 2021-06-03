@@ -1,0 +1,359 @@
+add_namespace = DBK_austria_start
+
+country_event = {
+    id = DBK_austria_start.1
+    title = DBK_austria_start.1.t
+    desc = DBK_austria_start.1.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.1.a
+
+
+        hidden_effect = {
+           # news_event = {id = DBK_news_misc.1 days = 308 }
+			#news_event = {id = DBK_news_misc.2  days = 120 } 
+			#news_event = {id = DBK_news_misc.3  days = 15 }
+			#news_event = {id = DBK_news_misc.4  days = 250 }
+			#news_event = {id = DBK_news_misc.5  days = 400 }
+			#news_event = {id = DBK_news_misc.7 days = 189 }
+        }
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.2
+    title = DBK_austria_start.2.t
+    desc = DBK_austria_start.2.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.2.a
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.3
+    title = DBK_austria_start.3.t
+    desc = DBK_austria_start.3.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.3.a
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.4 
+    title = DBK_austria_start.4.t
+    desc = DBK_austria_start.4.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.4.a
+        hidden_effect = {
+            country_event = DBK_austria_start.5
+            country_event = { id = DBK_austria_start.6 days = 1}
+        }
+    }
+
+}
+
+country_event = {
+    id = DBK_austria_start.5
+    title = DBK_austria_start.5.t
+    desc = DBK_austria_start.5.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.5.a
+        hidden_effect = { 
+            country_event =  { hours = 2 id = DBK_austria_start.6 }
+            complete_national_focus = AUS_pinpoint_the_problem
+        }
+    }
+}
+ 
+country_event = {
+    id = DBK_austria_start.6
+    title = DBK_austria_start.6.t
+    desc = DBK_austria_start.6.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.6.a
+
+        hidden_effect = {
+            complete_national_focus = AUS_recruit_the_assasins
+        }
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.7
+    title = DBK_austria_start.7.t
+    desc = DBK_austria_start.7.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.7.a
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.8
+    title = DBK_austria_start.8.t
+    desc = DBK_austria_start.8.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.8.a
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.9
+    title = DBK_austria_start.9.t
+    desc = DBK_austria_start.9.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.9.a
+
+        hidden_effect = { country_event = DBK_austria_start.10 }
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.10
+    title = DBK_austria_start.10.t
+    desc = DBK_austria_start.10.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.10.a
+
+        hidden_effect = { country_event = DBK_austria_start.11 }
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.11
+    title = DBK_austria_start.11.t
+    desc = DBK_austria_start.11.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.11.a
+        set_country_flag = absolutism
+
+        hidden_effect = {
+            news_event = {id = austria.150 days = 2}
+
+            country_event = DBK_austria_start.12
+        }
+    }
+
+    option = {
+        name = DBK_austria_start.11.b
+        set_country_flag = reform
+        hidden_effect = {
+            news_event = {id = austria.150 days = 2}
+
+            country_event = DBK_austria_start.12
+        }
+    }
+
+    
+}
+
+country_event = {
+    id = DBK_austria_start.12
+    title = DBK_austria_start.12.t
+    desc = DBK_austria_start.12.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.12.a
+
+        if = {
+            limit = {
+                has_country_flag = absolutism
+            }
+            complete_national_focus = AUS_ABSOLUTISM
+            load_focus_tree = AUS_absolutism_tree
+        }
+        if = {
+            limit = {
+                has_country_flag = reform
+            }
+            complete_national_focus = AUS_concessions_to_people
+            load_focus_tree = AUS_conserative_libdem_tree
+        }
+
+        add_political_power = 50
+    }
+}
+
+##language decree
+country_event = {
+    id = DBK_austria_start.13
+    title = DBK_austria_start.13.t
+    desc = DBK_austria_start.13.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+
+    option = {
+        name = DBK_austria_start.13.a
+        add_stability = -0.03
+    }
+}
+
+##Meddling with the diet
+country_event = {
+    id = DBK_austria_start.14
+    title = DBK_austria_start.14.t
+    desc = DBK_austria_start.14.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = DBK_austria_start.14.a
+        add_stability = -0.03
+    }
+}
+
+add_namespace = austria_a_collapsing_empire
+
+###hungarian attack on pecs
+country_event = {
+    id = austria_a_collapsing_empire.1
+    title = austria_a_collapsing_empire.1.t
+    desc = austria_a_collapsing_empire.1.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = austria_a_collapsing_empire.1.a
+        add_stability = -0.03
+    }
+}
+
+##czech woman burns her and her baby on a czech flag
+country_event = {
+    id = austria_a_collapsing_empire.2
+    title = austria_a_collapsing_empire.2.t
+    desc = austria_a_collapsing_empire.2.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = austria_a_collapsing_empire.2.a
+        add_stability = -0.03
+    }
+}
+
+
+##an italian anarchist bombs an orphanage in milan
+country_event = {
+    id = austria_a_collapsing_empire.3
+    title = austria_a_collapsing_empire.3.t
+    desc = austria_a_collapsing_empire.3.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = austria_a_collapsing_empire.3.a
+        add_stability = -0.03
+    }
+}
+
+add_namespace = austria_foriegn_policy_introduction
+
+###A meeting with the forieng minister
+country_event = {
+    id = austria_foriegn_policy_introduction.1
+    title = austria_foriegn_policy_introduction.1.t
+    desc = austria_foriegn_policy_introduction.1.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = austria_foriegn_policy_introduction.1.a
+    }
+}
+country_event = {
+    id = austria_foriegn_policy_introduction.2
+    title = austria_foriegn_policy_introduction.2.t
+    desc = austria_foriegn_policy_introduction.2.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = austria_foriegn_policy_introduction.2.a
+    }
+}
+
+country_event = {
+    id = austria_foriegn_policy_introduction.3
+    title = austria_foriegn_policy_introduction.3.t
+    desc = austria_foriegn_policy_introduction.3.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+    option = {
+        name = austria_foriegn_policy_introduction.3.a
+        SPR = {
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 1500
+              }
+              add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = 500
+              }
+        }
+    }
+    option = {
+        name = austria_foriegn_policy_introduction.3.b
+        SPR = {
+            add_opinion_modifier = {
+                target = THIS
+                modifier = medium_decrease
+            }
+        }
+    }
+}

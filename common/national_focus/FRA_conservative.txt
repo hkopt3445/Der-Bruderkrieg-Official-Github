@@ -19,6 +19,7 @@ focus_tree = {
 	shared_focus = FRA_expand_the_sorbonne_university
 #	shared_focus = FRA_SPAIN_IS_BROKEN
 	shared_focus = FRA_solving_frances_problems
+	shared_Focus = FRA_colonial_investments
 	shared_focus = FRA_spain_is_broken
 	shared_focus = FRA_the_chaotic_westfalen
 	}
@@ -58,8 +59,8 @@ focus_tree = {
 	icon = GFX_focus_research
 	text = FRA_expand_the_sorbonne_university
 	#prerequisite = { focus = FRA_the_state_of_the_nation }
-	x = -19 
-	y = 13
+	x = 19 
+	y = 7
 	relative_position_id = FRA_solving_frances_problems
 	cost = 5
 	ai_will_do = {
@@ -1115,7 +1116,7 @@ focus_tree = {
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_goal_FRA_conservative_vic
     text = FRA_CONSERVATIVES_PREVAIL
-    x = 6
+    x = 0
     y = 0
     #relative_position_id = FRA_national_development_bureau
     cost = 0
@@ -2019,7 +2020,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_stability = -0.05
+			stability = -0.05
 
 			add_popularity = {
 				ideology =  communism
@@ -2204,7 +2205,7 @@ focus_tree = {
 		icon = GFX_goal_Focus_Peasant_Rebellion
 		text = FRA_solving_frances_problems
 		#prerequisite = { focus = FRA_announce_imperial_election }
-		x = 35
+		x = 11
 		y = 0
 	#	relative_position_id = FRA_announce_imperial_election
 		cost = 2
@@ -4328,7 +4329,28 @@ focus_tree = {
 # 		}
 # 	}
 
-	
+	shared_focus = {
+		id = FRA_colonial_investments
+		icon = GFX_goal_FRA_colonial_investments
+		text = FRA_colonial_investments
+		x = 7
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			has_country_flag = FRA_unlock_new_branch
+		}
+		relative_position_id = FRA_national_development_bureau
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			unlock_decision_category_tooltip = FRA_colonial_investments_decision_cat
+		}
+	}
 	
 
 	
@@ -4478,17 +4500,18 @@ focus_tree = {
 		shared_focus = {
 			id = FRA_division_coloniale_de_africa
 			icon = GFX_focus_generic_military_academy
-			x = 7
+			x = 0
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_national_development_bureau }
-			relative_position_id = FRA_national_development_bureau
+			prerequisite = {focus = FRA_colonial_investments}
+			relative_position_id = FRA_colonial_investments
 			ai_will_do = {
 				factor = 1
 			}
 			completion_reward = {
-				unlock_decision_category_tooltip = FRA_colonial_investments_decision_cat
+				add_political_power= -25
 			}
 		}
 
@@ -4741,7 +4764,14 @@ set_state_flag = 24
 			}
 			completion_reward = {
 				random_owned_controlled_state={
-	 
+	 limit = {
+	 free_building_slots = {
+	 building = industrial_complex
+	 size > 0
+	 include_locked = yes
+	 }
+
+	 }
 
 	 add_extra_state_shared_building_slots = 1
 	 add_building_construction = {
@@ -4788,7 +4818,14 @@ set_state_flag = 24
 			}
 			completion_reward = {
 				272={
-	 
+	 limit = {
+	 free_building_slots = {
+	 building = industrial_complex
+	 size > 0
+	 include_locked = yes
+	 }
+
+	 }
 
 	 add_extra_state_shared_building_slots = 1
 	 add_building_construction = {
@@ -5648,7 +5685,7 @@ set_state_flag = 24
 		
 			completion_reward = {
 				FGD = { create_wargoal = {
-					target = GPU
+					target = SGC
 					type = annex_everything
 				} }
 			}
@@ -5684,6 +5721,7 @@ set_state_flag = 24
 			id = FRA_the_confederation_of_the_rhine
 			icon = GFX_goal_Napoleonic_Superpower
 			text = FRA_the_confederation_of_the_rhine
+			prerequisite = { focus = FRA_REVENGE_RUSSIA }
 			#prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
 			prerequisite = {focus = FRA_demand_hannovers_integration}
 			x = 0
@@ -5742,7 +5780,7 @@ set_state_flag = 24
 				id = FRA_the_chaotic_westfalen
 				icon = GFX_goal_FRA_chaotic_westfalen
 				text = FRA_the_chaotic_westfalen
-				x = 23
+				x = -15
 				y = 0
 				cost = 5
 				ai_will_do = {

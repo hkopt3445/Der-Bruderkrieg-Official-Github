@@ -2,478 +2,6 @@
 # austrianEvents
 ###########################
 
-add_namespace = DBK_austria_start
-
-country_event = {
-    id = DBK_austria_start.1
-    title = DBK_austria_start.1.t
-    desc = DBK_austria_start.1.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.1.a
-
-
-        hidden_effect = {
-           # news_event = {id = DBK_news_misc.1 days = 308 }
-			#news_event = {id = DBK_news_misc.2  days = 120 } 
-			#news_event = {id = DBK_news_misc.3  days = 15 }
-			#news_event = {id = DBK_news_misc.4  days = 250 }
-			#news_event = {id = DBK_news_misc.5  days = 400 }
-			#news_event = {id = DBK_news_misc.7 days = 189 }
-        }
-    }
-}
-
-country_event = {
-    id = DBK_austria_start.2
-    title = DBK_austria_start.2.t
-    desc = DBK_austria_start.2.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.2.a
-    }
-}
-
-country_event = {
-    id = DBK_austria_start.3
-    title = DBK_austria_start.3.t
-    desc = DBK_austria_start.3.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.3.a
-    }
-}
-
-country_event = {
-    id = DBK_austria_start.4 
-    title = DBK_austria_start.4.t
-    desc = DBK_austria_start.4.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.4.a
-        hidden_effect = {
-            country_event = DBK_austria_start.5
-            country_event = { id = DBK_austria_start.6 days = 1}
-        }
-    }
-
-}
-
-country_event = {
-    id = DBK_austria_start.5
-    title = DBK_austria_start.5.t
-    desc = DBK_austria_start.5.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.5.a
-        hidden_effect = { 
-            country_event =  { hours = 2 id = DBK_austria_start.6 }
-            complete_national_focus = AUS_pinpoint_the_problem
-        }
-    }
-}
- 
-country_event = {
-    id = DBK_austria_start.6
-    title = DBK_austria_start.6.t
-    desc = DBK_austria_start.6.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.6.a
-
-        hidden_effect = {
-            complete_national_focus = AUS_recruit_the_assasins
-        }
-    }
-}
-
-country_event = {
-    id = DBK_austria_start.7
-    title = DBK_austria_start.7.t
-    desc = DBK_austria_start.7.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.7.a
-    }
-}
-
-country_event = {
-    id = DBK_austria_start.8
-    title = DBK_austria_start.8.t
-    desc = DBK_austria_start.8.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.8.a
-    }
-}
-
-country_event = {
-    id = DBK_austria_start.9
-    title = DBK_austria_start.9.t
-    desc = DBK_austria_start.9.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.9.a
-
-        hidden_effect = { country_event = DBK_austria_start.10 }
-    }
-}
-
-country_event = {
-    id = DBK_austria_start.10
-    title = DBK_austria_start.10.t
-    desc = DBK_austria_start.10.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.10.a
-
-        hidden_effect = { country_event = DBK_austria_start.11 }
-    }
-}
-
-country_event = {
-    id = DBK_austria_start.11
-    title = DBK_austria_start.11.t
-    desc = DBK_austria_start.11.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.11.a
-        set_country_flag = absolutism
-
-        hidden_effect = {
-            news_event = {id = austria.150 days = 2}
-
-            country_event = DBK_austria_start.12
-        }
-    }
-
-    option = {
-        name = DBK_austria_start.11.b
-        set_country_flag = reform
-        hidden_effect = {
-            news_event = {id = austria.150 days = 2}
-
-            country_event = DBK_austria_start.12
-        }
-    }
-
-    
-}
-
-country_event = {
-    id = DBK_austria_start.12
-    title = DBK_austria_start.12.t
-    desc = DBK_austria_start.12.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.12.a
-
-        if = {
-            limit = {
-                has_country_flag = absolutism
-            }
-            complete_national_focus = AUS_ABSOLUTISM
-            load_focus_tree = AUS_absolutism_tree
-        }
-        if = {
-            limit = {
-                has_country_flag = reform
-            }
-            complete_national_focus = AUS_concessions_to_people
-            load_focus_tree = AUS_conserative_libdem_tree
-        }
-
-        add_political_power = 50
-    }
-}
-
-##language decree
-country_event = {
-    id = DBK_austria_start.13
-    title = DBK_austria_start.13.t
-    desc = DBK_austria_start.13.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-
-    option = {
-        name = DBK_austria_start.13.a
-        add_stability = -0.03
-    }
-}
-
-##Meddling with the diet
-country_event = {
-    id = DBK_austria_start.14
-    title = DBK_austria_start.14.t
-    desc = DBK_austria_start.14.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = DBK_austria_start.14.a
-        add_stability = -0.03
-    }
-}
-
-add_namespace = austria_a_collapsing_empire
-
-###hungarian attack on pecs
-country_event = {
-    id = austria_a_collapsing_empire.1
-    title = austria_a_collapsing_empire.1.t
-    desc = austria_a_collapsing_empire.1.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = austria_a_collapsing_empire.1.a
-        add_stability = -0.03
-    }
-}
-
-##czech woman burns her and her baby on a czech flag
-country_event = {
-    id = austria_a_collapsing_empire.2
-    title = austria_a_collapsing_empire.2.t
-    desc = austria_a_collapsing_empire.2.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = austria_a_collapsing_empire.2.a
-        add_stability = -0.03
-    }
-}
-
-
-##an italian anarchist bombs an orphanage in milan
-country_event = {
-    id = austria_a_collapsing_empire.3
-    title = austria_a_collapsing_empire.3.t
-    desc = austria_a_collapsing_empire.3.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = austria_a_collapsing_empire.3.a
-        add_stability = -0.03
-    }
-}
-
-add_namespace = austria_foriegn_policy_introduction
-
-###A meeting with the forieng minister
-country_event = {
-    id = austria_foriegn_policy_introduction.1
-    title = austria_foriegn_policy_introduction.1.t
-    desc = austria_foriegn_policy_introduction.1.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = austria_foriegn_policy_introduction.1.a
-    }
-}
-country_event = {
-    id = austria_foriegn_policy_introduction.2
-    title = austria_foriegn_policy_introduction.2.t
-    desc = austria_foriegn_policy_introduction.2.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = austria_foriegn_policy_introduction.2.a
-    }
-}
-
-country_event = {
-    id = austria_foriegn_policy_introduction.3
-    title = austria_foriegn_policy_introduction.3.t
-    desc = austria_foriegn_policy_introduction.3.d
-
-    fire_only_once = yes
-    is_triggered_only = yes
-
-    option = {
-        name = austria_foriegn_policy_introduction.3.a
-        SPR = {
-            add_equipment_to_stockpile = {
-                type = infantry_equipment
-                amount = 1500
-              }
-              add_equipment_to_stockpile = {
-                type = support_equipment
-                amount = 500
-              }
-        }
-    }
-    option = {
-        name = austria_foriegn_policy_introduction.3.b
-        SPR = {
-            add_opinion_modifier = {
-                target = THIS
-                modifier = medium_decrease
-            }
-        }
-    }
-}
-
-add_namespace = austriadietevents
-
-
-##Hungarians go bye bye
-country_event = {
-	id = austriadietevents.1
-	title = austriadietevents.1.t
-	desc = austriadietevents.1.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austriadietevents.1.a
-
-		add_stability = -0.03
-		add_political_power = -25
-		
-		clear_array = global.imperial_senate_main_array
-		set_variable = { global.imperial_senate_seat_array^1 = 0 }
-		modify_parliament_seats = yes
-	}
-}
-
-##czechs and poles go bye bye
-country_event = {
-	id = austriadietevents.2
-	title = austriadietevents.2.t
-	desc = austriadietevents.2.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austriadietevents.2.a
-
-		add_stability = -0.03
-		add_political_power = -25
-		clear_array = global.imperial_senate_main_array
-		set_variable = { global.imperial_senate_seat_array^2 = 0 }
-		modify_parliament_seats = yes
-	}
-}
-
-##italians go bye bye
-country_event = {
-	id = austriadietevents.3
-	title = austriadietevents.3.t
-	desc = austriadietevents.3.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austriadietevents.3.a
-
-		add_stability = -0.03
-		add_political_power = -25
-		clear_array = global.imperial_senate_main_array
-		set_variable = { global.imperial_senate_seat_array^4 = 0 }
-		modify_parliament_seats = yes
-	}
-}
-
-##Dissolving the diet?
-country_event = {
-	id = austriadietevents.4
-	title = austriadietevents.4.t
-	desc = austriadietevents.4.d
-	picture = GFX_report_event_hungary_parliament
-
-	fire_only_once = yes
-	
-
-	trigger = {
-		tag = AUS
-		check_variable = { global.imperial_senate_seat_array^4 = 0}
-		check_variable = { global.imperial_senate_seat_array^2 = 0 }
-		check_variable = { global.imperial_senate_seat_array^1 = 0 }
-	}
-
-
-	
-	option = {
-		name = austriadietevents.4.a
-
-		
-		add_political_power = 50
-		clear_array = global.imperial_senate_main_array
-		add_to_variable = { global.imperial_senate_seat_array^0 = 100 }
-		add_to_variable = { global.imperial_senate_seat_array^3 = 0 }
-		modify_parliament_seats = yes
-	}
-	option = {
-		name = austriadietevents.4.b
-
-		
-		add_political_power = -100
-		add_stability = -0.1
-		clear_array = global.imperial_senate_main_array
-		add_to_variable = { global.imperial_senate_seat_array^0 = 0 }
-		add_to_variable = { global.imperial_senate_seat_array^3 = 0 }
-		modify_parliament_seats = yes
-	}
-}
-
-
-
-
-
-
-
 add_namespace = austria
 
 country_event = {
@@ -506,13 +34,9 @@ country_event = {
 			}
 		}
 		add_threat = 3
-		multiply_variable = {
-			AUS_Nemetzi_dal_stability_factor = 2
-		}
-		multiply_variable = {
-			AUS_Nemetzi_dal_conscription_factor = 2
-		}
-		set_country_flag = AUS_nemzeti_dal_to_full_revolution
+		remove_ideas = {
+			Nemetzi_dal
+		  }
 	}
 }
 
@@ -573,12 +97,7 @@ country_event = {
 		add_threat = 1
 		unlock_decision_category_tooltip = AUS_post_massacre_cat
 		add_dynamic_modifier = {modifier = bohemian_modifier}
-		set_country_flag = AUS_bohemian_outrage_to_ban_czech_diet
-		hidden_effect = {
-			remove_dynamic_modifier = {
-				modifier = Bohemian_Outrage
-			}
-		}
+      remove_ideas = {Bohemian_Outrage}
 	}
 }
 
@@ -602,21 +121,13 @@ country_event = {
 		name = aus.b.3
 		#news_event = {id = austria.149 hours = 3}
 		add_threat = 1
-
-		subtract_from_variable = {
-			AUS_Giovane_Italia_political_power_factor = AUS_Giovane_Italia_political_power_factor
-		}
-
-		  subtract_from_variable = {
-			AUS_Giovane_Italia_consumer_goods_factor = 0.15
+		remove_ideas = {
+			Giovane_Italia
 		  }
-		  subtract_from_variable = {
-			AUS_Giovane_Italia_war_support_factor = -0.05
+		  add_timed_idea = {
+			idea = Sixty_Days_Milan
+			days = 720 #######NO SHIT SHERLOCK
 		  }
-		  add_to_variable = {
-			  AUS_Giovane_Italia_stability_factor = -0.15
-		  }
-		  set_country_flag = AUS_Giovane_Italia_to_Sixty_days_in_milan
 
 		  805 = { set_demilitarized_zone = no }
 		  160 = { set_demilitarized_zone = no }
@@ -850,7 +361,9 @@ country_event = {
 
 	is_triggered_only = yes
 
-	
+	triggger = {
+
+	}
 
 	option = {
 		name = austria.22.a
@@ -871,7 +384,9 @@ country_event = {
 
 	is_triggered_only = yes
 
+	triggger = {
 
+	}
 
 	option = {
 		name = austria.100.a
@@ -915,17 +430,9 @@ country_event = {
 	}
 
 
-		set_country_flag = AUS_switch_from_bohemian_outrage_to_bohemian_autonomy
-		custom_effect_tooltip = AUS_switch_from_bohemian_outrage_to_bohemian_autonomy
-
-		subtract_from_variable = {
-			AUS_Bohemian_Outrage_war_support_factor = AUS_Bohemian_Outrage_war_support_factor
-		}
-		add_to_variable = {
-			AUS_Bohemian_Outrage_stability_factor = AUS_Bohemian_Outrage_political_power_factor
-		}
-		add_to_variable = {
-			AUS_Bohemian_Outrage_stability_factor = AUS_Bohemian_Outrage_political_power_factor
+		swap_ideas = {
+			remove_idea = Bohemian_Outrage
+			add_idea = Autonomism
 		}
 	}
 }
@@ -938,7 +445,9 @@ country_event = {
 
 	is_triggered_only = yes
 
-	
+	triggger = {
+
+	}
 
 	option = {
 		name = austria.101.a
@@ -994,14 +503,10 @@ country_event = {
 
 	
 
-	
-	add_to_variable = {
-		AUS_Nemetzi_dal_conscription_factor = AUS_Nemetzi_dal_conscription_factor
-	}
-	add_to_variable = {
-		AUS_Nemetzi_dal_stability_factor = AUS_Nemetzi_dal_stability_factor
-	}
-	set_country_flag = AUS_nemzeti_dal_to_hungarian_autonomy
+		swap_ideas = {
+			remove_idea = Nemetzi_dal
+			add_idea = Autonomism_2
+		}
 	}
 }
 
@@ -1013,23 +518,17 @@ country_event = {
 
 	is_triggered_only = yes
 
-	
+	triggger = {
+
+	}
 
 	option = {
 		name = austria.102.a
-		
-		subtract_from_variable = {
-			AUS_Giovane_Italia_consumer_goods_factor = AUS_Giovane_Italia_consumer_goods_factor
-		}
 
-		add_to_variable = {
-			AUS_Giovane_Italia_war_support_factor = AUS_Giovane_Italia_war_support_factor
+		swap_ideas = {
+			remove_idea = Giovane_Italia
+			add_idea = Autonomism_3
 		}
-		add_to_variable = {
-			AUS_Giovane_Italia_political_power_factor = AUS_Giovane_Italia_political_power_factor
-		}
-
-		set_country_flag = AUS_Giovane_Italia_to_Venetian_autonomy
 
 		hidden_effect = {
 		159 = {
@@ -1050,7 +549,9 @@ country_event = {
 
 	is_triggered_only = yes
 
-	
+	triggger = {
+
+	}
 
 	option = {
 		name = austria.103.a
@@ -1086,7 +587,9 @@ country_event = {
 			add_core_of = CRO
 		}
 		#release_puppet = CRO
-		
+		remove_ideas = {
+			Croat_Support
+		}
 	}
 }
 
@@ -3615,148 +3118,6 @@ country_event = {
 		name = austriamine.3.no
 		ai_chance = { factor = 0 } 
 		add_stability = 0.01
-		
-	}
-}
-
-add_namespace = austria_infil_prussian_gov
-
-
-###infilitrating prussian arms place
-country_event = {
-	id = austria_infil_prussian_gov.1
-	title = austria_infil_prussian_gov.1.t
-	desc = austria_infil_prussian_gov.1.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austria_infil_prussian_gov.1.a 
-
-	}
-}
-
-##check point 1 passes
-country_event = {
-	id = austria_infil_prussian_gov.2
-	title = austria_infil_prussian_gov.2.t
-	desc = austria_infil_prussian_gov.2.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austria_infil_prussian_gov.2.a
-
-	}
-}
-
-##checkpoint 2 passes
-country_event = {
-	id = austria_infil_prussian_gov.3
-	title = austria_infil_prussian_gov.3.t
-	desc = austria_infil_prussian_gov.3.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austria_infil_prussian_gov.3.a
-
-	}
-}
-
-##checkpoint 3 passes
-country_event = {
-	id = austria_infil_prussian_gov.4
-	title = austria_infil_prussian_gov.4.t
-	desc = austria_infil_prussian_gov.4.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austria_infil_prussian_gov.4.a
-
-	}
-}
-
-
-##mission success!
-country_event = {
-	id = austria_infil_prussian_gov.5
-	title = austria_infil_prussian_gov.5.t
-	desc = austria_infil_prussian_gov.5.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austria_infil_prussian_gov.5.a
-		country_event = {
-			id = austria_infil_prussian_gov.6
-			days = 1
-		}
-	}
-}
-
-
-##mission success
-country_event = {
-	id = austria_infil_prussian_gov.6
-	title = austria_infil_prussian_gov.6.t
-	desc = austria_infil_prussian_gov.6.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austria_infil_prussian_gov.6.a
-		add_political_power = 20
-		set_country_flag = AUS_infil_mission_success_flag
-
-			add_ideas = {
-				AUS_infilitration_in_prussians_arms_dev
-			}
-
-			add_tech_bonus = {
-				bonus = 1
-				uses = 2
-				category = infantry_weapons
-			}
-		
-	}
-}
-
-add_namespace = austria_infil_prussian_gov_diet_events
-
-##pass
-country_event = {
-	id = austria_infil_prussian_gov_diet_events.1
-	title = austria_infil_prussian_gov_diet_events.1.t
-	desc = austria_infil_prussian_gov_diet_events.1.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austria_infil_prussian_gov_diet_events.1.a
-		
-	}
-}
-
-##fail
-country_event = {
-	id = austria_infil_prussian_gov_diet_events.2
-	title = austria_infil_prussian_gov_diet_events.2.t
-	desc = austria_infil_prussian_gov_diet_events.2.d
-	picture = GFX_report_event_election_vote
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = austria_infil_prussian_gov_diet_events.2.a
 		
 	}
 }

@@ -44,7 +44,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_matters_of_state
 	icon = GFX_goal_SOV_gain_support
-	x = 5
+	x = 6
 	y = 0 
 	
 	available = {
@@ -73,7 +73,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_declaring_martial_law
 	icon = GFX_goal_SOV_continuing_the_reforms
-	x = 0
+	x = -1
 	y = 1
 	
 	prerequisite = {
@@ -102,7 +102,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_mandatory_white_army_drafts
 	icon = GFX_goal_SOV_pavels_army_reforms
-	x = -1
+	x = -3
 	y = 1
 	prerequisite = {
 		focus =	UGL_declaring_martial_law
@@ -131,7 +131,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_wrangel_on_the_front_lines
 	icon = GFX_goal_SOV_promoting_loyal_officers
-	x = -3
+	x = 1
 	y = 2
 	prerequisite = {
 		focus =	UGL_mandatory_white_army_drafts
@@ -163,7 +163,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_enforcing_pytors_rule
 	icon = GFX_goal_UGL_enforcing_pytors_rule
-	x = -3
+	x = -1
 	y = 1
 	prerequisite = {
 		focus =	UGL_declaring_martial_law
@@ -289,7 +289,6 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		unlock_decision_category_tooltip = UGL_wrangel_anti_kornilov_category
 	}
 	ai_will_do = {
 	}
@@ -340,7 +339,6 @@ shared_focus = {
 		focus = UGL_kornilov_accepts_the_pact
 	}
 	available = {
-		always = no
 	}
 	bypass = {
 
@@ -371,7 +369,6 @@ shared_focus = {
 		focus = UGL_kornilov_rejects_the_pact
 	}
 	available = {
-		always = no
 	}
 	bypass = {
 
@@ -518,13 +515,9 @@ shared_focus = {
 	prerequisite = {
 		focus =	UGL_volga_offensive
 	}
-	available = {
-		NOT = {
-			country_exists = KLV
-		}
-	}
 	relative_position_id = UGL_volga_offensive
-	
+	available = {
+	}
 	bypass = {
 
 	}
@@ -537,7 +530,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		country_event = UGL_white_shock_army.10
+		
 	}
 	ai_will_do = {
 	}
@@ -545,7 +538,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_contact_admiral_kolchak
 	icon = GFX_goal_UGL_contact_kolchaks_army
-	x = 1
+	x = -1
 	y = 1
 	prerequisite = {
 		focus =	UGL_mandatory_white_army_drafts
@@ -557,7 +550,7 @@ shared_focus = {
 	available = {
 	}
 	bypass = {
-		
+
 	}
 
 	cost = 5		
@@ -568,7 +561,6 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		country_event = UGL_white_shock_army.11
 	}
 	ai_will_do = {
 	}
@@ -587,7 +579,7 @@ shared_focus = {
 	available = {
 	}
 	bypass = {
-		has_country_flag = UGL_the_navy_on_our_side_bypass
+
 	}
 
 	cost = 5		
@@ -609,7 +601,7 @@ shared_focus = {
 shared_focus = {
 	id = UGL_a_loyal_military
 	icon = GFX_goal_SOV_hierarchy_of_loyalty
-	x = 1
+	x = 5
 	y = 1
 	prerequisite = {
 		focus =	UGL_the_navy_on_our_side
@@ -618,7 +610,10 @@ shared_focus = {
 		focus = UGL_execute_kornilov
 		focus =  UGL_the_traitor_white_generals
 	}
-
+	prerequisite = {
+		focus = UGL_wrangel_on_the_front_lines 
+		focus = UGL_visit_the_homelands
+	}
 	
 	relative_position_id = UGL_the_navy_on_our_side
 	available = {
@@ -643,7 +638,7 @@ shared_focus = {
 
 shared_focus = {
 	id = UGL_a_novorussyia_ally
-	icon = GFX_goal_UGL_a_novorussiya_ally
+	icon = unkown
 	x = 1
 	y = 1
 	prerequisite = {
@@ -664,7 +659,6 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		country_event = UGL_white_shock_army.16
 	}
 	ai_will_do = {
 	}
@@ -672,7 +666,7 @@ shared_focus = {
 
 shared_focus = {
 	id = UGL_intervention_in_the_ukrainan_civil_war
-	icon = GFX_goal_UGL_intervention_in_the_ukrainian_civil_war
+	icon = unkown
 	x = 1
 	y = 1
 	prerequisite = {
@@ -704,7 +698,7 @@ shared_focus = {
 
 shared_focus = {
 	id = UGL_unifying_russia
-	icon = GFX_goal_UGL_unifying_russia
+	icon = unkown
 	x = 0
 	y = 1
 	
@@ -730,7 +724,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = UGL_the_war_for_karelia
-	icon = GFX_goal_UGL_the_war_for_karelia
+	icon = unkown
 	x = -1
 	y = 1
 	prerequisite = {
@@ -751,24 +745,21 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		146 = {
-			add_claim_by = UGL
+		declare_war_on = {
+			target = FIN
+			type = annex_everything
 		}
-		custom_effect_tooltip = UGL_the_war_for_karelia_tt
 	}
 	ai_will_do = {
 	}
 }
 shared_focus = {
 	id = UGL_crushing_finnish_resistance
-	icon = GFX_goal_SOV_pacifiying_finnish_nationalists
-	x = -1
+	icon = unkown
+	x = 0
 	y = 1
 	prerequisite = {
 		focus =	UGL_the_war_for_karelia
-	}
-	prerequisite = {
-		focus = UGL_the_generals
 	}
 	relative_position_id = UGL_the_war_for_karelia
 	available = {
@@ -798,7 +789,7 @@ shared_focus = {
 
 shared_focus = {
 	id = UGL_the_generals
-	icon = GFX_goal_SOV_reorganizing_the_high_command
+	icon = unkown
 	x = -3
 	y = 1
 	prerequisite = {
@@ -819,7 +810,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		custom_effect_tooltip = UGL_the_generals_tt
+		
 	}
 	ai_will_do = {
 	}
@@ -828,7 +819,7 @@ shared_focus = {
 
 shared_focus = {
 	id = UGL_the_revolutionaries
-	icon = GFX_goal_SOV_fund_a_peasent_revolt_in_mongolia
+	icon = unkown
 	x = 3
 	y = 1
 	prerequisite = {
@@ -849,7 +840,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		custom_effect_tooltip = UGL_the_revolutionaries_tt
+		
 	}
 	ai_will_do = {
 	}
@@ -1154,9 +1145,9 @@ shared_focus = {
 
 
 
+
 focus_tree = {
 	id = KLV_russian_civil_war
-	continuous_focus_position = { x = 100 y = 1000 } 
 	country = {
 		factor = 0
 		modifier = {
@@ -1165,354 +1156,130 @@ focus_tree = {
 		}
 	}
 	default = no
-	shared_focus = KLV_rivaling_wrangels_influence_of_the_warlords
+	shared_focus = KLV_rivaling_wrangels_influence_of_warlords
 
+	continuous_focus_position = {
+		x = 100
+		y = 3000 
+	}
+	
 }
 
-#Rivaling Wrangel's Influence of the Warlords
 shared_focus = {
-	id = KLV_rivaling_wrangels_influence_of_the_warlords
+	id = KLV_rivaling_wrangels_influence_of_warlords
 	icon = unkown
 	x = 4
-	y = 0
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_POLITICAL
+	y = 0 
+	
+	available = {
 	}
+	bypass = {
+
+	}
+
+	cost = 5		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
 	completion_reward = {
-		#country_event = { id = KLV_kornilov_tree_events.1 }	
+		#country_event = { hours = 1 id = KLV_kornilov_tree_events.1 }
+	}
+	ai_will_do = {
 	}
 }
 
-#Declare the South Russian Republic
 shared_focus = {
 	id = KLV_declare_the_south_russian_republic
-	icon = uknown
+	icon = unkown
 	x = 0
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
+	y = 1 
+	
+	prerequisite = {
+		focus =	KLV_rivaling_wrangels_influence_of_warlords
 	}
-	prerequisite = { focus = KLV_rivaling_wrangels_influence_of_the_warlords  }
-	relative_position_id = KLV_rivaling_wrangels_influence_of_the_warlords 
+	relative_position_id = KLV_rivaling_wrangels_influence_of_warlords
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 5		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
 	completion_reward = {
 		#set_cosmetic_tag = KLV_south_russian_republic
 	}
-}
-
-
-#Caucasus Expansion
-shared_focus = {
-	id = KLV_caucasus_expansion
-	icon = GFX_goal_generic_political_pressure
-	x = -2
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_POLITICAL
-	}
-	prerequisite = { focus = KLV_declare_the_south_russian_republic  }
-	relative_position_id = KLV_declare_the_south_russian_republic  
-	completion_reward = {
-		add_political_power = 50	
+	ai_will_do = {
 	}
 }
 
-#Eastern Expansion
-shared_focus = {
-	id = KLV_eastern_expansion
-	icon = GFX_goal_generic_political_pressure
-	x = 2
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_POLITICAL
-	}
-	prerequisite = { focus = KLV_declare_the_south_russian_republic  }
-	relative_position_id = KLV_declare_the_south_russian_republic
-	completion_reward = {
-		add_political_power = 50
-	}
-}
-
-#Ensuring Continued Kuban Cossack Loyalty
 shared_focus = {
 	id = KLV_ensuring_continued_kuban_cossack_loyalty
 	icon = unkown
 	x = 0
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
+	y = 1 
+	
+	prerequisite = {
+		focus =	KLV_declare_the_south_russian_republic
 	}
-	prerequisite = { focus = KLV_eastern_expansion  }
-	relative_position_id = KLV_eastern_expansion
+	relative_position_id = KLV_declare_the_south_russian_republic
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 5		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
 	completion_reward = {
-		create_wargoal = {
+		create_wargoal = { 
 			type = annex_everything 
 			target = NYK
 		}
 	}
+	ai_will_do = {
+	}
 }
 
-#Enforce Don Cossack Submission
 shared_focus = {
 	id = KLV_enforce_don_cossack_submission
 	icon = unkown
-	x = 0
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_STABILITY
+	x = -2
+	y = 1 
+	
+	prerequisite = {
+		focus =	KLV_declare_the_south_russian_republic
 	}
-	prerequisite = { focus = KLV_caucasus_expansion  }
-	relative_position_id = KLV_caucasus_expansion 
+	relative_position_id = KLV_declare_the_south_russian_republic
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 5		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no 
+	available_if_capitulated = no
+
 	completion_reward = {
 		add_stability = 0.03
 	}
-}
-
-#Founding the Army of the Volga
-shared_focus = {
-	id = KLV_founding_the_army_of_the_volga
-	icon = unkown
-	x = 0
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
-	}
-	prerequisite = { focus = KLV_ensuring_continued_kuban_cossack_loyalty  }
-	relative_position_id = KLV_ensuring_continued_kuban_cossack_loyalty
-	completion_reward = {
-
-		random_owned_controlled_state = {
-			
-			create_unit = {
-				division = "name = \"Volga Divison 1\" division_template = \"Generic Civil War Unit\" start_experience_factor = 0.5 start_equipment_factor = 1"
-
-				owner = UGL
-			}
-		}
-	}
-}
-
-#Invading North Kazakhstan
-shared_focus = {
-	id = KLV_invading_north_kazakhstan
-	icon = unkown
-	x = 6
-	y = 5
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
-	}
-	prerequisite = { focus = KLV_founding_the_army_of_the_volga  }
-	completion_reward = {
-		create_wargoal = { 
-
-			type = annex_everything 
-
-			target = KAZ
-
-		}			
-	}
-}
-
-#Ask Novorossyia for Subjugation
-shared_focus = {
-	id = KLV_ask_novorossyia_for_subjugation
-	icon = GFX_goal_generic_intelligence_exchange
-	x = 0
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
-	}
-	prerequisite = { focus = KLV_enforce_don_cossack_submission  }
-	relative_position_id = KLV_enforce_don_cossack_submission  
-	completion_reward = {
-		#NVR = { country_event = { id = NVR_kornilov_subjugation.1 } }
-	}
-}
-
-#They Accept!
-shared_focus = {
-	id = KLV_they_accept
-	icon = unkown
-	x = -1
-	y = 1
-	cost = 1
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
-	}
-	prerequisite = { focus = KLV_ask_novorossyia_for_subjugation  }
-	relative_position_id = KLV_ask_novorossyia_for_subjugation
-	mutually_exclusive = { focus = KLV_they_decline  }
-	completion_reward = {
-		annex_country = {
-			target =  NVR
-		}			
-	}
-}
-
-#They Decline!
-shared_focus = {
-	id = KLV_they_decline
-	icon = unkown
-	x = 1
-	y = 1
-	cost = 1
-	search_filters = {
-		FOCUS_FILTER_FRA_POLITICAL_VIOLENCE
-	}
-	prerequisite = { focus = KLV_ask_novorossyia_for_subjugation  }
-	relative_position_id = KLV_ask_novorossyia_for_subjugation
-	mutually_exclusive = { focus = KLV_they_accept  }
-	completion_reward = {
-		create_wargoal = { 
-			type = annex_everything 
-			target = NVR
-		}	
-	}
-}
-
-#Occupying Ukraine
-shared_focus = {
-	id = KLV_occupying_ukraine
-	icon = unkown
-	x = 1
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
-	}
-	prerequisite = { focus = KLV_they_accept  } 
-	prerequisite = { focus = KLV_they_decline  }
-	relative_position_id = KLV_they_accept
-	completion_reward = {
-		create_wargoal = { 
-			type = annex_everything 
-			target = UKR
-		}
-	}
-}
-
-#Invading Moldova
-shared_focus = {
-	id = KLV_invading_moldova
-	icon = unkown
-	x = 0
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
-	}
-	prerequisite = { focus = KLV_occupying_ukraine  }
-	relative_position_id = KLV_occupying_ukraine
-	completion_reward = {
-		create_wargoal = { 
-			type = annex_everything 
-			target = MOL
-		}
-	}
-}
-
-#Northern Expansion
-shared_focus = {
-	id = KLV_northern_expansion
-	icon = unkown
-	x = 4
-	y = 2
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_POLITICAL
-	}
-	prerequisite = { focus = KLV_declare_the_south_russian_republic  }
-	completion_reward = {
-		add_political_power = 50
-	}
-}
-
-#Belarusian-Russian Alliance
-shared_focus = {
-	id = KLV_belarusianrussian_alliance
-	icon = unkown
-	x = 4
-	y = 3
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_ANNEXATION
-	}
-	prerequisite = { focus = KLV_northern_expansion  }
-	completion_reward = {
-		create_faction = "Kornilov's Sphere"
-
-		add_to_faction = BLR
-
-			
-	}
-}
-	
-#Build the Volgograd-Atyrau Railroad
-shared_focus = {
-	id = KLV_build_the_volgogradatyrau_railroad
-	icon = GFX_goal_generic_construct_infrastructure
-	x = 9
-	y = 0
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_INDUSTRY
-	}
-	completion_reward = {
-		217 = { 
-			add_building_construction = { 
-				type = infrastructure
-				level = 3
-				instant_build = yes 
-			} 
-		}
-		236 = { 
-			add_building_construction = { 
-				type = infrastructure
-				level = 3
-				instant_build = yes 
-			} 
-		}
-		406 = { 
-			add_building_construction = { 
-				type = infrastructure
-				level = 3
-				instant_build = yes 
-			} 
-		}
-	}
-}
-
-#Repair the Gun Factories
-shared_focus = {
-	id = KLV_repair_the_gun_factories
-	icon = GFX_goal_generic_construct_civ_factory
-	x = -1
-	y = 1
-	cost = 10
-	search_filters = {
-		FOCUS_FILTER_INDUSTRY
-	}
-	prerequisite = { focus = KLV_build_the_volgogradatyrau_railroad  }
-	relative_position_id = KLV_build_the_volgogradatyrau_railroad
-	completion_reward = {
-		217 = { 
-			add_building_construction = { 
-				type = arms_factory 
-				level = 2
-				instant_build = yes 
-			}
-
-			add_extra_state_shared_building_slots = {
-				 add_extra_state_shared_building_slots = 2 
-			}
-		}
+	ai_will_do = {
 	}
 }

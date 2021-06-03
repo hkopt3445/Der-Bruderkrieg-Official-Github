@@ -1,0 +1,110 @@
+add_namespace = austriadietevents
+
+
+##Hungarians go bye bye
+country_event = {
+	id = austriadietevents.1
+	title = austriadietevents.1.t
+	desc = austriadietevents.1.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austriadietevents.1.a
+
+		add_stability = -0.03
+		add_political_power = -25
+		
+		clear_array = global.imperial_senate_main_array
+		set_variable = { global.imperial_senate_seat_array^1 = 0 }
+		modify_parliament_seats = yes
+	}
+}
+
+##czechs and poles go bye bye
+country_event = {
+	id = austriadietevents.2
+	title = austriadietevents.2.t
+	desc = austriadietevents.2.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austriadietevents.2.a
+
+		add_stability = -0.03
+		add_political_power = -25
+		clear_array = global.imperial_senate_main_array
+		set_variable = { global.imperial_senate_seat_array^2 = 0 }
+		modify_parliament_seats = yes
+	}
+}
+
+##italians go bye bye
+country_event = {
+	id = austriadietevents.3
+	title = austriadietevents.3.t
+	desc = austriadietevents.3.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austriadietevents.3.a
+
+		add_stability = -0.03
+		add_political_power = -25
+		clear_array = global.imperial_senate_main_array
+		set_variable = { global.imperial_senate_seat_array^4 = 0 }
+		modify_parliament_seats = yes
+	}
+}
+
+##Dissolving the diet?
+country_event = {
+	id = austriadietevents.4
+	title = austriadietevents.4.t
+	desc = austriadietevents.4.d
+	picture = GFX_report_event_hungary_parliament
+
+	fire_only_once = yes
+	
+
+	trigger = {
+		tag = AUS
+		check_variable = { global.imperial_senate_seat_array^4 = 0}
+		check_variable = { global.imperial_senate_seat_array^2 = 0 }
+		check_variable = { global.imperial_senate_seat_array^1 = 0 }
+	}
+
+
+	
+	option = {
+		name = austriadietevents.4.a
+
+		
+		add_political_power = 50
+		clear_array = global.imperial_senate_main_array
+		add_to_variable = { global.imperial_senate_seat_array^0 = 100 }
+		add_to_variable = { global.imperial_senate_seat_array^3 = 0 }
+		modify_parliament_seats = yes
+	}
+	option = {
+		name = austriadietevents.4.b
+
+		
+		add_political_power = -100
+		add_stability = -0.1
+		clear_array = global.imperial_senate_main_array
+		add_to_variable = { global.imperial_senate_seat_array^0 = 0 }
+		add_to_variable = { global.imperial_senate_seat_array^3 = 0 }
+		modify_parliament_seats = yes
+	}
+}
+
+
+
+
+

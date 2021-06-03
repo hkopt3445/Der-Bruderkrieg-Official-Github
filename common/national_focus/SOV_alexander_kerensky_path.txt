@@ -16,7 +16,7 @@ shared_focus = {
 	id = SOV_kerenskys_presidency
 	icon = GFX_goal_continuous_boost_freedom
 	text = SOV_kerenskys_presidency
-	x = 18
+	x = 10
 	y = 0
 	cost = 5
 	ai_will_do = {
@@ -36,10 +36,10 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_pursue_economic_justice
-	icon = GFX_goal_SOV_kulak_revolt
+	icon = unkown
 	text = SOV_pursue_economic_justice
 	prerequisite = { focus = SOV_kerenskys_presidency }
-	x = -7
+	x = -12
 	y = 1
 	relative_position_id = SOV_kerenskys_presidency
 	cost = 2
@@ -57,10 +57,10 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_owners_state
-	icon = GFX_goal_bulding_up_the_housing_industury
+	icon = unkown
 	text = SOV_owners_state
 	prerequisite = { focus = SOV_pursue_economic_justice }
-	x = 1
+	x = 2
 	y = 1
 	relative_position_id = SOV_pursue_economic_justice
 	cost = 5
@@ -78,7 +78,7 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_nationalize_important_industries
-	icon = GFX_goal_SOV_centralization_reform
+	icon = unkown
 	text = SOV_nationalize_important_industries
 	prerequisite = { focus = SOV_owners_state }
 	x = 1
@@ -99,7 +99,7 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_control_the_banks
-	icon = GFX_goal_SOV_support_small_businesses
+	icon = unkown
 	text = SOV_control_the_banks
 	prerequisite = { focus = SOV_nationalize_important_industries }
 	x = 0
@@ -120,7 +120,7 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_legalize_unions
-	icon = GFX_goal_USA_work_with_unions
+	icon = unkown
 	text = SOV_legalize_unions
 	prerequisite = { focus = SOV_owners_state }
 	x = -1
@@ -145,14 +145,10 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_constitutional_rights_for_unions
-	icon = GFX_goal_nationalist_propoganda_movement
+	icon = unkown
 	text = SOV_constitutional_rights_for_unions
 	prerequisite = { focus = SOV_legalize_unions }
-
-	prerequisite = {
-		focus = SOV_maximum_price_list
-	}
-	x = -1
+	x = 0
 	y = 1
 	relative_position_id = SOV_legalize_unions
 	cost = 5
@@ -170,10 +166,10 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_workers_state
-	icon = GFX_goal_SOV_using_the_seperatists
+	icon = unkown
 	text = SOV_workers_state
 	prerequisite = { focus = SOV_pursue_economic_justice }
-	x = -2
+	x = -1
 	y = 1
 	relative_position_id = SOV_pursue_economic_justice
 	cost = 5
@@ -190,7 +186,7 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_establish_minimum_wage
-	icon = GFX_goal_USA_lower_taxes_on_small_businesses
+	icon = unkown
 	text = SOV_establish_minimum_wage
 	prerequisite = { focus = SOV_workers_state }
 	x = -1
@@ -209,11 +205,31 @@ shared_focus = {
 	}
   }
   
-
+  
+  shared_focus = {
+	id = SOV_increase_retirement_pay
+	icon = unkown
+	text = SOV_increase_retirement_pay
+	prerequisite = { focus = SOV_establish_minimum_wage }
+	x = 0
+	y = 1
+	relative_position_id = SOV_establish_minimum_wage
+	cost = 5
+	ai_will_do = {
+	  factor = 20
+	}
+  
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+	#SOV_level_up_workers_idea = yes
+	}
+  }
   
   shared_focus = {
 	id = SOV_impose_safety_regulations
-	icon = GFX_goal_SOV_pavels_army_reforms
+	icon = unkown
 	text = SOV_impose_safety_regulations
 	prerequisite = { focus = SOV_workers_state }
 	x = 1
@@ -234,12 +250,12 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_maximum_price_list
-	icon = GFX_goal_USA_encourage_charity
+	icon = unkown
 	text = SOV_maximum_price_list
 	prerequisite = { focus = SOV_impose_safety_regulations }
-	prerequisite = {focus = SOV_establish_minimum_wage }
+	prerequisite = {focus = SOV_increase_retirement_pay}
 	x = 0
-	y = 2
+	y = 3
 	relative_position_id = SOV_workers_state
 	cost = 5
 	ai_will_do = {
@@ -256,15 +272,16 @@ shared_focus = {
   
   shared_focus = {
 	id = SOV_the_peoples_economy
-	icon = GFX_goal_SOV_the_peoples_economy
+	icon = unkown
 	text = SOV_the_peoples_economy
+	prerequisite = { focus = SOV_maximum_price_list }
 	prerequisite = {focus = SOV_control_the_banks}
 	prerequisite = {
 		focus = SOV_constitutional_rights_for_unions
 	}
-	x = -2
+	x = 2
 	y = 1
-	relative_position_id = SOV_control_the_banks
+	relative_position_id = SOV_maximum_price_list
 	cost = 5
 	ai_will_do = {
 	  factor = 20
@@ -283,7 +300,7 @@ shared_focus = {
 		icon = GFX_goal_generic_positive_trade_relations
 		#text = SOV_RED_AIRFORCE
 		prerequisite = { focus = SOV_kerenskys_presidency }
-		x = 7
+		x = -4
 		y = 1
 		relative_position_id = SOV_kerenskys_presidency
 		#mutually_exclusive = {focus = SOV_RURALIST_ECONOMY}
@@ -837,10 +854,3 @@ shared_focus = {
 		}
 	}
 
-
-
-
-
-	
-
-	
