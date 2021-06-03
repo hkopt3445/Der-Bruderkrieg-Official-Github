@@ -2807,43 +2807,9 @@ country_event = {
 			tooltip = SOV_hugely_decrease_support_among_people
 			SOV_peoples_support_for_current_regime = -25
 		}
-		hidden_effect = {
-			random_list = {
-				75 = {
-					set_country_flag = SOV_rsdlp_collapse_fire_russian_collapse
-				}
-				25 = {
-					country_event = { 
-						id = SOV_tsarina_coup.1
-						days = 1
-					}
-				}
-			}
-		}
+		set_country_flag = SOV_the_rsdlp_has_collapsed
 	}
 }
-
-add_namespace = SOV_tsarina_coup
-##tsarins coup
-country_event = {
-	id = SOV_tsarina_coup.1
-	title = SOV_tsarina_coup.1.t
-	desc = SOV_tsarina_coup.1.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = SOV_tsarina_coup.1.a
-		ai_chance = { factor = 1}
-		add_popularity = {
-			ideology = neutrality
-			popularity = 0.1
-		}
-		set_politics = {
-			ruling_party = neutrality
-		}
-	}
-}
-
 
 add_namespace = SOV_rsdlp_forceful_unification
 
@@ -3181,7 +3147,7 @@ country_event = {
 	}
 	option = {
 		name = SOV_debug_events.1.d
-		load_focus_tree = SOV_kerensky_presidency_path
+		load_focus_tree = SOV_the_return_of_the_tsar_tree
 	}
 	option = {
 		name = SOV_debug_events.1.e
@@ -3845,7 +3811,7 @@ country_event = { # Caucusus Declares Independence
 	}
 }
 
-country_event = { # Western Europe Declares Independence 
+country_event = { # Caucusus Declares Independence 
 	id = SOV_russian_collapse_events.14
 	#immediate = { log = "[GetDateText]: [Root.GetName]: event SOV_russian_collapse_events.14" }
 	title = SOV_russian_collapse_events.14.t
@@ -3877,13 +3843,13 @@ country_event = { # Western Europe Declares Independence
 			# POL = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}#Adjust this to what you want
 			# UKR = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}
 			# BLR = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}
-			
+			UGL = { change_tag_from = ROOT }
 
 		}
 	}
 }
 
-country_event = { #The choice must be made
+country_event = { # Djbouti Declares Independence 
 	id = SOV_russian_collapse_events.16
 	#immediate = { log = "[GetDateText]: [Root.GetName]: event SOV_russian_collapse_events.16" }
 	title = SOV_russian_collapse_events.16.t
@@ -3901,103 +3867,50 @@ country_event = { #The choice must be made
 		ai_chance = {
 			factor = 100
 		}
-		UGL = { change_tag_from = ROOT  }
-		
-		play_song = "Russian_Collapse_Song"
-		UGL = { change_tag_from = ROOT }
-	}
-	option = {
-		name = SOV_russian_collapse_events.16.b
-		ai_chance = {
-			factor = 100
+		DJI = {
+			set_country_flag = choice_made
 		}
-		KLV = { change_tag_from = ROOT  }
-		
-		play_song = "Russian_Collapse_Song"
-		KLV = { change_tag_from = ROOT }
-	}
-	option = {
-		name = SOV_russian_collapse_events.16.c
-		ai_chance = {
-			factor = 100
+		hidden_effect = {
+			# DJI = { country_event = { id = SOV_russian_collapse_events.16 hours = 3 }}
 		}
-		DJI = { change_tag_from = ROOT  }
-		
-		play_song = "Russian_Collapse_Song"
-		DJI = { change_tag_from = ROOT }
 	}
 }
 
-
-add_namespace = SOV_russian_collapse_leadup
 country_event = {
-	id = SOV_russian_collapse_leadup.1
-	title = SOV_russian_collapse_leadup.1.t
-	desc = SOV_russian_collapse_leadup.1.d
+	id = SOV_russian_collapse_events.15
+	title = SOV_russian_collapse_events.15.t
+	desc = SOV_russian_collapse_events.15.d
 	#picture = GFX_hitlerartisteventpic
 	#is_triggered_only = yes
 	fire_only_once = yes
 	trigger = { 
-		if = {
-			limit = {
-				OR = {
-					has_government = communism
-					has_government = democratic_communism
+		OR = {
+			AND = {
+				check_variable = {
+					SOV_peoples_support_for_current_regime < 30
+				}
+				check_variable = {
+					SOV_military_support_for_current_regime < 20
 				}
 			}
-			has_country_flag = SOV_rsdlp_collapse_fire_russian_collapse
-		}
-		else_if = {
-			limit = {
-				has_government = socialism_democratic
-			}
-			OR = {
-				AND = {
-					check_variable = {
-						var = SOV_peoples_support_for_current_regime value = 30 compare = less_than_or_equals
-					}
-					check_variable = {
-						var = SOV_military_support_for_current_regime value = 20 compare = less_than_or_equals
-					}
+			AND = {
+				check_variable = {
+					SOV_peoples_support_for_current_regime < 20
 				}
-				AND = {
-					check_variable = {
-						var = SOV_peoples_support_for_current_regime value = 20 compare = less_than_or_equals
-					}
-					check_variable = {
-						var = SOV_military_support_for_current_regime value = 40 compare = less_than_or_equals
-					}
+				check_variable = {
+					SOV_military_support_for_current_regime < 40
 				}
 			}
-		}
-	
-		else = {
-			OR = {
-				AND = {
-					check_variable = {
-						var = SOV_peoples_support_for_current_regime value = 30 compare = less_than_or_equals
-					}
-					check_variable = {
-						var = SOV_military_support_for_current_regime value = 20 compare = less_than_or_equals
-					}
-				}
-				AND = {
-					check_variable = {
-						var = SOV_peoples_support_for_current_regime value = 20 compare = less_than_or_equals
-					}
-					check_variable = {
-						var = SOV_military_support_for_current_regime value = 40 compare = less_than_or_equals
-					}
-				}
-			}
+			#has_country_flag = SOV_the_rsdlp_has_collapsed
 		}
 		tag = SOV
 	}
 	option = {
-		name = SOV_russian_collapse_leadup.1.a
+		name = SOV_russian_collapse_events.15.a
 		ai_chance = { factor = 1}
 
 		country_event = SOV_russian_collapse_events.1
+
 		set_global_flag = SOV_russian_collapse_flag
 		play_song = "Russian_Collapse_Song"
 	}
@@ -4151,133 +4064,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = UGL_white_shock_army.10.a
-		set_country_flag = SOV_kornilov_has_been_executed
-		add_political_power = 75
-	}
-}
-
-###contact kolchak
-country_event = {
-	id = UGL_white_shock_army.11
-	title = UGL_white_shock_army.11.t
-	desc = UGL_white_shock_army.11.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_white_shock_army.11.a
-		hidden_effect = {
-			if = {
-				limit = {
-					KLV = {
-						has_country_flag = KLV_successfully_contacted_kolchak
-					}
-				}
-				country_event = UGL_white_shock_army.12
-			}
-			else = {
-				70 = {
-					country_event = UGL_white_shock_army.13
-				}
-				30 = {
-					country_event = UGL_white_shock_army.14
-				}
-			}
-		}
-	}
-}
-
-##hes already with kornilov mfs
-country_event = {
-	id = UGL_white_shock_army.12
-	title = UGL_white_shock_army.12.t
-	desc = UGL_white_shock_army.12.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_white_shock_army.12.a
-		set_country_flag = UGL_the_navy_on_our_side_bypass
-	}
-}
-
-##yes
-country_event = {
-	id = UGL_white_shock_army.13
-	title = UGL_white_shock_army.13.t
-	desc = UGL_white_shock_army.13.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_white_shock_army.13.a
-		set_variable = { global.kolchak_white_army_side = 1 }
-	}
-}
-
-##rest in peace
-country_event = {
-	id = UGL_white_shock_army.14
-	title = UGL_white_shock_army.14.t
-	desc = UGL_white_shock_army.14.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_white_shock_army.14.a
-		set_country_flag = UGL_the_navy_on_our_side_bypass
-		set_variable = { global.kolchak_white_army_side = 3 }
-	}
-}
-
-###traitor white generals
-country_event = {
-	id = UGL_white_shock_army.15
-	title = UGL_white_shock_army.15.t
-	desc = UGL_white_shock_army.15.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_white_shock_army.15.a
-		set_country_flag = UGL_the_navy_on_our_side_bypass
-	}
-}
-
-
-##Russia offers support to Novorussyia
-country_event = {
-	id = UGL_white_shock_army.16
-	title = UGL_white_shock_army.16.t
-	desc = UGL_white_shock_army.16.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_white_shock_army.16.a
-		country_event = { id = UGL_white_shock_army.17 days = 1 }
-	}
-	option = {
-		name = UGL_white_shock_army.16.b
-		country_event = { id = UGL_white_shock_army.18 days = 1 }
-	}
-}
-country_event = {
-	id = UGL_white_shock_army.17
-	title = UGL_white_shock_army.17.t
-	desc = UGL_white_shock_army.17.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_white_shock_army.17.a
-	}
-}
-country_event = {
-	id = UGL_white_shock_army.18
-	title = UGL_white_shock_army.18.t
-	desc = UGL_white_shock_army.18.d
-	#picture = GFX_hitlerartisteventpic
-	is_triggered_only = yes
-	option = {
-		name = UGL_white_shock_army.18.a
-		add_opinion_modifier = {
-			target = NVR
-			modifier = medium_decrease
-		}
+		
 	}
 }
 
@@ -4363,7 +4150,7 @@ country_event = {
 			add_opinion_modifier = { target = MAN modifier = SOV_intervention_in_manchuria_opinion } 
 			add_political_power = 20
 		}
-		add_opinion_modifier = { target = SOV modifier = SOV_intervention_in_manchuria_opinion }
+		add_opinion_modifier = { target SOV modifier = SOV_intervention_in_manchuria_opinion }
 		add_political_power = 20
 	}
 }
