@@ -16,7 +16,7 @@ shared_focus = {
 	id = SOV_kerenskys_presidency
 	icon = GFX_goal_continuous_boost_freedom
 	text = SOV_kerenskys_presidency
-	x = 18
+	x = 21
 	y = 0
 	cost = 5
 	ai_will_do = {
@@ -39,7 +39,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_kulak_revolt
 	text = SOV_pursue_economic_justice
 	prerequisite = { focus = SOV_kerenskys_presidency }
-	x = -7
+	x = 0
 	y = 1
 	relative_position_id = SOV_kerenskys_presidency
 	cost = 2
@@ -839,14 +839,18 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_Kerenskys_Political_Campaign
-    #icon = 
-	x = 36
-	y = 0
+    icon = GFX_goal_SOV_kerenskys_political_campaign 
+	x = -9
+	y = 2
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
+	relative_position_id = SOV_kerenskys_presidency
+	prerequisite = {
+		focus = SOV_kerenskys_presidency
+	}
     available = {
         
     }
@@ -854,12 +858,14 @@ shared_focus = {
         
     }
 }
+
 shared_focus = {
-    id = SOV_Our_Stance
-    #icon = 
+    id = SOV_Suppression_of_Opposition
+    icon = unkown 
 	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
-	x = 0
-	y = 2
+	mutually_exclusive = { focus = SOV_Democratically_Fighting_Opposition }
+	x = -3
+	y = 1
     relative_position_id = SOV_Kerenskys_Political_Campaign
     cost = 5
     available_if_capitulated = yes
@@ -874,13 +880,12 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_Suppression_of_Opposition
-    #icon = 
-	prerequisite = {focus = SOV_Our_Stance}
-	mutually_exclusive = { focus = SOV_Democratically_Fighting_Opposition }
-	x = -1
+    id = SOV_Suppressing_Anti_Menshevik_Newspapers
+    icon = unkown 
+	prerequisite = {focus = SOV_Suppression_of_Opposition}
+	x = 2
 	y = 1
-    relative_position_id = SOV_Our_Stance
+    relative_position_id = SOV_Suppression_of_Opposition
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -894,8 +899,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_Suppressing_Anti_Menshevik_Newspapers
-    #icon = 
+    id = SOV_Arresting_Anti_Menshevik_Activists
+    icon = unkown 
 	prerequisite = {focus = SOV_Suppression_of_Opposition}
 	x = 0
 	y = 1
@@ -913,8 +918,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_Arresting_Anti_Menshevik_Activists
-    #icon = 
+    id = SOV_RightWing_Crackdown
+    icon = unkown 
 	prerequisite = {focus = SOV_Suppression_of_Opposition}
 	x = -2
 	y = 1
@@ -932,32 +937,13 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_Arresting_Radicals
-    #icon = 
-	prerequisite = {focus = SOV_Suppression_of_Opposition}
-	x = -4
-	y = 1
-    relative_position_id = SOV_Suppression_of_Opposition
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        
-    }
-    completion_reward = {
-        
-    }
-}
-shared_focus = {
     id = SOV_Extremist_Crackdown
-    #icon = 
-	prerequisite = {focus = SOV_Arresting_Radicals}
+    icon = unkown 
+	prerequisite = {focus = SOV_RightWing_Crackdown}
 	prerequisite = {focus = SOV_Arresting_Anti_Menshevik_Activists}
 	x = 1
 	y = 1
-    relative_position_id = SOV_Arresting_Radicals
+    relative_position_id = SOV_RightWing_Crackdown
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -972,7 +958,7 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_RSDLP_Crackdown
-    #icon = 
+    icon = unkown 
 	prerequisite = {focus = SOV_Suppressing_Anti_Menshevik_Newspapers}
 	prerequisite = {focus = SOV_Arresting_Anti_Menshevik_Activists}
 	x = -1
@@ -992,7 +978,7 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Menshevik_Dominance
-    #icon = 
+    icon = unkown 
 	prerequisite = {focus = SOV_Extremist_Crackdown}
 	prerequisite = {focus = SOV_RSDLP_Crackdown}
 	x = -1
@@ -1012,11 +998,11 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Democratically_Fighting_Opposition
-    #icon = 
-	prerequisite = {focus = SOV_Our_Stance}
-	x = 1
+    icon = unkown 
+	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
+	x = 3
 	y = 1
-	relative_position_id = SOV_Our_Stance
+	relative_position_id = SOV_Kerenskys_Political_Campaign
 	mutually_exclusive = { focus = SOV_Suppression_of_Opposition }
     cost = 5
     available_if_capitulated = yes
@@ -1032,7 +1018,26 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Devaluing_Slander
-    #icon = 
+    icon = unkown 
+	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
+	x = -2 
+	y = 1
+	relative_position_id = SOV_Democratically_Fighting_Opposition
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_Verifying_Election_Results
+    icon = unkown 
 	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
 	x = 0
 	y = 1
@@ -1050,8 +1055,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_Verifying_Election_Results
-    #icon = 
+    id = SOV_Anti_Opposition_Rhetoric
+    icon = unkown 
 	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
 	x = 2
 	y = 1
@@ -1069,27 +1074,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_Anti_Opposition_Rhetoric
-    #icon = 
-	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
-	x = 4
-	y = 1
-	relative_position_id = SOV_Democratically_Fighting_Opposition
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        
-    }
-    completion_reward = {
-        
-    }
-}
-shared_focus = {
     id = SOV_Anti_Slander_Initiative
-    #icon = 
+    icon = unkown 
 	prerequisite = {focus = SOV_Devaluing_Slander}
 	prerequisite = {focus = SOV_Verifying_Election_Results}
 	x = 1
@@ -1109,7 +1095,7 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Protection_of_the_Truth
-    #icon = 
+    icon = unkown 
 	prerequisite = {focus = SOV_Anti_Opposition_Rhetoric}
 	prerequisite = {focus = SOV_Verifying_Election_Results}
 	x = -1
@@ -1129,7 +1115,7 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Paragon_of_Honesty
-    #icon = 
+    icon = unkown 
 	prerequisite = {focus = SOV_Anti_Slander_Initiative}
 	prerequisite = {focus = SOV_Protection_of_the_Truth}
 	x = -1
@@ -1146,4 +1132,632 @@ shared_focus = {
     completion_reward = {
         
     }
+}
+
+
+shared_focus = {
+	id = SOV_the_question_of_the_okhrana
+	icon = GFX_goal_SOV_the_question_of_the_okhrana
+	#prerequisite = { focus = SOV_pavel_milyukovs_presidency }
+	x = 4
+	y = 0
+#	relative_position_id = SOV_pavel_milyukovs_presidency
+	cost = 6
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_category_tooltip = SOV_future_okhrana
+
+		set_variable = {
+			SOV_cdp_support_for_current_bill = cdp_seats
+		}
+		divide_variable = {
+			SOV_cdp_support_for_current_bill = 2.5
+		}
+
+		round_variable = SOV_cdp_support_for_current_bill
+
+		set_variable = {
+			SOV_trudovik_support_for_current_bill = trudovik_seats
+		}
+		divide_variable = {
+			SOV_trudovik_support_for_current_bill = 15
+		}
+
+		round_variable = SOV_trudovik_support_for_current_bill
+
+		set_variable = {
+			SOV_rsdlp_support_for_current_bill = rsdlp_seats
+		}
+		divide_variable = {
+			SOV_rsdlp_support_for_current_bill = 20
+		}
+
+		round_variable = SOV_rsdlp_support_for_current_bill
+
+		set_variable = {
+			SOV_urp_support_for_current_bill = urp_seats
+		}
+		divide_variable = {
+			SOV_urp_support_for_current_bill = 1.1
+		}
+		round_variable = SOV_urp_support_for_current_bill
+
+		SOV_modify_current_duma_total_support_for_bill = yes
+
+		set_country_flag = SOV_vote_for_pavels_okrana_bill_going_on
+
+		activate_mission = SOV_duma_votes_on_the_okhrana
+
+		country_event = SOV_pavel_tree_events.1
+		
+		}
+}
+
+shared_focus = {
+	id = SOV_denouncing_the_okhrana
+	icon = GFX_goal_SOV_denouncing_the_okhrana
+	prerequisite = { focus = SOV_the_question_of_the_okhrana }
+	mutually_exclusive = {
+		focus = SOV_promoting_the_okhrana
+	}
+	x = -1
+	y = 1
+	relative_position_id = SOV_the_question_of_the_okhrana
+	cost = 5
+	ai_will_do = { 
+		factor = 20
+	} 
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = SOV_the_plan_for_disarmement
+	icon = GFX_goal_SOV_plans_for_disarmement
+	prerequisite = { focus = SOV_denouncing_the_okhrana }
+	x = -1
+	y = 1
+	relative_position_id = SOV_denouncing_the_okhrana 
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		country_event = SOV_pavel_tree_events.2
+		}
+}
+shared_focus = {
+	id = SOV_discreding_them_further
+	icon = GFX_goal_SOV_discreding_them_further
+	prerequisite = {  focus = SOV_the_plan_for_disarmement }
+	x = 1
+	y = 1
+	relative_position_id = SOV_the_plan_for_disarmement
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		swap_ideas = {
+			add_idea = SOV_beacon_of_democracy_2
+			remove_idea = SOV_beacon_of_democracy
+		}
+		}
+}
+
+shared_focus = {
+	id = SOV_promoting_the_okhrana
+	icon = GFX_goal_SOV_promoting_the_okhrana
+	prerequisite = { focus = SOV_the_question_of_the_okhrana }
+	x = 1
+	y = 1
+	relative_position_id = SOV_the_question_of_the_okhrana
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	mutually_exclusive = {
+		focus = SOV_denouncing_the_okhrana
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+		}
+}
+
+shared_focus = {
+	id = SOV_starting_rearmement
+	icon = GFX_goal_SOV_securing_more_manpower
+	prerequisite = { focus = SOV_promoting_the_okhrana }
+	x = 1
+	y = 1
+	relative_position_id = SOV_promoting_the_okhrana
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		country_event = SOV_pavel_tree_events.3
+		}
+}
+
+
+
+shared_focus = {
+	id = SOV_sabotaging_the_opposition
+	icon = GFX_goal_SOV_sabotaging_the_opposition
+	prerequisite = { focus = SOV_starting_rearmement  }
+	x = -1
+	y = 1
+	relative_position_id = SOV_starting_rearmement
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		add_ideas = SOV_the_birth_of_an_authoritarian_state
+		}
+}
+
+shared_focus = {
+	id = SOV_the_duma_votes
+	icon = GFX_goal_SOV_the_duma_votes
+	prerequisite = { focus = SOV_sabotaging_the_opposition   focus = SOV_discreding_them_further }
+	x = -1
+	y = 1
+	relative_position_id = SOV_sabotaging_the_opposition
+	cost = 0
+	ai_will_do = {
+		factor = 20
+	}
+	available = {
+		always = no
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = SOV_dearming_the_okhrana
+	icon = GFX_goal_SOV_disarming_the_okhrana
+	prerequisite = { focus = SOV_the_duma_votes }
+	x = -1
+	y = 1
+	relative_position_id = SOV_the_duma_votes
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	available = {
+		has_country_flag = SOV_okhrana_duma_vote_fails
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		custom_effect_tooltip = SOV_dearming_the_okhrana_tt
+		}
+}
+shared_focus = {
+	id = SOV_outlawing_espionage
+	icon = GFX_goal_SOV_outlaw_espoinage
+	prerequisite = { focus = SOV_dearming_the_okhrana }
+	x = -3
+	y = 1
+	relative_position_id = SOV_dearming_the_okhrana
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {	
+		if = {
+			limit = {
+				has_idea = SOV_freedom_reforms
+			}
+			add_ideas = SOV_freedom_reforms_2
+		}
+		else = {
+			add_ideas = SOV_freedom_reforms
+		}
+		}
+}
+
+shared_focus = {
+	id = SOV_neutralizing_okhrana_agents
+	icon = GFX_goal_SOV_neutralizing_the_last_okhrana_agents
+	prerequisite = { focus = SOV_dearming_the_okhrana }
+	x = -1
+	y = 1
+	relative_position_id = SOV_dearming_the_okhrana
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = SOV_promoting_the_right_to_privacy
+	icon = unkown
+	prerequisite = { focus = SOV_outlawing_espionage }
+	x = 0
+	y = 2
+	relative_position_id = SOV_outlawing_espionage
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = SOV_freedom_reforms
+			}
+			add_ideas = SOV_freedom_reforms_2
+		}
+		else = {
+			add_ideas = SOV_freedom_reforms
+		}
+		}
+}
+
+shared_focus = {
+	id = SOV_arresting_zhitomirsky
+	icon = GFX_goal_SOV_arresting_zhitomorsky
+	#prerequisite = { focus = SOV_promoting_the_right_to_privacy }
+	prerequisite = {
+		focus = SOV_outlawing_espionage
+	}
+	prerequisite = {
+		focus = SOV_neutralizing_okhrana_agents
+	}
+	x = 1
+	y = 1
+	relative_position_id = SOV_neutralizing_okhrana_agents
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_tooltip = SOV_okhrana_arrest_zhitomirsky_decision
+		}
+}
+
+shared_focus = {
+	id = SOV_arresting_bogrov
+	icon = GFX_goal_SOV_arresting_bogrov
+	#prerequisite = { focus = SOV_promoting_the_right_to_privacy }
+	prerequisite = {
+		focus = SOV_outlawing_espionage
+	}
+	prerequisite = {
+		focus = SOV_neutralizing_okhrana_agents
+	}
+	x = 1
+	y = 1
+	relative_position_id = SOV_outlawing_espionage
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_tooltip = SOV_okhrana_arrest_bogrov_decision
+		}
+}
+
+shared_focus = {
+	id = SOV_arresting_the_last_okhrana_spies
+	icon = GFX_goal_SOV_arresting_the_last_okhrana_spies
+	prerequisite = { focus = SOV_arresting_bogrov }
+	prerequisite = {
+		focus = SOV_arresting_zhitomirsky
+	}
+
+	x = 1
+	y = 1
+	relative_position_id = SOV_arresting_bogrov
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+		}
+}
+shared_focus = {
+	id = SOV_liberty_above_all_else
+	icon = GFX_goal_SOV_liberty_above_all_else
+	prerequisite = { focus =SOV_arresting_the_last_okhrana_spies }
+	prerequisite = {
+		focus = SOV_promoting_the_right_to_privacy
+	}
+	x = 0
+	y = 1
+	relative_position_id = SOV_arresting_the_last_okhrana_spies
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		add_political_power = 100
+		add_popularity = {
+			ideology = democratic_liberalism
+			popularity = 0.1
+		}
+	}
+}
+
+
+
+shared_focus = {
+	id = SOV_rearming_the_okhrana
+	icon = GFX_goal_SOV_rearming_the_okhrana
+	prerequisite = { focus = SOV_the_duma_votes }
+	x = 1
+	y = 1
+	relative_position_id = SOV_the_duma_votes
+	cost = 5
+	ai_will_do = { 
+		factor = 20
+	}
+	available = {
+		has_country_flag = SOV_okhrana_duma_vote_passes
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_tooltip = SOV_reestablish_okhrana
+		}
+}
+
+shared_focus = {
+	id = SOV_increasing_authoritarianism
+	icon = GFX_goal_SOV_increase_authoritarianism
+	prerequisite = { focus = SOV_rearming_the_okhrana }
+	x = 1
+	y = 1
+	relative_position_id = SOV_rearming_the_okhrana
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+	offset = {
+		trigger = {
+			has_completed_focus = GFX_goal_SOV_trudoviks_reelected
+		}
+		x = 1
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_tooltip = SOV_bully_members_of_the_duma_with_the_okhrana	
+	}
+}
+
+shared_focus = {
+	id = SOV_the_puppetmasters_of_russia
+	icon = GFX_goal_SOV_the_puppetmasters_of_russia
+	prerequisite = { focus = SOV_increasing_authoritarianism focus = SOV_Menshevik_Dominance }
+	x = 0
+	y = 1
+	relative_position_id = SOV_increasing_authoritarianism
+	offset = {
+		trigger = {
+			has_completed_focus = GFX_goal_SOV_trudoviks_reelected
+		}
+		x = 1
+	}
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		
+		}
+}
+
+
+
+shared_focus = {
+	id = SOV_capturing_tsertelli
+	icon = GFX_goal_SOV_arresting_tsertelli
+	prerequisite = {
+		focus = SOV_the_puppetmasters_of_russia
+	}
+	x = 0
+	y = 1
+	relative_position_id = SOV_the_puppetmasters_of_russia
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_tooltip = SOV_okhrana_arrest_kerensky_decision
+		}
+}
+
+shared_focus = {
+	id = SOV_capturing_lenin
+	icon = GFX_goal_SOV_arresting_lenin
+	prerequisite = {
+		focus = SOV_the_puppetmasters_of_russia
+	}
+	x = 2
+	y = 1
+	relative_position_id = SOV_the_puppetmasters_of_russia
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_tooltip = SOV_okhrana_arrest_lenin_decision
+		}
+}
+
+shared_focus = {
+	id = SOV_capturing_kerensky
+	icon = GFX_goal_SOV_arresting_kerensky
+
+	prerequisite = {
+		focus = SOV_the_puppetmasters_of_russia
+	}
+	x = -2
+	y = 1
+	relative_position_id = SOV_the_puppetmasters_of_russia
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		unlock_decision_tooltip = SOV_okhrana_arrest_kerensky_decision
+		}
+}
+
+shared_focus = {
+	id = SOV_a_democracy_only_in_name
+	icon = GFX_goal_SOV_a_democracy_only_in_name
+	prerequisite = { focus = SOV_capturing_kerensky }
+	prerequisite = {
+		focus = SOV_capturing_tsertelli
+	}
+	prerequisite = {
+		focus = SOV_capturing_lenin
+	}
+	x = 2
+	y = 1
+	relative_position_id = SOV_capturing_kerensky
+	cost = 5
+	ai_will_do = {
+		factor = 20
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		swap_ideas = {
+			add_idea = SOV_the_birth_of_an_authoritarian_state_2
+			remove_idea = SOV_the_birth_of_an_authoritarian_state
+		}
+		
+		add_political_power = -50
+		custom_effect_tooltip = SOV_a_democracy_only_in_name_tt
+		
+		hidden_effect = {
+			set_temp_variable = {new_pop = party_popularity@democratic_liberalism}
+		
+					add_popularity = {
+						popularity = new_pop
+						ideology = authoritarian_democratic
+					}
+		
+					set_temp_variable = {sub_new_pop = party_popularity@democratic_liberalism}
+					multiply_temp_variable = {sub_new_pop = -1}
+		
+					add_popularity = {
+						popularity = sub_new_pop
+						ideology = democratic_liberalism
+					}
+		
+					set_politics = {
+						ruling_party = authoritarian_democratic
+				}
+			
+			create_country_leader = {
+				name = "Pavel Milyukov"
+				desc = ""
+				picture = "gfx/leaders/Pavel_Milyukov.dds"
+				expire = "1965.1.1"
+				ideology = iliberal_democrat
+				traits = {
+				
+				}
+			}
+			}
+	}
 }
