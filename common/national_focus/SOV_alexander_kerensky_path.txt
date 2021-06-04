@@ -14,9 +14,9 @@ focus_tree = {
 
 shared_focus = {
 	id = SOV_kerenskys_presidency
-	icon = GFX_goal_continuous_boost_freedom
+	icon = GFX_goal_SOV_kerenskys_presidency
 	text = SOV_kerenskys_presidency
-	x = 21
+	x = 20
 	y = 0
 	cost = 5
 	ai_will_do = {
@@ -840,7 +840,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_Kerenskys_Political_Campaign
     icon = GFX_goal_SOV_kerenskys_political_campaign 
-	x = -9
+	x = -8
 	y = 2
     cost = 5
     available_if_capitulated = yes
@@ -861,7 +861,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_Suppression_of_Opposition
-    icon = unkown 
+    icon = GFX_goal_SOV_the_constitutionalists 
 	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
 	mutually_exclusive = { focus = SOV_Democratically_Fighting_Opposition }
 	x = -3
@@ -881,9 +881,9 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Suppressing_Anti_Menshevik_Newspapers
-    icon = unkown 
+    icon = GFX_goal_AUS_the_final_language_decree 
 	prerequisite = {focus = SOV_Suppression_of_Opposition}
-	x = 2
+	x = 1
 	y = 1
     relative_position_id = SOV_Suppression_of_Opposition
     cost = 5
@@ -898,30 +898,12 @@ shared_focus = {
         
     }
 }
-shared_focus = {
-    id = SOV_Arresting_Anti_Menshevik_Activists
-    icon = unkown 
-	prerequisite = {focus = SOV_Suppression_of_Opposition}
-	x = 0
-	y = 1
-    relative_position_id = SOV_Suppression_of_Opposition
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        
-    }
-    completion_reward = {
-        
-    }
-}
+
 shared_focus = {
     id = SOV_RightWing_Crackdown
-    icon = unkown 
+    icon = GFX_goal_SOV_second_battle_of_kreshnatchyk_street 
 	prerequisite = {focus = SOV_Suppression_of_Opposition}
-	x = -2
+	x = -1
 	y = 1
     relative_position_id = SOV_Suppression_of_Opposition
     cost = 5
@@ -936,11 +918,14 @@ shared_focus = {
         
     }
 }
+
 shared_focus = {
-    id = SOV_Extremist_Crackdown
-    icon = unkown 
+    id = SOV_Menshevik_Dominance
+    icon = GFX_goal_SOV_a_new_dawn_for_russia 
+	prerequisite = {
+		focus = SOV_Suppressing_Anti_Menshevik_Newspapers
+	}
 	prerequisite = {focus = SOV_RightWing_Crackdown}
-	prerequisite = {focus = SOV_Arresting_Anti_Menshevik_Activists}
 	x = 1
 	y = 1
     relative_position_id = SOV_RightWing_Crackdown
@@ -957,50 +942,10 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_RSDLP_Crackdown
-    icon = unkown 
-	prerequisite = {focus = SOV_Suppressing_Anti_Menshevik_Newspapers}
-	prerequisite = {focus = SOV_Arresting_Anti_Menshevik_Activists}
-	x = -1
-	y = 1
-    relative_position_id = SOV_Suppressing_Anti_Menshevik_Newspapers
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        
-    }
-    completion_reward = {
-        
-    }
-}
-shared_focus = {
-    id = SOV_Menshevik_Dominance
-    icon = unkown 
-	prerequisite = {focus = SOV_Extremist_Crackdown}
-	prerequisite = {focus = SOV_RSDLP_Crackdown}
-	x = -1
-	y = 1
-    relative_position_id = SOV_RSDLP_Crackdown
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        
-    }
-    completion_reward = {
-        
-    }
-}
-shared_focus = {
     id = SOV_Democratically_Fighting_Opposition
-    icon = unkown 
+    icon = GFX_goal_AUS_call_a_reichstrat 
 	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
-	x = 3
+	x = 2
 	y = 1
 	relative_position_id = SOV_Kerenskys_Political_Campaign
 	mutually_exclusive = { focus = SOV_Suppression_of_Opposition }
@@ -1018,7 +963,7 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Devaluing_Slander
-    icon = unkown 
+    icon = GFX_goal_AUS_federalism 
 	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
 	x = -2 
 	y = 1
@@ -1037,7 +982,7 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Verifying_Election_Results
-    icon = unkown 
+    icon = GFX_goal_SOV_preperations 
 	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
 	x = 0
 	y = 1
@@ -1056,7 +1001,7 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Anti_Opposition_Rhetoric
-    icon = unkown 
+    icon = GFX_goal_AUS_reverse_the_language_laws 
 	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
 	x = 2
 	y = 1
@@ -1074,8 +1019,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_Anti_Slander_Initiative
-    icon = unkown 
+    id = SOV_Strengthen_Freedom_of_Speech_Laws
+    icon = GFX_goal_SOV_continuing_the_reforms 
 	prerequisite = {focus = SOV_Devaluing_Slander}
 	prerequisite = {focus = SOV_Verifying_Election_Results}
 	x = 1
@@ -1095,7 +1040,7 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Protection_of_the_Truth
-    icon = unkown 
+    icon = GFX_goal_continuous_boost_freedom 
 	prerequisite = {focus = SOV_Anti_Opposition_Rhetoric}
 	prerequisite = {focus = SOV_Verifying_Election_Results}
 	x = -1
@@ -1115,8 +1060,8 @@ shared_focus = {
 }
 shared_focus = {
     id = SOV_Paragon_of_Honesty
-    icon = unkown 
-	prerequisite = {focus = SOV_Anti_Slander_Initiative}
+    icon = GFX_goal_SOV_the_paragon_of_honesty 
+	prerequisite = {focus = SOV_Strengthen_Freedom_of_Speech_Laws}
 	prerequisite = {focus = SOV_Protection_of_the_Truth}
 	x = -1
 	y = 1
@@ -1568,6 +1513,9 @@ shared_focus = {
 	available = {
 		has_country_flag = SOV_okhrana_duma_vote_passes
 	}
+	offset = {
+		
+	}
 
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1580,17 +1528,20 @@ shared_focus = {
 shared_focus = {
 	id = SOV_increasing_authoritarianism
 	icon = GFX_goal_SOV_increase_authoritarianism
-	prerequisite = { focus = SOV_rearming_the_okhrana }
+	prerequisite = { focus = SOV_rearming_the_okhrana focus = SOV_Menshevik_Dominance }
 	x = 1
 	y = 1
 	relative_position_id = SOV_rearming_the_okhrana
+	available = {
+		has_completed_focus = SOV_rearming_the_okhrana
+	}
 	cost = 5
 	ai_will_do = {
 		factor = 20
 	}
 	offset = {
 		trigger = {
-			has_completed_focus = GFX_goal_SOV_trudoviks_reelected
+			has_completed_focus = SOV_trudoviks_reelected
 		}
 		x = 1
 	}
@@ -1606,16 +1557,11 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_puppetmasters_of_russia
 	icon = GFX_goal_SOV_the_puppetmasters_of_russia
-	prerequisite = { focus = SOV_increasing_authoritarianism focus = SOV_Menshevik_Dominance }
+	prerequisite = { focus = SOV_increasing_authoritarianism }
 	x = 0
 	y = 1
 	relative_position_id = SOV_increasing_authoritarianism
-	offset = {
-		trigger = {
-			has_completed_focus = GFX_goal_SOV_trudoviks_reelected
-		}
-		x = 1
-	}
+
 	cost = 5
 	ai_will_do = {
 		factor = 20
