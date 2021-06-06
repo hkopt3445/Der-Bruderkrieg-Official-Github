@@ -923,7 +923,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			add_ideas = GER_death_to_traitors
+			add_timed_idea = { idea = GER_death_to_traitors days = 120 }
 		}
 		ai_will_do = {
 			factor = 60
@@ -943,7 +943,7 @@ focus_tree = {
 
 		}
 
-		cost = 5
+		cost = 3.5
 		prerequisite = { focus = GER_not_one_traitor_left }
 		prerequisite = {
 			focus = GER_anti_royalism
@@ -954,10 +954,9 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = GER_National_Revolution
-				add_idea = GER_National_Revolution1
-			}
+				remove_ideas = GER_National_Revolution
+				add_timed_idea = { idea = GER_National_Revolution1 days = 100 }
+			
 		}
 		ai_will_do = {
 			factor = 60
@@ -987,38 +986,17 @@ focus_tree = {
 		########################
 		# Economy
 		########################
-		shared_focus = {
-			id = GER_herman_goering_werke
-			icon = GFX_goal_GER_hermanngoeringwerke 
-			cost = 4.5
-			x = 4
-			y = 1
-			ai_will_do = {
-				factor = 60
-			}
-			prerequisite = {
-				focus = GER_consolidating_power
-			}
-			relative_position_id = GER_consolidating_power
-			completion_reward = {
-				add_tech_bonus = {
-					name = industry
-					uses = 1
-					bonus = 1
-					category = industry
-			  }
-			}
-		}
+		
 		shared_focus = {
 			id = GER_form_the_preubisches_arbeitsfront
 			icon = GFX_goal_GER_formthepreuschesarbesfront 
 			cost = 3
 			prerequisite = {
-				focus = GER_herman_goering_werke
+				focus = GER_consolidating_power
 			}
-			relative_position_id = GER_herman_goering_werke 
-			x = -1
-			y = 1
+			relative_position_id = GER_consolidating_power
+			x = 3
+			y = 2
 			ai_will_do = {
 				factor = 60
 			}
@@ -1066,32 +1044,15 @@ focus_tree = {
 				   }
 			}
 		}
-		shared_focus = {
-			id = GER_reaffirm_workes_right_laws
-			icon = GFX_goal_GER_reaffirm_the_worker_laws 
-			cost = 3
-			prerequisite = {
-				focus = GER_herman_goering_werke
-			}
-			relative_position_id = GER_herman_goering_werke
-			x = 1
-			y = 1
-			ai_will_do = {
-				factor = 60
-			}
-			completion_reward = {
-				add_stability = 0.01
-				add_ideas = GER_workers_rights_1867
-			}
-		}
+
 		shared_focus = {
 			id = GER_national_socialist_work_policies
 			icon = GFX_goal_GER_nationalsocialistworkpolicies 
 			cost = 3
 			prerequisite = {
-				focus = GER_reaffirm_workes_right_laws
+				focus = GER_form_the_preubisches_arbeitsfront
 			}
-			relative_position_id = GER_reaffirm_workes_right_laws
+			relative_position_id = GER_form_the_preubisches_arbeitsfront
 			x = 1
 			y = 1
 			ai_will_do = {
@@ -1126,7 +1087,7 @@ focus_tree = {
 				factor = 60
 			}
 			completion_reward = {
-				add_timed_idea = { idea = GER_state_investment days = 365 }
+				add_ideas = GER_state_investment
 			}
 		}
 		shared_focus = {
@@ -1136,6 +1097,9 @@ focus_tree = {
 			prerequisite = {
 				focus = GER_increase_state_investment
 			}
+			prerequisite = {
+				focus = GER_strasserism
+			}
 			relative_position_id = GER_increase_state_investment
 			x = -1
 			y = 1
@@ -1143,27 +1107,21 @@ focus_tree = {
 				factor = 60
 			}
 			completion_reward = {
-				add_ideas = GER_production_overdrive
+				swap_ideas = {
+					add_idea = GER_production_overdrive
+					remove_idea = GER_state_investment
+				}
+				custom_effect_tooltip = GER_prewar_buildup_tt
+				hidden_effect = {
+					remove_ideas = GER_production_overdrive
+					add_timed_idea = {
+						idea = GER_production_overdrive
+						days = 250
+					}
+				}
 			}
 		}
-		shared_focus = {
-			id = GER_untersmench_labour
-			icon = GFX_goal_GER_untermenchlabor 
-			cost = 3
 		
-			prerequisite = {
-				focus = GER_strasserism
-			}
-			relative_position_id = GER_strasserism
-			x = 1
-			y = 1
-			ai_will_do = {
-				factor = 60
-			}
-			completion_reward = {
-				add_ideas = GER_forced_labor
-			}
-		}
 		shared_focus = {
 			id = GER_the_blade_forged
 			icon = GFX_goal_GER_thebladeforged 
@@ -1172,10 +1130,10 @@ focus_tree = {
 				focus = GER_prewar_buildup
 			}
 			prerequisite = {
-				focus = GER_untersmench_labour
+				focus = GER_prewar_buildup
 			}
-			relative_position_id = GER_untersmench_labour
-			x = 1
+			relative_position_id = GER_prewar_buildup
+			x = 0
 			y = 1
 			ai_will_do = {
 				factor = 60
@@ -1376,7 +1334,7 @@ focus_tree = {
 shared_focus = {
     id = GER_goerings_industrial_plan
     icon = GFX_goal_generic_construction
-    x = 22
+    x = 21
     y = 0
     cost = 5
     ai_will_do = {
