@@ -30,5 +30,5 @@ replace_path="events"
 
 
 
-supported_version="1.10.5"
+supported_version="1.10.7"
 remote_file_id="2112802713"
