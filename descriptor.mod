@@ -22,6 +22,7 @@ replace_path="common/scripted_localisation"
 replace_path="common/ai_strategy_plans"
 replace_path="common/ai_strategy"
 replace_path="common/on_actions"
+replace_path="common/bookmarks"
 
 replace_path="common/ai_focuses"
 
