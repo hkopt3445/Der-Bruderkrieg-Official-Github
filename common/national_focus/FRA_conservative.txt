@@ -60,7 +60,7 @@ focus_tree = {
 	icon = GFX_focus_research
 	text = FRA_expand_the_sorbonne_university
 	#prerequisite = { focus = FRA_the_state_of_the_nation }
-	x = -12
+	x = -10
 	y = 7
 	relative_position_id = FRA_the_strikers_hit
 	cost = 5
@@ -578,6 +578,9 @@ focus_tree = {
     ai_will_do = {
       factor = 1
     }
+	available = {
+		has_country_flag = FRA_unlock_new_branch
+	}
 
     available_if_capitulated = yes
     search_filters = { FOCUS_FILTER_RESEARCH }
@@ -899,6 +902,9 @@ focus_tree = {
     ai_will_do = {
       factor = 1
     }
+	available = {
+		has_country_flag = FRA_unlock_new_branch
+	}
 
     available_if_capitulated = yes
     search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2210,7 +2216,7 @@ focus_tree = {
 		icon = GFX_goal_emanc_name
 		text = FRA_the_strikers_hit
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		x = 33
+		x = 32
 		y = 0
 		cost = 2
 		ai_will_do = {
@@ -5116,6 +5122,12 @@ set_state_flag = 24
 			bypass = {
 				
 			}
+			available = {
+				OR = {
+					has_completed_focus = FRA_NAPOLEON
+					has_completed_focus = FRA_PATH_AGGRESSION
+				}
+			}
 		
 		
 			available_if_capitulated = yes
@@ -5234,7 +5246,7 @@ set_state_flag = 24
 				focus = FRA_REESTABLISH_EMPIRE
 			}
 			ai_will_do = {
-				factor = 1
+				factor = 2000
 			}
 			completion_reward = {
 				add_ideas= La_Patrie_En_Danger
@@ -5252,7 +5264,7 @@ set_state_flag = 24
 			prerequisite = { focus = FRA_law_on_the_country_in_danger }
 			relative_position_id = FRA_law_on_the_country_in_danger
 			ai_will_do = {
-				factor = 1
+				factor = 2000
 			}
 			completion_reward = {
 				FGD = {
@@ -5439,7 +5451,7 @@ set_state_flag = 24
 			}
 			cost = 10
 			ai_will_do = {
-				factor = 20
+				factor = 2000
 			}
 			mutually_exclusive = {
 				focus = FRA_law_on_the_country_in_danger
@@ -5467,7 +5479,7 @@ set_state_flag = 24
 			relative_position_id = FRA_REESTABLISH_EMPIRE
 			cost = 5
 			ai_will_do = {
-				factor = 20
+				factor = 2000
 			}
 		
 			bypass = {
@@ -5484,6 +5496,10 @@ set_state_flag = 24
 					}
 				}
 				
+			}
+
+			available = {
+				has_country_flag = FRA_chose_intervention_against_prussia
 			}
 		
 			available_if_capitulated = yes
@@ -5513,7 +5529,7 @@ set_state_flag = 24
 			relative_position_id = FRA_DEMAND_WEST_ITALY
 			cost = 5
 			ai_will_do = {
-				factor = 20
+				factor = 2000
 			}
 			bypass = {
 				OR = {
@@ -5550,7 +5566,7 @@ set_state_flag = 24
 			relative_position_id = FRA_RESTART_WARS
 			cost = 5
 			ai_will_do = {
-				factor = 20
+				factor = 2000
 			}
 			available = {
 				has_war_with = GER
@@ -5592,7 +5608,7 @@ set_state_flag = 24
 			relative_position_id = FRA_DANUBE_CAMPAIGN
 			cost = 5
 			ai_will_do = {
-				factor = 20
+				factor = 2000
 			}
 			bypass = {
 				OR = {
@@ -5629,7 +5645,7 @@ set_state_flag = 24
 			relative_position_id = FRA_TAKING_OUT_THE_SGC
 			cost = 5
 			ai_will_do = {
-				factor = 20
+				factor = 2000
 			}
 		
 			available_if_capitulated = yes
@@ -5667,6 +5683,7 @@ set_state_flag = 24
 				FGD = {
 					add_stability = 0.1
 					add_political_power = 100
+					set_cosmetic_tag = confederation_of_the_rhine
 				}
 			}
 		}
@@ -5691,6 +5708,12 @@ set_state_flag = 24
 				ai_will_do = {
 					factor = 20
 				}
+				available = {
+					OR = {
+						has_completed_focus = FRA_NAPOLEON
+						has_completed_focus = FRA_PATH_AGGRESSION
+					}
+				}
 				
 		
 				available_if_capitulated = yes
@@ -5708,7 +5731,7 @@ set_state_flag = 24
 				text = FRA_the_chaotic_westfalen
 				x = -1
 				y = 1
-				cost = 5
+				cost = 2
 				ai_will_do = {
 					factor = 20
 				}
@@ -5716,12 +5739,7 @@ set_state_flag = 24
 					focus = FRA_the_french_imperium
 				}
 				relative_position_id = FRA_the_french_imperium
-				available = {
-					OR = {
-						has_completed_focus = FRA_NAPOLEON
-						has_completed_focus = FRA_PATH_AGGRESSION
-					}
-				}
+				
 				#prerequisite = {focus = FRA_the_french_imperium}
 				#relative_position_id = FRA_the_french_imperium
 		#
@@ -5740,7 +5758,7 @@ set_state_flag = 24
 				text = FRA_managing_the_instability
 				x = 1
 				y = 1
-				cost = 5
+				cost = 8
 				ai_will_do = {
 					factor = 20
 				}
@@ -5767,7 +5785,7 @@ set_state_flag = 24
 			text = FRA_our_crown_jewel
 			x = 0
 			y = 1
-			cost = 5
+			cost = 4
 			ai_will_do = {
 				factor = 20
 			}
