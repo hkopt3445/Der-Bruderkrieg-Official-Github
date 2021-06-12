@@ -4933,7 +4933,7 @@ set_state_flag = 24
 			mutually_exclusive = {
 				focus = FRA_BRUSSELLS_CONFERENCE
 			}
-			x = -3
+			x = -2
 			y = 3
 			relative_position_id = FRA_reinforcing_neue_code_napoleon
 			cost = 5
@@ -4956,7 +4956,7 @@ set_state_flag = 24
 			}
 		
 			will_lead_to_war_with = BEL
-		
+		 
 			available_if_capitulated = yes
 			search_filters = { FOCUS_FILTER_RESEARCH }
 		
@@ -4984,7 +4984,7 @@ set_state_flag = 24
 		
 			
 		
-			x = 1
+			x = 2
 			y = 3
 			relative_position_id = FRA_reinforcing_neue_code_napoleon
 			cost = 5
@@ -5019,7 +5019,7 @@ set_state_flag = 24
 			text = FRA_SOLIDIFY_CONTROL
 			prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
 			
-			x = -1
+			x = 1
 			y = 1
 			relative_position_id = FRA_BRUSSELLS_CONFERENCE
 			cost = 5
@@ -5057,8 +5057,8 @@ set_state_flag = 24
 			id = FRA_FORTIFY_BENELUX_BORDER
 			icon = GFX_goal_Fortify_Benelux
 			text = FRA_FORTIFY_BENELUX_BORDER
-			prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
-			x = 1
+			prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE focus = FRA_ANNEX_BELGIUM }
+			x = -2
 			y = 1
 			relative_position_id = FRA_BRUSSELLS_CONFERENCE
 			cost = 5
@@ -5116,14 +5116,16 @@ set_state_flag = 24
 			
 			cost = 5
 			ai_will_do = {
-				factor = 20
-				modifier = {
-					add = 2000
-					OR = {
-						has_completed_focus = FRA_ANNEX_BELGIUM
-						has_completed_focus = FRA_BRUSSELLS_CONFERENCE
-					}
-				}
+				# factor = 20
+				# modifier = {
+				# 	add = 2000
+				# 	OR = {
+				# 		has_completed_focus = FRA_ANNEX_BELGIUM
+				# 		has_completed_focus = FRA_BRUSSELLS_CONFERENCE
+				# 	}
+				# }
+
+				factor = 2000
 			}
 		
 			bypass = {
@@ -5465,7 +5467,7 @@ set_state_flag = 24
 			}
 			cost = 10
 			ai_will_do = {
-				factor = 1000
+				factor = 0
 			}
 			mutually_exclusive = {
 				focus = FRA_law_on_the_country_in_danger
@@ -5683,10 +5685,10 @@ set_state_flag = 24
 			icon = GFX_goal_Napoleonic_Superpower
 			text = FRA_the_confederation_of_the_rhine
 			#prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
-			prerequisite = {focus = FRA_demand_hannovers_integration}
+			prerequisite = {focus = FRA_our_crown_jewel}
 			x = 0
 			y = 1
-			relative_position_id = FRA_demand_hannovers_integration
+			relative_position_id = FRA_our_crown_jewel
 			cost = 5
 			ai_will_do = {
 				factor = 20
@@ -5800,7 +5802,7 @@ set_state_flag = 24
 			id = FRA_our_crown_jewel
 			icon = GFX_goal_FRA_our_crown_jewel
 			text = FRA_our_crown_jewel
-			x = 0
+			x = -1
 			y = 1
 			cost = 4
 			ai_will_do = {
@@ -5848,26 +5850,26 @@ set_state_flag = 24
 				}
 			}
 		}
-		shared_focus = {
-			id = FRA_demand_hannovers_integration
-			icon = GFX_goal_FRA_demand_hannovers_integration
-			text = FRA_demand_hannovers_integration
-			x = -2
-			y = 1
-			cost = 5
-			ai_will_do = {
-				factor = 20
-			}
-			prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
-			relative_position_id = FRA_reinforcing_neue_code_napoleon
+		# shared_focus = {
+		# 	id = FRA_demand_hannovers_integration
+		# 	icon = GFX_goal_FRA_demand_hannovers_integration
+		# 	text = FRA_demand_hannovers_integration
+		# 	x = -2
+		# 	y = 1
+		# 	cost = 5
+		# 	ai_will_do = {
+		# 		factor = 20
+		# 	}
+		# 	prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
+		# 	relative_position_id = FRA_reinforcing_neue_code_napoleon
 		
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_RESEARCH }
+		# 	available_if_capitulated = yes
+		# 	search_filters = { FOCUS_FILTER_RESEARCH }
 		
-			completion_reward = {
-				HAN = {country_event =  napoleanfrance.13}
-			}
-		}
+		# 	completion_reward = {
+		# 		HAN = {country_event =  napoleanfrance.13}
+		# 	}
+		# }
 		
 		
 		shared_focus = {
@@ -5902,14 +5904,14 @@ set_state_flag = 24
 			id = FRA_mobilization_of_the_rhine_guard
 			icon = GFX_goal_FRA_mobilization_of_the_rhine_guard
 			text = FRA_mobilization_of_the_rhine_guard
-			x = 2
+			x = 1
 			y = 1
 			cost = 5
 			ai_will_do = {
 				factor = 20
 			}
-			prerequisite = {focus = FRA_managing_the_instability}
-			relative_position_id = FRA_managing_the_instability
+			prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
+			relative_position_id = FRA_reinforcing_neue_code_napoleon
 		
 			available_if_capitulated = yes
 			search_filters = { FOCUS_FILTER_RESEARCH }
