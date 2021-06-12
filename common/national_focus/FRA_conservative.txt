@@ -60,7 +60,7 @@ focus_tree = {
 	icon = GFX_focus_research
 	text = FRA_expand_the_sorbonne_university
 	#prerequisite = { focus = FRA_the_state_of_the_nation }
-	x = -10
+	x = -9
 	y = 8
 	relative_position_id = FRA_the_strikers_hit
 	cost = 5
@@ -1123,7 +1123,7 @@ focus_tree = {
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_goal_FRA_conservative_vic
     text = FRA_CONSERVATIVES_PREVAIL
-    x = 9
+    x = 7
     y = 0
     #relative_position_id = FRA_national_development_bureau
     cost = 0
@@ -4938,7 +4938,7 @@ set_state_flag = 24
 			relative_position_id = FRA_reinforcing_neue_code_napoleon
 			cost = 5
 			ai_will_do = {
-				factor = 30
+				factor = 200
 			}
 			available = {
 			
@@ -4989,7 +4989,7 @@ set_state_flag = 24
 			relative_position_id = FRA_reinforcing_neue_code_napoleon
 			cost = 5
 			ai_will_do = {
-				factor = 20
+				factor = 200
 			}
 			
 		
@@ -5110,13 +5110,20 @@ set_state_flag = 24
 			
 			
 		
-			x = 17
+			x = 24
 			y = 0
 			
 			
 			cost = 5
 			ai_will_do = {
-				factor = 2000
+				factor = 20
+				modifier = {
+					add = 2000
+					OR = {
+						has_completed_focus = FRA_ANNEX_BELGIUM
+						has_completed_focus = FRA_BRUSSELLS_CONFERENCE
+					}
+				}
 			}
 		
 			bypass = {
@@ -5226,9 +5233,7 @@ set_state_flag = 24
 			completion_reward = {
 				add_war_support = 0.05
 		
-				158 = {
-					add_core_of = FRA
-				}
+				
 			}
 		}
 		
@@ -5432,7 +5437,16 @@ set_state_flag = 24
 			search_filters = { FOCUS_FILTER_RESEARCH }
 		
 			completion_reward = {
-				ITA = {country_event = {id = napoleanfrance.10}}
+				#ITA = {country_event = {id = napoleanfrance.10}}
+				158 = {
+					add_core_of = FRA
+				}
+				157 = {
+					add_core_of = FRA
+				}
+				891 = {
+					add_core_of = FRA
+				}
 			}
 		}
 		
@@ -5451,7 +5465,7 @@ set_state_flag = 24
 			}
 			cost = 10
 			ai_will_do = {
-				factor = 2000
+				factor = 1000
 			}
 			mutually_exclusive = {
 				focus = FRA_law_on_the_country_in_danger
@@ -5610,6 +5624,9 @@ set_state_flag = 24
 			ai_will_do = {
 				factor = 2000
 			}
+			available = {
+				has_country_flag = FRA_has_beaten_prussia
+			}
 			bypass = {
 				OR = {
 					NOT = {
@@ -5702,11 +5719,11 @@ set_state_flag = 24
 				id = FRA_the_french_imperium
 				icon = GFX_goal_AUS_sign_a_new_constitution
 				text = FRA_the_french_imperium
-				x = 27
+				x = 18
 				y = 0
 				cost = 5
 				ai_will_do = {
-					factor = 20
+					factor = 200
 				}
 				available = {
 					OR = {
@@ -5733,7 +5750,7 @@ set_state_flag = 24
 				y = 1
 				cost = 2
 				ai_will_do = {
-					factor = 20
+					factor = 200
 				}
 				prerequisite = {
 					focus = FRA_the_french_imperium
@@ -5760,7 +5777,7 @@ set_state_flag = 24
 				y = 1
 				cost = 8
 				ai_will_do = {
-					factor = 20
+					factor = 200
 				}
 				prerequisite = {focus = FRA_the_chaotic_westfalen}
 				relative_position_id = FRA_the_chaotic_westfalen
@@ -5810,7 +5827,7 @@ set_state_flag = 24
 			y = 1
 			cost = 5
 			ai_will_do = {
-				factor = 20
+				factor = 200
 			}
 			prerequisite = {focus = FRA_managing_the_instability}
 			available = {
