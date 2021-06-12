@@ -1,19 +1,19 @@
-FRA_solve_countryside_problem = {
-	icon = army_reform
-	allowed = {
-    tag = FRA
-	}
+# FRA_solve_countryside_problem = {
+# 	icon = army_reform
+# 	allowed = {
+#     tag = FRA
+# 	}
 
-  visible_when_empty = yes
+#   visible_when_empty = yes
 
-	visible = {
-		tag = FRA
+# 	visible = {
+# 		tag = FRA
 		
-	NOT = {
-		has_country_flag = FRA_countryside_developed_flag
-	}
-	}
-}
+# 	NOT = {
+# 		has_country_flag = FRA_countryside_developed_flag
+# 	}
+# 	}
+# }
 
 FRA_worker_strikes = {
 	icon = army_reform
@@ -61,6 +61,12 @@ FRA_balancing_the_autocracy = {
   
 	visible = {
 		has_country_flag = FRA_balancing_the_autocracy
+		NOT = {
+			OR = {
+				has_completed_focus = FRA_CLASS_HIERARCHY
+				has_completed_focus = FRA_MILITARY_HIEARCHY
+			}
+		}
 	}
 }
 
@@ -127,6 +133,9 @@ FRA_hunting_westfalen_nationalists = {
 
 	visible = {
 		has_country_flag = allow_westfalen_gui		
+		NOT = {
+			has_country_flag = FRA_westfalen_nationalist_coup_crushed
+		}
 	}
 }
 
