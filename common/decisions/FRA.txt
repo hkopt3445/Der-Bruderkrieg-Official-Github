@@ -1,175 +1,175 @@
-FRA_solve_countryside_problem = {
-	FRA_build_infrastructure_in_from = {
-		available = {
-		  tag = FRA
+# FRA_solve_countryside_problem = {
+# 	FRA_build_infrastructure_in_from = {
+# 		available = {
+# 		  tag = FRA
 		  
-		}
-		state_target = yes
+# 		}
+# 		state_target = yes
 
-		visible = {
-		  tag = FRA
-		  has_completed_focus = FRA_encourage_infrastructure
-		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
-		}
-		target_trigger = {
-			FROM = {
-				OR = { 
-					has_state_category = rural 
-					has_state_category = pastoral 
-					has_state_category = town 
-				}
-				is_on_continent = europe				
-				is_owned_by = FRA
-			}
-		}
-		cost = 10
-		days_remove = 10 
-		on_map_mode = map_and_decisions_view
-		ai_will_do = {
-		  factor = 20
-		  modifier = {
-			has_war = yes
-			factor = 0
-		  }
-		}
-		remove_effect = {
-		  add_to_variable = {
-			FRA_develoepd_countryside_var  = 3
-		  }
+# 		visible = {
+# 		  tag = FRA
+# 		  has_completed_focus = FRA_encourage_infrastructure
+# 		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
+# 		}
+# 		target_trigger = {
+# 			FROM = {
+# 				OR = { 
+# 					has_state_category = rural 
+# 					has_state_category = pastoral 
+# 					has_state_category = town 
+# 				}
+# 				is_on_continent = europe				
+# 				is_owned_by = FRA
+# 			}
+# 		}
+# 		cost = 10
+# 		days_remove = 10 
+# 		on_map_mode = map_and_decisions_view
+# 		ai_will_do = {
+# 		  factor = 20
+# 		  modifier = {
+# 			has_war = yes
+# 			factor = 0
+# 		  }
+# 		}
+# 		remove_effect = {
+# 		  add_to_variable = {
+# 			FRA_develoepd_countryside_var  = 3
+# 		  }
 
-		  add_building_construction = { 
-			type = infrastructure
-			level = 1
-			instant_build = yes
-		}
-		add_extra_state_shared_building_slots = 1
-		}
-	}
+# 		  add_building_construction = { 
+# 			type = infrastructure
+# 			level = 1
+# 			instant_build = yes
+# 		}
+# 		add_extra_state_shared_building_slots = 1
+# 		}
+# 	}
 	
-	FRA_expand_local_villages_in_from = {
-		available = { 
-		  tag = FRA
+# 	FRA_expand_local_villages_in_from = {
+# 		available = { 
+# 		  tag = FRA
 		  
-		}
-		state_target = yes
+# 		}
+# 		state_target = yes
 
-		visible = {
-		  tag = FRA
-		  has_completed_focus = FRA_expand_local_villages
-		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
-		}
-		target_trigger = {
-			FROM = {
-				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
-is_on_continent = europe				is_owned_by = FRA
-			}
-		}
-		cost = 10
-		days_remove = 10
-		on_map_mode = map_and_decisions_view
-		ai_will_do = {
-		  factor = 20
-		  modifier = {
-			has_war = yes
-			factor = 0
-		  }
-		}
-		remove_effect = {
-			add_to_variable = {
-				FRA_develoepd_countryside_var  = 3
-			  }
-			add_state_modifier = {
-				modifier = {
-					local_building_slots_factor	= 0.2
-					production_speed_industrial_complex_factor = 0.05
-				}
-				days = 30
-			}
-		}
-	}
-	FRA_modernize_local_villages_in_from = {
-		available = {
-		  tag = FRA
+# 		visible = {
+# 		  tag = FRA
+# 		  has_completed_focus = FRA_expand_local_villages
+# 		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
+# 		}
+# 		target_trigger = {
+# 			FROM = {
+# 				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
+# is_on_continent = europe				is_owned_by = FRA
+# 			}
+# 		}
+# 		cost = 10
+# 		days_remove = 10
+# 		on_map_mode = map_and_decisions_view
+# 		ai_will_do = {
+# 		  factor = 20
+# 		  modifier = {
+# 			has_war = yes
+# 			factor = 0
+# 		  }
+# 		}
+# 		remove_effect = {
+# 			add_to_variable = {
+# 				FRA_develoepd_countryside_var  = 3
+# 			  }
+# 			add_state_modifier = {
+# 				modifier = {
+# 					local_building_slots_factor	= 0.2
+# 					production_speed_industrial_complex_factor = 0.05
+# 				}
+# 				days = 30
+# 			}
+# 		}
+# 	}
+# 	FRA_modernize_local_villages_in_from = {
+# 		available = {
+# 		  tag = FRA
 		  
-		}
-		state_target = yes
+# 		}
+# 		state_target = yes
 
-		visible = {
-		  tag = FRA
-		  has_completed_focus = FRA_solving_frances_problems
-		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
-		}
-		target_trigger = {
-			FROM = {
-				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
-is_on_continent = europe				is_owned_by = FRA
-			}
-		}
-		cost = 15
-		days_remove = 10
-		on_map_mode = map_and_decisions_view
-		ai_will_do = {
-		  factor = 20
-		  modifier = {
-			has_war = yes
-			factor = 0
-		  }
-		}
-		remove_effect = {
-			add_to_variable = {
-				FRA_develoepd_countryside_var  = 3
-			  }
+# 		visible = {
+# 		  tag = FRA
+# 		  has_completed_focus = FRA_solving_frances_problems
+# 		  FROM = { OR = { has_state_category = rural has_state_category = pastoral has_state_category = town } is_on_continent = europe}
+# 		}
+# 		target_trigger = {
+# 			FROM = {
+# 				OR = { has_state_category = rural has_state_category = pastoral has_state_category = town }
+# is_on_continent = europe				is_owned_by = FRA
+# 			}
+# 		}
+# 		cost = 15
+# 		days_remove = 10
+# 		on_map_mode = map_and_decisions_view
+# 		ai_will_do = {
+# 		  factor = 20
+# 		  modifier = {
+# 			has_war = yes
+# 			factor = 0
+# 		  }
+# 		}
+# 		remove_effect = {
+# 			add_to_variable = {
+# 				FRA_develoepd_countryside_var  = 3
+# 			  }
 
-			  add_state_modifier = {
-				modifier = {
-					industrial_capacity_factory = 0.1
-				}
-				days = 30
-			}
-		}
-	}
+# 			  add_state_modifier = {
+# 				modifier = {
+# 					industrial_capacity_factory = 0.1
+# 				}
+# 				days = 30
+# 			}
+# 		}
+# 	}
 
 
-	FRA_declare_the_countryside_developed = {
+# 	FRA_declare_the_countryside_developed = {
 
-		icon = eng_trade_unions_demand
+# 		icon = eng_trade_unions_demand
 
-		allowed = {
-			custom_trigger_tooltip = {
-				tooltip = FRA_countryside_developed_tt 
-				check_variable = {
-					var = FRA_develoepd_countryside_var value = 30 compare = greater_than_or_equals
-				}
-			}
-		}
+# 		allowed = {
+# 			custom_trigger_tooltip = {
+# 				tooltip = FRA_countryside_developed_tt 
+# 				check_variable = {
+# 					var = FRA_develoepd_countryside_var value = 30 compare = greater_than_or_equals
+# 				}
+# 			}
+# 		}
 
-		visible = {
-			check_variable = {
-				var = FRA_develoepd_countryside_var value = 30 compare = greater_than_or_equals
-			}
-		}
+# 		visible = {
+# 			check_variable = {
+# 				var = FRA_develoepd_countryside_var value = 30 compare = greater_than_or_equals
+# 			}
+# 		}
 
-		days_remove = 1 
+# 		days_remove = 1 
  
-		cost = 0 
+# 		cost = 0 
 
-		fire_only_once = no
+# 		fire_only_once = no
 
-		ai_will_do = {
-			factor = 10
-		}
+# 		ai_will_do = {
+# 			factor = 10
+# 		}
 
-		complete_effect = {
-		}
+# 		complete_effect = {
+# 		}
 
-		remove_effect = {
-			set_country_flag = FRA_countryside_developed_flag
-		}
-	}
+# 		remove_effect = {
+# 			set_country_flag = FRA_countryside_developed_flag
+# 		}
+# 	}
 
 
 	
-}
+# }
 
 FRA_worker_strikes = {
 
@@ -1742,6 +1742,9 @@ FRA_colonial_investments_decision_cat = {
   }
 }
 
+
+
+
 FRA_hunting_westfalen_nationalists = {
 	FRA_nationalist_coup = {
 	
@@ -1792,7 +1795,32 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		custom_cost_text = FRA_westflen_cost_text_tt
 		ai_will_do = {
-			factor = 1
+			factor = 0
+			modifier = {
+				add = 1000
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 500
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 4
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = less_than
+					}
+				}
+			}
 		}
 		fire_only_once = no
 		days_remove = 10
@@ -1816,7 +1844,32 @@ FRA_hunting_westfalen_nationalists = {
 			tag = FRA
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 0
+			modifier = {
+				add = 1000
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 500
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 4
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = less_than
+					}
+				}
+			}
 		}
 		fire_only_once = no
 		cost = 25
@@ -1838,7 +1891,32 @@ FRA_hunting_westfalen_nationalists = {
 			tag = FRA
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 0
+			modifier = {
+				add = 1000
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 500
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 4
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = less_than
+					}
+				}
+			}
 		}
 		fire_only_once = no
 		cost = 10
@@ -1861,7 +1939,32 @@ FRA_hunting_westfalen_nationalists = {
 			tag = FRA
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 0
+			modifier = {
+				add = 1000
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 500
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 4
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = less_than
+					}
+				}
+			}
 		}
 		fire_only_once = no
 		cost = 15
@@ -1885,7 +1988,32 @@ FRA_hunting_westfalen_nationalists = {
 			tag = FRA
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 0
+			modifier = {
+				add = 1000
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 500
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 4
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = less_than
+					}
+				}
+			}
 		}
 	
 		fire_only_once = no
@@ -1913,7 +2041,32 @@ FRA_hunting_westfalen_nationalists = {
 			tag = FRA
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 0
+			modifier = {
+				add = 1000
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 500
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 4
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = less_than
+					}
+				}
+			}
 		}
 		cost = 20
 		custom_cost_trigger = {
@@ -1947,7 +2100,32 @@ FRA_hunting_westfalen_nationalists = {
 			tag = FRA
 		}	
 		ai_will_do = {
-			factor = 1
+			factor = 0
+			modifier = {
+				add = 1000
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 500
+				event_target:current_westfalen_gui_state = {
+					check_variable = {
+						var = nationalist_influence 
+						value = 4
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = nationalist_influence 
+						value = 7
+						compare = less_than
+					}
+				}
+			}
 		}
 		custom_cost_trigger = {
 			has_army_manpower = {
@@ -1969,24 +2147,20 @@ FRA_hunting_westfalen_nationalists = {
 	FRA_stop_the_coup = {
 		icon = generic_operation
 		available = {
-			FGD = {
-				all_owned_state = {
-				
-					is_in_array = {
-						array = FGD.nationalist_states_array
-						value = THIS
-					}
-					
-					check_variable = { nationalist_influence < 7 }
-				}
+			custom_trigger_tooltip = {
+			tooltip = FRA_all_states_have_been_pacified
+				all_of_scopes = {
+				array = FGD.nationalist_states_array	
+				check_variable = { nationalist_influence < 4 }
 			}
-			
+		}
+
 		}
 		visible = {
 			tag = FRA
 		}	
 		ai_will_do = {
-			factor = 1
+			factor = 1000
 		}
 		
 		fire_only_once = no
