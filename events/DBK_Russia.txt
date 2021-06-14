@@ -3913,3 +3913,79 @@ country_event = {
 		}
 	}
 }
+
+######################
+#Kornilov Tree Events
+######################
+
+add_namespace = KLV_kornilov_tree_events
+
+#Rivaling Wrangels Influence!
+country_event = {
+	id = KLV_kornilov_tree_events.1
+	title = KLV_kornilov_tree_events.1.t
+	desc = KLV_kornilov_tree_events.1.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = KLV_kornilov_tree_events.1.a
+	}
+}
+
+#They Decline
+country_event = {
+	id = KLV_kornilov_tree_events.2
+	title = KLV_kornilov_tree_events.2.t
+	desc = KLV_kornilov_tree_events.2.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = KLV_kornilov_tree_events.2.a
+		complete_national_focus = KLV_they_decline
+	}
+}
+
+#They Accept!
+country_event = {
+	id = KLV_kornilov_tree_events.3
+	title = KLV_kornilov_tree_events.3.t
+	desc = KLV_kornilov_tree_events.3.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = KLV_kornilov_tree_events.3.a
+		complete_national_focus = KLV_they_accept
+	}
+}
+####################
+#Novorossyia Events
+####################
+
+add_namespace = NVR_kornilov_subjugation
+
+#Kornilov Asks for Annexation!
+country_event = {
+	id = NVR_kornilov_subjugation.1
+	title = NVR_kornilov_subjugation.t
+	desc = NVR_kornilov_subjugation.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = NVR_kornilov_subjugation.a
+		ai_chance = { factor = 50 }
+                KLV = {
+                        country_event = {
+                                id = KLV_kornilov_tree_events.2
+                        }
+                }
+	}
+	option = {
+		name = NVR_kornilov_subjugation.b
+		ai_chance = { factor = 50 }
+                KLV = {
+                        country_event = {
+                                id = KLV_kornilov_tree_events.3
+                        }
+                }
+	}
+}
