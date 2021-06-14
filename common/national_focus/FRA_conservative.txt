@@ -1154,10 +1154,10 @@ focus_tree = {
     icon = GFX_goal_FRA_a_meeting_with_the_doctrinaires
     text = FRA_DOCTRINAIRE_VIC
 
-    x = 1
+    x = 0
     y = 1
-		prerequisite = {focus = FRA_NOBLE_RULE}
-    relative_position_id = FRA_NOBLE_RULE
+		prerequisite = {focus = FRA_CONSERVATIVES_PREVAIL}
+    relative_position_id = FRA_CONSERVATIVES_PREVAIL
     cost = 5
     ai_will_do = {
       factor = 2000
@@ -1190,7 +1190,7 @@ focus_tree = {
 		available = {
 			always = no
 		}
-    x = 1
+    x = -2
     y = 1
     relative_position_id = FRA_DOCTRINAIRE_VIC
     cost = 5
@@ -1214,7 +1214,7 @@ focus_tree = {
 	icon = GFX_goal_FRA_restore_the_constitution_to_1852
     text = FRA_RESTORE_1852
 		prerequisite = { focus = FRA_DOCTRINAIRE_RIGHT }
-    x = 1
+    x = 0
     y = 1
     relative_position_id = FRA_DOCTRINAIRE_RIGHT
     cost = 5
@@ -1239,10 +1239,10 @@ focus_tree = {
     id = FRA_LE_EMPEROR
     icon = GFX_goal_FRA_le_empereur
     text = FRA_LE_EMPEROR
-		prerequisite = { focus = FRA_RESTORE_1852 }
-    x = 0
+		prerequisite = { focus = FRA_NOBLE_RULE }
+    x = 1
     y = 1
-    relative_position_id = FRA_RESTORE_1852
+    relative_position_id = FRA_NOBLE_RULE
     cost = 5
     ai_will_do = {
       factor = 2000
@@ -1731,7 +1731,7 @@ focus_tree = {
     icon = GFX_focus_focus_fra_fascist_threat
     text = FRA_CAGOULE_CABINET
 		prerequisite = { focus = FRA_FASCIST_VIC }
-    x = -2
+    x = 0
     y = 1
     relative_position_id = FRA_FASCIST_VIC
     cost = 5
@@ -1763,9 +1763,9 @@ focus_tree = {
     id = FRA_END_CONSTITUTIONALISM
     icon = GFX_goal_FRA_end_constitutionalism
     text = FRA_END_CONSTITUTIONALISM
-		prerequisite = { focus = FRA_CAGOULE_CABINET }
+		prerequisite = { focus = FRA_CAGOULE_CABINET focus = FRA_BONAPARTIST_ABSOLUTISM }
 	
-    x = -1
+    x = 1
     y = 1
     relative_position_id = FRA_CAGOULE_CABINET
     cost = 5
@@ -1871,13 +1871,13 @@ focus_tree = {
 
   shared_focus = {
 	id = FRA_PATH_AGGRESSION
-	icon = GFX_goal_pursueaggresion
+	icon = GFX_goal_FRA_pursue_a_path_of_aggression
 	text = FRA_PATH_AGGRESSION
 	prerequisite = { focus = FRA_GARDE_DE_FRATIRNITE }
-	prerequisite = { focus = FRA_the_cult_of_napoleon }
-	prerequisite = {
-		focus = FRA_CHRISTUS_REX
-	}
+	# prerequisite = { focus = FRA_the_cult_of_napoleon }  
+	# prerequisite = {
+	# 	focus = FRA_CHRISTUS_REX
+	# }
 	x = -1
 	y = 2
 	relative_position_id = FRA_the_cult_of_napoleon
@@ -1907,10 +1907,10 @@ focus_tree = {
 		id = FRA_LEGACY_OF_CHARLEGMEGNE
 		icon = GFX_goal_FRA_legacy_of_charlegemgne
 		text = FRA_LEGACY_OF_CHARLEGMEGNE
-		prerequisite = { focus = FRA_DOCTRINAIRE_VIC }
-		x = -1
+		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM }
+		x = 3
 		y = 1
-		relative_position_id = FRA_DOCTRINAIRE_VIC
+		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2066,7 +2066,7 @@ focus_tree = {
 		icon = GFX_focus_por_concordat
 		text = FRA_PIETY
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = FRA_IMPERIAL_GLORY
 		cost = 5
@@ -2088,9 +2088,9 @@ focus_tree = {
 		id = FRA_CHRISTUS_REX
 		icon = GFX_focus_spa_no_compromise_on_carlist_ideals
 		text = FRA_CHRISTUS_REX
-		prerequisite = { focus = FRA_PIETY focus = FRA_the_cult_of_napoleon }
-		x = -1
-		y = 2
+		prerequisite = { focus = FRA_PIETY }
+		x = 1
+		y = 1
 		relative_position_id = FRA_PIETY
 		cost = 5
 		ai_will_do = {
@@ -2112,10 +2112,11 @@ focus_tree = {
 		id = FRA_IMPERIAL_GLORY
 		icon = GFX_goal_FRA_imperial_glory
 		text = FRA_IMPERIAL_GLORY
-		prerequisite = { focus = FRA_LEGACY_OF_CHARLEGMEGNE }
-		x = 0
+		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_CAGOULE_CABINET }
+		
+		x = -1
 		y = 1
-		relative_position_id = FRA_LEGACY_OF_CHARLEGMEGNE
+		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2134,7 +2135,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_deus_omnia_vincit
 		text = FRA_DEUS_OMNIA
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = FRA_IMPERIAL_GLORY
 		cost = 5
@@ -2157,7 +2158,7 @@ focus_tree = {
 		text = FRA_RULE_FRANKIA
 		prerequisite = { focus = FRA_PIETY}
 		prerequisite = { focus = FRA_DEUS_OMNIA}
-		x = -1
+		x = 1
 		y = 1
 		relative_position_id = FRA_DEUS_OMNIA
 		cost = 5
@@ -2180,10 +2181,10 @@ focus_tree = {
 		id = FRA_AUTOCRACY
 		icon = GFX_goal_FRA_autocracy
 		text = FRA_AUTOCRACY
-		prerequisite = { focus = FRA_CONSERVATIVES_PREVAIL}
+		prerequisite = { focus = FRA_RESTORE_1852}
 		x = 0
 		y = 1
-		relative_position_id = FRA_CONSERVATIVES_PREVAIL
+		relative_position_id = FRA_RESTORE_1852
 		cost = 5
 		ai_will_do = {
 			factor = 2000
@@ -2848,8 +2849,7 @@ focus_tree = {
 
 	shared_focus = {
 		id = FRA_CLASS_HIERARCHY
-		
-		icon = GFX_goal_FRA_robe_nobility
+		icon = GFX_goal_FRA_class_hierarchy
 		text = FRA_CLASS_HIERARCHY
 		prerequisite = { focus = FRA_AUTOCRACY}
 		mutually_exclusive = {focus = FRA_MILITARY_HIEARCHY}
@@ -2882,7 +2882,7 @@ focus_tree = {
 	shared_focus = {
 		id = FRA_MILITARY_HIEARCHY
 		
-		icon = GFX_goal_FRA_sword_nobility
+		icon = GFX_goal_FRA_military_hierarchy
 		text = FRA_MILITARY_HIEARCHY
 		prerequisite = { focus = FRA_AUTOCRACY}
 		mutually_exclusive = {focus = FRA_CLASS_HIERARCHY}
@@ -3343,12 +3343,14 @@ focus_tree = {
 		icon = GFX_goal_Uphold_Napoleonic_Ideas #########Napoleon
 		text = FRA_NAPOLEON
 		prerequisite = { focus = FRA_RULE_FRANKIA }
-		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
 		prerequisite = {
 			focus = FRA_CHRISTUS_REX
 		}
-		x = 2
-		y = 2
+		prerequisite = {
+			focus = FRA_the_cult_of_napoleon
+		}
+		x = -1
+		y = 1
 		relative_position_id = FRA_RULE_FRANKIA
 		mutually_exclusive = {
 			#focus = FRA_PATH_AGGRESSION
