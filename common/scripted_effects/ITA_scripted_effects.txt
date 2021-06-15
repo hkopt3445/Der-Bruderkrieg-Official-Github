@@ -261,95 +261,97 @@ ITA_named_vars_NFP_graph_set_up = {
 	set_variable = { ITA_futurist_influence_in_NFP = 0.2  }
 	set_variable = { ITA_mvsn_influence_in_NFP = 0.15  }
 
-	ITA_NFP_radar_graph_set_up = yes
-	ITA_NFP_convert_axes_values_to_frames = yes
-}
-
-ITA_NFP_radar_graph_set_up = {
-	# Sets up random values from 4-9 for each of the axes on the radar graph
-
-	set_variable = { ITA_MVSN_radar_0 = ITA_mussolini_influence_in_NFP  } ###Mussolini
-	multiply_variable = { ITA_MVSN_radar_0 = 5 }
-	add_to_variable = { ITA_MVSN_radar_0 = 4 }
-	subtract_from_variable = { ITA_MVSN_radar_0 = 0.5 }
-	round_variable = ITA_MVSN_radar_0
-
-	set_variable = { ITA_MVSN_radar_1 = ITA_evola_influence_in_NFP  } ###Evola
-	multiply_variable = { ITA_MVSN_radar_1 = 5 }
-	add_to_variable = { ITA_MVSN_radar_1 = 4 }
-	subtract_from_variable = { ITA_MVSN_radar_1 = 0.5 }
-	round_variable = ITA_MVSN_radar_1
-
-	set_variable = { ITA_MVSN_radar_2 = ITA_conservative_influence_in_NFP } ###Conservatives
-	multiply_variable = { ITA_MVSN_radar_2 = 5 }
-	add_to_variable = { ITA_MVSN_radar_2 = 4 }
-	subtract_from_variable = { ITA_MVSN_radar_2 = 0.5 }
-	round_variable = ITA_MVSN_radar_2
-
-	set_variable = { ITA_MVSN_radar_3 = ITA_futurist_influence_in_NFP  } ###Futurists
-	multiply_variable = { ITA_MVSN_radar_3 = 5 }
-	add_to_variable = { ITA_MVSN_radar_3 = 4 }
-	subtract_from_variable = { ITA_MVSN_radar_3 = 0.5 }
-	round_variable = ITA_MVSN_radar_3
-
-	set_variable = { ITA_MVSN_radar_4 = ITA_mvsn_influence_in_NFP  } ##MVSN
-	multiply_variable = { ITA_MVSN_radar_4 = 5 }
-	add_to_variable = { ITA_MVSN_radar_4 = 4 }
-	subtract_from_variable = { ITA_MVSN_radar_4 = 0.5 }
-	round_variable = ITA_MVSN_radar_4
-}
-
-
-
-ITA_NFP_convert_axes_values_to_frames = {
-	# Computes the frame values for each of the radar graph progress bars, based on these inputs
-
-	set_variable = { ITA_MVSN_radar_display_0 = ITA_MVSN_radar_0 }
-	multiply_variable = { ITA_MVSN_radar_display_0 = 10 }
-	add_to_variable = { ITA_MVSN_radar_display_0 = ITA_MVSN_radar_1 }
-
-	set_variable = { ITA_MVSN_radar_display_1 = ITA_MVSN_radar_1  }
-	multiply_variable = { ITA_MVSN_radar_display_1 = 10 }
-	add_to_variable = { ITA_MVSN_radar_display_1 = ITA_MVSN_radar_2 }
-
-	set_variable = { ITA_MVSN_radar_display_2 = ITA_MVSN_radar_2 }
-	multiply_variable = { ITA_MVSN_radar_display_2 = 10 }
-	add_to_variable = { ITA_MVSN_radar_display_2 = ITA_MVSN_radar_3 }
-
-	set_variable = { ITA_MVSN_radar_display_3 = ITA_MVSN_radar_3 }
-	multiply_variable = { ITA_MVSN_radar_display_3 = 10 }
-	add_to_variable = { ITA_MVSN_radar_display_3 = ITA_MVSN_radar_4 }
-
-	set_variable = { ITA_MVSN_radar_display_4 = ITA_MVSN_radar_4 }
-	multiply_variable = { ITA_MVSN_radar_display_4 = 10 }
-	add_to_variable = { ITA_MVSN_radar_display_4 = ITA_MVSN_radar_0 }
-
 	ITA_calc_party_stability_var = yes
 }
+
+
 
 ITA_calc_party_stability_var = { #average
 	set_variable = { ITA_NFP_party_stability = 0 }
 
 	add_to_variable = {
-		ITA_NFP_party_stability = ITA_MVSN_radar_display_0
+		ITA_NFP_party_stability = ITA_mussolini_influence_in_NFP
 	}
 	add_to_variable = {
-		ITA_NFP_party_stability = ITA_MVSN_radar_display_1
+		ITA_NFP_party_stability = ITA_evola_influence_in_NFP
 	}
 	add_to_variable = {
-		ITA_NFP_party_stability = ITA_MVSN_radar_display_2
+		ITA_NFP_party_stability = ITA_conservative_influence_in_NFP
 	}
 	add_to_variable = {
-		ITA_NFP_party_stability = ITA_MVSN_radar_display_3
+		ITA_NFP_party_stability = ITA_futurist_influence_in_NFP
 	}
 	add_to_variable = {
-		ITA_NFP_party_stability = ITA_MVSN_radar_display_4
+		ITA_NFP_party_stability = ITA_mvsn_influence_in_NFP
 	}
 
 	divide_variable = {
 		ITA_NFP_party_stability = 5
 	}
 }
+
+# ITA_NFP_radar_graph_set_up = {
+# 	# Sets up random values from 4-9 for each of the axes on the radar graph
+
+# 	set_variable = { ITA_MVSN_radar_0 = ITA_mussolini_influence_in_NFP  } ###Mussolini
+# 	multiply_variable = { ITA_MVSN_radar_0 = 5 }
+# 	add_to_variable = { ITA_MVSN_radar_0 = 4 }
+# 	subtract_from_variable = { ITA_MVSN_radar_0 = 0.5 }
+# 	round_variable = ITA_MVSN_radar_0
+
+# 	set_variable = { ITA_MVSN_radar_1 = ITA_evola_influence_in_NFP  } ###Evola
+# 	multiply_variable = { ITA_MVSN_radar_1 = 5 }
+# 	add_to_variable = { ITA_MVSN_radar_1 = 4 }
+# 	subtract_from_variable = { ITA_MVSN_radar_1 = 0.5 }
+# 	round_variable = ITA_MVSN_radar_1
+
+# 	set_variable = { ITA_MVSN_radar_2 = ITA_conservative_influence_in_NFP } ###Conservatives
+# 	multiply_variable = { ITA_MVSN_radar_2 = 5 }
+# 	add_to_variable = { ITA_MVSN_radar_2 = 4 }
+# 	subtract_from_variable = { ITA_MVSN_radar_2 = 0.5 }
+# 	round_variable = ITA_MVSN_radar_2
+
+# 	set_variable = { ITA_MVSN_radar_3 = ITA_futurist_influence_in_NFP  } ###Futurists
+# 	multiply_variable = { ITA_MVSN_radar_3 = 5 }
+# 	add_to_variable = { ITA_MVSN_radar_3 = 4 }
+# 	subtract_from_variable = { ITA_MVSN_radar_3 = 0.5 }
+# 	round_variable = ITA_MVSN_radar_3
+
+# 	set_variable = { ITA_MVSN_radar_4 = ITA_mvsn_influence_in_NFP  } ##MVSN
+# 	multiply_variable = { ITA_MVSN_radar_4 = 5 }
+# 	add_to_variable = { ITA_MVSN_radar_4 = 4 }
+# 	subtract_from_variable = { ITA_MVSN_radar_4 = 0.5 }
+# 	round_variable = ITA_MVSN_radar_4
+# }
+
+
+
+# ITA_NFP_convert_axes_values_to_frames = {
+# 	# Computes the frame values for each of the radar graph progress bars, based on these inputs
+
+# 	set_variable = { ITA_MVSN_radar_display_0 = ITA_MVSN_radar_0 }
+# 	multiply_variable = { ITA_MVSN_radar_display_0 = 10 }
+# 	add_to_variable = { ITA_MVSN_radar_display_0 = ITA_MVSN_radar_1 }
+
+# 	set_variable = { ITA_MVSN_radar_display_1 = ITA_MVSN_radar_1  }
+# 	multiply_variable = { ITA_MVSN_radar_display_1 = 10 }
+# 	add_to_variable = { ITA_MVSN_radar_display_1 = ITA_MVSN_radar_2 }
+
+# 	set_variable = { ITA_MVSN_radar_display_2 = ITA_MVSN_radar_2 }
+# 	multiply_variable = { ITA_MVSN_radar_display_2 = 10 }
+# 	add_to_variable = { ITA_MVSN_radar_display_2 = ITA_MVSN_radar_3 }
+
+# 	set_variable = { ITA_MVSN_radar_display_3 = ITA_MVSN_radar_3 }
+# 	multiply_variable = { ITA_MVSN_radar_display_3 = 10 }
+# 	add_to_variable = { ITA_MVSN_radar_display_3 = ITA_MVSN_radar_4 }
+
+# 	set_variable = { ITA_MVSN_radar_display_4 = ITA_MVSN_radar_4 }
+# 	multiply_variable = { ITA_MVSN_radar_display_4 = 10 }
+# 	add_to_variable = { ITA_MVSN_radar_display_4 = ITA_MVSN_radar_0 }
+
+# 	ITA_calc_party_stability_var = yes
+# }
+
 
 
 ITA_socialist_militia_population_setup = {
