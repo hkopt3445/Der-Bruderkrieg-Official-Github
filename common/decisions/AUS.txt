@@ -5655,3 +5655,280 @@ AUS_prospect_for_resources = {
 		}
 	}
 }
+
+AUS_french_prussian_war_preparations = {
+	
+	AUS_sudeten_line = {
+
+		icon = generic_construction
+
+		visible = {
+			has_completed_focus = AUS_bide_our_time
+		}
+
+		cost = 50
+
+		available = {
+			owns_state = 69
+		}
+
+		days_remove = 20
+
+		remove_effect = {
+			69 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rhine_river_fortress = {
+
+		icon = generic_construction
+
+		visible = {
+			has_completed_focus = AUS_bide_our_time
+		}
+
+		cost = 50
+
+		available = {
+			any_country = {
+				OR = {
+					is_subject_of = AUS
+					tag = AUS
+				}
+				controls_state = 540
+			}
+		}
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		days_remove = 30
+
+		remove_effect = {
+			540 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_defenses_slovakian_heartlands = {
+
+		icon = generic_construction
+
+		visible = {
+			has_completed_focus = AUS_bide_our_time
+		}
+
+		cost = 50
+
+		available = {
+			any_country = {
+				OR = {
+					is_subject_of = AUS
+					tag = AUS
+				}
+				controls_state = 70
+				controls_state = 71
+			}
+		}
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		days_remove = 20
+
+		remove_effect = {
+			70 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+			71 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_alpine_homeland_defense = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			has_completed_focus = AUS_bide_our_time
+		}
+
+		cost = 50
+
+		available = {
+			controls_state = 153
+		}
+
+		modifier = {
+			production_speed_buildings_factor = -0.1
+		}
+
+		days_remove = 20
+
+		remove_effect = {
+			153 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_crossing_rhine = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			has_completed_focus = AUS_fate_favors_the_aggressive
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			any_country = {
+				OR = {
+					is_subject_of = AUS
+					tag = AUS
+				}
+				controls_state = 540
+			}
+			has_war_with = FRA
+		}
+
+		modifier = {
+			river_crossing_factor = 0.1
+			hidden_modifier = {
+				ai_focus_aggressive_factor = 0.25
+			}
+		}
+
+		days_remove = 75
+	}
+
+	AUS_czech_offensive_infrastructure = {
+
+		icon = generic_construction
+
+		visible = {
+			has_completed_focus = AUS_fate_favors_the_aggressive
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			any_country = {
+				OR = {
+					is_subject_of = AUS
+					tag = AUS
+				}
+				controls_state = 69
+				controls_state = 9
+			}
+		}
+
+		days_remove = 25
+
+		remove_effect = {
+			9 = {
+				add_building_construction = {
+					level = 2
+					type = infrastructure
+					instant_build = yes
+				}
+			}
+			69 = {
+				add_building_construction = {
+					level = 2
+					type = infrastructure
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	AUS_mountainous_training = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			has_completed_focus = AUS_fate_favors_the_aggressive
+		}
+
+		cost = 50
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		modifier = {
+			terrain_penalty_reduction = 0.2
+			hidden_modifier = {
+				ai_focus_aggressive_factor = 0.15
+			}
+		}
+
+		days_remove = 100
+	}
+
+}
