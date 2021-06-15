@@ -653,7 +653,7 @@ ITA_the_kings_men = {
     remove_effect = {
         set_country_flag = ITA_evola_has_been_arrested
         ##also include an event here
-      
+
     }
   }
 
@@ -795,15 +795,41 @@ ITA_the_kings_men = {
 
     remove_effect = {
       set_country_flag = ITA_evolas_coup_first_part_done
-      unlock_decision_category_tooltip = ITA_the_geracha_elections
+      hidden_effect = {
+        country_event = ITA_evola_coup_events.2
+      }
     }
   }
 }
 
 
 ITA_the_geracha_elections = {
-  #EVOLA INTERACTIONS - will be unlocked when Evola has the king on his side
+  ITA_gerarchi_elections = {
+
+    priority = 10
   
+    icon = generic_political_rally
+  
+    available = {
+      hidden_trigger = { always = no }
+    }
+  
+    days_mission_timeout = 200
+  
+    fire_only_once = yes 
+  
+    activation = {
+      has_country_flag = ITA_active_the_geracha_elections
+    }
+  
+    cancel_if_not_visible = yes
+  
+    is_good = yes
+  
+    timeout_effect = {
+     
+    }
+  }
 }
 
 
