@@ -252,18 +252,18 @@ ideas = {
 
 			removal_cost = -1
 
-			every_state = {
-				limit = {
-					is_owned_by = FRA
-					has_state_category = rural
-				}
-				effect = {
-					add_state_modifier = {
-						production_speed_buildings_factory = -0.15
-						local_building_slots_factor = -0.2
-					}
-				}
-			}
+			# every_state = {
+			# 	limit = {
+			# 		is_owned_by = FRA
+			# 		has_state_category = rural
+			# 	}
+			# 	effect = {
+			# 		add_state_modifier = {
+			# 			production_speed_buildings_factory = -0.15
+			# 			local_building_slots_factor = -0.2
+			# 		}
+			# 	}
+			# }
 			modifier = {
 				stability_factor = -0.05
 				political_power_gain = -0.1
@@ -284,7 +284,7 @@ ideas = {
 
 			modifier = {
 				consumer_goods_factor = -0.1
-				Constitutional_monarchy_Drift = 0.1
+				democratic_drift = 0.1
 				}
 		}
 		Lafayette_Dream = {
@@ -546,8 +546,8 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-			political_advisor_cost_factor = -0.2
-			trade_laws_cost_factor = -0.2
+			#political_advisor_cost_factor = -0.2
+			economic_minister_cost_factor = -0.2
 			political_power_gain = 0.05
 			}
 		}
@@ -565,8 +565,8 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-			political_advisor_cost_factor = -0.2
-			trade_laws_cost_factor = -0.2
+			#political_advisor_cost_factor = -0.2
+			economic_minister_cost_factor = -0.2
 			political_power_gain = 0.1
 			consumer_goods_factor = -0.05
 			}
@@ -584,7 +584,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				mobilization_laws_cost_factor = -0.25
+				#mobilization_laws_cost_factor = -0.25
 				high_command_cost_factor = -0.2
 				air_chief_cost_factor = -0.15
 				army_chief_cost_factor = -0.15
@@ -605,7 +605,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-			mobilization_laws_cost_factor = -0.25
+			#mobilization_laws_cost_factor = -0.25
 			high_command_cost_factor = -0.2
 			air_chief_cost_factor = -0.15
 			army_chief_cost_factor = -0.15
@@ -1027,7 +1027,7 @@ ideas = {
 				max_planning = 0.2
 				army_attack_factor = 0.1
 				army_org_factor = 0.12
-				army_defense_factor = 0.05
+				army_defence_factor = 0.05
 			}
 		}
 
@@ -1206,7 +1206,7 @@ ideas = {
 			}
 		}
 
-		FRA_decommunization = {
+		FRA_decommunization_2 = {
 			allowed = {
 				always = yes
 			}
@@ -1456,12 +1456,13 @@ ideas = {
 
       modifier = {
 	production_speed_arms_factory_factor = 0.1
-	equipment_bonus = {
+	
+      }
+	  equipment_bonus = {
 		infantry_equipment = {
 			build_cost_ic = -0.1 instant = yes
 		}
 	}
-      }
 	}
 	
 
@@ -1574,423 +1575,423 @@ ideas = {
 
 	}
 
-		political_advisor = {
-
-			maurice_thorez = {
-
-
-				allowed = {
-					original_tag = "FRA"
-				}
-				# available = {
-				# 	O#R = {
-				# 		has_completed_focus = FRA_leftist_rhe#toric
-				# 		has_completed_focus = FRA_invite_communist_ministers
-				# 	}
-				# 	not = { has_country_leader = { name = "Philippe Pétain" ruling_only = yes } }
-				# 	if = {
-				# 		limit = { has_dlc = "Man the Guns" }
-				# 		NOT = { has_autonomy_state = autonomy_supervised_state }
-				# 	}
-				# }
-
-				traits = { communist_revolutionary }
-
-				do_effect = {
-					NOT = {
-						has_government = communism
-					}
-				}
-				on_add = {
-					FRA_right_wing_riot_effect = yes
-				}
-
-				ai_will_do = {
-					factor = 0
-				}
-			}
-
-			leon_blum = {
-
-
-				allowed = {
-					original_tag = "FRA"
-				}
-
-				available = {
-					not = { has_country_leader = { name = "Philippe Pétain" ruling_only = yes } }
-					if = {
-						limit = { has_dlc = "Man the Guns" }
-						NOT = { has_autonomy_state = autonomy_supervised_state }
-					}
-				}
-
-				traits = { democratic_reformer }
-
-				do_effect = {
-					NOT = {
-						has_government = democratic
-					}
-				}
-
-				ai_will_do = {
-					factor = 0
-				}
-			}
-
-			marcel_bucard = {
-
-
-				allowed = {
-					original_tag = "FRA"
-				}
-				available = {
-					# #OR = {
-					# 	has_completed_focus = FRA_right_wing_rhe#toric
-					# 	has_completed_focus = FRA_utilize_the_leagues
-					# 	has_focus_tree = vichy_french_focus
-					# }
-					if = {
-						limit = { has_dlc = "Man the Guns" }
-						NOT = { has_autonomy_state = autonomy_supervised_state }
-					}
-				}
-
-				traits = { fascist_demagogue }
-
-				do_effect = {
-					NOT = {
-						has_government = fascism
-					}
-				}
-				on_add = {
-					if = {
-						limit = {
-							NOT = { tag = VIC }
-						}
-						country_event = lar_france_political_violence.2
-					}
-				}
-				ai_will_do = {
-					factor = 0
-				}
-			}
+		# political_advisor = {
+
+		# 	maurice_thorez = {
+
+
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
+		# 		# available = {
+		# 		# 	O#R = {
+		# 		# 		has_completed_focus = FRA_leftist_rhe#toric
+		# 		# 		has_completed_focus = FRA_invite_communist_ministers
+		# 		# 	}
+		# 		# 	not = { has_country_leader = { name = "Philippe Pétain" ruling_only = yes } }
+		# 		# 	if = {
+		# 		# 		limit = { has_dlc = "Man the Guns" }
+		# 		# 		NOT = { has_autonomy_state = autonomy_supervised_state }
+		# 		# 	}
+		# 		# }
+
+		# 		traits = { communist_revolutionary }
+
+		# 		do_effect = {
+		# 			NOT = {
+		# 				has_government = communism
+		# 			}
+		# 		}
+		# 		on_add = {
+		# 			FRA_right_wing_riot_effect = yes
+		# 		}
+
+		# 		ai_will_do = {
+		# 			factor = 0
+		# 		}
+		# 	}
+
+		# 	leon_blum = {
+
+
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
+
+		# 		available = {
+		# 			not = { has_country_leader = { name = "Philippe Pétain" ruling_only = yes } }
+		# 			if = {
+		# 				limit = { has_dlc = "Man the Guns" }
+		# 				NOT = { has_autonomy_state = autonomy_supervised_state }
+		# 			}
+		# 		}
+
+		# 		traits = { democratic_reformer }
+
+		# 		do_effect = {
+		# 			NOT = {
+		# 				has_government = democratic
+		# 			}
+		# 		}
+
+		# 		ai_will_do = {
+		# 			factor = 0
+		# 		}
+		# 	}
+
+		# 	marcel_bucard = {
+
+
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
+		# 		available = {
+		# 			# #OR = {
+		# 			# 	has_completed_focus = FRA_right_wing_rhe#toric
+		# 			# 	has_completed_focus = FRA_utilize_the_leagues
+		# 			# 	has_focus_tree = vichy_french_focus
+		# 			# }
+		# 			if = {
+		# 				limit = { has_dlc = "Man the Guns" }
+		# 				NOT = { has_autonomy_state = autonomy_supervised_state }
+		# 			}
+		# 		}
+
+		# 		traits = { fascist_demagogue }
+
+		# 		do_effect = {
+		# 			NOT = {
+		# 				has_government = fascism
+		# 			}
+		# 		}
+		# 		on_add = {
+		# 			if = {
+		# 				limit = {
+		# 					NOT = { tag = VIC }
+		# 				}
+		# 				country_event = lar_france_political_violence.2
+		# 			}
+		# 		}
+		# 		ai_will_do = {
+		# 			factor = 0
+		# 		}
+		# 	}
 
-			rene_massigli = {
+		# 	rene_massigli = {
 
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				# #availab#le = {
-				# 	has_completed_focus = FRA_confirm_eastern_commitments
-				# 	has_government = democratic
-				# }
-				cost = 75
-				traits = { hawk }
+		# 		# #availab#le = {
+		# 		# 	has_completed_focus = FRA_confirm_eastern_commitments
+		# 		# 	has_government = democratic
+		# 		# }
+		# 		cost = 75
+		# 		traits = { hawk }
 
-				do_effect = {
+		# 		do_effect = {
 
-				}
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			georges_bonnet = {
+		# 	georges_bonnet = {
 
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				# #availab#le = {
-				# 	has_completed_focus = FRA_buy_time
-				# 	has_government = democratic
-				# }
-				cost = 75
-				traits = { appeaser }
+		# 		# #availab#le = {
+		# 		# 	has_completed_focus = FRA_buy_time
+		# 		# 	has_government = democratic
+		# 		# }
+		# 		cost = 75
+		# 		traits = { appeaser }
 
-				do_effect = {
+		# 		do_effect = {
 
-				}
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
-			charles_maurras = {
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
+		# 	charles_maurras = {
 
-				picture = generic_political_advisor_europe_3
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		picture = generic_political_advisor_europe_3
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				# #availab#le = {
-				# 	has_completed_focus = FRA_integralism
-				# 	OR = {
-				# 		has_government = fascism
-				# 		always = no
-				# 	}
-				# }
-				visible = { has_dlc = "La Resistance" }
-				cost = 75
-				traits = { national_integralist }
+		# 		# #availab#le = {
+		# 		# 	has_completed_focus = FRA_integralism
+		# 		# 	OR = {
+		# 		# 		has_government = fascism
+		# 		# 		always = no
+		# 		# 	}
+		# 		# }
+		# 		visible = { has_dlc = "La Resistance" }
+		# 		cost = 75
+		# 		traits = { national_integralist }
 
-				do_effect = {
+		# 		do_effect = {
 
-				}
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_philippe_henriot = {
+		# 	FRA_philippe_henriot = {
 
 
-				allowed = {
-					original_tag = "FRA"
-				}
-				visible = { has_dlc = "La Resistance" }
-				# availabl#e = {
-				# 	#has_completed_focus = FRA_national_regeneration
-				# 	has_government = fascism
-				# }
-				cost = 75
-				traits = { propaganda_expert }
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
+		# 		visible = { has_dlc = "La Resistance" }
+		# 		# availabl#e = {
+		# 		# 	#has_completed_focus = FRA_national_regeneration
+		# 		# 	has_government = fascism
+		# 		# }
+		# 		cost = 75
+		# 		traits = { propaganda_expert }
 
-				do_effect = {
+		# 		do_effect = {
 
-				}
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
-			FRA_pierre_pucheu = {
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
+		# 	FRA_pierre_pucheu = {
 
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				available = {
-					not = { has_government = communism }
-				}
-				cost = 150
-				traits = { technocrat }
+		# 		available = {
+		# 			not = { has_government = communism }
+		# 		}
+		# 		cost = 150
+		# 		traits = { technocrat }
 
-				do_effect = {
+		# 		do_effect = {
 
-				}
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_gaston_henry_haye = {
+		# 	FRA_gaston_henry_haye = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				picture = generic_political_advisor_europe_5
+		# 		picture = generic_political_advisor_europe_5
 
-				traits = { silent_workhorse }
+		# 		traits = { silent_workhorse }
 
-				on_add = {
-				}
+		# 		on_add = {
+		# 		}
 
-				do_effect = {
-				}
+		# 		do_effect = {
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_jacques_duclos = {
+		# 	FRA_jacques_duclos = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				picture = generic_political_advisor_europe_3
+		# 		picture = generic_political_advisor_europe_3
 
-				traits = { backroom_backstabber }
+		# 		traits = { backroom_backstabber }
 
-				ai_will_do = {
-					factor = 0
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 0
+		# 		}
+		# 	}
 
-			FRA_paul_baudouin = {
+		# 	FRA_paul_baudouin = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				traits = { smooth_talking_charmer }
+		# 		traits = { smooth_talking_charmer }
 
-				on_add = {
-				}
+		# 		on_add = {
+		# 		}
 
-				do_effect = {
-				}
+		# 		do_effect = {
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_vincent_auriol = {
+		# 	FRA_vincent_auriol = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
-				#av#ailable = { has_completed_focus = FRA_form_the_popular_front }
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
+		# 		#av#ailable = { has_completed_focus = FRA_form_the_popular_front }
 
 
-				traits = { financial_expert }
+		# 		traits = { financial_expert }
 
-				on_add = {
-				}
+		# 		on_add = {
+		# 		}
 
-				do_effect = {
-				}
+		# 		do_effect = {
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_roger_salengro = {
+		# 	FRA_roger_salengro = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
-				#av#ailable = { has_completed_focus = FRA_form_the_popular_front }
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
+		# 		#av#ailable = { has_completed_focus = FRA_form_the_popular_front }
 
 
-				traits = { compassionate_gentleman }
+		# 		traits = { compassionate_gentleman }
 
-				on_add = {
-				}
+		# 		on_add = {
+		# 		}
 
-				do_effect = {
-				}
+		# 		do_effect = {
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_zivony_peshkov = {
+		# 	FRA_zivony_peshkov = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				picture = generic_army_europe_5
+		# 		picture = generic_army_europe_5
 
-				traits = { war_industrialist }
+		# 		traits = { war_industrialist }
 
-				on_add = {
-				}
+		# 		on_add = {
+		# 		}
 
-				do_effect = {
-				}
+		# 		do_effect = {
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_felix_gouin = {
+		# 	FRA_felix_gouin = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				picture = generic_political_advisor_europe_3
+		# 		picture = generic_political_advisor_europe_3
 
-				traits = { captain_of_industry }
+		# 		traits = { captain_of_industry }
 
-				on_add = {
-				}
+		# 		on_add = {
+		# 		}
 
-				do_effect = {
-				}
+		# 		do_effect = {
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_charles_tillon = {
+		# 	FRA_charles_tillon = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				picture = generic_political_advisor_europe_3
+		# 		picture = generic_political_advisor_europe_3
 
-				traits = { armaments_organizer }
+		# 		traits = { armaments_organizer }
 
-				on_add = {
-				}
+		# 		on_add = {
+		# 		}
 
-				do_effect = {
-				}
+		# 		do_effect = {
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_paul_reynaud = {
+		# 	FRA_paul_reynaud = {
 
-				allowed = {
-					original_tag = "FRA"
-				}
+		# 		allowed = {
+		# 			original_tag = "FRA"
+		# 		}
 
-				picture = generic_political_advisor_europe_3
+		# 		picture = generic_political_advisor_europe_3
 
-				traits = { quartermaster_general }
+		# 		traits = { quartermaster_general }
 
-				on_add = {
-				}
+		# 		on_add = {
+		# 		}
 
-				do_effect = {
-				}
+		# 		do_effect = {
+		# 		}
 
-				ai_will_do = {
-					factor = 1
-				}
-			}
+		# 		ai_will_do = {
+		# 			factor = 1
+		# 		}
+		# 	}
 
-			FRA_maurice_gauche = {
+		# 	FRA_maurice_gauche = {
 
-				picture = generic_political_advisor_europe_3
+		# 		picture = generic_political_advisor_europe_3
 
-				available = {
-					has_intelligence_agency = yes
-				}
+		# 		available = {
+		# 			has_intelligence_agency = yes
+		# 		}
 
-				allowed = {
-					original_tag = FRA
-					has_dlc = "La Resistance"
-				}
+		# 		allowed = {
+		# 			original_tag = FRA
+		# 			has_dlc = "La Resistance"
+		# 		}
 
-				traits = { head_of_intelligence }
+		# 		traits = { head_of_intelligence }
 
-			}
+		# 	}
 
-		}
+		# }
 
 		# MILITARY
 		army_chief = {

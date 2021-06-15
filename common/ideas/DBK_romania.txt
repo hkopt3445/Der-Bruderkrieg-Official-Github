@@ -23,7 +23,7 @@ ideas = {
 			  consumer_goods_factor = 0.05
 			  industrial_capacity_factory = -0.1
 			  stability_factor = -0.05
-			  local_building_slots_factor = -0.1
+			  #local_building_slots_factor = -0.1
 			}
 		  } 
 
@@ -78,7 +78,7 @@ ROM_romanian_commune = {
   stability_factor = 0.1
   conscription_factor = 0.1
   communism_drift = 0.10
-  production_factory_efficiency_gain_factor = 0.1
+  industrial_capacity_factory = 0.1
   consumer_goods_factor = -0.05
   }
 }
@@ -132,7 +132,7 @@ ROM_capitalism = {
 	removal_cost = -1
 
 	modifier = {
-		production_factory_efficiency_gain_factor = 0.08
+		industrial_capacity_factory = 0.08
 		industrial_capacity_factory = 0.12
 	}
 }
@@ -150,32 +150,32 @@ ROM_oil_boom = {
 
 	removal_cost = -1
 
-	modifier = {
-		81 = {
-			add_state_modifier = {
-					modifier = {
-							production_oil_factor = 0.15
-							production_speed_infrastructure_factor = 0.12
-					}
-			}
-		}
-		46 = {
-			add_state_modifier = {
-					modifier = {
-							production_oil_factor = 0.15
-							production_speed_infrastructure_factor = 0.12
-					}
-			}
-		}
-		766 = {
-			add_state_modifier = {
-					modifier = {
-							production_oil_factor = 0.15
-							production_speed_infrastructure_factor = 0.12
-					}
-			}
-		}
-	}
+	# modifier = {
+	# 	81 = {
+	# 		add_state_modifier = {
+	# 				modifier = {
+	# 						production_oil_factor = 0.15
+	# 						production_speed_infrastructure_factor = 0.12
+	# 				}
+	# 		}
+	# 	}
+	# 	46 = {
+	# 		add_state_modifier = {
+	# 				modifier = {
+	# 						production_oil_factor = 0.15
+	# 						production_speed_infrastructure_factor = 0.12
+	# 				}
+	# 		}
+	# 	}
+	# 	766 = {
+	# 		add_state_modifier = {
+	# 				modifier = {
+	# 						production_oil_factor = 0.15
+	# 						production_speed_infrastructure_factor = 0.12
+	# 				}
+	# 		}
+	# 	}
+	# }
 }
 
 ROM_oil_boom_2 = {
@@ -190,156 +190,39 @@ ROM_oil_boom_2 = {
 
 	removal_cost = -1
 
-	modifier = {
-		81 = {
-			add_state_modifier = {
-					modifier = {
-							local_resources_factor = 0.2
-							production_oil_factor = 0.15
-							production_speed_infrastructure_factor = 0.2
-					}
-			}
-		}
-		46 = {
-			add_state_modifier = {
-					modifier = {
-							local_resources_factor = 0.2
-							production_oil_factor = 0.15
-							production_speed_infrastructure_factor = 0.2
-					}
-			}
-		}
-		766 = {
-			add_state_modifier = {
-					modifier = {
-							local_resources_factor = 0.2
-							production_oil_factor = 0.15
-							production_speed_infrastructure_factor = 0.2
-					}
-			}
-		}
-	}
+	# modifier = {
+	# 	81 = {
+	# 		add_state_modifier = {
+	# 				modifier = {
+	# 						local_resources_factor = 0.2
+	# 						production_oil_factor = 0.15
+	# 						production_speed_infrastructure_factor = 0.2
+	# 				}
+	# 		}
+	# 	}
+	# 	46 = {
+	# 		add_state_modifier = {
+	# 				modifier = {
+	# 						local_resources_factor = 0.2
+	# 						production_oil_factor = 0.15
+	# 						production_speed_infrastructure_factor = 0.2
+	# 				}
+	# 		}
+	# 	}
+	# 	766 = {
+	# 		add_state_modifier = {
+	# 				modifier = {
+	# 						local_resources_factor = 0.2
+	# 						production_oil_factor = 0.15
+	# 						production_speed_infrastructure_factor = 0.2
+	# 				}
+	# 		}
+	# 	}
+	# }
 }
 
 }
 
-ROM_iuliu_maniu = {
-
-	picture = generic_democratic_reformer_western_european_2d
-
-	allowed = {
-		original_tag = ROM
-	}
-
-	available = {
-		if = {
-			limit = { has_dlc = "Man the Guns" }
-			NOT = { has_autonomy_state = autonomy_supervised_state }
-		}
-	}
-
-	traits = { democratic_reformer }
-}
-
-ROM_gheorghe_gheorghiu_dej = {
-
-	picture = generic_communist_revolutionary_western_european_2d
-
-	available = {
-		if = {
-			limit = {
-				has_dlc = "Death or Dishonor"
-			}
-			#has_completed_focus = ROM_appoint_soviet_friendly_government
-		}
-		if = {
-			limit = { has_dlc = "Man the Guns" }
-			NOT = { has_autonomy_state = autonomy_supervised_state }
-		}
-	}
-
-	allowed = {
-		original_tag = ROM
-	}
-
-	traits = { communist_revolutionary }
-}
-
-ROM_gheorghe_argeseanu = {
-
-	picture = generic_army_europe_4
-
-	allowed = {
-		original_tag = ROM
-	}
-
-	traits = { silent_workhorse }
-}
-
-ROM_nicolae_malaxa = {
-
-	picture = idea_nicolae_malaxa
-
-	allowed = {
-		original_tag = ROM
-		has_dlc = "Death or Dishonor"
-	}
-
-	traits = { captain_of_industry }
-}
-
-ROM_armand_calinescu = {
-
-	picture = generic_army_europe_5
-
-	allowed = {
-		original_tag = ROM
-	}
-
-	traits = { prince_of_terror }
-}
-
-ROM_petru_groza = {
-
-	picture = generic_political_advisor_europe_2
-
-	allowed = {
-		original_tag = ROM
-	}
-
-	traits = { backroom_backstabber }
-	ai_will_do = {
-		factor = 0
-	}
-}
-
-ROM_mihail_sturdza = {
-
-	picture = generic_fascist_demagogue_western_european_2d
-
-	available = {
-		if = {
-			limit = {
-				has_dlc = "Death or Dishonor"
-			}
-			#has_completed_focus = ROM_appoint_german_friendly_government
-		}
-		if = {
-			limit = { has_dlc = "Man the Guns" }
-			NOT = { has_autonomy_state = autonomy_supervised_state }
-		}
-	}
-
-	allowed = {
-		original_tag = ROM
-	}
-
-	traits = { fascist_demagogue }
-	ai_will_do = {
-		factor = 0
-	}
-}
-}
 
 theorist = {
 
