@@ -1892,7 +1892,7 @@ country_event = { #literature efforts
 	}
 	option = { #focus on the scientific
 		name = SOV_lenin_social_reforms_events.7.b
-		add_research_slots = 1
+		add_research_slot = 1
 		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
 	}
 }
@@ -1929,7 +1929,7 @@ country_event = { #land reform
 	}
 	option = { #mass land reforms
 		name = SOV_lenin_social_reforms_events.8.b
-		add_research_slots = 1
+		
 		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
 		random_owned_controlled_state = {
 			limit = {
@@ -3694,11 +3694,13 @@ country_event = {
 				country_event = UGL_white_shock_army.12
 			}
 			else = {
-				70 = {
-					country_event = UGL_white_shock_army.13
-				}
-				30 = {
-					country_event = UGL_white_shock_army.14
+				random_list = {
+					70 = {
+						country_event = UGL_white_shock_army.13
+					}
+					30 = {
+						country_event = UGL_white_shock_army.14
+					}
 				}
 			}
 		}
@@ -3831,10 +3833,11 @@ country_event = {
 	title = SOV_pavel_foriegn_policy_tree.1.t
 	desc = SOV_pavel_foriegn_policy_tree.1.d
 	#picture = 
+	fire_only_once = yes
 	trigger = {
 		tag = SOV
 		has_war_with = PER
-		surrender_progress > 0.5
+		PER = { surrender_progress > 0.5 }
 	}
 	option = {
 		name = SOV_pavel_foriegn_policy_tree.1.a
@@ -3859,13 +3862,15 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = SOV_pavel_foriegn_policy_tree.2.a
-		
+		add_stability = -0.05
+		add_political_power = -50
 	}
 	option = {
 		name = SOV_pavel_foriegn_policy_tree.2.b
 		PER = {
 			transfer_state = 266
 		}
+		add_political_power = 100
 	}
 }
 

@@ -121,717 +121,7 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = italy.100
-	title = italy.100.t
-	desc = italy.100.d
-	#picture = GFX_report_event_eng_dambuster2
 
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { # If PAPania selects this option, they will transfer states, no war
-		name = italy.1.a 
-		ai_chance = { factor = 65 } 
-		ITA = {
-		 	transfer_state = 2
-			set_capital = 2
-			}
-		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
-			ITA = { country_event = italy.200 days = 1 } #this event just notifies Austria that they got their way
-			}
-	}
-
-	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
-		name = italy.1.b 
-		ai_chance = { factor = 35 }
-		hidden_effect = {
-			ITA = { country_event = italy.301 days = 1 } #This event will give Austria an event to get a wargoal
-			}
-	}
-} #Closing Bracket
-
-country_event = {
-	id = italy.200
-	title = italy.200.t
-	desc = italy.200.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.200.a 
-		ai_chance = { factor = 90 } 
-
-	}
-
-} #Closing Bracket
-
-#This event makes Austria get war goal
-country_event = {
-	id = italy.301
-	title = italy.301.t
-	desc = italy.301.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.301.a 
-		ai_chance = { factor = 90 } 
-		declare_war_on = {
-			type = take_claimed_state
-			target = PAP
-				}
-	}
-
-	option = { # Last chance to backout! Click this option and literally nothing happens
-		name = italy.301.b 
-		ai_chance = { factor = 0 } #AI will NOT do
-	}
-}
-
-news_event = {
-	id = italy.300
-	title = italy.300.t
-	desc = italy.300.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.300.a 
-		ai_chance = { factor = 90 } 
-
-	}
-}
-
-country_event = {
-	id = italy.400
-	title = italy.400.t
-	desc = italy.400.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { # If PAPania selects this option, they will transfer states, no war
-		name = italy.400.a 
-		ai_chance = { factor = 53 } 
-		ITA = {
-		 	transfer_state = 735
-			}
-		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
-			ITA = { country_event = italy.401 days = 1 } #this event just notifies Austria that they got their way
-			}
-	}
-
-	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
-		name = italy.400.b 
-		ai_chance = { factor = 47 }
-		hidden_effect = {
-			ITA = { country_event = italy.402 days = 1 } #This event will give Austria an event to get a wargoal
-			}
-	}
-} #Closing Bracket
-
-country_event = {
-	id = italy.401
-	title = italy.401.t
-	desc = italy.401.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.401.a 
-		ai_chance = { factor = 90 } 
-
-	}
-
-} #Closing Bracket
-
-#This event makes Austria get war goal
-country_event = {
-	id = italy.402
-	title = italy.402.t
-	desc = italy.402.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.402.a 
-		ai_chance = { factor = 90 } 
-		declare_war_on = {
-			type = take_claimed_state
-			target = FRA
-				}
-	}
-
-	option = { # Last chance to backout! Click this option and literally nothing happens
-		name = italy.402.b 
-		ai_chance = { factor = 0 } #AI will NOT do
-		news_event = { id = italy.300 hours = 4 }
-	}
-}
-
-
-
-news_event = {
-	id = italy.2007
-	title = italy.2007.t
-	desc = italy.2007.d
-	picture = GFX_report_event_spr_italian_volunteers.dds
-	is_triggered_only = yes
-
-	trigger = {
-		tag = ITA
-		AND = {
-			has_completed_focus = ITA_plot
-		}
-	}
-
-
-	option = {
-		name = Okay
-	}
-}
-
-country_event = {
-	id = italy.500
-	title = italy.500.t
-	desc = italy.500.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { # If PAPania selects this option, they will transfer states, no war
-		name = italy.500.a 
-		ai_chance = { factor = 75 } 
-		ITA = {
-		 	transfer_state = 159
-			}
-		AUS = {
-			remove_ideas = {
-				Giovane_Italia
-			}
-		}
-		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
-			ITA = { country_event = italy.501 days = 1 } #this event just notifies Austria that they got their way
-			}
-	}
-
-	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
-		name = italy.500.b 
-		ai_chance = { factor = 25 }
-		hidden_effect = {
-			ITA = { country_event = italy.502 days = 1 } #This event will give Austria an event to get a wargoal
-			}
-		AUS = {
-			remove_ideas = {
-				Giovane_Italia
-			}
-		}
-	}
-} #Closing Bracket
-
-country_event = {
-	id = italy.501
-	title = italy.501.t
-	desc = italy.501.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.501.a 
-		ai_chance = { factor = 90 } 
-
-	}
-
-} #Closing Bracket
-
-#This event makes Austria get war goal
-country_event = {
-	id = italy.502
-	title = italy.502.t
-	desc = italy.502.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.502.a 
-		ai_chance = { factor = 90 } 
-		declare_war_on = {
-			type = take_claimed_state
-			target = AUS
-				}
-
-	}
-
-	option = { # Last chance to backout! Click this option and literally nothing happens
-		name = italy.502.b 
-		ai_chance = { factor = 0 } #AI will NOT do
-		news_event = { id = italy.503  hours = 5 }
-	}
-}
-
-news_event = {
-	id = italy.503
-	title = italy.503.t
-	desc = italy.503.d
-	#picture = GFX_report_event_eng_dambuster2
-	major = yes
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.503.a 
-		ai_chance = { factor = 90 } 
-
-	}
-}
-
-country_event = {
-	id = italy.504
-	title = italy.504.t
-	desc = italy.504.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { # If PAPania selects this option, they will transfer states, no war
-		name = italy.504.a 
-		ai_chance = { factor = 75 } 
-		ITA = {
-		 	transfer_state = 160
-			}
-		AUS = {
-			remove_ideas = {
-				Giovane_Italia
-			}
-		}
-		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
-			ITA = { country_event = italy.505 days = 1 } #this event just notifies Austria that they got their way
-			}
-	}
-
-	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
-		name = italy.504.b 
-		ai_chance = { factor = 25 }
-		hidden_effect = {
-			ITA = { country_event = italy.506 days = 1 } #This event will give Austria an event to get a wargoal
-			}
-	}
-} #Closing Bracket
-
-country_event = {
-	id = italy.505
-	title = italy.505.t
-	desc = italy.505.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.505.a 
-		ai_chance = { factor = 90 } 
-
-	}
-
-} #Closing Bracket
-
-#This event makes Austria get war goal
-country_event = {
-	id = italy.506
-	title = italy.506.t
-	desc = italy.506.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.506.a 
-		ai_chance = { factor = 90 } 
-		declare_war_on = {
-			type = take_claimed_state
-			target = PAP
-				}
-	}
-
-	option = { # Last chance to backout! Click this option and literally nothing happens
-		name = italy.502.b 
-		ai_chance = { factor = 0 } #AI will NOT do
-	}
-}
-
-news_event = {
-	id = italy.507
-	title = italy.507.t
-	desc = italy.507.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.507.a 
-		ai_chance = { factor = 90 } 
-
-	}
-}
-
-
-country_event = {
-	id = italy.508
-	title = italy.508.t
-	desc = italy.508.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { # If PAPania selects this option, they will transfer states, no war
-		name = italy.508.a 
-		ai_chance = { factor = 75 } 
-
-		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
-			ITA = { country_event = italy.509 days = 1 } #this event just notifies Austria that they got their way
-			set_country_flag = ITA_germany_accepts_unification
-			}
-	}
-
-	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
-		name = italy.508.b 
-		ai_chance = { factor = 25 }
-		hidden_effect = {
-			ITA = { country_event = italy.510 days = 1 } #This event will give Austria an event to get a wargoal
-			set_country_flag = ITA_germany_denies_unification
-			}
-	}
-} #Closing Bracket
-
-country_event = {
-	id = italy.509
-	title = italy.509.t
-	desc = italy.509.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.509.a 
-		ai_chance = { factor = 90 } 
-
-	}
-
-} #Closing Bracket
-
-#This event makes Austria get war goal
-country_event = {
-	id = italy.510
-	title = italy.510.t
-	desc = italy.510.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.510.a 
-		ai_chance = { factor = 90 } 
-		every_state = {
-			limit = {
-				is_owned_by = GER
-			}
-			add_claim_by = ITA
-		}
-	}
-}
-
-
-country_event = {
-	id = italy.511
-	title = italy.511.t
-	desc = italy.511.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.511.a 
-		ai_chance = { factor = 100 } 
-
-	}
-
-}
-
-country_event = {
-	id = italy.512
-	title = italy.512.t
-	desc = italy.512.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.512.a 
-		ai_chance = { factor = 100 } 
-
-	}
-
-}
-
-
-
-country_event = {
-	id = italy.513
-	title = italy.513.t
-	desc = italy.513.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { # If PAPania selects this option, they will transfer states, no war
-		name = italy.513.a 
-		ai_chance = { factor = 75 } 
-		transfer_state = 458
-		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
-			ITA = { country_event = italy.514 days = 1 } #this event just notifies Austria that they got their way
-			}
-	}
-
-	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
-		name = italy.513.b 
-		ai_chance = { factor = 25 }
-		hidden_effect = {
-			ITA = { country_event = italy.515 days = 1 } #This event will give Austria an event to get a wargoal
-			}
-	}
-} #Closing Bracket
-
-country_event = {
-	id = italy.514
-	title = italy.514.t
-	desc = italy.514.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.514.a 
-		ai_chance = { factor = 90 } 
-
-	}
-
-} #Closing Bracket
-
-#This event makes Austria get war goal
-country_event = {
-	id = italy.515
-	title = italy.515.t
-	desc = italy.515.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.515.a 
-		ai_chance = { factor = 90 } 
-		create_wargoal = {
-			target = FRA
-			type = annex_everything
-		}
-	}
-}
-
-country_event = {
-	id = italy.516
-	title = italy.516.t
-	desc = italy.516.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.516.a 
-		ai_chance = { factor = 90 } 
-		news_event = {id = italy.517}
-
-		158 = {
-			add_core_of = CMI
-		}
-		159 = {
-			add_core_of = CMI
-		}
-		161 = {
-			add_core_of = CMI
-		}
-		162 = {
-			add_core_of = CMI
-		}
-		157 = {
-			add_core_of = CMI
-		}
-		888 = {
-			add_core_of = CMI
-		}
-		891 = {
-			add_core_of = CMI
-		}
-		892 = {
-			add_core_of = CMI
-		}
-		890 = {
-			add_core_of = CMI
-		}
-
-		CMI = {
-			transfer_state = 158
-			transfer_state = 159
-			transfer_state = 161
-			transfer_state = 162
-			transfer_state = 157
-			transfer_state = 888
-			transfer_state = 891
-			transfer_state = 892
-			transfer_state = 890
-		}
-
-
-		add_ideas = ITA_anti_italian_unification
-	}
-} #Closing Bracket
-
- 
-news_event = {
-	id = italy.517
-	title = italy.517.t
-	desc = italy.517.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.517.a 
-		ai_chance = { factor = 90 } 
-	}
-}
-
-
-country_event = {
-	id = italy.518
-	title = italy.518.t
-	desc = italy.518.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.518.a 
-		ai_chance = { factor = 50 } 
-		PAP = {country_event = italy.100}
-
-
-	}
-
-	option = { 
-		name = italy.518.a 
-		ai_chance = { factor = 50 } 
-		add_guarantee = PAP
-
-
-	}
-}
-
-country_event = {
-	id = italy.519
-	title = italy.519.t
-	desc = italy.519.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { # If PAPania selects this option, they will transfer states, no war
-		name = italy.519.a 
-		ai_chance = { factor = 75 } 
-		transfer_state = 447
-		transfer_state = 452
-		transfer_state = 865
-		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
-			ITA = { country_event = italy.520 days = 1 } #this event just notifies Austria that they got their way
-			}
-	}
-
-	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
-		name = italy.519.b 
-		ai_chance = { factor = 25 }
-		hidden_effect = {
-			ITA = { country_event = italy.521 days = 1 } #This event will give Austria an event to get a wargoal
-			}
-	}
-} #Closing Bracket
-
-country_event = {
-	id = italy.520
-	title = italy.520.t
-	desc = italy.520.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.520.a 
-		ai_chance = { factor = 90 } 
-
-	}
-
-} #Closing Bracket
-
-#This event makes Austria get war goal
-country_event = {
-	id = italy.521
-	title = italy.521.t
-	desc = italy.521.d
-	#picture = GFX_report_event_eng_dambuster2
-
-	fire_only_once = yes  
-	is_triggered_only = yes 
-
-	option = { 
-		name = italy.521.a 
-		ai_chance = { factor = 90 } 
-		create_wargoal = {
-			target = ENG
-			type = annex_everything
-		}
-	}
-}
 
 country_event = {
 	id = italy.522
@@ -1220,7 +510,7 @@ country_event = {
 	option = { 
 		name = italy.528.b 
 		ai_chance = { factor = 90 } 
-		war_support = -0.05
+		add_war_support = -0.05
 	}
 }
 
@@ -1375,7 +665,7 @@ country_event = {
 		
 		CMI = {
 			add_equipment_to_stockpile = {
-				type = infantry
+				type = infantry_equipment
 				amount = 1000
 			}
 		}
@@ -1904,3 +1194,718 @@ country_event = {
 	}
 }
 
+
+
+
+
+country_event = {
+	# 	id = italy.100
+	# 	title = italy.100.t
+	# 	desc = italy.100.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { # If PAPania selects this option, they will transfer states, no war
+	# 		name = italy.1.a 
+	# 		ai_chance = { factor = 65 } 
+	# 		ITA = {
+	# 		 	transfer_state = 2
+	# 			set_capital = 2
+	# 			}
+	# 		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+	# 			ITA = { country_event = italy.200 days = 1 } #this event just notifies Austria that they got their way
+	# 			}
+	# 	}
+	
+	# 	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+	# 		name = italy.1.b 
+	# 		ai_chance = { factor = 35 }
+	# 		hidden_effect = {
+	# 			ITA = { country_event = italy.301 days = 1 } #This event will give Austria an event to get a wargoal
+	# 			}
+	# 	}
+	# } #Closing Bracket
+	
+	# country_event = {
+	# 	id = italy.200
+	# 	title = italy.200.t
+	# 	desc = italy.200.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.200.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	
+	# } #Closing Bracket
+	
+	# #This event makes Austria get war goal
+	# country_event = {
+	# 	id = italy.301
+	# 	title = italy.301.t
+	# 	desc = italy.301.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.301.a 
+	# 		ai_chance = { factor = 90 } 
+	# 		declare_war_on = {
+	# 			type = take_claimed_state
+	# 			target = PAP
+	# 				}
+	# 	}
+	
+	# 	option = { # Last chance to backout! Click this option and literally nothing happens
+	# 		name = italy.301.b 
+	# 		ai_chance = { factor = 0 } #AI will NOT do
+	# 	}
+	# }
+	
+	# news_event = {
+	# 	id = italy.300
+	# 	title = italy.300.t
+	# 	desc = italy.300.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.300.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	# }
+	
+	# country_event = {
+	# 	id = italy.400
+	# 	title = italy.400.t
+	# 	desc = italy.400.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { # If PAPania selects this option, they will transfer states, no war
+	# 		name = italy.400.a 
+	# 		ai_chance = { factor = 53 } 
+	# 		ITA = {
+	# 		 	transfer_state = 735
+	# 			}
+	# 		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+	# 			ITA = { country_event = italy.401 days = 1 } #this event just notifies Austria that they got their way
+	# 			}
+	# 	}
+	
+	# 	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+	# 		name = italy.400.b 
+	# 		ai_chance = { factor = 47 }
+	# 		hidden_effect = {
+	# 			ITA = { country_event = italy.402 days = 1 } #This event will give Austria an event to get a wargoal
+	# 			}
+	# 	}
+	# } #Closing Bracket
+	
+	# country_event = {
+	# 	id = italy.401
+	# 	title = italy.401.t
+	# 	desc = italy.401.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.401.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	
+	# } #Closing Bracket
+	
+	# #This event makes Austria get war goal
+	# country_event = {
+	# 	id = italy.402
+	# 	title = italy.402.t
+	# 	desc = italy.402.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.402.a 
+	# 		ai_chance = { factor = 90 } 
+	# 		declare_war_on = {
+	# 			type = take_claimed_state
+	# 			target = FRA
+	# 				}
+	# 	}
+	
+	# 	option = { # Last chance to backout! Click this option and literally nothing happens
+	# 		name = italy.402.b 
+	# 		ai_chance = { factor = 0 } #AI will NOT do
+	# 		news_event = { id = italy.300 hours = 4 }
+	# 	}
+	# }
+	
+	
+	
+	# news_event = {
+	# 	id = italy.2007
+	# 	title = italy.2007.t
+	# 	desc = italy.2007.d
+	# 	picture = GFX_report_event_spr_italian_volunteers.dds
+	# 	is_triggered_only = yes
+	
+	# 	trigger = {
+	# 		tag = ITA
+	# 		AND = {
+	# 			has_completed_focus = ITA_plot
+	# 		}
+	# 	}
+	
+	
+	# 	option = {
+	# 		name = Okay
+	# 	}
+	# }
+	
+	# country_event = {
+	# 	id = italy.500
+	# 	title = italy.500.t
+	# 	desc = italy.500.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { # If PAPania selects this option, they will transfer states, no war
+	# 		name = italy.500.a 
+	# 		ai_chance = { factor = 75 } 
+	# 		ITA = {
+	# 		 	transfer_state = 159
+	# 			}
+	# 		AUS = {
+	# 			remove_ideas = {
+	# 				Giovane_Italia
+	# 			}
+	# 		}
+	# 		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+	# 			ITA = { country_event = italy.501 days = 1 } #this event just notifies Austria that they got their way
+	# 			}
+	# 	}
+	
+	# 	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+	# 		name = italy.500.b 
+	# 		ai_chance = { factor = 25 }
+	# 		hidden_effect = {
+	# 			ITA = { country_event = italy.502 days = 1 } #This event will give Austria an event to get a wargoal
+	# 			}
+	# 		AUS = {
+	# 			remove_ideas = {
+	# 				Giovane_Italia
+	# 			}
+	# 		}
+	# 	}
+	# } #Closing Bracket
+	
+	# country_event = {
+	# 	id = italy.501
+	# 	title = italy.501.t
+	# 	desc = italy.501.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.501.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	
+	# } #Closing Bracket
+	
+	# #This event makes Austria get war goal
+	# country_event = {
+	# 	id = italy.502
+	# 	title = italy.502.t
+	# 	desc = italy.502.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.502.a 
+	# 		ai_chance = { factor = 90 } 
+	# 		declare_war_on = {
+	# 			type = take_claimed_state
+	# 			target = AUS
+	# 				}
+	
+	# 	}
+	
+	# 	option = { # Last chance to backout! Click this option and literally nothing happens
+	# 		name = italy.502.b 
+	# 		ai_chance = { factor = 0 } #AI will NOT do
+	# 		news_event = { id = italy.503  hours = 5 }
+	# 	}
+	# }
+	
+	# news_event = {
+	# 	id = italy.503
+	# 	title = italy.503.t
+	# 	desc = italy.503.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	# 	major = yes
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.503.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	# }
+	
+	# country_event = {
+	# 	id = italy.504
+	# 	title = italy.504.t
+	# 	desc = italy.504.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { # If PAPania selects this option, they will transfer states, no war
+	# 		name = italy.504.a 
+	# 		ai_chance = { factor = 75 } 
+	# 		ITA = {
+	# 		 	transfer_state = 160
+	# 			}
+	# 		AUS = {
+	# 			remove_ideas = {
+	# 				Giovane_Italia
+	# 			}
+	# 		}
+	# 		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+	# 			ITA = { country_event = italy.505 days = 1 } #this event just notifies Austria that they got their way
+	# 			}
+	# 	}
+	
+	# 	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+	# 		name = italy.504.b 
+	# 		ai_chance = { factor = 25 }
+	# 		hidden_effect = {
+	# 			ITA = { country_event = italy.506 days = 1 } #This event will give Austria an event to get a wargoal
+	# 			}
+	# 	}
+	# } #Closing Bracket
+	
+	# country_event = {
+	# 	id = italy.505
+	# 	title = italy.505.t
+	# 	desc = italy.505.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.505.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	
+	# } #Closing Bracket
+	
+	# #This event makes Austria get war goal
+	# country_event = {
+	# 	id = italy.506
+	# 	title = italy.506.t
+	# 	desc = italy.506.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.506.a 
+	# 		ai_chance = { factor = 90 } 
+	# 		declare_war_on = {
+	# 			type = take_claimed_state
+	# 			target = PAP
+	# 				}
+	# 	}
+	
+	# 	option = { # Last chance to backout! Click this option and literally nothing happens
+	# 		name = italy.502.b 
+	# 		ai_chance = { factor = 0 } #AI will NOT do
+	# 	}
+	# }
+	
+	# news_event = {
+	# 	id = italy.507
+	# 	title = italy.507.t
+	# 	desc = italy.507.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.507.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	# }
+	
+	
+	# country_event = {
+	# 	id = italy.508
+	# 	title = italy.508.t
+	# 	desc = italy.508.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { # If PAPania selects this option, they will transfer states, no war
+	# 		name = italy.508.a 
+	# 		ai_chance = { factor = 75 } 
+	
+	# 		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+	# 			ITA = { country_event = italy.509 days = 1 } #this event just notifies Austria that they got their way
+	# 			set_country_flag = ITA_germany_accepts_unification
+	# 			}
+	# 	}
+	
+	# 	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+	# 		name = italy.508.b 
+	# 		ai_chance = { factor = 25 }
+	# 		hidden_effect = {
+	# 			ITA = { country_event = italy.510 days = 1 } #This event will give Austria an event to get a wargoal
+	# 			set_country_flag = ITA_germany_denies_unification
+	# 			}
+	# 	}
+	# } #Closing Bracket
+	
+	# country_event = {
+	# 	id = italy.509
+	# 	title = italy.509.t
+	# 	desc = italy.509.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.509.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	
+	# } #Closing Bracket
+	
+	# #This event makes Austria get war goal
+	# country_event = {
+	# 	id = italy.510
+	# 	title = italy.510.t
+	# 	desc = italy.510.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.510.a 
+	# 		ai_chance = { factor = 90 } 
+	# 		every_state = {
+	# 			limit = {
+	# 				is_owned_by = GER
+	# 			}
+	# 			add_claim_by = ITA
+	# 		}
+	# 	}
+	# }
+	
+	
+	# country_event = {
+	# 	id = italy.511
+	# 	title = italy.511.t
+	# 	desc = italy.511.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.511.a 
+	# 		ai_chance = { factor = 100 } 
+	
+	# 	}
+	
+	# }
+	
+	# country_event = {
+	# 	id = italy.512
+	# 	title = italy.512.t
+	# 	desc = italy.512.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.512.a 
+	# 		ai_chance = { factor = 100 } 
+	
+	# 	}
+	
+	# }
+	
+	
+	
+	# country_event = {
+	# 	id = italy.513
+	# 	title = italy.513.t
+	# 	desc = italy.513.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { # If PAPania selects this option, they will transfer states, no war
+	# 		name = italy.513.a 
+	# 		ai_chance = { factor = 75 } 
+	# 		transfer_state = 458
+	# 		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+	# 			ITA = { country_event = italy.514 days = 1 } #this event just notifies Austria that they got their way
+	# 			}
+	# 	}
+	
+	# 	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+	# 		name = italy.513.b 
+	# 		ai_chance = { factor = 25 }
+	# 		hidden_effect = {
+	# 			ITA = { country_event = italy.515 days = 1 } #This event will give Austria an event to get a wargoal
+	# 			}
+	# 	}
+	# } #Closing Bracket
+	
+	# country_event = {
+	# 	id = italy.514
+	# 	title = italy.514.t
+	# 	desc = italy.514.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.514.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	
+	# } #Closing Bracket
+	
+	# #This event makes Austria get war goal
+	# country_event = {
+	# 	id = italy.515
+	# 	title = italy.515.t
+	# 	desc = italy.515.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.515.a 
+	# 		ai_chance = { factor = 90 } 
+	# 		create_wargoal = {
+	# 			target = FRA
+	# 			type = annex_everything
+	# 		}
+	# 	}
+	# }
+	
+	# country_event = {
+	# 	id = italy.516
+	# 	title = italy.516.t
+	# 	desc = italy.516.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.516.a 
+	# 		ai_chance = { factor = 90 } 
+	# 		news_event = {id = italy.517}
+	
+	# 		158 = {
+	# 			add_core_of = CMI
+	# 		}
+	# 		159 = {
+	# 			add_core_of = CMI
+	# 		}
+	# 		161 = {
+	# 			add_core_of = CMI
+	# 		}
+	# 		162 = {
+	# 			add_core_of = CMI
+	# 		}
+	# 		157 = {
+	# 			add_core_of = CMI
+	# 		}
+	# 		888 = {
+	# 			add_core_of = CMI
+	# 		}
+	# 		891 = {
+	# 			add_core_of = CMI
+	# 		}
+	# 		892 = {
+	# 			add_core_of = CMI
+	# 		}
+	# 		890 = {
+	# 			add_core_of = CMI
+	# 		}
+	
+	# 		CMI = {
+	# 			transfer_state = 158
+	# 			transfer_state = 159
+	# 			transfer_state = 161
+	# 			transfer_state = 162
+	# 			transfer_state = 157
+	# 			transfer_state = 888
+	# 			transfer_state = 891
+	# 			transfer_state = 892
+	# 			transfer_state = 890
+	# 		}
+	
+	
+	# 		add_ideas = ITA_anti_italian_unification
+	# 	}
+	# } #Closing Bracket
+	
+	 
+	# news_event = {
+	# 	id = italy.517
+	# 	title = italy.517.t
+	# 	desc = italy.517.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.517.a 
+	# 		ai_chance = { factor = 90 } 
+	# 	}
+	# }
+	
+	
+	# country_event = {
+	# 	id = italy.518
+	# 	title = italy.518.t
+	# 	desc = italy.518.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.518.a 
+	# 		ai_chance = { factor = 50 } 
+	# 		PAP = {country_event = italy.100}
+	
+	
+	# 	}
+	
+	# 	option = { 
+	# 		name = italy.518.a 
+	# 		ai_chance = { factor = 50 } 
+	# 		add_guarantee = PAP
+	
+	
+	# 	}
+	# }
+	
+	# country_event = {
+	# 	id = italy.519
+	# 	title = italy.519.t
+	# 	desc = italy.519.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { # If PAPania selects this option, they will transfer states, no war
+	# 		name = italy.519.a 
+	# 		ai_chance = { factor = 75 } 
+	# 		transfer_state = 447
+	# 		transfer_state = 452
+	# 		transfer_state = 865
+	# 		hidden_effect = { #Hidden effect here means the button won't SAY it's sending this event
+	# 			ITA = { country_event = italy.520 days = 1 } #this event just notifies Austria that they got their way
+	# 			}
+	# 	}
+	
+	# 	option = { # If PAPania selects this option, they say no and Austria gets event to get war goal
+	# 		name = italy.519.b 
+	# 		ai_chance = { factor = 25 }
+	# 		hidden_effect = {
+	# 			ITA = { country_event = italy.521 days = 1 } #This event will give Austria an event to get a wargoal
+	# 			}
+	# 	}
+	# } #Closing Bracket
+	
+	# country_event = {
+	# 	id = italy.520
+	# 	title = italy.520.t
+	# 	desc = italy.520.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.520.a 
+	# 		ai_chance = { factor = 90 } 
+	
+	# 	}
+	
+	# } #Closing Bracket
+	
+	# #This event makes Austria get war goal
+	# country_event = {
+	# 	id = italy.521
+	# 	title = italy.521.t
+	# 	desc = italy.521.d
+	# 	#picture = GFX_report_event_eng_dambuster2
+	
+	# 	fire_only_once = yes  
+	# 	is_triggered_only = yes 
+	
+	# 	option = { 
+	# 		name = italy.521.a 
+	# 		ai_chance = { factor = 90 } 
+	# 		create_wargoal = {
+	# 			target = ENG
+	# 			type = annex_everything
+	# 		}
+	# 	}
+	# }
