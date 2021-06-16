@@ -137,25 +137,27 @@ on_actions = {
 	}
 
 	on_weekly_FRA = {
-		if = {
-			limit = {
-				has_completed_focus = FRA_managing_the_instability
-				NOT = {
-					has_country_flag = FRA_westfalen_nationalist_coup_crushed
-				}
-			}
-			FGD = {
-				every_owned_state = {
-					limit = {
-						is_in_array = {
-							array = FGD.nationalist_states_array
-							value = THIS
-						}
+		effect = {
+			if = {
+				limit = {
+					has_completed_focus = FRA_managing_the_instability
+					NOT = {
+						has_country_flag = FRA_westfalen_nationalist_coup_crushed
 					}
-					add_to_variable = { nationalist_influence = FRA_weekly_crackdown_westfalen_var }
 				}
+				FGD = {
+					every_owned_state = {
+						limit = {
+							is_in_array = {
+								array = FGD.nationalist_states_array
+								value = THIS
+							}
+						}
+						add_to_variable = { nationalist_influence = FRA_weekly_crackdown_westfalen_var }
+					}
+				}
+			
 			}
-		
 		}
 	}
 

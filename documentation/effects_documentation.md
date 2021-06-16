@@ -1476,7 +1476,7 @@ create_country_leader = {
 	desc = "LEADER_DESC_LOCALIZATION_TAG"
 	picture = "Portrait_leader_name.dds" # picture = "...." also supported for backwards compatibility
 	expire = "1965.1.1"
-	ideology = despotism
+	ideology = neutrality
 	traits = {
 		the_director
 	}
