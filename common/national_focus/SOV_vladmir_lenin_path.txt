@@ -13,43 +13,7 @@ focus_tree = {
 	continuous_focus_position = { x = -50 y = 4000 }
 }
 
-shared_focus = {
-    id = SOV_lenins_presidency
-    icon = GFX_goal_SOV_lenins_presidency
-    x = -2
-    y = 1
-    cost = 5
-	available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    prerequisite = {
-        focus = SOV_the_russian_social_democratic_labour_party_reformed
-        focus = SOV_our_rule_reigns_supreme
-    }
-    relative_position_id = SOV_the_russian_social_democratic_labour_party_reformed
-    completion_reward = {
-        
-        set_variable = {
-            SOV_peoples_support_for_current_regime = lenin_support
-        }
-        add_to_variable = {
-            SOV_peoples_support_for_current_regime = 7
-        }
-        
-       
-        set_variable = {
-            SOV_military_support_for_current_regime = 20
-        }
 
-        unlock_decision_category_tooltip = SOV_political_instability
-
-
-
-        ###add lenin's cabinet with this scripted effect
-        #add_lenins_cabinet = yes
-    }
-}
 shared_focus = {
     id = SOV_expanding_the_lefts_grip
     icon = GFX_goal_SOV_expanding_the_lefts_grip
@@ -72,24 +36,7 @@ shared_focus = {
         unlock_decision_category_tooltip = SOV_lenins_social_reforms
     }
 }
-shared_focus = {
-    id = SOV_slandering_the_opposition
-    icon = GFX_goal_SOV_slandering_the_opposition
-    prerequisite = {focus = SOV_propoganda_campaigns}
-    x = 1
-    y = 1
-    relative_position_id = SOV_propoganda_campaigns
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        unlock_decision_tooltip = SOV_denouncing_kerensky_as_anti_revolutionary
-        unlock_decision_tooltip = SOV_attacking_milyukovs_economic_policies
-    }
-}
+
 shared_focus = {
     id = SOV_propoganda_campaigns 
     icon = GFX_goal_SOV_propoganda_movement
@@ -106,6 +53,25 @@ shared_focus = {
         
         unlock_decision_tooltip = SOV_propoganda_campaign_in_schools
         unlock_decision_tooltip = SOV_the_revolutionary_radio_service
+    }
+}
+
+shared_focus = {
+    id = SOV_slandering_the_opposition
+    icon = GFX_goal_SOV_slandering_the_opposition
+    prerequisite = {focus = SOV_propoganda_campaigns}
+    x = 1
+    y = 1
+    relative_position_id = SOV_propoganda_campaigns
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        unlock_decision_tooltip = SOV_denouncing_kerensky_as_anti_revolutionary
+        unlock_decision_tooltip = SOV_attacking_milyukovs_economic_policies
     }
 }
 shared_focus = {
@@ -201,23 +167,7 @@ shared_focus = {
     }
 }
 
-shared_focus = {
-    id = SOV_socialist_trade_policy
-    icon = GFX_goal_SOV_socialist_trade_policy
-    prerequisite = {focus = SOV_centralizing_our_economy}
-    x = 0
-    y = 2
-    relative_position_id = SOV_centralizing_our_economy
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        SOV_level_up_lenin_economic_reforms = yes
-        
-    }
-}
+
 
 shared_focus = {
     id = SOV_centralizing_our_economy
@@ -234,6 +184,24 @@ shared_focus = {
     completion_reward = {
         
         SOV_level_up_lenin_economic_reforms = yes
+    }
+}
+
+shared_focus = {
+    id = SOV_socialist_trade_policy
+    icon = GFX_goal_SOV_socialist_trade_policy
+    prerequisite = {focus = SOV_centralizing_our_economy}
+    x = 0
+    y = 2
+    relative_position_id = SOV_centralizing_our_economy
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        SOV_level_up_lenin_economic_reforms = yes
+        
     }
 }
 
@@ -1120,6 +1088,44 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_lenins_presidency
+    icon = GFX_goal_SOV_lenins_presidency
+    x = -2
+    y = 1
+    cost = 5
+	available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = SOV_the_russian_social_democratic_labour_party_reformed
+        focus = SOV_our_rule_reigns_supreme
+    }
+    relative_position_id = SOV_the_russian_social_democratic_labour_party_reformed
+    completion_reward = {
+        
+        set_variable = {
+            SOV_peoples_support_for_current_regime = lenin_support
+        }
+        add_to_variable = {
+            SOV_peoples_support_for_current_regime = 7
+        }
+        
+       
+        set_variable = {
+            SOV_military_support_for_current_regime = 20
+        }
+
+        unlock_decision_category_tooltip = SOV_political_instability
+
+
+
+        ###add lenin's cabinet with this scripted effect
+        #add_lenins_cabinet = yes
+    }
+}
+
+shared_focus = {
     id = SOV_military_reforms
     icon = GFX_goal_SOV_military_reforms
 
@@ -1181,6 +1187,36 @@ shared_focus = {
     }
 }
 
+
+
+shared_focus = {
+    id = SOV_promoting_loyal_soldiers
+    icon = GFX_goal_SOV_promoting_loyal_soldiers
+	prerequisite = {focus = SOV_demoting_disloyal_officers  }
+    prerequisite = {
+        focus = SOV_improving_our_military
+    }
+    prerequisite = {
+        focus = SOV_improving_our_military
+    }
+    prerequisite = {
+        focus = SOV_pro_rsdlp_agenda
+    }
+
+    x = -1
+    y = 1
+    relative_position_id = SOV_improving_our_military
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        ###decisions
+        
+    }
+}
+
 shared_focus = {
     id = SOV_using_our_industry_for_equipment
     icon = GFX_goal_SOV_using_industry_for_equipment
@@ -1220,34 +1256,6 @@ shared_focus = {
             }
             add_extra_state_shared_building_slots = 1
         }
-        
-    }
-}
-
-shared_focus = {
-    id = SOV_promoting_loyal_soldiers
-    icon = GFX_goal_SOV_promoting_loyal_soldiers
-	prerequisite = {focus = SOV_demoting_disloyal_officers  }
-    prerequisite = {
-        focus = SOV_improving_our_military
-    }
-    prerequisite = {
-        focus = SOV_improving_our_military
-    }
-    prerequisite = {
-        focus = SOV_pro_rsdlp_agenda
-    }
-
-    x = -1
-    y = 1
-    relative_position_id = SOV_improving_our_military
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        ###decisions
         
     }
 }

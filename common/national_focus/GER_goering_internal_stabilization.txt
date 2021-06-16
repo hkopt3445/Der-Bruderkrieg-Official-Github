@@ -158,6 +158,34 @@ focus_tree = {
 			factor = 60
 		}
 	}
+
+	shared_focus = {
+		id = GER_aftermath_of_the_fuhrerdammerung
+		icon = GFX_goal_GER_aftermath_of_the_fuhreradammerung
+		x = -3
+		y = 1
+		relative_position_id = GER_consolidating_power
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 3
+		prerequisite = { focus = GER_consolidating_power }
+		
+
+		cancel_if_invalid = yes
+
+
+		completion_reward = {
+			country_event = GER_goering_internal_stabilization.1
+		}
+		ai_will_do = {
+			factor = 60
+		}
+	}
 	
 	shared_focus = {
 		id = GER_the_issue_of_the_militias
@@ -428,42 +456,7 @@ focus_tree = {
 		}
 	}
 	
-	shared_focus = {
-		id = GER_the_reichmarshalls_prussia
-		icon = GFX_goal_GER_thereichsmarshall_sprussia
-		x = 7
-		y = 1
-		
 	
-
-		prerequisite = {
-			focus = GER_an_end_to_the_cultists
-			focus = GER_useful_madmen
-		}
-
-		prerequisite = {
-			focus = GER_the_blade_forged
-		}
-
-		prerequisite = {
-			focus = GER_prussian_professionalism
-			focus = GER_the_nation_at_arms
-		}
-
-		relative_position_id = GER_an_end_to_the_cultists
-
-
-		cost = 1	
-		
-
-		cancel_if_invalid = yes
-
-		completion_reward = {
-		}
-		ai_will_do = {
-			factor = 60
-		}
-	}
 	shared_focus = {
 		id = GER_dolchstosslegende
 		icon = GFX_goal_GER_dochloslegende
@@ -492,33 +485,7 @@ focus_tree = {
 		}
 	}
 	
-	shared_focus = {
-		id = GER_aftermath_of_the_fuhrerdammerung
-		icon = GFX_goal_GER_aftermath_of_the_fuhreradammerung
-		x = -3
-		y = 1
-		relative_position_id = GER_consolidating_power
-		
-		available = {
-		}
-		bypass = {
-
-		}
-
-		cost = 3
-		prerequisite = { focus = GER_consolidating_power }
-		
-
-		cancel_if_invalid = yes
-
-
-		completion_reward = {
-			country_event = GER_goering_internal_stabilization.1
-		}
-		ai_will_do = {
-			factor = 60
-		}
-	}
+	
 	
 	shared_focus = {
 		id = GER_the_iron_fist
@@ -1141,6 +1108,79 @@ focus_tree = {
 			}
 		}
 		shared_focus = {
+			id = GER_the_reichmarshalls_prussia
+			icon = GFX_goal_GER_thereichsmarshall_sprussia
+			x = 7
+			y = 1
+			
+		
+	
+			prerequisite = {
+				focus = GER_an_end_to_the_cultists
+				focus = GER_useful_madmen
+			}
+	
+			prerequisite = {
+				focus = GER_the_blade_forged
+			}
+	
+			prerequisite = {
+				focus = GER_prussian_professionalism
+				focus = GER_the_nation_at_arms
+			}
+	
+			relative_position_id = GER_an_end_to_the_cultists
+	
+	
+			cost = 1	
+			
+	
+			cancel_if_invalid = yes
+	
+			completion_reward = {
+			}
+			ai_will_do = {
+				factor = 60
+			}
+		}
+
+
+		###INDUSTRY
+
+		shared_focus = {
+			id = GER_goerings_industrial_plan
+			icon = GFX_goal_generic_construction
+			x = 21
+			y = 0
+			cost = 5
+			ai_will_do = {
+				factor = 12
+			}
+			offset = {
+				x = -10
+				y = 0
+				trigger = {
+						NOT = { has_country_flag = GER_move_tree_over_flag }
+					
+				}
+			}
+			#prerequisite = {focus = GER_herman_goering_werke}
+			#relative_position_id = GER_herman_goering_werke
+			search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+			completion_reward = { 
+				add_tech_bonus = {
+					name = GER_goerings_industrial_plan
+					bonus = 1.0
+					uses = 2
+					category = industry
+				}
+				custom_effect_tooltip = available_political_advisor
+				#how_ideas_tooltip = hjalmar_schacht
+			}
+		
+		}
+
+		shared_focus = {
 		cancelable = no
 			id = GER_industrial_cooperations
 			icon = unkown 
@@ -1329,38 +1369,7 @@ focus_tree = {
 			}
 		}
 
-shared_focus = {
-    id = GER_goerings_industrial_plan
-    icon = GFX_goal_generic_construction
-    x = 21
-    y = 0
-    cost = 5
-    ai_will_do = {
-        factor = 12
-	}
-	offset = {
-		x = -10
-		y = 0
-		trigger = {
-				NOT = { has_country_flag = GER_move_tree_over_flag }
-			
-		}
-	}
-    #prerequisite = {focus = GER_herman_goering_werke}
-    #relative_position_id = GER_herman_goering_werke
-    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
-    completion_reward = { 
-        add_tech_bonus = {
-            name = GER_goerings_industrial_plan
-            bonus = 1.0
-            uses = 2
-            category = industry
-        }
-        custom_effect_tooltip = available_political_advisor
-        show_ideas_tooltip = hjalmar_schacht
-    }
 
-}
 
 shared_focus = {
     id = GER_continuing_ataurky

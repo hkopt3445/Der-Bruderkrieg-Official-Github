@@ -10,14 +10,40 @@ focus_tree = {
 		}
 	}
 
-	continuous_focus_position = { x = -50, y = 2400 }
+	continuous_focus_position = { x = -50 y = 2400 }
 
 	shared_focus = AUS_state_of_parliment
 	shared_focus = AUS_denounce_the_treaty_of_vienna
 	shared_focus = AUS_recover_from_black_monday
 	shared_focus = AUS_PREP_WAR
   
+  focus = {
+	  id = AUS_announce_the_kaiser_speech
+	  icon = GFX_goal_Better_Karl_speech
+	  text = AUS_announce_the_kaiser_speech
+	  #prerequisite = { focus = AUS_meddling_with_the_diet focus = AUS_the_language_decree}
+	  x = 7
+	  y = 0
+	  #relative_position_id = AUS_meddling_with_the_diet
+	  cost = 0
 
+
+
+	  ai_will_do = {
+	    factor = 10
+	  }
+
+	  bypass = {
+
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	  completion_reward = {
+			add_political_power = 10
+	  }
+	}
 
 	focus = {
 		id = AUS_a_collapsing_empire
@@ -121,33 +147,7 @@ focus_tree = {
 			country_event = DBK_austria_start.14
 	  }
 	}
-  focus = {
-	  id = AUS_announce_the_kaiser_speech
-	  icon = GFX_goal_Better_Karl_speech
-	  text = AUS_announce_the_kaiser_speech
-	  #prerequisite = { focus = AUS_meddling_with_the_diet focus = AUS_the_language_decree}
-	  x = 7
-	  y = 0
-	  #relative_position_id = AUS_meddling_with_the_diet
-	  cost = 0
-
-
-
-	  ai_will_do = {
-	    factor = 10
-	  }
-
-	  bypass = {
-
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-	  completion_reward = {
-			add_political_power = 10
-	  }
-	}
+  
 
 	focus = {
 		id = AUS_a_meeting_with_the_foriegn_minister
@@ -251,37 +251,7 @@ focus_tree = {
 
 
 
-	focus = {
-		id = AUS_rumors_are_spreading
-		icon = GFX_goal_AUS_a_rumor_is_spreading
-		text = AUS_rumors_are_spreading
-		prerequisite = { focus = AUS_plan_the_assasination}
-		
-		x = -2
-		y = 1
-		relative_position_id = AUS_plan_the_assasination
-		  #mutually_exclusive = {focus = AUS_plan_the_assasination}
-		cost = 0.25
-  
-		available = {
-  
-		}
-  
-		ai_will_do = {
-		  factor = 10
-		}
-  
-		bypass = {
-  
-		}
-  
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-  
-		completion_reward = {
-			
-		}
-	  }
+
 
 
 
@@ -387,51 +357,82 @@ focus_tree = {
 	  }
 	}
 
+  focus = {
+		id = AUS_rumors_are_spreading
+		icon = GFX_goal_AUS_a_rumor_is_spreading
+		text = AUS_rumors_are_spreading
+		prerequisite = { focus = AUS_plan_the_assasination}
+		
+		x = -2
+		y = 1
+		relative_position_id = AUS_plan_the_assasination
+		  #mutually_exclusive = {focus = AUS_plan_the_assasination}
+		cost = 0.25
+  
+		available = {
+  
+		}
+  
+		ai_will_do = {
+		  factor = 10
+		}
+  
+		bypass = {
+  
+		}
+  
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+  
+		completion_reward = {
+			
+		}
+	  }
 	
 
 
 
 
 
-	focus = {
-	  id = AUS_the_kaiser_speech_BAD
-	  icon = GFX_goal_Kill_kaiser
-	  text = AUS_the_kaiser_speech_BAD
-	  prerequisite = { focus = AUS_recruit_the_assasins}
-		prerequisite = { focus = AUS_pinpoint_the_problem}
-	  x = -2
-	  y = 1
-	  relative_position_id = AUS_recruit_the_assasins
-	  cost = 1
+	# focus = {
+	#   id = AUS_the_kaiser_speech_BAD
+	#   icon = GFX_goal_Kill_kaiser
+	#   text = AUS_the_kaiser_speech_BAD
+	#   prerequisite = { focus = AUS_recruit_the_assasins}
+	# 	prerequisite = { focus = AUS_pinpoint_the_problem}
+	#   x = -2
+	#   y = 1
+	#   relative_position_id = AUS_recruit_the_assasins
+	#   cost = 1
 
-	  available = {
+	#   available = {
 
-	  }
+	#   }
 
-	  allow_branch = {
-		  always = no
-	  }
+	#   allow_branch = {
+	# 	  always = no
+	#   }
 
-	  ai_will_do = {
-	    factor = 10
-	  }
+	#   ai_will_do = {
+	#     factor = 10
+	#   }
 
-	  bypass = {
+	#   bypass = {
 
-	  }
+	#   }
 
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_INDUSTRY }
+	#   available_if_capitulated = yes
+	#   search_filters = { FOCUS_FILTER_INDUSTRY }
 
-	  completion_reward = {
-			#####Gets event chaos in the capital
+	#   completion_reward = {
+	# 		#####Gets event chaos in the capital
 			
-			hidden_effect = {
-				country_event = austriakillthekaiser.35
-				load_focus_tree = austria_prov_gov_focus_tree
-			}
-	  }
-	}
+	# 		hidden_effect = {
+	# 			country_event = austriakillthekaiser.35
+	# 			load_focus_tree = austria_prov_gov_focus_tree
+	# 		}
+	#   }
+	# }
 
 	
 	
@@ -611,31 +612,6 @@ shared_focus = {
   }
 }
 
-shared_focus = {
-  id = AUS_ALL_HAIL_KAISER
-  icon = GFX_goal_AUS_all_hail_the_kaiser
-  text = AUS_ALL_HAIL_KAISER
-  prerequisite = { focus = AUS_CENTRALISM }
-
-  x = 1
-  y = 1
-  relative_position_id = AUS_CENTRALISM
-  cost = 5
-  ai_will_do = {
-    factor = 200
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    add_political_power = 40
-    add_stability = 0.03
-    add_war_support = 0.03
-
-    ##replace with Karls Cult of Personality!!!
-  }
-}
 
 shared_focus = {
   id = AUS_expand_recruitment_imperial_army
@@ -840,6 +816,33 @@ shared_focus = {
         add_ideas = Centralism
   }
 }
+
+shared_focus = {
+  id = AUS_ALL_HAIL_KAISER
+  icon = GFX_goal_AUS_all_hail_the_kaiser
+  text = AUS_ALL_HAIL_KAISER
+  prerequisite = { focus = AUS_CENTRALISM }
+
+  x = 1
+  y = 1
+  relative_position_id = AUS_CENTRALISM
+  cost = 5
+  ai_will_do = {
+    factor = 200
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    add_political_power = 40
+    add_stability = 0.03
+    add_war_support = 0.03
+
+    ##replace with Karls Cult of Personality!!!
+  }
+}
+
 
 shared_focus = {
   id = AUS_ANNEX_BUCOVINA
@@ -2068,34 +2071,126 @@ shared_focus = {
 		}
 	}
 
+
+  shared_focus = {
+    id = AUS_form_the_ork
+    icon = GFX_goal_generic_construction2
+    relative_position_id = AUS_BUILD_INDUSTRY
+    prerequisite = {
+      focus = AUS_BUILD_INDUSTRY
+    }
+    x = 11
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_INDUSTRY } 
+    ai_will_do = {
+      factor = 1
+    }
+    completion_reward = {
+      add_ideas = ORK
+    }
+  }
+  
+  shared_focus = {
+    id = AUS_sponsor_voestalpine
+    icon = GFX_goal_generic_trade
+    relative_position_id = AUS_form_the_ork
+    x = -3
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    prerequisite = { focus = AUS_form_the_ork }
+    search_filters = { FOCUS_FILTER_INDUSTRY } 
+    ai_will_do = {
+      factor = 1
+    }
+    completion_reward = {
+        if = {
+          limit = { has_full_control_of_state = 152 } 
+          unlock_decision_tooltip = AUS_develop_upper_austria_aluminum_deposits
+        }
+        if = {
+          limit = { has_full_control_of_state = 822 }
+          unlock_decision_tooltip = AUS_develop_salzburg_aluminum_deposits
+        }     
+        if = {
+          limit = { has_full_control_of_state = 153 } 
+          unlock_decision_tooltip = AUS_develop_tyrol_aluminum_deposits
+        }
+        if = {
+          limit = { has_full_control_of_state = 805 }
+          unlock_decision_tooltip = AUS_develop_south_tyrol_aluminum_deposits
+        }     
+    }
+  }
+
+  shared_focus = {
+    id = AUS_steel_expansion
+    icon = GFX_focus_generic_steel
+    relative_position_id = AUS_sponsor_voestalpine
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = { focus = AUS_sponsor_voestalpine }
+    search_filters = { FOCUS_FILTER_INDUSTRY } 
+    ai_will_do = {
+      factor = 1
+    }
+    completion_reward = {
+      if = {
+          limit = { has_full_control_of_state = 160 } 
+          unlock_decision_tooltip = AUS_develop_veneto_steel_deposits
+        }
+        if = {
+          limit = { has_full_control_of_state = 952 }
+          unlock_decision_tooltip = AUS_develop_south_transylvania_steel_deposits
+        }     
+        if = {
+          limit = { has_full_control_of_state = 9 } 
+          unlock_decision_tooltip = AUS_develop_bohemia_steel_deposits
+        }
+    }
+  }
+
+
+
+
+
 shared_focus = {
-	id = AUS_kroatien_aluminum
-	icon = GFX_focus_generic_aluminum
-	relative_position_id = AUS_sponsor_voestalpine
-	x = 2
+	id = AUS_the_other_niche_resources
+	icon = GFX_focus_generic_tungsten
+	relative_position_id = AUS_steel_expansion
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = AUS_sponsor_voestalpine }
+	prerequisite = { focus = AUS_steel_expansion }
 	search_filters = { FOCUS_FILTER_INDUSTRY } 
 	ai_will_do = {
 		factor = 1
 	}
 	completion_reward = {
 		if = {
-        limit = { has_full_control_of_state = 109 } 
-        unlock_decision_tooltip = AUS_develop_croatia_aluminum_deposits
+        limit = { has_full_control_of_state = 70 } 
+        unlock_decision_tooltip = AUS_develop_slovakia_tungsten_deposits
       }
       if = {
-        limit = { has_full_control_of_state = 103 }
-        unlock_decision_tooltip = AUS_develop_dalmatia_aluminum_deposits
+        limit = { has_full_control_of_state = 155 }
+        unlock_decision_tooltip = AUS_develop_transdanubia_oil_deposits
       }     
       if = {
-        limit = { has_full_control_of_state = 815 } 
-        unlock_decision_tooltip = AUS_develop_dubrovnik_aluminum_deposits
+        limit = { has_full_control_of_state = 103 } 
+        unlock_decision_tooltip = AUS_develop_dalmatia_tungsten_deposits
       }
 	}
 }
+
+
+
+
+
 
 shared_focus = {
 	id = AUS_industrializing_ostafrika
@@ -2169,6 +2264,39 @@ shared_focus = {
 	}
 }
 
+
+
+shared_focus = {
+	id = AUS_expansion_of_togo_operations
+	icon = GFX_goal_generic_positive_trade_relations
+	relative_position_id = AUS_initiate_a_trial_run_in_togo
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = AUS_initiate_a_trial_run_in_togo }
+	search_filters = { FOCUS_FILTER_INDUSTRY } 
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		if = {
+        limit = { has_full_control_of_state = 777 } 
+        unlock_decision_tooltip = AUS_develop_togo_steel_deposits
+      }
+      if = {
+        limit = { has_full_control_of_state = 777 }
+        unlock_decision_tooltip = AUS_develop_togo_chromium_deposits
+      }     
+      if = {
+        limit = { has_full_control_of_state = 777 } 
+        unlock_decision_tooltip = AUS_develop_togo_bauxite_deposits
+      }
+	}
+}
+
+
+
 shared_focus = {
 	id = AUS_home_rubber
 	icon = GFX_goal_generic_army_motorized
@@ -2237,51 +2365,108 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = AUS_the_other_niche_resources
-	icon = GFX_focus_generic_tungsten
-	relative_position_id = AUS_steel_expansion
-	x = 0
+	id = AUS_initiate_a_trial_run_in_togo
+	icon = GFX_goal_generic_position_armies
+	relative_position_id = AUS_form_the_ork
+	x = 2
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = AUS_steel_expansion }
+	prerequisite = { focus = AUS_form_the_ork }
+	search_filters = { FOCUS_FILTER_INDUSTRY } 
+	ai_will_do = {
+		factor = 1
+	}
+  available = {
+      777 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+    }
+	completion_reward = {
+      777 = {
+        add_resource = {
+          type = steel
+          amount = 4
+        }
+        add_resource = {
+          type = chromium
+          amount = 2
+        }
+      }
+    }
+}
+
+
+
+shared_focus = {
+	id = AUS_kroatien_aluminum
+	icon = GFX_focus_generic_aluminum
+	relative_position_id = AUS_sponsor_voestalpine
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = AUS_sponsor_voestalpine }
 	search_filters = { FOCUS_FILTER_INDUSTRY } 
 	ai_will_do = {
 		factor = 1
 	}
 	completion_reward = {
 		if = {
-        limit = { has_full_control_of_state = 70 } 
-        unlock_decision_tooltip = AUS_develop_slovakia_tungsten_deposits
+        limit = { has_full_control_of_state = 109 } 
+        unlock_decision_tooltip = AUS_develop_croatia_aluminum_deposits
       }
       if = {
-        limit = { has_full_control_of_state = 155 }
-        unlock_decision_tooltip = AUS_develop_transdanubia_oil_deposits
+        limit = { has_full_control_of_state = 103 }
+        unlock_decision_tooltip = AUS_develop_dalmatia_aluminum_deposits
       }     
       if = {
-        limit = { has_full_control_of_state = 103 } 
-        unlock_decision_tooltip = AUS_develop_dalmatia_tungsten_deposits
+        limit = { has_full_control_of_state = 815 } 
+        unlock_decision_tooltip = AUS_develop_dubrovnik_aluminum_deposits
       }
 	}
 }
 
 shared_focus = {
-	id = AUS_form_the_ork
-	icon = GFX_goal_generic_construction2
-  relative_position_id = AUS_BUILD_INDUSTRY
-  prerequisite = {
-    focus = AUS_BUILD_INDUSTRY
-  }
-	x = 11
+	id = AUS_resources_from_elsewhere
+	icon = GFX_Diplo_Ottoman
+	relative_position_id = AUS_sponsor_voestalpine
+	x = -2
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
+	prerequisite = { focus = AUS_sponsor_voestalpine }
 	search_filters = { FOCUS_FILTER_INDUSTRY } 
 	ai_will_do = {
 		factor = 1
 	}
 	completion_reward = {
-		add_ideas = ORK
+		unlock_decision_tooltip = AUS_isfahan_monopoly
+		unlock_decision_tooltip = AUS_afyon_monopoly
+		unlock_decision_tooltip = AUS_baghdad_monopoly
+	}
+}
+
+shared_focus = {
+	id = AUS_exploitation_of_ostafrika
+	icon = GFX_focus_generic_africa_infrastructure
+	relative_position_id = AUS_initiate_a_trial_run_in_togo
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = AUS_initiate_a_trial_run_in_togo }
+	search_filters = { FOCUS_FILTER_INDUSTRY } 
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+        unlock_decision_tooltip = AUS_develop_nairobi_steel_deposits
 	}
 }
 
@@ -2311,6 +2496,27 @@ shared_focus = {
 
         unlock_decision_tooltip = AUS_develop_nairobi_rubber_deposits
          
+	}
+}
+
+shared_focus = {
+	id = AUS_oil_prospects_in_ostafrika
+	icon = GFX_goal_generic_oil_refinery
+	x = 0
+	y = 2
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = AUS_exploitation_of_ostafrika }
+	relative_position_id = AUS_exploitation_of_ostafrika
+	
+	search_filters = { FOCUS_FILTER_INDUSTRY } 
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+
+        unlock_decision_tooltip = AUS_develop_nairobi_oil_deposits
+      
 	}
 }
 
@@ -2370,193 +2576,6 @@ shared_focus = {
   }
 }
 
-shared_focus = {
-	id = AUS_oil_prospects_in_ostafrika
-	icon = GFX_goal_generic_oil_refinery
-	x = 0
-	y = 2
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_exploitation_of_ostafrika }
-	relative_position_id = AUS_exploitation_of_ostafrika
-	
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-
-        unlock_decision_tooltip = AUS_develop_nairobi_oil_deposits
-      
-	}
-}
-
-shared_focus = {
-	id = AUS_expansion_of_togo_operations
-	icon = GFX_goal_generic_positive_trade_relations
-	relative_position_id = AUS_initiate_a_trial_run_in_togo
-	x = -1
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_initiate_a_trial_run_in_togo }
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		if = {
-        limit = { has_full_control_of_state = 777 } 
-        unlock_decision_tooltip = AUS_develop_togo_steel_deposits
-      }
-      if = {
-        limit = { has_full_control_of_state = 777 }
-        unlock_decision_tooltip = AUS_develop_togo_chromium_deposits
-      }     
-      if = {
-        limit = { has_full_control_of_state = 777 } 
-        unlock_decision_tooltip = AUS_develop_togo_bauxite_deposits
-      }
-	}
-}
-
-shared_focus = {
-	id = AUS_steel_expansion
-	icon = GFX_focus_generic_steel
-	relative_position_id = AUS_sponsor_voestalpine
-	x = 0
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_sponsor_voestalpine }
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		if = {
-        limit = { has_full_control_of_state = 160 } 
-        unlock_decision_tooltip = AUS_develop_veneto_steel_deposits
-      }
-      if = {
-        limit = { has_full_control_of_state = 952 }
-        unlock_decision_tooltip = AUS_develop_south_transylvania_steel_deposits
-      }     
-      if = {
-        limit = { has_full_control_of_state = 9 } 
-        unlock_decision_tooltip = AUS_develop_bohemia_steel_deposits
-      }
-	}
-}
-
-shared_focus = {
-	id = AUS_initiate_a_trial_run_in_togo
-	icon = GFX_goal_generic_position_armies
-	relative_position_id = AUS_form_the_ork
-	x = 2
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_form_the_ork }
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-  available = {
-      777 = {
-        CONTROLLER = {
-          OR = {
-            tag = AUS
-            is_subject_of = AUS
-          }
-        }
-      }
-    }
-	completion_reward = {
-      777 = {
-        add_resource = {
-          type = steel
-          amount = 4
-        }
-        add_resource = {
-          type = chromium
-          amount = 2
-        }
-      }
-    }
-}
-
-shared_focus = {
-	id = AUS_sponsor_voestalpine
-	icon = GFX_goal_generic_trade
-	relative_position_id = AUS_form_the_ork
-	x = -3
-	y = 1
-	cost = 10
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_form_the_ork }
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		  if = {
-        limit = { has_full_control_of_state = 152 } 
-        unlock_decision_tooltip = AUS_develop_upper_austria_aluminum_deposits
-      }
-      if = {
-        limit = { has_full_control_of_state = 822 }
-        unlock_decision_tooltip = AUS_develop_salzburg_aluminum_deposits
-      }     
-      if = {
-        limit = { has_full_control_of_state = 153 } 
-        unlock_decision_tooltip = AUS_develop_tyrol_aluminum_deposits
-      }
-      if = {
-        limit = { has_full_control_of_state = 805 }
-        unlock_decision_tooltip = AUS_develop_south_tyrol_aluminum_deposits
-      }     
-	}
-}
-
-shared_focus = {
-	id = AUS_resources_from_elsewhere
-	icon = GFX_Diplo_Ottoman
-	relative_position_id = AUS_sponsor_voestalpine
-	x = -2
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_sponsor_voestalpine }
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		unlock_decision_tooltip = AUS_isfahan_monopoly
-		unlock_decision_tooltip = AUS_afyon_monopoly
-		unlock_decision_tooltip = AUS_baghdad_monopoly
-	}
-}
-
-shared_focus = {
-	id = AUS_exploitation_of_ostafrika
-	icon = GFX_focus_generic_africa_infrastructure
-	relative_position_id = AUS_initiate_a_trial_run_in_togo
-	x = 1
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_initiate_a_trial_run_in_togo }
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-        unlock_decision_tooltip = AUS_develop_nairobi_steel_deposits
-	}
-}
-
 
 
 
@@ -2599,7 +2618,7 @@ shared_focus = {
 shared_focus = {
   id = AUS_civilian_economics
   icon = GFX_goal_AUS_fund_civilian_industry
-  text = AUS_civilian_economics
+  text = AUS_civilian_economics 
   prerequisite = { focus = AUS_karl_sietz focus = AUS_karl_sietz }
   x = 1
   y = 1
@@ -3096,6 +3115,33 @@ shared_focus = {
 }
 
 shared_focus = {
+  id = AUS_the_reichstrart
+  icon = GFX_goal_AUS_announce_a_reichstrat
+  text = AUS_the_reichstrart
+  prerequisite = { focus = AUS_draft_the_new_constitution }
+  x = 0
+  y = 1
+  relative_position_id = AUS_draft_the_new_constitution
+  cost = 0.3
+  
+  ai_will_do = {
+    factor = 1
+    modifier = {
+      add = 1000
+      has_completed_focus = AUS_sign_a_new_constitution
+    }
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+    
+    unlock_decision_tooltip = AUS_the_reichstart_vote
+   }
+}
+
+shared_focus = {
   id = AUS_federalism_act_1
   icon = GFX_goal_AUS_release_hungary_act
   text = AUS_federalism_act_1
@@ -3176,32 +3222,7 @@ shared_focus = {
    }
 }
 
-shared_focus = {
-  id = AUS_the_reichstrart
-  icon = GFX_goal_AUS_announce_a_reichstrat
-  text = AUS_the_reichstrart
-  prerequisite = { focus = AUS_draft_the_new_constitution }
-  x = 0
-  y = 1
-  relative_position_id = AUS_draft_the_new_constitution
-  cost = 0.3
-  
-  ai_will_do = {
-    factor = 1
-    modifier = {
-      add = 1000
-      has_completed_focus = AUS_sign_a_new_constitution
-    }
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-    
-    unlock_decision_tooltip = AUS_the_reichstart_vote
-   }
-}
 
 shared_focus = {
   id = AUS_fortification_act
@@ -3690,73 +3711,73 @@ shared_focus = {
 
 
 
-shared_focus = {
-  id = AUS_the_french_complication
- icon = GFX_goal_FRA_defend_against_the_kaiser
-  text = AUS_the_french_complication
-  #prerequisite = {focus = AUS_the_german_question }
+# shared_focus = {
+#   id = AUS_the_french_complication
+#  icon = GFX_goal_FRA_defend_against_the_kaiser
+#   text = AUS_the_french_complication
+#   #prerequisite = {focus = AUS_the_german_question }
   
-  x = 0
-  y = 2
-  relative_position_id = AUS_the_german_question
-  cost = 15
-  ai_will_do = {
-    factor = 2000
-  }
+#   x = 0
+#   y = 2
+#   relative_position_id = AUS_the_german_question
+#   cost = 15
+#   ai_will_do = {
+#     factor = 2000
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
+#   completion_reward = {
   
-  }
-}
-shared_focus = {
-  id = AUS_enter_a_kalterkrieg
-  icon = GFX_goal_FRA_kalterkrieg
-  text = AUS_enter_a_kalterkrieg
-  prerequisite = {focus = AUS_the_french_complication }
-  mutually_exclusive = {
-    focus = AUS_our_oldest_enemy
-  }
+#   }
+# }
+# shared_focus = {
+#   id = AUS_enter_a_kalterkrieg
+#   icon = GFX_goal_FRA_kalterkrieg
+#   text = AUS_enter_a_kalterkrieg
+#   prerequisite = {focus = AUS_the_french_complication }
+#   mutually_exclusive = {
+#     focus = AUS_our_oldest_enemy
+#   }
   
-  x = -1
-  y = 1
-  relative_position_id = AUS_the_french_complication
-  cost = 15
-  ai_will_do = {
-    factor = 2000
-  }
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_the_french_complication
+#   cost = 15
+#   ai_will_do = {
+#     factor = 2000
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-  }
-}
-shared_focus = {
-  id = AUS_our_oldest_enemy
- # icon = GFX_goal_stabprussia
- icon = unkown
-  text = AUS_our_oldest_enemy
-  prerequisite = {focus = AUS_the_french_complication }
-  mutually_exclusive = {
-    focus = AUS_enter_a_kalterkrieg
-  }
-  x = 1
-  y = 1
-  relative_position_id = AUS_the_french_complication
-  cost = 15
-  ai_will_do = {
-    factor = 2000
-  }
+#   completion_reward = {
+#   }
+# }
+# shared_focus = {
+#   id = AUS_our_oldest_enemy
+#  # icon = GFX_goal_stabprussia
+#  icon = unkown
+#   text = AUS_our_oldest_enemy
+#   prerequisite = {focus = AUS_the_french_complication }
+#   mutually_exclusive = {
+#     focus = AUS_enter_a_kalterkrieg
+#   }
+#   x = 1
+#   y = 1
+#   relative_position_id = AUS_the_french_complication
+#   cost = 15
+#   ai_will_do = {
+#     factor = 2000
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-  }
-}
+#   completion_reward = {
+#   }
+# }
 shared_focus = {
   id = AUS_the_final_showdown
   icon = GFX_goal_stabprussia
@@ -4268,7 +4289,7 @@ shared_focus = {
   icon = GFX_goal_generic_navy_doctrines_tactics
   text = AUS_TRUE_NAVY
   prerequisite = { focus = AUS_KAISER_MARINE }
-  mutually_exclusive = { focus = AUS_WOLF_PACKS }
+  #mutually_exclusive = { focus = AUS_WOLF_PACKS }
 
   x = 2
   y = 2
@@ -4602,7 +4623,7 @@ shared_focus = {
   text = AUS_BURN_TO_GROUND
   prerequisite = { focus = AUS_BUILD_AIRFIELDS }
   mutually_exclusive = { focus = AUS_AIRLAND_BATTLE }
-  mutually_exclusive = { focus = ALL_USE_PLANES }
+ # mutually_exclusive = { focus = ALL_USE_PLANES }
   x = 2
   y = 1
   relative_position_id = AUS_BUILD_AIRFIELDS
@@ -4982,448 +5003,448 @@ shared_focus = {
 
 
 
-shared_focus = {
-  id = AUS_the_majors_europe
-  icon = GFX_goal_unkown
-  text = AUS_the_majors_europe
-  #prerequisite = { focus =  AUS_the_austrian_superpower focus = AUS_bulwark_against_expansionism }
- #mutually_exclusive = {focus = AUS_Habsburg_foriegn_policy}
-  x = 0
-  y = 9
- # prerequisite = {focus = AUS_denounce_the_treaty_of_vienna}
-  relative_position_id = AUS_denounce_the_treaty_of_vienna
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_the_majors_europe
+#   icon = GFX_goal_unkown
+#   text = AUS_the_majors_europe
+#   #prerequisite = { focus =  AUS_the_austrian_superpower focus = AUS_bulwark_against_expansionism }
+#  #mutually_exclusive = {focus = AUS_Habsburg_foriegn_policy}
+#   x = 0
+#   y = 9
+#  # prerequisite = {focus = AUS_denounce_the_treaty_of_vienna}
+#   relative_position_id = AUS_denounce_the_treaty_of_vienna
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  allow_branch = {
-    always = no
-  }
+#   allow_branch = {
+#     always = no
+#   }
  
  
-  available = {
-    OR = {
-      has_completed_focus = AUS_CENTRALISM
-      has_completed_focus = AUS_FEDERALISM
-    }
-    has_country_flag = vote_succesful_treaties_act
+#   available = {
+#     OR = {
+#       has_completed_focus = AUS_CENTRALISM
+#       has_completed_focus = AUS_FEDERALISM
+#     }
+#     has_country_flag = vote_succesful_treaties_act
 
-  }
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
+#   completion_reward = {
 
-  }
-}
+#   }
+# }
 
-shared_focus = {
-  id = AUS_improve_relations_bear
-  icon = GFX_Diplo_Russia
-  text = AUS_improve_relations_bear
-  prerequisite = { focus =  AUS_the_majors_europe }
-  mutually_exclusive = { focus = AUS_improve_relations_france}
-  x = -1
-  y = 1
-  relative_position_id = AUS_the_majors_europe
-  cost = 3
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_improve_relations_bear
+#   icon = GFX_Diplo_Russia
+#   text = AUS_improve_relations_bear
+#   prerequisite = { focus =  AUS_the_majors_europe }
+#   mutually_exclusive = { focus = AUS_improve_relations_france}
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_the_majors_europe
+#   cost = 3
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    SOV = {
-      add_opinion_modifier = {
-        modifier = medium_increase
-        target = AUS
-      }
-    }
-    AUS = {
-      add_opinion_modifier = {
-        modifier = medium_increase
-        target = SOV
-      }
-    }
-  }
-}
+#   completion_reward = {
+#     SOV = {
+#       add_opinion_modifier = {
+#         modifier = medium_increase
+#         target = AUS
+#       }
+#     }
+#     AUS = {
+#       add_opinion_modifier = {
+#         modifier = medium_increase
+#         target = SOV
+#       }
+#     }
+#   }
+# }
 
-shared_focus = {
-  id = AUS_purcahse_small_arms
-  icon = GFX_goal_generic_small_arms
-  text = AUS_purcahse_small_arms
-  prerequisite = { focus =  AUS_improve_relations_bear focus = AUS_improve_relations_france }
-  x = 2
-  y = 1
-  relative_position_id = AUS_improve_relations_bear
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_purcahse_small_arms
+#   icon = GFX_goal_generic_small_arms
+#   text = AUS_purcahse_small_arms
+#   prerequisite = { focus =  AUS_improve_relations_bear focus = AUS_improve_relations_france }
+#   x = 2
+#   y = 1
+#   relative_position_id = AUS_improve_relations_bear
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    country_event = austria.156
-  }
-}
+#   completion_reward = {
+#     country_event = austria.156
+#   }
+# }
 
-shared_focus = {
-  id = AUS_joint_artillery_design
-  icon = GFX_goal_generic_army_artillery2
-  text = AUS_joint_artillery_design
-  prerequisite = { focus =  AUS_purcahse_small_arms }
-  x = 0
-  y = 1
-  relative_position_id = AUS_purcahse_small_arms
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_joint_artillery_design
+#   icon = GFX_goal_generic_army_artillery2
+#   text = AUS_joint_artillery_design
+#   prerequisite = { focus =  AUS_purcahse_small_arms }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_purcahse_small_arms
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    country_event = austria.157
+#   completion_reward = {
+#     country_event = austria.157
 
-  }
-}
+#   }
+# }
 
-shared_focus = {
-  id = AUS_recede_our_claim_on_eastern_krakow
-  icon = GFX_goal_unkown
-  text = AUS_recede_our_claim_on_eastern_krakow
-  prerequisite = { focus =  AUS_improve_relations_bear }
-  x = -1
-  y = 1
-  relative_position_id = AUS_improve_relations_bear
-  cost = 2
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_recede_our_claim_on_eastern_krakow
+#   icon = GFX_goal_unkown
+#   text = AUS_recede_our_claim_on_eastern_krakow
+#   prerequisite = { focus =  AUS_improve_relations_bear }
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_improve_relations_bear
+#   cost = 2
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    951 = {
-      remove_core_of = AUS
-    }
-  }
-}
+#   completion_reward = {
+#     951 = {
+#       remove_core_of = AUS
+#     }
+#   }
+# }
 
-shared_focus = {
-  id = AUS_tank_treaty_with_russia
-  icon = GFX_focus_NZL_bob_semple_tank
-  text = AUS_tank_treaty_with_russia
-  prerequisite = { focus =  AUS_recede_our_claim_on_eastern_krakow }
-  x = 0
-  y = 1
-  relative_position_id = AUS_recede_our_claim_on_eastern_krakow
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_tank_treaty_with_russia
+#   icon = GFX_focus_NZL_bob_semple_tank
+#   text = AUS_tank_treaty_with_russia
+#   prerequisite = { focus =  AUS_recede_our_claim_on_eastern_krakow }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_recede_our_claim_on_eastern_krakow
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    SOV = {country_event = austria.115}
-  }
-}
+#   completion_reward = {
+#     SOV = {country_event = austria.115}
+#   }
+# }
 
-shared_focus = {
-  id = AUS_russia_general_corp
-  icon = GFX_focus_generic_military_academy
-  text = AUS_russia_general_corp
-  prerequisite = { focus =  AUS_tank_treaty_with_russia }
-  x = -1
-  y = 2
-  relative_position_id = AUS_tank_treaty_with_russia
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_russia_general_corp
+#   icon = GFX_focus_generic_military_academy
+#   text = AUS_russia_general_corp
+#   prerequisite = { focus =  AUS_tank_treaty_with_russia }
+#   x = -1
+#   y = 2
+#   relative_position_id = AUS_tank_treaty_with_russia
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    add_ideas = AUS_russian_general_corp_idea
-  }
-}
+#   completion_reward = {
+#     add_ideas = AUS_russian_general_corp_idea
+#   }
+# }
 
-shared_focus = {
-  id = AUS_a_form_alliance_with_the_bear
-  icon = GFX_Diplo_Russia
-  text = AUS_a_form_alliance_with_the_bear
-  prerequisite = { focus =  AUS_improve_relations_bear }
-  prerequisite = { focus =  AUS_tank_treaty_with_russia }
-  x = 0
-  y = 3
-  relative_position_id = AUS_improve_relations_bear
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_a_form_alliance_with_the_bear
+#   icon = GFX_Diplo_Russia
+#   text = AUS_a_form_alliance_with_the_bear
+#   prerequisite = { focus =  AUS_improve_relations_bear }
+#   prerequisite = { focus =  AUS_tank_treaty_with_russia }
+#   x = 0
+#   y = 3
+#   relative_position_id = AUS_improve_relations_bear
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    SOV = {country_event = austria.17}
-  }
-}
+#   completion_reward = {
+#     SOV = {country_event = austria.17}
+#   }
+# }
 
 
 
-shared_focus = {
-  id = AUS_civil_war_support
-  icon = GFX_focus_generic_strike_at_democracy2
-  text = AUS_civil_war_support
-  prerequisite = { focus =  AUS_a_form_alliance_with_the_bear }
-  x = 0
-  y = 1
-  relative_position_id = AUS_a_form_alliance_with_the_bear
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_civil_war_support
+#   icon = GFX_focus_generic_strike_at_democracy2
+#   text = AUS_civil_war_support
+#   prerequisite = { focus =  AUS_a_form_alliance_with_the_bear }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_a_form_alliance_with_the_bear
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
+#   completion_reward = {
     
-  }
-}
+#   }
+# }
 
 
-shared_focus = {
-  id = AUS_improve_relations_france
-  icon = GFX_Diplo_France
-  text = AUS_improve_relations_france
-  prerequisite = { focus =  AUS_the_majors_europe }
-  mutually_exclusive = { focus = AUS_improve_relations_russia}
-  x = 1
-  y = 1
-  relative_position_id = AUS_the_majors_europe
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_improve_relations_france
+#   icon = GFX_Diplo_France
+#   text = AUS_improve_relations_france
+#   prerequisite = { focus =  AUS_the_majors_europe }
+#   mutually_exclusive = { focus = AUS_improve_relations_russia}
+#   x = 1
+#   y = 1
+#   relative_position_id = AUS_the_majors_europe
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-  FRA = {
-    add_opinion_modifier = {
-      modifier = medium_increase
-      target = AUS
-    }
-  }
-  AUS = {
-    add_opinion_modifier = {
-      modifier = medium_increase
-      target = FRA
-    }
-  }
-  }
-}
-
-
-shared_focus = {
-  id = AUS_alliance_with_france
-  icon = GFX_Diplo_France
-  text = AUS_alliance_with_france
-  prerequisite = { focus =  AUS_joint_artillery_design }
-  prerequisite = {focus = AUS_joint_artillery_design}
-  x = 1
-  y = 2
-  relative_position_id = AUS_joint_artillery_design
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    FRA = {country_event = austria.17}
-  }
-}
+#   completion_reward = {
+#   FRA = {
+#     add_opinion_modifier = {
+#       modifier = medium_increase
+#       target = AUS
+#     }
+#   }
+#   AUS = {
+#     add_opinion_modifier = {
+#       modifier = medium_increase
+#       target = FRA
+#     }
+#   }
+#   }
+# }
 
 
-shared_focus = {
-  id = AUS_improve_relations_england
-  icon = GFX_Diplo_Britain
-  text = AUS_improve_relations_england
-  prerequisite = { focus =  AUS_the_majors_europe }
-  mutually_exclusive = {
-    focus = AUS_improve_relations_france
-  }
-  mutually_exclusive = {
-    focus = AUS_improve_relations_bear
-  }
-  x = 3
-  y = 1
-  relative_position_id = AUS_the_majors_europe
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_alliance_with_france
+#   icon = GFX_Diplo_France
+#   text = AUS_alliance_with_france
+#   prerequisite = { focus =  AUS_joint_artillery_design }
+#   prerequisite = {focus = AUS_joint_artillery_design}
+#   x = 1
+#   y = 2
+#   relative_position_id = AUS_joint_artillery_design
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-   ENG = {
-    add_opinion_modifier = {
-      modifier = medium_increase
-      target = AUS
-    }
-  }
-  AUS = {
-    add_opinion_modifier = {
-      modifier = medium_increase
-      target = ENG
-    }
-  }
-  }
-}
+#   completion_reward = {
+#     FRA = {country_event = austria.17}
+#   }
+# }
 
-shared_focus = {
-  id = AUS_recruit_advanced_scientists
-  icon = GFX_goal_generic_radar
-  text = AUS_recruit_advanced_scientists
-  prerequisite = { focus =  AUS_improve_relations_england focus = AUS_improve_relations_france }
-  x = 0
-  y = 1
-  relative_position_id = AUS_improve_relations_england
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+#   id = AUS_improve_relations_england
+#   icon = GFX_Diplo_Britain
+#   text = AUS_improve_relations_england
+#   prerequisite = { focus =  AUS_the_majors_europe }
+#   mutually_exclusive = {
+#     focus = AUS_improve_relations_france
+#   }
+#   mutually_exclusive = {
+#     focus = AUS_improve_relations_bear
+#   }
+#   x = 3
+#   y = 1
+#   relative_position_id = AUS_the_majors_europe
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  completion_reward = {
-    country_event = austria.159
-  }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#    ENG = {
+#     add_opinion_modifier = {
+#       modifier = medium_increase
+#       target = AUS
+#     }
+#   }
+#   AUS = {
+#     add_opinion_modifier = {
+#       modifier = medium_increase
+#       target = ENG
+#     }
+#   }
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_recruit_advanced_scientists
+#   icon = GFX_goal_generic_radar
+#   text = AUS_recruit_advanced_scientists
+#   prerequisite = { focus =  AUS_improve_relations_england focus = AUS_improve_relations_france }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_improve_relations_england
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     country_event = austria.159
+#   }
 
   
-}
+# }
 
-shared_focus = {
-  id = AUS_the_ultimate_decription_machine
-  icon = electric_works
-  text = AUS_the_ultimate_decription_machine
-  prerequisite = { focus =  AUS_recruit_advanced_scientists }
-  x = 0
-  y = 2
-  relative_position_id = AUS_recruit_advanced_scientists
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_the_ultimate_decription_machine
+#   icon = electric_works
+#   text = AUS_the_ultimate_decription_machine
+#   prerequisite = { focus =  AUS_recruit_advanced_scientists }
+#   x = 0
+#   y = 2
+#   relative_position_id = AUS_recruit_advanced_scientists
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    country_event = austria.160 
-  }
-}
-
-
-
-
-
-
-shared_focus = {
-  id = AUS_buy_british_carriers
-  icon = GFX_goal_generic_navy_carrier
-  text = AUS_buy_british_carriers
-
-  prerequisite = {focus = AUS_improve_relations_england}
-  x = 1
-  y = 2
-  relative_position_id = AUS_improve_relations_england
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    country_event = austria.161
-  }
-}
-
-shared_focus = {
-  id = AUS_alliance_with_england
-  icon = GFX_Diplo_Britain
-  text = AUS_alliance_with_england
-  prerequisite = { focus =  AUS_the_ultimate_decription_machine }
-  prerequisite = { focus =  AUS_buy_british_carriers }
-  x = 0
-  y = 2
-  relative_position_id = AUS_buy_british_carriers
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    ENG = {country_event = austria.17}
-  }
-}
+#   completion_reward = {
+#     country_event = austria.160 
+#   }
+# }
 
 
 
 
 
 
+# shared_focus = {
+#   id = AUS_buy_british_carriers
+#   icon = GFX_goal_generic_navy_carrier
+#   text = AUS_buy_british_carriers
 
-shared_focus = {
-  id = AUS_arms_deal_with_america
-  icon = GFX_focus_generic_combined_arms
-  text = AUS_arms_deal_with_america
-  prerequisite = { focus =  AUS_alliance_with_england focus = AUS_alliance_with_france}
-  #mutually_exclusive = {focus = AUS_crush_the_dream}
-  x = -1
-  y = 1
-  relative_position_id = AUS_alliance_with_england
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  available = {
+#   prerequisite = {focus = AUS_improve_relations_england}
+#   x = 1
+#   y = 2
+#   relative_position_id = AUS_improve_relations_england
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     country_event = austria.161
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_alliance_with_england
+#   icon = GFX_Diplo_Britain
+#   text = AUS_alliance_with_england
+#   prerequisite = { focus =  AUS_the_ultimate_decription_machine }
+#   prerequisite = { focus =  AUS_buy_british_carriers }
+#   x = 0
+#   y = 2
+#   relative_position_id = AUS_buy_british_carriers
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     ENG = {country_event = austria.17}
+#   }
+# }
+
+
+
+
+
+
+
+# shared_focus = {
+#   id = AUS_arms_deal_with_america
+#   icon = GFX_focus_generic_combined_arms
+#   text = AUS_arms_deal_with_america
+#   prerequisite = { focus =  AUS_alliance_with_england focus = AUS_alliance_with_france}
+#   #mutually_exclusive = {focus = AUS_crush_the_dream}
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_alliance_with_england
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   available = {
       
-  }
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    USA = {country_event = austria.107}
-  }
-}
+#   completion_reward = {
+#     USA = {country_event = austria.107}
+#   }
+# }
 
 
 
@@ -5658,1089 +5679,1089 @@ shared_focus = {
 
 
 
-#royal marriage
+# #royal marriage
 
- shared_focus = {
-  id = AUS_otto_is_open
-  icon = GFX_goal_unkown
-  text = AUS_otto_is_open
-  #prerequisite = {focus = AUS_royal_marraiges}
-  x = -1
-  y = 9
-  #relative_position_id = AUS_royal_marraiges
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  allow_branch = {
-    always = no
-  }
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-  completion_reward = { 
-    AUS = {country_event = austria.180}
+#  shared_focus = {
+#   id = AUS_otto_is_open
+#   icon = GFX_goal_unkown
+#   text = AUS_otto_is_open
+#   #prerequisite = {focus = AUS_royal_marraiges}
+#   x = -1
+#   y = 9
+#   #relative_position_id = AUS_royal_marraiges
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   allow_branch = {
+#     always = no
+#   }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+#   completion_reward = { 
+#     AUS = {country_event = austria.180}
     
-  }
-}
+#   }
+# }
 
-shared_focus = {
-  id = AUS_restore_the_house_of_wilhelmina
-  icon = GFX_goal_unkown
-  text = AUS_restore_the_house_of_wilhelmina
-  available = {
-    has_country_flag = OrangeNassau_trigger_flag
-  }
+# shared_focus = {
+#   id = AUS_restore_the_house_of_wilhelmina
+#   icon = GFX_goal_unkown
+#   text = AUS_restore_the_house_of_wilhelmina
+#   available = {
+#     has_country_flag = OrangeNassau_trigger_flag
+#   }
   
-  prerequisite = {
-    focus = AUS_otto_is_open
-  }
-  mutually_exclusive = {focus = AUS_royal_marraige_with_england}
-  mutually_exclusive = {focus = AUS_royal_marraige_with_france}
-  x = -1
-  y = 1
-  relative_position_id = AUS_otto_is_open
-  cost = 0
-  ai_will_do = {
-    factor = 20
-  }
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   prerequisite = {
+#     focus = AUS_otto_is_open
+#   }
+#   mutually_exclusive = {focus = AUS_royal_marraige_with_england}
+#   mutually_exclusive = {focus = AUS_royal_marraige_with_france}
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_otto_is_open
+#   cost = 0
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    add_political_power = 50
-  }
-}
-
-
-shared_focus = {
-  id = AUS_royal_marraige_with_england
-  icon = GFX_goal_unkown
-  text = AUS_royal_marraige_with_england
-  available = {
-    has_country_flag = Windsor_trigger_flag
-  }
-  prerequisite = {
-    focus = AUS_otto_is_open
-  }
-  mutually_exclusive = {focus = AUS_restore_the_house_of_wilhelmina}
-  mutually_exclusive = {focus = AUS_royal_marraige_with_france}
-  x =  3
-  y = 1
-  relative_position_id = AUS_otto_is_open
-  cost = 0
-  ai_will_do = {
-    factor = 20
-  }
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-  completion_reward = {
-    add_political_power = 50
-  }
-}
-
-shared_focus = {
-  id = AUS_royal_marraige_with_france
-  icon = GFX_goal_unkown
-  text = AUS_royal_marraige_with_france
-   available = {
-    has_country_flag = Bonaparte_trigger_flag
-  }
-  prerequisite = {
-    focus = AUS_otto_is_open}
-  mutually_exclusive = {focus = AUS_royal_marraige_with_england}
-  mutually_exclusive = {focus = AUS_restore_the_house_of_wilhelmina}
-  x =  1
-  y = 1
-  relative_position_id = AUS_otto_is_open
-  cost = 0
-  ai_will_do = {
-    factor = 20
-  }
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-  completion_reward = {
-    add_political_power = 50
-  }
-}
+#   completion_reward = {
+#     add_political_power = 50
+#   }
+# }
 
 
-shared_focus = {
-  id = AUS_hold_the_marriage_in_london
-  icon = GFX_goal_unkown
-  text = AUS_hold_the_marriage_in_london
-  prerequisite = {focus = AUS_royal_marraige_with_england}
-  x =  0
-  y = 1
-  relative_position_id = AUS_royal_marraige_with_england
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_royal_marraige_with_england
+#   icon = GFX_goal_unkown
+#   text = AUS_royal_marraige_with_england
+#   available = {
+#     has_country_flag = Windsor_trigger_flag
+#   }
+#   prerequisite = {
+#     focus = AUS_otto_is_open
+#   }
+#   mutually_exclusive = {focus = AUS_restore_the_house_of_wilhelmina}
+#   mutually_exclusive = {focus = AUS_royal_marraige_with_france}
+#   x =  3
+#   y = 1
+#   relative_position_id = AUS_otto_is_open
+#   cost = 0
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+#   completion_reward = {
+#     add_political_power = 50
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_royal_marraige_with_france
+#   icon = GFX_goal_unkown
+#   text = AUS_royal_marraige_with_france
+#    available = {
+#     has_country_flag = Bonaparte_trigger_flag
+#   }
+#   prerequisite = {
+#     focus = AUS_otto_is_open}
+#   mutually_exclusive = {focus = AUS_royal_marraige_with_england}
+#   mutually_exclusive = {focus = AUS_restore_the_house_of_wilhelmina}
+#   x =  1
+#   y = 1
+#   relative_position_id = AUS_otto_is_open
+#   cost = 0
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+#   completion_reward = {
+#     add_political_power = 50
+#   }
+# }
+
+
+# shared_focus = {
+#   id = AUS_hold_the_marriage_in_london
+#   icon = GFX_goal_unkown
+#   text = AUS_hold_the_marriage_in_london
+#   prerequisite = {focus = AUS_royal_marraige_with_england}
+#   x =  0
+#   y = 1
+#   relative_position_id = AUS_royal_marraige_with_england
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
  
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    country_event = austria.183
-  }
-}
+#   completion_reward = {
+#     country_event = austria.183
+#   }
+# }
 
-shared_focus = {
-  id = AUS_hold_the_marriage_in_paris
-  icon = GFX_goal_unkown
-  text = AUS_hold_the_marriage_in_paris
-  prerequisite = {focus = AUS_royal_marraige_with_france}
-  x =  0
-  y = 1
-  relative_position_id = AUS_royal_marraige_with_france
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_hold_the_marriage_in_paris
+#   icon = GFX_goal_unkown
+#   text = AUS_hold_the_marriage_in_paris
+#   prerequisite = {focus = AUS_royal_marraige_with_france}
+#   x =  0
+#   y = 1
+#   relative_position_id = AUS_royal_marraige_with_france
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
  
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    country_event = austria.181
-  }
-}
+#   completion_reward = {
+#     country_event = austria.181
+#   }
+# }
 
 
 
-shared_focus = {
-  id = AUS_hold_the_marraige_in_amsterdam
-  icon = GFX_goal_unkown
-  text = AUS_hold_the_marraige_in_amsterdam
-  prerequisite = {focus = AUS_restore_the_house_of_wilhelmina}
-  x = 0
-  y = 1
-  relative_position_id = AUS_restore_the_house_of_wilhelmina
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_hold_the_marraige_in_amsterdam
+#   icon = GFX_goal_unkown
+#   text = AUS_hold_the_marraige_in_amsterdam
+#   prerequisite = {focus = AUS_restore_the_house_of_wilhelmina}
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_restore_the_house_of_wilhelmina
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
  
  
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    country_event = austria.182
-  }
-}
-
-
+#   completion_reward = {
+#     country_event = austria.182
+#   }
+# }
 
 
 
 
 
-shared_focus = {
-  id = AUS_hollonherzen_proposal
-  icon = GFX_goal_unkown
-  text = AUS_hollonherzen_proposal
-  prerequisite = {focus = AUS_the_german_line}
-  #mutually_exclusive = {focus = AUS_the_order_of_st_george}
-  x = 2
-  y = 1
-  relative_position_id = AUS_the_german_line
-  allow_branch = {
-    always = no
-  }
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+
+
+# # shared_focus = {
+# #   id = AUS_hollonherzen_proposal
+# #   icon = GFX_goal_unkown
+# #   text = AUS_hollonherzen_proposal
+# #   prerequisite = {focus = AUS_the_german_line}
+# #   #mutually_exclusive = {focus = AUS_the_order_of_st_george}
+# #   x = 2
+# #   y = 1
+# #   relative_position_id = AUS_the_german_line
+# #   allow_branch = {
+# #     always = no
+# #   }
+# #   cost = 5
+# #   ai_will_do = {
+# #     factor = 20
+# #   }
  
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+# #   available_if_capitulated = yes
+# #   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-  }
-}
+# #   completion_reward = {
+# #   }
+# # }
 
-shared_focus = {
-  id = AUS_the_kaiser_rules_hannover
-  icon = GFX_goal_unkown
-  text = AUS_the_kaiser_rules_hannover
-  prerequisite = {focus = AUS_hollonherzen_proposal}
-  x = 0
-  y = 2
-  relative_position_id = AUS_hollonherzen_proposal
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-  }
-}
-
-
-shared_focus = {
-  id = AUS_colonial_ambitions
-  icon = GFX_goal_AUS_colonial_ambitions
-  text = AUS_colonial_ambitions
-  #prerequisite = { focus = AUS_the_austrian_superpower}
-  x = 5
-  y = 9
-  #relative_position_id = AUS_the_austrian_superpower
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  } 
-  available = {
-    OR = {
-      has_completed_focus = AUS_CENTRALISM
-      has_completed_focus = AUS_FEDERALISM
-    }
-    has_country_flag = vote_successful_colonial_expansion_act
-  }
- 
+# shared_focus = {
+#   id = AUS_the_kaiser_rules_hannover
+#   icon = GFX_goal_unkown
+#   text = AUS_the_kaiser_rules_hannover
+#   prerequisite = {focus = AUS_hollonherzen_proposal}
+#   x = 0
+#   y = 2
+#   relative_position_id = AUS_hollonherzen_proposal
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
   
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    add_ideas = AUS_colonial_ambitions
-
-    ##unlock karls decisions
-  }
-}
+#   completion_reward = {
+#   }
+# }
 
 
-shared_focus = {
-  id = AUS_expansion_in_africa
-  icon = GFX_goal_austrian_africa
-  text = AUS_expansion_in_africa
-  prerequisite = { focus = AUS_colonial_ambitions }
-  x = 0
-  y = 1
-  relative_position_id = AUS_colonial_ambitions
-  cost = 1
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_colonial_ambitions
+#   icon = GFX_goal_AUS_colonial_ambitions
+#   text = AUS_colonial_ambitions
+#   #prerequisite = { focus = AUS_the_austrian_superpower}
+#   x = 5
+#   y = 9
+#   #relative_position_id = AUS_the_austrian_superpower
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   } 
+#   available = {
+#     OR = {
+#       has_completed_focus = AUS_CENTRALISM
+#       has_completed_focus = AUS_FEDERALISM
+#     }
+#     has_country_flag = vote_successful_colonial_expansion_act
+#   }
+ 
+  
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    ########gets event kaiser announces african campaign
-    add_to_variable = {colonial_influence_var = 3}
-    custom_effect_tooltip = increase_colonial_influence
-    add_war_support = 0.1
-  }
-}
+#   completion_reward = {
+#     add_ideas = AUS_colonial_ambitions
 
-shared_focus = {
-  id = AUS_claim_the_north_african_coast
-  icon = GFX_goal_Claim_NorthAfrica
-  text = AUS_claim_the_north_african_coast
-  prerequisite = { focus = AUS_expansion_in_africa }
-  x = -2
-  y = 1
-  relative_position_id = AUS_expansion_in_africa
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  allow_branch = {
-    always = no
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    every_state = {
-      limit = {
-        OR = {
-          is_owned_by = LBA
-          is_owned_by = EGY
-        }
-        is_coastal = yes
-      }
-      add_claim_by = AUS
-    }
-  }
-}
-
-shared_focus = {
-  id = AUS_demand_tunis
-  icon = GFX_goal_Claim_Tunisia
-  text = AUS_demand_tunis
-  prerequisite = { focus = AUS_expansion_in_africa }
-  x = -2
-  y = 1
-  relative_position_id = AUS_expansion_in_africa
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    #####gets event austria demands tunis
-
-    FRA = {country_event = austria.107}
-  }
-}
-
-shared_focus = {
-  id = AUS_north_african_oil
-  icon = GFX_goal_generic_oil_refinery
-  text = AUS_north_african_oil
-  prerequisite = { focus = AUS_demand_tunis }
-  x = 0
-  y = 2
-  relative_position_id = AUS_demand_tunis
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    if = {
-      limit = {
-        AUS = {
-          owns_state = 485
-        }
-      }
-      add_resource = {
-        type = oil
-        amount = 12
-        state = 485
-      }
-    }
-  }
-}
-
-shared_focus = {
-  id = AUS_infrastructure_in_somalia
-  icon = GFX_goal_SomalianIndustry
-  text = AUS_infrastructure_in_somalia
-  prerequisite = { focus = AUS_expansion_in_africa }
-  x = 0
-  y = 1
-  relative_position_id = AUS_expansion_in_africa
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  bypass = {
-    NOT = {
-     controls_state = 559
-    }
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    if = {
-      limit = {
-        controls_state = 559
-      }
-      4 = {
-        add_building_construction = {
-            type = infrastructure
-            level = 3
-            instant_build = yes
-
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-    }
-  }
-}
+#     ##unlock karls decisions
+#   }
+# }
 
 
-shared_focus = {
-  id = AUS_demand_kenya
-  icon = GFX_goal_Claim_Kenya
-  text = AUS_demand_kenya
-  prerequisite = { focus = AUS_infrastructure_in_somalia }
-  x = 0
-  y = 1
-  relative_position_id = AUS_infrastructure_in_somalia
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_expansion_in_africa
+#   icon = GFX_goal_austrian_africa
+#   text = AUS_expansion_in_africa
+#   prerequisite = { focus = AUS_colonial_ambitions }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_colonial_ambitions
+#   cost = 1
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    ENG = {country_event = austria.107}
-  }
-}
+#   completion_reward = {
+#     ########gets event kaiser announces african campaign
+#     add_to_variable = {colonial_influence_var = 3}
+#     custom_effect_tooltip = increase_colonial_influence
+#     add_war_support = 0.1
+#   }
+# }
 
-shared_focus = {
-  id = AUS_oil_in_namibia
-  icon = GFX_goal_NamibianIndustry
-  text = AUS_oil_in_namibia
-  prerequisite = { focus = AUS_expansion_in_africa }
-  x = 2
-  y = 1
-  relative_position_id = AUS_expansion_in_africa
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_claim_the_north_african_coast
+#   icon = GFX_goal_Claim_NorthAfrica
+#   text = AUS_claim_the_north_african_coast
+#   prerequisite = { focus = AUS_expansion_in_africa }
+#   x = -2
+#   y = 1
+#   relative_position_id = AUS_expansion_in_africa
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   allow_branch = {
+#     always = no
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    if = {
-      limit = {
-        owns_state = 541
-      }
-      add_resource = {
-        type = oil
-        amount = 12
-        state = 541
-      }
-    }
-  }
-}
+#   completion_reward = {
+#     every_state = {
+#       limit = {
+#         OR = {
+#           is_owned_by = LBA
+#           is_owned_by = EGY
+#         }
+#         is_coastal = yes
+#       }
+#       add_claim_by = AUS
+#     }
+#   }
+# }
 
-shared_focus = {
-  id = AUS_connect_our_territories
-  icon = GFX_focus_por_the_pink_map
-  text = AUS_connect_our_territories
-  prerequisite = { focus = AUS_oil_in_namibia }
-  x = 0
-  y = 1
-  relative_position_id = AUS_oil_in_namibia
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_demand_tunis
+#   icon = GFX_goal_Claim_Tunisia
+#   text = AUS_demand_tunis
+#   prerequisite = { focus = AUS_expansion_in_africa }
+#   x = -2
+#   y = 1
+#   relative_position_id = AUS_expansion_in_africa
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    #####SAF gets event austria demands shit
+#   completion_reward = {
+#     #####gets event austria demands tunis
 
-    SAF = {country_event = austria.107}
-  }
-}
+#     FRA = {country_event = austria.107}
+#   }
+# }
 
-shared_focus = {
-  id = AUS_claim_the_greater_congo_basin
-  icon = GFX_goal_Claim_CongoBasin
-  text = AUS_claim_the_greater_congo_basin
-  prerequisite = { focus = AUS_connect_our_territories }
-  prerequisite = {focus = AUS_demand_kenya}
-  x = -1
-  y = 1
-  relative_position_id = AUS_connect_our_territories
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_north_african_oil
+#   icon = GFX_goal_generic_oil_refinery
+#   text = AUS_north_african_oil
+#   prerequisite = { focus = AUS_demand_tunis }
+#   x = 0
+#   y = 2
+#   relative_position_id = AUS_demand_tunis
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    #####SAF gets event austria demands shit
+#   completion_reward = {
+#     if = {
+#       limit = {
+#         AUS = {
+#           owns_state = 485
+#         }
+#       }
+#       add_resource = {
+#         type = oil
+#         amount = 12
+#         state = 485
+#       }
+#     }
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_infrastructure_in_somalia
+#   icon = GFX_goal_SomalianIndustry
+#   text = AUS_infrastructure_in_somalia
+#   prerequisite = { focus = AUS_expansion_in_africa }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_expansion_in_africa
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   bypass = {
+#     NOT = {
+#      controls_state = 559
+#     }
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     if = {
+#       limit = {
+#         controls_state = 559
+#       }
+#       4 = {
+#         add_building_construction = {
+#             type = infrastructure
+#             level = 3
+#             instant_build = yes
+
+#         }
+#         add_extra_state_shared_building_slots = 1
+#       }
+#     }
+#   }
+# }
+
+
+# shared_focus = {
+#   id = AUS_demand_kenya
+#   icon = GFX_goal_Claim_Kenya
+#   text = AUS_demand_kenya
+#   prerequisite = { focus = AUS_infrastructure_in_somalia }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_infrastructure_in_somalia
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     ENG = {country_event = austria.107}
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_oil_in_namibia
+#   icon = GFX_goal_NamibianIndustry
+#   text = AUS_oil_in_namibia
+#   prerequisite = { focus = AUS_expansion_in_africa }
+#   x = 2
+#   y = 1
+#   relative_position_id = AUS_expansion_in_africa
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     if = {
+#       limit = {
+#         owns_state = 541
+#       }
+#       add_resource = {
+#         type = oil
+#         amount = 12
+#         state = 541
+#       }
+#     }
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_connect_our_territories
+#   icon = GFX_focus_por_the_pink_map
+#   text = AUS_connect_our_territories
+#   prerequisite = { focus = AUS_oil_in_namibia }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_oil_in_namibia
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     #####SAF gets event austria demands shit
+
+#     SAF = {country_event = austria.107}
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_claim_the_greater_congo_basin
+#   icon = GFX_goal_Claim_CongoBasin
+#   text = AUS_claim_the_greater_congo_basin
+#   prerequisite = { focus = AUS_connect_our_territories }
+#   prerequisite = {focus = AUS_demand_kenya}
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_connect_our_territories
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     #####SAF gets event austria demands shit
 
    
-  }
-}
+#   }
+# }
 
 
 
-shared_focus = {
-  id = AUS_situation_in_americas
-  icon = GFX_goal_unkown
-  text = AUS_situation_in_americas
-  prerequisite = { focus = AUS_expand_the_imperial_ministry }
-  x = 0
-  y = 1
-  relative_position_id = AUS_expand_the_imperial_ministry
-  cost = 5
+# shared_focus = {
+#   id = AUS_situation_in_americas
+#   icon = GFX_goal_unkown
+#   text = AUS_situation_in_americas
+#   prerequisite = { focus = AUS_expand_the_imperial_ministry }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_expand_the_imperial_ministry
+#   cost = 5
 
-  ai_will_do = {
-    factor = 20
-  }
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    add_to_variable = {colonial_influence_var = 3}
-  }
-}
-
-
+#   completion_reward = {
+#     add_to_variable = {colonial_influence_var = 3}
+#   }
+# }
 
 
 
 
-shared_focus = {
-  id = AUS_import_steel_from_argentina
-  icon = GFX_goal_unkown
-  text = AUS_import_steel_from_argentina
-  prerequisite = { focus = AUS_situation_in_americas }
-  x = 3
-  y = 1
-  relative_position_id = AUS_situation_in_americas
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-  create_import = {
-  resource = steel
-  amount = 16
-  exporter = ARG
-  }
-  }
-}
+# shared_focus = {
+#   id = AUS_import_steel_from_argentina
+#   icon = GFX_goal_unkown
+#   text = AUS_import_steel_from_argentina
+#   prerequisite = { focus = AUS_situation_in_americas }
+#   x = 3
+#   y = 1
+#   relative_position_id = AUS_situation_in_americas
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-shared_focus = {
-  id = AUS_industrial_deal_with_argentina
-  icon = GFX_goal_unkown
-  text = AUS_industrial_deal_with_argentina
-  prerequisite = { focus = AUS_import_steel_from_argentina }
-  x = 0
-  y = 1
-  relative_position_id = AUS_import_steel_from_argentina
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  mutually_exclusive = {
-    focus = AUS_industrial_deal_with_colombia
-  }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   completion_reward = {
+#   create_import = {
+#   resource = steel
+#   amount = 16
+#   exporter = ARG
+#   }
+#   }
+# }
 
-  completion_reward = {
-  country_event = austria.171
-  }
-}
+# shared_focus = {
+#   id = AUS_industrial_deal_with_argentina
+#   icon = GFX_goal_unkown
+#   text = AUS_industrial_deal_with_argentina
+#   prerequisite = { focus = AUS_import_steel_from_argentina }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_import_steel_from_argentina
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   mutually_exclusive = {
+#     focus = AUS_industrial_deal_with_colombia
+#   }
 
-shared_focus = {
-  id = AUS_reconcile_brazilian_imperialists
-  icon = GFX_goal_unkown
-  text = AUS_reconcile_brazilian_imperialists
-  prerequisite = { focus = AUS_situation_in_americas }
-  x = -2
-  y = 1
-  relative_position_id = AUS_situation_in_americas
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   completion_reward = {
+#   country_event = austria.171
+#   }
+# }
 
-  completion_reward = {
+# shared_focus = {
+#   id = AUS_reconcile_brazilian_imperialists
+#   icon = GFX_goal_unkown
+#   text = AUS_reconcile_brazilian_imperialists
+#   prerequisite = { focus = AUS_situation_in_americas }
+#   x = -2
+#   y = 1
+#   relative_position_id = AUS_situation_in_americas
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
   
-  }
-}
+#   }
+# }
 
 
 
-shared_focus = {
-  id = AUS_import_oil_from_grand_colombia
-  icon = GFX_goal_unkown
-  text = AUS_import_oil_from_grand_colombia
-  prerequisite = { focus = AUS_situation_in_americas }
-  x = 0
-  y = 1
-  relative_position_id = AUS_situation_in_americas
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_import_oil_from_grand_colombia
+#   icon = GFX_goal_unkown
+#   text = AUS_import_oil_from_grand_colombia
+#   prerequisite = { focus = AUS_situation_in_americas }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_situation_in_americas
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-  create_import = {
-  resource = oil
-  amount = 16
-  exporter = COL
-  }
-  }
-}
+#   completion_reward = {
+#   create_import = {
+#   resource = oil
+#   amount = 16
+#   exporter = COL
+#   }
+#   }
+# }
 
-shared_focus = {
-  id = AUS_industrial_deal_with_colombia
-  icon = GFX_goal_unkown
-  text = AUS_industrial_deal_with_colombia
-  prerequisite = { focus = AUS_import_oil_from_grand_colombia }
-  mutually_exclusive = {
-    focus = AUS_industrial_deal_with_argentina
-  }
-  x = 0
-  y = 1
-  relative_position_id = AUS_import_oil_from_grand_colombia
-  cost = 5
-  ai_will_do = {
-    factor = 20 
-  }
+# shared_focus = {
+#   id = AUS_industrial_deal_with_colombia
+#   icon = GFX_goal_unkown
+#   text = AUS_industrial_deal_with_colombia
+#   prerequisite = { focus = AUS_import_oil_from_grand_colombia }
+#   mutually_exclusive = {
+#     focus = AUS_industrial_deal_with_argentina
+#   }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_import_oil_from_grand_colombia
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20 
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-   country_event = austria.170
-    }
-  }
+#   completion_reward = {
+#    country_event = austria.170
+#     }
+#   }
 
-shared_focus = {
-  id = AUS_expand_the_imperial_ministry
-  icon = GFX_goal_unkown
-  text = AUS_expand_the_imperial_ministry
-  #prerequisite = { focus = AUS_colonial_ambitions }
-  x = -5
-  y = 13
- # relative_position_id = AUS_colonial_ambitions
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  allow_branch = {
-    always = no
-  }
+# shared_focus = {
+#   id = AUS_expand_the_imperial_ministry
+#   icon = GFX_goal_unkown
+#   text = AUS_expand_the_imperial_ministry
+#   #prerequisite = { focus = AUS_colonial_ambitions }
+#   x = -5
+#   y = 13
+#  # relative_position_id = AUS_colonial_ambitions
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   allow_branch = {
+#     always = no
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    743 = {
-            add_building_construction = {
-                type = infrastructure
-                level = 3
-                instant_build = yes
+#   completion_reward = {
+#     743 = {
+#             add_building_construction = {
+#                 type = infrastructure
+#                 level = 3
+#                 instant_build = yes
 
-            }
-            add_extra_state_shared_building_slots = 1
-      }
-    add_to_variable = {colonial_influence_var = 3}
-  }
-}
-
-
+#             }
+#             add_extra_state_shared_building_slots = 1
+#       }
+#     add_to_variable = {colonial_influence_var = 3}
+#   }
+# }
 
 
 
-shared_focus = {
-  id = AUS_infrastructure_in_qingdao
-  icon = GFX_goal_AUS_expand_tinjian
-  text = AUS_infrastructure_in_qingdao
-  prerequisite = { focus = AUS_expand_the_imperial_ministry }
-  x = -5
-  y = 1
-  relative_position_id = AUS_expand_the_imperial_ministry
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    743 = {
-            add_building_construction = {
-                type = infrastructure
-                level = 3
-                instant_build = yes
+# shared_focus = {
+#   id = AUS_infrastructure_in_qingdao
+#   icon = GFX_goal_AUS_expand_tinjian
+#   text = AUS_infrastructure_in_qingdao
+#   prerequisite = { focus = AUS_expand_the_imperial_ministry }
+#   x = -5
+#   y = 1
+#   relative_position_id = AUS_expand_the_imperial_ministry
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-            }
-            add_extra_state_shared_building_slots = 1
-      }
-    country_event = austria.167
-  }
-}
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-shared_focus = {
-  id = AUS_influence_beyiang
-  icon = GFX_goal_AUS_envoy_to_beyiang
-  text = AUS_influence_beyiang
-  prerequisite = { focus = AUS_infrastructure_in_qingdao }
-  x = 1
-  y = 1
-  relative_position_id = AUS_infrastructure_in_qingdao
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+#   completion_reward = {
+#     743 = {
+#             add_building_construction = {
+#                 type = infrastructure
+#                 level = 3
+#                 instant_build = yes
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#             }
+#             add_extra_state_shared_building_slots = 1
+#       }
+#     country_event = austria.167
+#   }
+# }
 
-  completion_reward = {
-    add_opinion_modifier = {
-      modifier = small_increase
-      target = BEI
-    }
-    BEI = {
-    add_opinion_modifier = {
-      modifier = small_increase
-      target = AUS
-    }
-    }
+# shared_focus = {
+#   id = AUS_influence_beyiang
+#   icon = GFX_goal_AUS_envoy_to_beyiang
+#   text = AUS_influence_beyiang
+#   prerequisite = { focus = AUS_infrastructure_in_qingdao }
+#   x = 1
+#   y = 1
+#   relative_position_id = AUS_infrastructure_in_qingdao
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-    country_event = austria.168
-  }
-}
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-shared_focus = {
-  id = AUS_pact_with_beyaing
-  icon = GFX_goal_AUS_a_pact_with_beyiang
-  text = AUS_pact_with_beyaing
-  prerequisite = { focus = AUS_influence_beyiang }
-  x = 0
-  y = 1
-  relative_position_id = AUS_influence_beyiang
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+#   completion_reward = {
+#     add_opinion_modifier = {
+#       modifier = small_increase
+#       target = BEI
+#     }
+#     BEI = {
+#     add_opinion_modifier = {
+#       modifier = small_increase
+#       target = AUS
+#     }
+#     }
 
-  available = {
-    BEI = {
-      has_opinion = {
-        target = AUS
-        value = 50
-    }
-    }
+#     country_event = austria.168
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_pact_with_beyaing
+#   icon = GFX_goal_AUS_a_pact_with_beyiang
+#   text = AUS_pact_with_beyaing
+#   prerequisite = { focus = AUS_influence_beyiang }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_influence_beyiang
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available = {
+#     BEI = {
+#       has_opinion = {
+#         target = AUS
+#         value = 50
+#     }
+#     }
     
-  }
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    BEI = {country_event = austria.17}
+#   completion_reward = {
+#     BEI = {country_event = austria.17}
     
-  }
-}
+#   }
+# }
  
-shared_focus = {
-  id = AUS_eastern_menace
-  icon = GFX_goal_unkown
-  text = AUS_eastern_menace
-  prerequisite = { focus = AUS_pact_with_beyaing }
-  x = 1
-  y = 2
-  relative_position_id = AUS_pact_with_beyaing
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
-  allow_branch = {
-    always = no
-  }
+# shared_focus = {
+#   id = AUS_eastern_menace
+#   icon = GFX_goal_unkown
+#   text = AUS_eastern_menace
+#   prerequisite = { focus = AUS_pact_with_beyaing }
+#   x = 1
+#   y = 2
+#   relative_position_id = AUS_pact_with_beyaing
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
+#   allow_branch = {
+#     always = no
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    create_wargoal = {
-      target = JAP
-      type = annex_everything
-    }
-  }
-}
+#   completion_reward = {
+#     create_wargoal = {
+#       target = JAP
+#       type = annex_everything
+#     }
+#   }
+# }
 
-shared_focus = {
-  id = AUS_protect_the_smc
-  icon = GFX_goal_unkown
-  text = AUS_protect_the_smc
-  prerequisite = { focus = AUS_pact_with_beyaing }
-  x = 0
-  y = 1
-  relative_position_id = AUS_pact_with_beyaing
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_protect_the_smc
+#   icon = GFX_goal_unkown
+#   text = AUS_protect_the_smc
+#   prerequisite = { focus = AUS_pact_with_beyaing }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_pact_with_beyaing
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    #####SMC gets event austria offers "protection :thinking:"
+#   completion_reward = {
+#     #####SMC gets event austria offers "protection :thinking:"
 
-    SMC = {country_event = austria.107}
-  }
-}
+#     SMC = {country_event = austria.107}
+#   }
+# }
 
-shared_focus = {
-  id = AUS_align_indian_congress
-  icon = GFX_goal_unkown
-  text = AUS_align_indian_congress
-  prerequisite = { focus = AUS_infrastructure_in_qingdao }
-  x = -1
-  y = 1
-  relative_position_id = AUS_infrastructure_in_qingdao
-  cost = 2
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_align_indian_congress
+#   icon = GFX_goal_unkown
+#   text = AUS_align_indian_congress
+#   prerequisite = { focus = AUS_infrastructure_in_qingdao }
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_infrastructure_in_qingdao
+#   cost = 2
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    add_opinion_modifier = {
-      modifier = large_increase
-      target = INC
-    }
-    INC = {
-    add_opinion_modifier = {
-      modifier = large_increase
-      target = AUS
-    }
-    }
+#   completion_reward = {
+#     add_opinion_modifier = {
+#       modifier = large_increase
+#       target = INC
+#     }
+#     INC = {
+#     add_opinion_modifier = {
+#       modifier = large_increase
+#       target = AUS
+#     }
+#     }
 
-    country_event = austria.166
+#     country_event = austria.166
 
 
     
 
-  }
-}
+#   }
+# }
 
 
-shared_focus = {
-  id = AUS_intervention_india
-  icon = GFX_goal_unkown
-  text = AUS_intervention_india
-  prerequisite = { focus = AUS_align_indian_congress }
-  x = 0
-  y = 1
-  relative_position_id = AUS_align_indian_congress
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_intervention_india
+#   icon = GFX_goal_unkown
+#   text = AUS_intervention_india
+#   prerequisite = { focus = AUS_align_indian_congress }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_align_indian_congress
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available = {
-    INC = {
-      has_opinion = {
-        target = AUS
-        value = 50
-      }
-    }
-  }
+#   available = {
+#     INC = {
+#       has_opinion = {
+#         target = AUS
+#         value = 50
+#       }
+#     }
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
+#   completion_reward = {
 
-    country_event = austria.169
+#     country_event = austria.169
 
-    unlock_decision_category_tooltip = AUS_intervention_india_descision_category
-  }
-}
+#     unlock_decision_category_tooltip = AUS_intervention_india_descision_category
+#   }
+# }
 
-shared_focus = {
-  id = AUS_demand_ceylon
-  icon = GFX_goal_unkown
-  text = AUS_demand_ceylon
-  prerequisite = { focus = AUS_intervention_india }
-  x = 0
-  y = 1
-  relative_position_id = AUS_intervention_india
-  cost = 5
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_demand_ceylon
+#   icon = GFX_goal_unkown
+#   text = AUS_demand_ceylon
+#   prerequisite = { focus = AUS_intervention_india }
+#   x = 0
+#   y = 1
+#   relative_position_id = AUS_intervention_india
+#   cost = 5
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-  completion_reward = {
-    FRA = {country_event = austria.112}
-  }
-}
-
-
-
+#   completion_reward = {
+#     FRA = {country_event = austria.112}
+#   }
+# }
 
 
 
 
-shared_focus = {
-  id = AUS_pacify_the_balkan_states
-  icon = GFX_focus_generic_self_management
-  text = AUS_pacify_the_balkan_states
-  prerequisite = { focus = AUS_bulwark_against_expansionism }
-  x = 4
-  y = 1
-  relative_position_id = AUS_bulwark_against_expansionism
-  cost = 2
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-  available = {
-    has_country_flag = vote_succesful_treaties_act
-  }
-  allow_branch =  {
-    always = no
-  }
-
-  completion_reward = {
-    add_opinion_modifier = {
-      target = YUG
-      modifier = medium_increase
-    }
-
-    YUG = {
-      add_opinion_modifier = {
-        target = AUS
-        modifier = medium_increase
-      }
-    }
-
-    add_opinion_modifier = {
-      target = ROM
-      modifier = medium_increase
-    }
-
-    ROM = {
-      add_opinion_modifier = {
-        target = AUS
-        modifier = medium_increase
-      }
-    }
-
-    add_opinion_modifier = {
-      target = BUL
-      modifier = medium_increase
-    }
-
-    BUL = {
-      add_opinion_modifier = {
-        target = AUS
-        modifier = medium_increase
-      }
-    }
-
-    104 = {
-      remove_core_of = AUS
-    }
-  }
-}
-
-shared_focus = {
-  id = AUS_deal_with_romania
-  icon = GFX_focus_generic_self_management
-  text = AUS_deal_with_romania
-  prerequisite = { focus = AUS_pacify_the_balkan_states }
-  x = -1
-  y = 1
-  relative_position_id = AUS_pacify_the_balkan_states
-  cost = 2
-  ai_will_do = {
-    factor = 20
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    ROM = {country_event = austria.17}
-  }
-}
 
 
 
-shared_focus = {
-  id = AUS_croatia_for_alliance
-  icon = GFX_focus_generic_self_management
-  text = AUS_croatia_for_alliance
-  prerequisite = { focus = AUS_pacify_the_balkan_states } 
-  x = 1
-  y = 1
-  relative_position_id = AUS_pacify_the_balkan_states
-  cost = 2
-  ai_will_do = {
-    factor = 20
-  }
+# shared_focus = {
+#   id = AUS_pacify_the_balkan_states
+#   icon = GFX_focus_generic_self_management
+#   text = AUS_pacify_the_balkan_states
+#   prerequisite = { focus = AUS_bulwark_against_expansionism }
+#   x = 4
+#   y = 1
+#   relative_position_id = AUS_bulwark_against_expansionism
+#   cost = 2
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+#   available = {
+#     has_country_flag = vote_succesful_treaties_act
+#   }
+#   allow_branch =  {
+#     always = no
+#   }
 
-  completion_reward = {
+#   completion_reward = {
+#     add_opinion_modifier = {
+#       target = YUG
+#       modifier = medium_increase
+#     }
 
-    YUG = {country_event = austria.17}
+#     YUG = {
+#       add_opinion_modifier = {
+#         target = AUS
+#         modifier = medium_increase
+#       }
+#     }
+
+#     add_opinion_modifier = {
+#       target = ROM
+#       modifier = medium_increase
+#     }
+
+#     ROM = {
+#       add_opinion_modifier = {
+#         target = AUS
+#         modifier = medium_increase
+#       }
+#     }
+
+#     add_opinion_modifier = {
+#       target = BUL
+#       modifier = medium_increase
+#     }
+
+#     BUL = {
+#       add_opinion_modifier = {
+#         target = AUS
+#         modifier = medium_increase
+#       }
+#     }
+
+#     104 = {
+#       remove_core_of = AUS
+#     }
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_deal_with_romania
+#   icon = GFX_focus_generic_self_management
+#   text = AUS_deal_with_romania
+#   prerequisite = { focus = AUS_pacify_the_balkan_states }
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_pacify_the_balkan_states
+#   cost = 2
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     ROM = {country_event = austria.17}
+#   }
+# }
 
 
-    ######If they accept
-    remove_ideas = Croat_Support
 
-    release = CRO
+# shared_focus = {
+#   id = AUS_croatia_for_alliance
+#   icon = GFX_focus_generic_self_management
+#   text = AUS_croatia_for_alliance
+#   prerequisite = { focus = AUS_pacify_the_balkan_states } 
+#   x = 1
+#   y = 1
+#   relative_position_id = AUS_pacify_the_balkan_states
+#   cost = 2
+#   ai_will_do = {
+#     factor = 20
+#   }
 
-    YUG = {
-      set_autonomy = {
-        target = CRO
-        autonomous_state =  autonomy_puppet
-      }
-    }
-  }
-}
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
 
-shared_focus = {
-  id = AUS_invite_bulgaria
-  icon = GFX_focus_generic_self_management
-  text = AUS_invite_bulgaria
-  prerequisite = { focus = AUS_deal_with_romania }
-  prerequisite = { focus = AUS_croatia_for_alliance }
-  #mutually_exclusive = {focus = AUS_support_ottoman_claim_edirne}
-  x = 1
-  y = 1
-  relative_position_id = AUS_deal_with_romania
-  cost = 2
-  ai_will_do = {
-    factor = 20
-  }
+#   completion_reward = {
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
+#     YUG = {country_event = austria.17}
 
-  completion_reward = {
-    BUL = {country_event = austria.17}
-  }
-}
+
+#     ######If they accept
+#     remove_ideas = Croat_Support
+
+#     release = CRO
+
+#     YUG = {
+#       set_autonomy = {
+#         target = CRO
+#         autonomous_state =  autonomy_puppet
+#       }
+#     }
+#   }
+# }
+
+# shared_focus = {
+#   id = AUS_invite_bulgaria
+#   icon = GFX_focus_generic_self_management
+#   text = AUS_invite_bulgaria
+#   prerequisite = { focus = AUS_deal_with_romania }
+#   prerequisite = { focus = AUS_croatia_for_alliance }
+#   #mutually_exclusive = {focus = AUS_support_ottoman_claim_edirne}
+#   x = 1
+#   y = 1
+#   relative_position_id = AUS_deal_with_romania
+#   cost = 2
+#   ai_will_do = {
+#     factor = 20
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     BUL = {country_event = austria.17}
+#   }
+# }
 
 
 
