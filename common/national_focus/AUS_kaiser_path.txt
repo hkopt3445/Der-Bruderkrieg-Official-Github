@@ -612,31 +612,7 @@ shared_focus = {
 }
 
 
-shared_focus = {
-  id = AUS_expand_recruitment_imperial_army
-  icon = GFX_goal_AUS_expand_recruitment_in_the_imperial_army
-  text = AUS_expand_recruitment_imperial_army
-  prerequisite = { focus = AUS_ALL_HAIL_KAISER }
-  x = 1
-  y = 1
-  relative_position_id = AUS_ALL_HAIL_KAISER
-  cost = 5
-  ai_will_do = {
-    factor = 200
-  }
 
-  available = {
-    has_country_flag = vote_succesful_conscription
-  }
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    add_ideas = {
-      Kasier_Und_Reich
-    }
-  }
-}
 
 shared_focus = {
   id = AUS_BAN_CZECHS
@@ -841,7 +817,31 @@ shared_focus = {
     ##replace with Karls Cult of Personality!!!
   }
 }
+shared_focus = {
+  id = AUS_expand_recruitment_imperial_army
+  icon = GFX_goal_AUS_expand_recruitment_in_the_imperial_army
+  text = AUS_expand_recruitment_imperial_army
+  prerequisite = { focus = AUS_ALL_HAIL_KAISER }
+  x = 1
+  y = 1
+  relative_position_id = AUS_ALL_HAIL_KAISER
+  cost = 5
+  ai_will_do = {
+    factor = 200
+  }
 
+  available = {
+    has_country_flag = vote_succesful_conscription
+  }
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    add_ideas = {
+      Kasier_Und_Reich
+    }
+  }
+}
 
 shared_focus = {
   id = AUS_ANNEX_BUCOVINA
@@ -2191,108 +2191,10 @@ shared_focus = {
 
 
 
-shared_focus = {
-	id = AUS_industrializing_ostafrika
-	icon = GFX_focus_generic_africa_factory
-	x = 0
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_minding_the_italian_border }
-	relative_position_id = AUS_minding_the_italian_border
-
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-  available = {
-      1064 = {
-        CONTROLLER = {
-          OR = {
-            tag = AUS
-            is_subject_of = AUS
-          }
-        }
-      }
-      547 = {
-        CONTROLLER = {
-          OR = {
-            tag = AUS
-            is_subject_of = AUS
-          }
-        }
-      }
-    }
-	completion_reward = {
-		1064 = {
-              add_building_construction = {
-                  type = arms_factory
-                  level = 1
-                  instant_build = yes
-
-              }
-              add_building_construction = {
-                  type = industrial_complex
-                  level = 1
-                  instant_build = yes
-
-              }
-               add_building_construction = {
-                  type = infrastructure
-                  level = 1
-                  instant_build = yes
-
-              }
-              add_extra_state_shared_building_slots = 3
-    }
-    547 = {
-              add_building_construction = {
-                  type = industrial_complex
-                  level = 1
-                  instant_build = yes
-
-              }
-               add_building_construction = {
-                  type = infrastructure
-                  level = 1
-                  instant_build = yes
-
-              }
-              add_extra_state_shared_building_slots = 2
-    }
-	}
-}
 
 
 
-shared_focus = {
-	id = AUS_expansion_of_togo_operations
-	icon = GFX_goal_generic_positive_trade_relations
-	relative_position_id = AUS_initiate_a_trial_run_in_togo
-	x = -1
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_initiate_a_trial_run_in_togo }
-	search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		if = {
-        limit = { has_full_control_of_state = 777 } 
-        unlock_decision_tooltip = AUS_develop_togo_steel_deposits
-      }
-      if = {
-        limit = { has_full_control_of_state = 777 }
-        unlock_decision_tooltip = AUS_develop_togo_chromium_deposits
-      }     
-      if = {
-        limit = { has_full_control_of_state = 777 } 
-        unlock_decision_tooltip = AUS_develop_togo_bauxite_deposits
-      }
-	}
-}
+
 
 
 
@@ -2400,6 +2302,34 @@ shared_focus = {
     }
 }
 
+shared_focus = {
+	id = AUS_expansion_of_togo_operations
+	icon = GFX_goal_generic_positive_trade_relations
+	relative_position_id = AUS_initiate_a_trial_run_in_togo
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = { focus = AUS_initiate_a_trial_run_in_togo }
+	search_filters = { FOCUS_FILTER_INDUSTRY } 
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		if = {
+        limit = { has_full_control_of_state = 777 } 
+        unlock_decision_tooltip = AUS_develop_togo_steel_deposits
+      }
+      if = {
+        limit = { has_full_control_of_state = 777 }
+        unlock_decision_tooltip = AUS_develop_togo_chromium_deposits
+      }     
+      if = {
+        limit = { has_full_control_of_state = 777 } 
+        unlock_decision_tooltip = AUS_develop_togo_bauxite_deposits
+      }
+	}
+}
 
 
 shared_focus = {
@@ -2573,6 +2503,79 @@ shared_focus = {
       }
     }
   }
+}
+
+
+shared_focus = {
+	id = AUS_industrializing_ostafrika
+	icon = GFX_focus_generic_africa_factory
+	x = 0
+	y = 1
+	cost = 8
+	available_if_capitulated = yes
+	prerequisite = { focus = AUS_minding_the_italian_border }
+	relative_position_id = AUS_minding_the_italian_border
+
+	search_filters = { FOCUS_FILTER_INDUSTRY } 
+	ai_will_do = {
+		factor = 1
+	}
+  available = {
+      1064 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+      547 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+    }
+	completion_reward = {
+		1064 = {
+              add_building_construction = {
+                  type = arms_factory
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_building_construction = {
+                  type = industrial_complex
+                  level = 1
+                  instant_build = yes
+
+              }
+               add_building_construction = {
+                  type = infrastructure
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_extra_state_shared_building_slots = 3
+    }
+    547 = {
+              add_building_construction = {
+                  type = industrial_complex
+                  level = 1
+                  instant_build = yes
+
+              }
+               add_building_construction = {
+                  type = infrastructure
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_extra_state_shared_building_slots = 2
+    }
+	}
 }
 
 
@@ -4622,7 +4625,7 @@ shared_focus = {
   text = AUS_BURN_TO_GROUND
   prerequisite = { focus = AUS_BUILD_AIRFIELDS }
   mutually_exclusive = { focus = AUS_AIRLAND_BATTLE }
- # mutually_exclusive = { focus = ALL_USE_PLANES }
+  mutually_exclusive = { focus = AUS_ALL_USE_PLANES }
   x = 2
   y = 1
   relative_position_id = AUS_BUILD_AIRFIELDS

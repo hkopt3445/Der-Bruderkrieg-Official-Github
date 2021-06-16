@@ -2212,28 +2212,7 @@ shared_focus = {
 	# 	}
 	# }
 
-	shared_focus = {
-		id = FRA_PIETY
-		icon = GFX_focus_por_concordat
-		text = FRA_PIETY
-		prerequisite = { focus = FRA_IMPERIAL_GLORY}
-		x = 0
-		y = 1
-		relative_position_id = FRA_IMPERIAL_GLORY
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_ideas = {
-				Chalcedonianism
-			}
-		}
-	}
+	
 	
 	shared_focus = {
 		id = FRA_CHRISTUS_REX
@@ -2278,6 +2257,29 @@ shared_focus = {
 
 		completion_reward = {
 			unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
+		}
+	}
+
+	shared_focus = {
+		id = FRA_PIETY
+		icon = GFX_focus_por_concordat
+		text = FRA_PIETY
+		prerequisite = { focus = FRA_IMPERIAL_GLORY}
+		x = 0
+		y = 1
+		relative_position_id = FRA_IMPERIAL_GLORY
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = {
+				Chalcedonianism
+			}
 		}
 	}
 
@@ -5056,6 +5058,35 @@ instant_build = yes
 				
 			}
 		}
+
+		shared_focus = {
+			id = FRA_REESTABLISH_EMPIRE
+			icon = GFX_goal_French_Empire
+			text = FRA_REESTABLISH_EMPIRE
+			x = 1
+			y = 1
+			relative_position_id = FRA_FRANCE_ALONE
+			prerequisite = {
+				focus = FRA_FRANCE_ALONE
+			}
+			cost = 10
+			ai_will_do = {
+				factor = 0
+			}
+			mutually_exclusive = {
+				focus = FRA_law_on_the_country_in_danger
+			}
+		
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				set_cosmetic_tag = napoleonic_france
+		
+				add_political_power = 70
+				add_stability = 0.08
+			}
+		}
 		
 		shared_focus = {
 			id = FRA_ANTI_AUSTRIAN_PACT
@@ -5297,34 +5328,7 @@ instant_build = yes
 		
 		
 		
-		shared_focus = {
-			id = FRA_REESTABLISH_EMPIRE
-			icon = GFX_goal_French_Empire
-			text = FRA_REESTABLISH_EMPIRE
-			x = 1
-			y = 1
-			relative_position_id = FRA_FRANCE_ALONE
-			prerequisite = {
-				focus = FRA_FRANCE_ALONE
-			}
-			cost = 10
-			ai_will_do = {
-				factor = 0
-			}
-			mutually_exclusive = {
-				focus = FRA_law_on_the_country_in_danger
-			}
 		
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				set_cosmetic_tag = napoleonic_france
-		
-				add_political_power = 70
-				add_stability = 0.08
-			}
-		}
 		
 		shared_focus = {
 			id = FRA_RESTART_WARS 
@@ -5616,6 +5620,35 @@ instant_build = yes
 				}
 		}
 		shared_focus = {
+			id = FRA_reinforcing_neue_code_napoleon
+			icon = GFX_goal_FRA_reinforcing_neue_code_napoleon
+			text = FRA_reinforcing_neue_code_napoleon
+			x = 0
+			y = 1
+			cost = 5
+			ai_will_do = {
+				factor = 200
+			}
+			prerequisite = {focus = FRA_managing_the_instability}
+			available = {
+				has_country_flag = FRA_westfalen_nationalist_coup_crushed
+			}
+		
+			relative_position_id = FRA_managing_the_instability
+		
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				FGD = {
+					swap_ideas = {
+						add_idea = Neue_Code_Napoleon_2
+						remove_idea = Neue_Code_Napoleon
+					}
+				}
+			}
+		}
+		shared_focus = {
 			id = FRA_our_crown_jewel
 			icon = GFX_goal_FRA_our_crown_jewel
 			text = FRA_our_crown_jewel
@@ -5665,35 +5698,7 @@ instant_build = yes
 			}
 		}
 		
-		shared_focus = {
-			id = FRA_reinforcing_neue_code_napoleon
-			icon = GFX_goal_FRA_reinforcing_neue_code_napoleon
-			text = FRA_reinforcing_neue_code_napoleon
-			x = 0
-			y = 1
-			cost = 5
-			ai_will_do = {
-				factor = 200
-			}
-			prerequisite = {focus = FRA_managing_the_instability}
-			available = {
-				has_country_flag = FRA_westfalen_nationalist_coup_crushed
-			}
 		
-			relative_position_id = FRA_managing_the_instability
-		
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				FGD = {
-					swap_ideas = {
-						add_idea = Neue_Code_Napoleon_2
-						remove_idea = Neue_Code_Napoleon
-					}
-				}
-			}
-		}
 		# shared_focus = {
 		# 	id = FRA_demand_hannovers_integration
 		# 	icon = GFX_goal_FRA_demand_hannovers_integration

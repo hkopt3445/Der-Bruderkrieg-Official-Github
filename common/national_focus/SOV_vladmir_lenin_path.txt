@@ -14,384 +14,6 @@ focus_tree = {
 }
 
 
-shared_focus = {
-    id = SOV_expanding_the_lefts_grip
-    icon = GFX_goal_SOV_expanding_the_lefts_grip
-    prerequisite = { focus = SOV_lenins_presidency  }
-    
-    x = 2
-    y = 1
-    relative_position_id = SOV_lenins_presidency
-    cost = 7
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        add_popularity = {
-            ideology = communism
-            popularity = 0.05
-        }
-        add_political_power = 60
-        unlock_decision_category_tooltip = SOV_lenins_social_reforms
-    }
-}
-
-shared_focus = {
-    id = SOV_propoganda_campaigns 
-    icon = GFX_goal_SOV_propoganda_movement
-    prerequisite = {focus = SOV_expanding_the_lefts_grip}
-    x = 0
-    y = 1
-    relative_position_id = SOV_expanding_the_lefts_grip
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        unlock_decision_tooltip = SOV_propoganda_campaign_in_schools
-        unlock_decision_tooltip = SOV_the_revolutionary_radio_service
-    }
-}
-
-shared_focus = {
-    id = SOV_slandering_the_opposition
-    icon = GFX_goal_SOV_slandering_the_opposition
-    prerequisite = {focus = SOV_propoganda_campaigns}
-    x = 1
-    y = 1
-    relative_position_id = SOV_propoganda_campaigns
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        unlock_decision_tooltip = SOV_denouncing_kerensky_as_anti_revolutionary
-        unlock_decision_tooltip = SOV_attacking_milyukovs_economic_policies
-    }
-}
-shared_focus = {
-    id = SOV_pro_rsdlp_agenda
-    icon = GFX_goal_SOV_pro_rsdlp_agenda
-    prerequisite = {focus = SOV_expanding_the_lefts_grip}
-    x = 2
-    y = 1
-    relative_position_id = SOV_expanding_the_lefts_grip
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        add_political_power = 50
-    }
-}
-
-
-
-shared_focus = {
-    id = SOV_the_growing_hands_of_lenin
-    icon = GFX_goal_SOV_extra_2
-    prerequisite = {focus = SOV_pro_rsdlp_agenda  }
-	prerequisite = {
-		focus = SOV_pro_rsdlp_agenda
-	}
-	prerequisite = { focus = SOV_propoganda_campaigns }
-	prerequisite = {
-		focus = SOV_slandering_the_opposition
-	}
-	x = -3
-    y = 2
-    relative_position_id = SOV_pro_rsdlp_agenda  
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        add_ideas = SOV_lenins_growing_hand
-    }
-}
-
-shared_focus = {
-    id = SOV_a_new_leftists_russia
-    icon = GFX_goal_SOV_a_new_leftists_russia
-	prerequisite = {focus = SOV_the_growing_hands_of_lenin }
-
-    prerequisite = {
-        focus = SOV_a_new_dawn_for_russia
-    }
-    available = {
-        has_country_flag = SOV_rsdlp_unified
-    }
-	x = -1
-    y = 1
-    relative_position_id = SOV_the_growing_hands_of_lenin  
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        swap_ideas = {
-            add_idea = SOV_lenins_growing_hand_2
-            remove_idea = SOV_lenins_growing_hand
-        }
-    }
-}
-
-shared_focus = {
-    id = SOV_lenins_economic_policy
-    icon = GFX_goal_SOV_lenins_economic_policy
-    prerequisite = { focus = SOV_lenins_presidency  }
-    
-    x = -5
-    y = 1
-    relative_position_id = SOV_lenins_presidency
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        ##event
-        
-    }
-}
-
-
-
-shared_focus = {
-    id = SOV_centralizing_our_economy
-    icon = GFX_goal_SOV_centralization_reform
-    prerequisite = {focus = SOV_lenins_economic_policy}
-    x = -1
-    y = 1
-    relative_position_id = SOV_lenins_economic_policy
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        SOV_level_up_lenin_economic_reforms = yes
-    }
-}
-
-shared_focus = {
-    id = SOV_socialist_trade_policy
-    icon = GFX_goal_SOV_socialist_trade_policy
-    prerequisite = {focus = SOV_centralizing_our_economy}
-    x = 0
-    y = 2
-    relative_position_id = SOV_centralizing_our_economy
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        SOV_level_up_lenin_economic_reforms = yes
-        
-    }
-}
-
-shared_focus = {
-    id = SOV_increasing_isolationism
-    icon = GFX_goal_SOV_isolated_economy
-    prerequisite = {focus = SOV_lenins_economic_policy}
-    x = 1
-    y = 1
-    relative_position_id = SOV_lenins_economic_policy
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        SOV_level_up_lenin_economic_reforms = yes
-        
-    }
-}
-
-shared_focus = {
-    id = SOV_funding_infrastructure
-    icon = GFX_goal_SOV_infrastructure_investments
-	prerequisite = {focus = SOV_increasing_isolationism}
-	prerequisite = {
-		focus = SOV_centralizing_our_economy
-	}
-	
-    x = 1
-    y = 1
-    relative_position_id = SOV_increasing_isolationism
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        unlock_decision_category_tooltip = SOV_lenins_infra_plan
-        
-    }
-}
-
-shared_focus = {
-    id = SOV_funding_civilian_industry
-    icon = GFX_goal_USA_lower_taxes_on_small_businesses
-	prerequisite = {focus = SOV_increasing_isolationism}
-	prerequisite = {
-		focus = SOV_centralizing_our_economy
-	}
-	
-    x = -1
-    y = 1
-    relative_position_id = SOV_increasing_isolationism
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        unlock_decision_category_tooltip = SOV_european_development
-
-        
-    }
-}
-
-shared_focus = {
-    id = SOV_relying_on_ourselves
-    icon = GFX_goal_SOV_rely_on_ourselves
-	prerequisite = {focus = SOV_funding_civilian_industry}
-	prerequisite = {
-		focus = SOV_funding_infrastructure
-	}
-	
-    x = 1
-    y = 1
-    relative_position_id = SOV_funding_civilian_industry
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        add_political_power = 50
-        add_research_slot = 1
-    }
-}
-
-shared_focus = {
-    id = SOV_denouncing_the_tsar
-    icon = GFX_goal_SOV_denouncing_the_tsar
-    prerequisite = {focus = SOV_lenins_presidency }
-    x = -1
-    y = 1
-    relative_position_id = SOV_lenins_presidency 
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        ###event chain
-        
-    }
-}
-
-shared_focus = {
-    id = SOV_stripping_his_powers_further
-    icon = GFX_goal_SOV_stripping_his_powers_further
-    prerequisite = {focus = SOV_denouncing_the_tsar}
-    x = -1
-    y = 1
-    relative_position_id = SOV_denouncing_the_tsar
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        
-        add_ideas = SOV_a_fledgling_tsar
-    }
-}
-
-shared_focus = {
-    id = SOV_removing_his_government_ties
-    icon = GFX_goal_SOV_remove_his_titles
-    prerequisite = {focus = SOV_denouncing_the_tsar}
-    x = 1
-    y = 1
-    relative_position_id = SOV_denouncing_the_tsar
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        has_completed_focus = SOV_stripping_his_powers_further
-    }
-    completion_reward = {
-        
-        swap_ideas = {
-            add_idea = SOV_a_fledgling_tsar_2
-            remove_idea = SOV_a_fledgling_tsar
-        }
-    }
-}
-
-shared_focus = {
-    id = SOV_a_tsar_only_in_name
-    icon = GFX_goal_SOV_a_tsar_only_in_name
-	prerequisite = {focus = SOV_removing_his_government_ties}
-	prerequisite = {
-		focus = SOV_stripping_his_powers_further
-	}
-    x = -1
-    y = 1
-    relative_position_id = SOV_removing_his_government_ties
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        ##event + news event for the Tsar, country event gives 50pp and 5% radsoc support
-        
-    }
-}
-
-shared_focus = {
-    id = SOV_a_new_dawn_for_russia
-    icon = GFX_goal_SOV_a_new_dawn_for_russia
-	prerequisite = {focus = SOV_a_tsar_only_in_name  }
-    x = 0
-    y = 1
-    relative_position_id = SOV_a_tsar_only_in_name
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        ##Reward The Player!
-        add_political_power = 100
-        add_stability = 0.05
-        add_ideas = SOV_russias_new_savior_idea   
-
-    }
-}
 
 shared_focus = {
     id = SOV_uniting_the_parties_of_the_rsdlp
@@ -1122,6 +744,386 @@ shared_focus = {
 
         ###add lenin's cabinet with this scripted effect
         #add_lenins_cabinet = yes
+    }
+}
+
+
+shared_focus = {
+    id = SOV_expanding_the_lefts_grip
+    icon = GFX_goal_SOV_expanding_the_lefts_grip
+    prerequisite = { focus = SOV_lenins_presidency  }
+    
+    x = 2
+    y = 1
+    relative_position_id = SOV_lenins_presidency
+    cost = 7
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        add_popularity = {
+            ideology = communism
+            popularity = 0.05
+        }
+        add_political_power = 60
+        unlock_decision_category_tooltip = SOV_lenins_social_reforms
+    }
+}
+
+shared_focus = {
+    id = SOV_propoganda_campaigns 
+    icon = GFX_goal_SOV_propoganda_movement
+    prerequisite = {focus = SOV_expanding_the_lefts_grip}
+    x = 0
+    y = 1
+    relative_position_id = SOV_expanding_the_lefts_grip
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        unlock_decision_tooltip = SOV_propoganda_campaign_in_schools
+        unlock_decision_tooltip = SOV_the_revolutionary_radio_service
+    }
+}
+
+shared_focus = {
+    id = SOV_slandering_the_opposition
+    icon = GFX_goal_SOV_slandering_the_opposition
+    prerequisite = {focus = SOV_propoganda_campaigns}
+    x = 1
+    y = 1
+    relative_position_id = SOV_propoganda_campaigns
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        unlock_decision_tooltip = SOV_denouncing_kerensky_as_anti_revolutionary
+        unlock_decision_tooltip = SOV_attacking_milyukovs_economic_policies
+    }
+}
+shared_focus = {
+    id = SOV_pro_rsdlp_agenda
+    icon = GFX_goal_SOV_pro_rsdlp_agenda
+    prerequisite = {focus = SOV_expanding_the_lefts_grip}
+    x = 2
+    y = 1
+    relative_position_id = SOV_expanding_the_lefts_grip
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        add_political_power = 50
+    }
+}
+
+
+
+shared_focus = {
+    id = SOV_the_growing_hands_of_lenin
+    icon = GFX_goal_SOV_extra_2
+    prerequisite = {focus = SOV_pro_rsdlp_agenda  }
+	prerequisite = {
+		focus = SOV_pro_rsdlp_agenda
+	}
+	prerequisite = { focus = SOV_propoganda_campaigns }
+	prerequisite = {
+		focus = SOV_slandering_the_opposition
+	}
+	x = -3
+    y = 2
+    relative_position_id = SOV_pro_rsdlp_agenda  
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        add_ideas = SOV_lenins_growing_hand
+    }
+}
+
+shared_focus = {
+    id = SOV_a_new_leftists_russia
+    icon = GFX_goal_SOV_a_new_leftists_russia
+	prerequisite = {focus = SOV_the_growing_hands_of_lenin }
+
+    prerequisite = {
+        focus = SOV_a_new_dawn_for_russia
+    }
+    available = {
+        has_country_flag = SOV_rsdlp_unified
+    }
+	x = -1
+    y = 1
+    relative_position_id = SOV_the_growing_hands_of_lenin  
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        swap_ideas = {
+            add_idea = SOV_lenins_growing_hand_2
+            remove_idea = SOV_lenins_growing_hand
+        }
+    }
+}
+
+shared_focus = {
+    id = SOV_lenins_economic_policy
+    icon = GFX_goal_SOV_lenins_economic_policy
+    prerequisite = { focus = SOV_lenins_presidency  }
+    
+    x = -5
+    y = 1
+    relative_position_id = SOV_lenins_presidency
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        ##event
+        
+    }
+}
+
+
+
+shared_focus = {
+    id = SOV_centralizing_our_economy
+    icon = GFX_goal_SOV_centralization_reform
+    prerequisite = {focus = SOV_lenins_economic_policy}
+    x = -1
+    y = 1
+    relative_position_id = SOV_lenins_economic_policy
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        SOV_level_up_lenin_economic_reforms = yes
+    }
+}
+
+shared_focus = {
+    id = SOV_socialist_trade_policy
+    icon = GFX_goal_SOV_socialist_trade_policy
+    prerequisite = {focus = SOV_centralizing_our_economy}
+    x = 0
+    y = 2
+    relative_position_id = SOV_centralizing_our_economy
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        SOV_level_up_lenin_economic_reforms = yes
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_increasing_isolationism
+    icon = GFX_goal_SOV_isolated_economy
+    prerequisite = {focus = SOV_lenins_economic_policy}
+    x = 1
+    y = 1
+    relative_position_id = SOV_lenins_economic_policy
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        SOV_level_up_lenin_economic_reforms = yes
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_funding_infrastructure
+    icon = GFX_goal_SOV_infrastructure_investments
+	prerequisite = {focus = SOV_increasing_isolationism}
+	prerequisite = {
+		focus = SOV_centralizing_our_economy
+	}
+	
+    x = 1
+    y = 1
+    relative_position_id = SOV_increasing_isolationism
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        unlock_decision_category_tooltip = SOV_lenins_infra_plan
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_funding_civilian_industry
+    icon = GFX_goal_USA_lower_taxes_on_small_businesses
+	prerequisite = {focus = SOV_increasing_isolationism}
+	prerequisite = {
+		focus = SOV_centralizing_our_economy
+	}
+	
+    x = -1
+    y = 1
+    relative_position_id = SOV_increasing_isolationism
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        unlock_decision_category_tooltip = SOV_european_development
+
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_relying_on_ourselves
+    icon = GFX_goal_SOV_rely_on_ourselves
+	prerequisite = {focus = SOV_funding_civilian_industry}
+	prerequisite = {
+		focus = SOV_funding_infrastructure
+	}
+	
+    x = 1
+    y = 1
+    relative_position_id = SOV_funding_civilian_industry
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        add_political_power = 50
+        add_research_slot = 1
+    }
+}
+
+shared_focus = {
+    id = SOV_denouncing_the_tsar
+    icon = GFX_goal_SOV_denouncing_the_tsar
+    prerequisite = {focus = SOV_lenins_presidency }
+    x = -1
+    y = 1
+    relative_position_id = SOV_lenins_presidency 
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        ###event chain
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_stripping_his_powers_further
+    icon = GFX_goal_SOV_stripping_his_powers_further
+    prerequisite = {focus = SOV_denouncing_the_tsar}
+    x = -1
+    y = 1
+    relative_position_id = SOV_denouncing_the_tsar
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        
+        add_ideas = SOV_a_fledgling_tsar
+    }
+}
+
+shared_focus = {
+    id = SOV_removing_his_government_ties
+    icon = GFX_goal_SOV_remove_his_titles
+    prerequisite = {focus = SOV_denouncing_the_tsar}
+    x = 1
+    y = 1
+    relative_position_id = SOV_denouncing_the_tsar
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        has_completed_focus = SOV_stripping_his_powers_further
+    }
+    completion_reward = {
+        
+        swap_ideas = {
+            add_idea = SOV_a_fledgling_tsar_2
+            remove_idea = SOV_a_fledgling_tsar
+        }
+    }
+}
+
+shared_focus = {
+    id = SOV_a_tsar_only_in_name
+    icon = GFX_goal_SOV_a_tsar_only_in_name
+	prerequisite = {focus = SOV_removing_his_government_ties}
+	prerequisite = {
+		focus = SOV_stripping_his_powers_further
+	}
+    x = -1
+    y = 1
+    relative_position_id = SOV_removing_his_government_ties
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        ##event + news event for the Tsar, country event gives 50pp and 5% radsoc support
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_a_new_dawn_for_russia
+    icon = GFX_goal_SOV_a_new_dawn_for_russia
+	prerequisite = {focus = SOV_a_tsar_only_in_name  }
+    x = 0
+    y = 1
+    relative_position_id = SOV_a_tsar_only_in_name
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        ##Reward The Player!
+        add_political_power = 100
+        add_stability = 0.05
+        add_ideas = SOV_russias_new_savior_idea   
+
     }
 }
 
