@@ -9,6 +9,8 @@ tags={
 }
 name="Der Bruderkrieg: What if Austria won the Austro-Prussian War?"
 replace_path="gfx/loadingscreens"
+replace_path="history/countries"
+
 replace_path="history/states"
 replace_path="common/abilities"
 replace_path="common/ideas"
