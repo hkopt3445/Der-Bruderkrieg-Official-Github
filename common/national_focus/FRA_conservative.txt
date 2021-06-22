@@ -6046,30 +6046,62 @@ instant_build = yes
 				search_filters = { FOCUS_FILTER_RESEARCH }
 			
 				completion_reward = {
-						BEL = {
-							every_owned_state = {
-									limit = {
-											any_neighbor_state = {
-												OR = {
-													is_controlled_by = GER
-													is_controlled_by = HAN
-													is_controlled_by = FGD
-										
-												}
-									
-											}		
-									}
-									add_building_construction = {
-											type = bunker
-											level = 5
-											instant_build = yes
-											province = {
-													all_provinces = yes
-													limit_to_border = yes
-											}
-									}
+						if = {
+							limit = {
+								has_completed_focus = FRA_ANNEX_BELGIUM
 							}
-					}
+							FRA = {
+								every_owned_state = {
+										limit = {
+											is_core_of = BEL
+												any_neighbor_state = {
+													OR = {
+														is_controlled_by = GER
+														is_controlled_by = HAN
+														is_controlled_by = FGD
+											
+													}
+										
+												}		
+										}
+										add_building_construction = {
+												type = bunker
+												level = 5
+												instant_build = yes
+												province = {
+														all_provinces = yes
+														limit_to_border = yes
+												}
+										}
+								}
+						}
+						}
+						else = {
+							BEL = {
+								every_owned_state = {
+										limit = {
+												any_neighbor_state = {
+													OR = {
+														is_controlled_by = GER
+														is_controlled_by = HAN
+														is_controlled_by = FGD
+											
+													}
+										
+												}		
+										}
+										add_building_construction = {
+												type = bunker
+												level = 5
+												instant_build = yes
+												province = {
+														all_provinces = yes
+														limit_to_border = yes
+												}
+										}
+								}
+						}
+						}
 				}
 			}
 			

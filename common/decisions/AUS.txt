@@ -3506,10 +3506,10 @@ AUS_foritfying_against_the_fbc = {
 
 		}
 
-		fire_only_once = no
+		fire_only_once = yes
 
-		days_remove = 10
-		cost = 10
+		days_remove = 100
+		cost = 40
 
 		remove_effect = {
 			AUS = {
@@ -3542,10 +3542,10 @@ AUS_foritfying_against_the_fbc = {
 
 		}
 
-		fire_only_once = no
+		fire_only_once = yes
 
-		days_remove = 10
-		cost = 10
+		days_remove = 90
+		cost = 35
 
 		remove_effect = {
 			GPU = {
@@ -3578,10 +3578,10 @@ AUS_foritfying_against_the_fbc = {
 
 		}
 
-		fire_only_once = no
+		fire_only_once = yes
 
-		days_remove = 10
-		cost = 10
+		days_remove = 80
+		cost = 30
 
 		remove_effect = {
 			AUS = {
@@ -3614,10 +3614,10 @@ AUS_foritfying_against_the_fbc = {
 
 		}
 
-		fire_only_once = no
+		fire_only_once = yes
 
-		days_remove = 10
-		cost = 10
+		days_remove = 100
+		cost = 40
 
 		remove_effect = {
 			AUS = {
@@ -3650,10 +3650,10 @@ AUS_foritfying_against_the_fbc = {
 
 		}
 
-		fire_only_once = no
+		fire_only_once = yes
 
-		days_remove = 10
-		cost = 10
+		days_remove = 120
+		cost = 50
 
 		remove_effect = {
 			GPU = {
@@ -3686,10 +3686,10 @@ AUS_foritfying_against_the_fbc = {
 
 		}
 
-		fire_only_once = no
+		fire_only_once = yes
 
-		days_remove = 10
-		cost = 10
+		days_remove = 100
+		cost = 40
 
 		remove_effect = {
 			AUS = {
@@ -3722,10 +3722,10 @@ AUS_foritfying_against_the_fbc = {
 
 		}
 
-		fire_only_once = no
+		fire_only_once = yes
 
-		days_remove = 10
-		cost = 10
+		days_remove = 80
+		cost = 25
 
 		remove_effect = {
 			AUS = {
@@ -3755,7 +3755,7 @@ AUS_offensives_against_the_fbc = {
 
 
 		available = {
-
+			has_war_with = GER
 		}
 		visible = {
 
@@ -3763,18 +3763,22 @@ AUS_offensives_against_the_fbc = {
 
 		fire_only_once = no
 
-		days_remove = 10
-		cost = 10
+		days_remove = 120
+		cost = 40
+
+		complete_effect = {
+			add_ideas = AUS_silesian_offensive
+		}
 
 		remove_effect = {
-			add_ideas = AUS_silesian_offensive
+			remove_ideas = AUS_silesian_offensive
 		}
 	}
 	AUS_the_bavarian_offensive = {
 
 
 		available = {
-
+			has_war_with = GER
 		}
 		visible = {
 
@@ -3782,20 +3786,26 @@ AUS_offensives_against_the_fbc = {
 
 		fire_only_once = no
 
-		days_remove = 10
-		cost = 10
+		days_remove = 90
+		cost = 30
+
+		complete_effect = {
+			GPU = {
+				add_ideas = AUS_bavarian_offensive
+			} 
+		}
 
 		remove_effect = {
 			GPU = {
-				add_ideas = AUS_bavarian_offensive
-			}
+				remove_ideas = AUS_bavarian_offensive
+			} 
 		}
 	}
 	AUS_the_danubian_offensive = {
 
 
 		available = {
-
+			has_war_with = ROM
 		}
 		visible = {
 
@@ -3803,18 +3813,22 @@ AUS_offensives_against_the_fbc = {
 
 		fire_only_once = no
 
-		days_remove = 10
-		cost = 10
+		days_remove = 75
+		cost = 25
+
+		complete_effect = {
+			add_ideas = AUS_danubian_offensive
+		}
 
 		remove_effect = {
-			add_ideas = AUS_danubian_offensive
+			remove_ideas = AUS_danubian_offensive
 		}
 	}
 	AUS_the_galician_offensive = {
 
 
 		available = {
-
+			has_war_with = SOV
 		}
 		visible = {
 
@@ -3822,18 +3836,22 @@ AUS_offensives_against_the_fbc = {
 
 		fire_only_once = no
 
-		days_remove = 10
-		cost = 10
+		days_remove = 120	
+		cost = 40
+
+		complete_effect = {
+			add_ideas = AUS_galician_offensive
+		}
 
 		remove_effect = {
-			add_ideas = AUS_galician_offensive
+			remove_ideas = AUS_galician_offensive
 		}
 	}
 	AUS_the_westfalen_offensive = {
 
 
 		available = {
-
+			has_war_with = FGD
 		}
 		visible = {
 
@@ -3841,13 +3859,26 @@ AUS_offensives_against_the_fbc = {
 
 		fire_only_once = no
 
-		days_remove = 10
-		cost = 10
+		days_remove = 140
+		cost = 60
+
+		complete_effect = {
+			GPU = {
+				
+				add_ideas = AUS_westfalen_offensive
+			}
+			AUS = {
+				add_ideas = AUS_westfalen_offensive
+			}
+		}
 
 		remove_effect = {
 			GPU = {
 				
-				add_ideas = AUS_westfalen_offensive
+				remove_ideas = AUS_westfalen_offensive
+			}
+			AUS = {
+				remove_ideas = AUS_westfalen_offensive
 			}
 		}
 	}
@@ -3855,7 +3886,7 @@ AUS_offensives_against_the_fbc = {
 
 
 		available = {
-
+			has_war_with = ITA
 		}
 		visible = {
 
@@ -3863,11 +3894,16 @@ AUS_offensives_against_the_fbc = {
 
 		fire_only_once = no
 
-		days_remove = 10
-		cost = 10
+		days_remove = 100
+		cost = 35
+
+		complete_effect = {
+			add_ideas = AUS_venetian_offensive
+		}
 
 		remove_effect = {
-			add_ideas = AUS_venetian_offensive
+			remove_ideas = AUS_venetian_offensive
+
 		}
 	}
 	AUS_the_serbian_offensive = {
@@ -3882,11 +3918,16 @@ AUS_offensives_against_the_fbc = {
 
 		fire_only_once = no
 
-		days_remove = 10
-		cost = 10
+		days_remove = 70
+		cost = 25
+
+		complete_effect = {
+			add_ideas = AUS_serbian_offensive
+		}
 
 		remove_effect = {
-			add_ideas = AUS_serbian_offensive
+			remove_ideas = AUS_serbian_offensive
+
 		}
 	}
 }
