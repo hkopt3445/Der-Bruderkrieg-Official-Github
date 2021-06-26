@@ -924,3 +924,328 @@ GER_goering_succession = {
 		}
 	}
 }
+
+GER_anti_spartakus_category = {
+	
+	GER_sponsor_far_right_paramilitaries = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			add_stability = -0.02
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_bribe_weapons_dealers = {
+
+		icon = ger_mefo_bills
+
+		cost = 25
+
+		fire_only_once = yes
+
+		days_remove = 35
+
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+
+		remove_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 250
+			}
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_target_spartakus_printings = {
+
+		icon = eng_trade_unions_demand
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 10 }
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 50
+			}
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -50
+			}
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_break_up_strikers = {
+
+		icon = generic_industry
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 10 }
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 25
+			}
+		}
+
+		days_remove = 35
+
+		modifier = {
+			stability_factor = -0.05
+			industrial_capacity_factory = 0.05
+			industrial_capacity_dockyard = 0.05
+		}
+
+		remove_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -25
+			}
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_ban_socialist_gatherings = {
+
+		icon = generic_political_discourse
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 30 }
+		}
+
+		days_remove = 35
+
+		modifier = {
+			democratic_communism_drift = -0.03
+			political_power_factor = 0.05
+		}
+
+		complete_effect = {
+			add_stability = -0.03
+			add_popularity = {
+				ideology = democratic_communism 
+				popularity = -0.03
+			}
+		}
+
+		remove_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_exploit_anti_socialist_sentiments = {
+
+		icon = eng_propaganda_campaigns
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 10 }
+		}
+
+		days_remove = 40
+
+		modifier = {
+			political_power_cost = 0.25
+		}
+
+		remove_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_raid_spartakus_safehouses = {
+
+		icon = generic_prepare_civil_war
+
+		fire_only_once = yes
+
+		cost = 50
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 30 }
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 50
+			}
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -50
+			}
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_execute_liebknecht = {
+
+		icon = generic_industry
+
+		fire_only_once = yes
+
+		cost = 50
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 30 }
+		}
+
+		complete_effect = {
+			add_popularity = {
+				ideology = democratic_communism
+				popularity = -0.02
+			}
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_trap_luxemburg_movements = {
+
+		fire_only_once = yes
+
+		cost = 50
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 60 }
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			set_country_flag = GER_lux_trapped
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_execute_luxemburg = {
+
+		icon = generic_start_civil_war
+
+		fire_only_once = yes
+
+		cost = 50
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 60 }
+			has_country_flag = GER_lux_trapped
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			clr_country_flag = GER_lux_trapped
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_end_spartakus_threat = {
+
+		icon = generic_civil_support
+
+		fire_only_once = yes
+
+		cost = 50
+
+		visible = {
+			check_variable = { GER_anti_spartakus > 80 }
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 }
+			set_country_flag = GER_spartakus_crusheddd
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+}
