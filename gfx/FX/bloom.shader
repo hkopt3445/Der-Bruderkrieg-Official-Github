@@ -16,7 +16,7 @@ PixelShader =
 			MipFilter = "Linear"
 			AddressU = "Clamp"
 			AddressV = "Clamp"
-		}
+		} 
 	}
 }
 
