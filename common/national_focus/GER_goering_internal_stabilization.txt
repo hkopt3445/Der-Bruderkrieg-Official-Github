@@ -509,6 +509,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
+			
 		}
 		ai_will_do = {
 			factor = 60
@@ -537,6 +538,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
+			
 		}
 		ai_will_do = {
 			factor = 60
@@ -826,9 +828,9 @@ focus_tree = {
 			prerequisite = {
 				focus = GER_continuing_ataurky
 			}
-			relative_position_id = GER_consolidating_power
-			x = 5
-			y = 2
+			relative_position_id = GER_continuing_ataurky
+			x = -4
+			y = 1
 			ai_will_do = {
 				factor = 60
 			}
@@ -1767,7 +1769,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_the_goring_doctorine
 		icon = unkown
-		x = 22
+		x = 21
 		y = 8
 		#relative_position_id = 
 		
@@ -1787,6 +1789,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			army_experience= 15
 		}
 		ai_will_do = {
 			factor = 1
@@ -1801,7 +1804,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_luftstreltkrafte_innovations
 		icon = unkown
-		x = 10
+		x = 8
 		y = 1
 		relative_position_id = GER_the_goring_doctorine
 		
@@ -1820,42 +1823,48 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = air_doctrine
+			 }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	shared_focus = { 
-		id = GER_evolved_aerial_tactics
-		icon = unkown
-		x = -2
-		y = 1
-		relative_position_id = GER_luftstreltkrafte_innovations
+	# shared_focus = { 
+	# 	id = GER_evolved_aerial_tactics
+	# 	icon = unkown
+	# 	x = -2
+	# 	y = 1
+	# 	relative_position_id = GER_luftstreltkrafte_innovations
 		
-		available = {
-		}
-		bypass = {
+	# 	available = {
+	# 	}
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cost = 10
-		prerequisite = { focus = GER_luftstreltkrafte_innovations }
+	# 	cost = 10
+	# 	prerequisite = { focus = GER_luftstreltkrafte_innovations }
 		
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		completion_reward = {
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# 	completion_reward = {
+			
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	shared_focus = { 
 		id = GER_air_base_construction
 		icon = unkown
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_luftstreltkrafte_innovations
 		
@@ -1874,6 +1883,22 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+				  type = airbase
+				  level = 1
+				  instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			 }
+			 random_owned_controlled_state = {
+				add_building_construction = {
+				  type = airbase
+				  level = 1
+				  instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -1882,7 +1907,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_modernization_of_our_airforce
 		icon = unkown
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = GER_luftstreltkrafte_innovations
 		
@@ -1901,15 +1926,52 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = light_air
+			 }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
+	# shared_focus = { 
+	# 	id = GER_start_of_a_new_luftstreltkrafte
+	# 	icon = unkown
+	# 	x = 0
+	# 	y = 2
+	# 	relative_position_id = GER_luftstreltkrafte_innovations
+		
+	# 	available = {
+	# 	}
+	# 	bypass = {
+
+	# 	}
+
+	# 	cost = 10
+	# 	prerequisite = { focus = GER_modernization_of_our_airforce }
+	# 	prerequisite = { focus = GER_air_base_construction }
+		
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	completion_reward = {
+			
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	
+	
+	###UUUH HOW DO I DIVIDE THIS?
 	shared_focus = { 
-		id = GER_start_of_a_new_luftstreltkrafte
+		id = GER_combined_warfare
 		icon = unkown
-		x = 0
+		x = -2
 		y = 2
 		relative_position_id = GER_luftstreltkrafte_innovations
 		
@@ -1920,40 +1982,11 @@ shared_focus = {
 		}
 
 		cost = 10
-		prerequisite = { focus = GER_modernization_of_our_airforce }
-		prerequisite = { focus = GER_air_base_construction }
-		prerequisite = { focus = GER_evolved_aerial_tactics }
-		
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	
-	###UUUH HOW DO I DIVIDE THIS?
-	shared_focus = { 
-		id = GER_combined_warfare
-		icon = unkown
-		x = -3
-		y = 3
-		relative_position_id = GER_luftstreltkrafte_innovations
-		
-		available = {
-		}
-		bypass = {
-
-		}
-
-		cost = 10
 	#	prerequisite = { focus = GER_the_goring_doctorine }
-		prerequisite = { focus = GER_start_of_a_new_luftstreltkrafte }
+		prerequisite = { focus = GER_luftstreltkrafte_innovations }
+		prerequisite = {
+			focus = GER_air_base_construction
+		}
 		mutually_exclusive = { focus = GER_strategic_bombing }
 
 		cancel_if_invalid = yes
@@ -1961,6 +1994,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cat_battlefield_support
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -1969,7 +2007,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_ground_support_planes
 		icon = unkown
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = GER_combined_warfare
 		
@@ -1987,44 +2025,50 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+			 }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	shared_focus = { 
-		id = GER_improving_combined_tactics
-		icon = unkown
-		x = 0
-		y = 1
-		relative_position_id = GER_combined_warfare
+	# shared_focus = { 
+	# 	id = GER_improving_combined_tactics
+	# 	icon = unkown
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = GER_combined_warfare
 		
-		available = {
-		}
-		bypass = {
+	# 	available = {
+	# 	}
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cost = 10
-		prerequisite = { focus = GER_combined_warfare }
+	# 	cost = 10
+	# 	prerequisite = { focus = GER_combined_warfare }
 
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		completion_reward = {
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# 	completion_reward = {
+			
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	shared_focus = { 
 		id = GER_final_ground_support_investments
 		icon = unkown
 		x = 0
-		y = 1
-		relative_position_id = GER_improving_combined_tactics
+		y = 2
+		relative_position_id = GER_combined_warfare
 		
 		available = {
 		}
@@ -2033,13 +2077,14 @@ shared_focus = {
 		}
 
 		cost = 10
-		prerequisite = { focus = GER_improving_combined_tactics }
+		prerequisite = { focus = GER_combined_warfare }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
 		completion_reward = {
+		
 		}
 		ai_will_do = {
 			factor = 1
@@ -2048,7 +2093,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_a_reformed_luftstreltkrafte
 		icon = unkown
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = GER_final_ground_support_investments
 		
@@ -2059,8 +2104,10 @@ shared_focus = {
 		}
 
 		cost = 10
-		prerequisite = { focus = GER_final_ground_support_investments }
-		prerequisite = { focus = GER_final_strategic_bombing_improvements }
+		prerequisite = { focus = GER_final_ground_support_investments focus = GER_final_strategic_bombing_improvements }
+		prerequisite = {
+			focus = GER_improved_fighters
+		}
 
 
 		cancel_if_invalid = yes
@@ -2068,7 +2115,12 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-		}
+			
+		}add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = air_doctrine
+		 }
 		ai_will_do = {
 			factor = 1
 		}
@@ -2079,8 +2131,8 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_strategic_bombing
 		icon = unkown
-		x = 3
-		y = 3
+		x = 2
+		y = 2
 		relative_position_id = GER_luftstreltkrafte_innovations
 		
 		available = {
@@ -2091,7 +2143,10 @@ shared_focus = {
 
 		cost = 10
 		#prerequisite = { focus = GER_the_goring_doctorine }
-		prerequisite = { focus = GER_start_of_a_new_luftstreltkrafte }
+		prerequisite = { focus = GER_luftstreltkrafte_innovations }
+		prerequisite = { focus = GER_modernization_of_our_airforce }
+
+		
 		mutually_exclusive = { focus = GER_combined_warfare }
 
 		cancel_if_invalid = yes
@@ -2099,6 +2154,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = strategic_destruction_tree
+					 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2107,7 +2167,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_strategic_bombers
 		icon = unkown
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = GER_strategic_bombing
 		
@@ -2125,6 +2185,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = cat_strategic_bomber
+		}
 		}
 		ai_will_do = {
 			factor = 1
@@ -2151,16 +2216,49 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = light_fighter
+			 }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
+	# shared_focus = { 
+	# 	id = GER_improving_bombing_tactics
+	# 	icon = unkown
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = GER_strategic_bombing
+		
+	# 	available = {
+	# 	}
+	# 	bypass = {
+
+	# 	}
+
+	# 	cost = 10
+	# 	prerequisite = { focus = GER_strategic_bombing }
+
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	completion_reward = {
+			
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	shared_focus = { 
-		id = GER_improving_bombing_tactics
+		id = GER_final_strategic_bombing_improvements
 		icon = unkown
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = GER_strategic_bombing
 		
 		available = {
@@ -2171,33 +2269,6 @@ shared_focus = {
 
 		cost = 10
 		prerequisite = { focus = GER_strategic_bombing }
-
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	shared_focus = { 
-		id = GER_final_strategic_bombing_improvements
-		icon = unkown
-		x = 0
-		y = 1
-		relative_position_id = GER_improving_bombing_tactics
-		
-		available = {
-		}
-		bypass = {
-
-		}
-
-		cost = 10
-		prerequisite = { focus = GER_improving_bombing_tactics }
 		#prerequisite = { focus = GER_improved_fighters }
 
 		cancel_if_invalid = yes
@@ -2205,6 +2276,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = tactical_bomber
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2237,6 +2313,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = army_doctrine
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2264,6 +2345,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = industry
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2294,6 +2380,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = synth_resources
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2322,6 +2413,13 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			63 = {
+				add_resource = {
+				   type = oil
+				   amount = 12
+				   state = THIS
+				}
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2352,6 +2450,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = construction_tech
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2380,6 +2483,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = improved_machine_tools
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2409,6 +2517,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_ideas = mauser
 		}
 		ai_will_do = {
 			factor = 1
@@ -2439,6 +2548,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_ideas = GER_capability
+
 		}
 		ai_will_do = {
 			factor = 1
@@ -2466,13 +2577,45 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			swap_ideas = {
+				add_idea = GER_capability_2
+				remove_idea = GER_capability
+			  }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
+	# shared_focus = { 
+	# 	id = GER_improved_methods_of_training
+	# 	icon = unkown
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = GER_preussische_propaganda_initiative
+		
+	# 	available = {
+	# 	}
+	# 	bypass = {
+
+	# 	}
+
+	# 	cost = 10
+	# 	prerequisite = { focus = GER_preussische_propaganda_initiative }
+		
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	completion_reward = {
+			
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	shared_focus = { 
-		id = GER_improved_methods_of_training
+		id = GER_improved_general_academies
 		icon = unkown
 		x = 0
 		y = 1
@@ -2493,33 +2636,10 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	shared_focus = { 
-		id = GER_improved_general_academies
-		icon = unkown
-		x = 0
-		y = 1
-		relative_position_id = GER_improved_methods_of_training
-		
-		available = {
-		}
-		bypass = {
-
-		}
-
-		cost = 10
-		prerequisite = { focus = GER_improved_methods_of_training }
-		
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
+			swap_ideas = {
+				add_idea = GER_capability_3
+				remove_idea = GER_capability_2
+			  }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2550,6 +2670,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 1
+				bonus = 1
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -2580,6 +2705,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = armor
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2608,6 +2738,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cat_medium_armor
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2638,6 +2773,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = mountaineers_tech
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2666,6 +2806,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = support_tech
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2695,6 +2840,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			
 		}
 		ai_will_do = {
 			factor = 1
@@ -2705,7 +2851,7 @@ shared_focus = {
 		id = GER_a_revived_reichsheer
 		icon = unkown
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = GER_improved_general_academies
 		
 		available = {
@@ -2724,6 +2870,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			army_experience = 25
 		}
 		ai_will_do = {
 			factor = 1
@@ -2736,7 +2883,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_preussische_reichsmarine
 		icon = unkown
-		x = -10
+		x = -8
 		y = 1
 		relative_position_id = GER_the_goring_doctorine
 		
@@ -2755,6 +2902,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = naval_doctrine
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2785,13 +2937,46 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				uses = 2
+				bonus = 0.5
+				category = cat_trade_interdiction
+			 }
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
+	# shared_focus = { 
+	# 	id = GER_further_improvement
+	# 	icon = unkown
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = GER_rudeltaktik
+		
+	# 	available = {
+	# 	}
+	# 	bypass = {
+
+	# 	}
+
+	# 	cost = 10
+	# 	prerequisite = { focus = GER_rudeltaktik }
+		
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	completion_reward = {
+			
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	shared_focus = { 
-		id = GER_further_improvement
+		id = GER_improve_the_naval_academies
 		icon = unkown
 		x = 0
 		y = 1
@@ -2812,33 +2997,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	shared_focus = { 
-		id = GER_improve_the_naval_academies
-		icon = unkown
-		x = 0
-		y = 1
-		relative_position_id = GER_further_improvement
-		
-		available = {
-		}
-		bypass = {
-
-		}
-
-		cost = 10
-		prerequisite = { focus = GER_further_improvement }
-		
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
+			
 		}
 		ai_will_do = {
 			factor = 1
@@ -2869,7 +3028,12 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+					add_tech_bonus = {
+		   bonus = 1
+		   uses = 1
+		   category = naval_doctrine
 		}
+	}
 		ai_will_do = {
 			factor = 1
 		}
@@ -2896,6 +3060,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = ss_tech
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2904,7 +3073,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_the_bismarck_class
 		icon = unkown
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = GER_the_u-boat
 		
@@ -2916,6 +3085,7 @@ shared_focus = {
 
 		cost = 10
 		prerequisite = { focus = GER_the_u-boat }
+		prerequisite = { focus = GER_improve_the_naval_academies }
 		
 
 		cancel_if_invalid = yes
@@ -2923,6 +3093,11 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = bb_tech
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2953,6 +3128,16 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			61 = {
+				limit = {
+				   is_coastal = yes
+				}
+				add_building_construction = {
+				  type = dockyard
+				  level = 2
+				  instant_build = yes
+				}
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2980,6 +3165,26 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+				   is_coastal = yes
+				}
+				add_building_construction = {
+				  type = dockyard
+				  level = 1
+				  instant_build = yes
+				}
+			 }
+			 random_owned_controlled_state = {
+				limit = {
+				   is_coastal = yes
+				}
+				add_building_construction = {
+				  type = dockyard
+				  level = 1
+				  instant_build = yes
+				}
+			 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2989,7 +3194,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_a_revitalized_reichsmarine
 		icon = unkown
-		x = 0
+		x = -1
 		y = 2
 		relative_position_id = GER_the_bismarck_class
 		
@@ -3002,7 +3207,6 @@ shared_focus = {
 		cost = 10
 		prerequisite = { focus = GER_naval_expansion }
 		prerequisite = { focus = GER_the_bismarck_class }
-		prerequisite = { focus = GER_improve_the_naval_academies }
 		prerequisite = {
 			focus = GER_naval_expansion
 		}
@@ -3012,6 +3216,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			navy_experience = 25
+
 		}
 		ai_will_do = {
 			factor = 1
