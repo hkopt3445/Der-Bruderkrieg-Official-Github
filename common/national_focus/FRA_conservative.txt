@@ -1547,14 +1547,110 @@ shared_focus = {
     }
   }
 
+  shared_focus = {
+    id = FRA_assembly_head_government
+    icon = GFX_goal_generic_demand_territory
+    prerequisite = { focus = FRA_KEEP_1827 }
+    x = 1
+    y = 1
+    relative_position_id = FRA_KEEP_1827
+    cost = 5
+    ai_will_do = {
+      factor = 2000
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_political_power = 75
+    }
+  }
+
+  shared_focus = {
+    id = FRA_promoting_civil_rights
+    icon = GFX_focus_eng_concessions_to_the_trade_unions
+    prerequisite = { focus = FRA_KEEP_1827 }
+    x = -1
+    y = 2
+    relative_position_id = FRA_KEEP_1827
+    cost = 5
+    ai_will_do = {
+      factor = 2000
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      unlock_decision_category_tooltip = FRA_expanding_civil_rights
+    }
+  }
+
+  shared_focus = {
+    id = FRA_representative_over_crown
+    icon = GFX_goal_generic_demand_territory
+    prerequisite = { focus = FRA_assembly_head_government }
+    x = 0
+    y = 1
+    relative_position_id = FRA_assembly_head_government
+    cost = 5
+    ai_will_do = {
+      factor = 2000
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_ideas = FRA_one_crown_no_king
+    }
+  }
+
+  shared_focus = {
+    id = FRA_no_room_for_tyrants
+    icon = GFX_
+    prerequisite = { focus = FRA_promoting_civil_rights }
+    prerequisite = { focus = FRA_representative_over_crown }
+    x = 0
+    y = 3
+    relative_position_id = FRA_KEEP_1827
+    cost = 10
+    ai_will_do = {
+      factor = 2000
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+    completion_reward = {
+      add_popularity = {
+        ideology = neutrality
+        popularity = -0.05
+      }
+      add_popularity = {
+        ideology = fascism
+        popularity = -0.05
+      }
+      add_popularity = {
+        ideology = ultranationalism
+        popularity = -0.05
+      }
+      add_popularity = {
+        ideology = communism
+        popularity = -0.05
+      }
+    }
+  }
+
 	shared_focus = {
     id = FRA_REX_REGNAT
     icon = GFX_goal_FRA_rex_regnat_non_gubernat
     text = FRA_REX_REGNAT
-		prerequisite = { focus = FRA_KEEP_1827 }
-    x = -1
+		prerequisite = { focus = FRA_no_room_for_tyrants }
+    x = 0
     y = 1
-    relative_position_id = FRA_KEEP_1827
+    relative_position_id = FRA_no_room_for_tyrants
     cost = 5
     ai_will_do = {
       factor = 2000
