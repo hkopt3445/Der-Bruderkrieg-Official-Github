@@ -9,7 +9,13 @@ focus_tree = {
 	}
 	
     shared_focus =  SOV_begin_the_duma_campaign
-	continuous_focus_position = { x = -50 y = 2400 }
+    shared_focus = SOV_favoring_lenin
+    shared_focus = SOV_contiuning_kerenskys_rule
+    shared_focus = SOV_spreading_pavels_influence
+    shared_focus = SOV_a_long_way_to_go
+    shared_focus = SOV_the_elections
+    continuous_focus_position = { x = -50 y = 4000 }
+
 }
 
 shared_focus = {
@@ -60,7 +66,6 @@ shared_focus = {
     }
     
     completion_reward = {
-        load_focus_tree = SOV_lenin_campaign_tree
         set_country_flag = SOV_chose_lenin
     }
 }
@@ -72,30 +77,21 @@ shared_focus = {
 
 
 
-focus_tree = {
-    id = SOV_lenin_campaign_tree
-    country = {
-		factor = 0
-		modifier = {
-			add = 10
-			tag = SOV
-		}
-	}
-	default = no
-	shared_focus = SOV_favoring_lenin
-}
 
 shared_focus = {
     id = SOV_favoring_lenin
     icon = GFX_goal_SOV_favoring_lenin
 	#prerequisite = {focus = SOV_side_with_the_rlsdp}
-    x = 2
+    x = 10
     y = 0
     #relative_position_id = SOV_side_with_the_rlsdp
     cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
+    }
+    available = {
+        has_country_flag = SOV_chose_lenin
     }
     completion_reward = {
         add_political_power = 50
@@ -188,7 +184,7 @@ shared_focus = {
     id = SOV_using_the_radical_left
     icon = GFX_goal_SOV_using_the_radicals
 	prerequisite = { focus = SOV_encourage_voter_turnout_from_the_left }
-    x = -1
+    x = -3
     y = 1
     relative_position_id = SOV_encourage_voter_turnout_from_the_left
     cost = 1
@@ -223,7 +219,7 @@ shared_focus = {
     id = SOV_lenins_tour_of_russia
     icon = GFX_goal_SOV_pro_rsdlp_agenda
 	prerequisite = { focus = SOV_encourage_voter_turnout_from_the_left }
-    x = 2
+    x = 0
     y = 1
     relative_position_id = SOV_encourage_voter_turnout_from_the_left
     cost = 1
@@ -311,7 +307,7 @@ shared_focus = {
     id = SOV_the_martov_worshippers
     icon = GFX_goal_SOV_continiuing_kerenskys_rule
 	prerequisite = { focus = SOV_encourage_voter_turnout_from_the_left  }
-    x = 4
+    x = 2
     y = 1
     relative_position_id = SOV_encourage_voter_turnout_from_the_left
     
@@ -335,7 +331,7 @@ shared_focus = {
     id = SOV_the_imperalist_bulldogs
     icon = GFX_goal_SOV_promoting_tsar_nicholas
 	prerequisite = { focus = SOV_encourage_voter_turnout_from_the_left  }
-    x = 6
+    x = 4
     y = 1
     relative_position_id = SOV_encourage_voter_turnout_from_the_left
     mutually_exclusive = {
@@ -400,23 +396,10 @@ shared_focus = {
     }
     
     completion_reward = {
-      load_focus_tree = SOV_kerensky_campaign_tree
       set_country_flag = SOV_sided_with_kerensky_campaign
     }
 }
 
-focus_tree = {
-    id = SOV_kerensky_campaign_tree
-    country = {
-		factor = 0
-		modifier = {
-			add = 10
-			tag = SOV
-		}
-	}
-	default = no
-	shared_focus = SOV_contiuning_kerenskys_rule
-}
 
 
 
@@ -428,13 +411,16 @@ shared_focus = {
     id = SOV_contiuning_kerenskys_rule
     icon = GFX_goal_SOV_continiuing_kerenskys_rule
 	#prerequisite = {focus = SOV_side_with_the_trudoviks}
-    x = 2
+    x = 18
     y = 0
     #relative_position_id = SOV_side_with_the_trudoviks
     cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
+    }
+    available = {
+        has_country_flag = SOV_sided_with_kerensky_campaign
     }
     completion_reward = {
        country_event = SOV_starting_events_kerensky.1
@@ -678,35 +664,25 @@ shared_focus = {
     }
     
     completion_reward = {
-        load_focus_tree = SOV_pavel_campaign_tree
         set_country_flag = SOV_sided_with_pavel_campaign
     }
 }
 
-focus_tree = {
-    id = SOV_pavel_campaign_tree
-    country = {
-		factor = 0
-		modifier = {
-			add = 10
-			tag = SOV
-		}
-	}
-	default = no
-	shared_focus = SOV_spreading_pavels_influence
-}
 
 shared_focus = {
     id = SOV_spreading_pavels_influence
     icon = GFX_goal_SOV_spreading_pavels_influence
 	#prerequisite = {focus = SOV_side_with_the_CDP}
-    x = 2
+    x = 25
     y = 0
     #relative_position_id = SOV_side_with_the_CDP
     cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
+    }
+    available = {
+        has_country_flag = SOV_sided_with_pavel_campaign
     }
     completion_reward = {
         
@@ -945,33 +921,22 @@ shared_focus = {
     }
     
     completion_reward = {
-        load_focus_tree = SOV_belogurov_campaign_tree
         set_country_flag = SOV_sided_with_belogurov_campaign
         
     }
-}
-
-focus_tree = {
-    id = SOV_belogurov_campaign_tree
-    country = {
-		factor = 0
-		modifier = {
-			add = 10
-			tag = SOV
-		}
-	}
-	default = no
-	shared_focus = SOV_a_long_way_to_go
 }
 
 shared_focus = {
     id = SOV_a_long_way_to_go
     icon = GFX_goal_SOV_a_long_way_to_go
 	#prerequisite = {focus = SOV_side_with  _the_URP}
-    x = 2
+    x = 32
     y = 0
     #relative_position_id = SOV_side_with_the_URP
     cost = 2
+    available = {
+        has_country_flag = SOV_sided_with_belogurov_campaign
+    }
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -1133,30 +1098,19 @@ shared_focus = {
 
 
 
-focus_tree = {
-    id = SOV_elections_mini_tree
-    country = {
-		factor = 0
-		modifier = {
-			add = 10
-			tag = SOV
-		}
-	}
-	default = no
-	shared_focus = SOV_the_elections
-}
-
 shared_focus = {
     id = SOV_the_elections
     icon = GFX_goal_SOV_the_elections
 	#prerequisite = {focus = SOV_path_to_former_glory focus = SOV_path_to_liberal_society focus =  SOV_the_path_to_true_democracy focus = SOV_path_to_social_revolution }
     x = 2
-    y = 0
-    relative_position_id = SOV_path_to_former_glory 
+    y = 2
     cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
+    }
+    available = {
+        always = no
     }
     completion_reward = {
         custom_effect_tooltip = SOV_the_elections_tt
