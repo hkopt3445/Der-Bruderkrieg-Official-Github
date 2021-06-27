@@ -25,7 +25,7 @@ shared_focus = {
 	id = GER_the_petty_kings
 	icon = unkown
 	cost = 2
-	x = 5
+	x = 3
 	y = 0
 	
 	#relative_position_id = GER_rachekrieg
@@ -119,9 +119,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 60
 	}
-	available = {
-		has_war_with = AUS
-	}
+	# available = {
+	# 	has_war_with = AUS
+	# }
 	completion_reward = {
 		hidden_effect = {
 			add_state_core = 960
@@ -208,6 +208,11 @@ shared_focus = {
 		focus = GER_securing_british_neutrality
 	}
 	relative_position_id = GER_securing_british_neutrality
+	available = {
+		BEL = {
+			has_government = democratic
+		}
+	}
 	ai_will_do = {
 		factor = 60
 	}
@@ -342,6 +347,12 @@ shared_focus = {
 	relative_position_id = GER_preparing_the_luftwaffe
 	ai_will_do = {
 		factor = 60
+		modifier = {
+			add = -100
+			AUS = {
+				surrender_progress < 0.3
+			}
+		}
 	}
 	completion_reward = {
 		country_event = GER_goering_path_to_unification.1

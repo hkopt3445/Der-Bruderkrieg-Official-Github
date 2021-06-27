@@ -2010,9 +2010,9 @@ shared_focus = {
     id = FRA_END_CONSTITUTIONALISM
     icon = GFX_goal_FRA_end_constitutionalism
     text = FRA_END_CONSTITUTIONALISM
-		prerequisite = { focus = FRA_CAGOULE_CABINET focus = FRA_BONAPARTIST_ABSOLUTISM }
+	prerequisite = { focus = FRA_CAGOULE_CABINET }
 	
-    x = 1
+    x = -1
     y = 1
     relative_position_id = FRA_CAGOULE_CABINET
     cost = 5
@@ -2121,12 +2121,12 @@ shared_focus = {
 	icon = GFX_goal_FRA_pursue_a_path_of_aggression
 	text = FRA_PATH_AGGRESSION
 	prerequisite = { focus = FRA_GARDE_DE_FRATIRNITE }
-	# prerequisite = { focus = FRA_the_cult_of_napoleon }  
+	 prerequisite = { focus = FRA_the_cult_of_napoleon }  
 	# prerequisite = {
 	# 	focus = FRA_CHRISTUS_REX
 	# }
 	x = -1
-	y = 2
+	y = 1
 	relative_position_id = FRA_the_cult_of_napoleon
 	mutually_exclusive = {
 		#focus = FRA_NAPOLEON
@@ -2318,7 +2318,7 @@ shared_focus = {
 		text = FRA_IMPERIAL_GLORY
 		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_CAGOULE_CABINET }
 		
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
 		cost = 5
@@ -3453,9 +3453,9 @@ shared_focus = {
 		prerequisite = {
 			focus = FRA_CHRISTUS_REX
 		}
-		prerequisite = {
-			focus = FRA_the_cult_of_napoleon
-		}
+		# prerequisite = {
+		# 	focus = FRA_the_cult_of_napoleon
+		# }
 		x = -1
 		y = 1
 		relative_position_id = FRA_RULE_FRANKIA
@@ -5052,7 +5052,7 @@ instant_build = yes
 			
 			
 		
-			x = 24
+			x = 26
 			y = 0
 			
 			
@@ -5094,7 +5094,7 @@ instant_build = yes
 			icon = GFX_focus_generic_befriend_portugal
 			text = FRA_ALLY_PORTUGAL
 			prerequisite = { focus = FRA_FRANCE_ALONE }
-			x = -2
+			x = -4
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			cost = 5
@@ -5161,7 +5161,7 @@ instant_build = yes
 			id = FRA_REESTABLISH_EMPIRE
 			icon = GFX_goal_French_Empire
 			text = FRA_REESTABLISH_EMPIRE
-			x = 1
+			x = -1
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			prerequisite = {
@@ -5214,7 +5214,7 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_law_on_the_country_in_danger
 			icon = GFX_goal_FRA_law_for_the_country_in_danger
-			x = 4
+			x = 2
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -5365,10 +5365,10 @@ instant_build = yes
 			id = FRA_kalterkrieg
 			icon = GFX_goal_FRA_kalterkrieg
 			x = -1
-			y = 1
+			y = 2
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_ils_ne_passeront_pas focus = FRA_DANUBE_CAMPAIGN }
+			prerequisite = {  focus = FRA_RESTART_WARS }
 			mutually_exclusive = {focus = FRA_TAKING_OUT_THE_SGC}
 			relative_position_id = FRA_ils_ne_passeront_pas
 			ai_will_do = {
@@ -5426,17 +5426,90 @@ instant_build = yes
 		
 		
 		
+		shared_focus = {
+			id = FRA_MANEGO_CAMPAIGN
+			icon = GFX_goal_Monego_Campaign
+			text = FRA_MANEGO_CAMPAIGN
+			prerequisite = { focus = FRA_DEMAND_WEST_ITALY  }
+			x = 1
+			y = 1
+			relative_position_id = FRA_DEMAND_WEST_ITALY
+			cost = 5
+			ai_will_do = {
+				factor = 2000
+			}
+			bypass = {
+				OR = {
+					NOT = {
+						country_exists = ITA
+					}
+					
+					ITA = {
+						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+					}
+				}
+			}
+			available = {
+				has_war_with = ITA
+			}
+		
+			available_if_capitulated = yes 
+			search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				add_ideas = {
+					FRA_manego_campaign
+				}
+			}
+		}
+		
+		shared_focus = {
+			id = FRA_DANUBE_CAMPAIGN
+			icon = GFX_goal_Danubian_Regions
+			text = FRA_DANUBE_CAMPAIGN
+			prerequisite = { focus = FRA_REESTABLISH_EMPIRE }
+			x = 0
+			y = 2
+			relative_position_id = FRA_REESTABLISH_EMPIRE
+			cost = 5
+			ai_will_do = {
+				factor = 2000
+			}
+			available = {
+				has_war_with = GER
+			}
+			bypass = {
+				OR = {
+					NOT = {
+						country_exists = GER
+					}
+					
+					GER = {
+						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+					}
+				}
+			}
+		
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				add_ideas = FRA_danube_campaign
+				##replace with unlock decision
+			}
+		}
+		
+		
 		
 		
 		shared_focus = {
 			id = FRA_RESTART_WARS 
 			icon = GFX_goal_Napoleonic_Wars
 			text = FRA_RESTART_WARS
-			prerequisite = { focus = FRA_REESTABLISH_EMPIRE }
-			prerequisite = {focus = FRA_ANTI_AUSTRIAN_PACT }
-			x = 0
+			prerequisite = { focus = FRA_DANUBE_CAMPAIGN focus = FRA_ils_ne_passeront_pas }
+			x = 1
 			y = 2
-			relative_position_id = FRA_REESTABLISH_EMPIRE
+			relative_position_id = FRA_DANUBE_CAMPAIGN
 			cost = 5
 			ai_will_do = {
 				factor = 2000
@@ -5479,80 +5552,6 @@ instant_build = yes
 			}
 		}
 		
-		shared_focus = {
-			id = FRA_MANEGO_CAMPAIGN
-			icon = GFX_goal_Monego_Campaign
-			text = FRA_MANEGO_CAMPAIGN
-			prerequisite = { focus = FRA_DEMAND_WEST_ITALY focus = FRA_RESTART_WARS }
-			x = 1
-			y = 1
-			relative_position_id = FRA_DEMAND_WEST_ITALY
-			cost = 5
-			ai_will_do = {
-				factor = 2000
-			}
-			bypass = {
-				OR = {
-					NOT = {
-						country_exists = ITA
-					}
-					
-					ITA = {
-						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-					}
-				}
-			}
-			available = {
-				has_war_with = ITA
-			}
-		
-			available_if_capitulated = yes 
-			search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				add_ideas = {
-					FRA_manego_campaign
-				}
-			}
-		}
-		
-		shared_focus = {
-			id = FRA_DANUBE_CAMPAIGN
-			icon = GFX_goal_Danubian_Regions
-			text = FRA_DANUBE_CAMPAIGN
-			prerequisite = { focus = FRA_RESTART_WARS focus = FRA_keep_out_the_reichsmarshall }
-			x = 1
-			y = 1
-			relative_position_id = FRA_RESTART_WARS
-			cost = 5
-			ai_will_do = {
-				factor = 2000
-			}
-			available = {
-				has_war_with = GER
-			}
-			bypass = {
-				OR = {
-					NOT = {
-						country_exists = GER
-					}
-					
-					GER = {
-						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-					}
-				}
-			}
-		
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				add_ideas = FRA_danube_campaign
-				##replace with unlock decision
-			}
-		}
-		
-		
 		
 		
 		
@@ -5560,12 +5559,12 @@ instant_build = yes
 			id = FRA_TAKING_OUT_THE_SGC
 			icon = GFX_goal_Finishaustria
 			text = FRA_TAKING_OUT_THE_SGC
-			prerequisite = { focus = FRA_DANUBE_CAMPAIGN }
+			prerequisite = { focus = FRA_RESTART_WARS }
 			mutually_exclusive = {focus = FRA_kalterkrieg}
 			#prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
 			x = -1
 			y = 1
-			relative_position_id = FRA_DANUBE_CAMPAIGN
+			relative_position_id = FRA_RESTART_WARS
 			cost = 5
 			ai_will_do = {
 				factor = 2000
