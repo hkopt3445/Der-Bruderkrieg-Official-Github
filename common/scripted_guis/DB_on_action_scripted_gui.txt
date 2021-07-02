@@ -48,6 +48,25 @@ scripted_gui = {
 	  }
   }
 
+  DBK_welcome_screen_topbar_open = {
+	context_type = player_context
+	window_name = "DBK_welcome_window_open"
+
+	effects = {
+		DBK_open_welcome_window_click = {
+			if = {
+				limit = {
+					has_country_flag = open_startup_window_flag
+				}
+				clr_country_flag = open_startup_window_flag
+			}
+			else = {
+				set_country_flag = open_startup_window_flag
+			}
+		}
+	}
+  }
+
   DBK_on_startup_alert_window = {
 	  context_type = player_context
 	  window_name = "DBK_welcome_window"
@@ -62,5 +81,6 @@ scripted_gui = {
 			clr_country_flag = open_startup_window_flag
 		}
 	  }
+	  
   }
 }

@@ -1,5 +1,26 @@
 guiTypes = {
 
+
+	containerWindowType = {
+		name = "DBK_welcome_window_open"
+		position = { x=1005 y=35}
+		size = { width=290 height=80 }
+		
+
+		
+		buttonType = {
+			name = "DBK_open_welcome_window"
+			position = { x = 0 y = 5 }
+			buttonFont = "hoi_20b"
+			borderSize = {x = 0 y = 0}
+			buttonText = "[ROOT.GetName]"
+			maxWidth = 290
+			maxHeight = 80
+			fixedsize = no	
+			format = center
+			spriteType = "GFX_tiled_window"
+		}
+	}
 	containerWindowType = {
 		name = "DBK_welcome_window"
 		position = { x = -1400 y = 150 }
@@ -39,6 +60,12 @@ guiTypes = {
 				maxHeight = 70
 				text = "Created by the DBK Dev Team" 
 			}
+
+			iconType = {
+				name = "specialart"
+				position  = { x = 20 y = 350 } 
+				#spriteType = ""
+			}
 		}
 
 		containerWindowType =  {
@@ -47,7 +74,6 @@ guiTypes = {
 				x = 200
 				y = 0
 			}
-			verticalScrollbar = "right_vertical_slider"
 			size = {
 				width = 100%%
 				height = 100%%
@@ -63,19 +89,43 @@ guiTypes = {
 				text = "You are playing the [ROOT.GetName]" 
 				format = center
 			}
-			instantTextBoxType = {
-				name = "DBK_welcome_window_desc"
-				position = { x = 100 y = 80 } 
-				font = "hoi_20b"
-				maxWidth = 500
-				maxHeight = 60
-				text = "[GetWelcomeWindowDesc]" 
-				format = left
+			containerWindowType = {
+				name = "desc"
+				position = {
+					x = 100
+					y = 60
+				}
+				clipping = yes
+				verticalScrollbar = "right_vertical_slider"
+				margin = { top = 10 left = 0 bottom = 10 right = 0}
+				background = { 
+					name = "BG2"
+					quadTextureSprite= "GFX_tiled_window_thin_border2"
+				} 
+				size = {
+					width = 500
+					height = 520
+				}
+				instantTextBoxType = {
+					name = "DBK_welcome_window_desc"
+					position = { x = 15 y = 10 } 
+					font = "hoi_20b"
+					maxWidth = 470
+					maxHeight = 60c
+					text = "[GetWelcomeWindowDesc]" 
+					format = left
+				}
+				iconType = {
+					name = "invisible piece of shit"
+					position = {
+						x = -10000
+						y = 600
+					}
+					spriteType = "GFX_dog"
+				}
 			}
-			background = {
-				name = "trans_bg"
-				spriteType = "GFX_tiled_window_transparent"
-			}
+			
+			
 			
 		}
 		buttonType = {
