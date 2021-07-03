@@ -12,7 +12,6 @@ focus_tree = {
 		}	
 	}
 	continuous_focus_position = { x = 0 y = 5000 }
-	default = no
 
 	shared_focus = FRA_national_development_bureau
 	shared_focus = FRA_CONSERVATIVES_PREVAIL
@@ -1498,7 +1497,7 @@ shared_focus = {
 				days = 365
 			}
     }
-  }
+  } 
 
 	shared_focus = {
     id = FRA_KEEP_1827
@@ -1563,7 +1562,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_political_power = 75
+      add_political_power = 100
     }
   }
 
@@ -1648,7 +1647,7 @@ shared_focus = {
     icon = GFX_goal_FRA_rex_regnat_non_gubernat
     text = FRA_REX_REGNAT
 		prerequisite = { focus = FRA_no_room_for_tyrants }
-    x = 0
+    x = -2
     y = 1
     relative_position_id = FRA_no_room_for_tyrants
     cost = 5
@@ -1693,12 +1692,52 @@ shared_focus = {
 			}
 
 			add_popularity  = {
-				ideology = democratic
+				ideology = ROOT
 				popularity = 0.05
 			}
     }
   }
+  shared_focus = {  
+			id = FRA_announce_imperial_election
+			icon = GFX_goal_FRA_imperial_elections
+			text = FRA_announce_imperial_election
+			prerequisite = { focus = FRA_no_room_for_tyrants }
+			x = 2
+			y = 1
+			relative_position_id = FRA_no_room_for_tyrants
+			cost = 2
+			ai_will_do = {
+			  factor = 10  
+			}
+		
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_RESEARCH } 
+		
+			completion_reward = {
+			  country_event = francestart.1 
+			}
+		  }
+  shared_focus = { 
+	id = FRA_the_issue_or_refugees
+	icon = GFX_goal_FRA_the_issue_of_refugees
+	text = FRA_the_issue_or_refugees
+	prerequisite = { focus = FRA_announce_imperial_election }
+	x = 0
+	y = 1
+	relative_position_id = FRA_announce_imperial_election
+	cost = 2
+	ai_will_do = {
+	  factor = 100
+	}
 
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		country_event = francestart.2
+		unlock_decision_category_tooltip = FRA_the_issue_of_refugees
+	}
+  }
 	
 
 # 	shared_focus = {
@@ -2154,8 +2193,8 @@ shared_focus = {
 		id = FRA_LEGACY_OF_CHARLEGMEGNE
 		icon = GFX_goal_FRA_legacy_of_charlegemgne
 		text = FRA_LEGACY_OF_CHARLEGMEGNE
-		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM }
-		x = 3
+		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
+		x = 2
 		y = 1
 		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
 		cost = 5
@@ -2316,9 +2355,9 @@ shared_focus = {
 		id = FRA_IMPERIAL_GLORY
 		icon = GFX_goal_FRA_imperial_glory
 		text = FRA_IMPERIAL_GLORY
-		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_CAGOULE_CABINET }
+		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM }
 		
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
 		cost = 5
@@ -2407,8 +2446,7 @@ shared_focus = {
 		id = FRA_RULE_FRANKIA
 		icon = GFX_goal_FRA_rule_of_the_franks
 		text = FRA_RULE_FRANKIA
-		prerequisite = { focus = FRA_PIETY}
-		prerequisite = { focus = FRA_DEUS_OMNIA}
+		prerequisite = { focus = FRA_DEUS_OMNIA focus = FRA_LEGACY_OF_CHARLEGMEGNE }
 		x = 1
 		y = 1
 		relative_position_id = FRA_DEUS_OMNIA
@@ -3449,10 +3487,8 @@ shared_focus = {
 		id = FRA_NAPOLEON
 		icon = GFX_goal_Uphold_Napoleonic_Ideas #########Napoleon
 		text = FRA_NAPOLEON
-		prerequisite = { focus = FRA_RULE_FRANKIA }
-		prerequisite = {
-			focus = FRA_CHRISTUS_REX
-		}
+		prerequisite = { focus = FRA_RULE_FRANKIA focus = FRA_CHRISTUS_REX }
+
 		# prerequisite = {
 		# 	focus = FRA_the_cult_of_napoleon
 		# }
@@ -5167,7 +5203,7 @@ instant_build = yes
 			prerequisite = {
 				focus = FRA_FRANCE_ALONE
 			}
-			cost = 10
+			cost = 4
 			ai_will_do = {
 				factor = 0
 			}
@@ -5216,7 +5252,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_law_for_the_country_in_danger
 			x = 2
 			y = 1
-			cost = 5
+			cost = 4
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_FRANCE_ALONE }
 			relative_position_id = FRA_FRANCE_ALONE
@@ -5237,7 +5273,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_keep_out_the_reichmarshall
 			x = 0
 			y = 1
-			cost = 5
+			cost = 3.5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_law_on_the_country_in_danger }
 			relative_position_id = FRA_law_on_the_country_in_danger
@@ -5273,7 +5309,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_defend_against_the_kaiser
 			x = 1
 			y = 1
-			cost = 5
+			cost = 3.5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_keep_out_the_reichsmarshall }
 			relative_position_id = FRA_keep_out_the_reichsmarshall
@@ -5309,7 +5345,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_hold_back_the_duce
 			x = -1
 			y = 1
-			cost = 5
+			cost = 3.5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_keep_out_the_reichsmarshall }
 			relative_position_id = FRA_keep_out_the_reichsmarshall
@@ -5346,7 +5382,7 @@ instant_build = yes
 			prerequisite = {focus = FRA_hold_back_the_duce}
 			x = -1
 			y = 1
-			cost = 5
+			cost = 3.5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_defend_against_the_kaiser }
 			relative_position_id = FRA_defend_against_the_kaiser
@@ -5641,7 +5677,7 @@ instant_build = yes
 				text = FRA_the_french_imperium
 				x = 18
 				y = 0
-				cost = 5
+				cost = 2
 				ai_will_do = {
 					factor = 200
 				}
@@ -5666,7 +5702,7 @@ instant_build = yes
 				id = FRA_the_chaotic_westfalen
 				icon = GFX_goal_FRA_chaotic_westfalen
 				text = FRA_the_chaotic_westfalen
-				x = -1
+				x = 0
 				y = 1
 				cost = 2
 				ai_will_do = {
@@ -5695,7 +5731,7 @@ instant_build = yes
 				text = FRA_managing_the_instability
 				x = 1
 				y = 1
-				cost = 8
+				cost = 2
 				ai_will_do = {
 					factor = 200
 				}
@@ -5722,7 +5758,7 @@ instant_build = yes
 			text = FRA_reinforcing_neue_code_napoleon
 			x = 0
 			y = 1
-			cost = 5
+			cost = 2
 			ai_will_do = {
 				factor = 200
 			}
@@ -5947,7 +5983,7 @@ instant_build = yes
 				id = FRA_the_luxemburg_colony
 				icon = GFX_goal_invadeluxembourg
 				text = FRA_the_luxemburg_colony
-				x = 1
+				x = 2
 				y = 1
 				cost = 5
 				ai_will_do = {
@@ -5968,7 +6004,7 @@ instant_build = yes
 				icon = GFX_DBK_generic_industry
 				text = FRA_mertz_steel_mines
 				x = 1
-				y = 1
+				y = 2
 				cost = 5
 				ai_will_do = {
 					factor = 20
@@ -5997,14 +6033,14 @@ instant_build = yes
 				id = FRA_ANNEX_BELGIUM
 				icon = GFX_goal_demandflanders
 				text = FRA_ANNEX_BELGIUM
-				prerequisite = { focus = FRA_reinforcing_neue_code_napoleon }
+				prerequisite = { focus = FRA_the_french_imperium }
 				mutually_exclusive = {
 					focus = FRA_BRUSSELLS_CONFERENCE
 				}
-				x = -2
-				y = 3
-				relative_position_id = FRA_reinforcing_neue_code_napoleon
-				cost = 5
+				x = -5
+				y = 1
+				relative_position_id = FRA_the_french_imperium
+				cost = 2.5
 				ai_will_do = {
 					factor = 200
 				}
@@ -6045,17 +6081,17 @@ instant_build = yes
 				id = FRA_BRUSSELLS_CONFERENCE
 				icon = GFX_goal_Brussels_Conference
 				text = FRA_BRUSSELLS_CONFERENCE
-				prerequisite = { focus = FRA_reinforcing_neue_code_napoleon }
+				prerequisite = { focus = FRA_the_french_imperium }
 				mutually_exclusive = {
 					focus = FRA_ANNEX_BELGIUM
 				}
 			
 				
 			
-				x = 2
-				y = 3
-				relative_position_id = FRA_reinforcing_neue_code_napoleon
-				cost = 5
+				x = -2
+				y = 1
+				relative_position_id = FRA_the_french_imperium
+				cost = 3
 				ai_will_do = {
 					factor = 200
 				}
@@ -6087,8 +6123,8 @@ instant_build = yes
 				text = FRA_SOLIDIFY_CONTROL
 				prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE }
 				
-				x = 1
-				y = 1
+				x = -1
+				y = 2
 				relative_position_id = FRA_BRUSSELLS_CONFERENCE
 				cost = 5
 				ai_will_do = {
