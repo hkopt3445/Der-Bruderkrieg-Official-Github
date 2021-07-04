@@ -61,13 +61,25 @@ country_event = {
 	option = {
 		name = french_inteverntion_in_prussian_expansion.2.a
 		set_country_flag = FRA_chose_intervention_against_prussia
-		ai_chance = {factor = 20}
+	
+		ai_chance = {factor = 5}
+		hidden_effect = {
+			AUS = {
+				country_event = { id = french_inteverntion_in_prussian_expansion.3 days = 2 }
+			}
+		}
 	}
 	option = {
 		name = french_inteverntion_in_prussian_expansion.2.b
 		
 		add_political_power = 100
-		ai_chance = {factor = 80}
+		hidden_effect = {
+			AUS = {
+				country_event = { id = french_inteverntion_in_prussian_expansion.4 days = 2 }
+			}
+			country_event = { id = french_inteverntion_in_prussian_expansion.5 days = 120 }
+		}
+		ai_chance = {factor = 95}
 	}
 }
 
@@ -88,17 +100,48 @@ country_event = {
 
 ##france denies support
 country_event = {
-	id = french_inteverntion_in_prussian_expansion.3
-	title = french_inteverntion_in_prussian_expansion.3.t
-	desc = french_inteverntion_in_prussian_expansion.3.d
-	#picture = GFX_report_event_czech_soldiers_03.dds
+	id = french_inteverntion_in_prussian_expansion.4
+	title = french_inteverntion_in_prussian_expansion.4.t
+	desc = french_inteverntion_in_prussian_expansion.4.d
+	#picture = GFX_report_event_czech_soldiers_04.dds
 	is_triggered_only = yes
 	fire_only_once = yes
 	option = {
-		name = french_inteverntion_in_prussian_expansion.3.a
+		name = french_inteverntion_in_prussian_expansion.4.a
 		ai_chance = {factor = 30}
 	}
 
+}
+
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.5
+	title = french_inteverntion_in_prussian_expansion.5.t
+	desc = french_inteverntion_in_prussian_expansion.5.d
+	#picture = GFX_report_event_czech_soldiers_05.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.5.a
+		set_country_flag = FRA_chose_intervention_against_prussia
+	
+		ai_chance = {factor = 30}
+		hidden_effect = {
+			AUS = {
+				country_event = { id = french_inteverntion_in_prussian_expansion.3 days = 2 }
+			}
+		}
+	}
+	option = {
+		name = french_inteverntion_in_prussian_expansion.5.b
+		
+		add_political_power = 100
+		hidden_effect = {
+			AUS = {
+				country_event = { id = french_inteverntion_in_prussian_expansion.4 days = 2 }
+			}
+		}
+		ai_chance = {factor = 70 }
+	}
 }
 
 
