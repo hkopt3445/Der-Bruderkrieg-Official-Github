@@ -153,4 +153,37 @@ on_actions = {
             }
         }
     }
+    ###BELGIUM CODE
+    on_declare_war = {
+        effect = {
+            if = {
+                limit = {
+                    tag = GER
+                    FROM = {
+                        tag = BEL
+                    }
+                }
+                if = {
+                    limit = {
+                        ENG = {
+                            has_war_with = GER
+                        }
+                    }
+                    ENG = {
+                        add_to_faction = BEL
+                    }
+                }
+                else_if = {
+                    limit = {
+                        FRA = {
+                            has_war_with = GER
+                        }
+                    }
+                    FRA = {
+                        add_to_faction = BEL
+                    }
+                }
+            }
+        }
+    }
 }
