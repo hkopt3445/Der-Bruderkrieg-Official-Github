@@ -10,6 +10,9 @@ focus_tree = {
 	default = no
 	shared_focus = SOV_kerenskys_presidency
 	shared_focus = SOV_the_question_of_the_okhrana
+	shared_focus = SOV_kovankos_influence
+    shared_focus = SOV_alksnis_designs
+    shared_focus = SOV_the_grand_fleet
 
 	continuous_focus_position = {
 		x = 100
@@ -860,7 +863,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+        add_ideas = SOV_Kerenskys_Political_Campaigns
     } 
 }
 
@@ -881,7 +884,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+        add_ideas = SOV_Suppression_of_Opposition
     }
 }
 shared_focus = {
@@ -900,7 +903,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+        add_ideas = SOV_Restricted_Freedom_of_Press
     }
 }
 
@@ -920,7 +923,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+        add_ideas = SOV_Right_Wing_Crackdown
     }
 }
 
@@ -943,7 +946,8 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+		remove_ideas = SOV_Kerenskys_Political_Campaigns
+		add_ideas = SOV_Trudovik_Political_Dominance
     }
 }
 shared_focus = {
@@ -963,7 +967,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+        add_ideas = SOV_Democratically_Fighting_Opposition
     }
 }
 shared_focus = {
@@ -983,7 +987,14 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+        add_popularity = {
+			ideology = authoritarian_democratic
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = democratic_communism
+			popularity = -0.05
+		}
     }
 }
 shared_focus = {
@@ -1002,7 +1013,8 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+		add_political_power = -50
+		add_timed_idea = { idea = SOV_Election_Verification days = 70 }
     }
 }
 shared_focus = {
@@ -1021,7 +1033,8 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+		add_ideas = SOV_Pro_Trudovik_Sentiment
+		add_political_power = -30
     }
 }
 shared_focus = {
@@ -1041,7 +1054,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+		add_ideas = SOV_Freedom_of_Speech_Protected
     }
 }
 shared_focus = {
@@ -1061,7 +1074,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+        add_ideas = SOV_Protectors_of_the_Truth
     }
 }
 shared_focus = {
@@ -1081,7 +1094,19 @@ shared_focus = {
         
     }
     completion_reward = {
-        
+        add_popularity = {
+			ideology = socialism_democratic
+			popularity = 0.1
+		}
+		add_political_power = 120
+		remove_ideas = SOV_Kerenskys_Political_Campaigns
+		remove_ideas = SOV_Protectors_of_the_Truth
+		remove_ideas = SOV_Freedom_of_Speech_Protected
+		add_ideas = SOV_Paragon_of_Honesty
+		add_popularity = {
+			ideology = socialism_democratic
+			popularity = 0.2
+		}
     }
 }
 
@@ -1163,7 +1188,7 @@ shared_focus = {
 	cost = 5
 	ai_will_do = { 
 		factor = 20
-	} 
+	}  
 
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1184,6 +1209,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
+	bypass = {
+		has_completed_focus = SOV_the_duma_votes
+	}
 
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1203,7 +1231,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
-
+	bypass = {
+		has_completed_focus = SOV_the_duma_votes
+	}
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -1249,7 +1279,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
-
+	bypass = {
+		has_completed_focus = SOV_the_duma_votes
+	}
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -1271,7 +1303,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
-
+	bypass = {
+		has_completed_focus = SOV_the_duma_votes
+	}
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
 

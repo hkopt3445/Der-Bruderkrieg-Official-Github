@@ -9,7 +9,7 @@ scripted_gui = {
 		dynamic_lists = {
 			duma_diagram = {
 				array = russian_duma_seat_x
-				change_scope = no
+				change_scope = no 
 				entry_container = duma_seat
 				index = seat_idx
 			}
@@ -24,6 +24,20 @@ scripted_gui = {
 		}
 
 		
+	}
+
+	SOV_openelectionsbutton_scripted_gui = {
+		window_name = "SOV_open_duma_election_window"
+		parent_window_token = politics_tab
+		visible = {
+			tag = SOV
+			is_ai = no
+		}
+		effects = {
+			SOV_openelectionsbutton_click = {
+				set_country_flag = SOV_open_election_view_GUI
+			}
+		}
 	}
 
 	###new election GUI
@@ -55,56 +69,150 @@ scripted_gui = {
 
 		effects = {
 			SOV_election_map_poland_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_poland value = 25 }
 				SOV_level_up_duma_large_decision = yes
+				set_temp_variable = {
+					temp_large_city_campaign_cost = large_city_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_large_city_campaign_cost = -1
+				}
+				add_political_power = var:temp_large_city_campaign_cost
+				
 			}
 			SOV_election_map_belarus_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_belarus value = 20 }
 				SOV_level_up_duma_small_decision = yes
+				set_temp_variable = {
+					temp_large_city_campaign_cost = large_city_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_large_city_campaign_cost = -1
+				}
+				add_political_power = var:temp_large_city_campaign_cost
+				
 			}
 			SOV_election_map_ukraine_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_ukraine value = 35 }
 				SOV_level_up_duma_large_decision = yes
+				set_temp_variable = {
+					 temp_farm_campaign_cost = farm_campaign_cost
+				}
+				multiply_temp_variable = {
+						temp_farm_campaign_cost = -1
+					}
+				add_political_power = var:temp_farm_campaign_cost
+				
 			}
+			
 			SOV_election_map_southern_oblasts_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_southern_oblasts value = 30 }
 				SOV_level_up_duma_large_decision = yes
+				set_temp_variable = {
+					 temp_farm_campaign_cost = farm_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_farm_campaign_cost = -1
+				}
+				add_political_power = var:temp_farm_campaign_cost
+				
 			}	
 			SOV_election_map_caucasus_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_caucasus value = 15 }
 				SOV_level_up_duma_small_decision = yes
+				set_temp_variable = {
+					 temp_farm_campaign_cost = farm_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_farm_campaign_cost = -1
+				}
+				add_political_power = var:temp_farm_campaign_cost
+				
 			}
 			SOV_election_map_srednaya_azyiya_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_srednaya_azyiya value = 20 }
 				SOV_level_up_duma_small_decision = yes
+				set_temp_variable = {
+					 temp_farm_campaign_cost = farm_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_farm_campaign_cost = -1
+				}
+				add_political_power = var:temp_farm_campaign_cost
+				
 			}
 			SOV_election_map_west_siberia_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_west_siberia value = 20 }
 				SOV_level_up_duma_small_decision = yes
+				set_temp_variable = {
+					 temp_farm_campaign_cost = farm_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_farm_campaign_cost = -1
+				}
+				add_political_power = var:temp_farm_campaign_cost
+				
 			}
 			SOV_election_map_east_siberia_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_east_siberia value = 20 }
 				SOV_level_up_duma_small_decision = yes
+				set_temp_variable = {
+					 temp_farm_campaign_cost = farm_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_farm_campaign_cost = -1
+				}
+				add_political_power = var:temp_farm_campaign_cost
+				
 			}
-			SOV_election_map_east_siberia_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
-				SOV_level_up_duma_small_decision = yes
-			}
+			
 			SOV_election_map_perm_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_perm value = 20 }
 				SOV_level_up_duma_small_decision = yes
+				set_temp_variable = {
+					 temp_farm_campaign_cost = farm_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_farm_campaign_cost = -1
+				}
+				add_political_power = var:temp_farm_campaign_cost
+				
 			}
 			SOV_election_map_northern_oblasts_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_northern_oblasts value = 30 }
 				SOV_level_up_duma_large_decision = yes
+				set_temp_variable = {
+					temp_city_campaign_cost = city_campaign_cost 
+				}
+				multiply_temp_variable = {
+					temp_city_campaign_cost = -1
+				}
+				add_political_power = var:temp_city_campaign_cost
+				
 			}
 			SOV_election_map_finland_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_finland value = 25 }
 				SOV_level_up_duma_large_decision = yes
+				set_temp_variable = {
+					temp_city_campaign_cost = city_campaign_cost 
+				}
+				multiply_temp_variable = {
+					temp_city_campaign_cost = -1
+				}
+				add_political_power = var:temp_city_campaign_cost
+				
 			}
 			SOV_election_map_moskow_button_click = {
-				set_country_flag = { flag = SOV_already_campaigning_in_state value = 30 }
+				set_country_flag = { flag = SOV_already_campaigning_in_moskow value = 30 }
 				SOV_level_up_duma_large_decision = yes
+				set_temp_variable = {
+					temp_large_city_campaign_cost = large_city_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_large_city_campaign_cost = -1
+				}
+				add_political_power = var:temp_large_city_campaign_cost
+				
 			}
 
 			##ELECTION STORY
@@ -401,8 +509,11 @@ scripted_gui = {
 		}
 		triggers = {
 			SOV_election_map_poland_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = large_city_campaign_cost } }
+				NOT = { has_country_flag = SOV_already_campaigning_in_poland }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_large_city_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = large_city_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -411,8 +522,11 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_belarus_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { has_political_power =  var:large_city_campaign_cost }
+				NOT = { has_country_flag = SOV_already_campaigning_in_belarus }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_large_city_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = large_city_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -421,8 +535,11 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_ukraine_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				NOT = { has_country_flag = SOV_already_campaigning_in_ukraine }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_farm_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -431,8 +548,11 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_southern_oblasts_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				NOT = { has_country_flag = SOV_already_campaigning_in_southern_oblasts }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_farm_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -441,8 +561,11 @@ scripted_gui = {
 					}	
 				}	
 			SOV_election_map_caucasus_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				NOT = { has_country_flag = SOV_already_campaigning_in_caucasus }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_farm_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -451,8 +574,11 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_srednaya_azyiya_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				NOT = { has_country_flag = SOV_already_campaigning_in_srednaya_azyiya }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_farm_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -461,8 +587,11 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_west_siberia_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				NOT = { has_country_flag = SOV_already_campaigning_in_west_siberia }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_farm_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -471,8 +600,11 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_east_siberia_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				NOT = { has_country_flag = SOV_already_campaigning_in_east_siberia }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_farm_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -480,19 +612,13 @@ scripted_gui = {
 						has_completed_focus = SOV_the_path_to_true_democracy
 					}	
 				}
-			SOV_election_map_east_siberia_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = farm_campaign_cost } }
-				OR = {
-						has_completed_focus = SOV_on_the_campaign_trail
-						has_completed_focus = SOV_lenins_tour_of_russia
-						has_completed_focus = SOV_begin_belogurovs_campaign
-						has_completed_focus = SOV_the_path_to_true_democracy
-					}	
-				}
+			
 			SOV_election_map_perm_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				NOT = { has_country_flag = SOV_already_campaigning_in_perm }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_farm_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = farm_campaign_cost } }
+				}
 				OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
@@ -501,9 +627,12 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_northern_oblasts_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals  value = city_campaign_cost } }
-				OR = {
+				NOT = { has_country_flag = SOV_already_campaigning_in_northern_oblasts }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_city_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals  value = city_campaign_cost } }
+				}
+								OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
 						has_completed_focus = SOV_begin_belogurovs_campaign
@@ -511,9 +640,12 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_finland_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals  value = city_campaign_cost } }
-				OR = {
+				NOT = { has_country_flag = SOV_already_campaigning_in_finland }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_city_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals  value = city_campaign_cost } }
+				}
+								OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
 						has_completed_focus = SOV_begin_belogurovs_campaign
@@ -521,9 +653,12 @@ scripted_gui = {
 					}	
 				}
 			SOV_election_map_moskow_button_click_enabled = {
-				NOT = { has_country_flag = SOV_already_campaigning_in_state }
-				SOV = { check_variable = { var = politcal_power compare = greater_than_or_equals  value = city_campaign_cost } }
-				OR = {
+				NOT = { has_country_flag = SOV_already_campaigning_in_moskow }
+				custom_trigger_tooltip = {
+					tooltip = SOV_has_large_city_campaign_cost_pp
+					SOV = { check_variable = { var = political_power compare = greater_than_or_equals value = large_city_campaign_cost } }
+				}
+								OR = {
 						has_completed_focus = SOV_on_the_campaign_trail
 						has_completed_focus = SOV_lenins_tour_of_russia
 						has_completed_focus = SOV_begin_belogurovs_campaign

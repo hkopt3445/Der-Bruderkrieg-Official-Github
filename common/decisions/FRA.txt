@@ -1756,7 +1756,10 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
-			
+			has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		custom_cost_trigger = {
 			command_power > 10
@@ -1810,6 +1813,10 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
+			has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
 			factor = 0
@@ -1857,6 +1864,10 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
+			has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
 			factor = 0
@@ -1905,6 +1916,10 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
+			has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
 			factor = 0
@@ -1954,6 +1969,10 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
+			has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
 			factor = 0
@@ -2007,6 +2026,10 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
+			has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
 			factor = 0
@@ -2066,7 +2089,11 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
+			has_event_target = current_westfalen_gui_state
 		}	
+		complete_effect = {
+			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
+		}
 		ai_will_do = {
 			factor = 0
 			modifier = {
@@ -2126,7 +2153,11 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
+			has_event_target = current_westfalen_gui_state
 		}	
+		complete_effect = {
+			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
+		}
 		ai_will_do = {
 			factor = 1000
 		}
@@ -2143,6 +2174,8 @@ FRA_hunting_westfalen_nationalists = {
 	}
 }
 
+
+##BELGINA ELECTIONS
 influencing_belgium = {
 	FRA_boost_public_support_for_degrelle = {
 		icon = generic_operation
@@ -2173,6 +2206,7 @@ influencing_belgium = {
 		}
 		visible = {
 			tag = FRA
+			
 		}
 		ai_will_do = {
 			factor = 1
@@ -2817,6 +2851,88 @@ FRA_danube_campaign = {
 		modifier = {
 			naval_invasion_prep_speed = 0.1
 			naval_invasion_capacity = 4
+		}
+
+	}
+
+}
+
+FRA_expanding_civil_rights = {
+	
+	FRA_lno_govt_spy = {
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+
+		complete_effect = {
+			add_stability = -0.02
+			add_to_variable = { var = FRA_rights_progress value = 1 }
+		}
+
+	}
+
+	FRA_lopen_up_assembly = {
+
+		icon = eng_propaganda_campaigns
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_to_variable = { var = FRA_rights_progress value = 1 }
+		}
+
+	}
+
+	FRA_lpromote_suffrage = {
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_to_variable = { var = FRA_rights_progress value = 1 }
+		}
+
+	}
+
+	FRA_lpromote_citizens_rights_arms = {
+
+		icon = generic_industry
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+
+		complete_effect = {
+			army_experience = 5
+			add_to_variable = { var = FRA_rights_progress value = 1 }
 		}
 
 	}

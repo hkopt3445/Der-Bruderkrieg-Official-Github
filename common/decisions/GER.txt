@@ -5,8 +5,10 @@ GER_german_sphere = {
 
 
 GER_ss_waffen_cat = {
+
+	##SA DECISIONS
 	GER_sa_commissions = {
-		icon = generic_construction
+		icon = generic_civil_support
 
 		available = {
 			tag = GER
@@ -18,10 +20,14 @@ GER_ss_waffen_cat = {
 			has_country_flag = chose_sa
 		}
 
+		ai_will_do = {
+			factor = 1000	
+		}
+
 		fire_only_once = no
 
-		cost = 50
-		days_remove = 14
+		cost = 25
+		days_remove = 15
 
 		ai_will_do = {
 			factor = 20
@@ -29,15 +35,15 @@ GER_ss_waffen_cat = {
 		
 		remove_effect = {
 			add_manpower = 10000
-			add_to_variable = { ss_loyalty = 5 }
+			#add_to_variable = { ss_loyalty = 5 }
 			add_to_variable = { ss_power = 5 }
-			subtract_from_variable = { state_influence = 5 }
-			add_to_variable = { ss_influence = 5 }
+			add_to_variable = { freikorps_power = -5 }
+			#subtract_from_variable = { state_influence = 5 }
 			custom_effect_tooltip = GER_sa_commissions_tt	
 		}
 	}
 	GER_decision_workplace_reforms = {
-		icon = generic_construction
+		icon = eng_trade_unions_support
 
 		available = {
 			tag = GER
@@ -51,7 +57,10 @@ GER_ss_waffen_cat = {
 
 		fire_only_once = yes
 
-		cost = 50
+		cost = 40
+		ai_will_do = {
+			factor = 1000	
+		}
 	
 		complete_effect = {
 			add_ideas = {
@@ -63,7 +72,7 @@ GER_ss_waffen_cat = {
 			remove_ideas = {
 				GER_workplace_reforms_idea
 			}
-			add_to_variable = { ss_loyalty = 5 }
+			add_to_variable = { ss_power = 5 }
 			custom_effect_tooltip = GER_workplace_reforms_tt
 			set_country_flag = GER_flag_workplace_reforms
 		}
@@ -75,7 +84,7 @@ GER_ss_waffen_cat = {
 		}
 	}
 	GER_control_of_the_daf = {
-		icon = generic_construction
+		icon = eng_trade_unions_demand
 
 		available = {
 			tag = GER
@@ -90,70 +99,25 @@ GER_ss_waffen_cat = {
 
 		fire_only_once = yes
 
-		cost = 50
-		days_remove = 21
+		cost = 40
+		days_remove = 25
+
+		ai_will_do = {
+			factor = 1000	
+		}
 
 		remove_effect = {
-			add_to_variable = { ss_loyalty = 10 }
+			# add_to_variable = { ss_loyalty = 10 }
 			add_to_variable = { ss_power = 15 }
 			custom_effect_tooltip = GER_daf_tt
-			add_ideas = {
-				GER_deutsches_arbeitsfront
+			add_timed_idea = {
+				idea = GER_deutsches_arbeitsfront
+				days = 100
 			}		
 		}
 	}
 	GER_concessions_to_freikorps = {
-		icon =  generic_construction
-
-		available = {
-			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
-			has_country_flag = chose_sa
-		}
-
-		visible = {
-			has_country_flag = chose_sa
-		}
-
-		fire_only_once = no
-
-		cost = 50
-		days_remove = 14
-
-		remove_effect = {
-			add_stability = -0.05
-			add_to_variable = { freikorps_loyalty = 5 }
-			subtract_from_variable = { ss_loyalty = 5 }
-			custom_effect_tooltip = GER_concessions_freikorps_tt
-		}
-	}
-	GER_infiltrate_reactionary_regiments = {
-		icon = generic_construction
-
-		available = {
-			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
-			has_country_flag = chose_sa
-		}
-
-		visible = {
-			has_country_flag = chose_sa
-		}
-
-		fire_only_once = no
-
-		cost = 50
-		days_remove = 28
-
-		remove_effect = {
-			add_to_variable = { state_influence = 5 }
-			subtract_from_variable = { freikorps_loyalty = 5 }
-			subtract_from_variable = { freikorps_power = 5 }
-			custom_effect_tooltip = GER_infiltrate_reactionary_regiments_tt
-		}
-	}
-	GER_freikorps_commissions = {
-		icon = generic_construction
+		icon =  ger_military_buildup
 
 		available = {
 			tag = GER
@@ -167,20 +131,80 @@ GER_ss_waffen_cat = {
 
 		fire_only_once = no
 
+		cost = 30
+		days_remove = 15
+
+		ai_will_do = {
+			factor = 1000	
+		}
+
+		remove_effect = {
+			add_stability = -0.05
+			add_to_variable = { freikorps_power = 5 }
+			subtract_from_variable = { ss_power = 5 }
+			custom_effect_tooltip = GER_concessions_freikorps_tt
+		}
+	}
+	GER_infiltrate_reactionary_regiments = {
+		icon = generic_army_support
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_crush_the_freikorps
+			has_country_flag = chose_sa
+		}
+
+		visible = {
+			has_country_flag = chose_sa
+		}
+
+		fire_only_once = no
+
 		cost = 50
-		days_remove = 14
+		days_remove = 30
+
+		ai_will_do = {
+			factor = 1000	
+		}
+
+		remove_effect = {
+			#add_to_variable = { state_influence = 5 }
+			#subtract_from_variable = { freikorps_loyalty = 5 }
+			subtract_from_variable = { freikorps_power = 10 }
+			custom_effect_tooltip = GER_infiltrate_reactionary_regiments_tt
+		}
+	}
+	GER_freikorps_commissions = {
+		icon = generic_civil_support
+
+		available = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
+		}
+
+		visible = {
+			has_country_flag = chose_wermacht
+		}
+
+		fire_only_once = no
+
+		cost = 25
+		days_remove = 15
+		ai_will_do = {
+			factor = 1000	
+		}
 
 		remove_effect = {
 			add_manpower = 10000
-			add_to_variable = { freikorps_loyalty = 5 }
 			add_to_variable = { freikorps_power = 5 }
-			subtract_from_variable = { state_influence = 5 }
-			add_to_variable = { freikorps_influence = 5 }
+			subtract_from_variable = { ss_power = 5 }
+			
 			custom_effect_tooltip = GER_freikorps_commissions_tt			
 		}
 	}
 	GER_decision_pro_magnate_legislation = {
-		icon = generic_construction
+		icon = hol_attract_foreign_investors
 
 		available = {
 			tag = GER
@@ -195,6 +219,9 @@ GER_ss_waffen_cat = {
 		fire_only_once = yes
 
 		cost = 50
+		ai_will_do = {
+			factor = 1000	
+		}
 	
 		complete_effect = {
 			add_ideas = {
@@ -206,7 +233,7 @@ GER_ss_waffen_cat = {
 			remove_ideas = {
 				GER_pro_magnate_legislation
 			}
-			add_to_variable = { freikorps_loyalty = 5 }
+			add_to_variable = { freikorps_power = 5 }
 			custom_effect_tooltip = GER_decision_pro_magnate_legislation_tt
 			set_country_flag = GER_flag_pro_magnate_legislation
 		}
@@ -218,7 +245,7 @@ GER_ss_waffen_cat = {
 		}
 	}
 	GER_neuter_the_daf = {
-		icon = generic_construction
+		icon = eng_install_government
 
 		available = {
 			tag = GER
@@ -233,20 +260,23 @@ GER_ss_waffen_cat = {
 
 		fire_only_once = yes
 
-		cost = 50
-		days_remove = 21
+		cost = 40
+		days_remove = 25
+		ai_will_do = {
+			factor = 1000	
+		}
 
 		remove_effect = {
-			add_to_variable = { freikorps_loyalty = 10 }
 			add_to_variable = { freikorps_power = 15 }
 			custom_effect_tooltip = GER_neuter_daf_tt
-			add_ideas = {
-				GER_increase_corporate_power
+			add_timed_idea = {
+				idea = GER_increase_corporate_power
+				days = 100
 			}		
 		}
 	}
 	GER_concessions_to_sa = {
-		icon =  generic_construction
+		icon =  ger_military_buildup
 
 		available = {
 			tag = GER
@@ -258,20 +288,24 @@ GER_ss_waffen_cat = {
 			has_country_flag = chose_wermacht
 		}
 
+		ai_will_do = {
+			factor = 1000	
+		}
+
 		fire_only_once = no
 
-		cost = 50
-		days_remove = 14
+		cost = 30
+		days_remove = 15
 
 		remove_effect = {
 			add_stability = -0.05
-			add_to_variable = { ss_loyalty = 5 }
-			subtract_from_variable = { freikorps_loyalty = 5 }
+			add_to_variable = { ss_power = 5 }
+			subtract_from_variable = { freikorps_power = 5 }
 			custom_effect_tooltip = GER_concessions_sa_tt		
 		}
 	}
 	GER_infiltrate_radical_regiments = {
-		icon = generic_construction
+		icon = generic_army_support
 
 		available = {
 			tag = GER
@@ -283,18 +317,65 @@ GER_ss_waffen_cat = {
 			has_country_flag = chose_wermacht
 		}
 
+		ai_will_do = {
+			factor = 1000	
+		}
+
 		fire_only_once = no
 
 		cost = 50
-		days_remove = 28
+		days_remove = 30
 
 		remove_effect = {
-			add_to_variable = { state_influence = 5 }
-			subtract_from_variable = { ss_loyalty = 5 }
-			subtract_from_variable = { ss_power = 5 }
+			subtract_from_variable = { ss_power = 10 }
 			custom_effect_tooltip = GER_infiltrate_radical_regiments_tt
 		}
 	}
+	GER_freikorps_revolt_imminent_mission_trigger = {
+		allowed = { tag = GER }
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		visible = {
+			NOT = {
+				has_completed_focus = GER_retire_reactionary_officers
+			}
+		}
+		activation = {	has_completed_focus = GER_crush_the_freikorps	}
+		days_mission_timeout = 175
+		is_good = no
+		selectable_mission = no
+		fire_only_once = yes
+		timeout_effect = {
+			country_event = militia_revolts.1 
+		}
+		
+	}
+	GER_sa_revolt_imminent_mission_trigger = {
+		allowed = { tag = GER }
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		visible = {
+			NOT = {
+				has_completed_focus = GER_ensure_army_loyalty
+			}
+		}
+		activation = {	has_completed_focus = GER_crush_the_sa	}
+		days_mission_timeout = 175
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = yes
+		timeout_effect = {
+			country_event = militia_revolts.4 
+		}
+		
+	}
+	
 	GER_freikorps_revolt_imminent = {
 		allowed = { tag = GER }
 		available = {
@@ -592,7 +673,7 @@ GER_operations = {
 		fire_only_once = no
 
 		cost = 50
-		days_remove = 14
+		days_remove = 15
 
 		remove_effect = {
 			add_equipment_to_stockpile = {
@@ -621,7 +702,7 @@ GER_operations = {
 		fire_only_once = no
 
 		cost = 50
-		days_remove = 14
+		days_remove = 15
 
 		remove_effect = {
 			add_equipment_to_stockpile = {
@@ -649,7 +730,7 @@ GER_french_resistance = {
 		fire_only_once = no
 
 		cost = 50
-		days_remove = 14
+		days_remove = 15
 
 		remove_effect = {
 		}
@@ -670,7 +751,7 @@ GER_austrian_resistance = {
 		fire_only_once = no
 
 		cost = 50
-		days_remove = 14
+		days_remove = 15
 
 		remove_effect = {
 		}
@@ -842,4 +923,520 @@ GER_goering_succession = {
 			clr_country_flag = GER_pragmatist_decisions
 		}
 	}
+}
+
+GER_anti_spartakus_category = {
+	GER_the_revolutionary_plot = {
+		allowed = { tag = GER }
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = GER_spartakus_crushed
+			}
+		}
+		priority = 100
+		activation = {	has_completed_focus = GER_consolidating_power	}
+		days_mission_timeout = 300
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = yes
+		timeout_effect = {
+			country_event = germangame.1
+		}
+		
+	}
+	
+	GER_sponsor_far_right_paramilitaries = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+		days_re_enable = 80
+		fire_only_once = no
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 5 }
+			add_stability = -0.02
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_bribe_weapons_dealers = {
+
+		icon = ger_mefo_bills
+
+		cost = 25
+
+		fire_only_once = yes
+
+		days_remove = 35
+
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+
+		remove_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 250
+			}
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_target_spartakus_printings = {
+
+		icon = eng_trade_unions_demand
+
+		cost = 30
+
+		fire_only_once = no
+
+		
+
+		available = {
+			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_10
+			check_variable = { GER_anti_spartakus > 10 } }
+			has_equipment = {
+				infantry_equipment > 50
+			}
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 5 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -50
+			}
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_break_up_strikers = {
+
+		icon = generic_industry
+
+		cost = 50
+
+		fire_only_once = yes
+
+
+		available = {
+			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_10
+			check_variable = { GER_anti_spartakus > 10 } }
+			has_equipment = {
+				infantry_equipment > 25
+			}
+		}
+
+		days_remove = 35
+
+		modifier = {
+			stability_factor = -0.05
+			industrial_capacity_factory = 0.05
+			industrial_capacity_dockyard = 0.05
+		}
+
+		remove_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -25
+			}
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_ban_socialist_gatherings = {
+
+		icon = generic_political_discourse
+
+		cost = 30
+
+		fire_only_once = yes
+
+		days_remove = 90
+
+		modifier = {
+			democratic_communism_drift = -0.02
+			political_power_factor = 0.05
+		}
+
+		complete_effect = {
+			add_stability = -0.03
+			add_popularity = {
+				ideology = democratic_communism 
+				popularity = -0.03
+			}
+		}
+
+		remove_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_exploit_anti_socialist_sentiments = {
+
+		icon = eng_propaganda_campaigns
+
+		cost = 40
+
+		fire_only_once = no
+		available = {
+			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_10
+			check_variable = { GER_anti_spartakus > 10 } }
+		}
+
+		days_remove = 100
+
+		modifier = {
+			political_power_cost = 0.25
+		}
+
+		remove_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_raid_spartakus_safehouses = {
+
+		icon = generic_prepare_civil_war
+
+		fire_only_once = no
+
+		cost = 30
+
+		visible = {
+		}
+
+		available = {
+			custom_trigger_tooltip = { tooltip =  GER_anti_spartakus_var_greater_than_30
+			check_variable = { GER_anti_spartakus > 30 } }
+			has_equipment = {
+				infantry_equipment > 50
+			}
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 5 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -50
+			}
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_execute_liebknecht = {
+
+		icon = generic_industry
+
+		fire_only_once = yes
+
+		cost = 50
+
+		available = {
+			custom_trigger_tooltip = { tooltip =  GER_anti_spartakus_var_greater_than_30
+			check_variable = { GER_anti_spartakus > 30 } }
+		}
+
+		complete_effect = {
+			add_popularity = {
+				ideology = democratic_communism
+				popularity = -0.02
+			}
+			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_trap_luxemburg_movements = {
+
+		fire_only_once = yes
+
+		cost = 50
+
+		available = {
+			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_60
+			check_variable = { GER_anti_spartakus > 60 } }
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
+			set_country_flag = GER_lux_trapped
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_execute_luxemburg = {
+
+		icon = generic_start_civil_war
+
+		fire_only_once = yes
+
+		cost = 50
+
+		available = {
+			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_60
+			check_variable = { GER_anti_spartakus > 60 } }
+			has_country_flag = GER_lux_trapped
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
+			clr_country_flag = GER_lux_trapped
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+
+	GER_end_spartakus_threat = {
+
+		icon = generic_civil_support
+
+		fire_only_once = yes
+
+		cost = 0
+
+		available = {
+			check_variable = { GER_anti_spartakus > 80 }
+		}
+
+		complete_effect = {
+			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
+			set_country_flag = GER_spartakus_crushed
+			clamp_variable = {
+				var = GER_anti_spartakus
+				min = 0
+				max = 100
+			}
+		}
+
+	}
+ 
+}
+
+GER_nordicist_decisions = {
+	
+	GER_worship_thor = {
+
+		icon = generic_tank
+
+		available = {
+			NOT = {
+				has_country_flag = GER_already_chose_worship
+			}
+		}
+
+		days_remove = 90
+
+		modifier = {
+			army_armor_attack_factor = 0.1
+			army_armor_defence_factor = 0.1
+			political_power_cost = 0.25
+		}
+
+		complete_effect = {
+			set_country_flag = GER_already_chose_worship
+		}
+
+		remove_effect = {
+			clr_country_flag = GER_already_chose_worship
+		}
+ 
+	}
+
+	GER_worship_tyr = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			NOT = {
+				has_country_flag = GER_already_chose_worship
+			}
+		}
+
+		days_remove = 90
+
+		modifier = {
+			army_infantry_attack_factor = 0.1
+			army_infantry_defence_factor = 0.1
+			political_power_cost = 0.25
+		}
+
+		complete_effect = {
+			set_country_flag = GER_already_chose_worship
+		}
+
+		remove_effect = {
+			clr_country_flag = GER_already_chose_worship
+		}
+
+	}
+
+	GER_worship_freya = {
+
+		icon = generic_form_nation
+
+		available = {
+			NOT = {
+				has_country_flag = GER_already_chose_worship
+			}
+		}
+
+		days_remove = 90
+
+		modifier = {
+			monthly_population = 0.1
+			consumer_goods_factor = -0.05
+			political_power_cost = 0.25
+		}
+
+		complete_effect = {
+			set_country_flag = GER_already_chose_worship
+		}
+
+		remove_effect = {
+			clr_country_flag = GER_already_chose_worship
+		}
+
+	}
+
+	GER_worship_njord = {
+
+		icon = generic_naval
+
+		available = {
+			NOT = {
+				has_country_flag = GER_already_chose_worship
+			}
+		}
+
+		days_remove = 90
+
+		modifier = {
+			industrial_capacity_dockyard = 0.2
+			political_power_cost = 0.25
+		}
+
+		complete_effect = {
+			set_country_flag = GER_already_chose_worship
+		}
+
+		remove_effect = {
+			clr_country_flag = GER_already_chose_worship
+		}
+
+	}
+
+	GER_worship_frey = {
+
+		icon = eng_propaganda_campaigns
+
+		available = {
+			NOT = {
+				has_country_flag = GER_already_chose_worship
+			}
+		}
+
+		days_remove = 90
+
+		modifier = {
+			industrial_capacity_factory = 0.2
+			political_power_cost = 0.25
+		}
+
+		complete_effect = {
+			set_country_flag = GER_already_chose_worship
+		}
+
+		remove_effect = {
+			clr_country_flag = GER_already_chose_worship
+		}
+
+	}
+
+	GER_worship_odin = {
+
+		icon = eng_abdication_crisis
+
+		available = {
+			NOT = {
+				has_country_flag = GER_already_chose_worship
+			}
+		}
+
+		days_remove = 90
+
+		modifier = {
+			stability_factor = 0.1
+			political_power_cost = 0.25
+		}
+
+		complete_effect = {
+			set_country_flag = GER_already_chose_worship
+		}
+
+		remove_effect = {
+			clr_country_flag = GER_already_chose_worship
+		}
+
+	}
+
 }

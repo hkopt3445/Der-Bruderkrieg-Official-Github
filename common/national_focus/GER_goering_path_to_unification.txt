@@ -25,7 +25,7 @@ shared_focus = {
 	id = GER_the_petty_kings
 	icon = unkown
 	cost = 2
-	x = 5
+	x = 3
 	y = 0
 	
 	#relative_position_id = GER_rachekrieg
@@ -48,7 +48,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_overrun_saxony
 	icon = unkown
-	cost = 4
+	cost = 2
 	x = -1
 	y = 1
 	prerequisite = {
@@ -67,7 +67,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_annex_hanover
 	icon = unkown
-	cost = 4
+	cost = 2
 	x = 1
 	y = 1
 	prerequisite = {
@@ -86,7 +86,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_bismarks_plan
 	icon = unkown
-	cost = 3
+	cost = 5
 	x = 1
 	y = 1
 	prerequisite = {
@@ -208,6 +208,11 @@ shared_focus = {
 		focus = GER_securing_british_neutrality
 	}
 	relative_position_id = GER_securing_british_neutrality
+	available = {
+		BEL = {
+			has_government = democratic
+		}
+	}
 	ai_will_do = {
 		factor = 60
 	}
@@ -319,7 +324,10 @@ shared_focus = {
 			type = tac_bomber_equipment_1
 			amount = 200
 		}
-		add_ideas = GER_modernized_luftwaffe
+		add_timed_idea = {
+			idea = GER_modernized_luftwaffe
+			days = 200
+		}  
 	}
 }
 shared_focus = {
@@ -339,6 +347,12 @@ shared_focus = {
 	relative_position_id = GER_preparing_the_luftwaffe
 	ai_will_do = {
 		factor = 60
+		modifier = {
+			add = -100
+			AUS = {
+				surrender_progress < 0.3
+			}
+		}
 	}
 	completion_reward = {
 		country_event = GER_goering_path_to_unification.1
@@ -616,9 +630,9 @@ shared_focus = {
 		focus = GER_breaking_the_chains
 	}
 	relative_position_id = GER_breaking_the_chains
-	ai_will_do = {
-		factor = 600
-	}
+	# ai_will_do = {
+	# 	factor = 600
+	# }
 	completion_reward = {
 		country_event = GER_austrian_ethnic_revolts.1
 	}
@@ -633,9 +647,9 @@ shared_focus = {
 		focus = GER_breaking_the_chains
 	}
 	relative_position_id = GER_breaking_the_chains
-	ai_will_do = {
-		factor = 600
-	}
+	# ai_will_do = {
+	# 	factor = 600
+	# }
 	completion_reward = {
 		country_event = GER_austrian_ethnic_revolts.2
 	}
@@ -653,9 +667,9 @@ shared_focus = {
 		focus = GER_magyar_contracts
 	}
 	relative_position_id = GER_forment_italian_revolt
-	ai_will_do = {
-		factor = 600
-	}
+	# ai_will_do = {
+	# 	factor = 600
+	# }
 	completion_reward = {
 		country_event = GER_austrian_ethnic_revolts.3
 		

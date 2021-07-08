@@ -718,7 +718,7 @@ country_event = {
 	id = ITA_socialist_revolution_events.7
 	title = ITA_socialist_revolution_events.7.t
 	desc = ITA_socialist_revolution_events.7.d
-	#picture = GFX_report_event_eng_dambuster2
+	#picture = GFX_report_event_eng_dambuster2 
 
 	fire_only_once = yes  
 	is_triggered_only = yes 
@@ -751,14 +751,25 @@ country_event = {
 		ai_chance = { factor = 90 } 
 		set_country_flag = ITA_active_the_geracha_elections
 		unlock_decision_category_tooltip = ITA_the_kings_men
-		
+		set_country_flag = ITA_chose_benito_kings_men
+		activate_mission = ITA_gerarchi_elections
+		custom_effect_tooltip = ITA_we_will_play_as_benito
+	}
+	option = { 
+		name = ITA_evola_coup_events.1.b 
+		ai_chance = { factor = 90 } 
+		set_country_flag = ITA_active_the_geracha_elections
+		unlock_decision_category_tooltip = ITA_the_kings_men
+		set_country_flag = ITA_chose_evola_kings_men
+		activate_mission = ITA_gerarchi_elections
+		custom_effect_tooltip = ITA_we_will_play_as_evola
 	}
 }
 
 ##royalist officers pledge support
 country_event = {
 	id = ITA_evola_coup_events.2
-	title = ITA_evola_coup_events.2.t
+	title = ITA_evola_coup_events.2.t 
 	desc = ITA_evola_coup_events.2.d
 	#picture = GFX_report_event_eng_dambuster8
 
@@ -768,6 +779,24 @@ country_event = {
 	option = { 
 		name = ITA_evola_coup_events.2.a 
 		ai_chance = { factor = 90 } 
+		unlock_decision_category_tooltip = ITA_evola_interactions_with_the_mvsn_militias
+	}
+}
+
+##evolas coup
+country_event = {
+	id = ITA_evola_coup_events.3 
+	title = ITA_evola_coup_events.3.t 
+	desc = ITA_evola_coup_events.3.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_coup_events.3.a 
+		ai_chance = { factor = 90 } 
+		load_focus_tree = ITA_evola_tree
 	}
 }
 
@@ -1174,6 +1203,29 @@ country_event = {
 }
 
 
+add_namespace = ITA_papal_events
+country_event = {
+	id = ITA_papal_events.1
+	title = ITA_papal_events.1.t
+	desc = ITA_papal_events.1.d
+	#picture = GFX_report_event_election_vote
+
+	trigger = {
+		has_country_flag = ITA_fire_papal_states_event
+	}
+	fire_only_once = yes
+
+  option = {
+	name = ITA_papal_events.1.a
+	create_wargoal = {
+		target = PAP
+		type = annex_everything
+	}
+  }
+  option = {
+	name = ITA_papal_events.1.b
+  }
+}
 
 add_namespace = ITA_debug_events
 country_event = {

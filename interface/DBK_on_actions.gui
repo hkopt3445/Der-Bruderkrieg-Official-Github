@@ -1,5 +1,22 @@
 guiTypes = {
 
+
+	containerWindowType = {
+		name = "DBK_welcome_window_open"
+		position = { x=1005 y=35}
+		size = { width=290 height=80 }
+		
+
+		
+		buttonType = {
+			name = "DBK_open_welcome_window"
+			position = { x = 0 y = 5 }
+			buttonFont = "hoi_20b"
+			buttonText = "[ROOT.GetName]"			
+			format = center
+			spriteType = "GFX_DBK_topbar_background"
+		}
+	}
 	containerWindowType = {
 		name = "DBK_welcome_window"
 		position = { x = -1400 y = 150 }
@@ -15,6 +32,7 @@ guiTypes = {
 			name = "DBK_welcome_window_bg"
 			spriteType = "GFX_tiled_window"
 		}
+		
 		containerWindowType = {
 			name = "modcontent"
 			position = {
@@ -26,7 +44,7 @@ guiTypes = {
 				name = "logo"
 				spriteType = "GFX_frontend_game_logo"
 				position = {
-					x = 0 
+					x = -25
 					y = 20
 				}
 			}
@@ -38,14 +56,26 @@ guiTypes = {
 				maxHeight = 70
 				text = "Created by the DBK Dev Team" 
 			}
+
+			iconType = {
+				name = "specialart"
+				position  = { x = 20 y = 350 } 
+				spriteType = "GFX_AUS_welcome_window"
+			}
 		}
 
 		containerWindowType =  {
 			name = "countrycontent"
 			position = {
-				x = 200
+				x = 225
 				y = 0
 			}
+			size = {
+				width = 100%%
+				height = 100%%
+			}
+			
+			
 			instantTextBoxType = {
 				name = "DBK_welcome_window_title"
 				position = { x = 0 y = 25 }
@@ -55,15 +85,44 @@ guiTypes = {
 				text = "You are playing the [ROOT.GetName]" 
 				format = center
 			}
-			instantTextBoxType = {
-				name = "DBK_welcome_window_desc"
-				position = { x = 100 y = 80 }
-				font = "hoi_20b"
-				maxWidth = 500
-				maxHeight = 70
-				text = "[GetWelcomeWindowDesc]" 
-				format = left
+			containerWindowType = {
+				name = "desc"
+				position = {
+					x = 100
+					y = 60
+				}
+				clipping = yes
+				verticalScrollbar = "right_vertical_slider"
+				margin = { top = 10 left = 0 bottom = 10 right = 0}
+				background = { 
+					name = "BG2"
+					quadTextureSprite= "GFX_tiled_window_thin_border2"
+				} 
+				size = {
+					width = 500
+					height = 520
+				}
+				instantTextBoxType = {
+					name = "DBK_welcome_window_desc"
+					position = { x = 15 y = 10 } 
+					font = "hoi_20b"
+					maxWidth = 470
+					maxHeight = 60
+					text = "[GetWelcomeWindowDesc]" 
+					format = left
+				}
+				iconType = {
+					name = "invisible piece of shit"
+					position = {
+						x = -10000
+						y = 600
+					}
+					spriteType = "GFX_dog"
+				}
 			}
+			
+			
+			
 		}
 		buttonType = {
 			name = "exit"
