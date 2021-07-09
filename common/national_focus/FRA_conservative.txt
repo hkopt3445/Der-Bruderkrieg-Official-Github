@@ -1119,7 +1119,7 @@ focus_tree = {
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_goal_FRA_conservative_vic
     text = FRA_CONSERVATIVES_PREVAIL
-    x = 7
+    x = 3
     y = 0
     #relative_position_id = FRA_national_development_bureau
     cost = 0
@@ -1150,7 +1150,7 @@ focus_tree = {
     icon = GFX_goal_FRA_a_meeting_with_the_doctrinaires
     text = FRA_DOCTRINAIRE_VIC
 
-    x = 0
+    x = -5
     y = 1
 		prerequisite = {focus = FRA_CONSERVATIVES_PREVAIL}
     relative_position_id = FRA_CONSERVATIVES_PREVAIL
@@ -2534,97 +2534,28 @@ shared_focus = {
 
 	  shared_focus = { 
 		id = FRA_the_strikers_hit
-		icon = GFX_goal_emanc_name
+		icon = GFX_goal_deregulate_the_banking_industury
 		text = FRA_the_strikers_hit
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		x = 32
+		x = 35
 		y = 0
 		cost = 2
 		ai_will_do = {
 		  factor = 100
 		}
 		available = {
-			always = no
+			has_country_flag = stocks_crash
 		}
 	
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
-			add_political_power = -25
-			add_stability = -0.05	
+			
 		}
 	  }
 	
-	  shared_focus = { 
-		id = FRA_crush_revolting_peasents
-		icon = GFX_goal_emanc_name
-		text = FRA_crush_revolting_peasents
-		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		prerequisite = {focus = FRA_the_strikers_hit}
-		x = -1
-		y = 1
-		relative_position_id = FRA_the_strikers_hit
-		cost = 2
-		ai_will_do = {
-		  factor = 100
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-			custom_effect_tooltip = unlock_strike_related_decisions_tt
-		}
-	  }
-	
-	  shared_focus = { 
-		id = FRA_reestablish_feudalism
-		icon = GFX_goal_landlordism
-		text = FRA_reestablish_feudalism
-		prerequisite = { focus = FRA_the_strikers_hit}
-		x = 1
-		y = 1
-		relative_position_id = FRA_the_strikers_hit
-		cost = 2
-		ai_will_do = {
-		  factor = 100
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-			custom_effect_tooltip = unlock_strike_related_decisions_tt
-		}
-	  }
 
-	  shared_focus = { 
-		id = FRA_the_workers_crushed
-		icon = GFX_goal_FRA_the_strikes_crushed
-		text = FRA_the_workers_crushed
-		prerequisite = { focus = FRA_reestablish_feudalism}
-		prerequisite = {
-			focus = FRA_crush_revolting_peasents
-		}
-		available = {
-			always = no
-		}
-		x = -1
-		y = 1
-		relative_position_id = FRA_reestablish_feudalism
-		cost = 2
-		ai_will_do = {
-		  factor = 100
-		}
-	
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-			set_country_flag = FRA_the_strikes_have_been_crushed
-		}
-	  }
 
 	#   shared_focus = { 
 	# 	id = FRA_countryside_development_scheme
@@ -2759,14 +2690,12 @@ shared_focus = {
 		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
 		
 		prerequisite = {
-			focus = FRA_the_workers_crushed
+			focus = FRA_CONSERVATIVES_PREVAIL
 		}
-		prerequisite = {
-			focus = FRA_division_metropol
-		}
-		x = 2
+
+		x = 6
 		y = 1
-		relative_position_id = FRA_the_workers_crushed
+		relative_position_id = FRA_CONSERVATIVES_PREVAIL
 		cost = 1
 		ai_will_do = {
 			factor = 20
@@ -4534,10 +4463,10 @@ shared_focus = {
 		shared_focus = {
 			id = FRA_national_development_bureau
 			icon = GFX_goal_tripartite_pact
-			#prerequisite = {focus = FRA_the_state_of_the_nation}
-			relative_position_id = FRA_LAISEZE_FAIRE
-			x = 6
-			y = -3
+			prerequisite = {focus = FRA_the_strikers_hit }
+			relative_position_id = FRA_the_strikers_hit
+			x = 0
+			y = 1
 			cost = 5
 			available_if_capitulated = yes
 			ai_will_do = {

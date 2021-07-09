@@ -617,216 +617,221 @@ country_event = {
 
     option = {
 		name = FRA_vienna_crash.1.a
-
+		hidden_effect = {
+			country_event = {
+				id = FRA_worker_strikes.4
+				days = 2
+			}
+			set_country_flag = stocks_crash
+		}
 	}
 }
 
 
-# #Workers Strike in Infrastructure in [Global Event Target]
-# country_event = {
-# 	id = FRA_worker_strikes.1
-# 	title = FRA_worker_strikes.1.t
-# 	desc = FRA_worker_strikes.1.d
-# 	picture = report_event_spr_anarchists
+#Workers Strike in Infrastructure in [Global Event Target]
+country_event = {
+	id = FRA_worker_strikes.1
+	title = FRA_worker_strikes.1.t
+	desc = FRA_worker_strikes.1.d
+	picture = report_event_spr_anarchists
 
-# 	is_triggered_only = yes
+	is_triggered_only = yes
 
-#     option = {
-# 		name = FRA_worker_strikes.1.a
-# 		event_target:france_worker_strike_state = {
-# 			set_state_flag = currently_being_striked
-# 			france_give_state_strikes_effect = yes
+    option = {
+		name = FRA_worker_strikes.1.a
+		event_target:france_worker_strike_state = {
+			set_state_flag = currently_being_striked
+			france_give_state_strikes_effect = yes
 			
-# 		}
+		}
 		
-# 	}
-# }
+	}
+}
 
-# #Workers Strike in Civ in [Global Event Target]
-# country_event = {
-# 	id = FRA_worker_strikes.2
-# 	title = FRA_worker_strikes.2.t
-# 	desc = FRA_worker_strikes.2.d
-# 	picture = report_event_spr_anarchists
+#Workers Strike in Civ in [Global Event Target]
+country_event = {
+	id = FRA_worker_strikes.2
+	title = FRA_worker_strikes.2.t
+	desc = FRA_worker_strikes.2.d
+	picture = report_event_spr_anarchists
 
-# 	is_triggered_only = yes
+	is_triggered_only = yes
 
-#     option = {
-# 		name = FRA_worker_strikes.2.a
-# 		event_target:france_worker_strike_state = {
-# 			set_state_flag = currently_being_striked
-# 			france_give_state_strikes_effect = yes
+    option = {
+		name = FRA_worker_strikes.2.a
+		event_target:france_worker_strike_state = {
+			set_state_flag = currently_being_striked
+			france_give_state_strikes_effect = yes
 			
-# 		}
+		}
 		
-# 	}
-# }
+	}
+}
 
-# #Workers Strike in Mil Fac in [Global Event Target]
-# country_event = {
-# 	id = FRA_worker_strikes.3
-# 	title = FRA_worker_strikes.3.t
-# 	desc = FRA_worker_strikes.3.d
-# 	picture = report_event_spr_anarchists
+#Workers Strike in Mil Fac in [Global Event Target]
+country_event = {
+	id = FRA_worker_strikes.3
+	title = FRA_worker_strikes.3.t
+	desc = FRA_worker_strikes.3.d
+	picture = report_event_spr_anarchists
 
-# 	is_triggered_only = yes
+	is_triggered_only = yes
 
-#     option = {
-# 		name = FRA_worker_strikes.3.a
-# 		event_target:france_worker_strike_state = {
-# 			set_state_flag = currently_being_striked
-# 			france_give_state_strikes_effect = yes
+    option = {
+		name = FRA_worker_strikes.3.a
+		event_target:france_worker_strike_state = {
+			set_state_flag = currently_being_striked
+			france_give_state_strikes_effect = yes
 			
-# 		}
+		}
 		
-# 	}
-# }
+	}
+}
 
-# ###workers strike against the government
-# country_event = {
-# 	id = FRA_worker_strikes.4
-# 	title = FRA_worker_strikes.4.t
-# 	desc = FRA_worker_strikes.4.d
-# 	picture = report_event_spr_anarchists
+###workers strike against the government
+country_event = {
+	id = FRA_worker_strikes.4
+	title = FRA_worker_strikes.4.t
+	desc = FRA_worker_strikes.4.d
+	picture = report_event_spr_anarchists
 
-# 	is_triggered_only = yes
+	is_triggered_only = yes
 
-#     option = {
-# 		name = FRA_worker_strikes.4.a
-# 		add_stability = -0.03
-# 		add_political_power = -20
-# 		set_country_flag = FRA_strikes_begin_monthly
-# 		set_country_flag = FRA_strikes_have_begun
-# 		set_variable = { global.france_strikes_ref_var = 50 }
-# 		update_french_strike_vars = yes
-# 		complete_national_focus = FRA_the_strikers_hit
-# 		random_owned_controlled_state = { 
-# 			limit = {
-# 				is_in_array = {
-# 					array = FRA.french_owned_core_states
-# 					value = THIS
-# 				}
-# 			}
-# 			set_variable = {
-# 				france_strikes_var = global.france_strikes_ref_var
-# 			}
-# 			calc_french_strikes_vars = yes
-# 			france_give_state_strikes_effect = yes 
-# 		}
-# 		random_owned_controlled_state = { 
-# 			limit = {
-# 				is_in_array = {
-# 					array = FRA.french_owned_core_states
-# 					value = THIS
-# 				}
-# 			}
-# 			set_variable = {
-# 				france_strikes_var = global.france_strikes_ref_var
-# 			}
-# 			calc_french_strikes_vars = yes
-# 			france_give_state_strikes_effect = yes 
-# 		}
-# 	}
-# }
-
-
-# ###worker strikes get worse
-# country_event = {
-# 	id = FRA_worker_strikes.5
-# 	title = FRA_worker_strikes.5.t
-# 	desc = FRA_worker_strikes.5.d
-# 	picture = report_event_spr_anarchists
-
-# 	is_triggered_only = yes
-
-#     option = {
-# 		name = FRA_worker_strikes.5.a
-# 		add_stability = -0.03
-# 		add_political_power = -20
-# 		set_country_flag = FRA_strikes_begin_two_weeks
-# 		add_to_variable = {
-# 			global.france_strikes_ref_var = -25
-# 		}
-# 		update_french_strike_vars = yes
-# 	}
-# }
-
-# ###worker strikes get really bad
-# country_event = {
-# 	id = FRA_worker_strikes.6
-# 	title = FRA_worker_strikes.6.t
-# 	desc = FRA_worker_strikes.6.d
-# 	picture = report_event_spr_anarchists
-
-# 	is_triggered_only = yes
-
-#     option = {
-# 		name = FRA_worker_strikes.6.a
-# 		add_stability = -0.03
-# 		add_political_power = -20
-# 		set_country_flag = FRA_strikes_begin_weekly
-# 		update_french_strike_vars = yes
-# 	}
-# }
-
-# ##The Vienna Crash hits france
-# country_event = {
-# 	id = FRA_worker_strikes.7
-# 	title = FRA_worker_strikes.7.t
-# 	desc = FRA_worker_strikes.7.d
-# 	picture = report_event_spr_anarchists
-
-# 	is_triggered_only = yes
-
-#     option = {
-# 		name = FRA_worker_strikes.7.a
+    option = {
+		name = FRA_worker_strikes.4.a
+		add_stability = -0.1
+		add_political_power = -100
 		
-# 		if = {
-# 			limit = {
-# 				has_country_flag = FRA_strikes_begin_monthly
-# 			}
-# 			clr_country_flag = FRA_strikes_begin_monthly
-# 			country_event =  FRA_worker_strikes.5
-# 		}
-# 		if = {
-# 			limit = {
-# 				has_country_flag = FRA_strikes_begin_two_weeks
-# 			}
-# 			clr_country_flag = FRA_strikes_begin_two_weeks
-# 			country_event =  FRA_worker_strikes.6
-# 		}
-# 	}
-# }
+		set_variable = { global.france_strikes_ref_var = 50 }
+		update_french_strike_vars = yes
+		#complete_national_focus = FRA_the_strikers_hit
+		random_owned_controlled_state = { 
+			limit = {
+				is_in_array = {
+					array = FRA.french_owned_core_states
+					value = THIS
+				}
+			}
+			set_variable = {
+				france_strikes_var = global.france_strikes_ref_var
+			}
+			calc_french_strikes_vars = yes
+			france_give_state_strikes_effect = yes 
+		}
+		random_owned_controlled_state = { 
+			limit = {
+				is_in_array = {
+					array = FRA.french_owned_core_states
+					value = THIS
+				}
+			}
+			set_variable = {
+				france_strikes_var = global.france_strikes_ref_var
+			}
+			calc_french_strikes_vars = yes
+			france_give_state_strikes_effect = yes 
+		}
+	}
+}
 
 
-# ##Conservative Vic causes rowdier elections
-# country_event = {
-# 	id = FRA_worker_strikes.8
-# 	title = FRA_worker_strikes.8.t
-# 	desc = FRA_worker_strikes.8.d
-# 	picture = report_event_spr_anarchists
+###worker strikes get worse
+country_event = {
+	id = FRA_worker_strikes.5
+	title = FRA_worker_strikes.5.t
+	desc = FRA_worker_strikes.5.d
+	picture = report_event_spr_anarchists
 
-# 	is_triggered_only = yes
+	is_triggered_only = yes
 
-#     option = {
-# 		name = FRA_worker_strikes.8.a
+    option = {
+		name = FRA_worker_strikes.5.a
+		add_stability = -0.03
+		add_political_power = -20
+		set_country_flag = FRA_strikes_begin_two_weeks
+		add_to_variable = {
+			global.france_strikes_ref_var = -25
+		}
+		update_french_strike_vars = yes
+	}
+}
+
+###worker strikes get really bad
+country_event = {
+	id = FRA_worker_strikes.6
+	title = FRA_worker_strikes.6.t
+	desc = FRA_worker_strikes.6.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_worker_strikes.6.a
+		add_stability = -0.03
+		add_political_power = -20
+		set_country_flag = FRA_strikes_begin_weekly
+		update_french_strike_vars = yes
+	}
+}
+
+##The Vienna Crash hits france
+country_event = {
+	id = FRA_worker_strikes.7
+	title = FRA_worker_strikes.7.t
+	desc = FRA_worker_strikes.7.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_worker_strikes.7.a
 		
-# 		if = {
-# 			limit = {
-# 				has_country_flag = FRA_strikes_begin_monthly
-# 			}
-# 			clr_country_flag = FRA_strikes_begin_monthly
-# 			country_event =  FRA_worker_strikes.5
-# 		}
-# 		if = {
-# 			limit = {
-# 				has_country_flag = FRA_strikes_begin_two_weeks
-# 			}
-# 			clr_country_flag = FRA_strikes_begin_two_weeks
-# 			country_event =  FRA_worker_strikes.6
-# 		}
-# 	}
-# }
+		if = {
+			limit = {
+				has_country_flag = FRA_strikes_begin_monthly
+			}
+			clr_country_flag = FRA_strikes_begin_monthly
+			country_event =  FRA_worker_strikes.5
+		}
+		if = {
+			limit = {
+				has_country_flag = FRA_strikes_begin_two_weeks
+			}
+			clr_country_flag = FRA_strikes_begin_two_weeks
+			country_event =  FRA_worker_strikes.6
+		}
+	}
+}
+
+
+##Conservative Vic causes rowdier elections
+country_event = {
+	id = FRA_worker_strikes.8
+	title = FRA_worker_strikes.8.t
+	desc = FRA_worker_strikes.8.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_worker_strikes.8.a
+		
+		if = {
+			limit = {
+				has_country_flag = FRA_strikes_begin_monthly
+			}
+			clr_country_flag = FRA_strikes_begin_monthly
+			country_event =  FRA_worker_strikes.5
+		}
+		if = {
+			limit = {
+				has_country_flag = FRA_strikes_begin_two_weeks
+			}
+			clr_country_flag = FRA_strikes_begin_two_weeks
+			country_event =  FRA_worker_strikes.6
+		}
+	}
+}
 
 add_namespace = FRA_spanish_civil_war_intervention
 
