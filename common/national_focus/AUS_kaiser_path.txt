@@ -1253,7 +1253,7 @@ shared_focus = {
   icon = GFX_goal_generic_construction
   text = AUS_BOOST_ECONOMY
   prerequisite = { focus = AUS_recover_from_black_monday }
-  x = 0
+  x = -5
   y = 1
   relative_position_id = AUS_recover_from_black_monday
   cost = 5
@@ -1701,10 +1701,10 @@ shared_focus = {
 		id = AUS_looking_for_defense_contractors
 		icon = GFX_goal_generic_construct_mil_factory
     prerequisite = {
-      focus = AUS_BUILD_INDUSTRY
+      focus = AUS_the_next_bruderkrieg_is_coming
     }
-    relative_position_id = AUS_BUILD_INDUSTRY
-		x = -8
+    relative_position_id = AUS_the_next_bruderkrieg_is_coming
+		x = -4
 		y = 1
 		cost = 1
 		available_if_capitulated = yes
@@ -1869,12 +1869,12 @@ shared_focus = {
 	shared_focus = {
 		id = AUS_rag
 		icon = GFX_goal_generic_oil_refinery
-		x = -3
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-		prerequisite = { focus = AUS_looking_for_defense_contractors }
-		relative_position_id = AUS_looking_for_defense_contractors
+		prerequisite = { focus = AUS_messerschmitt focus = AUS_koda_naval_yards }
+		relative_position_id = AUS_messerschmitt
     search_filters = { FOCUS_FILTER_INDUSTRY } 
 		ai_will_do = {
 			factor = 1
@@ -1915,54 +1915,54 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = AUS_bmw
-		icon = GFX_goal_generic_air_bomber
-		x = 3
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		prerequisite = { focus = AUS_looking_for_defense_contractors }
-		relative_position_id = AUS_looking_for_defense_contractors
-    search_filters = { FOCUS_FILTER_INDUSTRY } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-		if = {
-			limit = { has_full_control_of_state = 153 }
-				153 = {
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			else = {
-				random_owned_state = {
-					limit = {
-						is_controlled_by = ROOT
-						is_core_of = ROOT
-						free_building_slots = {
-							building = arms_factory
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			custom_effect_tooltip = available_designer
-			show_ideas_tooltip = BMW
-		}
-	}
+	# shared_focus = {
+	# 	id = AUS_bmw
+	# 	icon = GFX_goal_generic_air_bomber
+	# 	x = 2
+	# 	y = 1
+	# 	cost = 5
+	# 	available_if_capitulated = yes
+	# 	prerequisite = { focus = AUS_koda_works }
+	# 	relative_position_id = AUS_koda_works
+  #   search_filters = { FOCUS_FILTER_INDUSTRY } 
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# 	completion_reward = {
+	# 	if = {
+	# 		limit = { has_full_control_of_state = 153 }
+	# 			153 = {
+	# 				add_extra_state_shared_building_slots = 2
+	# 				add_building_construction = {
+	# 					type = arms_factory
+	# 					level = 2
+	# 					instant_build = yes
+	# 				}
+	# 			}
+	# 		}
+	# 		else = {
+	# 			random_owned_state = {
+	# 				limit = {
+	# 					is_controlled_by = ROOT
+	# 					is_core_of = ROOT
+	# 					free_building_slots = {
+	# 						building = arms_factory
+	# 						size > 1
+	# 						include_locked = yes
+	# 					}
+	# 				}
+	# 				add_extra_state_shared_building_slots = 2
+	# 				add_building_construction = {
+	# 					type = arms_factory
+	# 					level = 2
+	# 					instant_build = yes
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_effect_tooltip = available_designer
+	# 		show_ideas_tooltip = BMW
+	# 	}
+	# }
 
 	shared_focus = {
 		id = AUS_koda_naval_yards
@@ -1998,11 +1998,11 @@ shared_focus = {
   shared_focus = {
     id = AUS_form_the_ork
     icon = GFX_goal_generic_construction2
-    relative_position_id = AUS_BUILD_INDUSTRY
+    relative_position_id = AUS_recover_from_black_monday
     prerequisite = {
-      focus = AUS_BUILD_INDUSTRY
+      focus = AUS_recover_from_black_monday
     }
-    x = 11
+    x = 5
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -2329,7 +2329,7 @@ shared_focus = {
 	cost = 5
 	available_if_capitulated = yes
 	relative_position_id = AUS_expansion_of_togo_operations
-	x = 2
+	x = 0
 	y = 1
 	prerequisite = { 
 		focus = AUS_expansion_of_togo_operations 
@@ -2355,8 +2355,8 @@ shared_focus = {
 shared_focus = {
 	id = AUS_oil_prospects_in_ostafrika
 	icon = GFX_goal_generic_oil_refinery
-	x = 0
-	y = 2
+	x = -1
+	y = 3
 	cost = 5
 	available_if_capitulated = yes
 	prerequisite = { focus = AUS_exploitation_of_ostafrika }
@@ -2379,7 +2379,7 @@ shared_focus = {
 	cost = 5
 	prerequisite = { focus = AUS_exploitation_of_ostafrika }
 	relative_position_id = AUS_exploitation_of_ostafrika
-	x = 2
+	x = 0
 	y = 1
 	ai_will_do = {
 		factor = 1
@@ -3282,7 +3282,7 @@ shared_focus = {
   icon = GFX_goal_AUS_constructing_our_battleplan
   text = AUS_a_war_of_battleplans
   prerequisite = { focus = AUS_the_next_bruderkrieg_is_coming }
-  x = -2
+  x = 0
   y = 1
   relative_position_id = AUS_the_next_bruderkrieg_is_coming
   cost = 3
@@ -5384,7 +5384,7 @@ shared_focus = {
   icon = GFX_Diplo_Ottoman
   text = AUS_improve_relations_ottomans
   prerequisite = { focus =  AUS_the_next_bruderkrieg_is_coming }
-  x = 3
+  x = 4
   y = 1
   relative_position_id = AUS_the_next_bruderkrieg_is_coming
   cost = 5
@@ -6713,7 +6713,9 @@ shared_focus = {
     factor = 1
   }
   available = {
-    always = no
+    GER = {
+      is_puppet_of = AUS
+    }
   }
 
   available_if_capitulated = yes
@@ -6729,9 +6731,7 @@ shared_focus = {
   icon = unkown
   text = AUS_the_remnants_of_prussia
   prerequisite = { focus = AUS_a_new_european_order }
-  available = {
-    always = no
-  }
+  
   x = 0
   y = 1
   relative_position_id = AUS_a_new_european_order
@@ -6753,9 +6753,7 @@ shared_focus = {
   icon = unkown
   text = AUS_the_german_question
   prerequisite = { focus = AUS_the_remnants_of_prussia }
-  available = {
-    always = no
-  }
+  
   x = 2
   y = 1
   relative_position_id = AUS_the_remnants_of_prussia
@@ -6778,9 +6776,7 @@ shared_focus = {
   icon = unkown
   text = AUS_grobdeutches_reich
   prerequisite = { focus = AUS_the_german_question }
-  available = {
-    always = no
-  }
+  
   x = -1
   y = 1
   relative_position_id = AUS_the_german_question
@@ -6802,9 +6798,7 @@ shared_focus = {
   icon = unkown
   text = AUS_the_german_confederation
   prerequisite = { focus = AUS_the_german_question }
-  available = {
-    always = no
-  }
+  
   x = 1
   y = 1
   relative_position_id = AUS_the_german_question
@@ -6827,9 +6821,7 @@ shared_focus = {
   icon = unkown
   text = AUS_the_greatest_austria
   prerequisite = { focus = AUS_the_german_confederation focus = AUS_grobdeutches_reich }
-  available = {
-    always = no
-  }
+  
   x = -1
   y = 1
   relative_position_id = AUS_the_german_confederation
@@ -6852,9 +6844,7 @@ shared_focus = {
   icon = unkown
   text = AUS_stabilizing_europe
   prerequisite = { focus = AUS_the_remnants_of_prussia }
-  available = {
-    always = no
-  }
+  
   x = -2
   y = 1
   relative_position_id = AUS_the_remnants_of_prussia
@@ -6877,9 +6867,7 @@ shared_focus = {
   icon = unkown
   text = AUS_sending_out_otto
   prerequisite = { focus = AUS_stabilizing_europe }
-  available = {
-    always = no
-  }
+  
   x = -1
   y = 1
   relative_position_id = AUS_stabilizing_europe
@@ -6901,9 +6889,7 @@ shared_focus = {
   icon = unkown
   text = AUS_peace_with_france
   prerequisite = { focus = AUS_stabilizing_europe }
-  available = {
-    always = no
-  }
+  
   x = 1
   y = 1
   relative_position_id = AUS_stabilizing_europe
@@ -6926,9 +6912,7 @@ shared_focus = {
   icon = unkown
   text = AUS_proposing_the_conference
   prerequisite = { focus = AUS_peace_with_france focus = AUS_sending_out_otto }
-  available = {
-    always = no
-  }
+  
   x = -1
   y = 1
   relative_position_id = AUS_peace_with_france
@@ -6953,9 +6937,7 @@ shared_focus = {
   prerequisite = {
     focus = AUS_the_greatest_austria
   }
-  available = {
-    always = no
-  }
+  
   x = 2
   y = 1
   relative_position_id = AUS_proposing_the_conference
