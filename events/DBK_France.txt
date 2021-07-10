@@ -626,7 +626,54 @@ country_event = {
 		}
 	}
 }
+#Lyons general strike
+country_event = {
+	id = FRA_vienna_crash.2
+	title = FRA_vienna_crash.2.t
+	desc = FRA_vienna_crash.2.d
+	picture = report_event_spr_anarchists
 
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_vienna_crash.2.a
+		set_country_flag = FRA_lyon_strike_start
+		activate_mission = FRA_lyon_strike
+		20 = { #replace with Lyon state I dunno lol
+			add_dynamic_modifier = {
+				modifier = french_strikes_modifier
+			}
+		}
+	}
+}
+#strikes go national (like your mom's bedroom :trolled:)
+country_event = {
+	id = FRA_vienna_crash.3
+	title = FRA_vienna_crash.3.t
+	desc = FRA_vienna_crash.3.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+    option = {
+		name = FRA_vienna_crash.3.a
+		every_owned_state = { 
+			limit = {
+				is_in_array = {
+					array = FRA.french_owned_core_states
+					value = THIS
+				}
+				NOT = {
+					has_dynamic_modifier = { modifier = french_strikes_modifier }
+				}
+			}
+			add_dynamic_modifier = {
+				modifier = french_strikes_modifier
+			}
+		}
+	}
+}
+#I'm sorry that comment was completely unnecessary and went too far :(
 
 #Workers Strike in Infrastructure in [Global Event Target]
 country_event = {
