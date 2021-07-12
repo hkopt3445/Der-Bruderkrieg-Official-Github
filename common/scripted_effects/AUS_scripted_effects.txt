@@ -296,6 +296,15 @@ AUS_ethnic_variables_setup = {
 		AUS_Croat_Support_political_power_gain = -0.05
 	}
 
+	set_variable = {
+		AUS_Polish_Support_war_support_factor = 0.1
+	
+	}
+	set_variable = {
+		AUS_Polish_Support_stability_factor = 0.05
+	}
+
+
 
 	set_variable = { 
 		AUS_Bohemian_Outrage_stability_factor_loc = AUS_Bohemian_Outrage_stability_factor
@@ -375,55 +384,23 @@ AUS_ethnic_variables_setup = {
 		AUS_Croat_Support_political_power_gain_loc = 100
 	}
 
+
+	set_variable = {
+		AUS_Polish_Support_stability_factor_loc = AUS_Polish_Support_stability_factor
+	}
+	multiply_variable = {
+		AUS_Polish_Support_stability_factor_loc = 100
+	}
+	set_variable = {
+		AUS_Polish_Support_war_support_factor_loc = AUS_Polish_Support_war_support_factor
+	}
+	multiply_variable = {
+		AUS_Polish_Support_war_support_factor_loc = 100
+	}
+
 }
 
-AUS_create_pie_chart = {
-	clear_array = pie_chart
-	resize_array = {
-		array = pie_chart
-		value = 1 # 1 is value for neutrality frame, so we don't have to make a loop for it
-		size = 100 # 100 pieces, each percent is one piece
-	}
-	set_temp_variable = { AUS_opposition_pop = AUS_imperial_diet_opposition }
-	multiply_temp_variable = { AUS_opposition_pop = 100 }
-	round_temp_variable = AUS_opposition_pop
 
-	set_temp_variable = { AUS_support_pop = AUS_imperial_diet_support }
-	multiply_temp_variable = { AUS_support_pop = 100 }
-	round_temp_variable = AUS_support_pop 
-	set_variable = { ROOT.last_idx = AUS_opposition_pop }
-	add_to_temp_variable = { AUS_support_pop = ROOT.last_idx }
-	for_loop_effect = {
-		start = ROOT.last_idx
-		end = AUS_support_pop
-		set_variable = { pie_chart^v = 2 }
-		add_to_variable = { ROOT.last_idx = 1 }
-	}
-
-	set_temp_variable = { democratic_pop = 0 }
-	multiply_temp_variable = { democratic_pop = 100 }
-	round_temp_variable = democratic_pop
-	add_to_temp_variable = { democratic_pop = ROOT.last_idx }
-	for_loop_effect = {
-		start = ROOT.last_idx
-		end = democratic_pop
-		set_variable = { pie_chart^v = 3 }
-		add_to_variable = { ROOT.last_idx = 1 }
-	}
-
-	set_temp_variable = { fascism_pop = 0 }
-	multiply_temp_variable = { fascism_pop = 100 }
-	round_temp_variable = fascism_pop 
-	add_to_temp_variable = { fascism_pop = ROOT.last_idx }
-	for_loop_effect = {
-		start = ROOT.last_idx
-		end = fascism_pop
-		set_variable = { pie_chart^v = 4 }
-	}
-
-	clear_variable = ROOT.last_idx
-	add_to_variable = { pie_chart_dirty = 1 }
-}
 
 d_AUS_create_pie_chart_debug = {
 	AUS_create_pie_chart = yes
