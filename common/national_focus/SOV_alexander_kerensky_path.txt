@@ -1044,16 +1044,26 @@ shared_focus = {
         
     }
     completion_reward = {
-		add_ideas = SOV_Pro_Trudovik_Sentiment
-		add_political_power = -30
-    }
+		swap_ideas = {
+			add_idea = SOV_Pro_Trudovik_Sentiment
+			remove_idea = SOV_Democratically_Fighting_Opposition
+		}
+		hidden_effect = {
+			remove_ideas = SOV_Democratically_Fighting_Opposition
+			add_timed_idea = {
+				idea = SOV_Democratically_Fighting_Opposition
+				days = 120
+			}
+		}
+	}
 }
 shared_focus = {
     id = SOV_Strengthen_Freedom_of_Speech_Laws
     icon = GFX_goal_SOV_continuing_the_reforms 
 	prerequisite = {focus = SOV_Devaluing_Slander}
 	prerequisite = {focus = SOV_Verifying_Election_Results}
-	x = 1
+	prerequisite = {focus = SOV_Anti_Opposition_Rhetoric}
+	x = 2
 	y = 1
 	relative_position_id = SOV_Devaluing_Slander
     cost = 5
@@ -1068,34 +1078,14 @@ shared_focus = {
 		add_ideas = SOV_Freedom_of_Speech_Protected
     }
 }
-shared_focus = {
-    id = SOV_Protection_of_the_Truth
-    icon = GFX_goal_continuous_boost_freedom 
-	prerequisite = {focus = SOV_Anti_Opposition_Rhetoric}
-	prerequisite = {focus = SOV_Verifying_Election_Results}
-	x = -1
-	y = 1
-	relative_position_id = SOV_Anti_Opposition_Rhetoric
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        
-    }
-    completion_reward = {
-        add_ideas = SOV_Protectors_of_the_Truth
-    }
-}
+
 shared_focus = {
     id = SOV_Paragon_of_Honesty
     icon = GFX_goal_SOV_the_paragon_of_honesty 
 	prerequisite = {focus = SOV_Strengthen_Freedom_of_Speech_Laws}
-	prerequisite = {focus = SOV_Protection_of_the_Truth}
-	x = -1
+	x = 0
 	y = 1
-	relative_position_id = SOV_Protection_of_the_Truth
+	relative_position_id = SOV_Strengthen_Freedom_of_Speech_Laws
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1105,18 +1095,17 @@ shared_focus = {
         
     }
     completion_reward = {
-        add_popularity = {
-			ideology = socialism_democratic
-			popularity = 0.1
-		}
+       
 		add_political_power = 120
-		remove_ideas = SOV_Kerenskys_Political_Campaigns
-		remove_ideas = SOV_Protectors_of_the_Truth
+		
 		remove_ideas = SOV_Freedom_of_Speech_Protected
-		add_ideas = SOV_Paragon_of_Honesty
+		swap_ideas = {
+			add_idea = SOV_Paragon_of_Honesty
+			remove_idea = SOV_beacon_of_democracy
+		}
 		add_popularity = {
 			ideology = socialism_democratic
-			popularity = 0.2
+			popularity = 0.1
 		}
     }
 }
@@ -1210,6 +1199,14 @@ shared_focus = {
 	cost = 6
 	ai_will_do = {
 		factor = 20
+	}
+	available = {
+		if = {
+			limit = {
+				has_government = socialism_democratic
+			}
+			has_completed_focus = SOV_Kerenskys_Political_Campaign
+		}
 	}
 
 	available_if_capitulated = yes
