@@ -3404,12 +3404,13 @@ country_event = { # Western Europe Declares Independence
 			set_country_flag = choice_made
 		}
 		hidden_effect = {
-			country_event = { id = SOV_russian_collapse_events.16 } #Adjust this to what you want
 			# POL = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}#Adjust this to what you want
 			# UKR = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}
 			# BLR = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}
-			
-
+			country_event = { id = SOV_russian_collapse_events.16 } #Adjust this to what you want
+			NYK = { country_event = { id = SOV_russian_collapse_events.17 days = 5 } }
+			SRG = { country_event = { id = SOV_russian_collapse_events.18 days = 5 } }			
+			KRK = { country_event = { id = SOV_russian_collapse_events.19 days = 10 } }
 		}
 	}
 }
@@ -3459,6 +3460,113 @@ country_event = { #The choice must be made
 	}
 }
 
+country_event = { #NYK vs GRN
+	id = SOV_russian_collapse_events.17
+	title = SOV_russian_collapse_events.17.t
+	desc = SOV_russian_collapse_events.17.d
+	
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOV_russian_collapse_events.17.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = GRN
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #SRG vs PRM
+	id = SOV_russian_collapse_events.18
+	title = SOV_russian_collapse_events.18.t
+	desc = SOV_russian_collapse_events.18.d
+	
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOV_russian_collapse_events.18.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = PRM
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #KRK vs ZMU
+	id = SOV_russian_collapse_events.19
+	title = SOV_russian_collapse_events.19.t
+	desc = SOV_russian_collapse_events.19.d
+	
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOV_russian_collapse_events.19.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = ZMU
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #KRK vs MON
+	id = SOV_russian_collapse_events.20
+	title = SOV_russian_collapse_events.20.t
+	desc = SOV_russian_collapse_events.20.d
+	
+	trigger = {
+		tag = KRK
+		ZMU = { exists = no }
+	}
+
+	option = {
+		name = SOV_russian_collapse_events.20.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = MON
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #NYK vs PRM and SRG
+	id = SOV_russian_collapse_events.21
+	title = SOV_russian_collapse_events.21.t
+	desc = SOV_russian_collapse_events.21.d
+	
+	trigger = {
+		tag = NYK
+		GRN = { exists = no }
+	}
+
+	option = {
+		name = SOV_russian_collapse_events.21.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = PRM
+			type = annex_everything
+		}
+		create_wargoal = {
+			target = SRG
+			type = annex_everything
+		}
+	}
+}
 
 add_namespace = SOV_russian_collapse_leadup
 country_event = {
