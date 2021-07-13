@@ -27,7 +27,7 @@ focus_tree = {
 shared_focus = {
 	id = ITA_we_keep_moving
 	icon = unkown 
-	x = 5
+	x = -10
 	y = 0
 	cost = 12
 	available_if_capitulated = yes
@@ -413,6 +413,7 @@ focus_tree = {
 	shared_focus = ITA_MAFIA_FOCUS
 	shared_focus = ITA_ITALIAN_FLEET
 	shared_focus = ITA_BUILD_AIR
+	shared_focus = ITA_a_peaceful_walk
 	continuous_focus_position = { x = 5000 y = 2000 }
 
 }
@@ -1221,7 +1222,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_fund_legionaires_in_romania
 	icon = GFX_goal_ITA_a_route_through_romania 
-	x = 2
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -1266,6 +1267,186 @@ shared_focus = {
 		focus = ITA_romanian_work_camps
 	}
 	relative_position_id = ITA_fund_legionaires_in_romania
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+
+##POST VICTORY TREE
+shared_focus = {
+	id = ITA_a_peaceful_walk
+	icon = GFX_goal_ITA_a_peaceful_walk
+	x = 25
+	y = 0
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+		always = no
+	}
+	mutually_exclusive = {
+		focus = ITA_going_forwards
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_going_backwards
+	icon = GFX_goal_ITA_going_backwards 
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	prerequisite = {
+		focus = ITA_a_peaceful_walk
+	}
+	relative_position_id = ITA_a_peaceful_walk
+	mutually_exclusive = {
+		focus = ITA_going_forwards
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_recruit_einstien
+	icon = GFX_goal_ITA_recruit_einstien 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_going_backwards
+	}
+	relative_position_id = ITA_going_backwards
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_final_plans
+	icon = GFX_goal_ITA_final_plans 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_going_backwards
+	}
+	relative_position_id = ITA_going_backwards
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_to_the_past
+	icon = GFX_goal_ITA_to_the_past 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_final_plans
+	}
+	prerequisite = {
+		focus = ITA_recruit_einstien
+	}
+	relative_position_id = ITA_final_plans
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+
+
+shared_focus = {
+	id = ITA_going_forwards
+	icon = GFX_goal_ITA_going_forwards 
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	mutually_exclusive = {
+		focus = ITA_going_backwards
+	}
+	prerequisite = {
+		focus = ITA_a_peaceful_walk
+	}
+	relative_position_id = ITA_a_peaceful_walk
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_a_latin_speech
+	icon = GFX_goal_ITA_a_latin_speech 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_going_forwards
+	}
+	relative_position_id = ITA_going_forwards
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_evolas_dream_of_europe
+	icon = GFX_goal_ITA_evolas_dream_of_europe 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_going_forwards
+	}
+	relative_position_id = ITA_going_forwards
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = ITA_to_the_futuree
+	icon = GFX_goal_ITA_to_the_futuree 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_evolas_dream_of_europe
+	}
+	prerequisite = {
+		focus = ITA_a_latin_speech
+	}
+	relative_position_id = ITA_evolas_dream_of_europe
 	ai_will_do = {
 		factor = 1
 	}
