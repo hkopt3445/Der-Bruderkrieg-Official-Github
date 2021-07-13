@@ -473,12 +473,12 @@ shared_focus = {
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_adopt_the_three_ideals }
 	relative_position_id = ITA_adopt_the_three_ideals
-	# mutually_exclusive = {
-	# 	focus = ITA_nationalism
-	# }
-	# mutually_exclusive = {
-	# 	focus = ITA_spiratualism
-	# }
+	mutually_exclusive = {
+		focus = ITA_nationalism
+	}
+	mutually_exclusive = {
+		focus = ITA_spiratualism
+	}
 	ai_will_do = {
 		factor = 1
 	}
@@ -502,12 +502,12 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1
 	}
-	# mutually_exclusive = {
-	# 	focus = ITA_populism
-	# }
-	# mutually_exclusive = {
-	# 	focus = ITA_spiratualism
-	# }
+	mutually_exclusive = {
+		focus = ITA_populism
+	}
+	mutually_exclusive = {
+		focus = ITA_spiratualism
+	}
 	completion_reward = {
 		swap_ideas = {
 			remove_idea = ITA_three_ideals
@@ -529,12 +529,12 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1
 	}
-	# mutually_exclusive = {
-	# 	focus = ITA_nationalism
-	# }
-	# mutually_exclusive = {
-	# 	focus = ITA_populism
-	# }
+	mutually_exclusive = {
+		focus = ITA_nationalism
+	}
+	mutually_exclusive = {
+		focus = ITA_populism
+	}
 	completion_reward = {
 		swap_ideas = {
 			remove_idea = ITA_three_ideals
@@ -557,7 +557,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		custom_effect_tooltip = ITA_the_brotherhood_of_chivelry_tt
 	}
 }
 shared_focus = {
@@ -589,7 +589,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		custom_effect_tooltip = ITA_religious_intolerance_tt
 	}
 }
 
@@ -870,7 +870,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		add_war_support = 0.1
 	}
 }
 shared_focus = {
@@ -1051,7 +1051,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		add_ideas = ITA_roman_military_ethos
 	}
 }
 shared_focus = {
@@ -1216,7 +1216,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		country_event = italy.3
 	}
 }
 shared_focus = {
@@ -1279,8 +1279,8 @@ shared_focus = {
 shared_focus = {
 	id = ITA_a_peaceful_walk
 	icon = GFX_goal_ITA_a_peaceful_walk
-	x = 25
-	y = 0
+	x = 12
+	y = 7
 	cost = 5
 	available_if_capitulated = yes
 	ai_will_do = {
@@ -1293,7 +1293,7 @@ shared_focus = {
 		focus = ITA_going_forwards
 	}
 	completion_reward = {
-		
+		country_event = ITA_evola_post_victory.1
 	}
 }
 shared_focus = {
@@ -1309,12 +1309,15 @@ shared_focus = {
 	prerequisite = {
 		focus = ITA_a_peaceful_walk
 	}
+	available = {
+		has_country_flag = ITA_going_backwards_unlocked
+	}
 	relative_position_id = ITA_a_peaceful_walk
 	mutually_exclusive = {
 		focus = ITA_going_forwards
 	}
 	completion_reward = {
-		
+		country_event = ITA_evola_post_victory.2
 	}
 }
 shared_focus = {
@@ -1332,7 +1335,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		country_event = ITA_evola_post_victory.3
 	}
 }
 shared_focus = {
@@ -1350,7 +1353,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		country_event = ITA_evola_post_victory.4
 	}
 }
 shared_focus = {
@@ -1389,12 +1392,15 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = ITA_going_backwards
 	}
+	available = {
+		has_country_flag = ITA_going_forwards_unlocked
+	}
 	prerequisite = {
 		focus = ITA_a_peaceful_walk
 	}
 	relative_position_id = ITA_a_peaceful_walk
 	completion_reward = {
-		
+		country_event = ITA_evola_post_victory.5	
 	}
 }
 shared_focus = {
@@ -1412,6 +1418,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
+		country_event = ITA_evola_post_victory.6
 		
 	}
 }
@@ -1430,7 +1437,17 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		every_country = {
+			limit = {
+				OR = {
+					tag = ITA
+					is_puppet_of = ITA
+				}
+			}
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_political_power = 100
+		}
 	}
 }
 shared_focus = {
@@ -1451,6 +1468,9 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		create_wargoal = {
+			target = GER
+			type = annex_everything
+		}	
 	}
 }
