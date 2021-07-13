@@ -1438,8 +1438,10 @@ ITA_evolas_political_reforms_decisions = {
 }
 
 ITA_evola_neo_feudalist_reforms = {
+
+  ###FIRST ROUND OF LABORERS
   ITA_send_in_former_socialists = {
-    icon = generic_civil_support
+    icon = generic_ignite_civil_war
     cost = 40
 
     fire_only_once = yes
@@ -1448,8 +1450,7 @@ ITA_evola_neo_feudalist_reforms = {
 
     days_remove = 75
     
-    complete_effect = {
-    }
+   
 
     modifier = {
       political_power_cost = 0.15
@@ -1475,8 +1476,7 @@ ITA_evola_neo_feudalist_reforms = {
 
     days_remove = 50
     
-    complete_effect = {
-    }
+   
 
     modifier = {
       political_power_cost = 0.1
@@ -1491,7 +1491,7 @@ ITA_evola_neo_feudalist_reforms = {
     }
   }
   ITA_send_in_mussolini_loyalists = {
-    icon = generic_civil_support
+    icon = generic_nationalism
     cost = 30
 
     fire_only_once = yes
@@ -1500,9 +1500,410 @@ ITA_evola_neo_feudalist_reforms = {
 
     days_remove = 50
     
-    complete_effect = {
+   
+
+    modifier = {
+      political_power_cost = 0.1
+      fascism_drift = -0.1
+    }
+    
+    remove_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_increase_by_5000
+        ITA_laborer_number = 5000
+      }
+    }
+  }
+
+  ##worker decisisions
+  ITA_small_build_civlian_factory_with_workers = {
+    icon = generic_industry
+    cost = 0
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_greater_than_3000
+        check_variable = {
+          var = ITA_laborer_number compare = greater_than value = 3000
+        }
+      }
+    }
+  
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+  
+    days_remove = 30
+    days_re_enable = 10
+    
+   
+  
+   coomplete_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_decrease_by_3000
+        ITA_laborer_number = 3000
+      }
+    }
+    
+    remove_effect = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = industrial_complex
+          level = 2
+          instant_build = yes
+        }
+      }
+    }
+  }
+  ITA_large_build_civlian_factory_with_workers = {
+    icon = generic_industry
+    cost = 0
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_greater_than_6000
+        check_variable = {
+          var = ITA_laborer_number compare = greater_than value = 6000
+        }
+      }
+    }
+  
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+  
+    days_remove = 60
+    days_re_enable = 10
+    
+   
+  
+   coomplete_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_decrease_by_6000
+        ITA_laborer_number = 6000
+      }
+    }
+    
+    remove_effect = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = industrial_complex
+          level = 2
+          instant_build = yes
+        }
+      }
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = industrial_complex
+          level = 2
+          instant_build = yes
+        }
+      }
+    }
+  }
+  ITA_small_build_infrastructure_with_workers = {
+    icon = generic_construction
+    cost = 0
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_greater_than_3000
+        check_variable = {
+          var = ITA_laborer_number compare = greater_than value = 3000
+        }
+      }
+    }
+  
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+  
+    days_remove = 30
+    days_re_enable = 10
+    
+   
+  
+   coomplete_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_decrease_by_3000
+        ITA_laborer_number = 3000
+      }
+    }
+    
+    remove_effect = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 2
+          instant_build = yes
+        }
+      }
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 2
+          instant_build = yes
+        }
+      }
+    }
+  }
+  ITA_large_build_infrastructure_with_workers = {
+    icon = generic_construction
+    cost = 0
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_greater_than_6000
+        check_variable = {
+          var = ITA_laborer_number compare = greater_than value = 6000
+        }
+      }
+    }
+  
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+  
+    days_remove = 60
+    days_re_enable = 10
+    
+   
+  
+   coomplete_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_decrease_by_6000
+        ITA_laborer_number = 6000
+      }
+    }
+    
+    remove_effect = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 2
+          instant_build = yes
+        }
+      }
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 2
+          instant_build = yes
+        }
+      }
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 2
+          instant_build = yes
+        }
+      }
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 2
+          instant_build = yes
+        }
+      }
+    }
+  }
+  ITA_small_build_military_factories_with_workers = {
+    icon = generic_army_support
+    cost = 0
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_greater_than_3000
+        check_variable = {
+          var = ITA_laborer_number compare = greater_than value = 3000
+        }
+      }
+    }
+  
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+  
+    days_remove = 30
+    days_re_enable = 10
+    
+   
+  
+   coomplete_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_decrease_by_3000
+        ITA_laborer_number = 3000
+      }
+    }
+    
+    remove_effect = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = arms_factory
+          level = 2
+          instant_build = yes
+        }
+      }
+    }
+  }
+  ITA_large_build_military_factories_with_workers = {
+    icon = generic_army_support
+    cost = 0
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_greater_than_6000
+        check_variable = {
+          var = ITA_laborer_number compare = greater_than value = 6000
+        }
+      }
+    }
+  
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+  
+    days_remove = 60
+    days_re_enable = 10
+    
+   
+  
+   coomplete_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_decrease_by_6000
+        ITA_laborer_number = 6000
+      }
+    }
+    
+    remove_effect = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = arms_factory
+          level = 2
+          instant_build = yes
+        }
+      }
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = arms_factory
+          level = 2
+          instant_build = yes
+        }
+      }
+    }
+  }
+
+  ##SECOND ROUND
+  ITA_send_in_former_socialists_2 = {
+    icon = generic_ignite_civil_war
+    cost = 40
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_less_than_3000
+        check_variable = {
+          ITA_laborer_number = 3000
+        }
+      }
     }
 
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+  
+    
+  
+    days_remove = 75
+    
+   
+  
+    modifier = {
+      political_power_cost = 0.15
+      communism_drift = -0.03
+      socialism_democratic_drift = -0.03
+      democratic_communism_drift = -0.03
+    }
+    
+    remove_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_increase_by_10000
+        ITA_laborer_number = 10000
+      }
+    }
+  }
+  ITA_send_in_other_political_prisoners_2 = {
+    icon = generic_civil_support
+    cost = 30
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_less_than_3000
+        check_variable = {
+          ITA_laborer_number = 3000
+        }
+      }
+    }
+  
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+    
+  
+    days_remove = 50
+    
+   
+  
+    modifier = {
+      political_power_cost = 0.1
+      democratic_liberalism_drift = -0.1
+    }
+    
+    remove_effect = {
+      add_to_variable = {
+        tooltip = ITA_laborer_number_increase_by_5000
+        ITA_laborer_number = 5000
+      }
+    }
+  }
+  ITA_send_in_mussolini_loyalists_2 = {
+    icon = generic_nationalism
+    cost = 30
+  
+    fire_only_once = no
+  
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_number_of_workers_is_less_than_3000
+        check_variable = {
+          ITA_laborer_number = 3000
+        }
+      }
+    }
+  
+    visible = {
+      has_completed_focus = ITA_the_first_of_the_camps
+    }
+  
+    days_remove = 50
+    
+   
+  
     modifier = {
       political_power_cost = 0.1
       fascism_drift = -0.1
