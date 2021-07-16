@@ -820,12 +820,7 @@ on_actions = {
 				}
 				retire_country_leader = yes
 			}
-			if = {
-				limit = {
-					original_tag = YUG
-				}
-				remove_ideas = YUG_idea_economic_aid
-			}
+		
 			if = {
 				limit = {
 					original_tag = DEN 
@@ -980,24 +975,8 @@ on_actions = {
 						has_government = fascism
 					}
 				}
-				if = {
-					limit = {
-						OR = {
-							is_historical_focus_on = no
-							
-						}
-					}
-					add_timed_idea = { idea = SPA_recovering_from_civil_war days = 1825 }
-				}
-				if = {
-					limit = {
-						is_historical_focus_on = yes
-						NOT = {
-							
-						}
-					}
-					add_ideas = SPA_recovering_from_civil_war #keep the spirit on historical mode, keeping them out of the war
-				}
+				
+			
 			}
 			#End of SCW
 			if = {
@@ -1186,11 +1165,14 @@ on_actions = {
 			every_country = {
 				limit = {
 					OR = {
-						is_on_continent = europe
+						capital_scope = {
+							is_on_continent = europe
+						}
 						tag = USA
 					}
-					country_event = { id = austria_meme_hitler_events.2 days = 192 }
 				}
+				country_event = { id = austria_meme_hitler_events.2 days = 192 }
+
 			}
 			
 
@@ -1656,10 +1638,7 @@ on_actions = {
 			}
 
 
-			ITA = {
-				activate_mission = ITA_revolution_decision_timer
-			}
-
+			
 
 		}
 		}
