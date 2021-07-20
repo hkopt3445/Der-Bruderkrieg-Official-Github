@@ -23,7 +23,7 @@ shared_focus = {
     icon = GFX_goal_SOV_unification_of_the_rsdlp
     x = 8
     y = 0
-    cost = 5
+    cost = 2
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -44,6 +44,10 @@ shared_focus = {
         SOV_modify_rsdlp_progressbar = yes
 
         SOV_should_russia_collapse_lenin = yes
+
+
+
+     
     }
 }
 
@@ -729,17 +733,7 @@ shared_focus = {
     relative_position_id = SOV_the_russian_social_democratic_labour_party_reformed
     completion_reward = {
         
-        set_variable = {
-            SOV_peoples_support_for_current_regime = lenin_support
-        }
-        add_to_variable = {
-            SOV_peoples_support_for_current_regime = 7
-        }
         
-       
-        set_variable = {
-            SOV_military_support_for_current_regime = 20
-        }
 
         unlock_decision_category_tooltip = SOV_political_instability
 
@@ -1194,46 +1188,46 @@ shared_focus = {
 
 
 
-shared_focus = {
-    id = SOV_promoting_loyal_soldiers
-    icon = GFX_goal_SOV_promoting_loyal_soldiers
-	prerequisite = {focus = SOV_demoting_disloyal_officers  }
-    prerequisite = {
-        focus = SOV_improving_our_military
-    }
-    prerequisite = {
-        focus = SOV_improving_our_military
-    }
-    prerequisite = {
-        focus = SOV_pro_rsdlp_agenda
-    }
+# shared_focus = {
+#     id = SOV_promoting_loyal_soldiers
+#     icon = GFX_goal_SOV_promoting_loyal_soldiers
+# 	prerequisite = {focus = SOV_demoting_disloyal_officers  }
+#     prerequisite = {
+#         focus = SOV_improving_our_military
+#     }
+#     prerequisite = {
+#         focus = SOV_improving_our_military
+#     }
+#     prerequisite = {
+#         focus = SOV_pro_rsdlp_agenda
+#     }
 
-    x = -1
-    y = 1
-    relative_position_id = SOV_improving_our_military
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
-        ###decisions
+#     x = -1
+#     y = 1
+#     relative_position_id = SOV_improving_our_military
+#     cost = 5
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
+#         ###decisions
         
-    }
-}
+#     }
+# }
 
 shared_focus = {
     id = SOV_using_our_industry_for_equipment
     icon = GFX_goal_SOV_using_industry_for_equipment
     prerequisite = {
-        focus = SOV_promoting_loyal_soldiers
+        focus = SOV_improving_our_military
     }
   
 
 
     x = -1
     y = 1
-    relative_position_id = SOV_promoting_loyal_soldiers
+    relative_position_id = SOV_improving_our_military
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1245,7 +1239,13 @@ shared_focus = {
             days = 400
         }
         
-        10 = {
+        random_owned_controlled_state = {
+            limit = {
+                is_in_array = {
+                    array = SOV.far_eastern_states
+                    value = THIS
+                }
+            }
             add_building_construction = {
                 type = arms_factory 
                 level = 1
@@ -1254,6 +1254,12 @@ shared_focus = {
             add_extra_state_shared_building_slots = 1
         }
         random_owned_controlled_state = {
+            limit = {
+                is_in_array = {
+                    array = SOV.far_eastern_states
+                    value = THIS
+                }
+            }
             add_building_construction = {
                 type = arms_factory 
                 level = 1
@@ -1297,9 +1303,7 @@ shared_focus = {
     id = SOV_a_loyal_army
     icon = GFX_goal_SOV_hierarchy_of_loyalty
     prerequisite = {focus = SOV_enforcing_loyalty  }
-    prerequisite = {
-        focus = SOV_promoting_loyal_soldiers
-    }
+  
     x = 0
     y = 1
     relative_position_id = SOV_enforcing_loyalty
@@ -1309,8 +1313,10 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        add_ideas = SOV_lenins_army
-        
+        swap_ideas = {
+         add_idea = SOV_lenins_army
+         remove_idea = SOV_conservative_high_command
+        }
     }
 }
 
@@ -1597,7 +1603,7 @@ shared_focus = {
         focus = SOV_defend_the_galician_border
     }
     available = {
-    	controls_state = 951
+    	controls_state = 90
     }
     relative_position_id = SOV_defend_the_galician_border
     
@@ -1605,7 +1611,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        951 = {
+        90 = {
         	add_building_construction = {
         		level = 3
         		type = air_base
@@ -1658,7 +1664,7 @@ shared_focus = {
     icon = GFX_goal_SOV_approach_young_italy
     
     x = 1
-    y = 2
+    y = 3
     cost = 5
     available_if_capitulated = yes
     prerequisite = {
@@ -1692,6 +1698,7 @@ shared_focus = {
         add_ideas = SOV_prepare_for_worst
     }
 }
+
 shared_focus = {
     id = SOV_militarlize_the_cossacks
     icon = GFX_goal_SOV_mobilize_the_cossacks
@@ -1711,6 +1718,35 @@ shared_focus = {
         swap_ideas = {
         	add_idea = SOV_prepare_for_worst_cossack
         	remove_idea = SOV_prepare_for_worst
+        }
+    }
+}
+
+shared_focus = {
+    id = SOV_end_the_austrian_threat
+    icon = GFX_goal_AUS_absolutism
+    
+    x = 4
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = SOV_lessons_from_the_europakrieg
+        focus = SOV_defend_the_baltics
+    }
+    
+    prerequisite = {
+        focus = SOV_contact_young_italy
+    }
+   
+    relative_position_id = SOV_lessons_from_the_europakrieg
+    ai_will_do = {
+        factor = 1
+    }
+    completion_reward = {
+        create_wargoal = {
+            target = AUS
+            type = puppet_wargoal_focus
         }
     }
 }
@@ -1852,7 +1888,6 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
     }
 }
 
@@ -2220,8 +2255,8 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_secure_our_southern_border
-    icon = GFX_goal_SOV_all_shall_fight_for_the_motherland
+    id = SOV_secure_our_southern_border 
+    icon = GFX_goal_SOV_recruit_afghani_militants
     
     x = 1
     y = 1
