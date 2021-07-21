@@ -3049,6 +3049,18 @@ country_event = { # Yakutia Declares Independence
 		ai_chance = {
 			factor = 100
 		}
+		for_each_loop = {
+			array = controlled_states
+			value = controlled_state
+		
+			SOV = {
+				delete_unit = {
+					state = var:controlled_state
+					disband = yes # or no
+				}
+			}    
+		}
+		
 		YAK = {
 			set_country_flag = choice_made
 		}
@@ -3336,6 +3348,9 @@ country_event = { # Urangel's Clique Declares Independence
 			set_country_flag = choice_made
 		}
 		hidden_effect = {
+			SOV = {
+				release = FOB	
+			}
 			country_event = { id = SOV_russian_collapse_events.12 } #Adjust this to what you want
 			#  #Adjust this to what you want
 		}
