@@ -1287,8 +1287,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-       unlock_national_focus = USA_fortify_the_canadian_border
-    }
+		custom_effect_tooltip = USA_fortification_commission_unlocked_tt
+		set_country_flag = USA_fortification_commission_unlocked
+	}
                     
 }
 
@@ -1352,7 +1353,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = USA_fund_catholic_irish_americans_to_back_to_ireland
     }
 }
 
@@ -1374,7 +1375,15 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        IRA = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+				producer = USA
+			}
+			add_political_power = 100
+		}
+		unlock_decision_tooltip = USA_launch_the_ira_revolt
     }
 }
 
@@ -1395,8 +1404,23 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+	available = {
+		hidden_trigger = {
+			always = no
+		}
+	}
     completion_reward = {
-        
+        custom_effect_tooltip = USA_the_irish_civil_war_will_begin
+		hidden_effect = {
+			IRA = {
+				transfer_state = 134
+				transfer_state = 135
+				declare_war_on = {
+					target = IRE
+					type = civl_war
+				}
+			}
+		}
     }
 }
 
@@ -1436,7 +1460,39 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        327 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				  }
+		}
+		627 = {
+			add_building_construction = {
+				type = coastal_bunker
+				level = 3
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_coastal = yes
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			  }
+	}
+
     }
 }
 
@@ -1797,7 +1853,7 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_contact_chile
+    id = USA_contact_peru_bolivia
     icon = unkown
     x = -1
     y = 1
@@ -1827,11 +1883,11 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-        focus = USA_contact_chile
+        focus = USA_contact_peru_bolivia
 
     }
   
-    relative_position_id = USA_contact_chile
+    relative_position_id = USA_contact_peru_bolivia
     ai_will_do = {
         factor = 1
     }
@@ -1857,7 +1913,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        add_ideas = USA_continental_heg
     }
 }
 
