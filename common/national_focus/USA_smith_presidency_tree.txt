@@ -100,7 +100,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		if = { 
+		if = {  
 			limit = {
 				has_idea = USA_smiths_moderate_policy
 			}
@@ -365,7 +365,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		country_event = USA_smith_tree.1
 	}
 }
 
@@ -382,7 +382,11 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_stability = 0.05
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
 	}
 }
 
@@ -402,7 +406,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		country_event = USA_smith_tree.2
 	}
 }
 
@@ -425,7 +429,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		country_event = USA_smith_tree.3
 	}
 }
 
@@ -448,7 +452,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = USA_dust_bowl
+			add_idea = USA_dust_bowl_3
+		}
 	}
 }
 
@@ -469,7 +476,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_political_power = 75
 	}
 }
 
@@ -493,7 +500,24 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		if = {
+			limit = {
+				has_idea = USA_revived_efficiency_movement_2
+			}
+			swap_ideas = {
+				add_idea = USA_revived_efficiency_movement_4
+				remove_idea = USA_revived_efficiency_movement_2
+			}
+		}
+		if = {
+			limit = {
+				has_idea = USA_revived_efficiency_movement_3
+			}
+			swap_ideas = {
+				add_idea = USA_revived_efficiency_movement_5
+				remove_idea = USA_revived_efficiency_movement_3
+			}
+		}
 	}
 }
 
@@ -511,7 +535,14 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = USA_great_depression_8
+			add_idea = USA_great_depression_9
+		}
+		swap_ideas = {
+			remove_idea = USA_dust_bowl_3
+			add_idea = USA_dust_bowl_4
+		}
 	}
 }
 
@@ -545,7 +576,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		country_event = USA_smith_tree.4
 	}
 }
 
@@ -561,11 +592,17 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = USA_promote_federal_removal_of_prohibition
 	}
+	available = {
+		has_country_flag = USA_remove_race_from_the_issue_unlock
+	}
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_smiths_radical_safeguarding_2
+			remove_idea = USA_smiths_radical_safeguarding
+		}
 	}
 }
 
@@ -598,11 +635,15 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = USA_remove_race_from_the_issue
 	}
+	available = {
+		has_country_flag = USA_promote_federal_removal_of_prohibition_unlock
+	}
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
-
+		add_political_power = 50
+		add_stability = 0.03
 	}
 }
 
@@ -619,6 +660,15 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		custom_effect_tooltip = USA_promote_distilling_jobs_tt
+		394 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_political_power = 50
 	}
 }
 
@@ -638,6 +688,21 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		custom_effect_tooltip = USA_the_twenty_first_amendment_tt
+		hidden_effect=  {
+			if = {
+				limit = {
+					has_completed_focus = USA_remove_race_from_the_issue
+				}
+				country_event = USA_smith_tree.6
+			}
+			if = {
+				limit = {
+					has_completed_focus = USA_promote_federal_removal_of_prohibition
+				}
+				country_event = USA_smith_tree.5
+			}
+		}
 	}
 }
 
@@ -654,6 +719,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		add_research_slot = 1
 	}
 }
 
@@ -670,6 +736,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		swap_ideas = {
+			add_idea = USA_plagued_by_polio_3
+			remove_idea = USA_plagued_by_polio
+		}
 	}
 }
 
@@ -686,7 +756,12 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		swap_ideas = {
+			add_idea = USA_plagued_by_polio_4
+			remove_idea = USA_plagued_by_polio_3
+		}
 	}
+	
 }
 
 shared_focus = {
@@ -702,6 +777,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		remove_ideas = USA_plagued_by_polio_4
 	}
 }
 
@@ -750,6 +826,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		swap_ideas = {
+			add_idea = USA_fragile_support
+			remove_idea = USA_presidency_in_crisis
+		}
 	}
 }
 
@@ -785,6 +865,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		country_event = USA_smith_tree.7
 	}
 }
 
@@ -801,6 +882,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		country_event = USA_smith_tree.10
 	}
 }
 
@@ -822,6 +904,8 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		remove_ideas = USA_great_depression_9
+		remove_ideas = USA_dust_bowl_4
 	}
 }
 
@@ -838,28 +922,29 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		add_political_power = 100
 	}
 }
 
-shared_focus = {
-	id = USA_expand_workers_rights
-	icon = unkown
-	x = 1
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	relative_position_id = USA_a_calm_and_accepting_america
-	prerequisite = { focus = USA_a_calm_and_accepting_america }
-	prerequisite = {
-		focus = USA_an_empahsis_on_nature
-	}
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
+# shared_focus = {
+# 	id = USA_expand_workers_rights
+# 	icon = unkown
+# 	x = 1
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	relative_position_id = USA_a_calm_and_accepting_america
+# 	prerequisite = { focus = USA_a_calm_and_accepting_america }
+# 	prerequisite = {
+# 		focus = USA_an_empahsis_on_nature
+# 	}
+# 	ai_will_do = {
+# 		factor = 100
+# 	}
+# 	completion_reward = {
 		
-	}
-}
+# 	}
+# }
 
 shared_focus = {
 	id = USA_expanded_womens_rights
@@ -890,6 +975,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		add_ideas = USA_democratic_return_to_normalcy
 	}
 }
 
@@ -909,6 +995,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+
 	}
 }
 
@@ -928,6 +1015,12 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		add_to_variable = {
+			global.usa_senate_seat_array^1 = 2
+		}
+		add_to_variable = {
+			global.usa_senate_seat_array^2 = -2
+		}
 	}
 }
 
@@ -979,6 +1072,45 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		add_ideas = USA_military_industrial_complex_idea
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
 	}
 }
 
@@ -995,9 +1127,16 @@ shared_focus = {
 		focus = USA_an_empahsis_on_nature
 	}
 	ai_will_do = {
-		factor = 100
+		factor = 100 
 	}
 	completion_reward = {
+		add_to_variable = {
+			global.usa_senate_seat_array^1 = 2
+		}
+		add_to_variable = {
+			global.usa_senate_seat_array^0 = -2
+		}
+
 	}
 }
 
@@ -1013,9 +1152,7 @@ shared_focus = {
 		focus = USA_condemn_radical_governments 
 		focus = USA_a_military_industrial_complex
 	}
-	prerequisite = {
-		focus = USA_expand_workers_rights
-	}
+	
 	ai_will_do = {
 		factor = 100
 	}
