@@ -122,7 +122,7 @@ news_event = {
 	title = francestart.8.t
 	desc = francestart.8.d
 	picture = GFX_report_event_hitler_handshake
-	
+		major = yes
 
 	is_triggered_only = yes
 
@@ -1513,7 +1513,7 @@ country_event = {
 	}
 }
 
-##Assering Control over Luxembourg
+##Assering Control over belgium
 country_event = {
 	id = napoleanfrance.26
 	title = napoleanfrance.26.t
@@ -1525,8 +1525,14 @@ country_event = {
 	option = {
 		name = napoleanfrance.26.a
 
-		LUX = {country_event = {id = napoleanfrance.4}}
-
+		BEL = {country_event = {id = napoleanfrance.4}}
+		add_threat = 8
+		ENG = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = large_decrease
+			}
+		}
 
 		
 	} 
@@ -1534,7 +1540,14 @@ country_event = {
 	option = {
 		name = napoleanfrance.26.b
 
-		LUX = {country_event = {id = napoleanfrance.1}}
+		BEL = {country_event = {id = napoleanfrance.1}}
+		add_threat = 4
+		ENG = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier =  medium_decrease
+			}
+		}
 	}
 }
 
@@ -1850,6 +1863,7 @@ country_event = {
 	option = { ##Keep Plan 1
 		name = brussells_conference.3.b
 		set_country_flag = brussells_conference_success
+		add_to_faction = BEL
 	}
 }
 

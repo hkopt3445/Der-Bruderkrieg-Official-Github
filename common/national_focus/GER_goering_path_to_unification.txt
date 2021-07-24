@@ -376,6 +376,9 @@ shared_focus = {
 	available = {
 		BEL = {
 			has_government = democratic
+			NOT = {
+				is_in_faction_with = FRA
+			}
 		}
 	}
 	ai_will_do = {
@@ -400,7 +403,7 @@ shared_focus = {
 	y = 1
 	mutually_exclusive = {
 		focus = GER_coaxing_degrelle
-	}
+	} 
 	prerequisite = {
 		focus = GER_securing_british_neutrality
 	}
@@ -411,6 +414,17 @@ shared_focus = {
 	}
 	completion_reward = {
 		custom_effect_tooltip = GER_reviving_an_old_plan_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					has_completed_focus = GER_unternehmen_attila
+				}
+				create_wargoal = {
+					target = BEL
+					type = annex_everything
+				}
+			}
+		}
 	}
 }
 shared_focus = {
