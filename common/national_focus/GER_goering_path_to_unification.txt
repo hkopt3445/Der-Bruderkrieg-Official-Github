@@ -103,6 +103,171 @@ shared_focus = {
 		unlock_decision_category_tooltip = form_ngc_category
 	}
 }
+
+	
+shared_focus = {
+	id = GER_dolchstosslegende
+	icon = GFX_goal_GER_dochloslegende
+	x = 0
+	y = 1
+	relative_position_id = GER_bismarks_plan
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 4
+	prerequisite = { focus = GER_bismarks_plan }
+	
+
+	cancel_if_invalid = yes
+
+	completion_reward = {
+		add_war_support= 0.05
+		add_political_power= 80
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+
+shared_focus = {
+	id = GER_german_supremacy
+	icon = GFX_goal_GER_germansuperiorty
+	x = 0
+	y = 1
+	relative_position_id = GER_dolchstosslegende
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 5
+	prerequisite = { focus = GER_dolchstosslegende }
+	
+
+	cancel_if_invalid = yes
+
+	completion_reward = {
+		swap_ideas= {
+			remove_idea = Firece_Revanchism
+			add_idea = Firece_Revanchism_2
+		   }
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+
+shared_focus = {
+	id = GER_anti_royalism
+	icon = GFX_goal_GER_antiroyalism
+	x = -1
+	y = 1
+	relative_position_id = GER_german_supremacy
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 5
+	prerequisite = { focus = GER_german_supremacy }
+	
+
+	cancel_if_invalid = yes
+
+	completion_reward = {
+		add_ideas= GER_National_Revolution
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+
+shared_focus = {
+	id = GER_not_one_traitor_left
+	icon = GFX_goal_GER_notonetraitor
+	x = 1
+	y = 1
+	relative_position_id = GER_german_supremacy
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 5
+	prerequisite = { focus = GER_german_supremacy }
+	
+
+	cancel_if_invalid = yes
+
+	completion_reward = {
+		add_timed_idea = { idea = GER_death_to_traitors days = 120 }
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+
+shared_focus = {
+	id = GER_schwert_und_schild
+	icon = GFX_goal_GER_schwertundschild
+	x = -1
+	y = 1
+	relative_position_id = GER_not_one_traitor_left
+	
+	available = {
+	}
+	bypass = {
+
+	}
+
+	cost = 3.5
+	prerequisite = { focus = GER_not_one_traitor_left }
+	prerequisite = {
+		focus = GER_anti_royalism
+	}
+	#prerequisite = { focus = GER_reintegrate_the_freikorps }
+	
+
+	cancel_if_invalid = yes
+
+	completion_reward = {
+			remove_ideas = GER_National_Revolution
+			add_timed_idea = { idea = GER_National_Revolution1 days = 100 }
+		
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+
+shared_focus = {
+	id = GER_rachekrieg
+		
+	icon = GFX_goal_GER_rachkrieg
+	#prerequisite = {focus = GER_prussian_professionalism focus = GER_the_nation_at_arms }
+	#p#rerequisite = {focus = GER_an_end_to_the_cultists focus = GER_useful_madmen}
+	prerequisite = { focus = GER_schwert_und_schild }
+	relative_position_id = GER_schwert_und_schild
+	cost = 2
+	x = 0
+	y = 2
+	completion_reward = {
+		country_event = GER_goering_internal_stabilization.2
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
 #######################
 #Legacy of Tilsit Path#
 #######################
@@ -110,7 +275,7 @@ shared_focus = {
 	id = GER_legacy_of_tilsit
 	icon = unkown
 	cost = 3
-	x = -3
+	x = -4
 	y = 1
 	prerequisite = {
 		focus = GER_bismarks_plan
@@ -340,6 +505,9 @@ shared_focus = {
 		focus = GER_preparing_the_luftwaffe
 		focus = GER_exercising_the_army
 	}
+	prerequisite = {
+		focus = GER_rachekrieg
+	}
 	bypass = {
 		has_war_with = FRA
 	}
@@ -433,7 +601,7 @@ shared_focus = {
 	id = GER_fortify_the_silesian_front
 	icon = unkown
 	cost = 6
-	x = -1
+	x = 0
 	y = 1
 	prerequisite = {
 		focus = GER_defending_to_the_last
@@ -459,7 +627,7 @@ shared_focus = {
 	id = GER_weaken_the_confederal_army
 	icon = unkown
 	cost = 3
-	x = 0
+	x = -1
 	y = 1
 	prerequisite = {
 		focus = GER_fortify_the_silesian_front
@@ -516,7 +684,7 @@ shared_focus = {
 	id = GER_a_new_kind_of_war
 	icon = unkown
 	cost = 6
-	x = 1
+	x = 0
 	y = 1
 	prerequisite = {
 		focus = GER_for_a_free_germany
@@ -538,7 +706,7 @@ shared_focus = {
 	id = GER_austrian_sabotage
 	icon = unkown
 	cost = 3
-	x = 0
+	x = 1
 	y = 1
 	prerequisite = {
 		focus = GER_a_new_kind_of_war
@@ -602,6 +770,9 @@ shared_focus = {
 	prerequisite = {
 		focus = GER_ready_for_anything
 		focus = GER_the_final_push
+	}
+	prerequisite = {
+		focus = GER_rachekrieg
 	}
 	relative_position_id = GER_the_final_push
 	bypass = {
