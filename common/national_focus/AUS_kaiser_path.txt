@@ -1200,6 +1200,72 @@ shared_focus = {
         Federalism
       }
       country_event = austria.103
+
+      multiply_variable = {
+        AUS_Giovane_Italia_war_support_factor = 0
+      }
+      set_variable = {
+        AUS_Giovane_Italia_consumer_goods_factor_loc = AUS_Giovane_Italia_consumer_goods_factor
+      }
+      multiply_variable = {
+        AUS_Giovane_Italia_consumer_goods_factor_loc = 100
+      }
+      set_variable = {
+        AUS_Giovane_Italia_war_support_factor_loc = AUS_Giovane_Italia_war_support_factor
+      }
+      multiply_variable = {
+        AUS_Giovane_Italia_war_support_factor_loc = 100
+      }
+      set_variable = {
+        AUS_Giovane_Italia_political_power_factor_loc = AUS_Giovane_Italia_political_power_factor
+      }
+      multiply_variable = {
+        AUS_Giovane_Italia_political_power_factor_loc = 100
+      }
+
+      multiply_variable = {
+        AUS_Nemetzi_dal_conscription_factor = 0
+      }
+      multiply_variable = {
+        AUS_Nemetzi_dal_stability_factor = 0
+      }
+      set_variable = {
+        AUS_Nemetzi_dal_political_cost_factor_loc = AUS_Nemetzi_dal_political_cost_factor
+      }
+      multiply_variable = {
+        AUS_Nemetzi_dal_political_cost_factor_loc = 100
+      }
+      set_variable = {
+        AUS_Nemezti_dal_consumer_goods_factor_loc = AUS_Nemezti_dal_consumer_goods_factor
+      }
+      multiply_variable = {
+        AUS_Nemezti_dal_consumer_goods_factor_loc = 100
+      }
+
+      multiply_variable = {
+        AUS_Bohemian_Outrage_stability_factor = 0
+      }
+      multiply_variable = {
+        AUS_Bohemian_Outrage_political_power_factor = 0
+      }
+      set_variable = {
+        AUS_Bohemian_Outrage_stability_factor_loc = AUS_Bohemian_Outrage_stability_factor
+      }
+      multiply_variable = {
+        AUS_Bohemian_Outrage_stability_factor_loc = 100
+      }
+      set_variable = {
+        AUS_Bohemian_Outrage_political_power_factor_loc = AUS_Bohemian_Outrage_political_power_factor
+      }
+      multiply_variable = {
+        AUS_Bohemian_Outrage_political_power_factor_loc = 100
+      }
+      set_variable = {
+        AUS_Bohemian_Outrage_war_support_factor_loc = AUS_Bohemian_Outrage_war_support_factor
+      }
+      multiply_variable = {
+        AUS_Bohemian_Outrage_war_support_factor_loc = 100
+      }
   }
 }
 
@@ -5616,9 +5682,17 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    AUS = {
-      every_owned_state = {
+      every_state = {
         limit = {
+          OR = {
+            is_owned_by = AUS
+            THIS.owner = {
+              is_puppet_of = AUS
+            }
+            THIS.owner = {
+              is_in_faction_with = AUS
+            }
+          }
           any_neighbor_state = {
             is_controlled_by = YUG
           }
@@ -5633,7 +5707,6 @@ shared_focus = {
           }
         }
       }
-    }
   }
 }
 shared_focus = {
