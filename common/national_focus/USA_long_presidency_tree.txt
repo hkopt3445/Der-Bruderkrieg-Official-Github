@@ -15,13 +15,14 @@ focus_tree = {
 	
 	shared_focus = USA_longs_new_deal
 	shared_focus = USA_the_us_military
+	shared_focus = USA_fortification_commission
 	shared_focus = USA_the_long_doctrine
 }
 
     shared_focus = {
 		id = USA_longs_new_deal
 		icon = GFX_goal_USA_longs_new_deal
-		x = 0
+		x = 6
 		y = 0
 		cost = 5
 		available_if_capitulated = yes
@@ -1096,7 +1097,7 @@ focus_tree = {
 shared_focus = {
     id = USA_the_long_doctrine
     icon = unkown
-    x = -20
+    x = 25
     y = 0 
     cost = 2
     available_if_capitulated = yes
@@ -1167,6 +1168,16 @@ shared_focus = {
     }
     completion_reward = {
         create_faction = USA_the_dc_pact
+		hidden_effect = {
+			dismantle_faction = yes
+			every_country = { 
+				limit = {
+					is_in_faction_with = FRA
+				}
+			add_to_faction = USA
+			}
+		}
+  
     }
 }
 
@@ -1197,7 +1208,7 @@ shared_focus = {
 shared_focus = {
     id = USA_alliance_of_1812
     icon = unkown
-    x = 0
+    x = 0 
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -1287,8 +1298,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-       unlock_national_focus = USA_fortify_the_canadian_border
-    }
+		custom_effect_tooltip = USA_fortification_commission_unlocked_tt
+		set_country_flag = USA_fortification_commission_unlocked
+	}
                     
 }
 
@@ -1352,7 +1364,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        unlock_decision_tooltip = USA_fund_catholic_irish_americans_to_back_to_ireland
     }
 }
 
@@ -1374,7 +1386,15 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        IRA = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+				producer = USA
+			}
+			add_political_power = 100
+		}
+		unlock_decision_tooltip = USA_launch_the_ira_revolt
     }
 }
 
@@ -1395,8 +1415,23 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+	available = {
+		hidden_trigger = {
+			always = no
+		}
+	}
     completion_reward = {
-        
+        custom_effect_tooltip = USA_the_irish_civil_war_will_begin
+		hidden_effect = {
+			IRA = {
+				transfer_state = 134
+				transfer_state = 135
+				declare_war_on = {
+					target = IRE
+					type = civl_war
+				}
+			}
+		}
     }
 }
 
@@ -1436,7 +1471,39 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        327 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				  }
+		}
+		627 = {
+			add_building_construction = {
+				type = coastal_bunker
+				level = 3
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_coastal = yes
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			  }
+	}
+
     }
 }
 
@@ -1533,15 +1600,15 @@ shared_focus = {
 shared_focus = {
     id = USA_share_our_carrier_blueprints
     icon = unkown
-    x = 0
+    x = 1
     y = 1
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-        focus = USA_assist_their_military
+        focus = USA_land_of_the_rising_moon
 
     }
-    relative_position_id = USA_assist_their_military
+    relative_position_id = USA_land_of_the_rising_moon
     ai_will_do = {
         factor = 1
     }
@@ -1552,7 +1619,7 @@ shared_focus = {
 shared_focus = {
     id = USA_invest_in_indumil
     icon = unkown
-    x = 0
+    x = -1
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -1560,6 +1627,9 @@ shared_focus = {
         focus = USA_share_our_carrier_blueprints
 
     }
+	prerequisite = {
+		focus = USA_assist_their_military
+	}
     relative_position_id = USA_share_our_carrier_blueprints
     ai_will_do = {
         factor = 1
@@ -1585,81 +1655,78 @@ shared_focus = {
 }
 
 
-shared_focus = {
-    id = USA_the_das_problem
-    icon = unkown
-    x = 1
-    y = 1
-    cost = 2
-    available_if_capitulated = yes
-    prerequisite = {
-        focus = USA_land_of_the_rising_moon
+# shared_focus = {
+#     id = USA_the_das_problem
+#     icon = unkown
+#     x = 1
+#     y = 1
+#     cost = 2
+#     available_if_capitulated = yes
+#     prerequisite = {
+#         focus = USA_land_of_the_rising_moon
 
-    }
-    relative_position_id = USA_land_of_the_rising_moon
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
+#     }
+#     relative_position_id = USA_land_of_the_rising_moon
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
         
-    }
-}
+#     }
+# }
 
-shared_focus = {
-    id = USA_a_change_in_purpose
-    icon = unkown
-    x = 0
-    y = 1
-    cost = 2
-    available_if_capitulated = yes
-    prerequisite = {
-        focus = USA_the_das_problem
+# shared_focus = {
+#     id = USA_a_change_in_purpose
+#     icon = unkown
+#     x = 0
+#     y = 1
+#     cost = 2
+#     available_if_capitulated = yes
+#     prerequisite = {
+#         focus = USA_the_das_problem
 
-    }
-    relative_position_id = USA_the_das_problem
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
+#     }
+#     relative_position_id = USA_the_das_problem
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
         
-    }
-}
-shared_focus = {
-    id = USA_a_threat_no_more
-    icon = unkown
-    x = 0
-    y = 1
-    cost = 2
-    available_if_capitulated = yes
-    prerequisite = {
-        focus = USA_a_change_in_purpose
+#     }
+# }
+# shared_focus = {
+#     id = USA_a_threat_no_more
+#     icon = unkown
+#     x = 0
+#     y = 1
+#     cost = 2
+#     available_if_capitulated = yes
+#     prerequisite = {
+#         focus = USA_a_change_in_purpose
 
-    }
-    relative_position_id = USA_a_change_in_purpose
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
+#     }
+#     relative_position_id = USA_a_change_in_purpose
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
         
-    }
-}
+#     }
+# }
 
 shared_focus = {
     id = USA_american_colombian_naval_treaty
     icon = unkown
-    x = -1
+    x = 0
     y = 1
     cost = 2
     available_if_capitulated = yes
-    prerequisite = {
-        focus = USA_a_threat_no_more
 
-    }
     prerequisite = {
         focus = USA_invest_in_indumil
 
     }
-    relative_position_id = USA_a_threat_no_more
+    relative_position_id = USA_invest_in_indumil
     ai_will_do = {
         factor = 1
     }
@@ -1797,7 +1864,7 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = USA_contact_chile
+    id = USA_contact_peru_bolivia
     icon = unkown
     x = -1
     y = 1
@@ -1827,11 +1894,11 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-        focus = USA_contact_chile
+        focus = USA_contact_peru_bolivia
 
     }
   
-    relative_position_id = USA_contact_chile
+    relative_position_id = USA_contact_peru_bolivia
     ai_will_do = {
         factor = 1
     }
@@ -1843,7 +1910,7 @@ shared_focus = {
 shared_focus = {
     id = USA_a_continent_free_from_tyranny
     icon = unkown
-    x = 0
+    x = -2
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -1851,13 +1918,16 @@ shared_focus = {
         focus = USA_an_ultimatum_to_peron
 
     }
+	prerequisite = {
+		focus = USA_puppet_with_a_stick
+	}
   
     relative_position_id = USA_an_ultimatum_to_peron
     ai_will_do = {
         factor = 1
     }
     completion_reward = {
-        
+        add_ideas = USA_continental_heg
     }
 }
 
@@ -2117,3 +2187,9 @@ shared_focus = {
         
     }
 }
+
+
+
+
+
+

@@ -1154,7 +1154,7 @@ focus_tree = {
     y = 1
 		prerequisite = {focus = FRA_CONSERVATIVES_PREVAIL}
     relative_position_id = FRA_CONSERVATIVES_PREVAIL
-    cost = 5
+    cost = 2.5
     ai_will_do = {
       factor = 2000
     }
@@ -1189,7 +1189,7 @@ focus_tree = {
     x = -3
     y = 1
     relative_position_id = FRA_DOCTRINAIRE_VIC
-    cost = 5
+    cost = 0
     ai_will_do = {
       factor = 2000
     }
@@ -1239,7 +1239,7 @@ focus_tree = {
 	x = 0
 	y = 1
 	relative_position_id = FRA_RESTORE_1852
-	cost = 5
+	cost = 2
 	ai_will_do = {
 		factor = 2000
 	}
@@ -1258,7 +1258,7 @@ focus_tree = {
 				}
 			}
 		}
-		add_political_power = 25
+		add_political_power = 100
 
 		country_event = france.204
 	}
@@ -1273,7 +1273,7 @@ focus_tree = {
 	x = 1
 	y = 1
 	relative_position_id = FRA_AUTOCRACY
-	cost = 5
+	cost = 2
 	ai_will_do = {
 		factor = 9000 
 	}
@@ -1306,7 +1306,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = FRA_AUTOCRACY
-	cost = 5
+	cost = 2
 	ai_will_do = {
 		factor = 2000
 	}
@@ -1472,7 +1472,7 @@ shared_focus = {
     y = 1
 	relative_position_id = FRA_DOCTRINAIRE_VIC
 	
-    cost = 5
+    cost = 0
     ai_will_do = {
       factor = 2000
     }
@@ -5594,7 +5594,7 @@ instant_build = yes
 				
 		
 				hidden_effect = {
-					#news_event = {id = napoleanfrance.19}
+					#news_event = {id = napoleanfrance.23}
 				}
 			}
 		}
@@ -5755,12 +5755,16 @@ instant_build = yes
 				completion_reward = {
 					unlock_decision_category_tooltip = FRA_hunting_westfalen_nationalists
 					set_country_flag = allow_westfalen_gui
-		
-					set_variable = {FRA_weekly_crackdown_westfalen_var = 0}
-					FRA_westfalen_setup_crackdown_variable = yes
-					add_dynamic_modifier = {
-						modifier =  westfalen_dynamic_modifier
+
+					set_variable = {
+						westfalen_coup_probability = 65
 					}
+		
+					# set_variable = {FRA_weekly_crackdown_westfalen_var = 0}
+					# FRA_westfalen_setup_crackdown_variable = yes
+					# add_dynamic_modifier = {
+					# 	modifier =  westfalen_dynamic_modifier
+					# }
 				}
 		}
 		shared_focus = {
@@ -6170,7 +6174,7 @@ instant_build = yes
 			
 			shared_focus = {
 				id = FRA_FORTIFY_BENELUX_BORDER
-				icon = GFX_goal_Fortify_Benelux
+				icon = GFX_goal_Solidify_Control
 				text = FRA_FORTIFY_BENELUX_BORDER
 				prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE focus = FRA_ANNEX_BELGIUM }
 				x = -2

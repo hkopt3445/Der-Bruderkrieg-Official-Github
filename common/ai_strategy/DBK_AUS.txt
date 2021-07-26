@@ -1,6 +1,9 @@
 AUS_unit_production = {
 	enable = {
+		OR = {
 		original_tag = AUS
+		is_puppet_of = AUS
+		}
 	}
 	abort = {
 		always = no
@@ -212,7 +215,10 @@ AUS_unit_production = {
 
 AUS_anti_armor = {
 	enable = {
+		OR = {
 		original_tag = AUS
+		is_puppet_of = AUS
+		}
 		ai_wants_divisions > 5 #Decreasing the amount of motorized the AI wants
 
 		any_enemy_country = {
@@ -238,7 +244,10 @@ AUS_anti_armor = {
 AUS_armored_production = {
 	enable = {
 		date > 1939.1.1
+		OR = {
 		original_tag = AUS
+		is_puppet_of = AUS
+		}
 		ai_wants_divisions > 24 #Decreasing the amount of tanks the AI wants
 	}
 	abort = {
@@ -254,7 +263,10 @@ AUS_armored_production = {
 
 AUS_halt_light_armor_production_in_transitioning = {
 	enable = {
+		OR = {
 		original_tag = AUS
+		is_puppet_of = AUS
+		}
 		has_template_majority_unit = medium_armor
 		OR = {
 			has_equipment = { light_tank_equipment > 600 }
@@ -292,7 +304,10 @@ AUS_stockpile_less_early_game = {
 
 AUS_highered_armored_production = {
 	enable = {
+		OR = {
 		original_tag = AUS
+		is_puppet_of = AUS
+		}
 		num_of_military_factories > 109
 	}
 	abort = {
@@ -308,7 +323,10 @@ AUS_highered_armored_production = {
 
 AUS_dont_waste_xp_until_medium_armor = {
 	enable = {
+		OR = {
 		original_tag = AUS
+		is_puppet_of = AUS
+		}
 	}
 
 	abort = {
@@ -331,7 +349,10 @@ AUS_dont_waste_xp_until_medium_armor = {
 AUS_super_boost_light_for_med_armor = {
 
 	enable = {
+		OR = {
 		original_tag = AUS
+		is_puppet_of = AUS
+		}
 		has_tech = basic_medium_tank
 		NOT = { has_template_ai_majority_unit = medium_armor }
 	}
@@ -369,7 +390,10 @@ AUS_super_boost_light_for_med_armor = {
 
 less_naval_focused_nation = {
 	enable = {
-		tag = AUS
+		OR = {
+			tag = AUS
+			is_puppet_of = AUS
+		}
 		date < "1936.1.1" #Don't Austria, just dont
 		not = {
 			has_dlc = "Man the Guns"
@@ -406,7 +430,10 @@ less_naval_focused_nation = {
 
 AUS_area_priority = {
 	enable = {
+		OR = {
 		original_tag = AUS
+		is_puppet_of = AUS
+		}
 	}
 
 	ai_strategy = {
@@ -432,4 +459,40 @@ SGC_call_your_allies_to_war = {
 		id = GPU
 		value = -69420 #more focus here
 	}
+}
+
+greece_dont_faction_leave = {
+    allowed = {
+        is_in_faction_with = AUS
+        tag = GRE
+    }
+    enable = {
+        is_in_faction_with = AUS
+        tag = GRE
+    }
+    abort_when_not_enabled = yes
+    
+    ai_strategy = {
+        type = alliance
+        id = "AUS"            
+        value = 6969
+    }
+}
+
+albania_dont_faction_leave = {
+    allowed = {
+        is_in_faction_with = AUS
+        tag = ALB
+    }
+    enable = {
+        is_in_faction_with = AUS
+        tag = ALB
+    }
+    abort_when_not_enabled = yes
+    
+    ai_strategy = {
+        type = alliance
+        id = "AUS"            
+        value = 6969
+    }
 }
