@@ -357,7 +357,122 @@ add_namespace = militia_revolts
 				  }	
 			}			
 		}
-	}
+		option = {
+			name = militia_revolts.3.b
+			ai_chance = { factor = 0 }
+				for_each_loop = {
+					array = controlled_states
+					value = controlled_state
+				
+					GER = {
+						delete_unit = {
+							state = var:controlled_state
+							disband = yes # or no
+						}
+					}    
+				}
+				SAR = {
+					set_cosmetic_tag = GER
+					transfer_state = 63
+					transfer_state = 68
+					transfer_state = 950
+					transfer_state = 62
+					transfer_state = 58
+					transfer_state = 61
+					transfer_state = 64
+					transfer_state = 60
+					hidden_effect = {
+						create_country_leader = {
+							name = "Hermann Goering"
+							desc = "GORING_DESC"
+							picture = "gfx/leaders/HermanGoringPortrait.dds"
+							expire = "1965.1.1"
+							ideology = ultranationalist
+							traits = {
+								GER_goring_reichmarshall_trait
+								
+							}
+						}
+					}
+				}
+				GER = {
+					set_cosmetic_tag = FRE
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.5
+					}
+					set_politics=  {
+						ruling_party = neutrality
+					}
+				}
+				
+				GER = {
+					declare_war_on = { type = annex_everything    target = SAR }
+					load_oob = "FRE_civil_war"
+				}
+				
+				85 = {	
+					create_unit = {
+						division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	
+					create_unit = {
+						division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }
+					create_unit = {
+						division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	  	  
+					}
+				763 = {
+					create_unit = {
+						division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }
+					  create_unit = {
+						division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	  	
+					}
+				5 = { 
+					create_unit = {
+						division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	
+				}
+				85 = {	
+					create_unit = {
+						division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	
+					create_unit = {
+						division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }
+					create_unit = {
+						division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	  	  
+					}
+				763 = {
+					create_unit = {
+						division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }
+					  create_unit = {
+						division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	  	
+					}
+				5 = { 
+					create_unit = {
+						division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	
+				}			
+			}
+}
 
 	country_event = {
 		id = militia_revolts.4  # SA Revolt
