@@ -138,8 +138,8 @@ scripted_gui = {
 				}
 			}
 		}
-	}
-}
+	} 	
+  }
   AUS_national_missions_conatiner_scripted_gui = {
 	window_name = "AUS_national_missions_container"
 	visible = {
@@ -418,4 +418,172 @@ GER_national_missions_conatiner_scripted_gui = {
 		
 	}
 }
+
+
+FRA_national_missions_conatiner_scripted_gui = {
+	window_name = "FRA_national_missions_container"
+	visible = {
+		tag = FRA
+		has_country_flag = open_national_missions_container
+	}
+
+	effects = {
+		exit_click = {
+		  clr_country_flag = open_national_missions_container
+
+		}
+
+		FRA_national_mission_1_click = {
+			set_country_flag = FRA_national_mission_1_click_flag
+			42 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			add_resource = {
+				state = 42
+				type = steel
+				amount = 9
+			}
+			51 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_resource = {
+				state = 51
+				type = steel
+				amount = 9
+			}
+			957 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_resource = {
+				state = 957
+				type = steel
+				amount = 9
+			}
+		}
+		FRA_national_mission_2_click = {
+			
+			set_country_flag = FRA_national_mission_2_click_flag
+		}
+		FRA_national_mission_3_click = {
+			add_ideas = FRA_in_defense_of_versailles
+			set_country_flag = FRA_national_mission_3_click_flag
+		}
+		FRA_national_mission_4_click = {
+			##some naval thing
+			set_country_flag = FRA_national_mission_4_click_flag
+		}
+	}
+
+	triggers = {
+	
+
+		FRA_national_mission_1_click_enabled = {
+			NOT = {
+				has_country_flag = FRA_national_mission_1_click_flag
+			}
+			42 = {
+				industrial_complex > 5
+				arms_factory > 5
+			}
+			51 = {
+				industrial_complex > 5
+				arms_factory > 5
+			}
+			957 = {
+				industrial_complex > 5
+				arms_factory > 5
+			}
+			owns_state = 42
+			owns_state = 51
+			owns_state = 957
+		}
+		FRA_national_mission_2_click_enabled = {
+			NOT = {
+				has_country_flag = FRA_national_mission_2_click_flag
+			}
+
+			# KAR = {
+			# 	all_owned_state = {
+			# 		infrastructure > 3
+			# 	}
+			# }
+		}
+		FRA_national_mission_3_click_enabled = {
+			NOT = {
+				has_country_flag = FRA_national_mission_3_click_flag
+			}
+			has_war_support > 0.5
+			has_army_manpower = {
+				size > 799999
+			}
+		}
+		FRA_national_mission_4_click_enabled = {
+			NOT = {
+				has_country_flag = FRA_national_mission_4_click_flag
+			}
+			naval_strength_ratio = {
+				tag = ENG
+				ratio > 1
+			}
+			
+		}
+
+		
+		##covers
+		FRA_national_mission_1_cover_visible = {
+			NOT = {
+				42 = {
+					industrial_complex > 5
+					arms_factory > 5
+				}
+				51 = {
+					industrial_complex > 5
+					arms_factory > 5
+				}
+				957 = {
+					industrial_complex > 5
+					arms_factory > 5
+				}
+				owns_state = 42
+				owns_state = 51
+				owns_state = 957
+			}
+		}
+		FRA_national_mission_2_cover_visible = {
+			NOT = {
+				# KAR = {
+				# 	all_owned_state = {
+				# 		infrastructure > 3
+				# 	}
+				# }
+			}
+			
+		}
+		FRA_national_mission_3_cover_visible = {
+			NOT = {
+				has_war_support > 0.5
+				has_army_manpower = {
+					size > 799999
+				}
+			}
+			
+		}
+		FRA_national_mission_4_cover_visible = {
+			
+		}
+	} 	
+  }
 }
