@@ -103,7 +103,7 @@ scripted_gui = {
 				tooltip = ITA_we_own_all_core_states
 				all_of_scopes = {
 					array = ITA.core_states
-					is_owned_by = ITA
+					is_controlled_by = ITA
 				}
 			}
 			
@@ -153,6 +153,7 @@ scripted_gui = {
 		}
 
 		AUS_national_mission_1_click = {
+			set_country_flag = AUS_national_mission_1_click_flag
 			76 = {
 				add_resource = {
 					type = chromium
@@ -166,12 +167,127 @@ scripted_gui = {
 				}
 			}
 		}
+		AUS_national_mission_2_click = {
+			set_country_flag = AUS_national_mission_2_click_flag
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		AUS_national_mission_3_click = {
+			set_country_flag = AUS_national_mission_3_click_flag
+			add_ideas = AUS_all_imperial_army
+		}
+		AUS_national_mission_4_click = {
+			set_country_flag = AUS_national_mission_4_click_flag
+			add_ideas = AUS_ending_the_northern_menace
+		}
 	}
 
 	triggers = {
 		AUS_national_mission_1_click_enabled = {
-			76 = { check_variable = { infrastructure_level > 7	} }
-			76 = { check_variable = { industrial_complex_level > 7 } }
+			NOT = {
+				has_country_flag = AUS_national_mission_1_click_flag
+			}
+			76 = { infrastructure > 7 }
+			76 = { industrial_complex > 7 } 
+		}
+		AUS_national_mission_2_click_enabled = {
+			NOT = {
+				has_country_flag = AUS_national_mission_2_click_flag
+			}
+			all_owned_state = {
+				infrastructure > 4
+			}
+		}
+		AUS_national_mission_3_click_enabled = {
+			NOT = {
+				has_country_flag = AUS_national_mission_3_click_flag
+			}
+			has_army_manpower = {
+				size > 1499999
+			}
+		}
+		AUS_national_mission_4_click_enabled = {
+			NOT = {
+				has_country_flag = AUS_national_mission_4_click_flag
+			}
+			GER = {
+				surrender_progress > 0.29
+			}
+		}
+
+		AUS_national_mission_1_cover_visible = {
+			NOT = {
+			76 = { infrastructure > 7 }
+			76 = { industrial_complex > 7 } 
+			}
+		}
+		AUS_national_mission_2_cover_visible = {
+			NOT = {
+			all_owned_state = {
+				infrastructure > 4
+			}
+			}
+		}
+		AUS_national_mission_3_cover_visible = {
+			NOT = {
+			has_army_manpower = {
+				size > 1499999
+			}
+		}
+		}
+		AUS_national_mission_4_cover_visible = {
+			NOT = {
+			GER = {
+				surrender_progress > 0.29
+			}
+		}
 		}
 	}
 }
