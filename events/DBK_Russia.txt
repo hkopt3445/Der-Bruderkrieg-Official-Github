@@ -1012,7 +1012,111 @@ country_event = {
 	}
 } 
 
+country_event = { #Transylvanian uprising
+	id = SOV_kerensky_tree_events.2
+	title = SOV_kerensky_tree_events.2.t
+	desc = SOV_kerensky_tree_events.2.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.2.a
+		ai_chance = { factor = 1}
+		##sponsor uprisings in Transylvania (gotta try and help our Romanian broskis)
+		every_state = {
+			limit = { is_core_of = TRA is_owned_by = AUS }
+			TRA = {
+				transfer_state = PREV
+			}
+		}
+		hidden_effect = {
+			AUS = {
+				transfer_units_fraction = {
+					target = TRA
+					size = 0.1
+					stockpile_ratio = 0.1
+					army_ratio = 0.1
+					navy_ratio = 0
+					air_ratio = 0
+				}
+			}
+		}
+		TRA = {
+			declare_war_on = { target = AUS type = topple_government }
+		}
+	}
+} 
 
+country_event = { #JAP event for Kerensky denouncing their imperialism
+	id = SOV_kerensky_tree_events.3
+	title = SOV_kerensky_tree_events.3.t
+	desc = SOV_kerensky_tree_events.3.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.3.a #That's not very cash money of you
+		ai_chance = { factor = 1}
+	}
+} 
+
+country_event = { #SOV demanding ETR overlordship
+	id = SOV_kerensky_tree_events.4
+	title = SOV_kerensky_tree_events.4.t
+	desc = SOV_kerensky_tree_events.4.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.4.a #sure
+		ai_chance = { factor = 5 }
+		SOV = {
+			puppet = ETR
+		}
+	}
+	option = {
+		name = SOV_kerensky_tree_events.4.b #nah fam
+		ai_chance = { factor = 1}
+		SOV = {
+			create_wargoal = {
+				target = ETR
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+} 
+
+country_event = { #Kerensky humiliates japan
+	id = SOV_kerensky_tree_events.5
+	title = SOV_kerensky_tree_events.5.t
+	desc = SOV_kerensky_tree_events.5.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.5.a #That's not very cash money of you
+		ai_chance = { factor = 1}
+		add_political_power = -25
+		add_popularity = { ideology = ROOT popularity = -0.02 }
+	}
+} 
+
+country_event = { #Kerensky proposes white peace
+	id = SOV_kerensky_tree_events.6
+	title = SOV_kerensky_tree_events.6.t
+	desc = SOV_kerensky_tree_events.6.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.6.a #Peace would be best
+		ai_chance = { factor = 1 }
+		white_peace = SOV
+		SOV = {
+			transfer_state = 537 #dunno other islands, should be added later
+		}
+	}
+	option = {
+		name = SOV_kerensky_tree_events.6.b #Nah fam
+		ai_chance = { factor = 1}
+		add_war_support = -0.01
+	}
+} 
 
 add_namespace = SOV_pavel_tree_events
 ##The Question of the Okhrana

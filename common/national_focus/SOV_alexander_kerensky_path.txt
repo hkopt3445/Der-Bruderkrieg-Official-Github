@@ -13,6 +13,7 @@ focus_tree = {
 	shared_focus = SOV_kovankos_influence
     shared_focus = SOV_alksnis_designs
     shared_focus = SOV_the_grand_fleet
+    shared_focus = SOV_great_beacon_democracy
 
 	continuous_focus_position = {
 		x = 100
@@ -1832,6 +1833,461 @@ shared_focus = {
 				
 				}
 			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_great_beacon_democracy
+	icon = GFX_goal_support_democracy
+	x = 50 
+	y = 0
+	cost = 2
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+  		add_popularity = {
+  			ideology = ROOT
+  			popularity = 0.05
+  		}
+	}
+}
+
+shared_focus = {
+	id = SOV_counter_japanese_imperialism
+	icon = GFX_goal_support_democracy
+	prerequisite = { focus = SOV_great_beacon_democracy }
+	relative_position_id = SOV_great_beacon_democracy
+	x = 3
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		add_war_support = 0.05
+  		add_opinion_modifier = {
+  			target = JAP
+  			modifier = medium_decrease
+  		}
+  		JAP = {
+  			add_opinion_modifier = {
+  				target = SOV
+  				modifier = medium_decrease
+  			}
+  			country_event = { id = SOV_kerensky_tree_events.3 hours = 2 }
+  		}
+  		add_state_claim = 537
+	}
+}
+
+shared_focus = {
+	id = SOV_foreign_oil_focus
+	icon = GFX_goal_support_democracy
+	prerequisite = { focus = SOV_great_beacon_democracy }
+	relative_position_id = SOV_great_beacon_democracy
+	x = 0
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		add_war_support = 0.05
+	}
+}
+
+shared_focus = {
+	id = SOV_demand_iranian_oil
+	icon = GFX_goal_generic_political_pressure
+	prerequisite = { focus = SOV_foreign_oil_focus }
+	mutually_exclusive = { focus = SOV_pre_emptive_oil_seizure }
+	relative_position_id = SOV_foreign_oil_focus
+	x = -1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		PER = {
+			country_event = { id = SOV_lenin_tree_events.10 }
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_pre_emptive_oil_seizure
+	icon = GFX_goal_generic_political_pressure
+	prerequisite = { focus = SOV_foreign_oil_focus }
+	mutually_exclusive = { focus = SOV_demand_iranian_oil }
+	relative_position_id = SOV_foreign_oil_focus
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		create_wargoal = {
+			target = PER
+			type = take_state_focus
+			generator = { 266 } #might be wrong about the state just change it if so
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_turkestan_democracy
+	icon = GFX_goal_support_democracy
+	prerequisite = { focus = SOV_counter_japanese_imperialism }
+	relative_position_id = SOV_counter_japanese_imperialism
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	bypass = {
+		ETR = {
+			exists = no
+		}
+	}
+  
+	completion_reward = {
+		ETR = {
+			country_event = { id = SOV_kerensky_tree_events.4 hours = 3 }
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_monopolize_turkestan_oil
+	icon = GFX_goal_support_democracy
+	prerequisite = { focus = SOV_turkestan_democracy }
+	prerequisite = { focus = SOV_foreign_oil_focus }
+	relative_position_id = SOV_turkestan_democracy
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	available = {
+		ETR = {
+			is_subject_of = SOV
+		}
+	}
+
+	bypass = {
+		ETR = {
+			exists = no
+		}
+	}
+  
+	completion_reward = {
+		#no idea what states have oil, so I'm just gonna go with this. Hope it works
+		every_state = {
+			limit = { is_owned_by = ETR has_resources_amount = { resource = oil amount > 1 } }
+			give_resource_rights = {
+				receiver = SOV
+				state = PREV
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_retake_islands
+	icon = GFX_focus_attack_japan
+	prerequisite = { focus = SOV_counter_japanese_imperialism }
+	relative_position_id = SOV_counter_japanese_imperialism
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+  		create_wargoal = {
+  			target = JAP
+  			type = take_state_focus
+  			generator = { 537 }
+  		}
+	}
+}
+
+shared_focus = {
+	id = SOV_humiliate_japan
+	icon = GFX_focus_attack_japan
+	prerequisite = { focus = SOV_retake_islands }
+	relative_position_id = SOV_retake_islands
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	available = {
+		fully_controls_state = 537
+	}
+  
+	completion_reward = {
+		JAP = {
+			country_event = { id = SOV_kerensky_tree_events.5 days = 2 }
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_leave_japanese_mainland
+	icon = GFX_focus_attack_japan
+	prerequisite = { focus = SOV_humiliate_japan }
+	mutually_exclusive = { SOV_complete_domination_japanese }
+	relative_position_id = SOV_humiliate_japan
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	available = {
+		fully_controls_state = 537
+		has_war_with = JAP
+	}
+  
+	completion_reward = {
+		JAP = {
+			country_event = { id = SOV_kerensky_tree_events.6 days = 2 }
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_complete_domination_japanese
+	icon = GFX_focus_attack_japan
+	prerequisite = { focus = SOV_humiliate_japan }
+	mutually_exclusive = { SOV_leave_japanese_mainland }
+	relative_position_id = SOV_humiliate_japan
+	x = 1
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	available = {
+		has_war_with = JAP
+	}
+  
+	completion_reward = {
+		add_war_support = 0.05
+	}
+}
+
+shared_focus = {
+	id = SOV_worlds_oil_titan
+	icon = GFX_goal_generic_political_pressure
+	prerequisite = { focus = SOV_pre_emptive_oil_seizure focus = SOV_demand_iranian_oil }
+	relative_position_id = SOV_pre_emptive_oil_seizure
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	available = {
+		OR = {
+			owns_state = 266
+			#I dunno what the thing for resource rights is :/
+		}
+	}
+  
+	completion_reward = {
+		#idea that gives resource extraction bonus? Gib oil? (watch out for America)
+		every_country = {
+			limit = { is_neighbor_of = SOV is_major = no }
+			add_opinion_modifier = {
+				target = SOV
+				modifier = small_increase
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_protecting_ethiopia
+	icon = GFX_goal_generic_political_pressure
+	prerequisite = { focus = SOV_worlds_oil_titan }
+	relative_position_id = SOV_worlds_oil_titan
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	available = {
+		ETH = { has_war = no }
+	}
+
+	bypass = {
+		OR = {
+			has_war_with = ETH
+			ETH = { exists = no }
+		}
+	}
+  
+	completion_reward = {
+		give_guarantee = ETH
+	}
+}
+
+shared_focus = {
+	id = SOV_supply_ethiopian_army
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_protecting_ethiopia }
+	relative_position_id = SOV_protecting_ethiopia
+	x = 1
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	bypass = {
+		OR = {
+			has_war_with = ETH
+			ETH = { exists = no }
+		}
+	}
+  
+	completion_reward = {
+		ETH = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = SOV
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_put_down_ethiopian_ethnic_rebellions
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_protecting_ethiopia }
+	relative_position_id = SOV_protecting_ethiopia
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	bypass = {
+		OR = {
+			has_war_with = ETH
+			ETH = { exists = no }
+		}
+	}
+  
+	completion_reward = {
+		ETH = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_connecting_eastern_europe
+	icon = GFX_goal_generic_construct_infrastructure
+	prerequisite = { focus = SOV_supply_ethiopian_army focus = SOV_put_down_ethiopian_ethnic_rebellions }
+	prerequisite = { focus = SOV_leave_japanese_mainland focus = SOV_complete_domination_japanese }
+	relative_position_id = SOV_supply_ethiopian_army
+	x = 2
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		every_state = {
+			limit = { is_owned_by = SOV is_controlled_by = SOV any_neighbor_state = { OR = { is_owned_by = BUL is_owned_by = ROM } } }
+			add_building_construction = {
+				type = infrastructure
+				level = 2 
+				instant_build = yes
+			}
+		}
+		BUL = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = HUN_reintegrate_the_railroads 
+			}
+		}
+		ROM = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = HUN_reintegrate_the_railroads 
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_uprisings_in_austria
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_connecting_eastern_europe }
+	relative_position_id = SOV_connecting_eastern_europe
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		AUS = {
+			add_stability = -0.05
+			country_event = { id = SOV_kerensky_tree_events.2 hours = 6 }
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_russian_diamonds
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_connecting_eastern_europe }
+	relative_position_id = SOV_connecting_eastern_europe
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		add_ideas = SOV_diamond_mine_expansion
+	}
+}
+
+shared_focus = {
+	id = SOV_strengthening_eastern_european_ties
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_connecting_eastern_europe }
+	relative_position_id = SOV_connecting_eastern_europe
+	x = -2
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		BUL = {
+			country_event = { id = generic.5 }
+		}
+		ROM = {
+			country_event = { id = generic.5 }
 		}
 	}
 }
