@@ -56,16 +56,87 @@ scripted_gui = {
 
 		ITA_national_mission_1_click = {
 			add_political_power = 150
+			set_country_flag = ITA_national_mission_1_click_flag
 		}
 		ITA_national_mission_2_click = {
 			add_ideas = ITA_mare_nostrum
 			##ask chowder to do some battleship thing
+			set_country_flag = ITA_national_mission_2_click_flag
 		}
 		ITA_national_mission_3_click = {
 			add_ideas = ITA_a_modern_italy
+			set_country_flag = ITA_national_mission_3_click_flag
 		}
 		ITA_national_mission_4_click = {
 			set_country_flag = ITA_unlock_risorgemento_decisions
+			set_country_flag = ITA_national_mission_4_click_flag
+		}
+	}
+
+	triggers = {
+	
+
+		ITA_national_mission_1_click_enabled = {
+			NOT = {
+				has_country_flag = ITA_national_mission_1_click_flag
+			}
+			has_completed_focus = ITA_SOUTH_REJUVANATED
+		}
+		ITA_national_mission_2_click_enabled = {
+			NOT = {
+				has_country_flag = ITA_national_mission_2_click_flag
+			}
+		}
+		ITA_national_mission_3_click_enabled = {
+			NOT = {
+				has_country_flag = ITA_national_mission_3_click_flag
+			}
+			all_owned_state = {
+				infrastructure > 3
+			}
+		}
+		ITA_national_mission_4_click_enabled = {
+			NOT = {
+				has_country_flag = ITA_national_mission_4_click_flag
+			}
+			custom_trigger_tooltip = {
+				tooltip = ITA_we_own_all_core_states
+				all_of_scopes = {
+					array = ITA.core_states
+					is_owned_by = ITA
+				}
+			}
+			
+		}
+
+		
+		##covers
+		ITA_national_mission_1_cover_visible = {
+			NOT = {
+				has_completed_focus = ITA_SOUTH_REJUVANATED
+			}
+		}
+		ITA_national_mission_2_cover_visible = {
+			NOT = {
+
+			}
+			
+		}
+		ITA_national_mission_3_cover_visible = {
+			NOT = {
+				all_owned_state = {
+					infrastructure > 3
+				}
+			}
+			
+		}
+		ITA_national_mission_4_cover_visible = {
+			NOT = {
+				all_of_scopes = {
+					array = ITA.core_states
+					is_owned_by = ITA
+				}
+			}
 		}
 	}
 }
