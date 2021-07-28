@@ -1685,6 +1685,65 @@ country_event = { #Meeting with Tsertelli
 	}
 }
 
+
+country_event = { #Demand [ROOT] Subjugation
+	id = SOV_lenin_tree_events.23
+	title = SOV_lenin_tree_events.23.t
+	desc = SOV_lenin_tree_events.23.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.23.a #yes
+		ai_chance = { factor = 3 }
+		SOV = {
+			country_event = SOV_lenin_tree_events.24
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.23.b #oh no
+		ai_chance = { factor = 1 }
+		SOV = {
+			country_event = SOV_lenin_tree_events.25
+		}
+	}
+}
+
+country_event = { #accept 
+	id = SOV_lenin_tree_events.24
+	title = SOV_lenin_tree_events.24.t
+	desc = SOV_lenin_tree_events.24.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.24.a #oh no
+		ai_chance = { factor = 3 }
+		SOV = {
+			puppet = FROM
+		}
+	}
+}
+
+country_event = { #deny
+	id = SOV_lenin_tree_events.25
+	title = SOV_lenin_tree_events.25.t
+	desc = SOV_lenin_tree_events.25.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.25.a #oh no
+		ai_chance = { factor = 3 }
+		SOV = {
+			create_wargoal = {
+				target = FROM
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+}
+
+
+
+
 add_namespace = SOV_lenin_social_reforms_events
 
 country_event = { #prohibition
