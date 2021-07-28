@@ -119,12 +119,14 @@ GER_national_missions_conatiner_scripted_gui = {
 		}
 
 		GER_national_mission_1_click = {
+			set_country_flag = GER_national_mission_1_click_flag
 			add_timed_idea = {
 				idea = GER_prepared_for_war
 				days = 240
 			} 
 		}
 		GER_national_mission_2_click = {
+			set_country_flag = GER_national_mission_2_click_flag
 			GER = {
 				random_owned_controlled_state = {
 					create_unit = {
@@ -143,6 +145,7 @@ GER_national_missions_conatiner_scripted_gui = {
 			}
 		}
 		GER_national_mission_3_click = {
+			set_country_flag = GER_national_mission_3_click_flag
 			create_field_marshal = {
 				name = "Polarn"
 				picture = "Portrait_Germany_Walter_Model.dds"
@@ -156,22 +159,76 @@ GER_national_missions_conatiner_scripted_gui = {
 			}
 		}
 		GER_national_mission_4_click = {
+			set_country_flag = GER_national_mission_4_click_flag
 			remove_ideas = GER_bismarcks_broken_dream
 		}
 	}
 	triggers = {
-		GER_national_mission_1_click_enabled = { 
-
+		GER_national_mission_1_click_enabled = {
+			NOT = {
+				has_country_flag = GER_national_mission_1_click_flag
+			} 
+			
+			has_equipment = {
+				infantry_equipment_1 > 5000
+			}
 		}
 		GER_national_mission_2_click_enabled = {
-
+			NOT = {
+				has_country_flag = GER_national_mission_2_click_flag
+			}
+			num_of_military_factories > 94
+			num_divisions > 79
 		}
 		GER_national_mission_3_click_enabled = {
-
+			NOT = {
+				has_country_flag = GER_national_mission_3_click_flag
+			}
+			has_army_manpower = {
+				size > 1000000
+			}
+			has_war_support > 0.8
 		}
 		GER_national_mission_4_click_enabled = {
-
+			NOT = {
+				has_country_flag = GER_national_mission_4_click_flag
+			}
+			has_global_flag = form_germany_flag
 		}
+
+		
+		##covers
+		GER_national_mission_1_cover_visible = {
+			
+			NOT = {
+				has_equipment = {
+					infantry_equipment_1 > 5000
+				}
+			}
+		}
+		GER_national_mission_2_cover_visible = {
+			NOT = {
+				num_of_military_factories > 94
+				num_divisions > 79
+			}
+		}
+		GER_national_mission_3_cover_visible = {
+			NOT = {
+				has_army_manpower = {
+					size > 1000000
+				}
+				has_war_support > 0.8
+			}
+			
+		}
+		GER_national_mission_4_cover_visible = {
+			NOT = {
+				has_global_flag = form_germany_flag
+
+			}
+		}
+
+		
 	}
 }
 }
