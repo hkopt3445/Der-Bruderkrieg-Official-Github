@@ -40,6 +40,7 @@ scripted_gui = {
 		  }
 
 		  SOV_national_mission_1_click = {
+			  set_country_flag = SOV_national_mission_1_click_flag
 			add_offsite_building = { type = industrial_complex level = 1 }
 			add_offsite_building = { type = industrial_complex level = 1 }
 			add_offsite_building = { type = industrial_complex level = 1 }
@@ -48,17 +49,25 @@ scripted_gui = {
 			add_ideas = SOV_an_industrialized_siberia
 		  }
 		  SOV_national_mission_2_click = {
+			set_country_flag = SOV_national_mission_2_click_flag
 			add_ideas = SOV_an_employed_populace
 		  }
 		  SOV_national_mission_3_click = {
+			    set_country_flag = SOV_national_mission_3_click_flag
 			add_ideas = SOV_a_protected_nation
 		  }
 		  SOV_national_mission_4_click = {
+			    set_country_flag = SOV_national_mission_4_click_flag
+			  ##CREATE UNIT
+			  add_war_support = 0.1
 		  }
 	  }
 
 	  triggers = {
 		SOV_national_mission_1_click_enabled = {
+		NOT = {
+			has_country_flag = SOV_national_mission_1_click_flag
+		}
 			568 = {
 				infrastructure > 3
 				industrial_complex > 2
@@ -89,9 +98,15 @@ scripted_gui = {
 			}
 		  }
 		  SOV_national_mission_2_click_enabled = {
+			NOT = {
+				has_country_flag = SOV_national_mission_2_click_flag
+			}
 			industrial_complex > 150
 		  }
 		  SOV_national_mission_3_click_enabled = {
+			NOT = {
+				has_country_flag = SOV_national_mission_3_click_flag
+			}
 			  90 = {
 				any_province_building_level = {
 					province = {
@@ -146,7 +161,114 @@ scripted_gui = {
 					level > 6
 					}
 				}
+		  }
 		  SOV_national_mission_4_click_enabled = {
+			NOT = {
+				has_country_flag = SOV_national_mission_4_click_flag
+			}
+			num_divisions > 120
+		  }
+
+		##cover
+		  SOV_national_mission_1_cover_visible = {
+			  NOT = {
+			568 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			567 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			566 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			564 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			565 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			563 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			657 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+		}
+		  }
+		  SOV_national_mission_2_cover_visible = {
+			  NOT = {
+			industrial_complex > 150
+			}
+		  }
+		  SOV_national_mission_3_cover_visible = {
+			  NOT = {
+			  90 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  92 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  91 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  97 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  98 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  87 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+				}
+			  }
+		  }
+		  SOV_national_mission_4_cover_visible = {
+			  NOT = {
+				  num_divisions > 120
+			  }
 		  }
 	  }
   }
