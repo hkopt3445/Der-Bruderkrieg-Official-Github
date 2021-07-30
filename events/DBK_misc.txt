@@ -214,7 +214,13 @@ country_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = persian_ottoman_war.1.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
+		hidden_effect = {
+			country_event = {
+				id = persian_ottoman_war.3 
+				days = 5
+			}
+			news_event = persian_ottoman_war.2
+		}
 	}
 
 }
@@ -223,7 +229,7 @@ news_event = {
 	id = persian_ottoman_war.2 
 	title = persian_ottoman_war.2.t
 	desc = persian_ottoman_war.2.d
-	picture = GFX_report_event_vienna_award_hungary
+	picture = GFX_persianottomanwar
 	major = yes
 
 	#fire_only_once = yes   
@@ -245,9 +251,8 @@ country_event = {
 	title = persian_ottoman_war.3.t
 	desc = persian_ottoman_war.3.d
 	picture = GFX_report_event_vienna_award_hungary
-	major = yes
 
-	#fire_only_once = yes   
+	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
@@ -257,7 +262,7 @@ country_event = {
 			target = TUR
 			type = annex_everything
 		}
-
+		set_global_flag = persian_ottoman_war_activation
 		AUS = {country_event = persian_ottoman_war.4 }
 		GER = {country_event = persian_ottoman_war.4 }
 		FRA = {country_event = persian_ottoman_war.4  }	
@@ -273,7 +278,7 @@ country_event = {
 	picture = GFX_report_event_vienna_award_hungary
 	major = yes
 
-	#fire_only_once = yes   
+	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
@@ -1624,6 +1629,88 @@ news_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = central_american_collapse.2.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+
+
+add_namespace = bolivian_revolution
+country_event = {
+	id = bolivian_revolution.1 
+	title = bolivian_revolution.1.t
+	desc = bolivian_revolution.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		
+		release = BOL
+		BOL = {
+			load_oob = BOL_1936
+		}
+		PBC = {
+			declare_war_on = {
+				target = BOL
+				type = civil_war
+			}
+		}
+
+		news_event = bolivian_revolution.2 
+
+	}
+}
+ 
+news_event = {
+	id = bolivian_revolution.2 
+	title = bolivian_revolution.2.t
+	desc = bolivian_revolution.2.d
+	picture = GFX_centralamericancollapse
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+##bolivian peace
+country_event = {
+	id = bolivian_revolution.3 
+	title = bolivian_revolution.3.t
+	desc = bolivian_revolution.3.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	
+	trigger = {
+		PBC = {
+			has_war_with = BOL
+		}
+		BOL = {
+			controls_state = 985
+		}
+	}
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		BOL = {
+			white_peace = PBC
+			transfer_state = 993
+			transfer_state = 997
+			transfer_state = 977
+			transfer_state = 1014
+			transfer_state = 506
+		}
 
 	}
 }
