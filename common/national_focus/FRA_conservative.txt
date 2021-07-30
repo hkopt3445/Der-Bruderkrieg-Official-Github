@@ -5104,7 +5104,7 @@ instant_build = yes
 			
 			
 		
-			x = 26
+			x = 27
 			y = 0
 			
 			
@@ -5150,7 +5150,7 @@ instant_build = yes
 			icon = GFX_focus_generic_befriend_portugal
 			text = FRA_ALLY_PORTUGAL
 			prerequisite = { focus = FRA_FRANCE_ALONE }
-			x = -4
+			x = 3
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			cost = 5
@@ -5270,7 +5270,7 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_law_on_the_country_in_danger
 			icon = GFX_goal_FRA_law_for_the_country_in_danger
-			x = 2
+			x = 1
 			y = 1
 			cost = 4
 			available_if_capitulated = yes
@@ -5424,7 +5424,7 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_kalterkrieg
 			icon = GFX_goal_FRA_kalterkrieg
-			x = -1
+			x = 0
 			y = 2
 			cost = 5
 			available_if_capitulated = yes
@@ -5491,7 +5491,7 @@ instant_build = yes
 			icon = GFX_goal_Monego_Campaign
 			text = FRA_MANEGO_CAMPAIGN
 			prerequisite = { focus = FRA_DEMAND_WEST_ITALY  }
-			x = 1
+			x = 0
 			y = 1
 			relative_position_id = FRA_DEMAND_WEST_ITALY
 			cost = 5
@@ -5527,10 +5527,10 @@ instant_build = yes
 			id = FRA_DANUBE_CAMPAIGN
 			icon = GFX_goal_Danubian_Regions
 			text = FRA_DANUBE_CAMPAIGN
-			prerequisite = { focus = FRA_REESTABLISH_EMPIRE }
-			x = 0
+			prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
+			x = 1
 			y = 2
-			relative_position_id = FRA_REESTABLISH_EMPIRE
+			relative_position_id = FRA_ANTI_AUSTRIAN_PACT
 			cost = 2
 			ai_will_do = {
 				factor = 2000
@@ -5573,7 +5573,7 @@ instant_build = yes
 			text = FRA_RESTART_WARS
 			prerequisite = { focus = FRA_DANUBE_CAMPAIGN focus = FRA_ils_ne_passeront_pas }
 			x = 1
-			y = 2
+			y = 1
 			relative_position_id = FRA_DANUBE_CAMPAIGN
 			cost = 5
 			ai_will_do = {
@@ -5691,7 +5691,7 @@ instant_build = yes
 				id = FRA_the_french_imperium
 				icon = GFX_goal_AUS_sign_a_new_constitution
 				text = FRA_the_french_imperium
-				x = 17
+				x = 18
 				y = 0
 				cost = 2
 				ai_will_do = {
@@ -5718,7 +5718,7 @@ instant_build = yes
 				id = FRA_the_chaotic_westfalen
 				icon = GFX_goal_FRA_chaotic_westfalen
 				text = FRA_the_chaotic_westfalen
-				x = 0
+				x = -2
 				y = 1
 				cost = 2
 				ai_will_do = {
@@ -5813,6 +5813,9 @@ instant_build = yes
 			}
 			prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
 			relative_position_id = FRA_reinforcing_neue_code_napoleon
+			mutually_exclusive = {
+				focus = FRA_they_cant_be_trusted_anymore
+			}
 		
 			available_if_capitulated = yes
 			search_filters = { FOCUS_FILTER_RESEARCH }
@@ -5850,7 +5853,66 @@ instant_build = yes
 				}
 			}
 		}
+		shared_focus = {
+			id = FRA_they_cant_be_trusted_anymore
+			icon = GFX_goal_SOV_the_constitutionalists
+			text = FRA_they_cant_be_trusted_anymore
+			x = -3
+			y = 1
+			cost = 4
+			ai_will_do = {
+				factor = 20
+			}
+			prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
+			relative_position_id = FRA_reinforcing_neue_code_napoleon
+			mutually_exclusive = {
+				focus = FRA_our_crown_jewel
+			}
 		
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				add_stability = -0.05
+				transfer_state = 51
+				transfer_state = 42
+				transfer_state = 955
+				transfer_state = 798
+				FGD = {
+					add_opinion_modifier = {
+						target = FRA
+						modifier = large_decrease
+					}
+					add_stability = -0.1
+					add_war_support = -0.1
+				}
+			}
+		}
+
+		shared_focus = {
+			id = FRA_integrate_the_rhineland
+			icon = GFX_goal_SOV_mobilize_the_cossacks
+			text = FRA_integrate_the_rhineland
+			#prerequisite = {focus = FRA_TAKING_OUT_THE_SGC}
+			prerequisite = {focus = FRA_they_cant_be_trusted_anymore}
+			x = 0
+			y = 1
+			relative_position_id = FRA_they_cant_be_trusted_anymore
+			cost = 5
+			ai_will_do = {
+				factor = 20
+			}
+		
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				add_state_core = 51
+				add_state_core = 42
+				add_state_core = 955
+				add_state_core = 798
+			}
+		}
 		
 		# shared_focus = {
 		# 	id = FRA_demand_hannovers_integration
@@ -6003,7 +6065,7 @@ instant_build = yes
 				id = FRA_the_luxemburg_colony
 				icon = GFX_goal_invadeluxembourg
 				text = FRA_the_luxemburg_colony
-				x = 2
+				x = -4
 				y = 1
 				cost = 5
 				ai_will_do = {
@@ -6023,7 +6085,7 @@ instant_build = yes
 				id = FRA_mertz_steel_mines
 				icon = GFX_DBK_generic_industry
 				text = FRA_mertz_steel_mines
-				x = 1
+				x = -1
 				y = 1
 				cost = 5
 				ai_will_do = {
@@ -6057,7 +6119,7 @@ instant_build = yes
 				mutually_exclusive = {
 					focus = FRA_BRUSSELLS_CONFERENCE
 				}
-				x = -4
+				x = 1
 				y = 1
 				relative_position_id = FRA_the_french_imperium
 				cost = 2.5
@@ -6108,7 +6170,7 @@ instant_build = yes
 			
 				
 			
-				x = -2
+				x = 3
 				y = 1
 				relative_position_id = FRA_the_french_imperium
 				cost = 3
@@ -6134,6 +6196,48 @@ instant_build = yes
 			
 				completion_reward = {
 					country_event = brussells_conference.1
+				}
+			}
+
+			shared_focus = {
+				id = FRA_a_peaceful_offer
+				icon = GFX_goal_Brussels_Conference
+				text = FRA_a_peaceful_offer
+				prerequisite = { focus = FRA_the_french_imperium }
+				mutually_exclusive = {
+					focus = FRA_ANNEX_BELGIUM
+				}
+			
+				
+			
+				x = 5
+				y = 1
+				relative_position_id = FRA_the_french_imperium
+				cost = 3
+				ai_will_do = {
+					factor = 200
+				}
+				
+			
+				available = {
+					NOT = {
+						has_global_flag = degrelle_loses_electionns
+					}
+					country_exists = BEL
+					NOT = {
+						FRA = {
+							has_war_with = BEL
+						}
+					}
+				
+				}
+				available_if_capitulated = yes
+				search_filters = { FOCUS_FILTER_RESEARCH }
+			
+				completion_reward = {
+					BEL = {
+						country_event = france.17
+					}
 				}
 			}
 			
@@ -6176,15 +6280,155 @@ instant_build = yes
 			# 		}
 			# 	}
 			# }
+			shared_focus = {
+				id = FRA_rival_the_british_in_the_benelux
+				icon = GFX_goal_Brussels_Conference
+				text = FRA_rival_the_british_in_the_benelux
+				prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE 	focus = FRA_ANNEX_BELGIUM	}
+				x = -1
+				y = 1
+				relative_position_id = FRA_BRUSSELLS_CONFERENCE
+				cost = 2
+				ai_will_do = {
+					factor = 200
+				}
+				
 			
+				available = {
+				
+				
+				}
+				available_if_capitulated = yes
+				search_filters = { FOCUS_FILTER_RESEARCH }
+			
+				completion_reward = {
+					add_war_support = 0.05
+					add_threat = 5
+					ENG = {
+						add_opinion_modifier = {
+							target = FRA
+							modifier = medium_decrease
+						}
+					}
+				}
+			}
+			shared_focus = {
+				id = FRA_protect_the_channel
+				icon = GFX_goal_Brussels_Conference
+				text = FRA_protect_the_channel
+				prerequisite = { focus = FRA_rival_the_british_in_the_benelux	}
+				x = 0
+				y = 1
+				relative_position_id = FRA_rival_the_british_in_the_benelux
+				cost = 3
+				ai_will_do = {
+					factor = 200
+				}
+				
+			
+				available = {
+				
+				
+				}
+				available_if_capitulated = yes
+				search_filters = { FOCUS_FILTER_RESEARCH }
+			
+				completion_reward = {
+					14 = {
+						add_building_construction = {
+							type = coastal_bunker
+							level = 1
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_coastal = yes
+							}
+						}
+					}
+					15 = {
+						add_building_construction = {
+							type = coastal_bunker
+							level = 1
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_coastal = yes
+							}
+						}
+					}
+					29 = {
+						add_building_construction = {
+							type = coastal_bunker
+							level = 1
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_coastal = yes
+							}
+						}
+					}
+				}
+			}
+			shared_focus = {
+				id = FRA_demand_control_of_the_dutch_rhine
+				icon = GFX_goal_Brussels_Conference
+				text = FRA_demand_control_of_the_dutch_rhine
+				prerequisite = { focus = FRA_protect_the_channel	}
+				x = 0
+				y = 1
+				relative_position_id = FRA_protect_the_channel
+				cost = 2
+				ai_will_do = {
+					factor = 200
+				}
+				
+			
+				available = {
+				
+				
+				}
+				available_if_capitulated = yes
+				search_filters = { FOCUS_FILTER_RESEARCH }
+			
+				completion_reward = {
+					add_state_core = 35
+				}
+			}
+			shared_focus = {
+				id = FRA_repair_relations_with_the_british
+				icon = GFX_goal_Brussels_Conference
+				text = FRA_repair_relations_with_the_british
+				prerequisite = {focus = FRA_a_peaceful_offer}
+				x = 1
+				y = 1
+				relative_position_id = FRA_BRUSSELLS_CONFERENCE
+				cost = 3
+				ai_will_do = {
+					factor = 200 
+				}
+				
+			
+				available = {
+				
+				
+				}
+				available_if_capitulated = yes
+				search_filters = { FOCUS_FILTER_RESEARCH }
+			
+				completion_reward = {
+					ENG = {
+						country_event = napoleanfrance.31
+					}
+				}
+			}
 			shared_focus = {
 				id = FRA_FORTIFY_BENELUX_BORDER
 				icon = GFX_goal_Solidify_Control
 				text = FRA_FORTIFY_BENELUX_BORDER
-				prerequisite = { focus = FRA_BRUSSELLS_CONFERENCE focus = FRA_ANNEX_BELGIUM }
-				x = -1
+				prerequisite = { focus = FRA_repair_relations_with_the_british }
+				x = 0
 				y = 1
-				relative_position_id = FRA_BRUSSELLS_CONFERENCE
+				relative_position_id = FRA_repair_relations_with_the_british
 				cost = 5
 				ai_will_do = {
 					factor = 20
@@ -6255,7 +6499,31 @@ instant_build = yes
 						}
 				}
 			}
+			shared_focus = {
+				id = FRA_british_naval_deals
+				icon = GFX_goal_Brussels_Conference
+				text = FRA_british_naval_deals
+				prerequisite = { focus = FRA_FORTIFY_BENELUX_BORDER	}
+				x = 0
+				y = 1
+				relative_position_id = FRA_FORTIFY_BENELUX_BORDER
+				cost = 3
+				ai_will_do = {
+					factor = 200
+				}
+				
 			
+				available = {
+				
+				
+				}
+				available_if_capitulated = yes
+				search_filters = { FOCUS_FILTER_RESEARCH }
+			
+				completion_reward = {
+					add_ideas = AUS_naval_liscences
+				}
+			}
 		
 		
 		

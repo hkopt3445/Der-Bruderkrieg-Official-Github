@@ -652,7 +652,7 @@ country_event = {
 				days = 2
 			}
 		# 	set_country_flag = stocks_crash
-		# }
+		}
 	}
 }
 #Lyons general strike
@@ -1648,6 +1648,62 @@ news_event = {
 	}
 }
 
+country_event = {
+	id = napoleanfrance.31
+	title = napoleanfrance.31.t
+	desc = napoleanfrance.31.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.31.a
+		ai_chance = { factor = 1000 }
+		diplomatic_relation = {
+			country = FRA
+			relation = non_aggression_pact
+			active = yes
+		}
+		FRA = {
+			country_event = napoleanfrance.32
+		}
+	}
+	option = {
+		name = napoleanfrance.31.b
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = napoleanfrance.32
+	title = napoleanfrance.32.t
+	desc = napoleanfrance.32.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.32.a
+		ai_chance = { factor = 1000 }
+		news_event = napoleanfrance.33
+	}
+	
+}
+
+news_event = {
+	id = napoleanfrance.33
+	title = napoleanfrance.33.t
+	desc = napoleanfrance.33.d
+	picture = GFX_napoleonicideals
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.33.a
+	}
+}
+
+
 
 add_namespace = belgian_election_events ##not really france itself but deeply intertwined
 
@@ -2032,4 +2088,5 @@ country_event = {
 		
 	}
 }
+
 
