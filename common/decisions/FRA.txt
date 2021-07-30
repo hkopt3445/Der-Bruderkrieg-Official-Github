@@ -185,6 +185,9 @@ FRA_worker_strikes = {
 			#strikers murdered = yes
 			#strikers eat the rich = yes
 			#}
+			hidden_trigger = {
+				always = no
+			}
 		}
 		activation = {
 			has_country_flag = FRA_lyon_strike_start
@@ -204,7 +207,7 @@ FRA_worker_strikes = {
 	}
 
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 	}
 	available = {
 		has_completed_focus = FRA_the_strikers_hit
@@ -225,19 +228,16 @@ FRA_worker_strikes = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
  }
 FRA_set_up_guards_around_factories = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 	}
 	available = {
 		has_completed_focus = FRA_the_strikers_hit
@@ -258,19 +258,16 @@ FRA_set_up_guards_around_factories = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 FRA_threaten_their_pensions = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 	}
 	available = {
 		has_completed_focus = FRA_the_strikers_hit
@@ -291,19 +288,16 @@ FRA_threaten_their_pensions = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 FRA_round_up_the_leaders = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 	}
 	available = {
 		has_completed_focus = FRA_the_strikers_hit
@@ -324,22 +318,19 @@ FRA_round_up_the_leaders = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 FRA_factory_occupation_initiation = {
 
 	icon = eng_trade_unions_demand
-
-	allowed = {
-	}
 	available = {
 		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 	}
 
 	days_remove = 25
@@ -357,8 +348,8 @@ FRA_factory_occupation_initiation = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 
@@ -366,11 +357,8 @@ FRA_factory_occupation_large = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 	}
 	available = {
 		has_completed_focus = FRA_the_strikers_hit
@@ -400,11 +388,8 @@ FRA_send_in_the_military_forces = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 	}
 	available = {
 		has_completed_focus = FRA_the_strikers_hit
@@ -434,11 +419,8 @@ FRA_declare_a_state_of_emergency = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 	}
 	available = {
 		has_completed_focus = FRA_the_strikers_hit
@@ -459,8 +441,8 @@ FRA_declare_a_state_of_emergency = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 
@@ -468,15 +450,16 @@ FRA_declare_the_strikes_cleared = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	available = {
-		check_variable = {global.france_strikes_ref_var < -25}
+		custom_trigger_tooltip = {
+			tooltip = FRA_declare_the_strikes_cleared_tt
+			check_variable = { FRA_progress_to_crushing_strikes > 49 }
+
+		}
 	}
 
 	visible = {
-		has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 		
 	}
 
