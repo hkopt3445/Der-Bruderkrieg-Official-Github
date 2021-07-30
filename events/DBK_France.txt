@@ -507,14 +507,27 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = france.210.a #needs to be localized
+		set_country_flag = FRA_balancing_the_autocracy
 		unlock_decision_category_tooltip = FRA_balancing_the_autocracy
 
-		set_country_flag = balance_aristrocracy_flag
-
-		set_variable = {FRA_nobility_var = 35}
+		set_variable = {FRA_nobility_var = 25}
 		set_variable = {FRA_military_var = 25}
 		
-}
+		hidden_effect = {
+			set_country_flag = FRA_sided_with_the_nobility
+		}
+	}
+	option = { # This option will give the war goal
+		name = france.210.b #needs to be localized
+		set_country_flag = FRA_balancing_the_autocracy
+		unlock_decision_category_tooltip = FRA_balancing_the_autocracy
+
+		set_variable = {FRA_nobility_var = 25}
+		set_variable = {FRA_military_var = 25}	
+		hidden_effect = {
+			set_country_flag = FRA_sided_with_the_military
+		}
+	}
 }
 
 
@@ -633,11 +646,11 @@ country_event = {
 
     option = {
 		name = FRA_vienna_crash.1.a
-		# hidden_effect = {
-		# 	country_event = {
-		# 		id = FRA_worker_strikes.4
-		# 		days = 2
-		# 	}
+		hidden_effect = {
+			country_event = {
+				id = FRA_vienna_crash.2
+				days = 2
+			}
 		# 	set_country_flag = stocks_crash
 		# }
 	}
