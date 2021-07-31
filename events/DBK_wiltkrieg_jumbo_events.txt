@@ -332,6 +332,244 @@ country_event = {
 
 }
 
+add_namespace = british_inteverntion_in_prussian_expansion
+
+##Prussian invasion of hannover, hannover begs for help
+country_event = {
+	id = british_inteverntion_in_prussian_expansion.1
+	title = british_inteverntion_in_prussian_expansion.1.t
+	desc = british_inteverntion_in_prussian_expansion.1.d
+	#picture = GFX_report_event_czech_soldiers_01.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_prussian_expansion.1.a
+		add_to_faction = HAN
+		set_country_flag = ENG_chose_intervention_against_prussia
+		ai_chance = {factor = 0}
+	}
+	option = {
+		name = british_inteverntion_in_prussian_expansion.1.b
+		add_opinion_modifier = {
+			target = HAN
+			modifier = abandoned_czechs
+		}
+		add_political_power = 100
+		ai_chance = {factor = 100}
+	}
+}
+
+country_event = {
+	id = british_inteverntion_in_prussian_expansion.2
+	title = british_inteverntion_in_prussian_expansion.2.t
+	desc = british_inteverntion_in_prussian_expansion.2.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_prussian_expansion.2.a
+		set_country_flag = ENG_chose_intervention_against_prussia
+	
+		ai_chance = {
+			modifier = {
+				add = 50
+				AUS = { has_completed_focus = AUS_ensure_intervention }
+			}
+			factor = 5
+		}
+		hidden_effect = {
+			AUS = {
+				country_event = { id = british_inteverntion_in_prussian_expansion.3 days = 2 }
+			}
+			GER = {
+				country_event = {
+					id = british_inteverntion_in_prussian_expansion.8
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		name = british_inteverntion_in_prussian_expansion.2.b
+		
+		add_political_power = 100
+		hidden_effect = {
+			AUS = {
+				country_event = { id = british_inteverntion_in_prussian_expansion.4 days = 2 }
+			}
+			country_event = { id = british_inteverntion_in_prussian_expansion.5 days = 120 }
+		}
+		ai_chance = {factor = 95}
+	}
+}
+
+##french pledges support
+country_event = {
+	id = british_inteverntion_in_prussian_expansion.3
+	title = british_inteverntion_in_prussian_expansion.3.t
+	desc = british_inteverntion_in_prussian_expansion.3.d
+	#picture = GFX_report_event_czech_soldiers_03.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_prussian_expansion.3.a
+		ai_chance = {factor = 30}
+	}
+
+}
+
+##britain denies support
+country_event = {
+	id = british_inteverntion_in_prussian_expansion.4
+	title = british_inteverntion_in_prussian_expansion.4.t
+	desc = british_inteverntion_in_prussian_expansion.4.d
+	#picture = GFX_report_event_czech_soldiers_04.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_prussian_expansion.4.a
+		ai_chance = {factor = 30}
+	}
+
+}
+
+country_event = {
+	id = british_inteverntion_in_prussian_expansion.5
+	title = british_inteverntion_in_prussian_expansion.5.t
+	desc = british_inteverntion_in_prussian_expansion.5.d
+	#picture = GFX_report_event_czech_soldiers_05.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_prussian_expansion.5.a
+		set_country_flag = ENG_chose_intervention_against_prussia
+	
+		ai_chance = {factor = 30 modifier = {
+			add = 50
+			AUS = { has_completed_focus = AUS_ensure_intervention }
+		} }
+		hidden_effect = {
+			AUS = {
+				country_event = { id = british_inteverntion_in_prussian_expansion.3 days = 2 }
+			}
+			GER = {
+				country_event = {
+					id = british_inteverntion_in_prussian_expansion.8
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		name = british_inteverntion_in_prussian_expansion.5.b
+		
+		add_political_power = 100
+		hidden_effect = {
+			AUS = {
+				country_event = { id = british_inteverntion_in_prussian_expansion.4 days = 2 }
+			}
+			country_event = { id = british_inteverntion_in_prussian_expansion.6 days = 75 }
+		}
+		ai_chance = {factor = 70 }
+	}
+}
+country_event = {
+	id = british_inteverntion_in_prussian_expansion.6
+	title = british_inteverntion_in_prussian_expansion.6.t
+	desc = british_inteverntion_in_prussian_expansion.6.d
+	#picture = GFX_report_event_czech_soldiers_06.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_prussian_expansion.6.a
+		set_country_flag = ENG_chose_intervention_against_prussia
+	
+		ai_chance = {factor = 75 modifier = {
+			add = 50
+			AUS = { has_completed_focus = AUS_ensure_intervention }
+		} }
+		hidden_effect = {
+			AUS = {
+				country_event = { id = british_inteverntion_in_prussian_expansion.3 days = 2 }
+			}
+			GER = {
+				country_event = {
+					id = british_inteverntion_in_prussian_expansion.8
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		name = british_inteverntion_in_prussian_expansion.6.b
+		
+		add_political_power = 25
+		hidden_effect = {
+			AUS = {
+				country_event = { id = british_inteverntion_in_prussian_expansion.4 days = 2 }
+			}
+			country_event = { id = british_inteverntion_in_prussian_expansion.7 days = 50 }
+		}
+		ai_chance = {factor = 70 }
+	}
+}
+
+country_event = {
+	id = british_inteverntion_in_prussian_expansion.7
+	title = british_inteverntion_in_prussian_expansion.7.t
+	desc = british_inteverntion_in_prussian_expansion.7.d
+	#picture = GFX_report_event_czech_soldiers_07.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_prussian_expansion.7.a
+		set_country_flag = ENG_chose_intervention_against_prussia
+	
+		ai_chance = {factor = 100}
+		hidden_effect = {
+			AUS = {
+				country_event = { id = british_inteverntion_in_prussian_expansion.3 days = 2 }
+			}
+			GER = {
+				country_event = {
+					id = british_inteverntion_in_prussian_expansion.8
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		name = british_inteverntion_in_prussian_expansion.7.b
+		
+		add_political_power = 25
+		hidden_effect = {
+			AUS = {
+				country_event = { id = british_inteverntion_in_prussian_expansion.4 days = 2 }
+			}
+		}
+		ai_chance = {factor = 0 }
+	}
+}
+
+country_event = {
+	id = british_inteverntion_in_prussian_expansion.8
+	title = british_inteverntion_in_prussian_expansion.8.t
+	desc = british_inteverntion_in_prussian_expansion.8.d
+	#picture = GFX_report_event_czech_soldiers_08.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_prussian_expansion.8.a
+		ai_chance = {factor = 30}
+		GER = {
+			create_wargoal = {
+				target = ENG
+				type = annex_everything
+			}
+		}
+	}
+
+}
 
 
 add_namespace = austro_french_war
