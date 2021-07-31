@@ -32,71 +32,46 @@ southgermanconfederttion_civil_war_effect = {
 	}
 }	
 
-calc_court_influence = {
-	set_variable = {court_influence_var = franz_ferdinand_influence }
-	set_temp_variable = {temp = 0}
+# calc_court_influence = {
+# 	set_variable = {court_influence_var = franz_ferdinand_influence }
+# 	set_temp_variable = {temp = 0}
 
-	add_to_temp_variable = {
-		temp = prince_rupprecht_influence
-	}
-	add_to_temp_variable = {
-		temp = franz_ferdinand_influence
-	}
-	add_to_temp_variable = {
-		temp = von_rundstent_influence
-	}
+# 	add_to_temp_variable = {
+# 		temp = prince_rupprecht_influence
+# 	}
+# 	add_to_temp_variable = {
+# 		temp = franz_ferdinand_influence 
+# 	}
+# 	add_to_temp_variable = {
+# 		temp = von_rundstent_influence
+# 	}
 
-	divide_variable = {
-		court_influence_var = temp 
-	} 
-	multiply_variable = {
-		court_influence_var = 100
-	}
-}
+# 	divide_variable = {
+# 		court_influence_var = temp 
+# 	} 
+# 	multiply_variable = {
+# 		court_influence_var = 100
+# 	}
+# 	log = "[?court_influence_var]"
+# 	log = "hi"
+# }
 
 SGC_court_coup_effect = {
 	if = {
 		limit = {
-			check_variable = { prince_rupprecht_influence > von_rundstent_influence }
-			check_variable = { prince_rupprecht_influence > franz_ferdinand_influence }
-		}
-		country_event = southgermanconfederationcoup.1
-	}
-	if = {
-		limit = {
-			check_variable = { prince_rupprecht_influence = von_rundstent_influence }
-			check_variable = { prince_rupprecht_influence > franz_ferdinand_influence }
-		}
-		country_event = southgermanconfederationcoup.1
-	}
-	if = {
-		limit = {
-			check_variable = { von_rundstent_influence > prince_rupprecht_influence }
-			check_variable = { von_rundstent_influence > franz_ferdinand_influence }
-		}
-		country_event = southgermanconfederationcoup.3
-	}
-
-	if = {
-		limit = {
-			check_variable = { franz_ferdinand_influence > prince_rupprecht_influence }
-			check_variable = { franz_ferdinand_influence > von_rundstent_influence }
+			court_influence_var > 69
 		}
 		country_event = southgermanconfederationcoup.5
 	}
-	if = {
-		limit = {
-			check_variable = { franz_ferdinand_influence = prince_rupprecht_influence }
-			check_variable = { franz_ferdinand_influence > von_rundstent_influence }
+	else = {
+		random_list = {
+			50 = {
+				country_event = southgermanconfederationcoup.1
+			}
+			50 = {
+				country_event = southgermanconfederationcoup.3
+			}
 		}
-		country_event = southgermanconfederationcoup.5
-	}
-	if = {
-		limit = {
-			check_variable = { franz_ferdinand_influence > prince_rupprecht_influence }
-			check_variable = { franz_ferdinand_influence = von_rundstent_influence }
-		}
-		country_event = southgermanconfederationcoup.5
 	}
 }
 

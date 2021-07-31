@@ -3057,8 +3057,7 @@ AUS_managing_bavaria_court_factionalism = {
 	AUS_opposition_coup = {
 	
 		priority = 10
-	
-		icon = generic_ignite_civil_war
+		icon = decision_revolt
 	
 		available = {
 			hidden_trigger = { always = no }
@@ -3091,7 +3090,7 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 	}
 	AUS_calm_the_people = {
-
+		icon = generic_civil_support
 
 		available = { 
 
@@ -3108,14 +3107,15 @@ AUS_managing_bavaria_court_factionalism = {
 			
 		}
 		complete_effect = {
-			subtract_from_variable = {
-				popular_anger =  5
+			add_days_mission_timeout = {
+				mission = AUS_opposition_coup
+				days = 30
 			}
 		}
 	}
 
 	AUS_bribe_courtiers = {
-
+		icon = generic_operation
 
 		available = {
 
@@ -3130,9 +3130,10 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				franz_ferdinand_influence =  5
+				tooltip = AUS_increase_our_influence_in_court_by_5
+				court_influence_var =  5
 			}
-			calc_court_influence = yes
+			#calc_court_influence = yes
 			add_political_power = -20
 		}
 		complete_effect = {
@@ -3140,7 +3141,7 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 	}
 	AUS_medium_bribe = {
-
+		icon = generic_operation
 
 		available = {
 
@@ -3155,9 +3156,10 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				franz_ferdinand_influence =  10
+				tooltip = AUS_increase_our_influence_in_court_by_10
+				court_influence_var =  10
 			}
-			calc_court_influence = yes
+			#calc_court_influence = yes
 			add_political_power = -50
 		}
 		complete_effect = {
@@ -3165,7 +3167,7 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 	}
 	AUS_massive_bribe = {
-
+		icon = generic_operation
 
 		available = {
 
@@ -3180,9 +3182,10 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				franz_ferdinand_influence =  10
+				tooltip = AUS_increase_our_influence_in_court_by_10
+				court_influence_var =  10
 			}
-			calc_court_influence = yes
+			#calc_court_influence = yes
 			add_political_power = -100
 		}
 		complete_effect = {
@@ -3190,7 +3193,7 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 	}
 	AUS_dismiss_hate_courtiers = {
-
+		icon = generic_political_discourse
 
 		available = {
 
@@ -3204,20 +3207,19 @@ AUS_managing_bavaria_court_factionalism = {
 			factor = 100
 		}
 		remove_effect = {
+			
 			add_to_variable = {
-				popular_anger =  5
+				tooltip = AUS_increase_our_influence_in_court_by_5
+				court_influence_var =  5
 			}
-			add_to_variable = {
-				franz_ferdinand_influence =  5
-			}
-			calc_court_influence = yes
+			#calc_court_influence = yes
 		}
 		complete_effect = {
 			
 		}
 	}
 	AUS_support_loyalists = {
-
+		icon = generic_independence
 
 		available = {
 
@@ -3238,7 +3240,7 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 	}
 	AUS_arrest_court_dissenters = {
-
+		icon = generic_nationalism
 
 		available = {
 
@@ -3256,18 +3258,17 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 		complete_effect = {
 			add_to_variable = {
-				franz_ferdinand_influence = 5
+				tooltip = AUS_increase_our_influence_in_court_by_5
+				court_influence_var = 5
 			}
-			calc_court_influence = yes
+			#calc_court_influence = yes
 
-			add_to_variable = {
-				popular_anger =  5
-			}
+			
 		}
 	}
 	
 	AUS_dissenters_in_munich = {
-
+		icon = generic_ignite_civil_war
 
 		available = {
 
@@ -3285,18 +3286,17 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 		complete_effect = {
 			add_to_variable = {
-				franz_ferdinand_influence = 5
+				tooltip = AUS_increase_our_influence_in_court_by_5
+				court_influence_var = 5
 			}
-			add_to_variable = {
-				popular_anger =  5
-			}
+			
 			GPU = {
 				add_stability = -0.03
 			}
 		}
 	}
 	AUS_show_of_force = {
-
+		icon = generic_army_support
 
 		available = {
 
@@ -3312,7 +3312,8 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 		remove_effect = {
 			add_to_variable = {
-				franz_ferdinand_influence = 10
+				tooltip = AUS_increase_our_influence_in_court_by_5
+				court_influence_var = 10
 			}
 			add_manpower = -1000
 		}
