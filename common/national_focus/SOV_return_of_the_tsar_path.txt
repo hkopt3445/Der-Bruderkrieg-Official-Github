@@ -215,8 +215,8 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
-        add_ideas = SOV_conservative_lobbying
+        unlock_decision_tooltip = SOV_lobby_small_for_conservatives
+        unlock_decision_tooltip = SOV_lobby_large_for_conservatives
         ##unlock dumo lobbying decisions
     }
 }
@@ -286,10 +286,11 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 1000 
     }
     completion_reward = {
-        add_stability = 0.1
+        add_ideas = SOV_conservative_lobbying_idea
+
     }
 }
 shared_focus = {
@@ -303,6 +304,9 @@ shared_focus = {
     relative_position_id = SOV_secure_the_conservatives
     cost = 4
     available_if_capitulated = yes
+    available = {
+        democratic > 0.3
+    }
     ai_will_do = {
         factor = 1000
     }
@@ -426,7 +430,7 @@ shared_focus = {
     x = 0
     y = 1
     relative_position_id = SOV_the_restoration_of_the_tsar
-    cost = 2
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -455,7 +459,7 @@ shared_focus = {
             }
         }
     }
-    cost = 2
+    cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -499,7 +503,7 @@ shared_focus = {
 	x = 1
 	y = 1
     relative_position_id = SOV_propose_the_draft
-    cost = 2
+    cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -516,7 +520,7 @@ shared_focus = {
 	x = 1
 	y = 1
     relative_position_id = SOV_begin_consolidation_of_power
-    cost = 2
+    cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -529,8 +533,8 @@ shared_focus = {
         set_variable = {
             SOV_commie_extermination_progress = 0
         }
-
-        country_event = SOV_duma_voting_events.1
+        country_event =  SOV_return_of_the_tsar_path.13
+        #country_event = SOV_duma_voting_events.1
     }
 }
 shared_focus = {
@@ -540,7 +544,7 @@ shared_focus = {
 	x = -1
 	y = 1
     relative_position_id = SOV_the_left_menace
-    cost = 2
+    cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -560,7 +564,7 @@ shared_focus = {
 	x = 1
 	y = 1
     relative_position_id = SOV_the_left_menace
-    cost = 2
+    cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -582,14 +586,21 @@ shared_focus = {
 	x = -1
 	y = 1
     relative_position_id = SOV_illegalize_leftist_press
-    cost = 2
+    cost = 3
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        
-        
+        SOV_increase_support_among_people_medium = yes
+        add_popularity = {
+            ideology = democratic_communism
+            popularity = -0.05
+        }
+        add_popularity = {
+            ideology = communism
+            popularity = -0.05
+        }
     }
 }
 shared_focus = {
@@ -763,13 +774,13 @@ shared_focus = {
 	x = 1
 	y = 1
     relative_position_id = SOV_embrace_tsar_lineage
-    cost = 2
+    cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-       
+        
         country_event = SOV_return_of_the_tsar_path.12
     }
 }
