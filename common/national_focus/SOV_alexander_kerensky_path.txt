@@ -14,6 +14,7 @@ focus_tree = {
     shared_focus = SOV_alksnis_designs
     shared_focus = SOV_the_grand_fleet
     shared_focus = SOV_great_beacon_democracy
+	shared_focus = SOV_pavels_army_reforms
 
 	continuous_focus_position = {
 		x = 100
@@ -59,7 +60,9 @@ shared_focus = {
         
     }
     completion_reward = {
-        country_event = SOV_kerensky_tree_events.1
+		unlock_decision_category_tooltip = SOV_lenins_social_reforms
+
+        #country_event = SOV_kerensky_tree_events.1
     }
 }
   
@@ -1046,7 +1049,7 @@ shared_focus = {
         
     }
     completion_reward = {
-		add_timed_idea = { idea = SOV_Election_Verification days = 70 }
+		unlock_decision_category_tooltip = SOV_election_verification
     }
 }
 
@@ -1119,7 +1122,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        unlock_decision_category_tooltip = SOV_lenins_social_reforms
+		country_event = SOV_kerensky_tree_events.1
     }
 }
 shared_focus = {
@@ -1824,7 +1827,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_great_beacon_democracy
 	icon = GFX_goal_support_democracy
-	x = 24 
+	x = 27 
 	y = 0
 	cost = 2
 	available_if_capitulated = yes
@@ -2105,7 +2108,7 @@ shared_focus = {
 	icon = GFX_goal_generic_political_pressure
 	prerequisite = { focus = SOV_worlds_oil_titan }
 	relative_position_id = SOV_worlds_oil_titan
-	x = 1
+	x = 2
 	y = 1
 	cost = 10
 	available_if_capitulated = yes
@@ -2126,11 +2129,52 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = SOV_expoiting_the_arabian_oilfields
+	icon = GFX_goal_generic_political_pressure
+	prerequisite = { focus = SOV_securing_ottoman_oil }
+	relative_position_id = SOV_securing_ottoman_oil
+	x = 0
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	available = {
+		291 = {
+			OR = {
+				is_controlled_by = SOV
+				THIS.owner = {
+					is_in_faction_with = SOV
+				}
+			}
+		}
+	}
+  
+	completion_reward = {
+		291 = {
+			            add_building_construction = {
+			                type = infrastructure
+			                level = 3
+			                }
+			            add_resource = {
+			                type = oil
+			                amount = 12
+			                state = THIS
+			            }
+			
+			            add_extra_state_shared_building_slots = 1
+			        }
+	}
+}
+
+
+
+shared_focus = {
 	id = SOV_protecting_ethiopia
 	icon = GFX_goal_generic_political_pressure
 	prerequisite = { focus = SOV_worlds_oil_titan }
 	relative_position_id = SOV_worlds_oil_titan
-	x = -2
+	x = -1
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2307,6 +2351,8 @@ shared_focus = {
 		add_ideas = SOV_diamond_mine_expansion
 	}
 }
+
+
 
 
 

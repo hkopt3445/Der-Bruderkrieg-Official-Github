@@ -10405,3 +10405,145 @@ SOV_solving_the_ethnic_conflicts = {
 		}
 	}
 }
+
+SOV_election_verification = {
+	SOV_election_verification_timeout = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 120
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = SOV
+		has_completed_focus = SOV_Verifying_Election_Results
+		}
+	
+		visible = {
+			NOT = {
+				has_country_flag = SOV_URP_has_spread_anti_election_proporganda
+			}
+			NOT = {
+				has_country_flag = SOV_RSDLP_has_spread_anti_election_proporganda
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			SOV_increase_support_among_people_medium = yes			
+		}
+	}
+
+	##URP
+	SOV_URP_spreads_anti_election_propoganda = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 80
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = SOV
+		has_completed_focus = SOV_Verifying_Election_Results
+		}
+	
+		visible = {
+			NOT = {
+				has_country_flag = SOV_URP_has_not_spread_anti_election_proporganda
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			set_country_flag = SOV_URP_has_spread_anti_election_proporganda
+		}
+	}
+
+	SOV_stop_URP_anti_election_propoganda = {
+
+		fire_only_once = yes
+
+		cost = 15
+
+		days_remove = 10
+
+		modifier = {
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_URP_has_not_spread_anti_election_proporganda
+		}
+	}
+
+
+	##RSDLP
+	SOV_RSDLP_spreads_anti_election_propoganda = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 80
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = SOV
+		has_completed_focus = SOV_Verifying_Election_Results
+		}
+	
+		visible = {
+			NOT = {
+				has_country_flag = SOV_RSDLP_has_not_spread_anti_election_proporganda
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			set_country_flag = SOV_RSDLP_has_spread_anti_election_proporganda
+		}
+	}
+
+	SOV_stop_RSDLP_anti_election_propoganda = {
+
+		fire_only_once = yes
+
+		cost = 15
+
+		days_remove = 10
+
+		modifier = {
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_RSDLP_has_not_spread_anti_election_proporganda
+		}
+	}
+}
