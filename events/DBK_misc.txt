@@ -206,15 +206,20 @@ country_event = {
 	title = persian_ottoman_war.1.t
 	desc = persian_ottoman_war.1.d
 	picture = GFX_report_event_vienna_award_hungary
-	major = yes
 
-	#fire_only_once = yes   
+	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
 		name = persian_ottoman_war.1.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
+		hidden_effect = {
+			country_event = {
+				id = persian_ottoman_war.3 
+				days = 5
+			}
+			news_event = persian_ottoman_war.2
+		}
 	}
 
 }
@@ -223,11 +228,11 @@ news_event = {
 	id = persian_ottoman_war.2 
 	title = persian_ottoman_war.2.t
 	desc = persian_ottoman_war.2.d
-	picture = GFX_report_event_vienna_award_hungary
+	picture = GFX_persianottomanwar
 	major = yes
 
 	#fire_only_once = yes   
-	is_triggered_only = yes
+	is_triggered_only = yes 
 
 	option = { # Only one option, just an acknowledgment by the player
 		name = persian_ottoman_war.2.a #needs to be localized
@@ -245,9 +250,8 @@ country_event = {
 	title = persian_ottoman_war.3.t
 	desc = persian_ottoman_war.3.d
 	picture = GFX_report_event_vienna_award_hungary
-	major = yes
 
-	#fire_only_once = yes   
+	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
@@ -257,7 +261,7 @@ country_event = {
 			target = TUR
 			type = annex_everything
 		}
-
+		set_global_flag = persian_ottoman_war_activation
 		AUS = {country_event = persian_ottoman_war.4 }
 		GER = {country_event = persian_ottoman_war.4 }
 		FRA = {country_event = persian_ottoman_war.4  }	
@@ -271,9 +275,8 @@ country_event = {
 	title = persian_ottoman_war.4.t
 	desc = persian_ottoman_war.4.d
 	picture = GFX_report_event_vienna_award_hungary
-	major = yes
 
-	#fire_only_once = yes   
+	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
@@ -1317,7 +1320,395 @@ news_event = {
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 
 	}
+}
+
+add_namespace = romania_iron_guard_coup
+##iron guard repulsed
+country_event = {
+	id = romania_iron_guard_coup.1 
+	title = romania_iron_guard_coup.1.t
+	desc = romania_iron_guard_coup.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		news_event = {id = romania_iron_guard_coup.2 }
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.1
+		}
+		
+	}
+} 
+
+news_event = {
+	id = romania_iron_guard_coup.2 
+	title = romania_iron_guard_coup.2.t
+	desc = romania_iron_guard_coup.2.d
+	picture = GFX_news_event_romanian_soldiers
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+##iron guard success
+country_event = {
+	id = romania_iron_guard_coup.3 
+	title = romania_iron_guard_coup.3.t
+	desc = romania_iron_guard_coup.3.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		news_event = {id = romania_iron_guard_coup.2 }
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.3
+		}
+		set_politics = {
+			ruling_party = fascism
+		}
+	}
+} 
+
+news_event = {
+	id = romania_iron_guard_coup.4 
+	title = romania_iron_guard_coup.4.t
+	desc = romania_iron_guard_coup.4.d
+	picture = GFX_news_event_romanian_soldiers
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.4.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+##iron guard success
+country_event = {
+	id = romania_iron_guard_coup.5 
+	title = romania_iron_guard_coup.5.t
+	desc = romania_iron_guard_coup.5.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.5.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		news_event = {id = romania_iron_guard_coup.2 }
+	}
+} 
+
+news_event = {
+	id = romania_iron_guard_coup.6 
+	title = romania_iron_guard_coup.6.t
+	desc = romania_iron_guard_coup.6.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.6.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+
+add_namespace = great_south_american_war
+##argentina vs paraguay
+country_event = {
+	id = great_south_american_war.1 
+	title = great_south_american_war.1.t
+	desc = great_south_american_war.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = great_south_american_war.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		declare_war_on = {
+			target = PAR
+			type = annex_everything
+		}
+		PBC = {
+			country_event = {
+				id = great_south_american_war.2 
+				days = 3
+			}
+		}
+	}
+} 
+
+country_event = {
+	id = great_south_american_war.2 
+	title = great_south_american_war.2.t
+	desc = great_south_american_war.2.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = great_south_american_war.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		PBC = {
+			create_faction = "Lima Accords"
+		}
+		add_to_faction = COL
+		add_to_faction = PAR
+		ARG = {
+			create_faction = "National Renewal Alliance"
+			add_to_faction = CHL
+		}
+		PBC = {
+			declare_war_on = {
+				target = ARG
+				type = puppet_wargoal_focus
+			}
+		}
+		news_event = great_south_american_war.3 
+	}
+} 
+
+news_event = {
+	id = great_south_american_war.3 
+	title = great_south_american_war.3.t
+	desc = great_south_american_war.3.d
+	picture = GFX_greatsouthamericanwar
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = great_south_american_war.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
 
 
 
+add_namespace = central_american_collapse
+##central american colalpse
+country_event = {
+	id = central_american_collapse.1 
+	title = central_american_collapse.1.t
+	desc = central_american_collapse.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = central_american_collapse.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		
+		GUA = {
+			add_state_core = 313
+			add_state_core = 981
+			load_oob = CEN_1936
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Guatamela Division\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		ELS = {
+			add_state_core = 314
+			load_oob = CEN_1936
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"El Salvador Division\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		HON = {
+			add_state_core = 1049
+			load_oob = CEN_1936
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Honduras Division\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		release = GUA
+		release = ELS
+		release = HON
+		CEN = {
+			set_province_controller = 13241
+			set_province_controller = 13239
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"UFC Mercenary Division 1\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"UFC Mercenary Division 2\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"UFC Mercenary Division 3\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		GUA = {
+			declare_war_on = {
+				target = CEN
+				type = civil_war
+			}
+		}
+		ELS = {
+			declare_war_on = {
+				target = CEN
+				type = civil_war
+			}
+		}
+		HON = {
+			declare_war_on = {
+				target = CEN
+				type = civil_war
+			}
+		}
+
+		news_event = central_american_collapse.2 
+
+	}
+} 
+news_event = {
+	id = central_american_collapse.2 
+	title = central_american_collapse.2.t
+	desc = central_american_collapse.2.d
+	picture = GFX_centralamericancollapse
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = central_american_collapse.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+
+
+add_namespace = bolivian_revolution
+country_event = {
+	id = bolivian_revolution.1 
+	title = bolivian_revolution.1.t
+	desc = bolivian_revolution.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		
+		release = BOL
+		BOL = {
+			load_oob = BOL_1936
+		}
+		PBC = {
+			declare_war_on = {
+				target = BOL
+				type = civil_war
+			}
+		}
+
+		news_event = bolivian_revolution.2 
+
+	}
+}
+ 
+news_event = {
+	id = bolivian_revolution.2 
+	title = bolivian_revolution.2.t
+	desc = bolivian_revolution.2.d
+	picture = GFX_centralamericancollapse
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+##bolivian peace
+country_event = {
+	id = bolivian_revolution.3 
+	title = bolivian_revolution.3.t
+	desc = bolivian_revolution.3.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	
+	trigger = {
+		PBC = {
+			has_war_with = BOL
+		}
+		BOL = {
+			controls_state = 985
+		}
+	}
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		BOL = {
+			white_peace = PBC
+			transfer_state = 993
+			transfer_state = 997
+			transfer_state = 977
+			transfer_state = 1014
+			transfer_state = 506
+		}
+
+	}
 }

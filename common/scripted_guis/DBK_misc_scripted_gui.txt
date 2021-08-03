@@ -37,7 +37,238 @@ scripted_gui = {
 	  effects = {
 		  exit_click = {
 			clr_country_flag = open_national_missions_container
+		  }
 
+		  SOV_national_mission_1_click = {
+			  set_country_flag = SOV_national_mission_1_click_flag
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_offsite_building = { type = industrial_complex level = 1 }
+
+
+			add_ideas = SOV_an_industrialized_siberia
+		  }
+		  SOV_national_mission_2_click = {
+			set_country_flag = SOV_national_mission_2_click_flag
+			add_ideas = SOV_an_employed_populace
+		  }
+		  SOV_national_mission_3_click = {
+			    set_country_flag = SOV_national_mission_3_click_flag
+			add_ideas = SOV_a_protected_nation
+		  }
+		  SOV_national_mission_4_click = {
+			    set_country_flag = SOV_national_mission_4_click_flag
+			  ##CREATE UNIT
+			  add_war_support = 0.1
+		  }
+	  }
+
+	  triggers = {
+		SOV_national_mission_1_click_enabled = {
+		NOT = {
+			has_country_flag = SOV_national_mission_1_click_flag
+		}
+			568 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			567 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			566 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			564 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			565 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			563 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			657 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+		  }
+		  SOV_national_mission_2_click_enabled = {
+			NOT = {
+				has_country_flag = SOV_national_mission_2_click_flag
+			}
+			industrial_complex > 150
+		  }
+		  SOV_national_mission_3_click_enabled = {
+			NOT = {
+				has_country_flag = SOV_national_mission_3_click_flag
+			}
+			  90 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  92 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  91 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  97 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  98 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  87 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+				}
+		  }
+		  SOV_national_mission_4_click_enabled = {
+			NOT = {
+				has_country_flag = SOV_national_mission_4_click_flag
+			}
+			num_divisions > 120
+		  }
+
+		##cover
+		  SOV_national_mission_1_cover_visible = {
+			  NOT = {
+			568 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			567 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			566 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			564 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			565 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			563 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+			657 = {
+				infrastructure > 3
+				industrial_complex > 2
+			}
+		}
+		  }
+		  SOV_national_mission_2_cover_visible = {
+			  NOT = {
+			industrial_complex > 150
+			}
+		  }
+		  SOV_national_mission_3_cover_visible = {
+			  NOT = {
+			  90 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  92 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  91 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  97 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  98 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+			  }
+			  87 = {
+				any_province_building_level = {
+					province = {
+						all_provinces = yes
+					}
+					building = bunker
+					level > 6
+					}
+				}
+			  }
+		  }
+		  SOV_national_mission_4_cover_visible = {
+			  NOT = {
+				  num_divisions > 120
+			  }
 		  }
 	  }
   }
@@ -138,8 +369,8 @@ scripted_gui = {
 				}
 			}
 		}
-	}
-}
+	} 	
+  }
   AUS_national_missions_conatiner_scripted_gui = {
 	window_name = "AUS_national_missions_container"
 	visible = {
@@ -418,4 +649,172 @@ GER_national_missions_conatiner_scripted_gui = {
 		
 	}
 }
+
+
+FRA_national_missions_conatiner_scripted_gui = {
+	window_name = "FRA_national_missions_container"
+	visible = {
+		tag = FRA
+		has_country_flag = open_national_missions_container
+	}
+
+	effects = {
+		exit_click = {
+		  clr_country_flag = open_national_missions_container
+
+		}
+
+		FRA_national_mission_1_click = {
+			set_country_flag = FRA_national_mission_1_click_flag
+			42 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			add_resource = {
+				state = 42
+				type = steel
+				amount = 9
+			}
+			51 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_resource = {
+				state = 51
+				type = steel
+				amount = 9
+			}
+			957 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_resource = {
+				state = 957
+				type = steel
+				amount = 9
+			}
+		}
+		FRA_national_mission_2_click = {
+			
+			set_country_flag = FRA_national_mission_2_click_flag
+		}
+		FRA_national_mission_3_click = {
+			add_ideas = FRA_in_defense_of_versailles
+			set_country_flag = FRA_national_mission_3_click_flag
+		}
+		FRA_national_mission_4_click = {
+			##some naval thing
+			set_country_flag = FRA_national_mission_4_click_flag
+		}
+	}
+
+	triggers = {
+	
+
+		FRA_national_mission_1_click_enabled = {
+			NOT = {
+				has_country_flag = FRA_national_mission_1_click_flag
+			}
+			42 = {
+				industrial_complex > 5
+				arms_factory > 5
+			}
+			51 = {
+				industrial_complex > 5
+				arms_factory > 5
+			}
+			957 = {
+				industrial_complex > 5
+				arms_factory > 5
+			}
+			owns_state = 42
+			owns_state = 51
+			owns_state = 957
+		}
+		FRA_national_mission_2_click_enabled = {
+			NOT = {
+				has_country_flag = FRA_national_mission_2_click_flag
+			}
+
+			# KAR = {
+			# 	all_owned_state = {
+			# 		infrastructure > 3
+			# 	}
+			# }
+		}
+		FRA_national_mission_3_click_enabled = {
+			NOT = {
+				has_country_flag = FRA_national_mission_3_click_flag
+			}
+			has_war_support > 0.5
+			has_army_manpower = {
+				size > 799999
+			}
+		}
+		FRA_national_mission_4_click_enabled = {
+			NOT = {
+				has_country_flag = FRA_national_mission_4_click_flag
+			}
+			naval_strength_ratio = {
+				tag = ENG
+				ratio > 1
+			}
+			
+		}
+
+		
+		##covers
+		FRA_national_mission_1_cover_visible = {
+			NOT = {
+				42 = {
+					industrial_complex > 5
+					arms_factory > 5
+				}
+				51 = {
+					industrial_complex > 5
+					arms_factory > 5
+				}
+				957 = {
+					industrial_complex > 5
+					arms_factory > 5
+				}
+				owns_state = 42
+				owns_state = 51
+				owns_state = 957
+			}
+		}
+		FRA_national_mission_2_cover_visible = {
+			NOT = {
+				# KAR = {
+				# 	all_owned_state = {
+				# 		infrastructure > 3
+				# 	}
+				# }
+			}
+			
+		}
+		FRA_national_mission_3_cover_visible = {
+			NOT = {
+				has_war_support > 0.5
+				has_army_manpower = {
+					size > 799999
+				}
+			}
+			
+		}
+		FRA_national_mission_4_cover_visible = {
+			
+		}
+	} 	
+  }
 }

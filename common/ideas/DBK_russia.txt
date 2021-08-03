@@ -75,9 +75,11 @@ SOV_Restricted_Freedom_of_Press = {
 	removal_cost = -1
 
 	modifier = {
-		socialism_democratic_drift = 0.3
-		democratic_liberalism_drift = -0.3
-		communism_drift = -0.3
+		stability_factor = -0.05
+		democratic_communism_drift = -0.03
+		communism_drift  = -0.03
+		democratic_drift = -0.03
+		democratic_liberalism_drift = -0.03
 	}
 }
 
@@ -93,9 +95,11 @@ SOV_Right_Wing_Crackdown = {
 	removal_cost = -1
 
 	modifier = {
-		stability_factor = 0.10
-		neutrality_drift = -0.5
-		authoritarian_democratic_drift = -0.5
+		stability_factor = -0.05
+		neutrality_drift = -0.03
+		ultranationalism_drift = -0.03
+		fascism_drift = -0.03
+		authoritarian_democratic_drift = -0.03
 	}
 }
 
@@ -325,6 +329,42 @@ SOV_conservative_high_command = {
 	  conscription_factor = -0.1
 	  command_power_gain = -0.3
 	  training_time_factor = 0.1
+	}
+  }
+
+
+  ##lenin variations
+  SOV_conservative_high_command_2 = {
+
+	allowed = {
+	}
+  
+	allowed_civil_war = {
+	  always = yes
+	}
+  
+	removal_cost = -1
+  
+	modifier = {
+	  conscription_factor = -0.1
+	  command_power_gain = -0.15
+	  training_time_factor = 0.05
+	}
+  }
+  SOV_conservative_high_command_3 = {
+
+	allowed = {
+	}
+  
+	allowed_civil_war = {
+	  always = yes
+	}
+  
+	removal_cost = -1
+  
+	modifier = {
+	  conscription_factor = -0.05
+	  command_power_gain = -0.15
 	}
   }
 	
@@ -733,7 +773,7 @@ SOV_conservative_economics = {
 		political_power_gain = 0.05
 	}
 }
-SOV_conservative_lobbying = {
+SOV_conservative_lobbying_idea = {
 	allowed = {
 		always = yes
 	}
@@ -746,6 +786,7 @@ SOV_conservative_lobbying = {
 
 	modifier = {
 		democratic_drift = 0.05
+		consumer_goods_factor = -0.05
 		#economy_cost_factor = -0.1
 	}
 }
@@ -1954,6 +1995,28 @@ SOV_beacon_of_democracy_2 = {
 				production_factory_efficiency_gain_factor = 0.1
 					production_speed_buildings_factor = 0.1
 					stability_factor = 0.1
+				}
+			}
+
+			SOV_an_industrialized_siberia = {
+				modifier = {
+					MONTHLY_POPULATION = 0.3
+				production_factory_efficiency_gain_factor = 0.1
+				production_speed_infrastructure_factor = 0.1
+				conscription = 0.1
+				}
+			}
+			SOV_an_employed_populace = {
+				modifier = {
+					production_speed_industrial_complex_factor = 0.15
+				stability_factor = 0.1
+				}
+			}
+			SOV_a_protected_nation = {
+				modifier = {
+					production_speed_bunker_factor = 0.25
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.1
 				}
 			}
   }

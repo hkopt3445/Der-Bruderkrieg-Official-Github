@@ -1615,3 +1615,56 @@ SOV_check_if_person_is_found_in_southern_russia = {
 }
 
 
+SOV_calculate_political_support_modifier = {
+	set_temp_variable = {
+		SOV_peoples_support_for_current_regime_minus50 = SOV_peoples_support_for_current_regime
+	}
+	subtract_from_temp_variable = {
+		SOV_peoples_support_for_current_regime_minus50 = 50
+	}
+	set_variable = { SOV_peoples_support_for_current_regime_stability_factor = SOV_peoples_support_for_current_regime_minus50 }
+	divide_variable = { SOV_peoples_support_for_current_regime_stability_factor = 200 }
+	set_variable = { SOV_peoples_support_for_current_regime_political_power_gain = SOV_peoples_support_for_current_regime_minus50 }
+	divide_variable = { SOV_peoples_support_for_current_regime_political_power_gain = 100 }
+	set_variable = { SOV_peoples_support_for_current_regime_drift_defence_factor = SOV_peoples_support_for_current_regime_minus50 }
+	divide_variable = { SOV_peoples_support_for_current_regime_drift_defence_factor = 50 }
+
+
+	set_variable = { SOV_peoples_support_for_current_regime_stability_factor_loc = SOV_peoples_support_for_current_regime_stability_factor }
+	multiply_variable = { SOV_peoples_support_for_current_regime_stability_factor_loc = 100 }
+	set_variable = { SOV_peoples_support_for_current_regime_political_power_gain_loc = SOV_peoples_support_for_current_regime_political_power_gain }
+	multiply_variable = { SOV_peoples_support_for_current_regime_political_power_gain_loc = 100 }
+	set_variable = { SOV_peoples_support_for_current_regime_drift_defence_factor_loc = SOV_peoples_support_for_current_regime_drift_defence_factor }
+	multiply_variable = { SOV_peoples_support_for_current_regime_drift_defence_factor_loc = 100 }
+}
+
+ 
+SOV_increase_support_among_people_small = {
+	add_to_variable = {
+		tooltip = SOV_increase_support_among_people_small_tt
+		SOV_peoples_support_for_current_regime = 2
+	}
+	SOV_calculate_political_support_modifier = yes
+
+}
+
+SOV_increase_support_among_people_medium = {
+	add_to_variable = {
+		tooltip = SOV_increase_support_among_people_medium_tt
+		SOV_peoples_support_for_current_regime = 4
+	}
+	SOV_calculate_political_support_modifier = yes
+
+}
+
+SOV_increase_support_among_people_large = {
+	add_to_variable = {
+		tooltip = SOV_increase_support_among_people_large_tt
+		SOV_peoples_support_for_current_regime = 6
+	}
+	SOV_calculate_political_support_modifier = yes
+
+}
+
+
+
