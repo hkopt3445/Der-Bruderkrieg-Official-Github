@@ -14,21 +14,7 @@ on_actions = {
 					set_variable = { young_italy_activity_power = -0.2 }
 					add_ideas = ITA_legacy_of_the_civil_war
 					set_country_flag = ITA_fascist_or_neutral_win_civil_war
-					if = {
-						limit = {
-							has_country_flag = ITA_evolas_coup_complete
-						}
-						load_focus_tree = ITA_evola_tree
-					}
-					if = {
-						limit = {
-							has_country_flag = ITA_mussolini_in_power
-							NOT = {
-								has_country_flag = ITA_evolas_coup_complete
-							}
-						}
-						load_focus_tree = ITA_mussolini_tree
-					}
+					load_focus_tree = ITA_fascist_tree
 				}
 			}
 			if = {
@@ -48,8 +34,11 @@ on_actions = {
 		effect = {
 			ITA = { set_variable = { var = iron_guard_chance value = 40 } }
 			ITA = {
-				ITA_named_vars_NFP_graph_set_up = yes
+				ITA_calc_party_stability_var = yes
 				#set_country_flag = ITA_mussolini_in_power
+				add_dynamic_modifier = {
+					modifier = ITA_pnf_modifier
+				}
 			}
 
 			ITA = {
