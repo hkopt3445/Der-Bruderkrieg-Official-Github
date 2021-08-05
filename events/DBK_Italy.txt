@@ -1001,6 +1001,165 @@ country_event = {
 	}
 }
 	
+###pact with prussia
+country_event = {
+	id = ITA_evola_tree.9
+	title = ITA_evola_tree.9.t
+	desc = ITA_evola_tree.9.d
+	#picture = GFX_report_event_eng_dambuster9
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.9.a 
+		ai_chance = { factor = 90 } 
+		ITA = {
+			country_event = {
+				id =  ITA_evola_tree.10
+				days = 1
+			}
+		}
+	}
+	option = { 
+		name = ITA_evola_tree.9.b 
+		ai_chance = { factor = 0 } 
+		ITA = {
+			country_event = {
+				id =  ITA_evola_tree.11
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ITA_evola_tree.10
+	title = ITA_evola_tree.10.t
+	desc = ITA_evola_tree.10.d
+	#picture = GFX_report_event_eng_dambuster10
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.10.a 
+		ai_chance = { factor = 90 } 
+		add_guarantee = GER
+		GER = {
+			add_guarantee = ITA
+		}
+		hidden_effect = {
+			news_event = ITA_evola_tree.13
+		}
+	}
+}
+
+country_event = {
+	id = ITA_evola_tree.11
+	title = ITA_evola_tree.11.t
+	desc = ITA_evola_tree.11.d
+	#picture = GFX_report_event_eng_dambuster11
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.11.a 
+		ai_chance = { factor = 90 } 
+	
+	}
+}
+
+
+##legionaries pact
+country_event = {
+	id = ITA_evola_tree.12
+	title = ITA_evola_tree.12.t
+	desc = ITA_evola_tree.12.d
+	#picture = GFX_report_event_eng_dambuster12
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.12.a 
+		ai_chance = { factor = 90 } 
+		leave_faction = yes
+		create_faction = ITA_legionaries_pact
+		if = {
+			limit = {
+				ROM = {
+					is_in_faction_with = GER
+				}
+			}
+			add_to_faction = ROM
+		}
+		GER = {
+			country_event = ITA_evola_tree.12
+		}
+		hidden_effect = {
+			news_event = ITA_evola_tree.14
+		}
+	}
+}
+
+##italian betrayal
+country_event = {
+	id = ITA_evola_tree.13
+	title = ITA_evola_tree.13.t
+	desc = ITA_evola_tree.13.d
+	#picture = GFX_report_event_eng_dambuster13
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.13.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+	option = { 
+		name = ITA_evola_tree.13.b
+		ai_chance = { factor = 90 } 
+	
+	}
+}
+
+
+##pact of steel news event
+news_event = {
+		id = ITA_evola_tree.14
+		title = ITA_evola_tree.14.t
+		desc = ITA_evola_tree.14.d
+		#picture = GFX_report_event_eng_dambuster2
+	
+		fire_only_once = yes  
+		is_triggered_only = yes 
+	
+		option = { 
+			name = ITA_evola_tree.14.a 
+			ai_chance = { factor = 90 } 
+	
+		}
+	}
+
+##legionaries pact
+news_event = {
+	id = ITA_evola_tree.15
+	title = ITA_evola_tree.15.t
+	desc = ITA_evola_tree.15.d
+	#picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.15.a 
+		ai_chance = { factor = 90 } 
+
+	}
+}
 add_namespace = ITA_evola_post_victory
 
 ###A PEACEFUL WALK
