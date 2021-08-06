@@ -471,7 +471,84 @@ add_namespace = militia_revolts
 						division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
 						owner = GER
 					  }	
-				}			
+				}
+				
+				SAR = {
+					country_event = ITA_debug_events.1
+					load_oob = "SAR_civil_war"
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 1\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 2\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 3\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 4\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 5\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 6\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 7\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 8\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 9\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 10\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 11\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 12\" division_template = \"Jager-Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = SAR
+						}
+					}
+				}
 			}
 }
 
@@ -541,7 +618,7 @@ add_namespace = militia_revolts
 					transfer_state = 63
 					transfer_state = 68
 					transfer_state = 950
-					declare_war_on = { type = annex_everything    target = FROM }
+					declare_war_on = { type = civil_war    target = FROM }
 					every_owned_state = {
 						teleport_armies = {
 							limit = {
@@ -550,49 +627,18 @@ add_namespace = militia_revolts
 							to_state_array = owned_controlled_states
 						}
 					}
-					load_oob = "SAR_civil_war"
 				}
 				
-				63 = {	
-					create_unit = {
-						division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-						owner = SAR
-					  }	
-					create_unit = {
-						division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-						owner = SAR
-					  }
-					create_unit = {
-						division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-						owner = SAR
-					  }	  	  
-					}
-				62 = {
-					create_unit = {
-						division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-						owner = SAR
-					  }
-					  create_unit = {
-						division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-						owner = SAR
-					  }	  	
-					}
-				68 = {
-					create_unit = {
-						division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-						owner = SAR
-					  }
-					create_unit = {
-						division = "name = \"7th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
-						owner = SAR
-					  }	  	
-				}
+				
+
+
+				
 			}
 		}
 
 
 		country_event = {
-			id = militia_revolts.7  # SA Revolt
+			id = militia_revolts.7  # FK Revolt end
 			title = militia_revolts.7.t
 			desc = militia_revolts.7.d
 			#picture =
@@ -606,9 +652,38 @@ add_namespace = militia_revolts
 				name = militia_revolts.7.a
 				ai_chance = { factor = 1000 }
 				set_cosmetic_tag = GER
-				load_focus_tree = GER_goering_the_path_to_unification
+				load_focus_tree = GER_freikorps_the_path_to_unification
+				hidden_effect = {
+					country_event = {
+						id = militia_revolts.8
+						days = 4
+					}
+				}
 				}
 			}
+
+			country_event = {
+				id = militia_revolts.8  # leadership question
+				title = militia_revolts.8.t
+				desc = militia_revolts.8.d
+				#picture =
+				
+				
+			
+				fire_only_once = yes
+				is_triggered_only = yes
+			
+				option = {
+					name = militia_revolts.8.a
+					ai_chance = { factor = 1000 } ##mackesnen
+					
+					}
+					option = {
+						name = militia_revolts.8.b
+						ai_chance = { factor = 1000 } ##kurt von sleicher
+						
+						}
+				}
 		
  add_namespace = prussia_goerings_addiction_to_morphine
  
