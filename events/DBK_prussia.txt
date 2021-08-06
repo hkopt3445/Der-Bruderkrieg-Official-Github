@@ -575,6 +575,8 @@ add_namespace = militia_revolts
 			ai_chance = { factor = 1000 }
 			activate_mission = GER_sa_revolt_imminent
 			}
+
+		
 		}
 	 country_event = {
 		id = militia_revolts.5  # Aftermath of SA Revolt
@@ -634,6 +636,192 @@ add_namespace = militia_revolts
 
 				
 			}
+			option = {
+				name = militia_revolts.6.b
+				for_each_loop = {
+					array = controlled_states
+					value = controlled_state
+				
+					GER = {
+						delete_unit = {
+							state = var:controlled_state
+							disband = yes # or no
+						}
+					}    
+				}
+				FRE = {
+					set_cosmetic_tag = GER
+					set_politics = {
+						ruling_party = fascism
+					}
+					transfer_state = 64
+					transfer_state = 60
+					transfer_state = 86
+					transfer_state = 85
+					transfer_state = 5
+					transfer_state = 763
+					hidden_effect = {
+						create_country_leader = {
+							name = "Hermann Goering"
+							desc = "GORING_DESC"
+							picture = "gfx/leaders/HermanGoringPortrait.dds"
+							expire = "1965.1.1"
+							ideology = fascism_ideology
+							traits = {
+								GER_goring_reichmarshall_trait
+								
+							}
+						}
+					}
+				}
+				GER = {
+					set_cosmetic_tag = SAR
+					
+				}
+				
+				GER = {
+					declare_war_on = { type = annex_everything    target = FRE }
+					load_oob = "SAR_civil_war"
+				}
+				
+				61 = {	
+					create_unit = {
+						division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	
+					create_unit = {
+						division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }
+					create_unit = {
+						division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	  	  
+					}
+				63 = {
+					create_unit = {
+						division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }
+					  create_unit = {
+						division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	  	
+					}
+				763 = { 
+					create_unit = {
+						division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	
+				}
+				61 = {	
+					create_unit = {
+						division = "name = \"1st Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	
+					create_unit = {
+						division = "name = \"2nd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }
+					create_unit = {
+						division = "name = \"6th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	  	  
+					}
+				63 = {
+					create_unit = {
+						division = "name = \"3rd Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }
+					  create_unit = {
+						division = "name = \"4th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	  	
+					}
+				763 = { 
+					create_unit = {
+						division = "name = \"5th Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+						owner = GER
+					  }	
+				}
+				
+				FRE = {
+					load_oob = "FRE_civil_war"
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 1\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 2\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 3\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 4\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 5\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 6\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 7\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 8\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 9\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 10\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 11\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+					random_controlled_state = {
+						create_unit = {
+							division = "name = \"Prussian Division 12\" division_template = \"Jager-Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = FRE
+						}
+					}
+				}
+				
+			}
 		}
 
 
@@ -653,6 +841,7 @@ add_namespace = militia_revolts
 				ai_chance = { factor = 1000 }
 				set_cosmetic_tag = GER
 				load_focus_tree = GER_freikorps_the_path_to_unification
+				mark_focus_tree_layout_dirty = yes
 				hidden_effect = {
 					country_event = {
 						id = militia_revolts.8
@@ -684,6 +873,26 @@ add_namespace = militia_revolts
 						
 						}
 				}
+
+				country_event = {
+					id = militia_revolts.9  # SA Revolt end
+					title = militia_revolts.9.t
+					desc = militia_revolts.9.d
+					#picture =
+					
+					
+				
+					fire_only_once = yes
+					is_triggered_only = yes
+				
+					option = {
+						name = militia_revolts.9.a
+						ai_chance = { factor = 1000 }
+						set_cosmetic_tag = GER
+						load_focus_tree = GER_goering_the_path_to_unification
+					
+						}
+					}
 		
  add_namespace = prussia_goerings_addiction_to_morphine
  
