@@ -283,6 +283,245 @@ GER_unit_production = {
 	}
 }
 
+GER_armored_production = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		date > 1939.1.1
+		ai_wants_divisions > 24 #Decreasing the amount of tanks the AI wants
+	}
+	abort = {
+		ai_wants_divisions < 25 #Decreasing the amount of tanks the AI wants
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 10
+	}
+}
+
+GER_halt_light_armor_production_in_transitioning = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_template_majority_unit = medium_armor
+		OR = {
+			has_equipment = { light_tank_equipment > 600 }
+			date > 1939.1.1
+		}		
+	}
+	abort = {
+		# once we start we never go back to light armor
+	}
+
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = light_tank_equipment
+		value = -100
+	}
+}
+
+GER_stockpile_less_early_game = {
+	allowed = { 
+		original_tag = GER 
+	}
+
+	enable = {
+		date < 1940.1.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_stockpile_surplus_ratio
+		value = -20 # reduce while we build up in case of CZE or Austria issues
+	}
+}
+
+
+GER_highered_armored_production = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		num_of_military_factories > 54
+	}
+	abort = {
+		num_of_military_factories < 100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 20
+	}
+}
+
+GER_dont_waste_xp_until_medium_armor = {
+	allowed = {
+		original_tag = GER		
+	}
+	enable = {
+		always = yes
+	}
+	abort = {	
+		has_template_majority_unit = medium_armor
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = paratrooper
+		value = -100
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = mountaineers
+		value = -100
+	}
+}
+
+GER_super_boost_light_for_med_armor = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_tech = basic_medium_tank
+		NOT = { has_template_ai_majority_unit = medium_armor }
+	}
+
+	abort = {	
+		has_template_ai_majority_unit = medium_armor
+	}
+
+	# lets do changes more often during this period too
+	ai_strategy = {
+		type = template_xp_reserve 
+		value = -125
+	}
+
+	# this is gateway
+	ai_strategy = {
+		type = template_prio
+		id = light_armor
+		value = 100
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 150
+	}
+	
+	# Germany is set up to change their SS division into medium armor.
+	ai_strategy = {
+		type = template_prio
+		id = motorized
+		value = 200
+	}
+}
+
+GER_super_boost_light_for_modern_armor = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		has_tech = main_battle_tank
+		NOT = { has_template_ai_majority_unit = modern_armor }
+	}
+
+	abort = {	
+		has_template_ai_majority_unit = modern_armor
+	}
+
+	# lets do changes more often during this period too
+	ai_strategy = {
+		type = template_xp_reserve 
+		value = -125
+	}
+
+	# this is gateway
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 100
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = modern_armor
+		value = 150
+	}
+}
+
+
+GER_template_design = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		date < 1938.1.1				
+	}
+	abort = { 
+		date > 1938.1.1
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = motorized
+		value = -50
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = cavalry
+		value = -100
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = light_armor
+		value = 30
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 50
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = heavy_armor
+		value = -50
+	}
+
+	ai_strategy = {
+		type = template_prio
+		id = paratroopers
+		value = -50
+	}
+}
 
 
 
+
+
+
+GER_declare_war_on_france = {
+    allowed = {
+        tag = GER
+    }
+    enable = {
+        tag = GER
+    }
+    abort_when_not_enabled = yes
+    
+    ai_strategy = {
+        type = declare_war
+        id = "FRA"            
+        value = 6969
+    }
+}

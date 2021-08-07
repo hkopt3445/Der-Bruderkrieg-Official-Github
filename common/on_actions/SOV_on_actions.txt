@@ -74,6 +74,11 @@ on_actions = {
                 set_variable = {
                     SOV_military_support_for_current_regime = 20   
                 }
+                SOV_calculate_political_support_modifier = yes
+
+                add_dynamic_modifier = {
+                    modifier = SOV_peoples_support_for_current_regime_modifier
+                }
             }
 
             SOV = {
@@ -238,6 +243,24 @@ on_actions = {
 
                     }
     
+                }
+            }
+        }
+    }
+
+    on_declare_war = {
+        effect = {
+            if = {
+                limit = {
+                    tag = GER
+                    FROM = {
+                        tag = FRA
+                    }
+                }
+                hidden_effect = {
+                    SOV = {
+                        country_event = russian_inteverntion_in_europakrieg.2
+                    }
                 }
             }
         }

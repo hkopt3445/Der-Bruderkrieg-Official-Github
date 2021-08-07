@@ -551,9 +551,48 @@ country_event = {
 	option = { 
 		name = ITA_starting_tree_events.1.a 
 		ai_chance = { factor = 90 } 
-		
+	}
+}
+
+###the venice riots
+country_event = {
+	id = ITA_starting_tree_events.2
+	title = ITA_starting_tree_events.2.t
+	desc = ITA_starting_tree_events.2.d
+	picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_starting_tree_events.2.a 
+		ai_chance = { factor = 90 } 
+		complete_national_focus = ITA_In_the_Shadows
+	}
+	option = { 
+		name = ITA_starting_tree_events.2.b 
+		ai_chance = { factor = 90 } 
+		complete_national_focus = ITA_In_The_Open
+	}
+}
+
+##meeting with socialist leaders
+country_event = {
+	id = ITA_starting_tree_events.3
+	title = ITA_starting_tree_events.3.t
+	desc = ITA_starting_tree_events.3.d
+	picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_starting_tree_events.3.a 
+		ai_chance = { factor = 90 } 
+		add_stability = 0.1
 
 	}
+	
 }
 
 add_namespace = ITA_socialist_revolution_events
@@ -711,6 +750,14 @@ country_event = {
 		hidden_effect = { ITA_civil_war_fire_effect = yes news_event = {id = ITA_socialist_revolution_events.2}  remove_ideas = ITA_strikes}
 
 	}
+	option = { 
+		name = ITA_socialist_revolution_events.6.b 
+		ai_chance = { factor = 0 } 
+		hidden_effect = { ITA_civil_war_fire_effect = yes news_event = {id = ITA_socialist_revolution_events.2}  remove_ideas = ITA_strikes}
+		CMI = {
+			change_tag_from = ITA
+		}
+	}
 }
 
 
@@ -729,6 +776,8 @@ country_event = {
 		hidden_effect = {
 			country_event = ITA_evola_coup_events.1
 		}
+		load_focus_tree = ITA_fascist_tree
+		add_ideas = ITA_legacy_of_the_civil_war
 	}
 }
 
@@ -838,6 +887,11 @@ country_event = {
 	option = { 
 		name = ITA_evola_tree.2.a 
 		ai_chance = { factor = 90 } 
+		ITA_decrease_party_stability_medium = yes
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.05
+		}
 	}
 	
 }
@@ -855,6 +909,11 @@ country_event = {
 	option = { 
 		name = ITA_evola_tree.3.a 
 		ai_chance = { factor = 90 } 
+		ITA_decrease_party_stability_medium = yes
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.05
+		}
 	}
 	
 }
@@ -944,6 +1003,165 @@ country_event = {
 	}
 }
 	
+###pact with prussia
+country_event = {
+	id = ITA_evola_tree.9
+	title = ITA_evola_tree.9.t
+	desc = ITA_evola_tree.9.d
+	#picture = GFX_report_event_eng_dambuster9
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.9.a 
+		ai_chance = { factor = 90 } 
+		ITA = {
+			country_event = {
+				id =  ITA_evola_tree.10
+				days = 1
+			}
+		}
+	}
+	option = { 
+		name = ITA_evola_tree.9.b 
+		ai_chance = { factor = 0 } 
+		ITA = {
+			country_event = {
+				id =  ITA_evola_tree.11
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ITA_evola_tree.10
+	title = ITA_evola_tree.10.t
+	desc = ITA_evola_tree.10.d
+	#picture = GFX_report_event_eng_dambuster10
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.10.a 
+		ai_chance = { factor = 90 } 
+		add_guarantee = GER
+		GER = {
+			add_guarantee = ITA
+		}
+		hidden_effect = {
+			news_event = ITA_evola_tree.13
+		}
+	}
+}
+
+country_event = {
+	id = ITA_evola_tree.11
+	title = ITA_evola_tree.11.t
+	desc = ITA_evola_tree.11.d
+	#picture = GFX_report_event_eng_dambuster11
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.11.a 
+		ai_chance = { factor = 90 } 
+	
+	}
+}
+
+
+##legionaries pact
+country_event = {
+	id = ITA_evola_tree.12
+	title = ITA_evola_tree.12.t
+	desc = ITA_evola_tree.12.d
+	#picture = GFX_report_event_eng_dambuster12
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.12.a 
+		ai_chance = { factor = 90 } 
+		leave_faction = yes
+		create_faction = ITA_legionaries_pact
+		if = {
+			limit = {
+				ROM = {
+					is_in_faction_with = GER
+				}
+			}
+			add_to_faction = ROM
+		}
+		GER = {
+			country_event = ITA_evola_tree.12
+		}
+		hidden_effect = {
+			news_event = ITA_evola_tree.14
+		}
+	}
+}
+
+##italian betrayal
+country_event = {
+	id = ITA_evola_tree.13
+	title = ITA_evola_tree.13.t
+	desc = ITA_evola_tree.13.d
+	#picture = GFX_report_event_eng_dambuster13
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.13.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+	option = { 
+		name = ITA_evola_tree.13.b
+		ai_chance = { factor = 90 } 
+	
+	}
+}
+
+
+##pact of steel news event
+news_event = {
+		id = ITA_evola_tree.14
+		title = ITA_evola_tree.14.t
+		desc = ITA_evola_tree.14.d
+		#picture = GFX_report_event_eng_dambuster2
+	
+		fire_only_once = yes  
+		is_triggered_only = yes 
+	
+		option = { 
+			name = ITA_evola_tree.14.a 
+			ai_chance = { factor = 90 } 
+	
+		}
+	}
+
+##legionaries pact
+news_event = {
+	id = ITA_evola_tree.15
+	title = ITA_evola_tree.15.t
+	desc = ITA_evola_tree.15.d
+	#picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_tree.15.a 
+		ai_chance = { factor = 90 } 
+
+	}
+}
 add_namespace = ITA_evola_post_victory
 
 ###A PEACEFUL WALK

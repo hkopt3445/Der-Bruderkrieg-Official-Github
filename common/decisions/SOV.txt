@@ -2714,31 +2714,26 @@ SOV_political_instability = {
 
 		fire_only_once = yes
 
-		cost = 20
-		days_remove = 50
+		cost = 50
+		days_remove = 240
 
 		
 
 		modifier = {
-
+			socialism_democratic_drift = -0.03
 		}
 
 		ai_will_do = {
 			factor = 20
 		}
 
-		visible = {
 		
-		}
 
 		complete_effect = {
 		}
 
 		remove_effect = {
-			add_to_variable = {
-				tooltip = SOV_increase_support_for_current_regime
-				SOV_peoples_support_for_current_regime = 3
-			}
+			
 
 		}
 	}
@@ -2758,30 +2753,24 @@ SOV_political_instability = {
 
 		fire_only_once = yes
 
-		cost = 20
-		days_remove = 50
+		cost = 50
+		days_remove = 240
 
 		
 
 		modifier = {
-
+			democratic_liberalism_drift = -0.03
 		}
 
 		ai_will_do = {
 			factor = 20
 		}
 
-		visible = {
-		
-		}
 
 		complete_effect = {
 		}
 
 		remove_effect = {
-			add_to_variable = {
-				SOV_peoples_support_for_current_regime = 3
-			}
 
 		}
 	}
@@ -2794,17 +2783,18 @@ SOV_political_instability = {
 		available = {
 			
 		}
+		icon = generic_propoganda
 
 		visible = {
 			has_completed_focus = SOV_propoganda_campaigns
 		}
 
 
-		fire_only_once = yes
+		fire_only_once = no
 
 		cost = 20
 		days_remove = 50
-
+		days_re_enable = 40
 		
 
 		modifier = {
@@ -2823,15 +2813,13 @@ SOV_political_instability = {
 		}
 
 		remove_effect = {
-			add_to_variable = {
-				SOV_peoples_support_for_current_regime = 3
-			}
+			SOV_increase_support_among_people_small = yes
 
 		}
 	}
 
 	SOV_the_revolutionary_radio_service = {
-
+		icon = generic_propoganda
 		#icon = generic_construction
 
 		available = {
@@ -2845,13 +2833,12 @@ SOV_political_instability = {
 
 		fire_only_once = yes
 
-		cost = 20
+		cost = 40
 		days_remove = 50
 
 		
 
 		modifier = {
-			political_power_factor = -0.03
 		}
 
 		ai_will_do = {
@@ -2866,9 +2853,7 @@ SOV_political_instability = {
 		}
 
 		remove_effect = {
-			add_to_variable = {
-				SOV_peoples_support_for_current_regime = 3
-			}
+			SOV_increase_support_among_people_small = yes
 
 		}
 	}
@@ -2891,10 +2876,9 @@ SOV_political_instability = {
 
 		fire_only_once = no
 
-		cost = 20
-		days_remove = 30
+		cost = 40
+		days_remove = 60
 
-		days_re_enable = 15
 
 		modifier = {
 
@@ -2912,10 +2896,7 @@ SOV_political_instability = {
 		}
 
 		remove_effect = {
-			add_to_variable = {
-				SOV_russian_duma_support = 2
-				tooltip = SOV_increase_tsars_support_in_duma_by_2
-			}
+			SOV_increase_support_among_people_small = yes
 
 		}
 	}
@@ -2956,10 +2937,7 @@ SOV_political_instability = {
 		}
 
 		remove_effect = {
-			add_to_variable = {
-				SOV_russian_duma_support = 4
-				tooltip = SOV_increase_tsars_support_in_duma_by_4
-			}
+			SOV_increase_support_among_people_medium = yes
 
 		}
 	}
@@ -8542,6 +8520,291 @@ SOV_prussian_russian_industry = {
 
 }
 
+SOV_subjugating_the_balkans = {
+	SOV_offer_protection_to_romania = {
+
+		icon = generic_ignite_civil_war
+
+		cost = 25
+
+		fire_only_once = yes
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		complete_effect = {
+			ROM = {
+				country_event = russia.22
+			}
+		}
+	}
+	SOV_promote_worker_laws_in_romania = {
+
+		icon = generic_civil_support
+
+		cost = 10
+		days_remove = 25
+
+		fire_only_once = yes
+
+		available = {
+			ROM = {
+				is_in_faction_with = SOV
+			}
+		}
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_promote_worker_laws_in_romania_complete
+		}
+	}
+	SOV_fund_strikes_in_romania = {
+
+		icon = generic_civil_support
+
+		cost = 10
+		days_remove = 25
+
+		fire_only_once = yes
+
+		available = {
+			ROM = {
+				is_in_faction_with = SOV
+			}
+		}
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_fund_strikes_in_romania_complete
+		}
+	}
+	SOV_anti_monarchy_propoganda_in_romania = {
+
+		icon = generic_civil_support
+
+		cost = 10
+		days_remove = 25
+
+		fire_only_once = yes
+
+		available = {
+			ROM = {
+				is_in_faction_with = SOV
+			}
+		}
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_anti_monarchy_propoganda_in_romania_complete
+		}
+	}
+	SOV_subjugate_romania = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 25
+
+		fire_only_once = yes
+
+		available = {
+			has_country_flag = SOV_promote_worker_laws_in_romania_complete
+			has_country_flag = SOV_fund_strikes_in_romania_complete
+			has_country_flag = SOV_anti_monarchy_propoganda_in_romania_complete
+		}	
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		complete_effect = {
+			ROM = {
+				country_event = SOV_lenin_tree_events.23
+			}
+		}
+	}
+	SOV_subjugate_romania_by_force = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 0
+
+		fire_only_once = yes
+
+		available = {
+			ROM = {
+				has_country_flag = refused_russian_invite
+			}
+		}	
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		complete_effect = {
+			create_wargoal = {
+				target = ROM
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	
+	SOV_offer_protection_to_bulgaria = {
+
+		icon = generic_ignite_civil_war
+
+		cost = 25
+
+		fire_only_once = yes
+
+		available = {
+			
+		}
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		complete_effect = {
+			BUL = {
+				country_event = russia.22
+			}
+		}
+	}
+	SOV_promote_worker_laws_in_bulgaria = {
+
+		icon = generic_civil_support
+
+		cost = 10
+		days_remove = 25
+
+		fire_only_once = yes
+
+		available = {
+			BUL = {
+				is_in_faction_with = SOV
+			}
+		}
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_promote_worker_laws_in_bulgaria_complete
+		}
+	}
+	SOV_fund_strikes_in_bulgaria = {
+
+		icon = generic_civil_support
+
+		cost = 10
+		days_remove = 25
+
+		fire_only_once = yes
+
+		available = {
+			BUL = {
+				is_in_faction_with = SOV
+			}
+		}
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_fund_strikes_in_bulgaria_complete
+		}
+	}
+	SOV_anti_monarchy_propoganda_in_bulgaria = {
+
+		icon = generic_civil_support
+
+		cost = 10
+		days_remove = 25
+
+		fire_only_once = yes
+
+		available = {
+			BUL = {
+				is_in_faction_with = SOV
+			}
+		}
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_anti_monarchy_propoganda_in_bulgaria_complete
+		}
+	}
+	SOV_subjugate_bulgaria = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 25
+
+		fire_only_once = yes
+
+		available = {
+			has_country_flag = SOV_promote_worker_laws_in_bulgaria_complete
+			has_country_flag = SOV_fund_strikes_in_bulgaria_complete
+			has_country_flag = SOV_anti_monarchy_propoganda_in_bulgaria_complete
+		}	
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		complete_effect = {
+			BUL = {
+				country_event = SOV_lenin_tree_events.23
+			}
+		}
+	}
+	SOV_subjugate_bulgaria_by_force = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 0
+
+		fire_only_once = yes
+
+		available = {
+			BUL = {
+				has_country_flag = refused_russian_invite
+			}
+		}	
+
+		ai_will_do = {
+			factor = 2000
+		}
+
+		complete_effect = {
+			create_wargoal = {
+				target = BUL
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+}
+
 SOV_using_separatists = {
 	
 	SOV_galician_sabotage_defenses = {
@@ -8573,7 +8836,6 @@ SOV_using_separatists = {
 				}
 			}
 		}
-
 	}
 
 	SOV_croat_infra_sabotage = {
@@ -10075,3 +10337,261 @@ SOV_european_development = {
 
 }
 
+
+
+
+##kerensky
+SOV_solving_the_ethnic_conflicts = {
+	SOV_the_ukranian_pole_dispute = {
+
+		fire_only_once = yes
+
+		cost = 5
+
+		days_remove = 35
+
+		available = {
+			divisions_in_state = {
+				state = 93
+				size > 2
+			}
+			divisions_in_state = {
+				state = 201
+				size > 2
+			}
+			divisions_in_state = {
+				state = 199
+				size > 2
+			}
+		}
+
+		modifier = {
+			command_power_gain = -0.25
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_ukrainian_pole_dispute_solved
+			add_stability = 0.05
+		}
+
+	}
+	SOV_the_belarussian_lithuanian_dispute = {
+
+		fire_only_once = yes
+
+		cost = 5
+
+		days_remove = 35
+
+		available = {
+			divisions_in_state = {
+				state = 784	
+				size > 4
+			}
+		}
+
+		modifier = {
+			command_power_gain = -0.25
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_belarussian_lithuanian_dispute_solved
+			add_stability = 0.05
+		}
+
+	}
+	SOV_send_soldiers_to_latvia = {
+
+		fire_only_once = yes
+
+		cost = 5
+
+		days_remove = 35
+
+		available = {
+			divisions_in_state = {
+				state = 12	
+				size > 4
+			}
+		}
+
+		modifier = {
+			command_power_gain = -0.25
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_latvian_problem_solved
+			add_stability = 0.05
+		}
+	}
+	SOV_send_soldiers_to_the_caucusus = {
+
+		fire_only_once = yes
+
+		cost = 5
+
+		days_remove = 35
+
+		available = {
+			divisions_in_state = {
+				state = 229	
+				size > 2
+			}
+			divisions_in_state = {
+				state = 230	
+				size > 2
+			}
+		}
+
+		modifier = {
+			command_power_gain = -0.25
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_azerbaijian_armenian_problem_solved
+			add_stability = 0.05
+		}
+	}
+}
+
+SOV_election_verification = {
+	SOV_election_verification_timeout = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 120
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = SOV
+		has_completed_focus = SOV_Verifying_Election_Results
+		}
+	
+		visible = {
+			NOT = {
+				has_country_flag = SOV_URP_has_spread_anti_election_proporganda
+			}
+			NOT = {
+				has_country_flag = SOV_RSDLP_has_spread_anti_election_proporganda
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			SOV_increase_support_among_people_medium = yes			
+		}
+	}
+
+	##URP
+	SOV_URP_spreads_anti_election_propoganda = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 80
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = SOV
+		has_completed_focus = SOV_Verifying_Election_Results
+		}
+	
+		visible = {
+			NOT = {
+				has_country_flag = SOV_URP_has_not_spread_anti_election_proporganda
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			set_country_flag = SOV_URP_has_spread_anti_election_proporganda
+		}
+	}
+
+	SOV_stop_URP_anti_election_propoganda = {
+
+		fire_only_once = yes
+
+		cost = 15
+
+		days_remove = 10
+
+		modifier = {
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_URP_has_not_spread_anti_election_proporganda
+		}
+	}
+
+
+	##RSDLP
+	SOV_RSDLP_spreads_anti_election_propoganda = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 80
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = SOV
+		has_completed_focus = SOV_Verifying_Election_Results
+		}
+	
+		visible = {
+			NOT = {
+				has_country_flag = SOV_RSDLP_has_not_spread_anti_election_proporganda
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			set_country_flag = SOV_RSDLP_has_spread_anti_election_proporganda
+		}
+	}
+
+	SOV_stop_RSDLP_anti_election_propoganda = {
+
+		fire_only_once = yes
+
+		cost = 15
+
+		days_remove = 10
+
+		modifier = {
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_RSDLP_has_not_spread_anti_election_proporganda
+		}
+	}
+}

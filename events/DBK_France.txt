@@ -119,7 +119,7 @@ country_event = {
 #####Napoleon dissolves parliament
 news_event = {
 	id = francestart.8
-	title = francestart.8.t
+	title = francestart.8.t 
 	desc = francestart.8.d
 	picture = GFX_napoleonewconstitution
 	major = yes
@@ -128,6 +128,22 @@ news_event = {
 
     option = {
 		name = francestart.8.a
+	}
+}
+
+
+#####Napoleon reinforces 1927
+news_event = {
+	id = francestart.9
+	title = francestart.9.t 
+	desc = francestart.9.d
+	picture = GFX_napoleonewconstitution
+	major = yes
+
+	is_triggered_only = yes
+
+    option = {
+		name = francestart.9.a
 	}
 }
 
@@ -491,14 +507,27 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = france.210.a #needs to be localized
+		set_country_flag = FRA_balancing_the_autocracy
 		unlock_decision_category_tooltip = FRA_balancing_the_autocracy
 
-		set_country_flag = balance_aristrocracy_flag
-
-		set_variable = {FRA_nobility_var = 35}
+		set_variable = {FRA_nobility_var = 25}
 		set_variable = {FRA_military_var = 25}
 		
-}
+		hidden_effect = {
+			set_country_flag = FRA_sided_with_the_nobility
+		}
+	}
+	option = { # This option will give the war goal
+		name = france.210.b #needs to be localized
+		set_country_flag = FRA_balancing_the_autocracy
+		unlock_decision_category_tooltip = FRA_balancing_the_autocracy
+
+		set_variable = {FRA_nobility_var = 25}
+		set_variable = {FRA_military_var = 25}	
+		hidden_effect = {
+			set_country_flag = FRA_sided_with_the_military
+		}
+	}
 }
 
 
@@ -619,10 +648,10 @@ country_event = {
 		name = FRA_vienna_crash.1.a
 		hidden_effect = {
 			country_event = {
-				id = FRA_worker_strikes.4
+				id = FRA_vienna_crash.2
 				days = 2
 			}
-			set_country_flag = stocks_crash
+		# 	set_country_flag = stocks_crash
 		}
 	}
 }
@@ -639,11 +668,15 @@ country_event = {
 		name = FRA_vienna_crash.2.a
 		set_country_flag = FRA_lyon_strike_start
 		activate_mission = FRA_lyon_strike
-		20 = { #replace with Lyon state I dunno lol
-			add_dynamic_modifier = {
-				modifier = french_strikes_modifier
-			}
+		add_ideas = FRA_the_lyon_general_strike
+		set_variable = {
+			FRA_progress_to_crushing_strikes = 0
 		}
+		# 20 = { #replace with Lyon state I dunno lol
+		# 	add_dynamic_modifier = {
+		# 		modifier = french_strikes_modifier
+		# 	}
+		# }
 	}
 }
 #strikes go national (like your mom's bedroom :trolled:)
@@ -657,19 +690,9 @@ country_event = {
 
     option = {
 		name = FRA_vienna_crash.3.a
-		every_owned_state = { 
-			limit = {
-				is_in_array = {
-					array = FRA.french_owned_core_states
-					value = THIS
-				}
-				NOT = {
-					has_dynamic_modifier = { modifier = french_strikes_modifier }
-				}
-			}
-			add_dynamic_modifier = {
-				modifier = french_strikes_modifier
-			}
+		swap_ideas = {
+			add_idea = FRA_national_strikes
+			remove_idea = FRA_the_lyon_general_strike
 		}
 	}
 }
@@ -1625,6 +1648,62 @@ news_event = {
 	}
 }
 
+country_event = {
+	id = napoleanfrance.31
+	title = napoleanfrance.31.t
+	desc = napoleanfrance.31.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.31.a
+		ai_chance = { factor = 1000 }
+		diplomatic_relation = {
+			country = FRA
+			relation = non_aggression_pact
+			active = yes
+		}
+		FRA = {
+			country_event = napoleanfrance.32
+		}
+	}
+	option = {
+		name = napoleanfrance.31.b
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = napoleanfrance.32
+	title = napoleanfrance.32.t
+	desc = napoleanfrance.32.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.32.a
+		ai_chance = { factor = 1000 }
+		news_event = napoleanfrance.33
+	}
+	
+}
+
+news_event = {
+	id = napoleanfrance.33
+	title = napoleanfrance.33.t
+	desc = napoleanfrance.33.d
+	picture = GFX_napoleonicideals
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.33.a
+	}
+}
+
+
 
 add_namespace = belgian_election_events ##not really france itself but deeply intertwined
 
@@ -2009,4 +2088,5 @@ country_event = {
 		
 	}
 }
+
 

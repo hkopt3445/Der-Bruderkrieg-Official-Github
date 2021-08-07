@@ -54,7 +54,7 @@ shared_focus = {
 shared_focus = { 
 	id = SOV_the_question_of_our_econonomy
 	icon = GFX_goal_SOV_support_small_businesses
-	x = 0
+	x = -6
 	y = 1
 	relative_position_id = SOV_pavel_milyukovs_presidency
 	
@@ -365,9 +365,17 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = SOV_pavel_milyukovs_presidency
+		focus = SOV_kerenskys_presidency
 	}
 	bypass = {
 
+	}
+	offset = {
+		trigger = {
+			has_government = socialism_democratic
+		}
+		x = -4
+		y = 0
 	}
 
 	cost = 5
@@ -490,6 +498,10 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		swap_ideas = {
+			add_idea = SOV_conservative_high_command_2
+			remove_idea = SOV_conservative_high_command
+		}
 	}
 	ai_will_do = {
 	}
@@ -619,7 +631,7 @@ shared_focus = {
 	id = SOV_a_new_russian_army
 	icon = GFX_goal_SOV_a_new_russian_army
 	x = -1
-	y = 2
+	y = 1
 	relative_position_id = SOV_hierarchy_of_skill
 	
 	available = { 
@@ -629,8 +641,7 @@ shared_focus = {
 	}
 
 	cost = 5
-	prerequisite = { focus = SOV_hierarchy_of_skill }
-	prerequisite = { focus = SOV_hierarchy_of_loyalty }
+	prerequisite = { focus = SOV_hierarchy_of_skill focus = SOV_hierarchy_of_loyalty }
 	
 
 	cancel_if_invalid = yes
@@ -638,6 +649,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		remove_ideas = SOV_conservative_high_command_2
 	}
 	ai_will_do = {
 	}
@@ -649,10 +661,10 @@ shared_focus = {
 	id = SOV_continuing_russification
 	icon = GFX_goal_SOV_continue_russification
 	prerequisite = { focus = SOV_pavel_milyukovs_presidency }
-	x = -5
+	x = 0
 	y = 1
 	relative_position_id = SOV_pavel_milyukovs_presidency
-	cost = 5
+	cost = 2
 	ai_will_do = {
 		factor = 20
 	}
@@ -672,7 +684,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_continuing_russification
-	cost = 5
+	cost = 2
 	ai_will_do = {
 		factor = 20
 	}
@@ -693,7 +705,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_continuing_russification
-	cost = 5
+	cost = 2
 	ai_will_do = {
 		factor = 20
 	}
@@ -707,65 +719,65 @@ shared_focus = {
 		}
 }
 
-shared_focus = {
-	id = SOV_strengthening_press_censorship
-	icon = GFX_goal_SOV_strengthening_press_censorship
-	prerequisite = { focus = SOV_opening_russian_language_schools }
-	x = 0
-	y = 1
-	relative_position_id = SOV_opening_russian_language_schools
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
+# shared_focus = {
+# 	id = SOV_strengthening_press_censorship
+# 	icon = GFX_goal_SOV_strengthening_press_censorship
+# 	prerequisite = { focus = SOV_opening_russian_language_schools }
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = SOV_opening_russian_language_schools
+# 	cost = 5
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
-		swap_ideas = {
-			remove_idea = SOV_pavel_language_minority_reforms
-			add_idea = SOV_pavel_language_minority_reforms_2
-		}
+# 	completion_reward = {
+# 		swap_ideas = {
+# 			remove_idea = SOV_pavel_language_minority_reforms
+# 			add_idea = SOV_pavel_language_minority_reforms_2
+# 		}
 		
-		}
-}
+# 		}
+# }
 
-shared_focus = {
-	id = SOV_minority_conscription_laws
-	icon = GFX_goal_USA_create_social_security
-	prerequisite = { focus = SOV_russifying_the_army }
-	x = 0
-	y = 1
-	relative_position_id = SOV_russifying_the_army
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
+# shared_focus = {
+# 	id = SOV_minority_conscription_laws
+# 	icon = GFX_goal_USA_create_social_security
+# 	prerequisite = { focus = SOV_russifying_the_army }
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = SOV_russifying_the_army
+# 	cost = 5
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
+# 	completion_reward = {
 		
-		swap_ideas = {
-			remove_idea = SOV_pavel_army_minority_reforms
-			add_idea = SOV_pavel_army_minority_reforms_2
-		}
-		}
-}
+# 		swap_ideas = {
+# 			remove_idea = SOV_pavel_army_minority_reforms
+# 			add_idea = SOV_pavel_army_minority_reforms_2
+# 		}
+# 		}
+# }
 
 shared_focus = {
 	id = SOV_crushing_finnish_resistance_movements
 	icon = GFX_goal_SOV_pacifiying_finnish_nationalists
-	prerequisite = { focus = SOV_minority_conscription_laws }
+	prerequisite = { focus = SOV_russifying_the_army }
 	prerequisite = {
-		focus = SOV_strengthening_press_censorship
+		focus = SOV_opening_russian_language_schools
 	}
 	x = 1
 	y = 1
-	relative_position_id = SOV_minority_conscription_laws
-	cost = 5
+	relative_position_id = SOV_russifying_the_army
+	cost = 2
 	ai_will_do = {
 		factor = 20
 	}
@@ -779,39 +791,39 @@ shared_focus = {
 		}
 }
 
-shared_focus = {
-	id = SOV_the_integration_of_karelia
-	icon = GFX_goal_SOV_the_integration_of_karelia
-	prerequisite = { focus = SOV_crushing_finnish_resistance_movements }
-	x = 0
-	y = 1
-	relative_position_id = SOV_crushing_finnish_resistance_movements
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
+# shared_focus = {
+# 	id = SOV_the_integration_of_karelia
+# 	icon = GFX_goal_SOV_the_integration_of_karelia
+# 	prerequisite = { focus = SOV_crushing_finnish_resistance_movements }
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = SOV_crushing_finnish_resistance_movements
+# 	cost = 5
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
+# 	completion_reward = {
 		
 		
-		}
-}
+# 		}
+# }
 
 
 shared_focus = {
 	id = SOV_targeting_the_cossacks
-	icon = GFX_goal_ITA_show_no_weakness
-	prerequisite = { focus = SOV_minority_conscription_laws }
+	icon = GFX_goal_SOV_incorporating_the_cossacks
+	prerequisite = { focus = SOV_russifying_the_army }
 	prerequisite = {
-		focus = SOV_strengthening_press_censorship
+		focus = SOV_opening_russian_language_schools
 	}
 	x = -1
 	y = 1
-	relative_position_id = SOV_minority_conscription_laws
-	cost = 5
+	relative_position_id = SOV_russifying_the_army
+	cost = 2
 	ai_will_do = {
 		factor = 20
 	}
@@ -825,38 +837,38 @@ shared_focus = {
 		}
 }
 
-shared_focus = {
-	id = SOV_incorporating_the_cossacks
-	icon = GFX_goal_SOV_incorporating_the_cossacks
-	prerequisite = { focus = SOV_targeting_the_cossacks }
-	x = 0
-	y = 1
-	relative_position_id = SOV_targeting_the_cossacks
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
+# shared_focus = {
+# 	id = SOV_incorporating_the_cossacks
+# 	icon = GFX_goal_SOV_incorporating_the_cossacks
+# 	prerequisite = { focus = SOV_targeting_the_cossacks }
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = SOV_targeting_the_cossacks
+# 	cost = 5
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
+# 	completion_reward = {
 		
 		
-		}
-}
+# 		}
+# }
 
 shared_focus = {
 	id = SOV_missions_in_eastern_siberia
 	icon = GFX_goal_SOV_missions_in_east_siberia
-	prerequisite = { focus = SOV_minority_conscription_laws }
+	prerequisite = { focus = SOV_russifying_the_army }
 	prerequisite = {
-		focus = SOV_strengthening_press_censorship
+		focus = SOV_opening_russian_language_schools
 	}
 	x = -3
 	y = 1
-	relative_position_id = SOV_minority_conscription_laws
-	cost = 5
+	relative_position_id = SOV_russifying_the_army
+	cost = 2
 	ai_will_do = {
 		factor = 20
 	}
@@ -870,41 +882,41 @@ shared_focus = {
 		}
 }
 
-shared_focus = {
-	id = SOV_incorporating_the_siberian_turks
-	icon = GFX_goal_SOV_incorporating_siberian_turks
-	prerequisite = { focus = SOV_missions_in_eastern_siberia }
-	x = 0
-	y = 1
-	relative_position_id = SOV_missions_in_eastern_siberia
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
+# shared_focus = {
+# 	id = SOV_incorporating_the_siberian_turks
+# 	icon = GFX_goal_SOV_incorporating_siberian_turks
+# 	prerequisite = { focus = SOV_missions_in_eastern_siberia }
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = SOV_missions_in_eastern_siberia
+# 	cost = 5
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
+# 	completion_reward = {
 		
 		
-		}
-}
+# 		}
+# }
 
 shared_focus = {
 	id = SOV_all_shall_speak_russian
 	icon = GFX_goal_AUS_the_final_language_decree	
-	prerequisite = { focus = SOV_incorporating_the_siberian_turks }
+	prerequisite = { focus = SOV_missions_in_eastern_siberia }
 	prerequisite = {
-		focus = SOV_the_integration_of_karelia
+		focus = SOV_crushing_finnish_resistance_movements
 	}
 	prerequisite = {
-		focus = SOV_incorporating_the_cossacks
+		focus = SOV_targeting_the_cossacks
 	}
 	x = 1
 	y = 1
-	relative_position_id = SOV_incorporating_the_siberian_turks
-	cost = 5
+	relative_position_id = SOV_missions_in_eastern_siberia
+	cost = 2
 	ai_will_do = {
 		factor = 20
 	}
@@ -915,8 +927,8 @@ shared_focus = {
 	completion_reward = {
 		
 		swap_ideas = {
-			add_idea = SOV_pavel_language_minority_reforms_3
-			remove_idea = SOV_pavel_language_minority_reforms_2
+			remove_idea = SOV_pavel_language_minority_reforms
+			add_idea = SOV_pavel_language_minority_reforms_2
 		}
 		}
 }
@@ -924,17 +936,17 @@ shared_focus = {
 shared_focus = {
 	id = SOV_all_shall_fight_for_the_motherland
 	icon = GFX_goal_SOV_all_shall_fight_for_the_motherland
-	prerequisite = { focus = SOV_incorporating_the_siberian_turks }
+	prerequisite = { focus = SOV_missions_in_eastern_siberia }
 	prerequisite = {
-		focus = SOV_the_integration_of_karelia
+		focus = SOV_crushing_finnish_resistance_movements
 	}
 	prerequisite = {
-		focus = SOV_incorporating_the_cossacks
+		focus = SOV_targeting_the_cossacks
 	}
 	x = 3
 	y = 1
-	relative_position_id = SOV_incorporating_the_siberian_turks
-	cost = 5
+	relative_position_id = SOV_missions_in_eastern_siberia
+	cost = 2
 	ai_will_do = {
 		factor = 20
 	}
@@ -943,7 +955,10 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = SOV_pavel_army_minority_reforms
+			add_idea = SOV_pavel_army_minority_reforms_2
+		}
 		
 		}
 }
@@ -958,7 +973,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_all_shall_speak_russian
-	cost = 5
+	cost = 4
 	ai_will_do = {
 		factor = 20
 	}
@@ -1070,7 +1085,7 @@ shared_focus = {
 
 	}
 	prerequisite = { focus = SOV_invade_afghanistan }
-	prerequisite = {focus = SOV_reorganizing_the_infantry }
+#	prerequisite = {focus = SOV_reorganizing_the_infantry }
 	relative_position_id = SOV_invade_afghanistan
 
 	cost = 5		
@@ -1448,14 +1463,14 @@ shared_focus = {
 
 	completion_reward = {
 		#set_province_controller = 9783
-		211 = { 
-			add_province_modifier = { 
-				static_modifier = { SOV_russian_lease }
-				province = {
-					id = 9783
-				}
-			} 
-		}
+		# 211 = { 
+		# 	add_province_modifier = { 
+		# 		static_modifier = { SOV_russian_lease }
+		# 		province = {
+		# 			id = 9783
+		# 		}
+		# 	} 
+		# }
 	}
 	ai_will_do = {
 	}

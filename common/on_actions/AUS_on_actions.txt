@@ -57,20 +57,11 @@ on_actions = {
 
             AUS = {
             set_variable = {
-                prince_rupprecht_influence = 6
-                
-            }
-            set_variable = {
-                franz_ferdinand_influence = 8
-               
-            }
-            set_variable = {
-                von_rundstent_influence = 4
+                court_influence_var = 35
             }
             set_variable = {
                 popular_anger = 50
             }
-            calc_court_influence = yes
 
 
             
@@ -117,41 +108,49 @@ on_actions = {
                     }
                     tag = GER
                 }
+               hidden_effect = {
                 FRA = {
                     country_event = {
                         id = french_inteverntion_in_prussian_expansion.2
                         days = 2
                     }
                 }
+                ENG = {
+                    country_event = {
+                        id = british_inteverntion_in_prussian_expansion.2
+                        days = 2
+                    }
+                }
+               }
             }
             
         }
     }
-    on_weekly = {
-        effect = {
-            if = {
-                limit = {
-                    has_country_flag = support_loyalists_decision_flag
-                }
-                add_to_variable = {
-                    popular_anger = 2
-                }
-                add_to_variable = {
-                    franz_ferdinand_influence = 2
-                }
-                calc_court_influence = yes
-            }
-            if = {
-                limit = {
-                    has_country_flag = arrest_courrt_distenter_flag
-                }
-                add_to_variable = {
-                    popular_anger = -1
-                }
+    # on_weekly = {
+    #     effect = {
+    #         if = {
+    #             limit = {
+    #                 has_country_flag = support_loyalists_decision_flag
+    #             }
+    #             add_to_variable = {
+    #                 popular_anger = 2
+    #             }
+    #             add_to_variable = {
+    #                 franz_ferdinand_influence = 2
+    #             }
+    #             calc_court_influence = yes
+    #         }
+    #         if = {
+    #             limit = {
+    #                 has_country_flag = arrest_courrt_distenter_flag
+    #             }
+    #             add_to_variable = {
+    #                 popular_anger = -1
+    #             }
          
-            }
-        }
-    }
+    #         }
+    #     }
+    # }
 
     on_weekly = {
         effect = {
