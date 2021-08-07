@@ -5973,3 +5973,104 @@ AUS_french_prussian_war_preparations = {
 	}
 
 }
+
+
+weltkrieg_decisions = {
+	AUS_pressure_france_to_intervene = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = AUS
+		}
+
+		available = {
+			has_completed_focus = AUS_ensure_intervention
+		}
+
+		visible = {
+			OR = {
+				AND = {
+					has_completed_focus = AUS_ties_with_napoleon
+					has_war_with = GER	
+				}
+				AND = {
+					has_war_with = GER
+					has_war_with = SOV
+				}
+			}
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 20
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			FRA = {
+				country_event = {
+					id = french_inteverntion_in_prussian_expansion.2
+					days = 2
+				}
+			}
+		}
+	}
+	AUS_pressure_england_to_intervene = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = AUS
+		}
+
+		available = {
+			has_completed_focus = AUS_ensure_intervention
+		}
+
+		visible = {
+			OR = {
+				AND = {
+					has_completed_focus = AUS_remember_rudolfs_pact
+					has_war_with = GER	
+				}
+				AND = {
+					has_war_with = GER
+					has_war_with = SOV
+				}
+			}
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 20
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			ENG = {
+				country_event = {
+					id = british_inteverntion_in_prussian_expansion.2
+					days = 2
+				}
+			}
+		}
+	}
+	
+}
