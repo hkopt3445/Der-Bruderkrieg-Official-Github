@@ -51,15 +51,21 @@ add_namespace = germany
 
 	option = { # This option will give the war goal
 		name = GER_goering_internal_stabilization.3.a #needs to be localized
-		ai_chance = { factor = 50 } #this factor means the AI will almost always pick this one
+		ai_chance = { factor = 50 modifier = {
+			add = 50000
+			has_country_flag = GER_go_down_sa_path
+		} } #this factor means the AI will almost always pick this one
 		set_country_flag = chose_wermacht
 
-
+		
 	}
 
 	option = { # Last chance to backout! Click this option and literally nothing happens
 		name = GER_goering_internal_stabilization.3.b #needs to be localized
-		ai_chance = { factor = 50 } #AI will NOT do
+		ai_chance = { factor = 50 modifier = {
+			add = 50000
+			has_country_flag = GER_go_down_freikorps_path
+		} } #AI will NOT do
 		set_country_flag = chose_sa
 	}
 }
@@ -361,7 +367,13 @@ add_namespace = militia_revolts
 		}
 		option = {
 			name = militia_revolts.3.b
-			ai_chance = { factor = 0 }
+			ai_chance = {
+				factor = 0
+				modifier = {
+					add = 100000000
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 			custom_effect_tooltip = GER_will_play_as_the_freikorps
 			hidden_effect = {
 				for_each_loop = {
@@ -642,6 +654,13 @@ add_namespace = militia_revolts
 			}
 			option = {
 				name = militia_revolts.6.b
+				ai_chance = {
+					factor = 0
+					modifier = {
+						add = 100000000
+						has_country_flag = GER_go_down_sa_path
+					}
+				}
 				remove_ideas = Mackensen_Reforms
 				custom_effect_tooltip = GER_will_play_as_the_sa
 				hidden_effect = {
