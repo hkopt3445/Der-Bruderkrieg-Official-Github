@@ -232,6 +232,7 @@ focus_tree = {
 
 
 		completion_reward = {
+			add_political_power = 120
 			country_event = GER_goering_internal_stabilization.3
 		}
 		ai_will_do = {
@@ -321,12 +322,11 @@ focus_tree = {
 				}
 
 			}
-			FRE = {
-				exists = no
-			}
 		}
 		bypass = {
-			has_country_flag = GER_militia_pacified
+			NOT = {
+				has_idea = GER_Clash_Of_The_Militias
+			}
 		}
 
 		cost = 2
@@ -460,8 +460,12 @@ focus_tree = {
 				}
 
 			}
-			SAR = {
-				exists = no
+			
+		}
+
+		bypass = {
+			NOT = {
+				has_idea = GER_Clash_Of_The_Militias
 			}
 		}
 		
@@ -852,10 +856,9 @@ focus_tree = {
 			id = GER_form_the_preubisches_arbeitsfront
 			icon = GFX_goal_GER_formthepreuschesarbesfront 
 			cost = 3
+			
 			prerequisite = {
 				focus = GER_consolidating_power
-			}
-			prerequisite = {
 				focus = GER_continuing_ataurky
 			}
 			relative_position_id = GER_consolidating_power

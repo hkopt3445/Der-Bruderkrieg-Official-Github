@@ -3910,16 +3910,31 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_government = socialism_democratic
+				OR = {
+					has_government = socialism_democratic
+					has_government = democratic_liberalism
+				}
 			}
 			check_variable = {
 				var = SOV_peoples_support_for_current_regime value = 25 compare = less_than
-			}
+			} 
 			OR = {
 				has_idea = SOV_conservative_high_command
 				has_idea = SOV_conservative_high_command_2
 				has_idea = SOV_conservative_high_command_3
 			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_government = democratic
+				}
+			}
+			always = no
+			##fire_belogurov_collapse = yes
+		}
+		else = {
+			always = no
 		}
 		tag = SOV
 	}

@@ -414,7 +414,7 @@ GER_ss_waffen_cat = {
 			}
 		}
 		activation = {	has_completed_focus = GER_crush_the_freikorps	}
-		days_mission_timeout = 175
+		days_mission_timeout = 250
 		is_good = no
 		selectable_mission = no
 		fire_only_once = yes
@@ -436,7 +436,7 @@ GER_ss_waffen_cat = {
 			}
 		}
 		activation = {	has_completed_focus = GER_crush_the_sa	}
-		days_mission_timeout = 175
+		days_mission_timeout = 250
 		selectable_mission = no
 		cancel_if_not_visible = yes
 		fire_only_once = yes
@@ -1011,7 +1011,7 @@ GER_anti_spartakus_category = {
 		}
 		priority = 100
 		activation = {	has_completed_focus = GER_consolidating_power	}
-		days_mission_timeout = 300
+		days_mission_timeout = 500
 		selectable_mission = no
 		cancel_if_not_visible = yes
 		fire_only_once = yes
@@ -1025,9 +1025,13 @@ GER_anti_spartakus_category = {
 
 		icon = generic_prepare_civil_war
 
-		cost = 50
+		cost = 30
 		days_re_enable = 80
 		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 		complete_effect = {
 			add_to_variable = { var = GER_anti_spartakus value = 5 }
@@ -1048,6 +1052,10 @@ GER_anti_spartakus_category = {
 		cost = 25
 
 		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 		days_remove = 35
 
@@ -1074,9 +1082,13 @@ GER_anti_spartakus_category = {
 
 		icon = eng_trade_unions_demand
 
-		cost = 30
+		cost = 20
 
 		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 		
 
@@ -1107,9 +1119,13 @@ GER_anti_spartakus_category = {
 
 		icon = generic_industry
 
-		cost = 50
+		cost = 35
 
 		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 
 		available = {
@@ -1151,6 +1167,10 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
+		ai_will_do = {
+			factor = 1000
+		}
+
 		days_remove = 90
 
 		modifier = {
@@ -1181,10 +1201,14 @@ GER_anti_spartakus_category = {
 
 		icon = eng_propaganda_campaigns
 
-		cost = 40
+		cost = 15
 
 		fire_only_once = no
-		available = {
+		available = {	
+			ai_will_do = {
+			factor = 1000
+		}
+
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_10
 			check_variable = { GER_anti_spartakus > 10 } }
 		}
@@ -1212,7 +1236,11 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = no
 
-		cost = 30
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 25
 
 		visible = {
 		}
@@ -1246,7 +1274,11 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
-		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 10
 
 		available = {
 			custom_trigger_tooltip = { tooltip =  GER_anti_spartakus_var_greater_than_30
@@ -1272,7 +1304,11 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
-		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 30
 
 		available = {
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_60
@@ -1297,7 +1333,11 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
-		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 10
 
 		available = {
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_60
@@ -1322,6 +1362,10 @@ GER_anti_spartakus_category = {
 		icon = generic_civil_support
 
 		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 		cost = 0
 
@@ -1510,4 +1554,122 @@ GER_nordicist_decisions = {
 
 	}
 
+}
+
+
+weltkrieg_decisions = {
+	GER_pressure_russia_to_intervene_against_austria = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+		}
+
+		visible = {
+			has_war_with = AUS
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 20
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			SOV = {
+				country_event = {
+					id = russian_inteverntion_in_europakrieg.2
+					days = 2
+				}
+			}
+		}
+	}
+	GER_invite_sweden = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+		}
+
+		visible = {
+			has_war_with = AUS
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			SWE = {
+				country_event = {
+					id = germanyfaction.17
+					days = 2
+				}
+			}
+		}
+	}
+	GER_invite_denmark = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+		}
+
+		visible = {
+			has_war_with = AUS
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			DEN = {
+				country_event = {
+					id = germanyfaction.17
+					days = 2
+				}
+			}
+		}
+	}
 }
