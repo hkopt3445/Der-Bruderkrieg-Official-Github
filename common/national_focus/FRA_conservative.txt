@@ -1769,6 +1769,12 @@ shared_focus = {
 
 	completion_reward = {
 	  add_political_power = 50
+	  add_popularity = {
+		  ideology = democratic_liberalism
+		  popularity = 0.35
+	  }
+	  
+	  #FRA_create_liberal_cabinet = yes
 	  hidden_effect = {
 		create_country_leader = {
 			name = "Edouard Daladier"
@@ -1800,6 +1806,9 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
+		set_politics = {
+			ruling_party = democratic_liberalism
+		}
       add_ideas = {
 				Conte_Tyrannie
 			}
@@ -5235,7 +5244,6 @@ instant_build = yes
 			search_filters = { FOCUS_FILTER_RESEARCH }
 		
 			completion_reward = {
-				set_cosmetic_tag = napoleonic_france
 		
 				add_political_power = 70
 				add_stability = 0.08
@@ -5434,6 +5442,18 @@ instant_build = yes
 			ai_will_do = {
 				factor = 2000
 			}
+			available = {
+				any_country = {
+					if = {
+						limit = {
+							is_major = yes
+						}
+						NOT = {
+							has_war_with = FRA
+						}
+					}
+				}
+			}
 			completion_reward = {
 		
 			}
@@ -5622,7 +5642,6 @@ instant_build = yes
 				factor = 2000
 			}
 			available = {
-				has_country_flag = FRA_has_beaten_prussia
 			}
 			bypass = {
 				OR = {
@@ -5668,9 +5687,20 @@ instant_build = yes
 			completion_reward = {
 				######Make Bonapartist Ambition so fucking op
 		
-				swap_ideas = {
-					add_idea = Bonapartist_Ambition_3
-					remove_idea = Bonapartist_Ambition_2
+				if = {
+					limit = {
+						has_idea = Bonapartist_Ambition_2
+					}
+					swap_ideas = {
+						add_idea = Bonapartist_Ambition_3
+						remove_idea = Bonapartist_Ambition_2
+					}
+				}
+				else = {
+					swap_ideas = {
+						add_idea = Bonapartist_Ambition_2
+						remove_idea = Bonapartist_Ambition
+					}
 				}
 			}
 		}

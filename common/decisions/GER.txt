@@ -399,7 +399,7 @@ GER_ss_waffen_cat = {
 		remove_effect = {
 			subtract_from_variable = { ss_power = 10 }
 			custom_effect_tooltip = GER_infiltrate_radical_regiments_tt
-		}
+		} 
 	}
 	GER_freikorps_revolt_imminent_mission_trigger = {
 		allowed = { tag = GER }
@@ -1634,7 +1634,7 @@ weltkrieg_decisions = {
 			}
 		}
 	}
-	GER_invite_denmark = {
+	GER_invade_denmark = {
 
 		icon = generic_army_support
 	
@@ -1643,6 +1643,7 @@ weltkrieg_decisions = {
 		}
 
 		available = {
+			is_in_faction_with = SWE
 		}
 
 		visible = {
@@ -1664,11 +1665,9 @@ weltkrieg_decisions = {
 		}
 	
 		remove_effect = {
-			DEN = {
-				country_event = {
-					id = germanyfaction.17
-					days = 2
-				}
+			create_wargoal = {
+				target = DEN
+				type = puppet_wargoal_focus
 			}
 		}
 	}
