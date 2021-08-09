@@ -248,23 +248,43 @@ on_actions = {
         }
     }
 
-    # on_declare_war = {
-    #     effect = {
-    #         if = {
-    #             limit = {
-    #                 tag = GER
-    #                 FROM = {
-    #                     tag = FRA
-    #                 }
-    #             }
-    #             hidden_effect = {
-    #                 SOV = {
-    #                     country_event = russian_inteverntion_in_europakrieg.2
-    #                 }
-    #             }
-    #         }
-    #     }
-    # }
+    on_declare_war = {
+        effect = {
+            if = {
+                limit = {
+                    tag = SOV
+                    FROM = {
+                        tag = TUR
+                    }
+                }
+                hidden_effect = {
+                    news_event = russian_expansion.2
+                }
+            }
+            if = {
+                limit = {
+                    tag = SOV
+                    FROM = {
+                        tag = JAP
+                    }
+                }
+                hidden_effect = {
+                    news_event = russian_expansion.1
+                }
+            }
+            if = {
+                limit = {
+                    tag = SOV
+                    FROM = {
+                        tag = AUS
+                    }
+                }
+                hidden_effect = {
+                    news_event = russian_expansion.3
+                }
+            }
+        }
+    }
 
     on_capitulation = {
         effect = {
