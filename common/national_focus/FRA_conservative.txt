@@ -366,10 +366,7 @@ focus_tree = {
 				 extensive_conscription
 			 }
 
-			 swap_ideas = {
-			 	add_idea = Haven_of_Refugees_2
-				remove_idea = Haven_of_Refugees
-			 }
+			
 			}
 	 }
 
@@ -1379,6 +1376,28 @@ shared_focus = {
 	}
 }
 
+shared_focus = { 
+	id = FRA_shut_off_the_refugees
+	icon = GFX_goal_USA_create_social_security
+	text = FRA_shut_off_the_refugees
+	prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
+	
+	x = 1
+	y = 1
+	relative_position_id = FRA_MILITARY_GOVERNMENT 
+	cost = 3
+	ai_will_do = {
+		factor = 2000
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		remove_ideas = Haven_of_Refugees
+	}
+}
+
 	shared_focus = {
     id = FRA_LE_EMPEROR
     icon = GFX_goal_FRA_le_empereur
@@ -1414,6 +1433,12 @@ shared_focus = {
     ai_will_do = {
       factor = 2000
     }
+	mutually_exclusive = {
+		focus = FRA_movement_francaise
+	}
+	mutually_exclusive = {
+		focus = FRA_CAGOULE_CABINET
+	}
 
     available_if_capitulated = yes
     search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1832,6 +1857,10 @@ shared_focus = {
 
     completion_reward = {
       unlock_decision_category_tooltip = FRA_expanding_civil_rights
+	  swap_ideas = {
+		  add_idea = Haven_of_Refugees_2
+		  remove_idea = Haven_of_Refugees
+	  }
     }
   }
 
@@ -2101,7 +2130,7 @@ shared_focus = {
     completion_reward = {
       country_event = france.211
 		add_popularity = {
-			ideology = ultranationalism
+			ideology = fascism
 			popularity = 0.1
 		}
 			
@@ -2113,13 +2142,19 @@ shared_focus = {
     icon = GFX_focus_focus_fra_fascist_threat
     text = FRA_CAGOULE_CABINET
 		prerequisite = { focus = FRA_FASCIST_VIC }
-    x = 0
+    x = -1
     y = 1
     relative_position_id = FRA_FASCIST_VIC
     cost = 5
     ai_will_do = {
       factor = 2000
     }
+	mutually_exclusive = {
+		focus = FRA_movement_francaise
+	}
+	mutually_exclusive = {
+		focus = FRA_BONAPARTIST_ABSOLUTISM
+	}
 
     available_if_capitulated = yes
     search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2131,7 +2166,7 @@ shared_focus = {
 
     completion_reward = {
 			add_popularity  = {
-				ideology = ultranationalism
+				ideology = fascism
 				popularity = 0.05
 			}
 			add_political_power = 75
@@ -2147,7 +2182,7 @@ shared_focus = {
     text = FRA_END_CONSTITUTIONALISM
 	prerequisite = { focus = FRA_CAGOULE_CABINET }
 	
-    x = -1
+    x = 0
     y = 1
     relative_position_id = FRA_CAGOULE_CABINET
     cost = 5
@@ -2159,17 +2194,15 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_ideas = {
-				National_Syndicalism
-			}
+      
 
 			add_popularity = {
-				ideology = ultranationalism
+				ideology = fascism
 				popularity = 0.05
 			}
 
 			set_politics = {
-				ruling_party = ultranationalism
+				ruling_party = fascism
 			}
 
 			hidden_effect = {
@@ -2178,7 +2211,7 @@ shared_focus = {
 				desc = "NAPOELEON_DESC"
 				picture = "gfx/leaders/NapoleonVIPortrait.dds"
 				expire = "1965.1.1"
-				ideology = ultranationalist
+				ideology = fascism_ideology
 				traits = {
 					napoleon_ancestor
 					
@@ -2189,13 +2222,94 @@ shared_focus = {
     }
   }
 
+  shared_focus = {
+    id = FRA_movement_francaise
+    icon = GFX_focus_focus_fra_fascist_threat
+    text = FRA_movement_francaise
+		prerequisite = { focus = FRA_FASCIST_VIC focus = FRA_LE_EMPEROR }
+    x = 1
+    y = 1
+    relative_position_id = FRA_FASCIST_VIC
+    cost = 5
+    ai_will_do = {
+      factor = 2000
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+		mutually_exclusive = {
+			focus = FRA_BONAPARTIST_ABSOLUTISM	
+		}
+		mutually_exclusive = {
+			focus = FRA_CAGOULE_CABINET
+		}
+
+
+    completion_reward = {
+			add_popularity  = {
+				ideology = ultranationalism
+				popularity = 0.05
+			}
+			add_political_power = 75
+			
+
+
+    }
+  }
+  shared_focus = {
+    id = FRA_national_syndicalism
+    icon = GFX_focus_focus_fra_fascist_threat
+    text = FRA_national_syndicalism
+		prerequisite = { focus = FRA_movement_francaise }
+    x = 0
+    y = 1
+    relative_position_id = FRA_movement_francaise
+    cost = 5
+    ai_will_do = {
+      factor = 2000
+    }
+
+    available_if_capitulated = yes
+    search_filters = { FOCUS_FILTER_RESEARCH }
+
+	
+
+
+    completion_reward = {
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.05
+		}
+
+		set_politics = {
+			ruling_party = ultranationalism
+		}
+
+		hidden_effect = {
+		create_country_leader = {
+			name = "Napoleon VI"
+			desc = "NAPOELEON_DESC"
+			picture = "gfx/leaders/NapoleonVIPortrait.dds"
+			expire = "1965.1.1"
+			ideology = ultranationalist
+			traits = {
+				napoleon_ancestor
+				
+			}
+		}
+		
+	}
+    }
+  }
+
 	shared_focus = {
     id = FRA_VIVE_LE_FRANCE
     icon = GFX_goal_FRA_vive_la_france
     text = FRA_VIVE_LE_FRANCE
-		prerequisite = { focus = FRA_END_CONSTITUTIONALISM }
+		prerequisite = { focus = FRA_END_CONSTITUTIONALISM focus = FRA_national_syndicalism }
 		#prerequisite = {focus = FRA_IMPERIAL_GLORY}
-    x = 0
+    x = 1
     y = 1
     relative_position_id = FRA_END_CONSTITUTIONALISM
     cost = 5
