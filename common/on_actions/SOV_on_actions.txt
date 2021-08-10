@@ -161,43 +161,54 @@ on_actions = {
               
             }
         }
-
-    on_weekly_SOV = {
-		effect = {
-			if = {
-				limit = {
-					has_country_flag = second_week_flag
-				}
-				clr_country_flag = second_week_flag
-			}
-			if = {
-				limit = {
-					has_idea = SOV_political_divide
-					NOT = {
-						has_country_flag = second_week_flag
-                    }
-                    OR = {
-                        has_completed_focus = SOV_pavel_milyukovs_presidency
-                    }
-				}
-				SOV_political_instability_people_effect = yes
-				set_country_flag = second_week_flag
-			}
-		}
-    }
-    on_daily_SOV = {
-       effect = {
-        if = {
-            limit = {
-            has_idea = SOV_a_strict_loyalty_army_program
-            }
-            add_to_variable = {
-                SOV_military_support_for_current_regime = 1
+    on_monthly_SOV = {
+        effect = {
+            if = {
+                limit = {
+                    has_idea = SOV_political_divide
+                }
+                add_to_variable = {
+                    SOV_peoples_support_for_current_regime = -2
+                }
             }
         }
-       }
-        
     }
+    # on_weekly_SOV = {
+	# 	effect = {
+	# 		if = {
+	# 			limit = {
+	# 				has_country_flag = second_week_flag
+	# 			}
+	# 			clr_country_flag = second_week_flag
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = SOV_political_divide
+	# 				NOT = {
+	# 					has_country_flag = second_week_flag
+    #                 }
+    #                 OR = {
+    #                     has_completed_focus = SOV_pavel_milyukovs_presidency
+    #                 }
+	# 			}
+	# 			SOV_political_instability_people_effect = yes
+	# 			set_country_flag = second_week_flag
+	# 		}
+	# 	}
+    # }
+    # on_daily_SOV = {
+    #    effect = {
+    #     if = {
+    #         limit = {
+    #         has_idea = SOV_a_strict_loyalty_army_program
+    #         }
+    #         add_to_variable = {
+    #             SOV_military_support_for_current_regime = 1
+    #         }
+    #     }
+    #    }
+        
+    # }
     on_weekly_SOV = {
         effect = {
             if = {
