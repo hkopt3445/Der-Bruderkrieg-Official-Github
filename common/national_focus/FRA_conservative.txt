@@ -1116,7 +1116,7 @@ focus_tree = {
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_goal_FRA_conservative_vic
     text = FRA_CONSERVATIVES_PREVAIL
-    x = 3
+    x = 5
     y = 0
     #relative_position_id = FRA_national_development_bureau
     cost = 0
@@ -1493,7 +1493,7 @@ shared_focus = {
 		available = {
 			always = no
 		}
-    x = 3
+    x = 2
     y = 1
 	relative_position_id = FRA_DOCTRINAIRE_VIC
 	
@@ -1677,8 +1677,11 @@ shared_focus = {
     icon = GFX_goal_FRA_lafyettes_dream
     text = FRA_LAFAYETTE_DREAM
 		prerequisite = { focus = FRA_REX_REGNAT }
+		prerequisite = {
+			focus = FRA_LIBERTE
+		}
     x = 0
-    y = 1
+    y = 2
     relative_position_id = FRA_REX_REGNAT
     cost = 5
     ai_will_do = {
@@ -1699,54 +1702,54 @@ shared_focus = {
 			}
     }
   }
-  shared_focus = {  
-			id = FRA_announce_imperial_election
-			icon = GFX_goal_AUS_sign_a_new_constitution
-			text = FRA_announce_imperial_election
-			prerequisite = { focus = FRA_no_room_for_tyrants }
-			x = 2
-			y = 1
-			relative_position_id = FRA_no_room_for_tyrants
-			cost = 2
-			ai_will_do = {
-			  factor = 10  
-			}
+#   shared_focus = {  
+# 			id = FRA_announce_imperial_election
+# 			icon = GFX_goal_AUS_sign_a_new_constitution
+# 			text = FRA_announce_imperial_election
+# 			prerequisite = { focus = FRA_no_room_for_tyrants }
+# 			x = 2
+# 			y = 1
+# 			relative_position_id = FRA_no_room_for_tyrants
+# 			cost = 2
+# 			ai_will_do = {
+# 			  factor = 10  
+# 			}
 		
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_RESEARCH } 
+# 			available_if_capitulated = yes
+# 			search_filters = { FOCUS_FILTER_RESEARCH } 
 		
-			completion_reward = {
-			  country_event = francestart.1 
-			}
-		  }
-  shared_focus = { 
-	id = FRA_the_issue_or_refugees
-	icon = GFX_goal_FRA_the_issue_of_refugees
-	text = FRA_the_issue_or_refugees
-	prerequisite = { focus = FRA_announce_imperial_election }
-	x = 0
-	y = 1
-	relative_position_id = FRA_announce_imperial_election
-	cost = 2
-	ai_will_do = {
-	  factor = 100
-	}
+# 			completion_reward = {
+# 			  country_event = francestart.1 
+# 			}
+# 		  }
+#   shared_focus = { 
+# 	id = FRA_the_issue_or_refugees
+# 	icon = GFX_goal_FRA_the_issue_of_refugees
+# 	text = FRA_the_issue_or_refugees
+# 	prerequisite = { focus = FRA_announce_imperial_election }
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = FRA_announce_imperial_election
+# 	cost = 2
+# 	ai_will_do = {
+# 	  factor = 100
+# 	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
-		country_event = francestart.2
-		unlock_decision_category_tooltip = FRA_the_issue_of_refugees
-	}
-  }
+# 	completion_reward = {
+# 		country_event = francestart.2
+# 		unlock_decision_category_tooltip = FRA_the_issue_of_refugees
+# 	}
+#   }
   shared_focus = { 
 	id = FRA_conservative_victory_in_elections
 	icon = GFX_focus_FRA_reassert_the_emperor_power
-	prerequisite = { focus = FRA_the_issue_or_refugees }
-	x = 1
+	prerequisite = { focus = FRA_no_room_for_tyrants }
+	x = 2
 	y = 1
-	relative_position_id = FRA_the_issue_or_refugees
+	relative_position_id = FRA_no_room_for_tyrants
 	mutually_exclusive = {
 		focus = FRA_liberal_victory_in_elections
 	}
@@ -1774,54 +1777,54 @@ shared_focus = {
 	}
 	}
   }
-  shared_focus = { 
-	id = FRA_liberal_victory_in_elections
-	icon = GFX_goal_AUS_call_a_reichstrat
-	prerequisite = { focus = FRA_the_issue_or_refugees }
-	mutually_exclusive = {
-		focus = FRA_conservative_victory_in_elections
-	}
-	x = -1
-	y = 1
-	relative_position_id = FRA_the_issue_or_refugees
-	cost = 2
-	ai_will_do = {
-	  factor = 100
-	} 
+#   shared_focus = { 
+# 	id = FRA_liberal_victory_in_elections
+# 	icon = GFX_goal_AUS_call_a_reichstrat
+# 	prerequisite = { focus = FRA_the_issue_or_refugees }
+# 	mutually_exclusive = {
+# 		focus = FRA_conservative_victory_in_elections
+# 	}
+# 	x = -1
+# 	y = 1
+# 	relative_position_id = FRA_the_issue_or_refugees
+# 	cost = 2
+# 	ai_will_do = {
+# 	  factor = 100
+# 	} 
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
-	  add_political_power = 50
-	  add_popularity = {
-		  ideology = democratic_liberalism
-		  popularity = 0.35
-	  }
+# 	completion_reward = {
+# 	  add_political_power = 50
+# 	  add_popularity = {
+# 		  ideology = democratic_liberalism
+# 		  popularity = 0.35
+# 	  }
 	  
-	  #FRA_create_liberal_cabinet = yes
-	  hidden_effect = {
-		create_country_leader = {
-			name = "Edouard Daladier"
-			desc = ""
-			picture = "gfx/leaders/Paul_Reynaud.dds"
-			expire = "1965.1.1"
-			ideology = democratic_liberal
-			traits = {
+# 	  #FRA_create_liberal_cabinet = yes
+# 	  hidden_effect = {
+# 		create_country_leader = {
+# 			name = "Edouard Daladier"
+# 			desc = ""
+# 			picture = "gfx/leaders/Paul_Reynaud.dds"
+# 			expire = "1965.1.1"
+# 			ideology = democratic_liberal
+# 			traits = {
 				
-			}
-		}
-	}
-	}
-  }
+# 			}
+# 		}
+# 	}
+# 	}
+#   }
   	shared_focus = {
     id = FRA_LIBERTE
     icon = GFX_goal_continuous_boost_freedom
     text = FRA_LIBERTE
-		prerequisite = { focus = FRA_liberal_victory_in_elections }
-    x = -1
+		prerequisite = { focus = FRA_conservative_victory_in_elections }
+    x = -2
     y = 1
-    relative_position_id = FRA_liberal_victory_in_elections
+    relative_position_id = FRA_conservative_victory_in_elections
     cost = 5
     ai_will_do = {
       factor = 20
@@ -1843,10 +1846,10 @@ shared_focus = {
   shared_focus = {
     id = FRA_promoting_civil_rights
     icon = GFX_focus_eng_concessions_to_the_trade_unions
-    prerequisite = { focus = FRA_liberal_victory_in_elections focus = FRA_conservative_victory_in_elections }
-    x = 1
+    prerequisite = { focus = FRA_conservative_victory_in_elections focus = FRA_conservative_victory_in_elections }
+    x = 0
     y = 1
-    relative_position_id = FRA_liberal_victory_in_elections
+    relative_position_id = FRA_conservative_victory_in_elections
     cost = 5
     ai_will_do = {
       factor = 2000
@@ -1869,7 +1872,7 @@ shared_focus = {
     icon = GFX_focus_FRA_sway_popular_opnion_about_the_left
     text = FRA_fraternite
 		prerequisite = { focus = FRA_conservative_victory_in_elections }
-    x = 1
+    x = 2
     y = 1
     relative_position_id = FRA_conservative_victory_in_elections
     cost = 5
@@ -2314,6 +2317,9 @@ shared_focus = {
     text = FRA_VIVE_LE_FRANCE
 		prerequisite = { focus = FRA_END_CONSTITUTIONALISM focus = FRA_national_syndicalism }
 		#prerequisite = {focus = FRA_IMPERIAL_GLORY}
+		mutually_exclusive = {
+			focus = FRA_PIETY
+		}
     x = 1
     y = 1
     relative_position_id = FRA_END_CONSTITUTIONALISM
@@ -2409,6 +2415,7 @@ shared_focus = {
 		icon = GFX_goal_FRA_legacy_of_charlegemgne
 		text = FRA_LEGACY_OF_CHARLEGMEGNE
 		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
+		
 		x = 2
 		y = 1
 		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
@@ -2592,13 +2599,16 @@ shared_focus = {
 		id = FRA_PIETY
 		icon = GFX_focus_por_concordat
 		text = FRA_PIETY
-		prerequisite = { focus = FRA_IMPERIAL_GLORY}
-		x = 0
+		prerequisite = { focus = FRA_IMPERIAL_GLORY focus = FRA_national_syndicalism }  
+		x = -1
 		y = 1
 		relative_position_id = FRA_IMPERIAL_GLORY
 		cost = 5
 		ai_will_do = {
 			factor = 20
+		}
+		mutually_exclusive = {
+			focus = FRA_VIVE_LE_FRANCE
 		}
 
 		available_if_capitulated = yes
@@ -2640,7 +2650,7 @@ shared_focus = {
 		icon = GFX_goal_FRA_deus_omnia_vincit
 		text = FRA_DEUS_OMNIA
 		prerequisite = { focus = FRA_IMPERIAL_GLORY}
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = FRA_IMPERIAL_GLORY
 		cost = 5
@@ -2846,7 +2856,7 @@ shared_focus = {
 			focus = FRA_CONSERVATIVES_PREVAIL
 		}
 
-		x = 6
+		x = 4
 		y = 1
 		relative_position_id = FRA_CONSERVATIVES_PREVAIL
 		cost = 1
@@ -3658,7 +3668,13 @@ shared_focus = {
 
 			country_event = napoleanfrance.27
 
-			unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
+			if = {
+				limit = {
+					has_completed_focus = FRA_movement_francaise
+					
+				}
+				unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
+			}
 			set_country_flag = chose_napoleon_over_petain
 		}
 	}
