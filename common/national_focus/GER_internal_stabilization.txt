@@ -877,6 +877,39 @@ shared_focus = {
 	}
  
 
+
+		###INDUSTRY
+
+		shared_focus = {
+			id = GER_goerings_industrial_plan
+			icon = GFX_goal_generic_construction
+			x = 3
+			y = 1
+			cost = 5
+			ai_will_do = {
+				factor = 12
+			}
+			prerequisite = {
+				focus = GER_consolidating_power
+			}
+			relative_position_id = GER_consolidating_power
+			#prerequisite = {focus = GER_herman_goering_werke}
+			#relative_position_id = GER_herman_goering_werke
+			search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+			completion_reward = { 
+				add_tech_bonus = {
+					name = GER_goerings_industrial_plan
+					bonus = 1.0
+					uses = 2
+					category = industry
+				}
+				custom_effect_tooltip = available_political_advisor
+				#how_ideas_tooltip = hjalmar_schacht
+			}
+		
+		}
+
+		
 		########################
 		# Economy
 		########################
@@ -1247,37 +1280,6 @@ shared_focus = {
 	
 
 
-		###INDUSTRY
-
-		shared_focus = {
-			id = GER_goerings_industrial_plan
-			icon = GFX_goal_generic_construction
-			x = 3
-			y = 1
-			cost = 5
-			ai_will_do = {
-				factor = 12
-			}
-			prerequisite = {
-				focus = GER_consolidating_power
-			}
-			relative_position_id = GER_consolidating_power
-			#prerequisite = {focus = GER_herman_goering_werke}
-			#relative_position_id = GER_herman_goering_werke
-			search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
-			completion_reward = { 
-				add_tech_bonus = {
-					name = GER_goerings_industrial_plan
-					bonus = 1.0
-					uses = 2
-					category = industry
-				}
-				custom_effect_tooltip = available_political_advisor
-				#how_ideas_tooltip = hjalmar_schacht
-			}
-		
-		}
-
 		shared_focus = {
 		cancelable = no
 			id = GER_industrial_cooperations
@@ -1510,6 +1512,67 @@ shared_focus = {
 
 
 
+
+
+shared_focus = {
+    id = GER_coal_production
+    icon = GFX_goal_generic_oil_refinery
+    prerequisite = { focus = GER_continuing_ataurky }
+    x = -1
+    y = 1
+    relative_position_id = GER_continuing_ataurky
+    cost = 5
+    ai_will_do = {
+        factor = 4
+    }
+
+    
+    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+        add_tech_bonus = {
+            name = GER_coal_production
+            bonus = 3.0
+            uses = 1
+            category = synth_resources
+        }
+        if = {
+            limit = {
+                has_full_control_of_state = 65
+            }
+            65 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = synthetic_refinery
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = GER_rubber_production
+    icon = GFX_focus_generic_rubber
+    prerequisite = { focus = GER_continuing_ataurky }
+    x = 1
+    y = 1
+    relative_position_id = GER_continuing_ataurky
+    cost = 5
+    ai_will_do = {
+        factor = 4
+    }
+    search_filters = { FOCUS_FILTER_INDUSTRY }
+    completion_reward = {
+
+        modify_building_resources = {
+           building = synthetic_refinery
+           resource = rubber
+           amount = 2
+        }
+    }
+}
+
 shared_focus = {
     id = GER_volkswagen_factories
     icon = GFX_goal_generic_construct_civ_factory
@@ -1588,65 +1651,6 @@ shared_focus = {
                 instant_build = yes
             }
             set_state_flag = GER_industrial_effort_2_2IC
-        }
-    }
-}
-
-shared_focus = {
-    id = GER_coal_production
-    icon = GFX_goal_generic_oil_refinery
-    prerequisite = { focus = GER_continuing_ataurky }
-    x = -1
-    y = 1
-    relative_position_id = GER_continuing_ataurky
-    cost = 5
-    ai_will_do = {
-        factor = 4
-    }
-
-    
-    search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
-    completion_reward = {
-        add_tech_bonus = {
-            name = GER_coal_production
-            bonus = 3.0
-            uses = 1
-            category = synth_resources
-        }
-        if = {
-            limit = {
-                has_full_control_of_state = 65
-            }
-            65 = {
-                add_extra_state_shared_building_slots = 1
-                add_building_construction = {
-                    type = synthetic_refinery
-                    level = 1
-                    instant_build = yes
-                }
-            }
-        }
-    }
-}
-
-shared_focus = {
-    id = GER_rubber_production
-    icon = GFX_focus_generic_rubber
-    prerequisite = { focus = GER_continuing_ataurky }
-    x = 1
-    y = 1
-    relative_position_id = GER_continuing_ataurky
-    cost = 5
-    ai_will_do = {
-        factor = 4
-    }
-    search_filters = { FOCUS_FILTER_INDUSTRY }
-    completion_reward = {
-
-        modify_building_resources = {
-           building = synthetic_refinery
-           resource = rubber
-           amount = 2
         }
     }
 }
