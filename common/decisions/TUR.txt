@@ -14,7 +14,7 @@ TUR_ottoman_persian_war = {
 		  hidden_trigger = { always = no }
 		}
 	
-		days_mission_timeout = 70
+		days_mission_timeout = 5
 	
 		fire_only_once = yes 
 	
@@ -32,7 +32,39 @@ TUR_ottoman_persian_war = {
 		is_good = yes
 	
 		timeout_effect = {
-			
+			if = {
+				limit = {
+					check_variable = {
+						var = TUR.surrender_progress 
+						value = PER.surrender_progress
+					}
+				}
+				PER = {
+					transfer_state = 656
+					transfer_state = 855
+					transfer_state = 291
+					transfer_state = 853
+					transfer_state = 852
+					transfer_state = 851
+					transfer_state = 569
+					transfer_state = 676
+					transfer_state = 650
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = PER.surrender_progress 
+						value = TUR.surrender_progress
+					}
+				}
+				TUR = {
+					transfer_state = 413
+				}
+			}
+			TUR = {
+				white_peace = PER
+			}
 		}
 	  }
 }
