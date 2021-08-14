@@ -1311,7 +1311,7 @@ shared_focus = {
   id = AUS_recover_from_black_monday
   icon = GFX_goal_deregulate_the_banking_industury
   text = AUS_recover_from_black_monday
-  x = 51
+  x = 44
   y = 0
   cost = 1
 
@@ -1322,7 +1322,10 @@ shared_focus = {
       factor = 2000
   }
   available = { 
-    has_country_flag = stocks_crash
+    NOT = {
+      has_idea = AUS_stagnant_economic_growth_2
+      has_idea = AUS_stagnant_economic_growth
+    }
   }
   offset = {
     x = 10
@@ -1336,10 +1339,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
   completion_reward = {
     add_stability = 0.05
-    add_political_power = 100
+    add_political_power = 50
 
-    unlock_decision_category_tooltip = AUS_stop_riots
-    unlock_decision_category_tooltip = AUS_recovery
+    # unlock_decision_category_tooltip = AUS_stop_riots
+    # unlock_decision_category_tooltip = AUS_recovery
   }
 }
 
@@ -2451,6 +2454,10 @@ shared_focus = {
     }
 		completion_reward = {
 			add_ideas= AUS_catholic_corporatism
+      swap_ideas = {
+        add_idea = AUS_stagnant_economic_growth_2
+        remove_idea = AUS_stagnant_economic_growth
+      }
 		}
 	}
 
@@ -2474,6 +2481,7 @@ shared_focus = {
 			   add_idea = AUS_catholic_corporatism_2
 			   remove_idea = AUS_catholic_corporatism
 			}
+      remove_ideas = AUS_stagnant_economic_growth_2
 		}
 	}
 
@@ -2532,6 +2540,10 @@ shared_focus = {
 		}
 		completion_reward = {
 			add_ideas= AUS_austrian_capitalism
+      swap_ideas = {
+        add_idea = AUS_stagnant_economic_growth_2
+        remove_idea = AUS_stagnant_economic_growth
+      }
 		}
 	}
 
@@ -2546,7 +2558,7 @@ shared_focus = {
 		prerequisite = { focus = AUS_austrian_capitalism }
     relative_position_id = AUS_austrian_capitalism
 		search_filters = { FOCUS_FILTER_POLITICAL }
-		ai_will_do = {
+		ai_will_do = { 
 			factor = 1
 		}
 		completion_reward = {
@@ -2554,6 +2566,7 @@ shared_focus = {
 		   	add_idea = AUS_austrian_capitalism_2
 			remove_idea = AUS_austrian_capitalism
 		   }
+       remove_ideas = AUS_stagnant_economic_growth_2
        random_owned_controlled_state = {
               add_building_construction = {
                   type = infrastructure
@@ -3070,8 +3083,10 @@ shared_focus = {
 
   completion_reward = {
     add_command_power = 20
+    add_war_support = 0.05
     add_offsite_building = { type = arms_factory level = 1 }
-    unlock_decision_category_tooltip = AUS_preperation_for_the_second_bruderkrieg_infil
+    add_offsite_building = { type = arms_factory level = 1 }
+   # unlock_decision_category_tooltip = AUS_preperation_for_the_second_bruderkrieg_infil
 
    }
 }
@@ -3848,8 +3863,8 @@ shared_focus = {
   #prerequisite = {focus = AUS_mil_infastructure_2}
  # prerequisite = { focus = AUS_mil_industry_2 }
   
-  x = 27
-  y = 8
+  x = 45
+  y = 7
   #relative_position_id = AUS_mil_industry_2
   cost = 1
   ai_will_do = {
@@ -3878,7 +3893,7 @@ shared_focus = {
   icon = GFX_goal_generic_axis_build_infantry
   text = AUS_KAISERLICHE_HEER
   prerequisite = { focus = AUS_PREP_WAR }
-  x = -4
+  x = -7
   y = 1
   relative_position_id = AUS_PREP_WAR
   cost = 5
@@ -4299,7 +4314,7 @@ shared_focus = {
   icon = GFX_goal_generic_navy_carrier
   text = AUS_KAISER_MARINE
   prerequisite = { focus = AUS_PREP_WAR }
-  x = 10
+  x = 7
   y = 1
   relative_position_id = AUS_PREP_WAR
   cost = 5
@@ -4605,7 +4620,7 @@ shared_focus = {
   icon = GFX_goal_generic_build_airforce
   text = AUS_KAISER_AIR
   prerequisite = { focus = AUS_PREP_WAR }
-  x = 3
+  x = 0
   y = 1
   relative_position_id = AUS_PREP_WAR
   cost = 5
@@ -7028,11 +7043,11 @@ shared_focus = {
   id = AUS_a_new_european_order
   icon = unkown
   text = AUS_a_new_european_order
-  #prerequisite = { focus = AUS_karls_cabinet }
+  prerequisite = { focus = AUS_ensure_intervention focus = AUS_advisors_for_our_allies focus = AUS_end_the_serbian_threat }
 
-  x = 38
-  y = 0
-  #relative_position_id = AUS_karls_cabinet
+  x = -3
+  y = 1
+  relative_position_id = AUS_ensure_intervention
   cost = 0
   ai_will_do = {
     factor = 1
@@ -7078,7 +7093,9 @@ shared_focus = {
   icon = unkown
   text = AUS_the_german_question
   prerequisite = { focus = AUS_the_remnants_of_prussia }
-  
+  mutually_exclusive = {
+    focus = AUS_stabilizing_europe
+  }
   x = 2
   y = 1
   relative_position_id = AUS_the_remnants_of_prussia
@@ -7097,11 +7114,11 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = AUS_grobdeutches_reich
+  id = AUS_the_greatest_austria
   icon = unkown
-  text = AUS_grobdeutches_reich
+  text = AUS_the_greatest_austria
   prerequisite = { focus = AUS_the_german_question }
-  
+ 
   x = -1
   y = 1
   relative_position_id = AUS_the_german_question
@@ -7142,10 +7159,10 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = AUS_the_greatest_austria
+  id = AUS_end_the_napoleonic_threat
   icon = unkown
-  text = AUS_the_greatest_austria
-  prerequisite = { focus = AUS_the_german_confederation focus = AUS_grobdeutches_reich }
+  text = AUS_end_the_napoleonic_threat
+  prerequisite = { focus = AUS_the_german_confederation focus = AUS_the_greatest_austria }
   
   x = -1
   y = 1
@@ -7169,7 +7186,9 @@ shared_focus = {
   icon = unkown
   text = AUS_stabilizing_europe
   prerequisite = { focus = AUS_the_remnants_of_prussia }
-  
+  mutually_exclusive = {
+    focus = AUS_the_german_question
+  }
   x = -2
   y = 1
   relative_position_id = AUS_the_remnants_of_prussia
@@ -7258,10 +7277,8 @@ shared_focus = {
   id = AUS_the_european_accords
   icon = unkown
   text = AUS_the_european_accords
-  prerequisite = { focus = AUS_proposing_the_conference}
-  prerequisite = {
-    focus = AUS_the_greatest_austria
-  }
+  prerequisite = { focus = AUS_end_the_napoleonic_threat focus = AUS_proposing_the_conference}
+  
   
   x = 2
   y = 1

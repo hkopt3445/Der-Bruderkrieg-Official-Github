@@ -8,15 +8,258 @@ focus_tree = {
 		x = 0
 		y = 4000
 	}
-	
 
-    focus = {
-		id = USA_longs_campaign_speech
-		icon = GFX_goal_USA_longs_relection_speech
-		#prerequisite = { focus = PAP_DEATH }
+	focus = {
+		id = USA_the_end_of_the_first_four
+		icon = GFX_goal_USA_the_end_of_the_first_four
+		#prerequisite = { focus = USA_longs_campaign_speech }
 		x = 0
 		y = 0
-		#relative_position_id = PAP_DEATH
+		#relative_position_id = USA_longs_campaign_speech
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_the_situation_in_liberia
+		icon = GFX_goal_USA_the_situation_in_liberia
+		prerequisite = { focus = USA_the_end_of_the_first_four }
+		x = -3
+		y = 1
+		relative_position_id = USA_the_end_of_the_first_four
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_governor_general_roosevelt
+		icon = GFX_goal_USA_governor_general_roosevelt
+		prerequisite = { focus = USA_the_situation_in_liberia }
+		mutually_exclusive = {
+			focus = USA_governor_general_truman
+		}
+		mutually_exclusive = {
+			focus = USA_governor_general_patton
+		}
+		x = -2
+		y = 1
+		relative_position_id = USA_the_situation_in_liberia
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_governor_general_truman
+		icon = GFX_goal_USA_governor_general_truman
+		prerequisite = { focus = USA_the_situation_in_liberia }
+		x = 0
+		y = 1
+		relative_position_id = USA_the_situation_in_liberia
+		mutually_exclusive = {
+			focus = USA_governor_general_roosevelt
+		}
+		mutually_exclusive = {
+			focus = USA_governor_general_patton
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_governor_general_patton
+		icon = GFX_goal_USA_governor_general_patton
+		prerequisite = { focus = USA_the_situation_in_liberia }
+		x = 2
+		y = 1
+		relative_position_id = USA_the_situation_in_liberia
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		mutually_exclusive = {
+			focus = USA_governor_general_roosevelt
+		}
+		mutually_exclusive = {
+			focus = USA_governor_general_truman
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_defender_of_liberty
+		icon = GFX_goal_USA_defender_of_liberty
+		prerequisite = { focus = USA_governor_general_patton focus = USA_governor_general_roosevelt focus = USA_governor_general_truman }
+		x = -2
+		y = 1
+		relative_position_id = USA_governor_general_patton
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_operation_bolivar
+		icon = GFX_goal_USA_operation_bolivar
+		prerequisite = { focus = USA_the_end_of_the_first_four }
+		x = 3
+		y = 1
+		relative_position_id = USA_the_end_of_the_first_four
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_the_caracas_conference
+		icon = GFX_goal_USA_the_caracas_conference
+		prerequisite = { focus = USA_operation_bolivar }
+		x = -1
+		y = 1
+		relative_position_id = USA_operation_bolivar
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_venezuelan_disaster
+		icon = GFX_goal_USA_the_venezuelan_disaster
+		prerequisite = { focus = USA_operation_bolivar }
+		x = 1
+		y = 1
+		relative_position_id = USA_operation_bolivar
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_bulwark_against_socialism
+		icon = GFX_goal_USA_bulwark_against_socialism
+		prerequisite = { focus = USA_the_venezuelan_disaster focus = USA_the_caracas_conference }
+		x = 1
+		y = 1
+		relative_position_id = USA_the_caracas_conference
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_1936_DNC
+		icon = GFX_goal_USA_1936_DNC
+		prerequisite = { focus = USA_bulwark_against_socialism }
+		prerequisite = {
+			focus = USA_defender_of_liberty
+		}
+		x = 3
+		y = 1
+		relative_position_id = USA_defender_of_liberty
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	
+
+    focus = { 
+		id = USA_longs_campaign_speech
+		icon = GFX_goal_USA_longs_relection_speech
+		prerequisite = { focus = USA_1936_DNC }
+		x = -3
+		y = 1
+		relative_position_id = USA_1936_DNC
 		cost = 2
 		ai_will_do = {
 			factor = 1

@@ -329,9 +329,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_moscow_school_of_research
 	icon = GFX_goal_SOV_moscow_school_of_research
-	prerequisite = { focus = SOV_funding_government_industry }
 	prerequisite = {
 		focus = SOV_funding_construction_industry
+		focus = SOV_funding_government_industry
 	}
 
 	
@@ -660,13 +660,20 @@ shared_focus = {
 shared_focus = {
 	id = SOV_continuing_russification
 	icon = GFX_goal_SOV_continue_russification
-	prerequisite = { focus = SOV_pavel_milyukovs_presidency }
+	prerequisite = { focus = SOV_pavel_milyukovs_presidency focus = SOV_the_tsars_army }
 	x = 0
 	y = 1
 	relative_position_id = SOV_pavel_milyukovs_presidency
-	cost = 2
+	cost = 4
 	ai_will_do = {
 		factor = 20
+	}
+	offset = {
+		trigger = {
+			has_focus_tree = SOV_the_return_of_the_tsar_tree
+		}
+        x = 16
+        y = 1
 	}
 
 	available_if_capitulated = yes
@@ -786,7 +793,7 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		
+		unlock_decision_tooltip = SOV_send_soldiers_to_the_finns
 		
 		}
 }
@@ -832,7 +839,7 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		
+		unlock_decision_tooltip = SOV_send_soldiers_to_cossacks
 		
 		}
 }
@@ -878,7 +885,7 @@ shared_focus = {
 
 	completion_reward = {
 		
-		
+		unlock_decision_tooltip = SOV_send_soldiers_to_cossacks
 		}
 }
 
@@ -982,7 +989,7 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		
+		SOV_increase_support_among_people_medium = yes
 		remove_ideas = SOV_ethnic_conflicts
 		}
 }
@@ -1498,7 +1505,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		BUL = {
+		ROM = {
 			country_event = { id = russia.22 }
 		}
 	}
@@ -1538,6 +1545,9 @@ shared_focus = {
 	y = 1
 	
 	available = {
+		YUG = {
+			exists = yes
+		}
 	}
 	bypass = {
 
@@ -1553,6 +1563,9 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		YUG = {
+			country_event = russia.22
+		}
 	}
 	ai_will_do = {
 	}
@@ -1715,7 +1728,9 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		
+		CHI = {
+			country_event = russia.22
+		}
 	}
 	ai_will_do = {
 	}

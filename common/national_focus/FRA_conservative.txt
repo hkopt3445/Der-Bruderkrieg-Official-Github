@@ -1692,14 +1692,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_ideas = {
-				Lafayette_Dream
-			}
-
-			add_popularity  = {
-				ideology = ROOT
-				popularity = 0.05
-			}
+      remove_country_leader_trait = inexperienced_monarch
     }
   }
 #   shared_focus = {  
@@ -1834,9 +1827,7 @@ shared_focus = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-		set_politics = {
-			ruling_party = democratic_liberalism
-		}
+		
       add_ideas = {
 				Conte_Tyrannie
 			}
@@ -2178,7 +2169,7 @@ shared_focus = {
 			set_politics = {
 				ruling_party = fascism
 			}
-
+			remove_country_leader_trait = inexperienced_monarch
 			hidden_effect = {
 			create_country_leader = {
 				name = "Napoleon VI"
@@ -2187,7 +2178,7 @@ shared_focus = {
 				expire = "1965.1.1"
 				ideology = fascism_ideology
 				traits = {
-					napoleon_ancestor
+					
 					
 				}
 			}
@@ -2226,7 +2217,7 @@ shared_focus = {
 
   shared_focus = {
     id = FRA_movement_francaise
-    icon = GFX_focus_focus_fra_fascist_threat
+    icon = GFX_goal_Generic_Ultranationalist_Monarchy
     text = FRA_movement_francaise
 		prerequisite = { focus = FRA_FASCIST_VIC focus = FRA_LE_EMPEROR }
     x = 1
@@ -2266,7 +2257,7 @@ shared_focus = {
 			set_politics = {
 				ruling_party = ultranationalism
 			}
-	
+			remove_country_leader_trait = inexperienced_monarch
 			hidden_effect = {
 			create_country_leader = {
 				name = "Napoleon VI"
@@ -2275,7 +2266,7 @@ shared_focus = {
 				expire = "1965.1.1"
 				ideology = ultranationalist
 				traits = {
-					napoleon_ancestor
+					
 					
 				}
 			}
@@ -2288,7 +2279,7 @@ shared_focus = {
   }
   shared_focus = {
     id = FRA_national_syndicalism
-    icon = GFX_focus_focus_fra_fascist_threat
+    icon = GFX_goal_Integralism
     text = FRA_national_syndicalism
 		prerequisite = { focus = FRA_movement_francaise }
     x = 0
@@ -2348,7 +2339,7 @@ shared_focus = {
       factor = 2000
     }
 	completion_reward = {
-		add_ideas = FRA_cult_of_napoleon
+		add_country_leader_trait = nationalist_symbol
 	}
   }
 
@@ -3676,6 +3667,8 @@ shared_focus = {
 				unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
 			}
 			set_country_flag = chose_napoleon_over_petain
+
+			add_country_leader_trait = napoleon_ancestor
 		}
 	}
 
@@ -5974,6 +5967,10 @@ instant_build = yes
 			cost = 4
 			ai_will_do = {
 				factor = 20
+				modifier = {
+					add = 100000
+					has_completed_focus = FRA_KEEP_1827
+				}
 			}
 			prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
 			relative_position_id = FRA_reinforcing_neue_code_napoleon
@@ -6219,7 +6216,7 @@ instant_build = yes
 					logistics_skill = 2
 				}
 		
-				FGD = { remove_ideas = FGD_legacy_of_traveluer_coup }
+				#FGD = { remove_ideas = FGD_legacy_of_traveluer_coup }
 			}
 		}
 		
@@ -6387,6 +6384,10 @@ instant_build = yes
 				cost = 3
 				ai_will_do = {
 					factor = 200
+					modifier = {
+						add = 100000
+						has_completed_focus = FRA_KEEP_1827
+					}
 				}
 				
 			
