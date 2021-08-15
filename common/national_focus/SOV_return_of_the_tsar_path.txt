@@ -65,8 +65,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_support_russian_small_business
     icon = GFX_goal_SOV_support_small_businesses
-    prerequisite = {focus = SOV_public_popularity}
-    prerequisite = { focus = SOV_russian_development }
+    prerequisite = {focus = SOV_public_popularity focus = SOV_russian_development}
     x = -1
     y = 1
     relative_position_id = SOV_public_popularity
@@ -86,7 +85,7 @@ shared_focus = {
     x = 0
     y = 1
     relative_position_id = SOV_support_russian_small_business
-    cost = 7
+    cost = 2
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -156,10 +155,8 @@ shared_focus = {
             add_idea = SOV_romanov_foundation_idea_2
         }
 
-        add_to_variable = {
-            SOV_peoples_support_for_current_regime = 5
-            tooltip = SOV_increase_tsars_support_by_5
-        }
+        SOV_increase_support_among_people_medium = yes
+      
     }
 }
 shared_focus = {
@@ -178,7 +175,7 @@ shared_focus = {
     completion_reward = {
         add_popularity = {
             ideology = democratic
-            popularity = 0.05
+            popularity = 0.1
         }
         add_political_power = 75
         
@@ -305,7 +302,7 @@ shared_focus = {
     cost = 4
     available_if_capitulated = yes
     available = {
-        democratic > 0.3
+        democratic > 0.25
     }
     ai_will_do = {
         factor = 1000
@@ -619,7 +616,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 50
     }
     completion_reward = {
         unlock_decision_category_tooltip = SOV_urp_development_scheme
@@ -637,7 +634,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 50
     }
     completion_reward = {
         unlock_decision_tooltip = SOV_reconstruct_the_trans_siberian_railroad
@@ -653,7 +650,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 50
     }
     completion_reward = {
         
@@ -670,7 +667,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 50
     }
     completion_reward = {
         571 = {
@@ -700,7 +697,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 50
     }
     completion_reward = {
         
@@ -725,7 +722,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 50
     }
     completion_reward = {
         
@@ -742,7 +739,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 50
     }
     completion_reward = {
         unlock_decision_category_tooltip = SOV_european_development
@@ -760,7 +757,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 50
     }
     completion_reward = {
         add_tech_bonus = {
@@ -796,7 +793,7 @@ shared_focus = {
     icon = GFX_goal_SOV_greater_russia
     x = 30
     y = 0 
-    cost = 2
+    cost = 3
 	available_if_capitulated = yes
 	
     ai_will_do = {
@@ -806,42 +803,11 @@ shared_focus = {
         has_completed_focus = SOV_restore_the_empire
     }
     completion_reward = {
-        add_war_support = 0.05
+        add_war_support = 0.1
 
-        unlock_decision_category_tooltip = SOV_expand_the_russian_sphere_tsar
+        #unlock_decision_category_tooltip = SOV_expand_the_russian_sphere_tsar
 
-        ROM = {
-            set_variable = {
-                russian_influence = 60
-            }
-        }
-        BUL = {
-            set_variable = {
-                russian_influence = 70
-            }
-        }
-        YUG = {
-            set_variable = {
-                russian_influence = 40
-            }
-        }
-        ALB = {
-            set_variable = {
-                russian_influence = 5
-            }
-        }
-     
-
-        PER = {
-            set_variable = {
-                russian_influence = 40
-            }
-        }
-        AFG = {
-            set_variable = {
-                russian_influence = 35
-            }
-        }
+ 
         
     }
 }
@@ -1387,7 +1353,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 10
     }
 
     available = {
@@ -1408,7 +1374,7 @@ shared_focus = {
     cost = 2.5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 10
     }
     completion_reward = {
         189 = {
@@ -1436,7 +1402,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 10
     }
     completion_reward = {
         12 = {
@@ -1464,15 +1430,19 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 10
     }
     completion_reward = {
         
-        FOB = {
+        SOV = {
             every_owned_state = {
+                limit = {
+                    is_core_of = FOB
+                }
                 add_building_construction = {
                     type = infrastructure
-                    level = 2
+                    level = 3
+                    instant_build = yes
                 }
             }
         }
@@ -1492,10 +1462,10 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 10
     }
     completion_reward = {
-        
+        SOV_increase_support_among_people_small = yes
     }
 }
 
@@ -1510,10 +1480,20 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 10
     }
     completion_reward = {
-        
+        111 = {
+            add_building_construction = {
+                type = dockyard
+                level = 2
+            }
+            add_building_construction = {
+                type = infrastructure
+                level = 2
+            }
+            add_extra_state_shared_building_slots = 2
+        }
     }
 }
 
@@ -1533,7 +1513,7 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 10
     }
     completion_reward = {
         add_ideas = SOV_peters_dream
@@ -1570,7 +1550,9 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        PER = {
+            country_event = generic.20
+        }
         
     }
 }
@@ -1617,7 +1599,9 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        AFG = {
+            country_event = generic.20
+        }
         
     }
 }
@@ -1747,11 +1731,10 @@ shared_focus = {
 shared_focus = {
     id = SOV_russian_glory
     icon = GFX_goal_SOV_continue_russification
-	prerequisite = {focus = SOV_fortify_the_front}
     # prerequisite = {
     #     focus = SOV_peters_dream_achieved
     # }
-	prerequisite = { focus = SOV_Eastern_Balkan_Industry focus = SOV_Eastern_Balkan_Defense focus = SOV_Regionalized_Defense }
+	prerequisite = { focus = SOV_Eastern_Balkan_Industry focus = SOV_Eastern_Balkan_Defense focus = SOV_Regionalized_Defense focus = SOV_fortify_the_front }
     # prerequisite = {
     #     focus = SOV_peters_dream_achieved
     # }
@@ -1836,9 +1819,7 @@ shared_focus = {
     }
     completion_reward = {
         MON = {
-            set_variable = {
-                russian_influence = 60
-            }
+            country_event = generic.20
         }
     }
 }
@@ -1950,22 +1931,22 @@ shared_focus = {
      add_ideas = SOV_high_altitude_combat_trainings_idea
     }
 }
-shared_focus = {
-    id = SOV_support_rebels
-    icon = GFX_goal_hierarchy_of_skill
-	prerequisite = {focus = SOV_high_altitude_combat_trainings }
-	x = 0
-	y = 1
-    relative_position_id = SOV_high_altitude_combat_trainings 
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
+# shared_focus = {
+#     id = SOV_support_rebels
+#     icon = GFX_goal_hierarchy_of_skill
+# 	prerequisite = {focus = SOV_high_altitude_combat_trainings }
+# 	x = 0
+# 	y = 1
+#     relative_position_id = SOV_high_altitude_combat_trainings 
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     completion_reward = {
      
-    }
-}
+#     }
+# }
 
 shared_focus = {
     id = SOV_prepare_the_balkans
@@ -2048,9 +2029,11 @@ shared_focus = {
 shared_focus = {
     id = SOV_prussian_russian_war_games
     icon = GFX_goal_SOV_no_they_are_insane
-    prerequisite = {focus = SOV_prussian_ally }
-
-	x = 0
+    prerequisite = {focus = SOV_prussian_ally } 
+    prerequisite = {
+        focus = SOV_high_altitude_combat_trainings
+    }
+	x = -1
 	y = 1
     relative_position_id = SOV_prussian_ally 
     cost = 2
@@ -2066,9 +2049,9 @@ shared_focus = {
 shared_focus = {
     id = SOV_operation_third_rome
     icon = GFX_goal_ITA_the_greatest_threat
-    prerequisite = {focus = SOV_prussian_russian_war_games }
+    prerequisite = {focus = SOV_prussian_russian_war_games focus = SOV_polish_preperations }
 
-	x = 0
+	x = 1
 	y = 1
     relative_position_id = SOV_prussian_russian_war_games 
     cost = 2
@@ -2077,14 +2060,12 @@ shared_focus = {
         factor = 1000
     }
     available = {
-        has_global_flag = europakrieg_has_started_flag
+        has_war_with = AUS
     }
     completion_reward = {
      ###russia will join the pact of the brothers temporarliy
-     create_wargoal = {
-         target = AUS
-         type = annex_everything
-     }
+
+    add_ideas = SOV_for_the_motherland
     }
 }
 

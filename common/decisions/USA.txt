@@ -925,6 +925,54 @@ USA_the_mafia = {
 
 }
 
+USA_the_venezuelan_issue = {
+	venezuelan_war_mission_timeout = {
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 120
+	
+		fire_only_once = yes 
+	
+		activation = {
+			tag = USA
+			USA = {
+				has_war_with = VEN
+			}
+		}
+	
+		visible = {
+			OR = { tag = USA tag = COL }
+			
+		} 
+
+		available = {
+			VEN = {
+				surrender_progress < 0.74
+			}
+		}
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+
+		
+	
+		timeout_effect = {
+			VEN = {
+				white_peace = COL
+				white_peace = USA
+			}
+		}
+	}
+	
+}
+
 # USA_the_american_sphere = {
 # 	USA_open_the_sphere = {
 
