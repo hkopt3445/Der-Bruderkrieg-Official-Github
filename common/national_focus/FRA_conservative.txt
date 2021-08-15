@@ -568,7 +568,7 @@ focus_tree = {
    icon = GFX_French_Navy
     text = FRA_GRANDE_MARINE
     #prerequisite = { focus = FRA_expand_the_sorbonne_university }
-    x = 10
+    x = 11
     y = 0
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 5
@@ -5570,6 +5570,11 @@ instant_build = yes
 				factor = 2000
 			}
 			available = {
+				NOT = {
+					has_war_with = GER
+				}
+			}
+			available = {
 				any_country = {
 					if = {
 						limit = {
@@ -5582,7 +5587,7 @@ instant_build = yes
 				}
 			}
 			completion_reward = {
-		
+				add_ideas = FRA_kalterkrieg_idea
 			}
 		}
 		
@@ -5764,11 +5769,14 @@ instant_build = yes
 			x = -1
 			y = 1
 			relative_position_id = FRA_RESTART_WARS
-			cost = 5
+			cost = 7
 			ai_will_do = {
 				factor = 2000
 			}
 			available = {
+				NOT = {
+					has_war_with = GER
+				}
 			}
 			bypass = {
 				OR = {
@@ -5794,15 +5802,82 @@ instant_build = yes
 				} }
 			}
 		}
+
+		shared_focus = {
+			id = FRA_invade_britain 
+			icon = GFX_goal_Blitz_The_Islands
+			text = FRA_invade_britain
+			prerequisite = { focus = FRA_TAKING_OUT_THE_SGC focus = FRA_kalterkrieg }
+			x = 0
+			y = 1
+			relative_position_id = FRA_TAKING_OUT_THE_SGC
+			mutually_exclusive = {
+				focus = FRA_bide_our_time
+			}
+			cost = 7
+			ai_will_do = {
+				factor = 2000
+			}
+		
+			bypass = {
+				
+				
+			}
+
+			
+		
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				create_wargoal = {
+					target = ENG
+					type = topple_government
+				}
+			}
+		}
+		shared_focus = {
+			id = FRA_bide_our_time 
+			icon = GFX_goal_FRA_bide_our_time
+			text = FRA_bide_our_time
+			prerequisite = { focus = FRA_TAKING_OUT_THE_SGC focus = FRA_kalterkrieg }
+			x = 2
+			y = 1
+			relative_position_id = FRA_TAKING_OUT_THE_SGC
+			cost = 5
+			ai_will_do = {
+				factor = 2000
+			}
+		
+			bypass = {
+				
+				
+			}
+			mutually_exclusive = {
+				focus = FRA_invade_britain
+			}
+
+		
+			available_if_capitulated = yes
+			search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				swap_ideas=  {
+					add_idea = FRA_kalterkrieg_idea_2
+					remove_idea = FRA_kalterkrieg_idea
+				}
+			}
+		}
+
 		
 		shared_focus = {
 			id = FRA_NAPOLEONIC_SUPERPOWER
 			icon = GFX_goal_Napoleonic_Superpower
 			text = FRA_NAPOLEONIC_SUPERPOWER
-			prerequisite = {focus = FRA_TAKING_OUT_THE_SGC focus = FRA_kalterkrieg }
+			prerequisite = {focus = FRA_invade_britain focus = FRA_bide_our_time }
 			x = 1
 			y = 1
-			relative_position_id = FRA_TAKING_OUT_THE_SGC
+			relative_position_id = FRA_invade_britain
 			cost = 5
 			ai_will_do = {
 				factor = 2000
@@ -6673,7 +6748,7 @@ instant_build = yes
 			}
 			shared_focus = {
 				id = FRA_protect_the_dutch
-				icon = GFX_goal_Brussels_Conference
+				icon = GFX_goal_Break_Dutch_Neutrality
 				text = FRA_protect_the_dutch
 				prerequisite = { focus = FRA_FORTIFY_BENELUX_BORDER	}
 				x = 0
