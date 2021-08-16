@@ -5565,7 +5565,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_support_greek_claim_on_thrace
-  icon = GFX_goal_hierarchy_of_skill
+  icon = GFX_goal_AUS_support_the_greek_claim_on_thrace
   text = AUS_support_greek_claim_on_thrace
   prerequisite = { focus = AUS_invite_greeks }
   x = 0
@@ -5585,7 +5585,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_invite_albanians
-  icon = unkown
+  icon = GFX_goal_AUS_protect_albania
   text = AUS_invite_albanians
   prerequisite = { focus = AUS_invite_greeks }
   x = -1
@@ -5605,7 +5605,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_strengthen_ties_with_serbia
-  icon = unkown
+  icon = GFX_goal_AUS_ties_with_serbia
   text = AUS_strengthen_ties_with_serbia
   prerequisite = { focus = AUS_balkan_politics }
   mutually_exclusive = {
@@ -5617,11 +5617,8 @@ shared_focus = {
       OBS = {
         exists =yes
       }
-      YUG = {
-        exists =no
-      }
-      SER = {
-        exists =no
+      available = {
+        has_global_flag = form_serbia_flag
       }
       
     }
@@ -5643,7 +5640,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_give_them_macedonia
-  icon = unkown
+  icon = GFX_goal_AUS_give_them_macedonia
   text = AUS_give_them_macedonia
   prerequisite = { focus = AUS_strengthen_ties_with_serbia }
 
@@ -5666,7 +5663,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_advisors_for_our_allies
-  icon = unkown
+  icon = GFX_goal_SOV_hierarchy_of_loyalty
   text = AUS_advisors_for_our_allies
   prerequisite = { focus = AUS_give_them_macedonia focus = AUS_support_greek_claim_on_thrace }
 
@@ -5693,7 +5690,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_fortify_against_serbia
-  icon = unkown
+  icon = GFX_goal_AUS_fortify_against_serbia
   text = AUS_fortify_against_serbia
   prerequisite = { focus = AUS_balkan_politics }
   mutually_exclusive = {
@@ -5709,6 +5706,9 @@ shared_focus = {
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_RESEARCH }
+  available = {
+    has_global_flag = form_serbia_flag
+  }
 
   completion_reward = {
       every_state = {
@@ -5740,7 +5740,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_the_bosnian_question
-  icon = unkown
+  icon = GFX_goal_AUS_the_bosnian_question
   text = AUS_the_bosnian_question
   prerequisite = { focus = AUS_fortify_against_serbia }
 
@@ -5760,7 +5760,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_end_the_serbian_threat
-  icon = unkown
+  icon = GFX_goal_AUS_end_the_serbian_threat
   text = AUS_end_the_serbian_threat
   prerequisite = { focus = AUS_the_bosnian_question }
 
@@ -5803,7 +5803,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_our_eyes_on_wesern_europe
-  icon = unkown
+  icon = GFX_goal_AUS_our_eyes_on_western_europe
   text = AUS_our_eyes_on_wesern_europe
   prerequisite = { focus = AUS_reform_central_powers }
   x = 4
@@ -5822,7 +5822,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_ties_with_napoleon
-  icon = unkown
+  icon = GFX_goal_AUS_ties_with_napoleon
   text = AUS_ties_with_napoleon
   prerequisite = { focus = AUS_our_eyes_on_wesern_europe }
   x = -1
@@ -5851,7 +5851,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_improve_small_arms_research
-  icon = unkown
+  icon = GFX_goal_AUS_improve_small_arms_research
   text = AUS_improve_small_arms_research
   prerequisite = { focus = AUS_ties_with_napoleon }
   x = 0
@@ -5871,7 +5871,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_remember_rudolfs_pact
-  icon = unkown
+  icon = GFX_goal_AUS_remember_rudolfs_pact
   text = AUS_remember_rudolfs_pact
   prerequisite = { focus = AUS_our_eyes_on_wesern_europe }
   mutually_exclusive = {
@@ -5899,7 +5899,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_strengthen_naval_research
-  icon = unkown
+  icon = GFX_goal_AUS_strengthen_naval_research
   text = AUS_strengthen_naval_research
   prerequisite = { focus = AUS_remember_rudolfs_pact }
   x = 0
@@ -5919,7 +5919,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_ensure_intervention
-  icon = unkown
+  icon = GFX_goal_AUS_ensure_intervention
   text = AUS_ensure_intervention
   prerequisite = { focus = AUS_strengthen_naval_research focus = AUS_improve_small_arms_research }
   x = -1
@@ -7026,7 +7026,7 @@ shared_focus = {
 # }
 
 
-
+ 
 
 
 
@@ -7034,14 +7034,14 @@ shared_focus = {
 ###post bruderkrieg tree
 shared_focus = {
   id = AUS_a_new_european_order
-  icon = unkown
+  icon = GFX_goal_AUS_a_new_european_order
   text = AUS_a_new_european_order
   prerequisite = { focus = AUS_ensure_intervention focus = AUS_advisors_for_our_allies focus = AUS_end_the_serbian_threat }
 
   x = -3
   y = 1
   relative_position_id = AUS_ensure_intervention
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7055,20 +7055,21 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+    add_war_support = 0.1
+    add_political_power = 100
 
    }
 }
 shared_focus = {
   id = AUS_the_remnants_of_prussia
-  icon = unkown
+  icon = GFX_goal_AUS_the_remnants_of_prussia
   text = AUS_the_remnants_of_prussia
   prerequisite = { focus = AUS_a_new_european_order }
   
   x = 0
   y = 1
   relative_position_id = AUS_a_new_european_order
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7078,12 +7079,12 @@ shared_focus = {
 
   completion_reward = {
     
-
+    unlock_decision_category = post_war_prussia_loses
    }
 }
 shared_focus = {
   id = AUS_the_german_question
-  icon = unkown
+  icon = GFX_goal_SOV_the_constitutionalists
   text = AUS_the_german_question
   prerequisite = { focus = AUS_the_remnants_of_prussia }
   mutually_exclusive = {
@@ -7092,7 +7093,7 @@ shared_focus = {
   x = 2
   y = 1
   relative_position_id = AUS_the_remnants_of_prussia
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7108,19 +7109,19 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_the_greatest_austria
-  icon = unkown
+  icon = GFX_goal_FRA_military_domination
   text = AUS_the_greatest_austria
   prerequisite = { focus = AUS_the_german_question }
  
   x = -1
   y = 1
   relative_position_id = AUS_the_german_question
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
 
-  available_if_capitulated = yes
+  available_if_capitulated = yes 
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
@@ -7130,14 +7131,14 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_the_german_confederation
-  icon = unkown
+  icon = GFX_goal_FRA_kalterkrieg
   text = AUS_the_german_confederation
   prerequisite = { focus = AUS_the_german_question }
   
   x = 1
   y = 1
   relative_position_id = AUS_the_german_question
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7153,14 +7154,14 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_end_the_napoleonic_threat
-  icon = unkown
+  icon = GFX_goal_Napoleonic_Superpower
   text = AUS_end_the_napoleonic_threat
   prerequisite = { focus = AUS_the_german_confederation focus = AUS_the_greatest_austria }
   
   x = -1
   y = 1
   relative_position_id = AUS_the_german_confederation
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7176,7 +7177,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_stabilizing_europe
-  icon = unkown
+  icon = GFX_goal_GenericSocialLiberalism
   text = AUS_stabilizing_europe
   prerequisite = { focus = AUS_the_remnants_of_prussia }
   mutually_exclusive = {
@@ -7185,7 +7186,7 @@ shared_focus = {
   x = -2
   y = 1
   relative_position_id = AUS_the_remnants_of_prussia
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7201,14 +7202,14 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_sending_out_otto
-  icon = unkown
+  icon = GFX_goal_AUS_send_out_otto
   text = AUS_sending_out_otto
   prerequisite = { focus = AUS_stabilizing_europe }
   
   x = -1
   y = 1
   relative_position_id = AUS_stabilizing_europe
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7223,14 +7224,14 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_peace_with_france
-  icon = unkown
+  icon = GFX_focus_FRA_sway_popular_opnion_about_the_left
   text = AUS_peace_with_france
   prerequisite = { focus = AUS_stabilizing_europe }
   
   x = 1
   y = 1
   relative_position_id = AUS_stabilizing_europe
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7245,15 +7246,15 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = AUS_proposing_the_conference
-  icon = unkown
-  text = AUS_proposing_the_conference
+  id = AUS_the_european_accords
+  icon = GFX_goal_SOV_continuing_the_reforms
+  text = AUS_the_european_accords
   prerequisite = { focus = AUS_peace_with_france focus = AUS_sending_out_otto }
   
   x = -1
   y = 1
   relative_position_id = AUS_peace_with_france
-  cost = 0
+  cost = 3
   ai_will_do = {
     factor = 1
   }
@@ -7266,26 +7267,4 @@ shared_focus = {
 
    }
 }
-shared_focus = {
-  id = AUS_the_european_accords
-  icon = unkown
-  text = AUS_the_european_accords
-  prerequisite = { focus = AUS_end_the_napoleonic_threat focus = AUS_proposing_the_conference}
-  
-  
-  x = 2
-  y = 1
-  relative_position_id = AUS_proposing_the_conference
-  cost = 0
-  ai_will_do = {
-    factor = 1
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-  completion_reward = {
-    
-
-   }
-}

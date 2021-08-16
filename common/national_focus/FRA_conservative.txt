@@ -1147,7 +1147,7 @@ focus_tree = {
     icon = GFX_goal_FRA_a_meeting_with_the_doctrinaires
     text = FRA_DOCTRINAIRE_VIC
 
-    x = -5
+    x = 0
     y = 1
 		prerequisite = {focus = FRA_CONSERVATIVES_PREVAIL}
     relative_position_id = FRA_CONSERVATIVES_PREVAIL
@@ -1183,7 +1183,7 @@ focus_tree = {
 		available = {
 			always = no
 		}
-    x = -3
+    x = -2
     y = 1
     relative_position_id = FRA_DOCTRINAIRE_VIC
     cost = 0
@@ -1493,7 +1493,7 @@ shared_focus = {
 		available = {
 			always = no
 		}
-    x = 2
+    x = 3
     y = 1
 	relative_position_id = FRA_DOCTRINAIRE_VIC
 	
@@ -2627,7 +2627,7 @@ shared_focus = {
 		id = FRA_DEUS_OMNIA
 		icon = GFX_goal_FRA_deus_omnia_vincit
 		text = FRA_DEUS_OMNIA
-		prerequisite = { focus = FRA_IMPERIAL_GLORY}
+		prerequisite = { focus = FRA_IMPERIAL_GLORY focus = FRA_LEGACY_OF_CHARLEGMEGNE }
 		x = 1
 		y = 1
 		relative_position_id = FRA_IMPERIAL_GLORY
@@ -2649,7 +2649,7 @@ shared_focus = {
 		id = FRA_RULE_FRANKIA
 		icon = GFX_goal_FRA_rule_of_the_franks
 		text = FRA_RULE_FRANKIA
-		prerequisite = { focus = FRA_DEUS_OMNIA focus = FRA_LEGACY_OF_CHARLEGMEGNE }
+		prerequisite = { focus = FRA_DEUS_OMNIA }
 		x = 1
 		y = 1
 		relative_position_id = FRA_DEUS_OMNIA
@@ -2831,12 +2831,14 @@ shared_focus = {
 		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
 		
 		prerequisite = {
-			focus = FRA_CONSERVATIVES_PREVAIL
+			focus = FRA_LEGACY_OF_CHARLEGMEGNE
+			focus = FRA_IMPERIAL_GLORY
+			focus = FRA_national_syndicalism
 		}
 
-		x = 4
+		x = 3
 		y = 1
-		relative_position_id = FRA_CONSERVATIVES_PREVAIL
+		relative_position_id = FRA_LEGACY_OF_CHARLEGMEGNE
 		cost = 1
 		ai_will_do = {
 			factor = 20
@@ -3005,60 +3007,60 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_la_grande_de_ecole_industrial
-		icon = GFX_goal_la_grande_ecole_de_industrial
-		text = FRA_la_grande_de_ecole_industrial
-		prerequisite = { focus = FRA_abolish_price_caps}
-		prerequisite = {focus = FRA_colonial_grain_shipments}
-		prerequisite = { focus = FRA_build_up_the_housing_industry}
-		x = 0
-		y = 2
-		relative_position_id = FRA_abolish_price_caps
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
+	# shared_focus = {
+	# 	id = FRA_la_grande_de_ecole_industrial
+	# 	icon = GFX_goal_la_grande_ecole_de_industrial
+	# 	text = FRA_la_grande_de_ecole_industrial
+	# 	prerequisite = { focus = FRA_abolish_price_caps}
+	# 	prerequisite = {focus = FRA_colonial_grain_shipments}
+	# 	prerequisite = { focus = FRA_build_up_the_housing_industry}
+	# 	x = 0
+	# 	y = 2
+	# 	relative_position_id = FRA_abolish_price_caps
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 20
+	# 	}
 
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
+	# 	available_if_capitulated = yes
+	# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-		completion_reward = {
-			add_stability = 0.1
-		}
-	}
+	# 	completion_reward = {
+	# 		add_stability = 0.1
+	# 	}
+	# }
 
-	shared_focus = {
-		id = FRA_la_grande_de_ecole_army
-		icon = GFX_goal_la_grande_ecole_de_armee
-		text = FRA_la_grande_de_ecole_army
-		prerequisite = { focus = FRA_la_grande_de_ecole_industrial }
+	# shared_focus = {
+	# 	id = FRA_la_grande_de_ecole_army
+	# 	icon = GFX_goal_la_grande_ecole_de_armee
+	# 	text = FRA_la_grande_de_ecole_army
+	# 	prerequisite = { focus = FRA_la_grande_de_ecole_industrial }
 		
-		x = 0
-		y = 1
-		relative_position_id = FRA_la_grande_de_ecole_industrial
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = FRA_la_grande_de_ecole_industrial
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 20
+	# 	}
 
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
+	# 	available_if_capitulated = yes
+	# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-		completion_reward = {
-			add_war_support = 0.1
-		}
-	}
+	# 	completion_reward = {
+	# 		add_war_support = 0.1
+	# 	}
+	# }
 
 	shared_focus = {
 		id = FRA_french_nationalist_propoganda
 		icon = GFX_goal_nationalist_propoganda_movement
 		text = FRA_french_nationalist_propoganda
-		prerequisite = { focus = FRA_la_grande_de_ecole_army }
+		prerequisite = { focus = FRA_END_CONSTITUTIONALISM }
 
-		x = 0
+		x = -4
 		y = 1
-		relative_position_id = FRA_la_grande_de_ecole_army
+		relative_position_id = FRA_END_CONSTITUTIONALISM
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -3221,7 +3223,7 @@ shared_focus = {
 	
 
 		x = 2
-		y = 2
+		y = 1
 		relative_position_id = FRA_a_hierarchy_of_loyalty
 		cost = 5
 		ai_will_do = {
@@ -3233,6 +3235,7 @@ shared_focus = {
 
 		completion_reward = {
 			add_political_power = 75
+			add_war_support = 0.05
 
 		}
 	}
