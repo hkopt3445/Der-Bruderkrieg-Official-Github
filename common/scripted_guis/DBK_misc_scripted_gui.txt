@@ -22,7 +22,24 @@ scripted_gui = {
 	  }
 	  effects = {
 		DBK_head_of_gov_open_button_click = {
-			set_country_flag = DBK_head_of_gov_mechanic_flag
+			if = {
+				limit = {
+					has_country_flag = DBK_head_of_gov_mechanic_flag
+				}
+				clr_country_flag = DBK_head_of_gov_mechanic_flag
+			}
+			else = {
+				set_country_flag = DBK_head_of_gov_mechanic_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = open_national_missions_container
+				}
+				clr_country_flag = open_national_missions_container
+			}
+			else = {
+				set_country_flag = open_national_missions_container
+			}
 			log = "hi"
 		}
 	}
@@ -36,11 +53,7 @@ scripted_gui = {
 		  has_country_flag = DBK_head_of_gov_mechanic_flag
 	  }
 
-	  effects = {
-		  exit_click = {
-			  clr_country_flag = DBK_head_of_gov_mechanic_flag
-		  }
-	  }
+	 
 	  properties = {
 		LeaderPortrait = {
 			image = "[GetHeadofGovPortrait]"
@@ -75,7 +88,7 @@ scripted_gui = {
 
 	  effects = {
 		  exit_click = {
-			clr_country_flag = open_national_missions_container
+			#clr_country_flag = open_national_missions_container
 		  }
 
 		  SOV_national_mission_1_click = {
@@ -320,7 +333,7 @@ scripted_gui = {
 
 	effects = {
 		exit_click = {
-		  clr_country_flag = open_national_missions_container
+		  #clr_country_flag = open_national_missions_container
 
 		}
 
@@ -419,7 +432,7 @@ scripted_gui = {
 
 	effects = {
 		exit_click = {
-		  clr_country_flag = open_national_missions_container
+		  #clr_country_flag = open_national_missions_container
 		}
 
 		AUS_national_mission_1_click = {
@@ -571,7 +584,7 @@ GER_national_missions_conatiner_scripted_gui = {
 
 	effects = {
 		exit_click = {
-		  clr_country_flag = open_national_missions_container
+		  #clr_country_flag = open_national_missions_container
 
 		}
 
@@ -699,7 +712,7 @@ FRA_national_missions_conatiner_scripted_gui = {
 
 	effects = {
 		exit_click = {
-		  clr_country_flag = open_national_missions_container
+		  #clr_country_flag = open_national_missions_container
 
 		}
 
