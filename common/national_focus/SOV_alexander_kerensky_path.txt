@@ -1256,9 +1256,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 2000
 	}
-	bypass = {
-		has_completed_focus = SOV_the_duma_votes
-	}
+	
 
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1278,9 +1276,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 2000
 	}
-	bypass = {
-		has_completed_focus = SOV_the_duma_votes
-	}
+	
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -1326,9 +1322,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
-	bypass = {
-		has_completed_focus = SOV_the_duma_votes
-	}
+	
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -1350,9 +1344,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
-	bypass = {
-		has_completed_focus = SOV_the_duma_votes
-	}
+	
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -1981,12 +1973,16 @@ shared_focus = {
   
 	completion_reward = {
 		#no idea what states have oil, so I'm just gonna go with this. Hope it works
-		every_state = {
-			limit = { is_owned_by = ETR has_resources_amount = { resource = oil amount > 1 } }
-			give_resource_rights = {
-				receiver = SOV
-				state = PREV
+		ETR = {
+		every_owned_state = {
+			
+			ETR = {
+				give_resource_rights = {
+					receiver = SOV
+					state = PREV
+				}
 			}
+		}
 		}
 	}
 }
