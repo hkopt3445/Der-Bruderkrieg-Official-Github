@@ -561,59 +561,7 @@ shared_focus = {
 
         
 
-        set_variable = {
-          AUS.loc_showcase_bohmia = AUS.recovery
-        }
-        add_to_variable = {
-          AUS.loc_showcase_bohmia = 100
-        }
-
-        set_variable = {
-          AUS.stab_bohemian_massacre = AUS.recovery
-        }
-
-        divide_variable = {
-          AUS.stab_bohemian_massacre = 500
-        }
-
-        set_variable = {
-          AUS.stab_bohemian_massacre_loc = AUS.recovery
-        }
-
-        divide_variable = {
-          AUS.stab_bohemian_massacre_loc = 5
-        }
-      
-
-        set_variable = {
-          AUS.factory_bohemian_massacre = AUS.recovery
-        }
-
-        divide_variable = {
-          AUS.factory_bohemian_massacre = 1000
-       }
-       set_variable = {
-        AUS.factory_bohemian_massacre_loc = AUS.recovery
-      }
-
-      divide_variable = {
-        AUS.factory_bohemian_massacre_loc = 1000
-     }
-
-        set_variable = {
-          AUS.buildings_bohemian_massacre = AUS.recovery
-        }
-
-        divide_variable = {
-          AUS.buildings_bohemian_massacre = 1000
-        }
-        set_variable = {
-          AUS.buildings_bohemian_massacre_loc = AUS.recovery
-        }
-
-        divide_variable = {
-          AUS.buildings_bohemian_massacre_loc = 1000
-        }
+        AUS_update_prague_massacre = yes
       }
   }
 }
@@ -706,6 +654,14 @@ shared_focus = {
     }
   }
 
+  available = {
+    hidden_trigger = {
+      HUN = {
+        exists = no
+      }
+    }
+  }
+
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -741,13 +697,7 @@ shared_focus = {
 
   x = 1
   y = 1
-  available = {
-    hidden_trigger = {
-      HUN = {
-        exists = no
-      }
-    }
-  }
+  
   relative_position_id = AUS_CENTRALISM
   cost = 5
   ai_will_do = {
@@ -799,7 +749,7 @@ shared_focus = {
   x = 0
   y = 1
   relative_position_id = AUS_expand_recruitment_imperial_army
-  cost = 7
+  cost = 5
   ai_will_do = {
     factor = 200
   }
@@ -832,7 +782,7 @@ shared_focus = {
   x = -2
   y = 1
   relative_position_id = AUS_stir_up_nationalism
-  cost = 8
+  cost = 5
   ai_will_do = {
     factor = 200
   }
@@ -1026,7 +976,7 @@ shared_focus = {
   relative_position_id = AUS_reverse_the_language_laws
   cost = 4
   ai_will_do = {
-    factor = 200
+    factor = 2000
   } 
   available = {
     has_country_flag = vote_succesful_federalism_1_act
@@ -1052,7 +1002,7 @@ shared_focus = {
   relative_position_id = AUS_reverse_the_language_laws
   cost = 4
   ai_will_do = {
-    factor = 200
+    factor = 2000
   }
   available = {
     has_country_flag = vote_succesful_federalism_2_act
@@ -1079,7 +1029,7 @@ shared_focus = {
   relative_position_id = AUS_reverse_the_language_laws
   cost = 4
   ai_will_do = {
-    factor = 200
+    factor = 2000
   }
   available = {
     has_country_flag = vote_succesful_federalism_3_act
@@ -1106,7 +1056,7 @@ shared_focus = {
   relative_position_id = AUS_REOPEN_DIET
   cost = 2
   ai_will_do = {
-    factor = 200
+    factor = 2000
   }
 
   available_if_capitulated = yes
@@ -1144,7 +1094,7 @@ shared_focus = {
   relative_position_id = AUS_PARDON_HUNGARIAN_REVS
   cost = 2
   ai_will_do = {
-    factor = 200
+    factor = 2000
   }
 
   available_if_capitulated = yes
@@ -1169,7 +1119,7 @@ shared_focus = {
   relative_position_id = AUS_DEAL_WITH_ITALIANS
   cost = 2
   ai_will_do = {
-    factor = 200
+    factor = 2000
   }
 
   available_if_capitulated = yes
@@ -1202,7 +1152,7 @@ shared_focus = {
   relative_position_id = AUS_autonomy_for_hungarians
   cost = 15
   ai_will_do = {
-    factor = 300
+    factor = 3000
   }
 
   available_if_capitulated = yes
@@ -1289,12 +1239,15 @@ shared_focus = {
   icon = GFX_goal_AUS_anti_expansionist_bulwark
   text = AUS_bulwark_against_expansionism
   prerequisite = { focus = AUS_FEDERALISM }
-  x = 0
+  prerequisite = {
+    focus = AUS_expansive_infastructure_projects
+  }
+  x = 3
   y = 1
   relative_position_id = AUS_FEDERALISM
   cost = 2
   ai_will_do = {
-    factor = 200
+    factor = 2000
   }
 
   available_if_capitulated = yes
@@ -2533,7 +2486,7 @@ shared_focus = {
 		icon = GFX_goal_AUS_austrian_capitalism
 		x = 1
 		y = 1
-		cost = 5
+		cost = 4
 		available_if_capitulated = yes
 		prerequisite = { focus = AUS_emmerich_czermach focus = AUS_karl_sietz }
     relative_position_id = AUS_emmerich_czermach
@@ -2554,8 +2507,8 @@ shared_focus = {
 		id = AUS_expansive_infastructure_projects
 		icon = GFX_goal_AUS_karl_road_scheme 
 		x = 0
-		y = 1
-		cost = 5
+		y = 2
+		cost = 4
 		available_if_capitulated = yes 
 		prerequisite = { focus = AUS_austrian_capitalism }
     relative_position_id = AUS_austrian_capitalism
@@ -3067,7 +3020,7 @@ shared_focus = {
   x = 0
   y = 1
   relative_position_id = AUS_denounce_the_treaty_of_vienna
-  cost = 5
+  cost = 2
   ai_will_do = {
     factor = 100
   }
@@ -3178,8 +3131,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    unlock_decision_category_tooltip = AUS_offensives_against_the_fbc
-    
+    swap_ideas = {
+      add_idea = AUS_aggressive_war_theory_2
+      remove_idea = AUS_aggressive_war_theory
+    }
    }
 }
 
@@ -5504,7 +5459,7 @@ shared_focus = {
   x = 6
   y = 1
   relative_position_id = AUS_the_next_bruderkrieg_is_coming
-  cost = 5
+  cost = 2
   ai_will_do = {
     factor = 200
   }
@@ -5762,6 +5717,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    country_event = austria_foriegn_policy.1
   }
 }
 shared_focus = {
