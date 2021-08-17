@@ -792,9 +792,9 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = AUS_ANNEX_BUCOVINA
+  id = AUS_stir_up_nationalism
   icon = GFX_goal_AUS_annex_bucovina
-  text = AUS_ANNEX_BUCOVINA
+  text = AUS_stir_up_nationalism
   prerequisite = {focus = AUS_expand_recruitment_imperial_army}
   x = 0
   y = 1
@@ -808,7 +808,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-      ROM = { country_event = {id = austria.200 days = 3 }}
+      swap_ideas = {
+        add_idea = Kasier_Und_Reich_2
+        remove_idea = Kasier_Und_Reich
+      }
       }
   }
 
@@ -822,13 +825,13 @@ shared_focus = {
   id = AUS_the_austrian_superpower
   icon = GFX_goal_AUS_the_austrian_superpower
   text = AUS_the_austrian_superpower
-  prerequisite = { focus = AUS_ANNEX_BUCOVINA}
+  prerequisite = { focus = AUS_stir_up_nationalism}
   prerequisite = {
     focus = AUS_anti_protestant_propaganda
   }
   x = -2
   y = 1
-  relative_position_id = AUS_ANNEX_BUCOVINA
+  relative_position_id = AUS_stir_up_nationalism
   cost = 8
   ai_will_do = {
     factor = 200
@@ -5524,9 +5527,9 @@ shared_focus = {
   }
 }
 shared_focus = {
-  id = AUS_balkan_politics
-  icon = GFX_goal_ITA_the_balkan_opportunity
-  text = AUS_balkan_politics
+  id = AUS_ANNEX_BUCOVINA
+  icon = GFX_goal_ITA_send_military_advisors
+  text = AUS_ANNEX_BUCOVINA
   prerequisite = { focus = AUS_reform_central_powers }
   x = -2
   y = 1
@@ -5540,17 +5543,20 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    ROM = {
+      country_event = austria.200
+    }
   }
 }
 shared_focus = {
   id = AUS_invite_greeks
   icon = GFX_Diplo_Greece
   text = AUS_invite_greeks
-  prerequisite = { focus = AUS_balkan_politics }
+  prerequisite = { focus = AUS_ANNEX_BUCOVINA }
 
   x = -1
   y = 1
-  relative_position_id = AUS_balkan_politics
+  relative_position_id = AUS_ANNEX_BUCOVINA
   cost = 5
   ai_will_do = {
     factor = 200
@@ -5607,7 +5613,7 @@ shared_focus = {
   id = AUS_strengthen_ties_with_serbia
   icon = GFX_goal_AUS_ties_with_serbia
   text = AUS_strengthen_ties_with_serbia
-  prerequisite = { focus = AUS_balkan_politics }
+  prerequisite = { focus = AUS_ANNEX_BUCOVINA }
   mutually_exclusive = {
     focus = AUS_fortify_against_serbia
   }
@@ -5625,7 +5631,7 @@ shared_focus = {
   }
   x = 1
   y = 1
-  relative_position_id = AUS_balkan_politics
+  relative_position_id = AUS_ANNEX_BUCOVINA
   cost = 1
   ai_will_do = {
     factor = 200
@@ -5692,13 +5698,13 @@ shared_focus = {
   id = AUS_fortify_against_serbia
   icon = GFX_goal_AUS_fortify_against_serbia
   text = AUS_fortify_against_serbia
-  prerequisite = { focus = AUS_balkan_politics }
+  prerequisite = { focus = AUS_ANNEX_BUCOVINA }
   mutually_exclusive = {
     focus = AUS_strengthen_ties_with_serbia
   }
   x = 3
   y = 1
-  relative_position_id = AUS_balkan_politics
+  relative_position_id = AUS_ANNEX_BUCOVINA
   cost = 5
   ai_will_do = {
     factor = 200
@@ -5818,6 +5824,19 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    ENG = {
+      add_opinion_modifier = {
+        target = AUS
+        modifier = medium_increase
+      }
+    }
+    FRA = {
+      add_opinion_modifier = {
+        target = AUS
+        modifier = medium_increase
+      }
+    }
+    add_political_power = 50
   }
 }
 shared_focus = {
@@ -5842,10 +5861,7 @@ shared_focus = {
   completion_reward = {
    
     FRA = {
-      add_opinion_modifier = {
-        target = AUS
-        modifier = medium_increase
-      }
+      country_event = austria_foriegn_policy.2
     }
   }
 }
@@ -5889,11 +5905,9 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+   
     ENG = {
-      add_opinion_modifier = {
-        target = AUS
-        modifier = medium_increase
-      }
+      country_event = austria_foriegn_policy.2
     }
   }
 }
@@ -7102,8 +7116,9 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
-
+    add_war_support = 0.1
+    add_threat = 15    
+    add_political_power = -50
    }
 }
 
@@ -7125,7 +7140,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+    swap_ideas = {
+      add_idea = GroBosterreich_2
+      remove_idea = GroBosterreich
+    }    
 
    }
 }
@@ -7147,7 +7165,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+    GPU = {
+      set_cosmetic_tag = united_germany
+    }
+    add_threat = 5
 
    }
 }
@@ -7170,7 +7191,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+  create_wargoal = {
+    target = FRA
+    type = topple_government
+  }    
 
    }
 }
@@ -7195,7 +7219,16 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+    every_country = {
+      limit = {
+        OR = {
+          tag = AUS
+          is_in_faction_with = AUS
+        }
+      }
+      add_stability = 0.05
+      add_political_power = 50
+    }
 
    }
 }
@@ -7240,7 +7273,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+    add_ideas = FRA_kalterkrieg_idea
 
    }
 }

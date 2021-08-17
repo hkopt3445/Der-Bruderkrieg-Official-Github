@@ -3938,3 +3938,142 @@ country_event = {
 		
 	}
 }
+
+
+add_namespace = austria_foriegn_policy
+##Bosinan question
+country_event = {
+	id = austria_foriegn_policy.1
+	title = austria_foriegn_policy.1.t
+	desc = austria_foriegn_policy.1.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.1.a
+		annex_country = {
+			target = BOS
+			transfer_troops = yes
+		}
+	}
+	option = {
+		name = austria_foriegn_policy.1.b
+		add_stability = 0.05	
+	}
+}
+
+##pact with britain/france
+country_event = {
+	id = austria_foriegn_policy.2
+	title = austria_foriegn_policy.2.t
+	desc = austria_foriegn_policy.2.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.2.a
+		effect_tooltip = {
+			AUS = {
+				give_military_access = ROOT
+				diplomatic_relation = {
+					country = ROOT
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+			ROOT = {
+				give_military_access = AUS
+			}
+		}
+		AUS = {
+			country_event = { id = austria_foriegn_policy.3 days = 2 }
+		}
+		ai_chance = { factor = 1000 }
+	}
+	option = {
+		name = austria_foriegn_policy.2.b
+		effect_tooltip = {
+			AUS = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = small_decrease
+				}
+			}
+		}	
+	}
+}
+###FROM accepts our pact
+country_event = {
+	id = austria_foriegn_policy.3
+	title = austria_foriegn_policy.3.t
+	desc = austria_foriegn_policy.3.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.3.a
+		AUS = {
+			give_military_access = FROM
+			diplomatic_relation = {
+				country = FROM
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		FROM = {
+			give_military_access = AUS
+		}
+
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						tag = FRA
+					}
+				}
+				news_event = austria_foriegn_policy.4
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						tag = ENG
+					}
+				}
+				news_event = austria_foriegn_policy.5
+			}
+		}
+	}
+}
+
+##holy alliance
+news_event = {
+	id = austria_foriegn_policy.4
+	title = austria_foriegn_policy.4.t
+	desc = austria_foriegn_policy.4.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.4.a
+	}
+}
+
+##Treaty of Rudolf
+news_event = {
+	id = austria_foriegn_policy.5
+	title = austria_foriegn_policy.5.t
+	desc = austria_foriegn_policy.5.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.5.a
+	}
+}
