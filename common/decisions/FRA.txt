@@ -2625,7 +2625,21 @@ FRA_stir_up_war_sentiments = {
 	
 
 		remove_effect = {
-			remove_ideas = FRA_wiltkrieg_neutrality
+			if = {
+				limit = {
+					has_idea = FRA_wiltkrieg_neutrality
+				}
+				swap_ideas = {
+					add_idea = FRA_wiltkrieg_neutrality_2
+					remove_idea = FRA_wiltkrieg_neutrality
+				}
+			}
+			if = {
+				limit = {
+					has_idea = FRA_wiltkrieg_neutrality_3
+				}
+				remove_ideas = FRA_wiltkrieg_neutrality_3
+			}
 		}
 
 	}
@@ -2639,6 +2653,13 @@ FRA_stir_up_war_sentiments = {
 
 		available = {
 			has_war = yes
+			NOT = {
+				OR = {
+					has_idea = FRA_wiltkrieg_neutrality
+					has_idea = FRA_wiltkrieg_neutrality_2
+					has_idea = FRA_wiltkrieg_neutrality_3
+				}
+			}
 		}
 
 		days_remove = 100

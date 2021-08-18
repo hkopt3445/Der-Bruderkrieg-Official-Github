@@ -15,7 +15,7 @@ focus_tree = {
 
 	shared_focus = FRA_national_development_bureau
 	shared_focus = FRA_CONSERVATIVES_PREVAIL
-	shared_focus = FRA_expand_the_sorbonne_university
+	shared_focus = FRA_ARMEE_FRANCAISE
 #	shared_focus = FRA_SPAIN_IS_BROKEN
 	shared_focus = FRA_the_strikers_hit
 	shared_focus = FRA_the_french_imperium
@@ -30,39 +30,19 @@ focus_tree = {
 
 
   ####ARMY
-  shared_focus = {
-	id = FRA_expand_the_sorbonne_university
-	icon = GFX_focus_research
-	text = FRA_expand_the_sorbonne_university
-	#prerequisite = { focus = FRA_the_state_of_the_nation }
-	x = 20
-	y = 7
-	#relative_position_id = FRA_the_strikers_hit
-	cost = 5
-	ai_will_do = {
-	  factor = 1
-	}
-	
-
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_INDUSTRY }
-
-	completion_reward = {
-			add_research_slot = 1
-	 }
-  } 
+ 
   shared_focus = {
     id = FRA_ARMEE_FRANCAISE
     icon = GFX_goal_generic_axis_build_infantry
     text = FRA_ARMEE_FRANCAISE
 	#prerequisite = { focus = ITA_industrial_effort_2 }
-	prerequisite = { focus = FRA_expand_the_sorbonne_university }
-	x = 0
-	y = 1
-	relative_position_id = FRA_expand_the_sorbonne_university
+	# prerequisite = { focus = FRA_expand_the_sorbonne_university }
+	x = 20
+	y = 7
+	# relative_position_id = FRA_expand_the_sorbonne_university
    
     #relative_position_id = FRA_BUILD_INDUSTRY
-    cost = 5
+    cost = 3
     ai_will_do = {
       factor = 1
     }
@@ -71,7 +51,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      army_experience = 20
+      army_experience = 15
     }
   } 
 
@@ -84,7 +64,7 @@ focus_tree = {
 		x = -1
 		y = 2
 		relative_position_id = FRA_ARMEE_FRANCAISE
-		cost = 5
+		cost = 3
 		ai_will_do = {
 			factor = 1
 		}
@@ -104,7 +84,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FRA_open_military_academies
-		cost = 5
+		cost = 3
 		ai_will_do = {
 			factor = 1
 		}
@@ -128,7 +108,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = FRA_ARMEE_FRANCAISE
-		cost = 5
+		cost = 3
 		ai_will_do = {
 			factor = 1
 		}
@@ -149,7 +129,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FRA_open_research_facilities
-		cost = 5
+		cost = 3
 		ai_will_do = { 
 			factor = 1
 		}
@@ -161,13 +141,49 @@ focus_tree = {
 			add_research_slot = 1
 		}
 	}
-
+	shared_focus = {
+		id = FRA_expand_the_sorbonne_university
+		icon = GFX_focus_research
+		text = FRA_expand_the_sorbonne_university
+		prerequisite = { focus = FRA_teach_modern_warfare }
+		prerequisite = {
+			focus = FRA_intellegent_scientists_committee
+		}
+		x = 1
+		y = 1
+		relative_position_id = FRA_teach_modern_warfare
+		cost = 5
+		ai_will_do = {
+		  factor = 1
+		}
+		
+	
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	
+		completion_reward = {
+				if = {
+					limit = {
+						has_idea = FRA_wiltkrieg_neutrality
+					}
+					swap_ideas = {
+						add_idea = FRA_wiltkrieg_neutrality_3
+						remove_idea = FRA_wiltkrieg_neutrality
+					}
+				}
+				if = {
+					limit = {
+						has_idea = FRA_wiltkrieg_neutrality_2
+					}
+					remove_ideas = FRA_wiltkrieg_neutrality_2
+				}
+		 }
+	  } 
   shared_focus = {
 	id = FRA_a_new_french_army
 	icon = GFX_French_Army
 	text = FRA_a_new_french_army
-	prerequisite = { focus = FRA_teach_modern_warfare }
-		prerequisite = { focus = FRA_intellegent_scientists_committee }
+	prerequisite = { focus = FRA_expand_the_sorbonne_university }
 		prerequisite = {focus = FRA_MASTER_ARTILLERY focus = FRA_BRAVE_NEW_EMPIRE focus = FRA_MASTER_GUERRE_ECLAIR focus = FRA_MASTER_TACTICS }
 
 	x = -1
@@ -183,10 +199,8 @@ focus_tree = {
 
 	completion_reward = {
 			
-			swap_ideas = {
-				remove_idea = FRA_wiltkrieg_neutrality
-				add_idea = FRA_wiltkrieg_neutrality_2
-			}
+			add_war_support = 0.1
+			army_experience = 20
 	 }
   }
 
@@ -571,7 +585,7 @@ focus_tree = {
     x = 11
     y = 0
     relative_position_id = FRA_ARMEE_FRANCAISE
-    cost = 5
+    cost = 3
     ai_will_do = {
       factor = 1
     }
@@ -893,7 +907,7 @@ focus_tree = {
     x = 20
     y = 0
     relative_position_id = FRA_ARMEE_FRANCAISE
-    cost = 5
+    cost = 3
     ai_will_do = {
       factor = 1
     }
@@ -2423,9 +2437,9 @@ shared_focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_political_power = 75
-			add_ideas = {
-				Legacy_of_Charlemegne
+			swap_ideas = {
+				add_idea = Rex_Regnat_2
+				remove_idea = Rex_Regnat
 			}
 
 			
