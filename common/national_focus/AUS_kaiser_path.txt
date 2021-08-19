@@ -3089,7 +3089,7 @@ shared_focus = {
       has_completed_focus = AUS_bulwark_against_expansionism
     }
   }
-  x = -1
+  x = 1
   y = 1
   relative_position_id = AUS_a_war_of_battleplans
   cost = 5
@@ -3146,7 +3146,7 @@ shared_focus = {
   mutually_exclusive = {
     focus = AUS_fate_favors_the_aggressive
   }
-  x = 1
+  x = -1
   y = 1
   relative_position_id = AUS_a_war_of_battleplans
   cost = 5
@@ -3798,7 +3798,7 @@ shared_focus = {
 
   completion_reward = {
     create_wargoal = {
-      type = puppet_wargoal_focus
+      type = topple_government
       target = GER
     }
   }
@@ -5585,9 +5585,7 @@ shared_focus = {
       OBS = {
         exists =yes
       }
-      available = {
-        has_global_flag = form_serbia_flag
-      }
+      has_global_flag = form_serbia_flag
       
     }
   }
@@ -5769,6 +5767,31 @@ shared_focus = {
         type = annex_everything
       }
     }
+  }
+}
+
+shared_focus = {
+  id = AUS_secure_romania
+  icon = GFX_goal_AUS_secure_romania
+  text = AUS_secure_romania
+  prerequisite = { focus = AUS_invite_albanians }
+  prerequisite = {
+    focus = AUS_the_final_showdown
+  }
+
+  x = -6
+  y = 1
+  relative_position_id = AUS_end_the_serbian_threat
+  cost = 5
+  ai_will_do = {
+    factor = 200
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    country_event = austria_foriegn_policy.1
   }
 }
 

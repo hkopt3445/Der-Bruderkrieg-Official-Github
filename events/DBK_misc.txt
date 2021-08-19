@@ -1345,7 +1345,50 @@ country_event = {
 			ideology = fascism
 			popularity = -0.1
 		}
-		
+		if = {
+			limit = {
+				ROM = {
+					NOT = { is_in_faction_with = SOV is_in_faction = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						SOV = {
+							has_country_leader = {
+								name = "Alexander Kerensky"
+								ruling_only = yes
+							}
+						}
+						SOV = {
+							has_country_leader = {
+								name = "Pavel Milyukov"
+								ruling_only = yes
+							}
+						}
+						SOV = {
+							has_country_leader = {
+								name = "Nikolai Belogurov"
+								ruling_only = yes
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						SOV = {
+							is_faction_leader = yes
+						}
+					}
+					SOV = {
+						country_event = {
+							id = generic.2
+							days = 20
+						}
+					}
+				}
+			}
+		}
 	}
 } 
 
@@ -1378,7 +1421,7 @@ country_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = romania_iron_guard_coup.3.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
-		news_event = {id = romania_iron_guard_coup.2 }
+		news_event = {id = romania_iron_guard_coup.4 }
 		if = {
 			limit = {
 				ROM = {
