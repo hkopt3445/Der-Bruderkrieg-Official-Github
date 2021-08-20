@@ -388,12 +388,22 @@ country_event = {
 
 	immediate = {
 		set_global_flag = serbian_civil_war_has_begun
+		OBS = {
+			country_event = serbia_the_mad_king.6
+		}
+		YUG = {
+			country_event = serbia_the_mad_king.7
+		}
+		SER = {
+			country_event = serbia_the_mad_king.8
+		}
 	}
 
 	option = { # Only one option, just an acknowledgment by the player
 		name = serbia_the_mad_king.3.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 		news_event = {id = serbia_the_mad_king.4 }
+		
 		OBS = {
 			transfer_state = 818
 			transfer_state = 814
@@ -614,6 +624,7 @@ country_event = {
 			change_tag_from = YUG
 		}
 		news_event = {id = serbia_the_mad_king.4 }
+		
 		OBS = {
 			transfer_state = 818
 			transfer_state = 814
@@ -834,6 +845,7 @@ country_event = {
 			change_tag_from = YUG
 		}
 		news_event = {id = serbia_the_mad_king.4 }
+		
 		OBS = {
 			transfer_state = 818
 			transfer_state = 814
@@ -1054,6 +1066,7 @@ country_event = {
 			change_tag_from = YUG
 		}
 		news_event = {id = serbia_the_mad_king.4 }
+		
 		OBS = {
 			transfer_state = 818
 			transfer_state = 814
@@ -1284,10 +1297,98 @@ news_event = {
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 
 	}
-
-
-
 }
+
+##invervention
+
+country_event = {
+	id = serbia_the_mad_king.5 
+	title = serbia_the_mad_king.5.t
+	desc = serbia_the_mad_king.5.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = no   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		add_ideas = Serbian_Civil_War
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.b #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		add_ideas = Serbian_Civil_War_2
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.c #needs to be localized
+		ai_chance = { factor = 0 } #this factor means the AI will almost always pick this one
+	
+	}
+}
+
+country_event = {
+	id = serbia_the_mad_king.6 
+	title = serbia_the_mad_king.6.t
+	desc = serbia_the_mad_king.6.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.6.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		AUS = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = serbia_the_mad_king.7 
+	title = serbia_the_mad_king.7.t
+	desc = serbia_the_mad_king.7.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.7.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		SOV = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = serbia_the_mad_king.8 
+	title = serbia_the_mad_king.8.t
+	desc = serbia_the_mad_king.8.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.8.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		GER = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}
+
+
 
 
 add_namespace = dutch_civil_war
