@@ -198,6 +198,47 @@ news_event = {
 
 }
 
+
+add_namespace = indian_civil_war
+##indian united front
+news_event = {
+	id = indian_civil_war.1 
+	title = indian_civil_war.1.t
+	desc = indian_civil_war.1.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = indian_civil_war.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+##AIPG goes revanchist
+news_event = {
+	id = indian_civil_war.2 
+	title = indian_civil_war.2.t
+	desc = indian_civil_war.2.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = indian_civil_war.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+
+
 add_namespace = persian_ottoman_war
 
 ####Persia declares Anti-Ottoman Stance
@@ -1406,6 +1447,11 @@ country_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = dutch_civil_war.1.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		declare_war_on = {
+			target = HOL
+			type = civil_war
+		}
+		
 		news_event = {id = dutch_civil_war.2 }
 	}
 } 
