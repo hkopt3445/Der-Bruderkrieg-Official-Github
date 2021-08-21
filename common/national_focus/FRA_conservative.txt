@@ -5670,7 +5670,7 @@ instant_build = yes
 			text = FRA_MANEGO_CAMPAIGN
 			prerequisite = { focus = FRA_DEMAND_WEST_ITALY  }
 			x = 0
-			y = 1
+			y = 2
 			relative_position_id = FRA_DEMAND_WEST_ITALY
 			cost = 5
 			ai_will_do = {
@@ -6231,7 +6231,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_mobilization_of_the_rhine_guard
 			text = FRA_mobilization_of_the_rhine_guard
 			x = 1
-			y = 1
+			y = 2
 			cost = 5
 			ai_will_do = {
 				factor = 20
@@ -6288,38 +6288,38 @@ instant_build = yes
 			}
 		}
 		
-		shared_focus = {
-			id = FRA_send_in_degaulle
-			icon = GFX_goal_FRA_de_gaulle_plan
-			text = FRA_send_in_degaulle
-			x = 0
-			y = 1
-			cost = 5
-			ai_will_do = {
-				factor = 20
-			}
-			prerequisite = {focus = FRA_mobilization_of_the_rhine_guard}
-			relative_position_id = FRA_mobilization_of_the_rhine_guard
+		# shared_focus = {
+		# 	id = FRA_send_in_degaulle
+		# 	icon = GFX_goal_FRA_de_gaulle_plan
+		# 	text = FRA_send_in_degaulle
+		# 	x = 0
+		# 	y = 1
+		# 	cost = 5
+		# 	ai_will_do = {
+		# 		factor = 20
+		# 	}
+		# 	prerequisite = {focus = FRA_mobilization_of_the_rhine_guard}
+		# 	relative_position_id = FRA_mobilization_of_the_rhine_guard
 		
-			available_if_capitulated = yes
-			search_filters = { FOCUS_FILTER_RESEARCH }
+		# 	available_if_capitulated = yes
+		# 	search_filters = { FOCUS_FILTER_RESEARCH }
 		
-			completion_reward = {
-				create_corps_commander = {
-					name = "Charles De Gaulle"
-					picture = "Portrait_France_Charles_De_Gaulle.dds"
-					traits = {  armor_officer harsh_leader media_personality }
-					id = 101
-					skill = 4
-					attack_skill = 4
-					defense_skill = 4
-					planning_skill = 3
-					logistics_skill = 2
-				}
+		# 	completion_reward = {
+		# 		create_corps_commander = {
+		# 			name = "Charles De Gaulle"
+		# 			picture = "Portrait_France_Charles_De_Gaulle.dds"
+		# 			traits = {  armor_officer harsh_leader media_personality }
+		# 			id = 101
+		# 			skill = 4
+		# 			attack_skill = 4
+		# 			defense_skill = 4
+		# 			planning_skill = 3
+		# 			logistics_skill = 2
+		# 		}
 		
-				#FGD = { remove_ideas = FGD_legacy_of_traveluer_coup }
-			}
-		}
+		# 		#FGD = { remove_ideas = FGD_legacy_of_traveluer_coup }
+		# 	}
+		# }
 		
 		
 		
@@ -6647,7 +6647,7 @@ instant_build = yes
 				icon = GFX_goal_invadedutch
 				text = FRA_demand_control_of_the_dutch_rhine
 				prerequisite = { focus = FRA_protect_the_channel	}
-				x = 0
+				x = -1
 				y = 1
 				relative_position_id = FRA_protect_the_channel
 				cost = 2
@@ -6706,9 +6706,9 @@ instant_build = yes
 				ai_will_do = {
 					factor = 200
 				}
-				available = {
-					has_country_flag = brussells_conference_success
-				}
+				# available = {
+				# 	has_country_flag = brussells_conference_success
+				# }
 			
 				available_if_capitulated = yes
 				search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6777,7 +6777,7 @@ instant_build = yes
 				icon = GFX_goal_Break_Dutch_Neutrality
 				text = FRA_protect_the_dutch
 				prerequisite = { focus = FRA_FORTIFY_BENELUX_BORDER	}
-				x = 0
+				x = 1
 				y = 1
 				relative_position_id = FRA_FORTIFY_BENELUX_BORDER
 				cost = 3
@@ -6788,7 +6788,9 @@ instant_build = yes
 			
 				available = {
 				
-				
+					HOL = {
+						exists = yes
+					}
 				}
 				available_if_capitulated = yes
 				search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6796,6 +6798,35 @@ instant_build = yes
 				completion_reward = {
 					HOL = {
 						country_event = france.17
+					}
+				}
+			}
+			shared_focus = {
+				id = FRA_exterminate_the_red_threat
+				icon = GFX_goal_SOV_anti_left_propoganda
+				text = FRA_exterminate_the_red_threat
+				prerequisite = { focus = FRA_FORTIFY_BENELUX_BORDER focus = FRA_protect_the_channel	}
+				x = -1
+				y = 1
+				relative_position_id = FRA_FORTIFY_BENELUX_BORDER
+				cost = 3
+				ai_will_do = {
+					factor = 200
+				}
+				
+			
+				available = {
+					JNE = {
+						exists = yes
+					}
+				}
+				available_if_capitulated = yes
+				search_filters = { FOCUS_FILTER_RESEARCH }
+			
+				completion_reward = {
+					create_wargoal = {
+						target = JNE
+						type = topple_government
 					}
 				}
 			}
