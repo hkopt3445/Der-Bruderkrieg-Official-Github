@@ -696,6 +696,42 @@ on_actions = {
 			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation"
 			if = {
 				limit = {
+					ROOT = {
+						tag = JNE
+
+					}
+					FROM = {
+						tag = HOL
+					}
+				}
+				HOL = {
+					annex_country = {
+						target = JNE
+						transfer_troops = no
+					}
+				}
+				news_event = dutch_civil_war.3
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = HOL
+
+					}
+					FROM = {
+						tag = JNE
+					}
+				}
+				JNE = {
+					annex_country = {
+						target = HOL
+						transfer_troops = no
+					}
+				}
+				news_event = dutch_civil_war.4
+			}
+			if = {
+				limit = {
 					tag = HUN
 					FROM = {
 						tag = AUS
