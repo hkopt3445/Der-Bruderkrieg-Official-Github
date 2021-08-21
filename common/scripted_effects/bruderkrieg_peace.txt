@@ -355,7 +355,13 @@ austrian_civil_war_effect = {
 prussia_loses_peace_deal = {
     
         
-       AUS = { country_event = second_treaty_of_vienna.1 white_peace = GER}
+       AUS = { country_event = second_treaty_of_vienna.1 }
+       ITA = {
+        set_faction_leader = yes
+       }
+       GER = {
+            white_peace = AUS
+       }
        
 }           
 
@@ -592,4 +598,41 @@ argentina_loses_peace_deal = {
 		transfer_state = 1034
 	}	
 	
+}
+
+
+austria_beats_serbia_peace_deal = {
+    if = {
+        limit = {
+            BOS = {
+                exists = yes
+            }
+        }
+        AUS = {
+            remove_state_core = 814
+            remove_state_core = 818
+        }
+        BOS = {
+            add_state_core = 814
+            add_state_core = 818
+            transfer_state = 814
+            transfer_state = 818
+        }
+        release_puppet = MNT
+        puppet = YUG
+    }
+    if = {
+        limit = {
+            BOS = {
+                exists = no
+            }
+        }
+        AUS = {
+            transfer_state = 814
+            transfer_state = 818
+        }
+     
+        release_puppet = MNT
+        puppet = YUG
+    }
 }

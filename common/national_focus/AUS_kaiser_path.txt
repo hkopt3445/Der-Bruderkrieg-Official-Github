@@ -418,7 +418,7 @@ shared_focus = {
   icon = GFX_goal_AUS_a_collapsing_empire
   text = AUS_a_collapsing_empire
   # prerequisite = { focus = AUS_announce_the_kaiser_speech}
-  x = 7
+  x = 5
   y = 0
   # relative_position_id = AUS_announce_the_kaiser_speech
   cost = 3
@@ -3089,7 +3089,7 @@ shared_focus = {
       has_completed_focus = AUS_bulwark_against_expansionism
     }
   }
-  x = -1
+  x = 1
   y = 1
   relative_position_id = AUS_a_war_of_battleplans
   cost = 5
@@ -3124,7 +3124,7 @@ shared_focus = {
   }
 
   bypass = {
-    
+    has_war_with = GER
   }
 
   available_if_capitulated = yes
@@ -3146,7 +3146,7 @@ shared_focus = {
   mutually_exclusive = {
     focus = AUS_fate_favors_the_aggressive
   }
-  x = 1
+  x = -1
   y = 1
   relative_position_id = AUS_a_war_of_battleplans
   cost = 5
@@ -3342,11 +3342,11 @@ shared_focus = {
 shared_focus = {
   id = AUS_rag
   icon = GFX_goal_generic_oil_refinery
-  x = 2
-  y = 2
+  x = 1
+  y = 1
   cost = 5
   available_if_capitulated = yes
-  prerequisite = { focus = AUS_koda_naval_yards }
+  prerequisite = { focus = AUS_messerschmitt focus = AUS_koda_naval_yards }
   relative_position_id = AUS_messerschmitt
   search_filters = { FOCUS_FILTER_INDUSTRY } 
   ai_will_do = {
@@ -3391,7 +3391,7 @@ shared_focus = {
 shared_focus = {
 	id = AUS_bmw
 	icon = GFX_goal_generic_air_bomber
-	x = 1
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3464,6 +3464,29 @@ shared_focus = {
     }
     custom_effect_tooltip = available_designer
     show_ideas_tooltip = CZE_skoda_shipyards
+  }
+}
+shared_focus = {
+  id = AUS_counter_the_blockade
+  icon = GFX_goal_generic_occupy_states_coastal
+  x = 0
+  y = 2
+  cost = 5
+  available_if_capitulated = yes
+  prerequisite = { focus = AUS_koda_naval_yards }
+  prerequisite = {
+    focus = AUS_assume_defensive_positions
+  }
+  relative_position_id = AUS_koda_naval_yards
+  search_filters = { FOCUS_FILTER_INDUSTRY } 
+  ai_will_do = {
+    factor = 1
+  }
+  completion_reward = {
+    swap_ideas = {
+      add_idea = Fortify_austria_3
+      remove_idea = Fortify_austria_2
+    }
   }
 }
 
@@ -3798,7 +3821,7 @@ shared_focus = {
 
   completion_reward = {
     create_wargoal = {
-      type = puppet_wargoal_focus
+      type = topple_government
       target = GER
     }
   }
@@ -4961,7 +4984,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_assume_defensive_positions
-  icon = GFX_goal_AUS_austria_unbroken
+  icon = GFX_goal_SOV_hierarchy_of_skill
   text = AUS_assume_defensive_positions
   prerequisite = { focus = AUS_fortify_austria} 
   x = 0
@@ -5453,7 +5476,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_reform_central_powers
-  icon = GFX_goal_SOV_lessons_from_the_europakrieg
+  icon = GFX_goal_AUS_reform_the_pakt
   text = AUS_reform_central_powers
   prerequisite = { focus = AUS_the_next_bruderkrieg_is_coming }
   x = 6
@@ -5555,10 +5578,10 @@ shared_focus = {
   id = AUS_invite_albanians
   icon = GFX_goal_AUS_protect_albania
   text = AUS_invite_albanians
-  prerequisite = { focus = AUS_invite_greeks }
-  x = -1
-  y = 2
-  relative_position_id = AUS_invite_greeks
+  prerequisite = { focus = AUS_support_greek_claim_on_thrace }
+	x = -1
+	y = 1
+	relative_position_id = AUS_support_greek_claim_on_thrace
   cost = 5
   ai_will_do = {
     factor = 200
@@ -5585,9 +5608,7 @@ shared_focus = {
       OBS = {
         exists =yes
       }
-      available = {
-        has_global_flag = form_serbia_flag
-      }
+      has_global_flag = form_serbia_flag
       
     }
   }
@@ -5767,6 +5788,42 @@ shared_focus = {
       create_wargoal = {
         target = YUG
         type = annex_everything
+      }
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_secure_krakow
+  icon = GFX_goal_SOV_greater_russia
+  text = AUS_secure_krakow
+  prerequisite = { focus = AUS_invite_albanians }
+  prerequisite = {
+    focus = AUS_the_final_showdown
+  }
+
+  x = -6
+  y = 1
+  relative_position_id = AUS_end_the_serbian_threat
+  cost = 7
+  ai_will_do = {
+    factor = 200
+  }
+
+  bypass = {
+    has_war_with = SOV
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    create_wargoal = {
+      target = SOV
+      type = take_state_focus
+      generator = {
+        91
+        90
       }
     }
   }

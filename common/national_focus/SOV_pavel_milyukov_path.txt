@@ -124,29 +124,29 @@ shared_focus = {
 		}
 }
 
-shared_focus = {
-	id = SOV_mending_the_vienna_crash
-	icon = GFX_goal_deregulate_the_banking_industury
-	prerequisite = { focus = SOV_consumerist_ideals }
-	prerequisite = {
-		focus = SOV_promoting_capitalism
-	}
+# shared_focus = {
+# 	id = SOV_mending_the_vienna_crash
+# 	icon = GFX_goal_deregulate_the_banking_industury
+# 	prerequisite = { focus = SOV_consumerist_ideals }
+# 	prerequisite = {
+# 		focus = SOV_promoting_capitalism
+# 	}
 	
-	x = -3
-	y = 1
-	relative_position_id = SOV_consumerist_ideals
-	cost = 5
-	ai_will_do = {
-		factor = 20
-	}
+# 	x = -3
+# 	y = 1
+# 	relative_position_id = SOV_consumerist_ideals
+# 	cost = 5
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
 
-	available_if_capitulated = yes
-	search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-	completion_reward = {
+# 	completion_reward = {
 		
-		}
-}
+# 		}
+# }
 
 shared_focus = {
 	id = SOV_fund_the_corporations
@@ -203,24 +203,23 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		
+		unlock_decision_category_tooltip = SOV_lenins_infra_plan
 		}
 }
 shared_focus = {
 	id = SOV_siphon_funds_for_industrialization
 	icon = GFX_goal_USA_economic_reform_plan
-	prerequisite = { focus = SOV_improve_our_infrastructure }
+	
+	prerequisite = { focus = SOV_consumerist_ideals }
 	prerequisite = {
-		focus = SOV_mending_the_vienna_crash
+		focus = SOV_promoting_capitalism
 	}
-	prerequisite = {
-		focus = SOV_fund_the_corporations
-	}
+	
+	x = -3
+	y = 1
+	relative_position_id = SOV_consumerist_ideals
 
 	
-	x = 0
-	y = 1
-	relative_position_id = SOV_improve_our_infrastructure
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -248,12 +247,16 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_3_year_plan
 	icon = GFX_goal_la_grande_ecole_de_armee
-	prerequisite = { focus = SOV_siphon_funds_for_industrialization }
-
-	
+	prerequisite = { focus = SOV_improve_our_infrastructure }
+	prerequisite = {
+		focus = SOV_siphon_funds_for_industrialization
+	}
+	prerequisite = {
+		focus = SOV_fund_the_corporations
+	}
 	x = 0
 	y = 1
-	relative_position_id = SOV_siphon_funds_for_industrialization
+	relative_position_id = SOV_improve_our_infrastructure
 	cost = 5
 	ai_will_do = {
 		factor = 20
@@ -487,7 +490,7 @@ shared_focus = {
 
 	}
 
-	cost = 2
+	cost = 3
 	prerequisite = { focus = SOV_reorganizing_the_high_command }
 	prerequisite = { focus = SOV_reorganizing_the_officer_corps }
 	prerequisite = { focus = SOV_reorganizing_the_infantry }
@@ -1477,15 +1480,10 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		#set_province_controller = 9783
-		# 211 = { 
-		# 	add_province_modifier = { 
-		# 		static_modifier = { SOV_russian_lease }
-		# 		province = {
-		# 			id = 9783
-		# 		}
-		# 	} 
-		# }
+		add_timed_idea = {
+			idea = SOV_varna_port_lease_idea
+			days = 730
+		}
 	}
 	ai_will_do = {
 	}
@@ -1883,6 +1881,7 @@ shared_focus = {
 
 	completion_reward = {
 		add_state_core = 537
+		add_threat = 3
 	}
 	ai_will_do = {
 	}

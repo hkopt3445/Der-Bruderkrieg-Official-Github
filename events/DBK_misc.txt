@@ -198,6 +198,47 @@ news_event = {
 
 }
 
+
+add_namespace = indian_civil_war
+##indian united front
+news_event = {
+	id = indian_civil_war.1 
+	title = indian_civil_war.1.t
+	desc = indian_civil_war.1.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = indian_civil_war.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+##AIPG goes revanchist
+news_event = {
+	id = indian_civil_war.2 
+	title = indian_civil_war.2.t
+	desc = indian_civil_war.2.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = indian_civil_war.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+
+
 add_namespace = persian_ottoman_war
 
 ####Persia declares Anti-Ottoman Stance
@@ -388,12 +429,22 @@ country_event = {
 
 	immediate = {
 		set_global_flag = serbian_civil_war_has_begun
+		OBS = {
+			country_event = serbia_the_mad_king.6
+		}
+		YUG = {
+			country_event = serbia_the_mad_king.7
+		}
+		SER = {
+			country_event = serbia_the_mad_king.8
+		}
 	}
 
 	option = { # Only one option, just an acknowledgment by the player
 		name = serbia_the_mad_king.3.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 		news_event = {id = serbia_the_mad_king.4 }
+		
 		OBS = {
 			transfer_state = 818
 			transfer_state = 814
@@ -614,6 +665,7 @@ country_event = {
 			change_tag_from = YUG
 		}
 		news_event = {id = serbia_the_mad_king.4 }
+		
 		OBS = {
 			transfer_state = 818
 			transfer_state = 814
@@ -834,6 +886,7 @@ country_event = {
 			change_tag_from = YUG
 		}
 		news_event = {id = serbia_the_mad_king.4 }
+		
 		OBS = {
 			transfer_state = 818
 			transfer_state = 814
@@ -1054,6 +1107,7 @@ country_event = {
 			change_tag_from = YUG
 		}
 		news_event = {id = serbia_the_mad_king.4 }
+		
 		OBS = {
 			transfer_state = 818
 			transfer_state = 814
@@ -1284,10 +1338,98 @@ news_event = {
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 
 	}
-
-
-
 }
+
+##invervention
+
+country_event = {
+	id = serbia_the_mad_king.5 
+	title = serbia_the_mad_king.5.t
+	desc = serbia_the_mad_king.5.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = no   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		add_ideas = Serbian_Civil_War
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.b #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		add_ideas = Serbian_Civil_War_2
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.c #needs to be localized
+		ai_chance = { factor = 0 } #this factor means the AI will almost always pick this one
+	
+	}
+}
+
+country_event = {
+	id = serbia_the_mad_king.6 
+	title = serbia_the_mad_king.6.t
+	desc = serbia_the_mad_king.6.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.6.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		AUS = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = serbia_the_mad_king.7 
+	title = serbia_the_mad_king.7.t
+	desc = serbia_the_mad_king.7.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.7.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		SOV = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = serbia_the_mad_king.8 
+	title = serbia_the_mad_king.8.t
+	desc = serbia_the_mad_king.8.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.8.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		GER = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}
+
+
 
 
 add_namespace = dutch_civil_war
@@ -1305,6 +1447,11 @@ country_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = dutch_civil_war.1.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		declare_war_on = {
+			target = HOL
+			type = civil_war
+		}
+		
 		news_event = {id = dutch_civil_war.2 }
 	}
 } 
@@ -1345,7 +1492,50 @@ country_event = {
 			ideology = fascism
 			popularity = -0.1
 		}
-		
+		if = {
+			limit = {
+				ROM = {
+					NOT = { is_in_faction_with = SOV is_in_faction = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						SOV = {
+							has_country_leader = {
+								name = "Alexander Kerensky"
+								ruling_only = yes
+							}
+						}
+						SOV = {
+							has_country_leader = {
+								name = "Pavel Milyukov"
+								ruling_only = yes
+							}
+						}
+						SOV = {
+							has_country_leader = {
+								name = "Nikolai Belogurov"
+								ruling_only = yes
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						SOV = {
+							is_faction_leader = yes
+						}
+					}
+					SOV = {
+						country_event = {
+							id = generic.2
+							days = 20
+						}
+					}
+				}
+			}
+		}
 	}
 } 
 
@@ -1378,7 +1568,7 @@ country_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = romania_iron_guard_coup.3.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
-		news_event = {id = romania_iron_guard_coup.2 }
+		news_event = {id = romania_iron_guard_coup.4 }
 		if = {
 			limit = {
 				ROM = {
