@@ -1014,6 +1014,10 @@ shared_focus = {
 	y = 0 
 	
 	available = {
+		OR = {
+			has_completed_focus = SOV_a_democracy_only_in_name
+			has_completed_focus = SOV_liberty_above_all_else
+		}
 	}
 	bypass = {
 
@@ -2097,3 +2101,247 @@ shared_focus = {
 	ai_will_do = {
 	}
 }
+
+shared_focus = {
+	id = SOV_intervene_in_austria
+	icon = GFX_goal_SOV_intervene_in_austria
+	x = -5
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+		has_war_with = AUS
+	}
+	prerequisite = { focus = SOV_demand_japanese_lands }
+	prerequisite = {
+		focus = SOV_demand_constantinople
+	}
+	relative_position_id = SOV_demand_japanese_lands
+
+	cost = 10		
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		create_wargoal = {
+			target = AUS
+			type = topple_government
+		}
+	}
+	ai_will_do = {
+	}
+}
+shared_focus = {
+	id = SOV_the_worlds_protector
+	icon = GFX_goal_SOV_the_worlds_protector
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = { focus = SOV_intervene_in_austria }
+	
+	relative_position_id = SOV_intervene_in_austria
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = SOV_beacon_of_democracy_2
+			}
+			swap_ideas = {
+				add_idea = SOV_beacon_of_democracy_3
+				remove_idea = SOV_beacon_of_democracy_2
+			}
+		}
+		else = {
+			swap_ideas = {
+				add_idea = SOV_beacon_of_democracy_4
+				remove_idea = SOV_beacon_of_democracy
+			}
+		}
+	}
+	ai_will_do = {
+	}
+}
+
+
+shared_focus = {
+	id = SOV_end_the_prussian_menace
+	icon = GFX_goal_SOV_end_the_prussian_menace
+	x = -1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = { focus = SOV_the_worlds_protector }
+	
+	relative_position_id = SOV_the_worlds_protector
+
+	cost = 10		
+	mutually_exclusive = {
+		focus = SOV_an_enemy_of_our_enemy_is_a_friend
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		create_wargoal = {
+			target = GER
+			type = topple_government
+		}
+	}
+	ai_will_do = {
+	}
+}
+
+shared_focus = {
+	id = SOV_an_enemy_of_our_enemy_is_a_friend
+	icon = GFX_goal_SOV_an_enemy_of_our_enemy_is_a_friend
+	x = 1
+	y = 1
+	
+	available = {
+		NOT = {
+			has_war_with = FRA
+		}
+	}
+	bypass = {
+		has_war_with = FRA
+	}
+	prerequisite = { focus = SOV_the_worlds_protector }
+	
+	relative_position_id = SOV_the_worlds_protector
+	mutually_exclusive = {
+		focus = SOV_end_the_prussian_menace
+	}
+	
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+
+shared_focus = {
+	id = SOV_destroy_napoleons_dreams
+	icon = GFX_goal_SOV_destroy_napoleons_dreams
+	x = -2
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = { focus = SOV_an_enemy_of_our_enemy_is_a_friend focus =SOV_end_the_prussian_menace }
+	
+	relative_position_id = SOV_an_enemy_of_our_enemy_is_a_friend
+
+	cost = 10		
+	mutually_exclusive = {
+		focus = SOV_discussions_with_france
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		create_wargoal = {
+			target = FRA
+			type = topple_government
+		}
+	}
+	ai_will_do = {
+	}
+}
+
+shared_focus = {
+	id = SOV_discussions_with_france
+	icon = GFX_goal_SOV_discussions_with_france
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = { focus = SOV_an_enemy_of_our_enemy_is_a_friend focus =SOV_end_the_prussian_menace }
+	
+	relative_position_id = SOV_an_enemy_of_our_enemy_is_a_friend
+	mutually_exclusive = {
+		focus = SOV_destroy_napoleons_dreams
+	}
+	
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+
+
+shared_focus = {
+	id = SOV_the_united_nations
+	icon = GFX_goal_SOV_the_united_nations
+	x = -1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = { focus = SOV_discussions_with_france focus =SOV_destroy_napoleons_dreams }
+	
+	relative_position_id = SOV_discussions_with_france
+
+	cost = 10		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+	}
+	ai_will_do = {
+	}
+}
+
+
+
+
