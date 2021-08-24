@@ -1,5 +1,7 @@
+
+
 focus_tree = {
-	id = USA_democratic_schism_tree
+	id = usa_smith_presidency_tree
 	country = {
 		factor = 0
 		modifier = {
@@ -11,14 +13,12 @@ focus_tree = {
 	continuous_focus_position = {
 		x = 0
 		y = 1500
-	} 
+	}
 	
 	shared_focus = USA_the_democratic_schism
 	shared_focus = USA_the_us_military
-	shared_focus = USA_stolen_no_more
 
 }
-
 shared_focus = {
 	id = USA_the_democratic_schism
 	icon = GFX_goal_USA_the_democratic_schism
@@ -299,36 +299,22 @@ shared_focus = {
 # Under Al's Wing #
 ###################
 
-focus_tree = {
-	id = usa_smith_presidency_tree
-	country = {
-		factor = 0
-		modifier = {
-			add = 11
-			tag = USA
-		}
-	}
-	default = no
-	continuous_focus_position = {
-		x = 0
-		y = 1500
-	}
-	
-	shared_focus = USA_under_als_wing
-	shared_focus = USA_the_us_military
-
-}
 
 shared_focus = {
 	id = USA_under_als_wing
 	icon = GFX_goal_USA_under_als_wing
-	x = 15 
-	y = 0
+	x = -8 
+	y = 1
+	prerequisite = {
+		focus = USA_temporary_solutions_to_permanent_problems
+	}
+	relative_position_id = USA_temporary_solutions_to_permanent_problems
 	cost = 2
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
 	}
+	
 	completion_reward = {
 		
 	}
@@ -1168,8 +1154,12 @@ shared_focus = {
 shared_focus = {
 	id = USA_stolen_no_more
 	icon = GFX_goal_generic
-	x = 25
-	y = 0
+	x = 8
+	y = 1
+	prerequisite = {
+		focus = USA_temporary_solutions_to_permanent_problems
+	}
+	relative_position_id = USA_temporary_solutions_to_permanent_problems
 	cost = 2
 	available_if_capitulated = yes
 	ai_will_do = {
@@ -1201,7 +1191,7 @@ shared_focus = {
 	id = USA_question_negro
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_wilsonian_america }
-	x = -1
+	x = -3
 	y = 1
 	relative_position_id = USA_wilsonian_america
 	cost = 2
@@ -1219,7 +1209,7 @@ shared_focus = {
 	icon = GFX_goal_generic
 	mutually_exclusive = { focus = USA_an_old_idea }
 	prerequisite = { focus = USA_question_negro }
-	x = -1
+	x = -2
 	y = 1
 	relative_position_id = USA_question_negro
 	cost = 2
@@ -1322,7 +1312,7 @@ shared_focus = {
 	id = USA_rewards_moving
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_begin_great_emigration }
-	x = 1
+	x = 0
 	y = 1
 	relative_position_id = USA_begin_great_emigration
 	cost = 2
@@ -1492,7 +1482,7 @@ shared_focus = {
 	id = USA_agreements_with_extremists
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_deal_with_gangs }
-	x = 9
+	x = 0
 	y = 1
 	relative_position_id = USA_deal_with_gangs
 	cost = 2
@@ -1543,7 +1533,7 @@ shared_focus = {
 	id = USA_the_depression
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_stolen_no_more }
-	x = 2
+	x = 3
 	y = 1
 	relative_position_id = USA_stolen_no_more
 	cost = 2
@@ -1574,7 +1564,7 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = USA_farming_subsidies
+	id = USA_farming_subsidies_mcadoo
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_shut_down_the_stock_exchange }
 	x = 1
@@ -1627,10 +1617,10 @@ shared_focus = {
 shared_focus = {
 	id = USA_tax_cuts_and_bonds
 	icon = GFX_goal_generic
-	prerequisite = { focus = USA_farming_subsidies }
+	prerequisite = { focus = USA_farming_subsidies_mcadoo }
 	x = 0
 	y = 2
-	relative_position_id = USA_farming_subsidies
+	relative_position_id = USA_farming_subsidies_mcadoo
 	cost = 2
 	available_if_capitulated = yes
 	ai_will_do = {
@@ -2082,3 +2072,5 @@ shared_focus = {
 		
 	}
 }
+
+
