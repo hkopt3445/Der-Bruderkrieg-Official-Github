@@ -1826,7 +1826,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_great_beacon_democracy
 	icon = GFX_goal_Generic_Blue_Democracy
-	x = 27 
+	x = 25 
 	y = 0
 	cost = 2
 	available_if_capitulated = yes
@@ -1845,7 +1845,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_target_japan
 	prerequisite = { focus = SOV_great_beacon_democracy }
 	relative_position_id = SOV_great_beacon_democracy
-	x = 3
+	x = 4
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -1873,7 +1873,7 @@ shared_focus = {
 	icon = GFX_goal_support_democracy
 	prerequisite = { focus = SOV_great_beacon_democracy }
 	relative_position_id = SOV_great_beacon_democracy
-	x = -1
+	x = 0
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
@@ -2107,7 +2107,7 @@ shared_focus = {
 	icon = GFX_goal_generic_political_pressure
 	prerequisite = { focus = SOV_worlds_oil_titan }
 	relative_position_id = SOV_worlds_oil_titan
-	x = 2
+	x = -2
 	y = 1
 	cost = 10
 	available_if_capitulated = yes
@@ -2132,7 +2132,7 @@ shared_focus = {
 	icon = GFX_goal_generic_political_pressure
 	prerequisite = { focus = SOV_securing_ottoman_oil }
 	relative_position_id = SOV_securing_ottoman_oil
-	x = 0
+	x = -1
 	y = 1
 	cost = 10
 	available_if_capitulated = yes
@@ -2173,7 +2173,7 @@ shared_focus = {
 	icon = GFX_goal_generic_political_pressure
 	prerequisite = { focus = SOV_worlds_oil_titan }
 	relative_position_id = SOV_worlds_oil_titan
-	x = -1
+	x = 2
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2203,8 +2203,8 @@ shared_focus = {
 	icon = GFX_goal_generic_small_arms
 	prerequisite = { focus = SOV_protecting_ethiopia }
 	relative_position_id = SOV_protecting_ethiopia
-	x = 1
-	y = 1
+	x = 0
+	y = 2
 	cost = 5
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2247,7 +2247,7 @@ shared_focus = {
   
 	completion_reward = {
 		ETH = {
-			add_stability = 0.05
+			add_stability = 0.1
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.05
@@ -2261,7 +2261,7 @@ shared_focus = {
 	icon = GFX_goal_USA_build_new_roads
 	prerequisite = { focus = SOV_great_beacon_democracy }
 	relative_position_id = SOV_great_beacon_democracy
-	x = -5
+	x = -2
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2294,9 +2294,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_uprisings_in_austria
 	icon = GFX_goal_generic_small_arms
-	prerequisite = { focus = SOV_connecting_eastern_europe }
-	relative_position_id = SOV_connecting_eastern_europe
-	x = 1
+	prerequisite = { focus = SOV_worlds_oil_titan }
+	relative_position_id = SOV_worlds_oil_titan
+	x = 0
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2316,8 +2316,8 @@ shared_focus = {
 	icon = GFX_goal_generic_small_arms
 	prerequisite = { focus = SOV_connecting_eastern_europe }
 	relative_position_id = SOV_connecting_eastern_europe
-	x = -1
-	y = 1
+	x = 0
+	y = 2
 	cost = 5
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2335,11 +2335,8 @@ shared_focus = {
 shared_focus = {
 	id = SOV_russian_diamonds
 	icon = GFX_goal_generic_small_arms
-	prerequisite = { focus = SOV_uprisings_in_austria  }
-	prerequisite = {
-		focus = SOV_strengthening_eastern_european_ties
-	}
-	relative_position_id = SOV_uprisings_in_austria
+	prerequisite = { focus = SOV_connecting_eastern_europe }
+	relative_position_id = SOV_connecting_eastern_europe
 	x = -1
 	y = 1
 	cost = 3
@@ -2348,6 +2345,225 @@ shared_focus = {
   
 	completion_reward = {
 		add_ideas = SOV_diamond_mine_expansion
+	}
+}
+
+shared_focus = {
+	id = SOV_the_republic_victorious
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_uprisings_in_austria focus = SOV_securing_ottoman_oil }
+	relative_position_id = SOV_uprisings_in_austria
+	x = -1
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		add_war_support = 0.1
+	}
+}
+shared_focus = {
+	id = SOV_looking_at_the_last_of_the_democracies
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_the_republic_victorious }
+	relative_position_id = SOV_the_republic_victorious
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+  
+	completion_reward = {
+		country_event = SOV_kerensky_tree_events.8
+	}
+}
+shared_focus = {
+	id = SOV_forge_our_own_path
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_looking_at_the_last_of_the_democracies }
+	relative_position_id = SOV_looking_at_the_last_of_the_democracies
+	x = -2
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+	mutually_exclusive = {
+		focus = SOV_across_the_channel
+	}
+	mutually_exclusive = {
+		focus = SOV_reach_out_to_america
+	}
+	completion_reward = {
+		add_political_power = 50
+	}
+}
+shared_focus = {
+	id = SOV_secure_our_southern_flank
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_forge_our_own_path }
+	relative_position_id = SOV_forge_our_own_path
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = SOV_defender_of_european_freedom
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_secure_our_southern_flank }
+	relative_position_id = SOV_secure_our_southern_flank
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = SOV_across_the_channel
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_looking_at_the_last_of_the_democracies }
+	relative_position_id = SOV_looking_at_the_last_of_the_democracies
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+	mutually_exclusive = {
+		focus = SOV_forge_our_own_path
+	}
+	mutually_exclusive = {
+		focus = SOV_reach_out_to_america
+	}
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = SOV_protect_norway
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_across_the_channel }
+	relative_position_id = SOV_across_the_channel
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		NOR = {
+			country_event = russia.22
+		}
+	}
+}
+shared_focus = {
+	id = SOV_end_swedish_tyranny
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_protect_norway }
+	relative_position_id = SOV_protect_norway
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		create_wargoal = {
+			target = SWE
+			type = topple_government
+		}
+	}
+}
+
+
+
+shared_focus = {
+	id = SOV_reach_out_to_america
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_looking_at_the_last_of_the_democracies }
+	relative_position_id = SOV_looking_at_the_last_of_the_democracies
+	x = 2
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+	mutually_exclusive = {
+		focus = SOV_forge_our_own_path
+	}
+	mutually_exclusive = {
+		focus = SOV_across_the_channel
+	}
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = SOV_focus_on_china
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_reach_out_to_america }
+	relative_position_id = SOV_reach_out_to_america
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = SOV_dominance_over_asia
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_focus_on_china }
+	relative_position_id = SOV_focus_on_china
+	x = 0
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = SOV_dismantle_the_prussian_hegemony
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_dominance_over_asia focus = SOV_end_swedish_tyranny focus = SOV_defender_of_european_freedom }
+	relative_position_id = SOV_dominance_over_asia
+	x = -3
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		create_wargoal = {
+			target = GER
+			type = topple_government
+		}
+	}
+}
+
+
+shared_focus = {
+	id = SOV_finish_the_french_threat
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = SOV_dominance_over_asia focus = SOV_end_swedish_tyranny focus = SOV_defender_of_european_freedom }
+	relative_position_id = SOV_dominance_over_asia
+	x = -1
+	y = 1
+	cost = 3
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
 	}
 }
 
