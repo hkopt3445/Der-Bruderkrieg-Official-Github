@@ -1085,6 +1085,7 @@ news_event = {
 	}
 }
 
+
 add_namespace = USA_electoral_standoff
 country_event = {
 	id = USA_electoral_standoff.1
@@ -1095,6 +1096,12 @@ country_event = {
 	option = {
 		name = USA_electoral_standoff.1.a
 		set_country_flag = USA_1936_elections_over
+		if = {
+			limit = {
+				has_completed_focus = USA_longs_campaign_speech
+			}
+			set_country_flag = USA_long_wins_elections
+		}
 	}
 }
 
@@ -2475,7 +2482,7 @@ country_event = {
 	
 	option = {
 		name = USA_smith_tree.1.a
-		swap_ideas = {
+		swap_ideas = { 
 			add_idea = USA_revived_efficiency_movement_3
 			remove_idea = USA_revived_efficiency_movement
 		}
