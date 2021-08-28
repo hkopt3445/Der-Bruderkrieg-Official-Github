@@ -25,17 +25,10 @@ GER_german_sphere = {
 	scripted_gui = DBK_german_sphere_scripted_gui
 	visible_when_empty = yes
 	allowed = {
-	OR = {
-    tag = GER
-	AND = {
-		tag = AUS
-		has_completed_focus = AUS_war_of_ideology
+		tag = GER
 	}
-	AND = {
-		tag = FRA
-		has_completed_focus = FRA_the_french_imperium
-	}
-	}
+	visible = {
+		always = no
 	}
 }
 
@@ -130,6 +123,20 @@ GER_anti_spartakus_category = {
 		NOT = { has_country_flag = GER_spartakus_crushed }
 		has_completed_focus = GER_consolidating_power
 	}
+	priority = 100
+}
+GER_spartakus_hotspots = {
+	picture = GFX_decision_cat_GER_anti_spartakus
+	icon = generic_communism
+	allowed = {
+		tag = GER
+	}
+	visible = {
+		#whatever thing it is for the coup
+		NOT = { has_country_flag = GER_spartakus_crushed }
+		has_completed_focus = GER_consolidating_power
+	}
+	priority = 100
 }
 GER_nordicist_decisions = {
 	picture = GFX_decision_cat_nordic_god_worship
