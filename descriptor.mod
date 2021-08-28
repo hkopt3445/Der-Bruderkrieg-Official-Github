@@ -32,6 +32,7 @@ replace_path="common/ai_focuses"
 
 replace_path="events"
 
+path="mod/Der-Bruderkrieg-Official-Github" 
 
 
 supported_version="1.10.7"
