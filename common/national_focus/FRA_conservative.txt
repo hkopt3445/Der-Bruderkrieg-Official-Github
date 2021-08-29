@@ -5822,6 +5822,46 @@ instant_build = yes
 			search_filters = { FOCUS_FILTER_RESEARCH }
 		
 			completion_reward = {
+				if = {
+					limit = {
+						is_in_faction_with = AUS
+					}
+					leave_faction = yes
+					create_faction = "Continental Alliance"
+					if = {
+						limit = {
+							POR = {
+								is_in_faction_with = AUS
+							}
+						}
+						POR = {
+							leave_faction = yes
+						}
+						add_to_faction = POR
+					}
+					if = {
+						limit = {
+							BEL = {
+								is_in_faction_with = AUS
+							}
+						}
+						BEL = {
+							leave_faction = yes
+						}
+						add_to_faction = BEL
+					}
+					if = {
+						limit = {
+							HOL = {
+								is_in_faction_with = AUS
+							}
+						}
+						HOL = {
+							leave_faction = yes
+						}
+						add_to_faction = HOL
+					}
+				}
 				create_wargoal = {
 					target = AUS
 					type = topple_government

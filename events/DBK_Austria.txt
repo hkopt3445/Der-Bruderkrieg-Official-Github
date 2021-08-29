@@ -702,9 +702,21 @@ country_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = austria.201.a
 		ai_chance = { factor = 100 } 
-		AUS = {
-			transfer_state = 80
-		   }
+		if = {
+			limit = {
+				GLC = {
+					exists = yes
+				}
+			}
+			GLC = {
+				transfer_state = 80
+			}
+		}
+		else = {
+			AUS = {
+				transfer_state = 80
+			}
+		}
 		add_threat = 4
 		SOV = {
 			add_opinion_modifier = {
@@ -910,10 +922,11 @@ country_event = {
 		762 = {
 			add_core_of = CZE
 		}
-		CZE = {
-			set_province_controller = 7857
-			set_province_controller = 5283
+
+		958 = {
+			add_core_of = CZE
 		}
+		
 		
 		72 = {
 			add_core_of = GLC
@@ -4099,5 +4112,83 @@ news_event = {
 	
 	option = {
 		name = austria_foriegn_policy.5.a
+	}
+}
+
+
+
+##pact with britain/france
+country_event = {
+	id = austria_foriegn_policy.6
+	title = austria_foriegn_policy.6.t
+	desc = austria_foriegn_policy.6.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.6.a
+		AUS = { country_event = austria_foriegn_policy.7 }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = austria_foriegn_policy.6.b
+		ai_chance = { factor = 50 }
+	}
+}
+###FROM accepts our pact
+country_event = {
+	id = austria_foriegn_policy.7
+	title = austria_foriegn_policy.7.t
+	desc = austria_foriegn_policy.7.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.7.a
+		for_each_scope_loop = {
+			array = FRA.faction_members
+
+			AUS = {
+				add_to_faction = PREV
+			}
+			FRA = {
+				dismantle_faction = yes
+			}
+			AUS = {
+				add_to_faction = FRA
+			}
+		}
+		news_event = austria_foriegn_policy.9
+	}
+}
+
+###FROM accepts our pact
+country_event = {
+	id = austria_foriegn_policy.8
+	title = austria_foriegn_policy.8.t
+	desc = austria_foriegn_policy.8.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.8.a
+		
+	}
+}
+
+##the dawn of the france-paris axis
+news_event = {
+	id = austria_foriegn_policy.9
+	title = austria_foriegn_policy.9.t
+	desc = austria_foriegn_policy.9.d
+	picture = GFX_leizpigpact
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = austria_foriegn_policy.9.a
 	}
 }
