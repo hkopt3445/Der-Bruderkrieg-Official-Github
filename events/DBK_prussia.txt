@@ -31,8 +31,6 @@ add_namespace = germany
 	}
  }
  
-
- 
  country_event = {
 	id = GER_goering_internal_stabilization.3
 	title = GER_goering_internal_stabilization.3.t
@@ -1367,3 +1365,108 @@ add_namespace = militia_revolts
 	}
  }
  
+add_namespace = prussia_britain_pact 
+##pact with britain
+country_event = {
+	id = prussia_britain_pact.1
+	title = prussia_britain_pact.1.t
+	desc = prussia_britain_pact.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prussia_britain_pact.1.a
+		effect_tooltip = {
+			GER = {
+				give_military_access = ROOT
+				diplomatic_relation = {
+					country = ROOT
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+			ROOT = {
+				give_military_access = GER
+			}
+		}
+		GER = {
+			country_event = { id = prussia_britain_pact.2 days = 2 }
+		}
+		ai_chance = { factor = 1000 }
+	}
+	option = {
+		name = prussia_britain_pact.1.b
+		country_event = prussia_britain_pact.3
+		effect_tooltip = {
+			GER = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = small_decrease
+				}
+			}
+		}	
+	}
+}
+###FROM accepts our pact
+country_event = {
+	id = prussia_britain_pact.2
+	title = prussia_britain_pact.2.t
+	desc = prussia_britain_pact.2.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prussia_britain_pact.2.a
+		GER = {
+			give_military_access = FROM
+			diplomatic_relation = {
+				country = FROM
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		FROM = {
+			give_military_access = GER
+		}
+
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						tag = ENG
+					}
+				}
+				news_event = prussia_britain_pact.4
+			}
+		}
+	}
+}
+###FROM accepts our pact
+country_event = {
+	id = prussia_britain_pact.3
+	title = prussia_britain_pact.3.t
+	desc = prussia_britain_pact.3.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prussia_britain_pact.3.a
+	}
+}
+
+##anglo prussian alliance
+news_event = {
+	id = prussia_britain_pact.4
+	title = prussia_britain_pact.4.t
+	desc = prussia_britain_pact.4.d
+	picture = GFX_holyalliance
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prussia_britain_pact.4.a
+	}
+}
