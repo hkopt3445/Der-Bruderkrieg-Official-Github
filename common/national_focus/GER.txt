@@ -905,7 +905,7 @@ shared_focus = {
 					uses = 2
 					category = industry
 				}
-				custom_effect_tooltip = available_political_advisor
+				# custom_effect_tooltip = available_political_advisor
 				#how_ideas_tooltip = hjalmar_schacht
 			}
 		
@@ -2731,7 +2731,10 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
-		add_ideas = GER_ready_for_anything_idea
+		swap_ideas = {
+			add_idea = GER_defending_the_fatherland_2
+			remove_idea = GER_defending_the_fatherland
+		}
 	}
 }
 shared_focus = {
@@ -3214,39 +3217,39 @@ shared_focus = {
 	# 		factor = 1
 	# 	}
 	# }
-	shared_focus = { 
-		id = GER_final_ground_support_investments
-		icon = unkown
-		x = 0
-		y = 2
-		relative_position_id = GER_combined_warfare
+	# shared_focus = { 
+	# 	id = GER_final_ground_support_investments
+	# 	icon = unkown
+	# 	x = 0
+	# 	y = 2
+	# 	relative_position_id = GER_combined_warfare
 		
-		available = {
-		}
-		bypass = {
+	# 	available = {
+	# 	}
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cost = 5
-		prerequisite = { focus = GER_combined_warfare }
+	# 	cost = 5
+	# 	prerequisite = { focus = GER_combined_warfare }
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		completion_reward = {
+	# 	completion_reward = {
 		
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	shared_focus = { 
 		id = GER_a_reformed_luftstreltkrafte
 		icon = unkown
-		x = 2
+		x = -1
 		y = 1
-		relative_position_id = GER_final_ground_support_investments
+		relative_position_id = GER_final_strategic_bombing_improvements
 		
 		available = {
 		}
@@ -3255,12 +3258,8 @@ shared_focus = {
 		}
 
 		cost = 5
-		prerequisite = { focus = GER_final_ground_support_investments focus = GER_final_strategic_bombing_improvements }
-		prerequisite = {
-			focus = GER_improved_fighters
-		}
-
-
+		prerequisite = { focus = GER_final_strategic_bombing_improvements focus = GER_improved_fighters }
+	
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -3349,7 +3348,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_improved_fighters
 		icon = unkown
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = GER_strategic_bombers
 		
@@ -3409,8 +3408,8 @@ shared_focus = {
 		id = GER_final_strategic_bombing_improvements
 		icon = unkown
 		x = 0
-		y = 2
-		relative_position_id = GER_strategic_bombing
+		y = 1
+		relative_position_id = GER_strategic_bombers
 		
 		available = {
 		}
@@ -3419,7 +3418,7 @@ shared_focus = {
 		}
 
 		cost = 5
-		prerequisite = { focus = GER_strategic_bombing }
+		prerequisite = { focus = GER_strategic_bombers focus = GER_ground_support_planes}
 		#prerequisite = { focus = GER_improved_fighters }
 
 		cancel_if_invalid = yes
@@ -3544,7 +3543,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_politz_oil
 		icon = unkown
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_kohleverflussigung
 		
@@ -3556,6 +3555,9 @@ shared_focus = {
 
 		cost = 5
 		prerequisite = { focus = GER_kohleverflussigung }
+		prerequisite = {
+			focus = GER_production_abillity
+		}
 		mutually_exclusive = { focus = GER_superior_production_methods }
 		
 
@@ -3611,46 +3613,46 @@ shared_focus = {
 			factor = 1
 		}
 	}
-	shared_focus = { 
-		id = GER_superior_production_methods
-		icon = unkown
-		x = 0
-		y = 1
-		relative_position_id = GER_production_abillity
+	# shared_focus = { 
+	# 	id = GER_superior_production_methods
+	# 	icon = unkown
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = GER_production_abillity
 		
-		available = {
-		}
-		bypass = {
+	# 	available = {
+	# 	}
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cost = 5
-		prerequisite = { focus = GER_production_abillity }
-		mutually_exclusive = { focus = GER_politz_oil }
+	# 	cost = 5
+	# 	prerequisite = { focus = GER_production_abillity }
+	# 	mutually_exclusive = { focus = GER_politz_oil }
 		
 		
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		completion_reward = {
-			# add_tech_bonus = {
-			# 	bonus = 1
-			# 	uses = 1
-			# 	category = improved_machine_tools
-			#  }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# 	completion_reward = {
+	# 		# add_tech_bonus = {
+	# 		# 	bonus = 1
+	# 		# 	uses = 1
+	# 		# 	category = improved_machine_tools
+	# 		#  }
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	
 	shared_focus = { 
 		id = GER_mauser
 		icon = unkown
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = GER_superior_production_methods
+		relative_position_id = GER_politz_oil
 		
 		available = {
 		}
@@ -3659,7 +3661,7 @@ shared_focus = {
 		}
 
 		cost = 5
-		prerequisite = { focus = GER_superior_production_methods focus = GER_politz_oil }
+		prerequisite = { focus = GER_politz_oil focus = GER_politz_oil }
 		
 
 		cancel_if_invalid = yes
@@ -4051,6 +4053,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			navy_experience = 25
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
@@ -4146,7 +4149,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = gunther_lutjens
 		}
 		ai_will_do = {
 			factor = 1
@@ -4363,8 +4367,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			navy_experience = 25
-
+			
+			navy_experience = 50
 		}
 		ai_will_do = {
 			factor = 1
