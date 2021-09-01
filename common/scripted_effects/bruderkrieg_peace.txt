@@ -652,8 +652,10 @@ russia_loses_scripted_peace = {
     }
     UKR = {
         add_state_core = 93
-        add_state_core = 78
         add_state_core = 137
+        add_state_core = 220
+        add_state_core = 240
+        remove_state_core = 766
     }
     POL = {
         add_state_core = 784
@@ -665,23 +667,75 @@ russia_loses_scripted_peace = {
         add_state_core = 94
         add_state_core = 95
         add_state_core = 96
-        add_state_core = 210
     }
     EST = {
         add_state_core = 191
         add_state_core = 13
         add_state_core = 12
     }
+    NYK = {
+        add_state_core = 234
+        add_state_core = 218
+        add_state_core = 238
+        add_state_core = 245
+    }
     SOV = {
         release = UKR
         release = POL
 	    release = BLR
         release = EST
+        release = MOL
+        release = NYK
     }
 
     AUS = {
         puppet = UKR
         puppet = POL
         puppet = BLR
+        puppet = MOL
+        puppet = EST
+        puppet = NYK
+        transfer_state = 91
+    }
+    if = {
+        limit = {
+            TUR = {
+                is_in_faction_with = SOV
+            }
+        }
+        ottoman_beats_russia_peace_deal = yes
+    }
+    else = {
+        TUR = {
+            annex_country = {
+                target = TRB
+                transfer_troops = yes
+            }
+        }
+        GEO = {
+            transfer_state = 1085
+            transfer_state = 232
+            transfer_state = 235
+            transfer_state = 231
+            transfer_state = 229
+            transfer_state = 233
+            transfer_state = 230
+            transfer_state = 1082
+            transfer_state = 1083
+        }
+        AUS = {
+            puppet = GEO
+        }
+    }
+}
+
+ottoman_beats_russia_peace_deal = {
+    TUR = {
+        annex_country = {
+            target = TRB
+            transfer_troops = yes
+        }
+        transfer_state = 230
+        transfer_state = 1082
     }
 }
