@@ -1428,15 +1428,16 @@ GER_spartakus_hotspots = {
 
 	GER_spartakus_riot_mission = {
 		icon = generic_civil_support
-		allowed = { tag = GER NOT = {
-			has_country_flag = GER_spartakus_crushed
-		} }
+		allowed = { tag = GER 
+		
+		}
 		available = {
 			NOT = {
 				any_state = {
 					has_state_flag = GER_spartakus_rioting_inbound_state
 				}
 			}
+			
 		}
 		visible = {
 			NOT = {
@@ -1444,7 +1445,9 @@ GER_spartakus_hotspots = {
 			}
 		}
 		priority = 100
-		activation = {	has_country_flag = GER_spartakus_rioting_inbound_country }
+		activation = {	has_country_flag = GER_spartakus_rioting_inbound_country NOT = {
+			has_country_flag = GER_spartakus_crushed
+		}  }
 		days_mission_timeout = 50
 		selectable_mission = no
 		cancel_if_not_visible = yes

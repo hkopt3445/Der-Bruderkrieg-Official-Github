@@ -370,7 +370,71 @@ prussia_loses_peace_deal = {
        }
        
 }           
-
+italy_loses_to_austria_peace_deal = {
+    ITA = {
+        white_peace = AUS
+        leave_faction = yes
+    }
+    if = {
+        limit = {
+            ITF = {
+                exists = yes
+            }
+        }
+        ITF = {
+            transfer_state = 161
+            transfer_state = 159
+        }
+    }
+    else = {
+        AUS = {
+            transfer_state = 161
+            transfer_state = 159
+        }
+    }
+    if = {
+        limit = {
+            FRA = {
+                has_war_with = ITA
+            }
+        }
+        italy_loses_to_france_peace_deal = yes
+    }
+    else = {
+        ITF = {
+            add_state_core = 158
+            add_state_core = 157
+            add_state_core = 891
+            transfer_state = 158
+            transfer_state = 157
+            transfer_state = 891
+        }
+    }
+    SCI = {
+        add_state_core = 882
+        add_state_core = 886
+        add_state_core = 156
+        add_state_core = 880
+        add_state_core = 115
+    }
+    ITA = {
+        set_cosmetic_tag = ITA_central_italy
+        release = SCI
+    }
+    SCI = {
+        set_cosmetic_tag = ITA_two_sicilies
+    }
+}
+italy_loses_to_france_peace_deal = {
+    ITA = {
+        white_peace = FRA
+    }
+    FRA = {
+        transfer_state = 158
+        transfer_state = 157
+        transfer_state = 891
+    }
+}
 
 
 french_civil_war = {
@@ -689,6 +753,7 @@ russia_loses_scripted_peace = {
         add_state_core = 195
         add_state_core = 246
         add_state_core = 264
+        add_state_core = 247
     }
     LNU = {
         add_state_core = 219

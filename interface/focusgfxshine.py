@@ -29,7 +29,7 @@ import re
 def get_shine_def(name, path):
     return """	SpriteType = {
 		name = "%s_shine"
-		texturefile = "%s"
+		texturefile = "%s" 
 		effectFile = "gfx/FX/buttonstate.lua"
 		animation = {
 			animationmaskfile = "%s"
