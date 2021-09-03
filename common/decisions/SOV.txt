@@ -10221,22 +10221,33 @@ SOV_solving_the_ethnic_conflicts = {
 		days_remove = 35
 
 		available = {
-			divisions_in_state = {
-				state = 93
-				size > 2
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					state = 93
+					size > 2
+				}
+				divisions_in_state = {
+					state = 201
+					size > 2
+				}
+				divisions_in_state = {
+					state = 199
+					size > 2
+				}
 			}
-			divisions_in_state = {
-				state = 201
-				size > 2
-			}
-			divisions_in_state = {
-				state = 199
-				size > 2
+			else = {
+				always = yes
 			}
 		}
 
 		visible = {
-			has_completed_focus = SOV_unify_the_duma
+			OR = {
+				has_completed_focus = SOV_pro_rsdlp_agenda 
+				has_completed_focus = SOV_unify_the_duma
+			}
 		}
 
 		modifier = {
@@ -10260,17 +10271,25 @@ SOV_solving_the_ethnic_conflicts = {
 		days_remove = 35
 
 		available = {
-			divisions_in_state = {
-				state = 221
-				size > 2
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					state = 221
+					size > 2
+				}
+				divisions_in_state = {
+					state = 227
+					size > 2
+				}
+				divisions_in_state = {
+					state = 196
+					size > 2
+				}
 			}
-			divisions_in_state = {
-				state = 227
-				size > 2
-			}
-			divisions_in_state = {
-				state = 196
-				size > 2
+			else = {
+				always = yes
 			}
 		}
 
@@ -10299,9 +10318,17 @@ SOV_solving_the_ethnic_conflicts = {
 		days_remove = 35
 
 		available = {
-			divisions_in_state = {
-				state = 111	
-				size > 4
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					state = 111	
+					size > 4
+				}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -10329,14 +10356,25 @@ SOV_solving_the_ethnic_conflicts = {
 		days_remove = 35
 
 		available = {
-			divisions_in_state = {
-				state = 784	
-				size > 4
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					state = 784	
+					size > 4
+				}
+			}
+			else = {
+				always = yes
 			}
 		}
 
 		visible = {
-			has_completed_focus = SOV_unify_the_duma
+			OR = {
+				has_completed_focus = SOV_pro_rsdlp_agenda 
+				has_completed_focus = SOV_unify_the_duma
+			}
 		}
 
 		modifier = {
@@ -10360,14 +10398,25 @@ SOV_solving_the_ethnic_conflicts = {
 		days_remove = 35
 
 		available = {
-			divisions_in_state = {
-				state = 12	
-				size > 4
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					state = 12	
+					size > 4
+				}
+			}
+			else = {
+				always = yes
 			}
 		}
 
 		visible = {
-			has_completed_focus = SOV_unify_the_duma
+			OR = {
+				has_completed_focus = SOV_pro_rsdlp_agenda 
+				has_completed_focus = SOV_unify_the_duma
+			}
 		}
 
 		modifier = {
@@ -10390,13 +10439,21 @@ SOV_solving_the_ethnic_conflicts = {
 		days_remove = 35
 
 		available = {
-			divisions_in_state = {
-				state = 229	
-				size > 2
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					state = 229	
+					size > 2
+				}
+				divisions_in_state = {
+					state = 230	
+					size > 2
+				}
 			}
-			divisions_in_state = {
-				state = 230	
-				size > 2
+			else = {
+				always = yes
 			}
 		}
 
@@ -10405,7 +10462,10 @@ SOV_solving_the_ethnic_conflicts = {
 		}
 
 		visible = {
-			has_completed_focus = SOV_unify_the_duma
+			OR = {
+				has_completed_focus = SOV_pro_rsdlp_agenda 
+				has_completed_focus = SOV_unify_the_duma
+			}
 		}
 
 		remove_effect = {
@@ -10427,9 +10487,17 @@ SOV_solving_the_ethnic_conflicts = {
 		days_remove = 35
 
 		available = {
-			divisions_in_state = {
-				state = 644
-				size > 4
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					state = 644
+					size > 4
+				}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -10444,6 +10512,39 @@ SOV_solving_the_ethnic_conflicts = {
 		remove_effect = {
 			set_country_flag = SOV_siberian_turk_problem_solved
 			add_stability = 0.02
+		}
+	}
+
+	##ethnic conflicts remove
+	SOV_kerensky_lenin_remove_ethnic_conflicts = {
+
+		icon = generic_industry
+
+		fire_only_once = yes
+
+		cost = 0
+
+		days_remove = 0
+
+		available = {
+			has_country_flag = SOV_belarussian_lithuanian_dispute_solved
+			has_country_flag = SOV_azerbaijian_armenian_problem_solved
+			has_country_flag = SOV_latvian_problem_solved
+			has_country_flag = SOV_ukrainian_pole_dispute_solved
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_pro_rsdlp_agenda 
+				has_completed_focus = SOV_unify_the_duma
+			}
+		}
+
+		modifier = {
+		}
+
+		remove_effect = {
+			remove_ideas = SOV_ethnic_conflicts
 		}
 	}
 }
