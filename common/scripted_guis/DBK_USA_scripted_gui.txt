@@ -27,6 +27,49 @@ scripted_gui = {
 	# 	}
 	# }
 
+  ##us election
+  USA_openelectionsbutton_scripted_gui = {
+    window_name = "USA_open_presidential_election_window"
+    parent_window_token = politics_tab
+    visible = {
+      tag = USA
+      is_ai = no
+    }
+    effects = {
+      USA_openelectionsbutton_click = {
+        set_country_flag = USA_open_election_view_GUI
+      }
+    }
+  }
+  
+  
+  USA_electionsview_scripted_gui = {
+    window_name = "USA_electionsview"
+    visible = {
+      has_country_flag = USA_open_election_view_GUI
+    }
+    effects = {
+      close_button_click = {
+        clr_country_flag = USA_open_election_view_GUI
+      }
+    }
+  
+    properties = {
+      usa_elections_long_progress_bar =  {
+        frame = SOV.kerensky_support
+      }
+      usa_elections_smith_progress_bar =  {
+        frame = SOV.pavel_support
+      }
+      usa_elections_borah_progress_bar =  {
+        frame = SOV.lenin_support
+      }
+      usa_elections_undecided_progress_bar =  {
+        frame = SOV.tsar_support
+      }
+    }
+  }
+
   ##mafia
   DBK_usa_nyc_mafia_gui = {
     window_name = "mafia_container"
