@@ -398,7 +398,14 @@ italy_loses_to_austria_peace_deal = {
                 has_war_with = ITA
             }
         }
-        italy_loses_to_france_peace_deal = yes
+        ITA = {
+            white_peace = FRA
+        }
+        FRA = {
+            transfer_state = 158
+            transfer_state = 157
+            transfer_state = 891
+        }
     }
     else = {
         ITF = {
@@ -433,6 +440,20 @@ italy_loses_to_france_peace_deal = {
         transfer_state = 158
         transfer_state = 157
         transfer_state = 891
+    }
+    SCI = {
+        add_state_core = 882
+        add_state_core = 886
+        add_state_core = 156
+        add_state_core = 880
+        add_state_core = 115
+    }
+    ITA = {
+        set_cosmetic_tag = ITA_central_italy
+        release = SCI
+    }
+    SCI = {
+        set_cosmetic_tag = ITA_two_sicilies
     }
 }
 
@@ -625,15 +646,15 @@ russia_beats_ottoman_peace_deal = {
 
 release_byazntium = {
     BYZ = { transfer_state = 948 }
-BYZ = { transfer_state = 341 }
-BYZ = { set_capital = 341 }
-TUR = { set_capital = 49 }
-BYZ = { transfer_state = 347 }
-BYZ = { transfer_state = 340 }
-BYZ = { transfer_state = 834 }
-BYZ = { transfer_state = 339 }
-BYZ = { transfer_state = 836 }
-BYZ = { set_politics = { ruling_party = democratic elections_allowed = no } }
+    BYZ = { transfer_state = 341 }
+    BYZ = { set_capital = 341 }
+    TUR = { set_capital = 49 }
+    BYZ = { transfer_state = 347 }
+    BYZ = { transfer_state = 340 }
+    BYZ = { transfer_state = 834 }
+    BYZ = { transfer_state = 339 }
+    BYZ = { transfer_state = 836 }
+    BYZ = { set_politics = { ruling_party = democratic elections_allowed = no } }
 }
 
 argentina_loses_peace_deal = {
@@ -710,7 +731,7 @@ austria_beats_serbia_peace_deal = {
     }
 }
 
-russia_loses_scripted_peace = {
+russia_loses_peace_deal = {
     AUS = {
         white_peace = SOV
     }
@@ -839,4 +860,124 @@ ottoman_beats_russia_peace_deal = {
         transfer_state = 230
         transfer_state = 1082
     }
+}
+
+russia_loses_peace_to_france_deal = {
+    FRA = {
+        white_peace = SOV
+    }
+    UKR = {
+        add_state_core = 93
+        add_state_core = 137
+        add_state_core = 220
+        add_state_core = 240
+        remove_state_core = 766
+    }
+    POL = {
+        add_state_core = 784
+        add_state_core =  189
+        add_state_core = 190
+        add_state_core = 11
+    }
+    BLR = {
+        add_state_core = 94
+        add_state_core = 95
+        add_state_core = 96
+    }
+    EST = {
+        add_state_core = 191
+        add_state_core = 13
+        add_state_core = 12
+    }
+    NYK = {
+        add_state_core = 234
+        add_state_core = 218
+        add_state_core = 238
+        add_state_core = 245
+    }
+    RRR = {
+        add_state_core = 195
+        add_state_core = 244
+        add_state_core = 263
+        add_state_core = 208
+        add_state_core = 209
+        add_state_core = 210
+        add_state_core = 195
+        add_state_core = 246
+        add_state_core = 264
+        add_state_core = 247
+    }
+    LNU = {
+        add_state_core = 219
+        add_state_core = 242
+        add_state_core = 205
+        add_state_core = 223
+        add_state_core = 243
+        add_state_core = 224
+        add_state_core = 222
+    }
+    SOV = {
+        release = UKR
+        release = POL
+	    release = BLR
+        release = EST
+        release = MOL
+        release = NYK
+        release = RRR
+        release = LNU
+
+    }
+
+    FRA = {
+        puppet = UKR
+        puppet = POL
+        puppet = BLR
+        puppet = MOL
+        puppet = EST
+        puppet = NYK
+        puppet = RRR
+        puppet = LNU
+        transfer_state = 91
+    }
+    if = {
+        limit = {
+            TUR = {
+                is_in_faction_with = SOV
+            }
+        }
+        ottoman_beats_russia_peace_deal = yes
+    }
+    else = {
+        TUR = {
+            annex_country = {
+                target = TRB
+                transfer_troops = yes
+            }
+        }
+        GEO = {
+            transfer_state = 1085
+            transfer_state = 232
+            transfer_state = 235
+            transfer_state = 231
+            transfer_state = 229
+            transfer_state = 233
+            transfer_state = 230
+            transfer_state = 1082
+            transfer_state = 1083
+        }
+        FRA = {
+            puppet = GEO
+        }
+    }
+    SOV_release_just_central_asia = yes
+    FIN = {
+        add_state_core = 216
+        add_state_core = 215
+        add_state_core = 213
+    }
+    SOV_release_FIN = yes
+    FRA = {
+        add_to_faction = FIN
+    }
+    
 }
