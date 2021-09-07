@@ -558,11 +558,7 @@ france_loses_peace_deal = {
 france_beats_prussia_peace_deal = {
     FRA = { white_peace = GER white_peace = ITA  set_country_flag = FRA_has_beaten_prussia }
 
-    FGD = {
-        transfer_state = 56
-        transfer_state = 59
-        transfer_state = 817
-    }
+    
     FRA = {
         puppet = GER    
         transfer_state = 158
@@ -571,11 +567,25 @@ france_beats_prussia_peace_deal = {
     }
     SHL = {
         add_state_core = 58
+        add_state_core = 61
+        }
+    MAS = {
+        add_state_core = 188
+        add_state_core = 763
+        add_state_core = 5
+        add_state_core = 85
     }
     GER = {
         release = SAX
         release = SHL
+        release = MAS   
         set_cosmetic_tag = mandat_du_prussia
+    }
+    FGD = {
+        transfer_state = 56
+        transfer_state = 59
+        transfer_state = 817
+        transfer_state = 60
     }
     ITA = {
         set_politics = {
@@ -585,6 +595,7 @@ france_beats_prussia_peace_deal = {
     FRA = {
         puppet = SAX
         puppet = SHL
+        puppet = MAS
     }
     SAX = {
         set_cosmetic_tag = mandat_du_saxony
@@ -592,8 +603,148 @@ france_beats_prussia_peace_deal = {
     SHL = {
         set_cosmetic_tag = mandat_du_schelswig
     }
+    
 }
-
+france_beats_austria = {
+    FRA = {
+        white_peace = AUS
+    }
+    FGD = {
+        annex_country = {
+            target = HES
+            transfer_troops = no
+        }
+        annex_country = {
+            target = BAD
+            transfer_troops = no
+        }
+        annex_country = {
+            target = WUR
+            transfer_troops = no
+        }
+        annex_country = {
+            target = GPU
+            transfer_troops = no
+        }
+        transfer_state = 153
+        set_cosmetic_tag = confederation_of_the_rhine
+    }
+    if = {
+        limit = {
+            GER = {
+                is_puppet_of = FRA
+            }
+        }
+        GER = {
+            transfer_state = 67
+            transfer_state = 66
+        }
+    }
+    if = {
+        limit = {
+            CZE = {
+                exists = yes
+            }
+        }
+        
+        else = {
+            AUS = {
+                release = CZE
+            }
+        }
+        
+    }
+    FRA = {
+        puppet = CZE
+    }
+    if = {
+        limit = {
+            HUN = {
+                exists = yes
+            }
+        }
+        else = {
+            AUS = {
+                release = HUN
+            }
+        }
+    }
+    FRA = {
+        puppet = HUN
+    }
+    if = {
+        limit = {
+            ITF = {
+                exists = yes
+            }
+        }
+        else = {
+            AUS = {
+                release = ITF
+            }
+        }
+    }
+    ITF = {
+        add_state_core = 736
+        transfer_state = 736
+    }
+    FRA = {
+        puppet = ITF
+    }
+    if = {
+        limit = {
+            CRO = {
+                exists = yes
+            }
+        }
+        else = {
+            AUS = {
+                release = CRO
+            }
+        }
+    }
+    CRO = {
+        transfer_state = 104
+        transfer_state = 819
+    }
+    FRA = {
+        puppet = CRO
+    }
+    if = {
+        limit = {
+            POL = {
+                exists = yes
+                is_in_faction_with = FRA
+            }
+            
+        }
+        POL = {
+            transfer_state = 762
+            transfer_state = 88
+            transfer_state = 762
+            transfer_state = 951
+            transfer_state = 89
+        }
+        else = {
+            AUS = {
+                release = GLC
+            }
+            FRA = {
+                puppet = GLC
+            }
+        }
+    }
+    FRA = {
+        transfer_state = 103
+        transfer_state = 163
+        transfer_state = 816
+        transfer_state = 815
+        add_to_faction = AUS
+    }
+    AUS = {
+        set_cosmetic_tag = vienna_government
+    }
+}
 
 
 
@@ -889,42 +1040,42 @@ russia_loses_peace_to_france_deal = {
         add_state_core = 13
         add_state_core = 12
     }
-    NYK = {
-        add_state_core = 234
-        add_state_core = 218
-        add_state_core = 238
-        add_state_core = 245
-    }
-    RRR = {
-        add_state_core = 195
-        add_state_core = 244
-        add_state_core = 263
-        add_state_core = 208
-        add_state_core = 209
-        add_state_core = 210
-        add_state_core = 195
-        add_state_core = 246
-        add_state_core = 264
-        add_state_core = 247
-    }
-    LNU = {
-        add_state_core = 219
-        add_state_core = 242
-        add_state_core = 205
-        add_state_core = 223
-        add_state_core = 243
-        add_state_core = 224
-        add_state_core = 222
-    }
+    # NYK = {
+    #     add_state_core = 234
+    #     add_state_core = 218
+    #     add_state_core = 238
+    #     add_state_core = 245
+    # }
+    # RRR = {
+    #     add_state_core = 195
+    #     add_state_core = 244
+    #     add_state_core = 263
+    #     add_state_core = 208
+    #     add_state_core = 209
+    #     add_state_core = 210
+    #     add_state_core = 195
+    #     add_state_core = 246
+    #     add_state_core = 264
+    #     add_state_core = 247
+    # }
+    # LNU = {
+    #     add_state_core = 219
+    #     add_state_core = 242
+    #     add_state_core = 205
+    #     add_state_core = 223
+    #     add_state_core = 243
+    #     add_state_core = 224
+    #     add_state_core = 222
+    # }
     SOV = {
         release = UKR
         release = POL
 	    release = BLR
         release = EST
         release = MOL
-        release = NYK
-        release = RRR
-        release = LNU
+        # release = NYK
+        # release = RRR
+        # release = LNU
 
     }
 
@@ -934,10 +1085,10 @@ russia_loses_peace_to_france_deal = {
         puppet = BLR
         puppet = MOL
         puppet = EST
-        puppet = NYK
-        puppet = RRR
-        puppet = LNU
-        transfer_state = 91
+        # puppet = NYK
+        # puppet = RRR
+        # puppet = LNU
+        # transfer_state = 91
     }
     if = {
         limit = {
@@ -954,30 +1105,10 @@ russia_loses_peace_to_france_deal = {
                 transfer_troops = yes
             }
         }
-        GEO = {
-            transfer_state = 1085
-            transfer_state = 232
-            transfer_state = 235
-            transfer_state = 231
-            transfer_state = 229
-            transfer_state = 233
-            transfer_state = 230
-            transfer_state = 1082
-            transfer_state = 1083
-        }
-        FRA = {
-            puppet = GEO
-        }
     }
     SOV_release_just_central_asia = yes
-    FIN = {
-        add_state_core = 216
-        add_state_core = 215
-        add_state_core = 213
-    }
+    
     SOV_release_FIN = yes
-    FRA = {
-        add_to_faction = FIN
-    }
+    
     
 }
