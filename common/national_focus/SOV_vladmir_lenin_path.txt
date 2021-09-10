@@ -24,7 +24,7 @@ shared_focus = {
     icon = GFX_goal_SOV_unification_of_the_rsdlp
     x = 8
     y = 0
-    cost = 8
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -418,6 +418,8 @@ shared_focus = {
     completion_reward = {
         add_political_power = 100
         set_country_flag = SOV_rsdlp_unified
+        SOV_increase_support_among_people_small = yes
+
     }
 }
  
@@ -724,6 +726,8 @@ shared_focus = {
     completion_reward = {
         add_political_power = 100
         set_country_flag = SOV_rsdlp_unified
+        SOV_increase_support_among_people_small = yes
+
     }
 }
 
@@ -751,7 +755,6 @@ shared_focus = {
 			add_idea = SOV_political_divide_2
 			remove_idea = SOV_political_divide
 		}
-        
 
 
         ###add lenin's cabinet with this scripted effect
@@ -833,7 +836,6 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_ideas = SOV_lenins_growing_hand
         add_political_power = 50
         unlock_decision_category_tooltip = SOV_solving_the_ethnic_conflicts
     }
@@ -859,10 +861,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        swap_ideas = {
-            add_idea = SOV_lenins_growing_hand_2
-            remove_idea = SOV_lenins_growing_hand
-        }
+       add_ideas = SOV_lenins_growing_hand_2
     }
 }
 
@@ -874,9 +873,9 @@ shared_focus = {
     prerequisite = {
         focus = SOV_a_new_dawn_for_russia
     }
-    available = {
-        has_country_flag = SOV_rsdlp_unified
-    }
+    # available = {
+    #     has_country_flag = SOV_rsdlp_unified
+    # }
 	x = -1
     y = 1
     relative_position_id = SOV_the_growing_hands_of_lenin  
@@ -887,8 +886,7 @@ shared_focus = {
     }
     completion_reward = {   
         remove_ideas = SOV_political_divide_2
-        add_ideas = SOV_russias_new_savior_idea   
-
+        add_country_leader_trait = savior_of_russia
     }
 }
 
@@ -903,12 +901,16 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     completion_reward = {
         
         ##event
-        
+        add_tech_bonus = {
+			category = industry
+			bonus = 1
+			uses = 1
+		}
     }
 }
 
@@ -924,11 +926,17 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     completion_reward = {
         
-        SOV_level_up_lenin_economic_reforms = yes
+        add_tech_bonus = {
+			bonus = 0.5
+			uses = 3
+			technology = concentrated_industry
+            technology = concentrated_industry2
+            technology = concentrated_industry3
+		}
     }
 }
 
@@ -942,10 +950,10 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     completion_reward = {
-        SOV_level_up_lenin_economic_reforms = yes
+        add_ideas = limited_exports
         
     }
 }
@@ -960,7 +968,7 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     completion_reward = {
         SOV_level_up_lenin_economic_reforms = yes
@@ -982,11 +990,11 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     completion_reward = {
         unlock_decision_category_tooltip = SOV_lenins_infra_plan
-        
+        add_political_power = 50
     }
 }
 
@@ -1004,11 +1012,11 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     completion_reward = {
         unlock_decision_category_tooltip = SOV_european_development
-
+        add_political_power = 50
         
     }
 }
@@ -1027,12 +1035,13 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     completion_reward = {
         
-        add_political_power = 50
+        add_political_power = 75
         add_research_slot = 1
+        unlock_decision_category_tooltip = SOV_flourishing_oil_industry
     }
 }
  
@@ -1069,6 +1078,8 @@ shared_focus = {
     completion_reward = {
         
         add_ideas = SOV_a_fledgling_tsar
+        SOV_increase_support_among_people_small = yes
+
     }
 }
 
@@ -1093,6 +1104,8 @@ shared_focus = {
             add_idea = SOV_a_fledgling_tsar_2
             remove_idea = SOV_a_fledgling_tsar
         }
+        SOV_increase_support_among_people_small = yes
+
     }
 }
 
@@ -1133,7 +1146,6 @@ shared_focus = {
         ##Reward The Player!
         add_political_power = 100
         SOV_increase_support_among_people_medium = yes
-
     }
 }
 
@@ -1144,7 +1156,7 @@ shared_focus = {
     cost = 5
 	available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 300
     }
     prerequisite = { focus = SOV_uniting_the_parties_of_the_rsdlp  }
     
@@ -1169,7 +1181,7 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 300
     }
     completion_reward = {
         
@@ -1191,7 +1203,7 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 300
     }
     completion_reward = {
         
@@ -1248,7 +1260,7 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 300
     }
     completion_reward = {
         add_timed_idea = {
@@ -1305,7 +1317,7 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 300
     }
     completion_reward = {
         # add_timed_idea = {
@@ -1333,7 +1345,7 @@ shared_focus = {
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
-        factor = 1000
+        factor = 300
     }
     completion_reward = {
         swap_ideas = {
@@ -1360,8 +1372,10 @@ shared_focus = {
         has_completed_focus = SOV_a_new_leftists_russia
     }
     completion_reward = {
-        add_ideas = SOV_beacon_of_socialism
+        swap_ideas = { add_idea = SOV_beacon_of_socialism remove_idea = SOV_beacon_of_democracy }
         create_faction = "Socialist International"
+        SOV_increase_support_among_people_small = yes
+
     }
 }
 
@@ -1378,7 +1392,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_beacon_of_socialism
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         add_opinion_modifier = {
@@ -1401,7 +1415,7 @@ shared_focus = {
     }
     relative_position_id = SOV_dealing_with_the_habsburg_hegemony
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         country_event = { id = SOV_lenin_tree_events.11 }
@@ -1426,7 +1440,7 @@ shared_focus = {
         has_country_flag = SOV_they_can_be_allies_unlocked
     }
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         add_opinion_modifier = {
@@ -1453,7 +1467,7 @@ shared_focus = {
    
     relative_position_id = SOV_they_can_be_allies
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         GER = {
@@ -1475,7 +1489,7 @@ shared_focus = {
    
     relative_position_id = SOV_they_can_be_allies
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         add_ideas = SOV_prussian_russian_generals
@@ -1500,7 +1514,7 @@ shared_focus = {
         has_country_flag = SOV_no_they_are_insane_unlocked
     }
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         add_opinion_modifier = {
@@ -1530,7 +1544,7 @@ shared_focus = {
     relative_position_id = SOV_no_they_are_insane
     
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         every_owned_state = {
@@ -1566,7 +1580,7 @@ shared_focus = {
     relative_position_id = SOV_fortify_the_polish_border
     
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         SOV = {
@@ -1607,7 +1621,7 @@ shared_focus = {
     relative_position_id = SOV_no_they_are_insane
     
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         swap_ideas = {
@@ -1633,7 +1647,7 @@ shared_focus = {
     relative_position_id = SOV_defend_the_galician_border
     
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         90 = {
@@ -1659,7 +1673,7 @@ shared_focus = {
     }
     relative_position_id = SOV_dealing_with_the_habsburg_hegemony
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         unlock_decision_category_tooltip = SOV_using_separatists
@@ -1678,7 +1692,7 @@ shared_focus = {
     }
     relative_position_id = SOV_using_the_seperatists
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         country_event = { id = SOV_lenin_tree_events.17 }
@@ -1697,7 +1711,7 @@ shared_focus = {
     }
     relative_position_id = SOV_using_the_seperatists
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         country_event = { id = SOV_lenin_tree_events.16 }
@@ -1717,7 +1731,7 @@ shared_focus = {
     }
     relative_position_id = SOV_they_can_be_allies
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         unlock_decision_category_tooltip = SOV_subjugating_the_balkans
@@ -1737,7 +1751,7 @@ shared_focus = {
     }
     relative_position_id = SOV_dealing_with_the_habsburg_hegemony
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         add_ideas = SOV_prepare_for_worst
@@ -1757,7 +1771,7 @@ shared_focus = {
     }
     relative_position_id = SOV_preparing_for_the_worst
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         swap_ideas = {
@@ -1791,7 +1805,7 @@ shared_focus = {
    
     relative_position_id = SOV_lessons_from_the_europakrieg
     ai_will_do = {
-        factor = 1000
+        factor = 2000
     }
     completion_reward = {
         create_wargoal = {
