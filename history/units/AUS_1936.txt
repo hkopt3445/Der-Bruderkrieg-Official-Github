@@ -1,16 +1,16 @@
 division_template = {
-	name = "Infanterie-Division"
+	name = "Landwehr Division"
 
-	division_names_group = GER_Inf_01
+	division_names_group = AUS_Inf_01
 
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
-    infantry = { x = 1 y = 0 }
+        infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-    infantry = { x = 2 y = 0 }
+        infantry = { x = 2 y = 0 }
 		infantry = { x = 2 y = 1 }
 		infantry = { x = 2 y = 2 }
 	}
@@ -19,29 +19,65 @@ division_template = {
         engineer = { x = 0 y = 0 }
 	}
 }
-division_template = {
-	name = "Panzer-Division"
 
-	division_names_group = GER_Arm_01
+division_template = {
+    name = "Landwehr Brigade"
+
+    division_names_group = AUS_Inf_01
+
+    regiments = {
+        infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+        infantry = { x = 0 y = 2 }
+        infantry = { x = 1 y = 0 }
+        infantry = { x = 1 y = 1 }
+        infantry = { x = 1 y = 2 }
+    }
+
+    support = {
+        engineer = { x = 0 y = 0 }
+    }
+}
+
+division_template = {
+    name = "Gemeinsame Armeebrigade"
+
+    division_names_group = AUS_Inf_01
+
+    regiments = {
+        infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+        infantry = { x = 1 y = 0 }
+        infantry = { x = 1 y = 1 }
+    }
+
+    support = {
+        engineer = { x = 0 y = 0 }
+    }
+    priority = 0
+}
+
+division_template = {
+	name = "Panzer Division"
+
+	division_names_group = AUS_Arm_01
 
 	regiments = {
 		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1 }
-        light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1 }
+        motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
 		motorized = { x = 2 y = 0 }
-        motorized = { x = 2 y = 1 }
 	}
 	support = {
         mot_recon = { x = 0 y = 0 }
         engineer = { x = 0 y = 1 }
-        artillery = { x = 0 y = 2 }
 	}
 }
 division_template = {
-	name = "Infanterie-Division (mot.)" 			# Used to be SS division -> New system for SS. Also messed up the civil war by refusing to move to the fascists, and immersion-breaking to have them around as royalists
+	name = "Kraftfahrjäger Division" 			
 
-	division_names_group = GER_MOT_02
+	division_names_group = AUS_MOT_01
 
 	regiments = {
 		motorized = { x = 0 y = 0 }
@@ -52,19 +88,15 @@ division_template = {
 		motorized = { x = 1 y = 1 }
 		motorized = { x = 1 y = 2 }
 
-		motorized = { x = 2 y = 0 }
-	    motorized = { x = 2 y = 1 }
-		motorized = { x = 2 y = 2 }
 	}
 	support = {
         mot_recon = { x = 0 y = 0 }
-	 	engineer = { x = 0 y = 1 }
-        artillery = { x = 0 y = 2 }
+        artillery = { x = 0 y = 1 }
 	}
 }
 division_template = {
-	name = "Cavalry-Division"
-	division_names_group = RAJ_ARM_01
+	name = "Schnelle Division"
+	division_names_group = AUS_CAV_01
 
 	regiments = {
 		cavalry = { x = 0 y = 0 }
@@ -74,61 +106,88 @@ division_template = {
 	}
 }
 
+division_template = {
+    name = "Alpenjäger Division"
+    division_names_group = AUS_MNT_01
+
+    regiments = {
+        mountaineers = { x = 0 y = 0 }
+        mountaineers = { x = 0 y = 1 }
+        mountaineers = { x = 0 y = 2 }
+        mountaineers = { x = 1 y = 0 }
+        mountaineers = { x = 1 y = 1 }
+        mountaineers = { x = 1 y = 2 }
+    }
+    support = {
+        engineer = { x = 0 y = 0 }   # Pioneer Bn
+    }
+}
+
 units = {
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 12
-    }
-    location = 6462
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 12
-    }
-    location = 11666
-    division_template = "Cavalry-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 12
-    }
-    location = 9660
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
+    division= { # "5. Division"        
+        division_name = {
+                is_name_ordered = yes
+                name_order = 5
+        }
+        location = 9648  # Graz
+        division_template = "Alpenjäger Division"
+        start_experience_factor = 0.2
 
+    }
+    division= { # "6. Division"         
+        division_name = {
+                is_name_ordered = yes
+                name_order = 6
+        }
+        location = 673  # Innsbruck
+        division_template = "Alpenjäger Division"
+        start_experience_factor = 0.2
+
+    }
+    division= { # "7. Division"         
+        division_name = {
+                is_name_ordered = yes
+                name_order = 7
+        }
+        location = 688  # Salzburg
+        division_template = "Alpenjäger Division"
+        start_experience_factor = 0.2
+
+    }
+
+    division= { 
+        name = "8. Division"             
+        location = 11666  # Vienna
+        division_template = "Alpenjäger Division"
+        start_experience_factor = 0.2
+
+    }
+    division= { 
+        name = "9. Division"             
+        location = 11598  # Bolzano
+        division_template = "Alpenjäger Division"
+        start_experience_factor = 0.2
+
+    }
+ 
   division = {
     division_name = {
         is_name_ordered = yes
-        name_order = 14
+        name_order = 12
     }
-    location = 6462
-    division_template = "Infanterie-Division"
+    location = 11666 # Vienna
+    division_template = "Schnelle Division"
     start_experience_factor = 0.3
+    start_equipment_factor = 0.6
   }
   division = {
     division_name = {
         is_name_ordered = yes
         name_order = 24
     }
-    location = 6462
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 6462
-    division_template = "Infanterie-Division (mot.)"
-    start_experience_factor = 0.3
+    location = 9570
+    division_template = "Kraftfahrjäger Division"
+    start_experience_factor = 0.2
   }
 
 
@@ -138,8 +197,8 @@ units = {
 				name_order = 1
 		}
 		location = 11666
-		division_template = "Panzer-Division"
-		start_experience_factor = 0.3
+		division_template = "Panzer Division"
+		start_experience_factor = 0.2
 
 	}
   division = {
@@ -148,8 +207,8 @@ units = {
 				name_order = 1
 		}
 		location = 11666
-		division_template = "Panzer-Division"
-		start_experience_factor = 0.3
+		division_template = "Panzer Division"
+		start_experience_factor = 0.2
 
 	}
   division = {
@@ -158,218 +217,90 @@ units = {
         name_order = 24
     }
     location = 11666
-    division_template = "Infanterie-Division (mot.)"
-    start_experience_factor = 0.3
+    division_template = "Kraftfahrjäger Division"
+    start_experience_factor = 0.2
   }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 11666
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 11666
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
+  
 
 
 
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
-    location = 9660
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
-
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
-    location = 9660
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
-
-  }
+  
   division = {
     division_name = {
         is_name_ordered = yes
         name_order = 24
     }
     location = 9660
-    division_template = "Cavalry-Division"
-    start_experience_factor = 0.3
+    division_template = "Schnelle Division"
+    start_experience_factor = 0.2
+    start_equipment_factor = 0.6
   }
+  
   division = {
     division_name = {
         is_name_ordered = yes
         name_order = 24
     }
     location = 9660
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 9660
-    division_template = "Cavalry-Division"
-    start_experience_factor = 0.3
+    division_template = "Schnelle Division"
+    start_experience_factor = 0.2
+    start_equipment_factor = 0.6
   }
 
 
 
 
+  
+  
   division = {
     division_name = {
         is_name_ordered = yes
         name_order = 1
     }
     location = 688
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
+    division_template = "Schnelle Division"
+    start_experience_factor = 0.2
+    start_equipment_factor = 0.6
 
   }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
-    location = 688
-    division_template = "Cavalry-Division"
-    start_experience_factor = 0.3
-
-  }
+ 
   division = {
     division_name = {
         is_name_ordered = yes
         name_order = 24
     }
     location = 688
-    division_template = "Infanterie-Division (mot.)"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 688
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 688
-    division_template = "Infanterie-Division (mot.)"
-    start_experience_factor = 0.3
+    division_template = "Kraftfahrjäger Division"
+    start_experience_factor = 0.2
   }
 
 
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
-    location = 11542
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
+  
+  
 
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
-    location = 11542
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
-
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 11542
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
-    location = 6711
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
-
-  }
+ 
   division = {
     division_name = {
         is_name_ordered = yes
         name_order = 24
     }
     location = 6711
-    division_template = "Infanterie-Division (mot.)"
-    start_experience_factor = 0.3
+    division_template = "Kraftfahrjäger Division"
+    start_experience_factor = 0.2
   }
+  
+
+
+  
   division = {
     division_name = {
         is_name_ordered = yes
         name_order = 24
     }
-    location = 6711
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 6711
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-
-
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
     location = 11584
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
-
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
-    location = 11584
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
-
+    division_template = "Schnelle Division"
+    start_experience_factor = 0.2
+    start_equipment_factor = 0.6
   }
   division = {
     division_name = {
@@ -377,67 +308,469 @@ units = {
         name_order = 24
     }
     location = 11584
-    division_template = "Cavalry-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 11584
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
-    }
-    location = 11584
-    division_template = "Cavalry-Division"
-    start_experience_factor = 0.3
+    division_template = "Schnelle Division"
+    start_experience_factor = 0.2
+    start_equipment_factor = 0.6
   }
 
 
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 1
-    }
-    location = 619
-    division_template = "Panzer-Division"
-    start_experience_factor = 0.3
+  
 
-  }
-
+  
   division = {
     division_name = {
         is_name_ordered = yes
         name_order = 24
     }
     location = 619
-    division_template = "Cavalry-Division"
-    start_experience_factor = 0.3
+    division_template = "Schnelle Division"
+    start_experience_factor = 0.2
+    start_equipment_factor = 0.6
   }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
+
+
+    division= { 
+        name = "13. Landwehr-Infanteriedivision"
+        location = 11666 # Vienna
+        division_template = "Landwehr Division"
+        start_experience_factor = 0.2
+        start_equipment_factor = 0.3
+
     }
-    location = 619
-    division_template = "Infanterie-Division"
-    start_experience_factor = 0.3
-  }
-  division = {
-    division_name = {
-        is_name_ordered = yes
-        name_order = 24
+
+     division= { 
+        name = "21. Landwehr-Infanteriedivision"
+        location = 11542 # Prague
+        division_template = "Landwehr Division"
+        start_experience_factor = 0.2
+        start_equipment_factor = 0.3
+
     }
-    location = 619
-    division_template = "Cavalry-Division"
-    start_experience_factor = 0.3
-  }
+
+     division= { 
+        name = "26. Landwehr-Infanteriedivision"
+        location = 11432 # Leitmeritz
+        division_template = "Landwehr Division"
+        start_experience_factor = 0.2
+        start_equipment_factor = 0.3
+
+    }
+
+     division= { 
+        name = "44. Landwehr-Infanteriedivision"
+        location = 11735 # Pola
+        division_template = "Landwehr Division"
+        start_experience_factor = 0.2
+        start_equipment_factor = 0.3
+
+    }
+
+     division= { 
+        name = "45. Landwehr-Infanteriedivision"
+        location = 6604 # Przemysl
+        division_template = "Landwehr Division"
+        start_experience_factor = 0.2
+        start_equipment_factor = 0.3
+
+    }
+
+     division= { 
+        name = "46. Landwehr-Infanteriedivision"
+        location = 9427 # Krakov
+        division_template = "Landwehr Division"
+        start_experience_factor = 0.2
+        start_equipment_factor = 0.3
+
+    }
+
+     division= { 
+        name = "22. Landwehr-Infanteriedivision"
+        location = 9648 # Graz
+        division_template = "Landwehr Division"
+        start_experience_factor = 0.2
+        start_equipment_factor = 0.3
+
+    }
+
+     division= { 
+        name = "25. Landwehr-Infanteriebrigade"
+        location = 11666 # Vienna
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "41. Landwehr-Infanteriebrigade"
+        location = 14545 # Pilsen
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "26. Landwehr-Infanteriebrigade"
+        location = 3569 # Brunn
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "42. Landwehr-Infanteriebrigade"
+        location = 11542 # Prague
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+       name = "43. Landwehr-Infanteriebrigade"
+        location = 9648 # Graz
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "51. Landwehr-Infanteriebrigade"
+        location = 583 # Hohenmauth
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "44. Landwehr-Infanteriebrigade"
+        location = 11735 # Pola
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "52. Landwehr-Infanteriebrigade"
+        location = 11432 # Leitmeritz
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "87. Landwehr-Infanteriebrigade"
+        location = 732 # Linz
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "89. Landwehr-Infanteriebrigade"
+        location = 6604 # Przemysl
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "88. Landwehr-Infanteriebrigade"
+        location = 11598 # Bozen
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "90. Landwehr-Infanteriebrigade"
+        location = 421 # Jaroslau
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "91. Landwehr-Infanteriebrigade"
+        location = 9427 # Krakow
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "92. Landwehr-Infanteriebrigade"
+        location = 6562 # Olmutz
+        division_template = "Landwehr Brigade"
+        start_experience_factor = 0.1
+        start_equipment_factor = 0.3
+
+    }
+
+    division= { 
+        name = "Triest Küstengarnison"
+        location = 6626 # Trieste
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "Split Küstengarnison"
+        location = 3924 # Split
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "Dubrovnik Küstengarnison"
+        location = 6889 # Dubrovnik
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "Flus Aus Gold Küstengarnison"
+        location = 8038 # Austrian Rio de Oro
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "Lome Küstengarnison"
+        location = 1951 # Lome
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "Zanzibar Küstengarnison"
+        location = 14239 # Zanzibar
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "Tsingtao Küstengarnison"
+        location = 10000 # Tsingtao
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.5
+
+    }
+
+    division= { 
+        name = "1. Gemeinsame Armeebrigade"
+        location = 11581 # Zagreb
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "2. Gemeinsame Armeebrigade"
+        location = 11610 # Pecs
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "3. Gemeinsame Armeebrigade"
+        location = 9660 # Budapest
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "4. Gemeinsame Armeebrigade"
+        location = 619 # Novi Sad
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "5. Gemeinsame Armeebrigade"
+        location = 9692 # Bratislava
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "6. Gemeinsame Armeebrigade"
+        location = 11467 # Gleiwitz
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "7. Gemeinsame Armeebrigade"
+        location = 6464 # Kattowitz
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "8. Gemeinsame Armeebrigade"
+        location = 442 # Tarnow
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "9. Gemeinsame Armeebrigade"
+        location = 11411 # Stanislawow
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "10. Gemeinsame Armeebrigade"
+        location = 11659 # Debrecen
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "11. Gemeinsame Armeebrigade"
+        location = 3548 # Mukacevo
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "12. Gemeinsame Armeebrigade"
+        location = 6711 # Cluj
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "13. Gemeinsame Armeebrigade"
+        location = 690 # Brasov
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "14. Gemeinsame Armeebrigade"
+        location = 9606 # Timisoara
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "15. Gemeinsame Armeebrigade"
+        location = 11577 # Vukovar
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "16. Gemeinsame Armeebrigade"
+        location = 9595 # Daruvar
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "17. Gemeinsame Armeebrigade"
+        location = 6611 # Rakovica
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "18. Gemeinsame Armeebrigade"
+        location = 6799 # Tuzla
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "19. Gemeinsame Armeebrigade"
+        location = 6983 # Banja Luka
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "20. Gemeinsame Armeebrigade"
+        location = 9627 # Laibach
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+    division= { 
+        name = "21. Gemeinsame Armeebrigade"
+        location = 14550 # Airbase in East Krakow
+        division_template = "Gemeinsame Armeebrigade"
+        start_experience_factor = 0
+        start_equipment_factor = 0.4
+
+    }
+
+
 }
 
 air_wings = {
