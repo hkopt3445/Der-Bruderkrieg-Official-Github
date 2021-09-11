@@ -1397,15 +1397,17 @@ country_event = {
 	}
 	option = {
 		name = prussia_britain_pact.1.b
-		country_event = prussia_britain_pact.3
 		effect_tooltip = {
 			GER = {
 				add_opinion_modifier = {
 					target = ROOT
 					modifier = small_decrease
 				}
-			}
-		}	
+			}	
+		}
+		GER = {
+			country_event = { id = prussia_britain_pact.3 days = 2 }
+		}
 	}
 }
 ###FROM accepts our pact
@@ -1443,7 +1445,7 @@ country_event = {
 		}
 	}
 }
-###FROM accepts our pact
+###FROM refuses our pact
 country_event = {
 	id = prussia_britain_pact.3
 	title = prussia_britain_pact.3.t
@@ -1469,4 +1471,98 @@ news_event = {
 	option = {
 		name = prussia_britain_pact.4.a
 	}
+}
+
+add_namespace = britain_declares_france 
+##pact with britain
+country_event = {
+    id = britain_declares_france.1
+    title = britain_declares_france.1.t
+    desc = britain_declares_france.1.d
+    picture = GFX_report_event_aid_pact
+
+    is_triggered_only = yes
+
+    option = {
+        name = britain_declares_france.1.a
+        effect_tooltip = {
+            ROOT = {
+                declare_war_on = { target = FRA
+                type =  annex_everything }
+            }
+        }
+        GER = {
+            country_event = { id = britain_declares_france.2 days = 2 }
+        }
+        ai_chance = { factor = 1000 }
+    }
+    option = {
+		GER = {
+			country_event = { id = britain_declares_france.3 days = 2}
+		}	
+        name = britain_declares_france.1.b
+        effect_tooltip = {
+            GER = {
+                add_opinion_modifier = {
+                    target = ROOT
+                    modifier = small_decrease
+                }
+            }
+        }
+    }
+}
+###FROM accepts our pact
+country_event = {
+    id = britain_declares_france.2
+    title = britain_declares_france.2.t
+    desc = britain_declares_france.2.d
+    picture = GFX_report_event_canada_treaty
+
+    is_triggered_only = yes
+
+    option = {
+        name = britain_declares_france.2.a
+          FROM = {
+               declare_war_on = { target = FRA
+              type =  annex_everything }
+            }
+
+        hidden_effect = {
+            if = {
+                limit = {
+                    FROM = {
+                        tag = ENG
+                    }
+                }
+                news_event = britain_declares_france.4
+            }
+        }
+    }
+}
+###FROM refuses our pact
+country_event = {
+    id = britain_declares_france.3
+    title = britain_declares_france.3.t
+    desc = britain_declares_france.3.d
+    picture = GFX_report_event_degaulle_inspect_troops
+
+    is_triggered_only = yes
+
+    option = {
+        name = britain_declares_france.3.a
+    }
+}
+
+##britain intervenes in war
+news_event = {
+    id = britain_declares_france.4
+    title = britain_declares_france.4.t
+    desc = britain_declares_france.4.d
+    picture = GFX_news_event_057
+
+    is_triggered_only = yes
+
+    option = {
+        name = britain_declares_france.4.a
+    }
 }
