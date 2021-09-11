@@ -432,6 +432,64 @@ italy_loses_to_austria_peace_deal = {
         set_cosmetic_tag = ITA_two_sicilies
     }
 }
+france_loses_to_austria_peace_deal = {
+    FRA = {
+        white_peace = AUS
+    }
+    if = {
+        limit = {
+            BEL = {
+                is_in_faction_with = FRA
+            }
+        }
+        AUS = {
+            puppet = BEL
+        }
+    }
+    if = {
+        limit = {
+            HOL = {
+                is_in_faction_with = FRA
+            }
+        }
+        AUS = {
+            puppet = HOL
+        }
+    }
+    if = {
+        limit = {
+            POR = {
+                is_in_faction_with = FRA
+            }
+        }
+        AUS = {
+            puppet = POR
+        }
+    }
+    OCC = {
+        add_state_core = 23
+        add_state_core = 33
+    }
+    ADU = {
+        add_state_core = 32
+        add_state_core = 21
+        add_state_core = 735
+    }
+    FRA = {
+        release = ADU
+        release = COR
+        release = BRI
+        release = OCC
+    }
+    AUS = {
+        puppet = FRA
+        puppet = ADU
+        puppet = COR
+        puppet = BRI
+        puppet = OCC
+    }
+    
+}
 italy_loses_to_france_peace_deal = {
     ITA = {
         white_peace = FRA
@@ -615,6 +673,17 @@ france_beats_prussia_peace_deal = {
         release = MAS   
         set_cosmetic_tag = mandat_du_prussia
     }
+    if = {
+        limit = {
+            AUS = {
+                is_puppet_of = FRA
+            }
+        }
+        GER = {
+            transfer_state = 67
+            transfer_state = 66
+        }
+    }
     FGD = {
         transfer_state = 56
         transfer_state = 59
@@ -787,7 +856,7 @@ france_beats_austria = {
 }
 france_beats_netherlands = {
     HOL = {
-        white_peace = HOL
+        white_peace = FRA
     }
     FRA = {
         add_state_core = 35
