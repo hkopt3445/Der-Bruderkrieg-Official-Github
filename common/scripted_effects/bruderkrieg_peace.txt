@@ -508,7 +508,6 @@ france_loses_peace_deal = {
         transfer_state = 956
         transfer_state = 28
         transfer_state = 802
-        transfer_state = 803
         transfer_state = 42
         transfer_state = 58
         transfer_state = 798
@@ -525,7 +524,16 @@ france_loses_peace_deal = {
         }
         white_peace = FRA
         puppet = FRA
-        set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
+        if = {
+            limit = {
+                has_dlc = "Together for Victory"
+            }
+            set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
+        }
+        else = {
+            set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
+        }
+        
     }
     BEL = {
         if = {
@@ -542,9 +550,9 @@ france_loses_peace_deal = {
                is_in_faction_with = GER
             }
             transfer_state = 735
-            transfer_state = 21
             transfer_state = 1
-            transfer_state = 32
+            add_state_core = 735
+            add_state_core = 1
             transfer_state = 458
             transfer_state = 665
             transfer_state = 797
@@ -553,8 +561,31 @@ france_loses_peace_deal = {
             white_peace = FRA
         }
     }
+    OCC = {
+        add_state_core = 33
+        add_state_core = 25
+        add_state_core = 31
+        add_state_core = 22
+        add_state_core = 26
+        add_state_core = 20
+        remove_state_core = 19
+    }
+    COR = {
+        add_state_core = 17
+        add_state_core = 18
+        add_state_core = 16
+        add_state_core = 24
+        add_state_core = 27
+        add_state_core = 803
+    }
     FRA = {
+        release = OCC
+        release = COR
         set_cosmetic_tag = RAU_France
+    }
+    GER = {
+        puppet = OCC
+        puppet = COR
     }
 }
 
