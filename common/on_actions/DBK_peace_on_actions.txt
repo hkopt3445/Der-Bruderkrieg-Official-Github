@@ -14,6 +14,9 @@ on_actions = {
 						tag = AUS
 					}
 				}
+				GER = {
+					remove_ideas = Intervention_in_Hungary
+				}
 				AUS = {
 					hidden_effect = {
 						remove_dynamic_modifier = {
@@ -243,6 +246,73 @@ on_actions = {
 				prussia_loses_peace_deal = yes
 				log = "2nd europa ends: [GetDateText]"
 			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = SER
+					}
+					FROM = {
+						tag = AUS
+					}
+				}
+				austria_beats_serbia_peace_deal = yes
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = YUG
+					}
+					FROM = {
+						tag = AUS
+					}
+				}
+				austria_beats_serbia_peace_deal = yes
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = ITA
+					}
+					FROM = {
+						tag = AUS
+					}
+				}
+				italy_loses_to_austria_peace_deal = yes
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = ITA
+					}
+					FROM = {
+						tag = FRA
+					}
+				}
+				italy_loses_to_france_peace_deal = yes
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = AUS
+					}
+					FROM = {
+						tag = FRA
+					}
+				}
+				france_beats_austria = yes
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = HOL
+					}
+					FROM = {
+						tag = FRA
+					}
+				}
+				france_beats_netherlands = yes
+			}
+			
 	
 			
 		}
@@ -418,5 +488,47 @@ on_actions = {
                 }
             }
         }
+
+		effect = {
+            if = {
+                limit = {
+                    tag = SOV
+                    FROM = {
+                        tag = AUS
+                    }
+                }
+				russia_loses_peace_deal = yes	
+            }
+        }
+		effect = {
+			if = {
+				limit = {
+					tag = SOV
+					FROM = {
+						tag = FRA
+					}
+				}
+				russia_loses_peace_to_france_deal =  yes
+			}
+		}
+		
+
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						FROM = { tag = SOV }
+						FROM = { tag = NRX }
+					}
+					OR = {
+							tag = ETR
+							tag = KUL
+					}
+				}
+				SOV_xinjiang_peace_deals =  yes
+			}
+		}
+
+		
     }
 }

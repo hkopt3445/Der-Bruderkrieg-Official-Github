@@ -1133,14 +1133,10 @@ focus_tree = {
     x = 6
     y = 0
     #relative_position_id = FRA_national_development_bureau
-    cost = 0
+    cost = 1
     ai_will_do = {
       factor = 20
     }
-
-		bypass = {
-			tag = FRA
-		}
 
 		
 		
@@ -1150,7 +1146,7 @@ focus_tree = {
     search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-		
+		country_event = francestart.1
     }
   }
 
@@ -2871,7 +2867,7 @@ shared_focus = {
 			focus = FRA_national_syndicalism
 		}
 
-		x = 2
+		x = 2	
 		y = 1
 		relative_position_id = FRA_LEGACY_OF_CHARLEGMEGNE
 		cost = 1
@@ -2888,35 +2884,35 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = FRA_ban_trade_unions
-		icon = GFX_goal_bantradeunions
-		text = FRA_ban_trade_unions
-		prerequisite = { focus = FRA_LAISEZE_FAIRE}
-		x = 1
-		y = 1
-		relative_position_id = FRA_LAISEZE_FAIRE
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
+	# shared_focus = {
+	# 	id = FRA_ban_trade_unions
+	# 	icon = GFX_goal_bantradeunions
+	# 	text = FRA_ban_trade_unions
+	# 	prerequisite = { focus = FRA_LAISEZE_FAIRE}
+	# 	x = 1
+	# 	y = 1
+	# 	relative_position_id = FRA_LAISEZE_FAIRE
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 20
+	# 	}
 
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
+	# 	available_if_capitulated = yes
+	# 	search_filters = { FOCUS_FILTER_RESEARCH }
 
-		completion_reward = {
-			country_event = france.203
-		}
-	} 
+	# 	completion_reward = {
+	# 		country_event = france.203
+	# 	}
+	# } 
 
 	shared_focus = {
 		id = FRA_support_small_business
 		icon = GFX_goal_support_small_bussinesses
 		text = FRA_support_small_business
-		prerequisite = { focus = FRA_ban_trade_unions}
-		x = 1
+		prerequisite = { focus = FRA_deregulate_the_banking_industry}
+		x = 2
 		y = 1
-		relative_position_id = FRA_ban_trade_unions
+		relative_position_id = FRA_deregulate_the_banking_industry
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2935,7 +2931,7 @@ shared_focus = {
 		icon = GFX_goal_deregulate_the_banking_industury
 		text = FRA_deregulate_the_banking_industry
 		prerequisite = { focus = FRA_LAISEZE_FAIRE}
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = FRA_LAISEZE_FAIRE
 		cost = 5
@@ -2956,7 +2952,7 @@ shared_focus = {
 		icon = GFX_goal_loosen_the_corprate_stronghold
 		text = FRA_loosen_the_corporate_stranglehold
 		prerequisite = { focus = FRA_deregulate_the_banking_industry}
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = FRA_deregulate_the_banking_industry
 		cost = 5
@@ -2977,8 +2973,7 @@ shared_focus = {
 		icon = GFX_goal_abolish_price_caps
 		text = FRA_abolish_price_caps
 		prerequisite = { focus = FRA_deregulate_the_banking_industry}
-		prerequisite = {focus = FRA_ban_trade_unions}
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = FRA_deregulate_the_banking_industry
 		cost = 5
@@ -3001,7 +2996,7 @@ shared_focus = {
 		prerequisite = { focus = FRA_abolish_price_caps}
 		prerequisite = {focus = FRA_loosen_the_corporate_stranglehold}
 		prerequisite = { focus = FRA_support_small_business}
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = FRA_abolish_price_caps
 		cost = 5
@@ -3026,7 +3021,7 @@ shared_focus = {
 		prerequisite = { focus = FRA_abolish_price_caps}
 		prerequisite = {focus = FRA_loosen_the_corporate_stranglehold}
 		prerequisite = { focus = FRA_support_small_business}
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = FRA_abolish_price_caps
 		cost = 5
@@ -3196,10 +3191,7 @@ shared_focus = {
 					remove_idea = FRA_national_propoganda_mil_3
 				}
 			}
-			if = {
-				limit = {
-					has_idea = FRA_national_propoganda_mil_2
-				}
+			else = {
 				swap_ideas = {
 					add_idea = FRA_national_propoganda_mil_7
 					remove_idea = FRA_national_propoganda_mil_3
@@ -3238,10 +3230,7 @@ shared_focus = {
 					remove_idea = FRA_national_propoganda_mil_3
 				}
 			}
-			if = {
-				limit = {
-					has_idea = FRA_national_propoganda_mil_2
-				}
+			else = {
 				swap_ideas = {
 					add_idea = FRA_national_propoganda_mil_6
 					remove_idea = FRA_national_propoganda_mil_3
@@ -5587,7 +5576,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_kalterkrieg
 			x = 0
 			y = 2
-			cost = 5
+			cost = 10
 			available_if_capitulated = yes
 			prerequisite = {  focus = FRA_RESTART_WARS }
 			mutually_exclusive = {focus = FRA_TAKING_OUT_THE_SGC}
@@ -5795,7 +5784,7 @@ instant_build = yes
 			x = -1
 			y = 1
 			relative_position_id = FRA_RESTART_WARS
-			cost = 7
+			cost = 10
 			ai_will_do = {
 				factor = 2000
 			}
@@ -5822,6 +5811,46 @@ instant_build = yes
 			search_filters = { FOCUS_FILTER_RESEARCH }
 		
 			completion_reward = {
+				if = {
+					limit = {
+						is_in_faction_with = AUS
+					}
+					leave_faction = yes
+					create_faction = "Continental Alliance"
+					if = {
+						limit = {
+							POR = {
+								is_in_faction_with = AUS
+							}
+						}
+						POR = {
+							leave_faction = yes
+						}
+						add_to_faction = POR
+					}
+					if = {
+						limit = {
+							BEL = {
+								is_in_faction_with = AUS
+							}
+						}
+						BEL = {
+							leave_faction = yes
+						}
+						add_to_faction = BEL
+					}
+					if = {
+						limit = {
+							HOL = {
+								is_in_faction_with = AUS
+							}
+						}
+						HOL = {
+							leave_faction = yes
+						}
+						add_to_faction = HOL
+					}
+				}
 				create_wargoal = {
 					target = AUS
 					type = topple_government
@@ -5840,7 +5869,7 @@ instant_build = yes
 			mutually_exclusive = {
 				focus = FRA_bide_our_time
 			}
-			cost = 7
+			cost = 10
 			ai_will_do = {
 				factor = 2000
 			}
@@ -5870,7 +5899,7 @@ instant_build = yes
 			x = 2
 			y = 1
 			relative_position_id = FRA_TAKING_OUT_THE_SGC
-			cost = 5
+			cost = 10
 			ai_will_do = {
 				factor = 2000
 			}

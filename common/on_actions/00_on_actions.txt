@@ -1635,6 +1635,28 @@ on_actions = {
 				}
 				play_war_with_germany_effect = yes
 			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							FROM = {
+								tag = AUS
+							}
+							has_war_with = GER
+						}
+
+						AND = {
+							FROM = {
+								tag = GER
+							}
+							has_war_with = AUS
+						}
+					}
+				}
+				news_event = wiltkrieg.1
+				log = "2nd europa starts: [GetDateText]"
+				set_global_flag = europakrieg_has_started_flag
+			}
 		}
 
 	}

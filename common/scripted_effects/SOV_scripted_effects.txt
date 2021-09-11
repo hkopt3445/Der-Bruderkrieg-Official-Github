@@ -578,6 +578,38 @@ SOV_release_central_asia = {
 	}
 }
 
+SOV_release_just_central_asia = {
+	hidden_effect = {
+		
+		KAZ = {
+			remove_state_core = 583
+			remove_state_core = 590
+			remove_state_core = 588
+			remove_state_core = 587
+		#	remove_state_core = 402
+			#remove_state_core = 583
+			remove_state_core = 582
+			remove_state_core = 407
+			remove_state_core = 406
+		}
+		TMS = {
+			add_state_core = 587
+			add_state_core = 585
+			add_state_core = 405
+		}
+		TAJ = {
+			add_state_core = 586
+			add_state_core = 732
+			add_state_core = 742
+		}
+		release = KAZ
+		release = TMS
+		release = TAJ
+	
+		
+	}
+}
+
 SOV_release_NYK = {
 	hidden_effect = {
 		NYK = {
@@ -1288,12 +1320,100 @@ SOV_elections_completion_effect = {
 			ideology = socialism_democratic
 			popularity = 0.1
 		}
+		hidden_effect = {
+            if = {
+                limit = {
+					is_ai = yes
+                    has_country_flag = SOV_chose_lenin
+                }
+				load_focus_tree = SOV_lenin_presidency_path
+				remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
+				add_popularity = {
+					ideology = socialism_democratic
+					popularity = -0.1
+				}
+				set_politics = {
+					ruling_party = communism
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.15
+				}
+            }
+			if = {
+                limit = {
+					is_ai = yes
+                    has_country_flag = SOV_sided_with_pavel_campaign
+                }
+				load_focus_tree = SOV_pavel_milyukov_presidency_tree
+				remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
+				add_popularity = {
+					ideology = socialism_democratic
+					popularity = -0.1
+				}
+				set_politics = {
+					ruling_party = democratic_liberalism
+				}
+				add_popularity = {
+					ideology = democratic_liberalism
+					popularity = 0.15
+				}
+            }
+			if = {
+                limit = {
+					is_ai = yes
+                    has_country_flag = SOV_sided_with_belogurov_campaign
+                }
+				load_focus_tree = SOV_the_return_of_the_tsar_tree
+				remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
+				add_popularity = {
+					ideology = socialism_democratic
+					popularity = -0.1
+				}
+				set_politics = {
+					ruling_party = democratic
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.1
+				}
+            }
+        }
 	}
 	if = {
 		limit = {
 			pavel_wins_elections = yes
 		}
 		load_focus_tree = SOV_pavel_milyukov_presidency_tree
+		remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
 
 		set_politics = {
 			ruling_party = democratic_liberalism
@@ -1308,6 +1428,14 @@ SOV_elections_completion_effect = {
 			lenin_wins_elections = yes
 		}
 		load_focus_tree = SOV_lenin_presidency_path
+		remove_ideas = {
+			mikhail_bernatsky
+			aleksandr_konovalov
+			aleksandr_konovalov_two
+			mikhail_tereshchenko
+			sergey_salazkin
+			aleksey_nikitin
+		}
 		set_politics = {
 			ruling_party = communism
 		}
@@ -1321,6 +1449,14 @@ SOV_elections_completion_effect = {
 			tsar_wins_elections = yes
 		}
 		load_focus_tree = SOV_the_return_of_the_tsar_tree
+		remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
 		set_politics = {
 			ruling_party = democratic
 		}

@@ -966,7 +966,7 @@ shared_focus = {
 shared_focus = {
   id = AUS_REOPEN_DIET
   icon = GFX_goal_AUS_reopen_the_bohemian_diet
-  text = AUS_REOPEN_DIET
+  text = AUS_REOPEN_DIET 
   prerequisite = { focus = AUS_reverse_the_language_laws }
   #mutually_exclusive = { focus = AUS_BAN_CZECHS }
   x = 2
@@ -1039,7 +1039,6 @@ shared_focus = {
   completion_reward = {
     country_event = austria.102
 
-    805 = { set_demilitarized_zone = no }
     160 = { set_demilitarized_zone = no }
   }
 }
@@ -1339,7 +1338,9 @@ shared_focus = {
   ai_will_do = {
     factor = 1 
   }
-
+  available = {
+    has_completed_focus = AUS_CENTRALISM
+  }
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_INDUSTRY }
 
@@ -1379,6 +1380,9 @@ shared_focus = {
   cost = 5
   ai_will_do = {
     factor = 1
+  }
+  available = {
+    has_completed_focus = AUS_FEDERALISM
   }
 
   available_if_capitulated = yes
@@ -1608,6 +1612,7 @@ shared_focus = {
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_INDUSTRY }
+  
 
   completion_reward = {
     43 = {
@@ -1778,19 +1783,19 @@ shared_focus = {
     }
     completion_reward = {
         if = {
-          limit = { has_full_control_of_state = 152 } 
+          limit = { OR = { has_full_control_of_state = 152 } } 
           unlock_decision_tooltip = AUS_develop_upper_austria_aluminum_deposits
         }
         if = {
-          limit = { has_full_control_of_state = 822 }
+          limit = { OR = { has_full_control_of_state = 822 } }
           unlock_decision_tooltip = AUS_develop_salzburg_aluminum_deposits
         }     
         if = {
-          limit = { has_full_control_of_state = 153 } 
+          limit = { OR = { has_full_control_of_state = 153 } } 
           unlock_decision_tooltip = AUS_develop_tyrol_aluminum_deposits
         }
         if = {
-          limit = { has_full_control_of_state = 805 }
+          limit = { OR = { has_full_control_of_state = 805 } }
           unlock_decision_tooltip = AUS_develop_south_tyrol_aluminum_deposits
         }     
     }
@@ -1811,15 +1816,15 @@ shared_focus = {
     }
     completion_reward = {
       if = {
-          limit = { has_full_control_of_state = 160 } 
+          limit = { OR = { has_full_control_of_state = 160 160.OWNER = { is_puppet_of = AUS } }  } 
           unlock_decision_tooltip = AUS_develop_veneto_steel_deposits
         }
         if = {
-          limit = { has_full_control_of_state = 952 }
+          limit = { OR = { has_full_control_of_state = 952 952.OWNER = { is_puppet_of = AUS } }  }
           unlock_decision_tooltip = AUS_develop_south_transylvania_steel_deposits
         }     
         if = {
-          limit = { has_full_control_of_state = 9 } 
+          limit = { OR = { has_full_control_of_state = 9 9.OWNER = { is_puppet_of = AUS } }  } 
           unlock_decision_tooltip = AUS_develop_bohemia_steel_deposits
         }
     }
@@ -1844,15 +1849,15 @@ shared_focus = {
 	}
 	completion_reward = {
 		if = {
-        limit = { has_full_control_of_state = 70 } 
+        limit = { OR = { has_full_control_of_state = 70 70.OWNER = { is_puppet_of = AUS }  } } 
         unlock_decision_tooltip = AUS_develop_slovakia_tungsten_deposits
       }
       if = {
-        limit = { has_full_control_of_state = 155 }
+        limit = { OR = { has_full_control_of_state = 155 155.OWNER = { is_puppet_of = AUS } }  }
         unlock_decision_tooltip = AUS_develop_transdanubia_oil_deposits
       }     
       if = {
-        limit = { has_full_control_of_state = 103 } 
+        limit = { OR = { has_full_control_of_state = 103 103.OWNER = { is_puppet_of = AUS } }  } 
         unlock_decision_tooltip = AUS_develop_dalmatia_tungsten_deposits
       }
 	}
@@ -1897,8 +1902,8 @@ shared_focus = {
       }
       if = {
         limit = {
-          has_full_control_of_state = 4
-        }
+          OR = { has_full_control_of_state = 4
+  }       }
         4 = {
           add_extra_state_shared_building_slots = 2
           add_building_construction = {
@@ -1910,8 +1915,8 @@ shared_focus = {
       }
        if = {
         limit = {
-          has_full_control_of_state = 9
-        }
+          OR = { has_full_control_of_state = 9
+  }       }
         9 = {
           add_extra_state_shared_building_slots = 1
           add_building_construction = {
@@ -1923,8 +1928,8 @@ shared_focus = {
       }
       if = {
         limit = {
-          has_full_control_of_state = 43
-        }
+          OR = { has_full_control_of_state = 43
+ }        }
         43 = {
           add_extra_state_shared_building_slots = 1
           add_building_construction = {
@@ -1989,15 +1994,15 @@ shared_focus = {
 	}
 	completion_reward = {
 		if = {
-        limit = { has_full_control_of_state = 777 } 
+        limit = { OR = { has_full_control_of_state = 777 } } 
         unlock_decision_tooltip = AUS_develop_togo_steel_deposits
       }
       if = {
-        limit = { has_full_control_of_state = 777 }
+        limit = { OR = { has_full_control_of_state = 777 } }
         unlock_decision_tooltip = AUS_develop_togo_chromium_deposits
       }     
       if = {
-        limit = { has_full_control_of_state = 777 } 
+        limit = { OR = { has_full_control_of_state = 777 } } 
         unlock_decision_tooltip = AUS_develop_togo_bauxite_deposits
       }
 	}
@@ -2019,15 +2024,15 @@ shared_focus = {
 	}
 	completion_reward = {
 		if = {
-        limit = { has_full_control_of_state = 109 } 
+        limit = { OR = { has_full_control_of_state = 109 109.OWNER = { is_puppet_of = AUS }  } } 
         unlock_decision_tooltip = AUS_develop_croatia_aluminum_deposits
       }
       if = {
-        limit = { has_full_control_of_state = 103 }
+        limit = { OR = { has_full_control_of_state = 103 103.OWNER = { is_puppet_of = AUS } }  }
         unlock_decision_tooltip = AUS_develop_dalmatia_aluminum_deposits
       }     
       if = {
-        limit = { has_full_control_of_state = 815 } 
+        limit = { OR = { has_full_control_of_state = 815 815.OWNER = { is_puppet_of = AUS } }  } 
         unlock_decision_tooltip = AUS_develop_dubrovnik_aluminum_deposits
       }
 	}
@@ -2091,7 +2096,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		if = {
-        limit = { has_full_control_of_state = 777 } 
+        limit = { OR = { has_full_control_of_state = 777 } } 
         unlock_decision_tooltip = AUS_develop_togo_rubber_deposits
       }
 
@@ -3196,7 +3201,7 @@ shared_focus = {
   }
   completion_reward = {
     if = {
-    limit = { has_full_control_of_state = 152 }
+    limit = { OR = { has_full_control_of_state = 152 } }
       152 = {
         add_extra_state_shared_building_slots = 2
         add_building_construction = {
@@ -3246,7 +3251,7 @@ shared_focus = {
   }
   completion_reward = {
     if = {
-    limit = { has_full_control_of_state = 4 }
+    limit = { OR = { has_full_control_of_state = 4 } }
       4 = {
         add_extra_state_shared_building_slots = 2
         add_building_construction = {
@@ -3295,7 +3300,7 @@ shared_focus = {
   }
   completion_reward = {
   if = {
-    limit = { has_full_control_of_state = 9 }
+    limit = { OR = { has_full_control_of_state = 9 } }
       9 = {
         add_extra_state_shared_building_slots = 2
         add_building_construction = {
@@ -3344,7 +3349,7 @@ shared_focus = {
   }
   completion_reward = {
   if = {
-    limit = { has_full_control_of_state = 4 }
+    limit = { OR = { has_full_control_of_state = 4 } }
       4 = {
         add_extra_state_shared_building_slots = 2
         add_building_construction = {
@@ -3393,7 +3398,7 @@ shared_focus = {
 	}
 	completion_reward = {
 	if = {
-		limit = { has_full_control_of_state = 153 }
+		limit = { OR = { has_full_control_of_state = 153 } }
 			153 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -3442,7 +3447,7 @@ shared_focus = {
   }
   completion_reward = {
   if = {
-    limit = { has_full_control_of_state = 736 }
+    limit = { OR = { has_full_control_of_state = 736 } }
       736 = {
         add_extra_state_shared_building_slots = 2
         add_building_construction = {
@@ -5571,6 +5576,12 @@ shared_focus = {
     factor = 200
   }
 
+  bypass = {
+    ALB = {
+      exists = no
+    }
+  }
+
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -5690,10 +5701,10 @@ shared_focus = {
         limit = {
           OR = {
             is_owned_by = AUS
-            THIS.owner = {
+            THIS.OWNER = {
               is_puppet_of = AUS
             }
-            THIS.owner = {
+            THIS.OWNER = {
               is_in_faction_with = AUS
             }
           }

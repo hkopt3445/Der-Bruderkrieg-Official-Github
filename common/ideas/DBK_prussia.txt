@@ -1349,7 +1349,8 @@ ideas = {
 		modifier = {
 			political_power_gain = 0.2
 			stability_factor = 0.1
-			political_power_factor = 0.1
+			surrender_limit = 0.2
+			army_morale_factor = 0.1
 		}
 	}
 	GER_death_to_traitors = {
@@ -1470,11 +1471,37 @@ ideas = {
 		removal_cost = -1
 		modifier = {
 			defence = 0.1
+			
 		}
 		targeted_modifier = {
 			tag = AUS
 			defense_bonus_against = 0.1
 		}
+
+	}
+	GER_defending_the_fatherland_2 = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			defence = 0.1
+			army_org_regain = 0.1
+			
+		}
+		equipment_bonus = {
+			infantry_equipment = {
+				build_cost_ic = -0.1
+			}
+		}
+		targeted_modifier = {
+			tag = AUS
+			defense_bonus_against = 0.1
+		}
+
 	}
 	GER_vorwarts = {
 		allowed = {
@@ -2937,6 +2964,10 @@ high_command = {
 
 		allowed = {
 			original_tag = GER
+		}
+
+		available = {
+			has_completed_focus = GER_improve_the_naval_academies
 		}
 
 		traits = { navy_fleet_logistics_2 }

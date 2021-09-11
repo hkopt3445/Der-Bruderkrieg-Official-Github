@@ -1,6 +1,5 @@
 GER_dont_faction_leave = {
     allowed = {
-        is_in_faction_with = ITA
         tag = GER
     }
     enable = {
@@ -18,7 +17,6 @@ GER_dont_faction_leave = {
 
 ITA_dont_faction_leave = {
     allowed = {
-        is_in_faction_with = GER
         tag = ITA
     }
     enable = {
@@ -36,7 +34,6 @@ ITA_dont_faction_leave = {
 
 BEL_dont_faction_leave = {
     allowed = {
-        is_in_faction_with = GER
         tag = BEL
     }
     enable = {
@@ -537,6 +534,40 @@ GER_declare_war_on_austria = {
     ai_strategy = {
         type = declare_war
         id = "AUS"            
+        value = 6969
+    }
+}
+
+GER_build_civs_till_1938 = {
+    allowed = {
+        tag = GER
+    }
+    enable = {
+        tag = GER
+		date < 1938.1.1
+    }
+    abort_when_not_enabled = yes
+    
+    ai_strategy = {
+        type = building_target	
+        id = "industrial_complex"            
+        value = 6969
+    }
+}
+
+GER_build_mils_after_1938 = {
+    allowed = {
+        tag = GER
+    }
+    enable = {
+        tag = GER
+		date > 1938.1.1
+    }
+    abort_when_not_enabled = yes
+    
+    ai_strategy = {
+        type = building_target	
+        id = "arms_factory"            
         value = 6969
     }
 }
