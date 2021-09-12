@@ -2911,3 +2911,43 @@ FRA_expanding_civil_rights = {
 	}
 
 }
+
+
+weltkrieg_decisions = {
+	FRA_complete_mobilization = {
+
+		priority = 10
+
+		icon = generic_ignite_civil_war
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = 25
+
+		fire_only_once = yes 
+
+		activation = {
+			tag = FRA
+			has_country_flag = FRA_activation_complete_mobilization_flag
+		}
+
+		visible = {
+			has_idea = SOV_the_mobilized_forces
+		} 
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+
+		timeout_effect = {
+			remove_ideas = SOV_the_mobilized_forces
+			create_wargoal = {
+				target = GER
+				type = topple_government
+			}
+			add_war_support = 0.15
+		}
+	}
+}
