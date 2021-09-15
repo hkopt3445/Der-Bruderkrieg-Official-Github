@@ -636,4 +636,81 @@ on_actions = {
 
 		
     }
+
+	###south america
+	on_capitulation = {
+        effect = {
+            if = {
+                limit = {
+                    ROOT = { tag = ARG }
+                    OR = {
+                        FROM = {
+                            tag = PBC
+                        }
+                        FROM = {
+                            is_in_faction_with = PBC
+                        }
+                    }
+                }
+                argentina_loses_peace_deal = yes
+            }		
+		}
+		##brazil
+		effect = {
+            if = {
+                limit = {
+                    ROOT = { tag = UBR }
+                    FROM = {
+						tag = BRS
+					}
+                }
+                UBR = {
+					annex_country = {
+						target = BRS
+						transfer_troops = no
+					}
+				}
+				if = {
+					limit = {
+						BRE = {
+							exists = no
+						}
+					}
+					UBR = {
+						annex_country = {
+							target = FLF
+							transfer_troops = yes
+						}
+					}
+				}
+            }
+			if = {
+                limit = {
+                    ROOT = { tag = UBR }
+                    FROM = {
+						tag = BRE
+					}
+                }
+                UBR = {
+					annex_country = {
+						target = BRE
+						transfer_troops = no
+					}
+				}
+				if = {
+					limit = {
+						BRS = {
+							exists = no
+						}
+					}
+					UBR = {
+						annex_country = {
+							target = FLF
+							transfer_troops = yes
+						}
+					}
+				}
+            }		
+		}	
+	}
 }
