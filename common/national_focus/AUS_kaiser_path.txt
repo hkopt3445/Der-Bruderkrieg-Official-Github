@@ -1816,15 +1816,15 @@ shared_focus = {
     }
     completion_reward = {
       if = {
-          limit = { OR = { has_full_control_of_state = 160 160.OWNER = { is_puppet_of = AUS } }  } 
+          limit = { OR = { has_full_control_of_state = 160 160 = { OWNER = { is_puppet_of = AUS } } }  } 
           unlock_decision_tooltip = AUS_develop_veneto_steel_deposits
         }
         if = {
-          limit = { OR = { has_full_control_of_state = 952 952.OWNER = { is_puppet_of = AUS } }  }
+          limit = { OR = { has_full_control_of_state = 952 952 = { OWNER = { is_puppet_of = AUS } } }  }
           unlock_decision_tooltip = AUS_develop_south_transylvania_steel_deposits
         }     
         if = {
-          limit = { OR = { has_full_control_of_state = 9 9.OWNER = { is_puppet_of = AUS } }  } 
+          limit = { OR = { has_full_control_of_state = 9 9 = { OWNER = { is_puppet_of = AUS } } }  } 
           unlock_decision_tooltip = AUS_develop_bohemia_steel_deposits
         }
     }
@@ -1849,15 +1849,15 @@ shared_focus = {
 	}
 	completion_reward = {
 		if = {
-        limit = { OR = { has_full_control_of_state = 70 70.OWNER = { is_puppet_of = AUS }  } } 
+        limit = { OR = { has_full_control_of_state = 70 70 = { OWNER = { is_puppet_of = AUS }   }} } 
         unlock_decision_tooltip = AUS_develop_slovakia_tungsten_deposits
       }
       if = {
-        limit = { OR = { has_full_control_of_state = 155 155.OWNER = { is_puppet_of = AUS } }  }
+        limit = { OR = { has_full_control_of_state = 155 155 = { OWNER = { is_puppet_of = AUS } } }  }
         unlock_decision_tooltip = AUS_develop_transdanubia_oil_deposits
       }     
       if = {
-        limit = { OR = { has_full_control_of_state = 103 103.OWNER = { is_puppet_of = AUS } }  } 
+        limit = { OR = { has_full_control_of_state = 103 103 = { OWNER = { is_puppet_of = AUS } } }  } 
         unlock_decision_tooltip = AUS_develop_dalmatia_tungsten_deposits
       }
 	}
@@ -2024,15 +2024,15 @@ shared_focus = {
 	}
 	completion_reward = {
 		if = {
-        limit = { OR = { has_full_control_of_state = 109 109.OWNER = { is_puppet_of = AUS }  } } 
+        limit = { OR = { has_full_control_of_state = 109 109 = { OWNER = { is_puppet_of = AUS } }  } } 
         unlock_decision_tooltip = AUS_develop_croatia_aluminum_deposits
       }
       if = {
-        limit = { OR = { has_full_control_of_state = 103 103.OWNER = { is_puppet_of = AUS } }  }
+        limit = { OR = { has_full_control_of_state = 103 103 = { OWNER = { is_puppet_of = AUS } } }  }
         unlock_decision_tooltip = AUS_develop_dalmatia_aluminum_deposits
       }     
       if = {
-        limit = { OR = { has_full_control_of_state = 815 815.OWNER = { is_puppet_of = AUS } }  } 
+        limit = { OR = { has_full_control_of_state = 815 815 = { OWNER = { is_puppet_of = AUS } } }  } 
         unlock_decision_tooltip = AUS_develop_dubrovnik_aluminum_deposits
       }
 	}
@@ -5701,15 +5701,20 @@ shared_focus = {
         limit = {
           OR = {
             is_owned_by = AUS
-            THIS.OWNER = {
+            THIS = { OWNER = {
               is_puppet_of = AUS
-            }
-            THIS.OWNER = {
+            } }
+            THIS = { OWNER = {
               is_in_faction_with = AUS
-            }
+            } }
           }
-          any_neighbor_state = {
-            is_controlled_by = YUG
+          OR = {
+            any_neighbor_state = {
+              is_controlled_by = YUG
+            }
+            any_neighbor_state = {
+              is_controlled_by = SER
+            }
           }
         }
         add_building_construction = {
