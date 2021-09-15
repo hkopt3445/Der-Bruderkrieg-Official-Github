@@ -529,17 +529,110 @@ on_actions = {
 			if = {
 				limit = {
 					OR = {
-						FROM = { tag = SOV }
-						FROM = { tag = NRX }
+						FROM = {
+							tag = KUL
+						}
+						FROM = {
+							tag = SOV
+						}
 					}
 					OR = {
+						ROOT = {
 							tag = ETR
-							tag = KUL
+						}
+						ROOT = {
+							tag = NRX
+						}
+						
 					}
 				}
-				SOV_xinjiang_peace_deals =  yes
+				KUL = {
+					white_peace = ROOT
+				}
+				KUL = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = yes
+					}
+				}
 			}
 		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						FROM = {
+							tag = NRX
+						}
+						FROM = {
+							tag = SOV
+						}
+					}
+					OR = {
+						ROOT = {
+							tag = ETR
+						}
+						ROOT = {
+							tag = KUL
+						}
+					}
+				}
+				NRX = {
+					white_peace = ROOT
+				}
+				NRX = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = yes
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						FROM = {
+							tag = ETR
+						}
+						FROM = {
+							tag = SOV
+						}
+					}
+					OR = {
+						ROOT = {
+							tag = NRX
+						}
+						ROOT = {
+							tag = KUL
+						}
+					}
+				}
+				ETR = {
+					white_peace = ROOT
+				}
+				
+				ETR = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = yes
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = AFG
+					FROM = {
+						tag = SOV
+					}
+				}
+				russia_afghanistan_peace_deals = yes
+				
+			}
+		}
+		
 
 		
     }
