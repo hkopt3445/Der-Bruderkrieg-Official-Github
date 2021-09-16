@@ -1863,7 +1863,7 @@ shared_focus = {
 	id = GER_the_petty_kings
 	icon = unkown
 	cost = 2
-	x = 3
+	x = 1
 	y = 0
 	
 	#relative_position_id = GER_rachekrieg
@@ -2422,7 +2422,7 @@ shared_focus = {
 	id = GER_the_mosley_pact
 	icon = unkown
 	cost = 5
-	x = -1
+	x = -5
 	y = 1
 	
 	relative_position_id = GER_unternehmen_attila
@@ -2770,7 +2770,7 @@ shared_focus = {
 	id = GER_magyar_contracts
 	icon = unkown
 	cost = 4
-	x = -1
+	x = 2
 	y = 1
 	prerequisite = {
 		focus = GER_breaking_the_chains
@@ -2787,12 +2787,12 @@ shared_focus = {
 	id = GER_forment_italian_revolt
 	icon = unkown
 	cost = 4
-	x = 1
+	x = 0
 	y = 1
 	prerequisite = {
-		focus = GER_breaking_the_chains
+		focus = GER_magyar_contracts
 	}
-	relative_position_id = GER_breaking_the_chains
+	relative_position_id = GER_magyar_contracts
 	# ai_will_do = {
 	# 	factor = 600
 	# }
@@ -2804,13 +2804,10 @@ shared_focus = {
 	id = GER_the_greater_german_revolt
 	icon = unkown
 	cost = 7
-	x = -1
+	x = 0
 	y = 1
 	prerequisite = {
 		focus = GER_forment_italian_revolt
-	}
-	prerequisite = {
-		focus = GER_magyar_contracts
 	}
 	relative_position_id = GER_forment_italian_revolt
 	# ai_will_do = {
@@ -2826,7 +2823,7 @@ shared_focus = {
 	id = GER_operation_walross
 	icon = unkown
 	cost = 5
-	x = 2
+	x = -2
 	y = 1
 	
 	relative_position_id = GER_unternehmen_attila
@@ -4412,14 +4409,18 @@ shared_focus = {
 	shared_focus = {
 		id = GER_venerate_new_karl
 		icon = GFX_venerate_new_karl 
-		x = 21
-		y = 0
+		x = 4
+		y = 1
 		cost = 5
 	
 		available = {
 			has_cosmetic_tag = united_germany
 		}
-	
+		prerequisite = {
+			focus = GER_unternehmen_attila
+			focus = GER_breaking_the_chains
+		}
+		relative_position_id = GER_unternehmen_attila
 		ai_will_do = {
 			factor = 1 
 		}
@@ -4431,7 +4432,7 @@ shared_focus = {
 	shared_focus = {
 		id = GER_a_german_triumph
 		icon = GFX_a_german_triumph 
-		x = -2
+		x = -3
 		y = 1
 		cost = 5
 		prerequisite = { focus = GER_venerate_new_karl  }
@@ -4472,13 +4473,16 @@ shared_focus = {
 	shared_focus = {
 		id = GER_code_goeringien
 		icon = GFX_age_of_the_eagle 
-		x = -6
+		x = -7
 		y = 1
 		cost = 4
 		prerequisite = { focus = GER_age_of_the_eagle  }
 		relative_position_id =  GER_age_of_the_eagle 
 		ai_will_do = {
 			factor = 1 
+		}
+		allow_branch = {
+			always = no
 		}
 		completion_reward = {
 			add_ideas = GER_creating_the_code
@@ -4970,7 +4974,7 @@ shared_focus = {
 	shared_focus = {
 		id = GER_von_das_slavenvolk
 		icon = GFX_von_das_slavenvolk 
-		x = 4
+		x = 3
 		y = 1
 		cost = 5
 		prerequisite = { focus = GER_venerate_new_karl }
