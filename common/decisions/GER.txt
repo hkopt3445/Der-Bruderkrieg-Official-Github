@@ -803,6 +803,73 @@ GER_french_resistance = {
 		days_remove = 15
 
 		remove_effect = {
+			add_to_variable = {
+				tooltip = GER_decrease_french_resistance_by_5
+				GER_french_resistance = -5
+			}
+		}
+	}
+
+	GER_consolidate_power_with_the_gestapo = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_form_the_okf
+		}
+
+		visible = {
+			has_completed_focus = GER_form_the_okf
+		}
+ 
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 15
+
+		remove_effect = {
+			annex_country = {
+				target = COR
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = FRA
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = BEL
+				transfer_troops = yes
+			}
+		}
+	}
+	GER_establish_collaborationist_governments = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_cagoule_loyalty
+		}
+
+		visible = {
+			has_completed_focus = GER_cagoule_loyalty
+		}
+ 
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 15
+
+		remove_effect = {
+			GER = {
+				release = OCC
+				add_to_faction = OCC
+			}
+			OCC = {
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = prussian_rk
+			}
+			FRA = {
+				annex_country = {
+					target = COR
+					transfer_troops = yes
+				}
+			}
 		}
 	}
 }
@@ -824,6 +891,59 @@ GER_austrian_resistance = {
 		days_remove = 15
 
 		remove_effect = {
+			add_to_variable = {
+				tooltip = GER_decrease_austrian_resistance_by_5
+				GER_austrian_resistance = -5
+			}
+		}
+	}
+	GER_autonomy_for_ethnic_militias = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_support_ethnic_militias
+		}
+
+		visible = {
+			has_completed_focus = GER_support_ethnic_militias
+		}
+ 
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 15
+
+		remove_effect = {
+			release_puppet = CZE
+			release_puppet = AUS
+
+			CZE = {
+				set_cosmetic_tag = prussian_rk
+			}
+			AUS = {
+				set_cosmetic_tag = prussian_rk
+			}
+
+			hidden_effect = {
+				AUS = {
+					create_country_leader = {
+						name = "Ernst Rüdiger Starhemberg"
+						picture = "gfx/leaders/ErnstStarhemberg.dds"
+						ideology = ultranationalist
+					}
+				}
+				CZE = {
+					create_country_leader = {
+						name = "Radola Gajda"
+						picture = "gfx/leaders/RadolaGajda.dds"
+						ideology = ultranationalist
+					}
+				}
+				GER = {
+					transfer_state = 950
+					transfer_state = 66
+					transfer_state = 67
+				}
+			}
 		}
 	}
 }

@@ -904,8 +904,7 @@ shared_focus = {
 					bonus = 1.0
 					uses = 2
 					category = industry
-				}
-				# custom_effect_tooltip = available_political_advisor
+				} 
 				#how_ideas_tooltip = hjalmar_schacht
 				unlock_decision_category_tooltip = GER_industrial_expansion
 			}
@@ -2110,8 +2109,11 @@ shared_focus = {
 	cancel_if_invalid = yes
 
 	completion_reward = {
-			remove_ideas = GER_National_Revolution
-			add_timed_idea = { idea = GER_National_Revolution1 days = 100 }
+			
+			swap_ideas = {
+				add_idea = GER_National_Revolution1
+				remove_idea = GER_National_Revolution
+			}
 		
 	}
 	ai_will_do = {
@@ -4400,6 +4402,7 @@ shared_focus = {
 		#shared_focus = GER_goerings_industrial_plan
 		shared_focus = GER_the_goring_doctorine
 		shared_focus = GER_the_petty_kings
+		shared_focus = GER_code_goeringien
 	 
 		#default = no
 	
@@ -4415,7 +4418,7 @@ shared_focus = {
 	
 		available = {
 			has_cosmetic_tag = united_germany
-		}
+		}	
 		prerequisite = {
 			focus = GER_unternehmen_attila
 			focus = GER_breaking_the_chains
@@ -4446,12 +4449,10 @@ shared_focus = {
 			add_political_power = 100
 	
 	
-			set_variable = {
-				GER_austrian_resistance = 50
-			}
-			set_variable = {
-				GER_french_resistance = 50
-			}
+			
+
+
+			
 		}
 	}
 	shared_focus = {
@@ -4467,23 +4468,37 @@ shared_focus = {
 		}
 		completion_reward = {
 			add_ideas = GER_age_of_the_eagle
+
+			unlock_decision_category_tooltip = GER_austrian_resistance
+			unlock_decision_category_tooltip = GER_french_resistance
+
+			set_variable = {
+				GER_austrian_resistance = 50
+			}
+			set_variable = {
+				GER_french_resistance = 50
+			}
+			set_variable = {
+				GER_french_resistance_growth = 3
+			}
+			set_variable = {
+				GER_austrian_resistance_growth = 3
+			}
+			 
 		}
 	}
 	
 	shared_focus = {
 		id = GER_code_goeringien
 		icon = GFX_age_of_the_eagle 
-		x = -7
-		y = 1
+		x = 12
+		y = 0
 		cost = 4
-		prerequisite = { focus = GER_age_of_the_eagle  }
-		relative_position_id =  GER_age_of_the_eagle 
+		
 		ai_will_do = {
 			factor = 1 
 		}
-		allow_branch = {
-			always = no
-		}
+		
 		completion_reward = {
 			add_ideas = GER_creating_the_code
 			hidden_effect = {
@@ -4932,7 +4947,7 @@ shared_focus = {
 			factor = 1 
 		}
 		completion_reward = {
-			custom_effect_tooltip = GER_form_the_okf_tt
+			unlock_decision_tooltip = GER_consolidate_power_with_the_gestapo
 		}
 	}
 	shared_focus = {
@@ -5099,6 +5114,19 @@ shared_focus = {
 		}
 		completion_reward = {
 			## Adds Infrastructre in Eastern Provinces (arj has a script, gimme)
+			every_owned_state = {
+				limit = {
+					any_neighbor_state = {
+						is_controlled_by = SOV
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				
+				}
+			}
 		}
 	}
 	
