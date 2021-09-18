@@ -864,3 +864,32 @@ defined_text = {
 		localization_key = AUS_imperial_senate_normal_desc
 	}
 }
+
+defined_text = {
+	name = GetViennaAward
+	if = {
+		limit = {
+			has_completed_focus = AUS_support_greek_claim_on_thrace
+			NOT = {
+				has_completed_focus = AUS_give_them_macedonia
+			}
+		}
+		localization_key = "First"
+	}
+	if = {
+		limit = {
+			has_completed_focus = AUS_give_them_macedonia
+			NOT = {
+				has_completed_focus = AUS_support_greek_claim_on_thrace
+			}
+		}
+		localization_key = "First"
+	}
+	if = {
+		limit = {
+			has_completed_focus = AUS_give_them_macedonia
+			has_completed_focus = AUS_support_greek_claim_on_thrace
+		}
+		localization_key = "Second"
+	}
+}
