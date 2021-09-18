@@ -128,7 +128,7 @@ focus_tree = {
 shared_focus = {
 	id = GER_the_issue_of_the_militias
 	icon = GFX_goal_GER_issueofthemilitias
-	x = 18
+	x = 0
 	y = 0
 	
 	available = {
@@ -154,11 +154,11 @@ shared_focus = {
 						set_country_flag = GER_go_down_goering_path
 						log = "GER_go_down_goering_path"
 					}
-					20 = {
+					0 = { ##switch to 20 when balanced
 						set_country_flag = GER_go_down_sa_path
 						log = "GER_go_down_sa_path"
 					}
-					20 = {
+					0 = { ##switch to 20 when balanced
 						set_country_flag = GER_go_down_freikorps_path
 						log = "GER_go_down_freikorps_path"
 					}
@@ -1053,13 +1053,7 @@ shared_focus = {
 					remove_idea = GER_state_investment
 				}
 				add_research_slot = 1
-				hidden_effect = {
-					remove_ideas = GER_production_overdrive
-					add_timed_idea = {
-						idea = GER_production_overdrive
-						days = 250
-					}
-				}
+			
 			}
 		}
 		
@@ -1862,7 +1856,7 @@ shared_focus = {
 	id = GER_the_petty_kings
 	icon = unkown
 	cost = 2
-	x = 1
+	x = 19
 	y = 0
 	
 	#relative_position_id = GER_rachekrieg
@@ -2927,7 +2921,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_the_goring_doctorine
 		icon = unkown
-		x = 34
+		x = 37
 		y = 0
 		#relative_position_id = 
 		
@@ -5160,7 +5154,7 @@ shared_focus = {
 			factor = 1 
 		}
 		completion_reward = {
-			## No effect listed
+			unlock_decision_category_tooltip = GER_moskowien_offensive
 		}
 	}
 	
@@ -5177,7 +5171,7 @@ shared_focus = {
 			factor = 1 
 		}
 		completion_reward = {
-			## No effect listed
+			unlock_decision_category = GER_caucusus_offensive
 		}
 	}
 	
@@ -5217,7 +5211,36 @@ shared_focus = {
 		}
 		relative_position_id = GER_moskowien_awaits
 		completion_reward = {
-			## No effect listed
+			every_state = {
+				limit = {
+					is_core_of = SOV
+					is_controlled_by = GER
+				}
+				add_compliance = -30
+			}
+			load_oob = "cossack"
+			random_controlled_state = {
+				limit = {
+					any_neighbor_state = {
+						is_controlled_by = SOV
+					}
+				}
+				create_unit = {
+					division = "name = \"Cossack Defector 1\" division_template = \"Cossack Regiment\" start_experience_factor = 1 start_equipment_factor = 0.8"
+					owner = GER
+				}
+			}
+			random_controlled_state = {
+				limit = {
+					any_neighbor_state = {
+						is_controlled_by = SOV
+					}
+				}
+				create_unit = {
+					division = "name = \"Cossack Defector 1\" division_template = \"Cossack Regiment\" start_experience_factor = 1 start_equipment_factor = 0.8"
+					owner = GER
+				}
+			}
 		}
 	}
 	
