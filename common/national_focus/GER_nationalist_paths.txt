@@ -904,9 +904,9 @@ shared_focus = {
 					bonus = 1.0
 					uses = 2
 					category = industry
-				}
-				# custom_effect_tooltip = available_political_advisor
+				} 
 				#how_ideas_tooltip = hjalmar_schacht
+				unlock_decision_category_tooltip = GER_industrial_expansion
 			}
 		
 		}
@@ -1862,7 +1862,7 @@ shared_focus = {
 	id = GER_the_petty_kings
 	icon = unkown
 	cost = 2
-	x = 3
+	x = 1
 	y = 0
 	
 	#relative_position_id = GER_rachekrieg
@@ -2109,8 +2109,11 @@ shared_focus = {
 	cancel_if_invalid = yes
 
 	completion_reward = {
-			remove_ideas = GER_National_Revolution
-			add_timed_idea = { idea = GER_National_Revolution1 days = 100 }
+			
+			swap_ideas = {
+				add_idea = GER_National_Revolution1
+				remove_idea = GER_National_Revolution
+			}
 		
 	}
 	ai_will_do = {
@@ -2137,104 +2140,7 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = GER_operation_walross
-	icon = unkown
-	cost = 5
-	x = 2
-	y = 1
-	
-	relative_position_id = GER_unternehmen_attila
-	ai_will_do = {
-		factor = 60
-	}
 
-	prerequisite = {
-		focus = GER_unternehmen_attila
-	}
-
-	mutually_exclusive = {
-		focus = GER_the_mosley_pact
-	}
-
-	completion_reward = {
-		create_wargoal = {
-  		  type = topple_government
-  		  target = ENG
-		}
-	}
-}
-
-shared_focus = {
-	id = GER_secure_the_baltic_front
-	icon = unkown
-	cost = 5
-	x = -1
-	y = 1
-	
-	relative_position_id = GER_operation_walross
-	ai_will_do = {
-		factor = 60
-	}
-
-	prerequisite = {
-		focus = GER_operation_walross
-	}
-
-	completion_reward = {
-		unlock_decision_tooltip = GER_invite_sweden
-		unlock_decision_tooltip = GER_invade_denmark
-	}
-}
-
-shared_focus = {
-	id = GER_ready_the_reichsmarine
-	icon = unkown
-	cost = 5
-	x = 1
-	y = 1
-	
-	relative_position_id = GER_operation_walross
-	ai_will_do = {
-		factor = 60
-	}
-
-	prerequisite = {
-		focus = GER_operation_walross
-	}
-
-	completion_reward = {
-		add_ideas = GER_preparing_for_operation_walross
-	}
-}
-
-shared_focus = {
-	id = GER_germania_rules_the_seas
-	icon = unkown
-	cost = 5
-	x = 1
-	y = 1
-	
-	relative_position_id = GER_secure_the_baltic_front
-	ai_will_do = {
-		factor = 60
-	}
-
-	prerequisite = {
-		focus = GER_secure_the_baltic_front
-	}
-
-	prerequisite = {
-		focus = GER_ready_the_reichsmarine
-	}
-
-	completion_reward = {
-		swap_ideas = { 
-			add_idea = GER_preparing_for_operation_walross_2
-			remove_idea = GER_preparing_for_operation_walross
-		}
-	}
-}
 #######################
 #Legacy of Tilsit Path#
 #######################
@@ -2518,7 +2424,7 @@ shared_focus = {
 	id = GER_the_mosley_pact
 	icon = unkown
 	cost = 5
-	x = -1
+	x = -5
 	y = 1
 	
 	relative_position_id = GER_unternehmen_attila
@@ -2866,7 +2772,7 @@ shared_focus = {
 	id = GER_magyar_contracts
 	icon = unkown
 	cost = 4
-	x = -1
+	x = 2
 	y = 1
 	prerequisite = {
 		focus = GER_breaking_the_chains
@@ -2883,12 +2789,12 @@ shared_focus = {
 	id = GER_forment_italian_revolt
 	icon = unkown
 	cost = 4
-	x = 1
+	x = 0
 	y = 1
 	prerequisite = {
-		focus = GER_breaking_the_chains
+		focus = GER_magyar_contracts
 	}
-	relative_position_id = GER_breaking_the_chains
+	relative_position_id = GER_magyar_contracts
 	# ai_will_do = {
 	# 	factor = 600
 	# }
@@ -2900,13 +2806,10 @@ shared_focus = {
 	id = GER_the_greater_german_revolt
 	icon = unkown
 	cost = 7
-	x = -1
+	x = 0
 	y = 1
 	prerequisite = {
 		focus = GER_forment_italian_revolt
-	}
-	prerequisite = {
-		focus = GER_magyar_contracts
 	}
 	relative_position_id = GER_forment_italian_revolt
 	# ai_will_do = {
@@ -2915,6 +2818,105 @@ shared_focus = {
 	completion_reward = {
 		country_event = GER_austrian_ethnic_revolts.3
 		
+	}
+}
+
+shared_focus = {
+	id = GER_operation_walross
+	icon = unkown
+	cost = 5
+	x = -2
+	y = 1
+	
+	relative_position_id = GER_unternehmen_attila
+	ai_will_do = {
+		factor = 60
+	}
+
+	prerequisite = {
+		focus = GER_unternehmen_attila
+	}
+
+	mutually_exclusive = {
+		focus = GER_the_mosley_pact
+	}
+
+	completion_reward = {
+		create_wargoal = {
+  		  type = topple_government
+  		  target = ENG
+		}
+	}
+}
+
+shared_focus = {
+	id = GER_secure_the_baltic_front
+	icon = unkown
+	cost = 5
+	x = -1
+	y = 1
+	
+	relative_position_id = GER_operation_walross
+	ai_will_do = {
+		factor = 60
+	}
+
+	prerequisite = {
+		focus = GER_operation_walross
+	}
+
+	completion_reward = {
+		unlock_decision_tooltip = GER_invite_sweden
+		unlock_decision_tooltip = GER_invade_denmark
+	}
+}
+
+shared_focus = {
+	id = GER_ready_the_reichsmarine
+	icon = unkown
+	cost = 5
+	x = 1
+	y = 1
+	
+	relative_position_id = GER_operation_walross
+	ai_will_do = {
+		factor = 60
+	}
+
+	prerequisite = {
+		focus = GER_operation_walross
+	}
+
+	completion_reward = {
+		add_ideas = GER_preparing_for_operation_walross
+	}
+}
+
+shared_focus = {
+	id = GER_germania_rules_the_seas
+	icon = unkown
+	cost = 5
+	x = 1
+	y = 1
+	
+	relative_position_id = GER_secure_the_baltic_front
+	ai_will_do = {
+		factor = 60
+	}
+
+	prerequisite = {
+		focus = GER_secure_the_baltic_front
+	}
+
+	prerequisite = {
+		focus = GER_ready_the_reichsmarine
+	}
+
+	completion_reward = {
+		swap_ideas = { 
+			add_idea = GER_preparing_for_operation_walross_2
+			remove_idea = GER_preparing_for_operation_walross
+		}
 	}
 }
 
@@ -3253,37 +3255,7 @@ shared_focus = {
 	# 		factor = 1
 	# 	}
 	# }
-	shared_focus = { 
-		id = GER_a_reformed_luftstreltkrafte
-		icon = unkown
-		x = -1
-		y = 1
-		relative_position_id = GER_final_strategic_bombing_improvements
-		
-		available = {
-		}
-		bypass = {
-
-		}
-
-		cost = 5
-		prerequisite = { focus = GER_final_strategic_bombing_improvements focus = GER_improved_fighters }
 	
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = air_doctrine
-			 }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
 	
 	
 	#yo
@@ -3445,7 +3417,37 @@ shared_focus = {
 			factor = 1
 		}
 	}
+	shared_focus = { 
+		id = GER_a_reformed_luftstreltkrafte
+		icon = unkown
+		x = -1
+		y = 1
+		relative_position_id = GER_final_strategic_bombing_improvements
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 5
+		prerequisite = { focus = GER_final_strategic_bombing_improvements focus = GER_improved_fighters }
 	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = air_doctrine
+			 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	
 	###ARMY
 	
@@ -3567,7 +3569,6 @@ shared_focus = {
 		prerequisite = {
 			focus = GER_production_abillity
 		}
-		mutually_exclusive = { focus = GER_superior_production_methods }
 		
 
 		cancel_if_invalid = yes
@@ -4401,6 +4402,7 @@ shared_focus = {
 		#shared_focus = GER_goerings_industrial_plan
 		shared_focus = GER_the_goring_doctorine
 		shared_focus = GER_the_petty_kings
+		shared_focus = GER_code_goeringien
 	 
 		#default = no
 	
@@ -4410,14 +4412,18 @@ shared_focus = {
 	shared_focus = {
 		id = GER_venerate_new_karl
 		icon = GFX_venerate_new_karl 
-		x = 21
-		y = 0
+		x = 4
+		y = 1
 		cost = 5
 	
 		available = {
 			has_cosmetic_tag = united_germany
+		}	
+		prerequisite = {
+			focus = GER_unternehmen_attila
+			focus = GER_breaking_the_chains
 		}
-	
+		relative_position_id = GER_unternehmen_attila
 		ai_will_do = {
 			factor = 1 
 		}
@@ -4429,7 +4435,7 @@ shared_focus = {
 	shared_focus = {
 		id = GER_a_german_triumph
 		icon = GFX_a_german_triumph 
-		x = -2
+		x = -3
 		y = 1
 		cost = 5
 		prerequisite = { focus = GER_venerate_new_karl  }
@@ -4443,12 +4449,10 @@ shared_focus = {
 			add_political_power = 100
 	
 	
-			set_variable = {
-				GER_austrian_resistance = 50
-			}
-			set_variable = {
-				GER_french_resistance = 50
-			}
+			
+
+
+			
 		}
 	}
 	shared_focus = {
@@ -4464,20 +4468,37 @@ shared_focus = {
 		}
 		completion_reward = {
 			add_ideas = GER_age_of_the_eagle
+
+			unlock_decision_category_tooltip = GER_austrian_resistance
+			unlock_decision_category_tooltip = GER_french_resistance
+
+			set_variable = {
+				GER_austrian_resistance = 50
+			}
+			set_variable = {
+				GER_french_resistance = 50
+			}
+			set_variable = {
+				GER_french_resistance_growth = 3
+			}
+			set_variable = {
+				GER_austrian_resistance_growth = 3
+			}
+			 
 		}
 	}
 	
 	shared_focus = {
 		id = GER_code_goeringien
 		icon = GFX_age_of_the_eagle 
-		x = -6
-		y = 1
+		x = 12
+		y = 0
 		cost = 4
-		prerequisite = { focus = GER_age_of_the_eagle  }
-		relative_position_id =  GER_age_of_the_eagle 
+		
 		ai_will_do = {
 			factor = 1 
 		}
+		
 		completion_reward = {
 			add_ideas = GER_creating_the_code
 			hidden_effect = {
@@ -4926,7 +4947,7 @@ shared_focus = {
 			factor = 1 
 		}
 		completion_reward = {
-			custom_effect_tooltip = GER_form_the_okf_tt
+			unlock_decision_tooltip = GER_consolidate_power_with_the_gestapo
 		}
 	}
 	shared_focus = {
@@ -4968,7 +4989,7 @@ shared_focus = {
 	shared_focus = {
 		id = GER_von_das_slavenvolk
 		icon = GFX_von_das_slavenvolk 
-		x = 4
+		x = 3
 		y = 1
 		cost = 5
 		prerequisite = { focus = GER_venerate_new_karl }
@@ -5093,6 +5114,19 @@ shared_focus = {
 		}
 		completion_reward = {
 			## Adds Infrastructre in Eastern Provinces (arj has a script, gimme)
+			every_owned_state = {
+				limit = {
+					any_neighbor_state = {
+						is_controlled_by = SOV
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				
+				}
+			}
 		}
 	}
 	

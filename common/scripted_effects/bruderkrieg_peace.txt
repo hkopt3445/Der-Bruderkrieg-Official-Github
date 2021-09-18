@@ -36,6 +36,9 @@ prussia_russia_wins_states = {
     GER = {
         transfer_state = 66
     }
+    SOV = {
+        white_peace = AUS
+    }
 
     set_global_flag = prussia_has_beaten_austria
     GER = {
@@ -58,6 +61,7 @@ prussia_russia_wins_states = {
        transfer_state = 4
        transfer_state = 820
        transfer_state = 102
+       transfer_state = 72
        
     }
 
@@ -74,7 +78,7 @@ prussia_russia_wins_states = {
     GER = { add_state_core =  4}
     GER = { add_state_core =  820}
     GER = { add_state_core =  102}
-
+    GER = { add_state_core =  72}
 
     SOV = {
         transfer_state = 951
@@ -190,6 +194,7 @@ hungary_states = {
         transfer_state = 39
         transfer_state = 804
         transfer_state = 73
+        set_cosmetic_tag = prussian_rk
     }
     GER = {
         puppet = HUN
@@ -202,11 +207,13 @@ polish_states = {
         transfer_state = 72
         transfer_state = 88
         transfer_state = 951
+        set_cosmetic_tag = prussian_rk
     }
 
     GER = {
         puppet = GLC
     }
+    
 }
 
 ukrainian_states = {
@@ -277,6 +284,8 @@ slovak_states = {
     SLO = {
         transfer_state = 70
         transfer_state = 71
+        set_cosmetic_tag = prussian_rk
+
     }
 }
 
@@ -620,6 +629,7 @@ france_loses_peace_deal = {
         }
     }
     OCC = {
+        set_cosmetic_tag = prussian_rk
         add_state_core = 33
         add_state_core = 25
         add_state_core = 31
@@ -629,6 +639,7 @@ france_loses_peace_deal = {
         remove_state_core = 19
     }
     COR = {
+        set_cosmetic_tag = prussian_rk
         add_state_core = 17
         add_state_core = 18
         add_state_core = 16
@@ -662,6 +673,7 @@ france_beats_prussia_peace_deal = {
         add_state_core = 61
         }
     MAS = {
+        set_cosmetic_tag = austrian_french_puppet
         add_state_core = 188
         add_state_core = 763
         add_state_core = 5
@@ -706,30 +718,28 @@ france_beats_prussia_peace_deal = {
     SHL = {
         set_cosmetic_tag = mandat_du_schelswig
     }
+    if = {
+        limit = {
+            has_global_flag = austria_defeated
+        }
+        france_beats_austria = yes
+    }
     
 }
 france_beats_austria = {
+    
     FRA = {
         white_peace = AUS
     }
     FGD = {
-        annex_country = {
-            target = HES
-            transfer_troops = no
-        }
-        annex_country = {
-            target = BAD
-            transfer_troops = no
-        }
-        annex_country = {
-            target = WUR
-            transfer_troops = no
-        }
-        annex_country = {
-            target = GPU
-            transfer_troops = no
-        }
-        transfer_state = 153    
+        
+        transfer_state = 153  
+        transfer_state = 55  
+        transfer_state = 54
+        transfer_state = 954  
+        transfer_state = 50  
+        transfer_state = 52  
+        transfer_state = 53  
         set_cosmetic_tag = FGD_RHE
     }
     if = {
@@ -754,11 +764,17 @@ france_beats_austria = {
             AUS = {
                 release = CZE
             }
+            GER = {
+                release = CZE
+            }
         }
         
     }
     FRA = {
         puppet = CZE
+    }
+    CZE = {
+        set_cosmetic_tag = austrian_french_puppet
     }
     if = {
         limit = {
@@ -770,6 +786,7 @@ france_beats_austria = {
             AUS = {
                 release = HUN
             }
+            
         }
     }
     FRA = {
@@ -812,6 +829,9 @@ france_beats_austria = {
     CRO = {
         transfer_state = 104
         transfer_state = 819
+        transfer_state = 810
+        transfer_state = 812
+        transfer_state = 809
     }
     FRA = {
         puppet = CRO
@@ -847,6 +867,25 @@ france_beats_austria = {
         transfer_state = 816
         transfer_state = 815
     }
+    if = {
+        limit = {
+            NOT = {
+                AUS = {
+                    owns_state = 4
+                }
+            }
+        }
+        AUS = {
+            set_cosmetic_tag = austrian_french_puppet
+            transfer_state = 4
+            transfer_state = 152
+            transfer_state = 822
+            transfer_state = 750
+            transfer_state = 820
+
+            transfer_state = 102
+        }
+    }
     FRA = {
         add_to_faction = AUS
     }
@@ -862,6 +901,9 @@ france_beats_netherlands = {
         add_state_core = 35
         transfer_state = 35
         puppet = HOL
+    }
+    HOL = {
+        set_cosmetic_tag = austrian_french_puppet
     }
 }
 
@@ -1103,6 +1145,15 @@ russia_loses_peace_deal = {
             transfer_state = 230
             transfer_state = 1082
             transfer_state = 1083
+            add_state_core = 1085
+            add_state_core = 232
+            add_state_core = 235
+            add_state_core = 231
+            add_state_core = 229
+            add_state_core = 233
+            add_state_core = 230
+            add_state_core = 1082
+            add_state_core = 1083
         }
         AUS = {
             puppet = GEO
@@ -1136,6 +1187,7 @@ russia_loses_peace_to_france_deal = {
     FRA = {
         white_peace = SOV
     }
+    
     UKR = {
         add_state_core = 93
         add_state_core = 137
@@ -1259,12 +1311,175 @@ russia_loses_peace_to_france_deal = {
     SOV_release_just_central_asia = yes
     
     SOV_release_FIN = yes
+    if = {
+        limit = {
+            has_global_flag = austria_defeated
+        }
+        france_beats_austria = yes
+    }
     
     
 }
 
+russia_loses_to_prussia_deal = {
+    SOV = {
+        white_peace = GER
+    }
+    POL = {
+        add_state_core = 93
+        add_state_core = 94
+    }
+    SOV = {
+        release = POL
+    }
+    POL = {
+        set_cosmetic_tag = prussian_rk
+    }
+    GER = {
+        transfer_state = 1025
+        add_state_core = 1025
+    }
+    LIT = {
+        add_state_core = 190
+        add_state_core = 11
+        add_state_core = 784
+        add_state_core = 12
+        add_state_core = 190
+        add_state_core = 191
+        add_state_core = 13
+        add_state_core = 95
+        add_state_core = 189
+    }
+    SOV = {
+        release = LIT   
+    }
+    LIT = {
+        set_cosmetic_tag = prussian_rk
+    }
+    SOV = {
+        release = UKR
+    }
+    UKR = {
+        set_cosmetic_tag = prussian_rk
+        transfer_state = 137
+        transfer_state = 218
+        add_state_core = 137
+        add_state_core = 218
+        
+    }
 
-SOV_xinjiang_peace_deals = {
+    if = {
+        limit = {
+            ROM = {
+                is_in_faction_with = SOV
+            }
+        }
+        GER = {
+            puppet = ROM
+        }
+        
+    }
+    ROM = {
+        transfer_state = 78
+        transfer_state = 766
+    }
+    if = {
+        limit = {
+            GLC = {
+                is_in_faction_with = GER
+            }
+        }
+        GLC = {
+            transfer_state = 89
+            transfer_state = 91
+        }
+    }
+    BLR = {
+        add_state_core = 96
+        set_cosmetic_tag = prussian_rk
+    }
+    SOV = {
+        release = BLR
+    }
+
+    GEO = {
+        transfer_state = 1085
+        transfer_state = 232
+        transfer_state = 235
+        transfer_state = 231
+        transfer_state = 229
+        transfer_state = 233
+        transfer_state = 230
+        transfer_state = 1082
+        transfer_state = 1083
+        transfer_state = 234
+        transfer_state = 238
+        transfer_state = 237
+        add_state_core = 1085
+        add_state_core = 232
+        add_state_core = 235
+        add_state_core = 231
+        add_state_core = 229
+        add_state_core = 233
+        add_state_core = 230
+        add_state_core = 1082
+        add_state_core = 1083
+        set_cosmetic_tag = prussian_rk
+    }
+  
+    RRR = {
+        add_state_core = 195
+        add_state_core = 208
+        add_state_core = 209
+        add_state_core = 244
+        add_state_core = 263
+        add_state_core = 246
+        add_state_core = 210
+        set_cosmetic_tag = prussian_rk
+    } 
+    SOV = {
+        release = RRR
+    }
+    LNU = {
+        add_state_core = 242
+        add_state_core = 219
+        add_state_core = 243
+        add_state_core = 205
+        add_state_core = 223
+        add_state_core = 254
+        add_state_core = 224
+        add_state_core = 242
+        add_state_core = 222
+        add_state_core = 258
+        add_state_core = 220
+        add_state_core = 242
+        add_state_core = 240
+        add_state_core = 242
+        add_state_core = 260
+        add_state_core = 265
+        add_state_core = 242
+        add_state_core = 217
+        add_state_core = 245
+        set_cosmetic_tag = prussian_rk
+    }
+    SOV = {
+        release = LNU
+    }
+    
+    GER = {
+        puppet = POL
+        puppet = UKR
+        puppet = LIT
+        puppet = BLR
+        puppet = GEO
+        puppet = RRR
+        puppet = LNU
+    }
+   
+}
+
+
+russia_xinjiang_peace_deals = {
     if = {
         limit = {
             has_country_leader = {
@@ -1280,6 +1495,63 @@ SOV_xinjiang_peace_deals = {
             annex_country = {
                 target = PREV
                 transfer_troops = no
+            }
+        }
+    }
+}
+
+russia_afghanistan_peace_deals = {
+    AFG = {
+        white_peace = SOV
+        
+    }
+    SOV = {
+        puppet = AFG 
+    }
+    AFG = {
+        if = {
+            limit = {
+                has_government = democratic
+            }
+            create_country_leader = {
+                name = "Mohammed Zahir Shah"
+                desc = "POLITICS_MOHAMMED_ZAHIR_SHAH_DESC"
+                picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds"
+                expire = "1965.1.1"
+                ideology = democratic_conservative
+                traits = {
+                    #
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_government = democratic_liberalism
+            }
+            create_country_leader = {
+                name = "Mohammed Zahir Shah"
+                desc = "POLITICS_MOHAMMED_ZAHIR_SHAH_DESC"
+                picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds"
+                expire = "1965.1.1"
+                ideology = democratic_conservative
+                traits = {
+                    #
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_government = socialism_democratic
+            }
+            create_country_leader = {
+                name = "Mohammed Daoud Khan"
+                desc = ""
+                picture = "gfx/leaders/MohammedDaoudKhan.dds"
+                expire = "1965.1.1"
+                ideology = social_democratic
+                traits = {
+                    #
+                }
             }
         }
     }

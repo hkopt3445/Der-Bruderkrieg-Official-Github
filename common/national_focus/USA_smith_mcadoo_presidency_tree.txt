@@ -12,7 +12,7 @@ focus_tree = {
 	default = no
 	continuous_focus_position = {
 		x = 0
-		y = 1500
+		y = 2500
 	}
 	
 	shared_focus = USA_the_democratic_schism
@@ -292,7 +292,9 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		load_focus_tree = usa_smith_presidency_tree
+		hidden_effect = {
+			country_event = USA_mcadoo_tree.2
+		}
 	}
 }
 ###################
@@ -311,6 +313,9 @@ shared_focus = {
 	relative_position_id = USA_temporary_solutions_to_permanent_problems
 	cost = 2
 	available_if_capitulated = yes
+	mutually_exclusive = {
+		focus = USA_stolen_no_more
+	}
 	ai_will_do = {
 		factor = 100
 	}
@@ -946,6 +951,9 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		set_rule = {
+			can_generate_female_aces = yes
+		}
 	}
 }
 
@@ -1165,8 +1173,16 @@ shared_focus = {
 	ai_will_do = {
 		factor = 100
 	}
+	bypass = {
+		has_country_leader = {
+			name = "William Gibbs McAdoo"
+			ruling_only = yes
+		}
+	}
+	mutually_exclusive = {
+		focus = USA_under_als_wing
+	}
 	completion_reward = {
-		
 	}
 }
 
@@ -1183,7 +1199,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_stability = 0.05
 	}
 }
 
@@ -1200,7 +1216,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		country_event = USA_mcadoo_tree.1
 	}
 }
 
@@ -1253,7 +1269,27 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		318 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 4
+		}
+		198 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 5
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 3
+		}
 	}
 }
 
@@ -1436,11 +1472,12 @@ shared_focus = {
 	relative_position_id = USA_political_alliances
 	cost = 2
 	available_if_capitulated = yes
+
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_ideas = USA_militarism
 	}
 }
 
@@ -1451,13 +1488,21 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = USA_political_alliances
+
 	cost = 2
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = ITA_bribes
+			days = 100
+		}
+		swap_ideas = {
+			add_idea = USA_political_uproar_2
+			remove_idea = USA_political_uproar
+		}
 	}
 }
 
@@ -1474,7 +1519,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = USA_militarism
+			add_idea = USA_militarism_2
+		}
 	}
 }
 
@@ -1491,7 +1539,14 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_political_uproar_3
+			remove_idea = USA_political_uproar_2
+		}
+		add_timed_idea = {
+			idea = USA_agreements_with_extremists_idea
+			days = 120
+		}
 	}
 }
 
@@ -1508,7 +1563,11 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_political_power = 50
+		swap_ideas = {
+			add_idea = USA_political_uproar_3
+			remove_idea = USA_political_uproar_2
+		}
 	}
 }
 
@@ -1525,7 +1584,8 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		remove_ideas = USA_political_uproar_3
+		##add mcadoos cabinet
 	}
 }
 
@@ -1542,7 +1602,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_political_power = 100
 	}
 }
 
@@ -1555,6 +1615,7 @@ shared_focus = {
 	relative_position_id = USA_the_depression
 	cost = 2
 	available_if_capitulated = yes
+	cancelable = no
 	ai_will_do = {
 		factor = 100
 	}
@@ -1576,7 +1637,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = USA_dust_bowl
+			add_idea = USA_dust_bowl_3
+		}
 	}
 }
 
@@ -1593,33 +1657,20 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_great_depression_11
+			remove_idea = USA_great_depression_10
+		}
 	}
 }
 
-shared_focus = {
-	id = USA_demand_franco_british_debts
-	icon = GFX_goal_generic
-	prerequisite = { focus = USA_shut_down_the_stock_exchange }
-	x = 0
-	y = 2
-	relative_position_id = USA_shut_down_the_stock_exchange
-	cost = 2
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		
-	}
-}
 
 shared_focus = {
 	id = USA_tax_cuts_and_bonds
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_farming_subsidies_mcadoo }
 	x = 0
-	y = 2
+	y = 1
 	relative_position_id = USA_farming_subsidies_mcadoo
 	cost = 2
 	available_if_capitulated = yes
@@ -1627,7 +1678,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = USA_dust_bowl_3
+			add_idea = USA_dust_bowl_4
+		}
 	}
 }
 
@@ -1636,7 +1690,7 @@ shared_focus = {
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_using_emergency_currency_provisions }
 	x = 0
-	y = 2
+	y = 1
 	relative_position_id = USA_using_emergency_currency_provisions
 	cost = 2
 	available_if_capitulated = yes
@@ -1644,7 +1698,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = USA_great_depression_12
+			add_idea = USA_great_depression_11
+		}
 	}
 }
 
@@ -1653,7 +1710,7 @@ shared_focus = {
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_demand_franco_british_debts focus = USA_reestablish_the_gold_standard focus = USA_tax_cuts_and_bonds }
 	x = 0
-	y = 2
+	y = 1
 	relative_position_id = USA_demand_franco_british_debts
 	cost = 2
 	available_if_capitulated = yes
@@ -1661,7 +1718,30 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = USA_great_depression_14
+			add_idea = USA_great_depression_13
+		}
+	}
+}
+
+shared_focus = {
+	id = USA_demand_franco_british_debts
+	icon = GFX_goal_generic
+	prerequisite = { focus = USA_reestablish_the_gold_standard focus = USA_tax_cuts_and_bonds }
+	x = 1
+	y = 1
+	relative_position_id = USA_reestablish_the_gold_standard
+	cost = 2
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = USA_great_depression_13
+			add_idea = USA_great_depression_12
+		}
 	}
 }
 
@@ -1678,7 +1758,8 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		remove_ideas = USA_great_depression_14
+		remove_ideas = USA_dust_bowl_4
 	}
 }
 
@@ -1746,7 +1827,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_ideas = free_trade
 	}
 }
 
@@ -1865,7 +1946,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_militarism_3
+			remove_idea = USA_militarism_2
+		}
 	}
 }
 
@@ -1899,7 +1983,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_militarism_4
+			remove_idea = USA_militarism_3
+		}
 	}
 }
 
@@ -2072,5 +2159,9 @@ shared_focus = {
 		
 	}
 }
+
+
+
+
 
 

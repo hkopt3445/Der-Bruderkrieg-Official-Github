@@ -477,11 +477,21 @@ country_event = {
 	option = {
 		name = french_inteverntion_in_prussian_expansion.2.a
 		set_country_flag = FRA_chose_intervention_against_prussia
-	
+		FRA = {
+			activate_mission = FRA_complete_mobilization
+			set_country_flag = FRA_activation_complete_mobilization_flag
+			add_ideas = SOV_the_mobilized_forces
+		}
 		ai_chance = {
 			modifier = {
 				add = 50
 				AUS = { has_completed_focus = AUS_ensure_intervention has_completed_focus = AUS_ties_with_napoleon }
+			}
+			modifier = {
+				add = 100
+				AUS = {
+					has_war_with = SOV
+				}
 			}
 			base = 5
 		}
@@ -492,8 +502,11 @@ country_event = {
 			GER = {
 				country_event = {
 					id = french_inteverntion_in_prussian_expansion.8
-					days = 3
+					days = 1
 				}
+			}
+			FRA = {
+
 			}
 		}
 	}
@@ -505,7 +518,7 @@ country_event = {
 			AUS = {
 				country_event = { id = french_inteverntion_in_prussian_expansion.4 days = 2 }
 			}
-			country_event = { id = french_inteverntion_in_prussian_expansion.5 days = 120 }
+			country_event = { id = french_inteverntion_in_prussian_expansion.5 days = 90 }
 		}
 		ai_chance = {factor = 95}
 	}
@@ -552,10 +565,23 @@ country_event = {
 		name = french_inteverntion_in_prussian_expansion.5.a
 		set_country_flag = FRA_chose_intervention_against_prussia
 	
-		ai_chance = {factor = 30 modifier = {
+		ai_chance = {factor = 30 
+			modifier = {
 			add = 50
 			AUS = { has_completed_focus = AUS_ensure_intervention }
-		} }
+			}
+			modifier = {
+				add = 100
+				AUS = {
+					has_war_with = SOV
+				}
+			} 
+		}
+		FRA = {
+			activate_mission = FRA_complete_mobilization
+			set_country_flag = FRA_activation_complete_mobilization_flag
+			add_ideas = SOV_the_mobilized_forces
+		}
 		hidden_effect = {
 			AUS = {
 				country_event = { id = french_inteverntion_in_prussian_expansion.3 days = 2 }
@@ -563,8 +589,11 @@ country_event = {
 			GER = {
 				country_event = {
 					id = french_inteverntion_in_prussian_expansion.8
-					days = 3
+					days = 1
 				}
+			}
+			FRA = {
+
 			}
 		}
 	}
@@ -576,7 +605,7 @@ country_event = {
 			AUS = {
 				country_event = { id = french_inteverntion_in_prussian_expansion.4 days = 2 }
 			}
-			country_event = { id = french_inteverntion_in_prussian_expansion.6 days = 75 }
+			country_event = { id = french_inteverntion_in_prussian_expansion.6 days = 30 }
 		}
 		ai_chance = {factor = 70 }
 	}
@@ -592,10 +621,23 @@ country_event = {
 		name = french_inteverntion_in_prussian_expansion.6.a
 		set_country_flag = FRA_chose_intervention_against_prussia
 	
-		ai_chance = {factor = 75 modifier = {
+		ai_chance = {factor = 75 
+			modifier = {
 			add = 50
 			AUS = { has_completed_focus = AUS_ensure_intervention }
-		} }
+			} 
+			modifier = {
+				add = 100
+				AUS = {
+					has_war_with = SOV
+				}
+			}
+		}
+		FRA = {
+			activate_mission = FRA_complete_mobilization
+			set_country_flag = FRA_activation_complete_mobilization_flag
+			add_ideas = SOV_the_mobilized_forces
+		}
 		hidden_effect = {
 			AUS = {
 				country_event = { id = french_inteverntion_in_prussian_expansion.3 days = 2 }
@@ -603,8 +645,11 @@ country_event = {
 			GER = {
 				country_event = {
 					id = french_inteverntion_in_prussian_expansion.8
-					days = 3
+					days = 1
 				}
+			}
+			FRA = {
+
 			}
 		}
 	}
@@ -616,7 +661,7 @@ country_event = {
 			AUS = {
 				country_event = { id = french_inteverntion_in_prussian_expansion.4 days = 2 }
 			}
-			country_event = { id = french_inteverntion_in_prussian_expansion.7 days = 50 }
+			country_event = { id = french_inteverntion_in_prussian_expansion.7 days = 30 }
 		}
 		ai_chance = {factor = 70 }
 	}
@@ -634,6 +679,11 @@ country_event = {
 		set_country_flag = FRA_chose_intervention_against_prussia
 	
 		ai_chance = {factor = 100}
+		FRA = {
+			activate_mission = FRA_complete_mobilization
+			set_country_flag = FRA_activation_complete_mobilization_flag
+			add_ideas = SOV_the_mobilized_forces
+		}
 		hidden_effect = {
 			AUS = {
 				country_event = { id = french_inteverntion_in_prussian_expansion.3 days = 2 }
@@ -641,9 +691,10 @@ country_event = {
 			GER = {
 				country_event = {
 					id = french_inteverntion_in_prussian_expansion.8
-					days = 3
+					days = 1
 				}
 			}
+			
 		}
 	}
 	option = {
@@ -669,15 +720,44 @@ country_event = {
 	option = {
 		name = french_inteverntion_in_prussian_expansion.8.a
 		ai_chance = {factor = 30}
-		GER = {
-			create_wargoal = {
-				target = FRA
-				type = annex_everything
-			}
+		hidden_effect = {
+			news_event = french_inteverntion_in_prussian_expansion.9
 		}
 	}
 
 }
+
+news_event = {
+	id = french_inteverntion_in_prussian_expansion.9
+	title = french_inteverntion_in_prussian_expansion.9.t
+	desc = french_inteverntion_in_prussian_expansion.9.d
+	picture = GFX_frenchintervention
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = french_inteverntion_in_prussian_expansion.9.a
+	}
+}
+
+
+news_event = {
+	id = french_inteverntion_in_prussian_expansion.10
+	title = french_inteverntion_in_prussian_expansion.10.t
+	desc = french_inteverntion_in_prussian_expansion.10.d
+	picture = GFX_frenchintervention2
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = french_inteverntion_in_prussian_expansion.10.a
+	}
+}
+
+
+
 
 add_namespace = british_inteverntion_in_prussian_expansion
 
@@ -1419,6 +1499,18 @@ country_event = {
 		name = wiltkrieg.3.a
 		annex_country = {
 			target = GPU
+			transfer_troops =  no
+		}
+		annex_country = {
+			target = BAD
+			transfer_troops =  no
+		}
+		annex_country = {
+			target = WUR
+			transfer_troops =  no
+		}
+		annex_country = {
+			target = HES
 			transfer_troops =  no
 		}
 	}
