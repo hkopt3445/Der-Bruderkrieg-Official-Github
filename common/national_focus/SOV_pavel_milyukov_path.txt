@@ -2221,7 +2221,7 @@ shared_focus = {
 	id = SOV_the_worlds_protector
 	icon = GFX_goal_SOV_the_worlds_protector
 	x = 0
-	y = 1
+	y = 1 
 	
 	available = {
 	}
@@ -2293,6 +2293,7 @@ shared_focus = {
 			target = GER
 			type = topple_government
 		}
+		add_threat = 5
 	}
 	ai_will_do = {
 		factor = 20
@@ -2329,6 +2330,13 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		give_guarantee = GER
+		add_war_support = 0.05
+		add_tech_bonus = {
+			category = armor 
+			bonus = 1
+			uses = 1
+		}
 	}
 	ai_will_do = {
 		factor = 20
@@ -2364,6 +2372,7 @@ shared_focus = {
 			target = FRA
 			type = topple_government
 		}
+		add_threat = 5
 	}
 	ai_will_do = {
 		factor = 20
@@ -2397,6 +2406,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		##event ig
 	}
 	ai_will_do = {
 		factor = 20
@@ -2419,7 +2429,7 @@ shared_focus = {
 	
 	relative_position_id = SOV_discussions_with_france
 
-	cost = 10		
+	cost = 15		
 	
 
 	cancel_if_invalid = yes
@@ -2427,6 +2437,18 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		set_faction_name = "United Nations"
+		every_country = {
+			limit = {
+				OR = {
+					has_government = democratic
+					has_government = democratic_liberalism
+					has_government = authoritarian_democratic
+					has_government = socialism_democratic
+				}
+			}
+			country_event = russia.22
+		}
 	}
 	ai_will_do = {
 		factor = 20
