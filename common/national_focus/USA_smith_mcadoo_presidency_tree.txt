@@ -1719,8 +1719,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		swap_ideas = {
-			remove_idea = USA_great_depression_14
-			add_idea = USA_great_depression_13
+			remove_idea = USA_great_depression_13
+			add_idea = USA_great_depression_14
 		}
 	}
 }
@@ -1739,8 +1739,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		swap_ideas = {
-			remove_idea = USA_great_depression_13
-			add_idea = USA_great_depression_12
+			remove_idea = USA_great_depression_12
+			add_idea = USA_great_depression_13
 		}
 	}
 }
@@ -1758,8 +1758,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		remove_ideas = USA_great_depression_14
-		remove_ideas = USA_dust_bowl_4
+		
 	}
 }
 
@@ -1770,13 +1769,13 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = USA_the_great_scare
-	cost = 2
+	cost = 2 
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_country_leader_trait = USA_a_man_of_morals
 	}
 }
 
@@ -1793,7 +1792,9 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_stability = 0.05
+		random_owned_controlled_state = { add_extra_state_shared_building_slots = 1 }
+		random_owned_controlled_state = { add_extra_state_shared_building_slots = 1 }
 	}
 }
 
@@ -1862,6 +1863,11 @@ shared_focus = {
 	}
 	completion_reward = {
 		
+
+		swap_leader_trait = {
+			add = USA_a_man_of_morals_2
+			remove = USA_a_man_of_morals
+		}
 	}
 }
 
@@ -2024,39 +2030,6 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = USA_new_taxes
-	icon = GFX_goal_generic
-	prerequisite = { focus = USA_for_the_average_joe focus = USA_revive_the_south }
-	x = 2
-	y = 1
-	relative_position_id = USA_for_the_average_joe
-	cost = 2
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		
-	}
-}
-
-shared_focus = {
-	id = USA_and_tax_cuts
-	icon = GFX_goal_generic
-	prerequisite = { focus = USA_new_taxes }
-	x = 0
-	y = 1
-	relative_position_id = USA_new_taxes
-	cost = 2
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		
-	}
-}
 
 shared_focus = {
 	id = USA_railroad_hubs
@@ -2088,7 +2061,6 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
 	}
 }
 
@@ -2110,6 +2082,46 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = USA_new_taxes
+	icon = GFX_goal_generic
+	prerequisite = { focus = USA_for_the_average_joe focus = USA_revive_the_south }
+	x = 2
+	y = 1
+	relative_position_id = USA_for_the_average_joe
+	cost = 2
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		swap_ideas = {
+				add_idea = USA_plagued_by_polio_3
+				remove_idea = USA_plagued_by_polio
+			}
+	}
+}
+
+shared_focus = {
+	id = USA_and_tax_cuts
+	icon = GFX_goal_generic
+	prerequisite = { focus = USA_new_taxes }
+	x = 0
+	y = 1
+	relative_position_id = USA_new_taxes
+	cost = 2
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		swap_ideas = {
+				add_idea = USA_plagued_by_polio_4
+				remove_idea = USA_plagued_by_polio_3
+			}
+	}
+}
+
+shared_focus = {
 	id = USA_labor_reform
 	icon = GFX_goal_generic
 	prerequisite = { focus = USA_and_tax_cuts }
@@ -2122,7 +2134,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		remove_ideas = USA_plagued_by_polio_4
 	}
 }
 
@@ -2139,9 +2151,12 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		remove_ideas = USA_dust_bowl_4
 	}
 }
+
+
+
 
 shared_focus = {
 	id = USA_re_open_the_stock_exchange
@@ -2156,7 +2171,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		remove_ideas = USA_great_depression_14
 	}
 }
 
