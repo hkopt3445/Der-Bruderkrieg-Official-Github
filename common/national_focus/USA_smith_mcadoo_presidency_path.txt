@@ -292,8 +292,13 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		hidden_effect = {
-			country_event = USA_mcadoo_tree.2
+		if = {
+			limit = {
+				has_completed_focus = USA_mcadoos_wilsonian_policies
+			}
+			hidden_effect = {
+				country_event = USA_mcadoo_tree.2
+			}
 		}
 	}
 }
@@ -1584,7 +1589,6 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		remove_ideas = USA_political_uproar_3
 		##add mcadoos cabinet
 	}
 }
@@ -1699,8 +1703,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		swap_ideas = {
-			remove_idea = USA_great_depression_12
-			add_idea = USA_great_depression_11
+			remove_idea = USA_great_depression_11
+			add_idea = USA_great_depression_12
 		}
 	}
 }
@@ -1758,7 +1762,8 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		remove_ideas = USA_political_uproar_3
+
 	}
 }
 
@@ -1792,7 +1797,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		add_stability = 0.05
+		add_war_support = 0.05
 		random_owned_controlled_state = { add_extra_state_shared_building_slots = 1 }
 		random_owned_controlled_state = { add_extra_state_shared_building_slots = 1 }
 	}
@@ -1811,6 +1816,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		add_ideas = USA_mcadoo_economic_idea
 	}
 }
 
@@ -1844,7 +1850,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_mcadoo_economic_idea_2
+			remove_idea = USA_mcadoo_economic_idea
+		}
 	}
 }
 
@@ -1863,7 +1872,7 @@ shared_focus = {
 	completion_reward = {
 		
 
-		swap_leader_trait = {
+		swap_ruler_traits = {
 			add = USA_a_man_of_morals_2
 			remove = USA_a_man_of_morals
 		}
@@ -2066,21 +2075,27 @@ shared_focus = {
 				recon = { x = 0 y = 0 }
 			} 
 		}
-		create_unit = {
-			division = "name = \"Army Labor Corps 1\" division_template = \"Army Labor Corps\" start_experience_factor = 1 start_equipment_factor = 1"
-			owner = USA
+		random_owned_controlled_state = {
+			create_unit = {
+				division = "name = \"Army Labor Corps 1\" division_template = \"Army Labor Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = USA
+			}
 		}
-		create_unit = {
-			division = "name = \"Army Labor Corps 1\" division_template = \"Army Labor Corps\" start_experience_factor = 1 start_equipment_factor = 1"
-			owner = USA
+		random_owned_controlled_state = {
+			create_unit = {
+				division = "name = \"Army Labor Corps 1\" division_template = \"Army Labor Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = USA
+			}
 		}
-		create_unit = {
-			division = "name = \"Army Labor Corps 1\" division_template = \"Army Labor Corps\" start_experience_factor = 1 start_equipment_factor = 1"
-			owner = USA
+		random_owned_controlled_state = {
+			create_unit = {
+				division = "name = \"Army Labor Corps 1\" division_template = \"Army Labor Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = USA
+			}
 		}
 
 		add_tech_bonus = {
-			category = support_equipment
+			category = support_tech
 			bonus = 0.5
 			uses = 2
 		}
@@ -2100,7 +2115,58 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		set_variable = {
+			USA_southern_revival_state_modifier_local_building_slots_factor = 0.3
+			
+			
+		}
+		set_variable = {
+			USA_southern_revival_state_modifier_state_production_speed_industrial_complex_factor = 0
+		}
+		set_variable = {
+			USA_southern_revival_state_modifier_state_resources_factor = 0
+
+		}
+		set_variable = {
+			USA_southern_revival_state_modifier_production_speed_infrastructure_factor = 0
+
+		}
 		
+		370 = { 
+			add_dynamic_modifier = {
+				modifier = USA_southern_revival_state_modifier
+			}
+		 }
+		367 = { 
+			add_dynamic_modifier = {
+				modifier = USA_southern_revival_state_modifier
+			}
+		 }
+		372 = { 
+			add_dynamic_modifier = {
+				modifier = USA_southern_revival_state_modifier
+			}
+		 }
+		365 = { 
+			add_dynamic_modifier = {
+				modifier = USA_southern_revival_state_modifier
+			}
+		 }
+		366 = { 
+			add_dynamic_modifier = {
+				modifier = USA_southern_revival_state_modifier
+			}
+		 }
+		364 = { 
+			add_dynamic_modifier = {
+				modifier = USA_southern_revival_state_modifier
+			}
+		 }
+		375 = { 
+			add_dynamic_modifier = {
+				modifier = USA_southern_revival_state_modifier
+			}
+		 }
 	}
 }
 
@@ -2118,7 +2184,21 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_to_variable = {
+			state_production_speed_infrastructure_factor = 0.25
+		}
+		1043 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 1
+				instant_build = yes
+			}
+		}
 	}
 }
 
@@ -2135,7 +2215,13 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-
+		add_to_variable = {
+			USA_southern_revival_state_modifier_state_resources_factor = 0.15
+		}
+		add_to_variable = {
+			USA_southern_revival_state_modifier_state_resources_factor = 0.35
+		}
+		
 	}
 }
 
@@ -2152,7 +2238,141 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_to_variable = {
+			USA_southern_revival_state_modifier_state_production_speed_industrial_complex_factor = 0.1
+		}
+		random_list = {
+			1 = {
+				370 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				367 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				372 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				365 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				366 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				364 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			
+			1 = {
+				375 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+		}
+		random_list = {
+			1 = {
+				370 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				367 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				372 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				365 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				366 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			1 = {
+				364 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+			
+			1 = {
+				375 = { 
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				 }
+			}
+		}
 	}
 }
 
