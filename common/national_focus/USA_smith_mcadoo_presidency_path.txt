@@ -5,11 +5,11 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 11
+			add = 110
 			tag = USA
 		}
 	}
-	default = no
+	default = yes
 	continuous_focus_position = {
 		x = 0
 		y = 2500
@@ -1233,7 +1233,7 @@ shared_focus = {
 	x = -2
 	y = 1
 	relative_position_id = USA_question_negro
-	cost = 2
+	cost = 0
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
@@ -1251,7 +1251,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = USA_question_negro
-	cost = 2
+	cost = 0
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
@@ -1345,7 +1345,8 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		remove_ideas = USA_mcadoos_race_policy_1
+		add_timed_idea = { idea = USA_great_emmigration days = 120 }
 	}
 }
 
@@ -1361,8 +1362,16 @@ shared_focus = {
 	ai_will_do = {
 		factor = 100
 	}
+	available = {
+		NOT = {
+			has_idea = USA_great_emmigration
+		}
+	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_Celebrating_Confederate_Heritage_2
+			remove_idea = USA_Celebrating_Confederate_Heritage
+		}
 	}
 }
 
@@ -1379,7 +1388,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_mcadoos_race_policy_2
+			remove_idea = USA_mcadoos_race_policy_1
+		}
 	}
 }
 
@@ -1396,7 +1408,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_mcadoos_race_policy_3
+			remove_idea = USA_mcadoos_race_policy_2
+		}
 	}
 }
 
@@ -1413,7 +1428,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		##senate stuf
 	}
 }
 
@@ -1434,7 +1449,10 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			add_idea = USA_mcadoos_race_policy_4
+			remove_idea = USA_mcadoos_race_policy_3
+		}
 	}
 }
 
@@ -1451,7 +1469,7 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_political_power = 120
 	}
 }
 
@@ -2174,6 +2192,10 @@ shared_focus = {
 				modifier = USA_southern_revival_state_modifier
 			}
 		 }
+
+		 effect_tooltip = {
+			 add_ideas = USA_mcadoo_southern_revival_campaign
+		 }
 	}
 }
 
@@ -2192,7 +2214,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		add_to_variable = {
-			state_production_speed_infrastructure_factor = 0.25
+			USA_southern_revival_state_modifier_state_production_speed_infrastructure_factor = 0.25
 		}
 		1043 = {
 			add_building_construction = {
@@ -2205,6 +2227,9 @@ shared_focus = {
 				level = 1
 				instant_build = yes
 			}
+		}
+		effect_tooltip = {
+			swap_ideas = { add_idea = USA_mcadoo_southern_revival_campaign_2 remove_idea = USA_mcadoo_southern_revival_campaign }
 		}
 	}
 }
@@ -2227,6 +2252,10 @@ shared_focus = {
 		}
 		add_to_variable = {
 			USA_southern_revival_state_modifier_state_resources_factor = 0.35
+		}
+
+		effect_tooltip = {
+			swap_ideas = { add_idea = USA_mcadoo_southern_revival_campaign_3 remove_idea = USA_mcadoo_southern_revival_campaign }
 		}
 		
 	}
@@ -2442,7 +2471,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_use_greenland_to_fight_drought
-	icon = GFX_goal_generic
+	icon = GFX_goal_USA_use_greenland_to_fight_the_drought
 	prerequisite = { focus = USA_industrialize_the_south focus = USA_labor_reform }
 	x = -2
 	y = 1
