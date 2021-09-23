@@ -10566,3 +10566,336 @@ SOV_election_verification = {
 		}
 	}
 }
+
+SOV_transylvanian_rebel_contacts = {
+	
+	SOV_transylvanian_rebel_locate_leader = {
+
+		available = {
+			has_command_power > 9
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_command_power = -10
+		}
+
+		days_remove = 30
+
+		remove_effect = {
+			set_country_flag = SOV_found_trans_rebel_leader
+			unlock_decision_tooltip = SOV_transylvanian_rebel_send_message
+		}
+
+	}
+
+	SOV_transylvanian_rebel_send_message = {
+
+		available = {
+			has_command_power > 9
+		}
+
+		cost = 10
+
+		visible = {
+			has_country_flag = SOV_found_trans_rebel_leader
+		}
+
+		fire_only_once = yes
+
+		days_remove = 15
+
+		complete_effect = {
+			add_command_power = -10
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_sent_message_trans_rebel_leader
+			unlock_decision_tooltip = SOV_transylvanian_rebel_small_gun_shipment
+			unlock_decision_tooltip = SOV_transylvanian_rebel_give_intel
+			unlock_decision_tooltip = SOV_transylvanian_rebel_volunteers
+		}
+
+	}
+
+	SOV_transylvanian_rebel_small_gun_shipment = {
+
+		available = {
+			has_command_power > 4
+			has_equipment = {
+				infantry_equipment > 99
+			}
+		}
+
+		visible = {
+			has_country_flag = SOV_sent_message_trans_rebel_leader
+		}
+
+		fire_only_once = yes
+
+		days_remove = 20
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -100
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_sent_guns_to_trans_rebels 
+		}
+
+	}
+
+	SOV_transylvanian_rebel_give_intel = {
+
+		available = {
+			network_strength = {
+				target = AUS
+				value > 0.25
+			}
+		}
+
+		visible = {
+			has_country_flag = SOV_sent_message_trans_rebel_leader
+		}
+
+		fire_only_once = yes
+
+		days_remove = 20
+
+		remove_effect = {
+			set_country_flag = SOV_supplied_intel_to_trans_rebels 
+		}
+
+	}
+
+	SOV_transylvanian_rebel_volunteers = {
+
+		available = {
+			has_command_power > 4
+			has_manpower > 999
+		}
+
+		visible = {
+			has_country_flag = SOV_sent_message_trans_rebel_leader
+		}
+
+		fire_only_once = yes
+
+		days_remove = 30
+
+		complete_effect = {
+			add_manpower = -1000
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_sent_volunteers_to_trans_rebels 
+		}
+
+	}
+
+	SOV_transylvanian_rebel_obtain_support = {
+
+		cost = 15
+
+		visible = {
+			has_country_flag = SOV_sent_volunteers_to_trans_rebels
+			has_country_flag = SOV_supplied_intel_to_trans_rebels
+			has_country_flag = SOV_sent_guns_to_trans_rebels
+		}
+
+		fire_only_once = yes
+
+		days_remove = 30
+
+		remove_effect = {
+			set_country_flag = SOV_obtained_trans_rebel_support
+		}
+
+	}
+
+	SOV_transylvanian_rebel_secure_supply_route = {
+
+		cost = 20
+
+		visible = {
+			has_completed_focus = SOV_Smuggle_Weapons
+		}
+
+		available = {
+			has_command_power > 9
+		}
+
+		fire_only_once = yes
+
+		days_remove = 60
+
+		complete_effect = {
+			add_command_power = -10
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_secured_trans_rebel_supply_route
+			unlock_decision_tooltip = SOV_transylvanian_rebel_supply_guns_artillery
+			unlock_decision_tooltip = SOV_transylvanian_rebel_supply_motorized
+			unlock_decision_tooltip = SOV_transylvanian_rebel_supply_guns_artillery
+			unlock_decision_tooltip = SOV_transylvanian_rebel_plan_rebellion
+			unlock_decision_tooltip = SOV_transylvanian_rebel_transfer_airplanes
+		}
+
+	}
+
+	SOV_transylvanian_rebel_supply_guns_artillery = {
+
+		visible = {
+			has_country_flag = SOV_secured_trans_rebel_supply_route
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 2999
+			}
+			has_equipment = {
+				artillery_equipment > 499
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 15
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -3000
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = -500
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_secured_trans_rebel_two_extra_inf #reference in transylvanian uprising event for two infantry divs
+		}
+
+	}
+
+	SOV_transylvanian_rebel_supply_motorized = {
+
+		visible = {
+			has_country_flag = SOV_secured_trans_rebel_supply_route
+		}
+
+		available = {
+			has_equipment = {
+				motorized_equipment > 299
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 10
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = -300
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_secured_trans_rebel_two_extra_motor #reference in transylvanian uprising event for two motorized divs
+		}
+
+	}
+
+	SOV_transylvanian_rebel_supply_motorized_armor = {
+
+		visible = {
+			has_country_flag = SOV_secured_trans_rebel_supply_route
+		}
+
+		available = {
+			has_equipment = {
+				light_tank_equipment > 299
+			}
+			has_equipment = {
+				motorized_equipment > 299
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 15
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = light_tank_equipment
+				amount = -300
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = -300
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_secured_trans_rebel_two_extra_armor #reference in transylvanian uprising event for two armored divs
+		}
+
+	}
+
+	SOV_transylvanian_rebel_transfer_airplanes = {
+
+		visible = {
+			has_country_flag = SOV_secured_trans_rebel_supply_route
+		}
+
+		available = {
+			has_equipment = {
+				fighter_equipment > 49
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 20
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = -50
+			}
+		}
+
+		remove_effect = {
+			set_country_flag = SOV_secured_trans_rebel_fifty_planes #reference in transylvanian uprising event for 50 planes
+		}
+
+	}
+
+	SOV_transylvanian_rebel_plan_rebellion = {
+
+		visible = {
+			has_country_flag = SOV_secured_trans_rebel_supply_route
+		}
+
+		cost = 20
+
+		available = {
+			has_command_power > 19
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_country_flag = SOV_planned_trans_rebel_rebellion #reference in transylvanian uprising event for higher org
+		}
+
+	}
+
+}
