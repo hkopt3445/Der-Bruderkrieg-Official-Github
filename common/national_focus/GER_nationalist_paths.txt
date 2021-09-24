@@ -504,13 +504,7 @@ shared_focus = {
 
 		cost = 3
 		prerequisite = { focus = GER_consolidating_power }
-		offset = {
-			trigger = {
-				has_focus_tree = GER_freikorps_the_path_to_unification
-			}
-			x = -8
-			y = -2
-		}
+	
 		
 
 		cancel_if_invalid = yes
@@ -2930,13 +2924,7 @@ shared_focus = {
 		bypass = {
 
 		}
-		offset = {
-			trigger = {
-				has_focus_tree = GER_goering_post_unification
-			}
-			x = 5
-			y = 0
-		}
+		
 		
 
 		cost = 5
@@ -4380,28 +4368,7 @@ shared_focus = {
 	}
 	
 		
-	
-	focus_tree = {
-		id = GER_goering_post_unification 
-	
-		country = {
-			factor = 0
-			modifier = {
-				add = 98
-				tag = GER
-			}
-		}
-	
-		shared_focus = GER_venerate_new_karl
-		#shared_focus = GER_goerings_industrial_plan
-		shared_focus = GER_the_goring_doctorine
-		shared_focus = GER_the_petty_kings
-		shared_focus = GER_code_goeringien
-	 
-		#default = no
-	
-		continuous_focus_position = { x = 12000 y = 1000 }
-	}	
+
 	
 	shared_focus = {
 		id = GER_venerate_new_karl
@@ -4485,14 +4452,20 @@ shared_focus = {
 	shared_focus = {
 		id = GER_code_goeringien
 		icon = GFX_age_of_the_eagle 
-		x = 12
-		y = 0
+		x = 0
+		y = 1
 		cost = 4
 		
 		ai_will_do = {
 			factor = 1 
 		}
-		
+		relative_position_id = GER_the_reichmarshalls_prussia
+		prerequisite = {
+			focus = GER_the_reichmarshalls_prussia
+		}
+		available = {
+			has_cosmetic_tag = united_germany
+		}
 		completion_reward = {
 			add_ideas = GER_creating_the_code
 			hidden_effect = {

@@ -894,6 +894,116 @@ country_event = {
 	}
 }
 
+country_event = { #issue of Southern Dobruja
+	id = SOV_return_of_the_tsar_path.17
+	title = SOV_return_of_the_tsar_path.17.t
+	desc = SOV_return_of_the_tsar_path.17.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.17.a #romania
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_Favor_Romania
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.17.b #bulgaria
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_Favor_Bulgaria
+	}
+}
+
+country_event = { #We've been Dobruja Blocked
+	id = SOV_return_of_the_tsar_path.18
+	title = SOV_return_of_the_tsar_path.18.t
+	desc = SOV_return_of_the_tsar_path.18.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.18.a #No it's my precioussss
+		ai_chance = { factor = 2 }
+		SOV = {
+			create_wargoal = {
+				target = BUL
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.18.b #:(
+		ai_chance = { factor = 5 }
+		ROM = {
+			transfer_state = 77
+		}
+	}
+}
+
+country_event = { #Russian Alignment?
+	id = SOV_return_of_the_tsar_path.19
+	title = SOV_return_of_the_tsar_path.19.t
+	desc = SOV_return_of_the_tsar_path.19.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.19.a #Yeah boi
+		ai_chance = { factor = 5 }
+		SOV = {
+			add_to_faction = ROOT
+		}
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.19.b #Hmmmm, maybe
+		ai_chance = { factor = 3 }
+		diplomatic_relation = {
+            country = SOV
+            relation = non_aggression_pact
+            active = yes
+        }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.19.c #No
+		ai_chance = { factor = 1 }
+	}
+}
+
+news_event = { #Eurasian Menace
+	id = SOV_return_of_the_tsar_path.20
+	title = SOV_return_of_the_tsar_path.20.t
+	desc = SOV_return_of_the_tsar_path.20.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.20.a
+	}
+}
+
+news_event = { #Russia recognizes Romanian claims
+	id = SOV_return_of_the_tsar_path.21
+	title = SOV_return_of_the_tsar_path.21.t
+	desc = SOV_return_of_the_tsar_path.21.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	is_major = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.21.a #outrageous
+		trigger = { OR = { is_subject_of = AUS original_tag = AUS } }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.21.b #habsburg hate club <3
+		trigger = { original_tag = SOV }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.21.f #habsburg hate club <3
+		trigger = { original_tag = ROM }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.21.c #another threat to AH
+		trigger = { OR = { original_tag = AUS original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.21.e #powderkeg closer to going off
+		trigger = { NOT = { OR = { original_tag = ROM is_subject_of = AUS original_tag = AUS original_tag = SOV original_tag = AUS original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } } }
+	}
+}
 
 ##commie hideout raids :bruh:
 add_namespace = SOV_commie_hideout_raids
