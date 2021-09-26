@@ -1,0 +1,67 @@
+﻿division_template = {
+	name = "Kolonialbrigade"	
+	division_names_group = ORA_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }      # Recon Group ACs comp + cavalry
+	}
+}
+
+
+units = {
+	##### Kolonialbrigade #####
+	division = {
+		name =  "1. Kolonialbrigade"
+		location = 1939  # Nairobi
+		division_template = "Kolonialbrigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = { # "2. Kolonialbrigade"
+		name =  "2. Kolonialbrigade"
+		location = 5210  # Mombasa
+		division_template = "Kolonialbrigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = { # "1. Jyske Division"
+		name =  "3. Kolonialbrigade"
+		location = 12941  # Jubaland
+		division_template = "Kolonialbrigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}	
+}
+
+air_wings = {
+	# Colonial Air -- Nairobi
+	1064 = {
+		fighter_equipment_0 = {
+			owner = "ORA"
+			amount = 12
+		}
+	}
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "ORA"
+		}
+		requested_factories = 1
+		progress = 0.85
+		efficiency = 100
+	}
+}

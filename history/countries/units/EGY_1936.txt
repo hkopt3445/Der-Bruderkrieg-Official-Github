@@ -1,0 +1,139 @@
+﻿division_template = {
+	name = "Infantry Division"			# 1st - 5th divisions = fully equipped, others = reserve divisions
+	division_names_group = EGY_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+        infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+        infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+       	engineer = { x = 0 y = 0 }
+       	artillery = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Cavalry Brigade"
+	division_names_group = EGY_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+        cavalry = { x = 0 y = 3 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Colonial Garrison"
+	division_names_group = ENG_COL_01
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	priority = 0
+}
+
+
+units = {
+	#Egypt
+	division= {	
+		name = "Cairo Force"
+		location = 7011
+		division_template = "Colonial Garrison"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+	division= {	
+		name = "Sinai Brigade"
+		location = 10099
+		division_template = "Colonial Garrison"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}
+	division= {	
+		name = "The Cavalry Brigade (Egypt)"
+		location = 4076
+		division_template = "Cavalry Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	
+}
+
+
+air_wings = {
+	
+	### RAF Middle East and Africa
+	447 = { 
+		### AHQ Egypt
+		fighter_equipment_0 = {
+			owner = "ENG" 
+			amount = 72
+		}
+		tac_bomber_equipment_0 = {
+			owner = "ENG" 
+			amount = 48
+		}
+		CAS_equipment_1 = {
+			owner = "ENG" 
+			amount = 64
+		}
+	}
+}
+	
+
+	#########################
+	## STARTING PRODUCTION ##
+	#########################
+instant_effect = {
+	
+
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "ENG"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "ENG"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "ENG" 
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 50
+	}
+
+	
+}
+	#####################
