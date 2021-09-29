@@ -5734,7 +5734,7 @@ weltkrieg_decisions = {
 			tag = AUS
 		}
 
-		available = {
+		available = { 
 			OR = {
 				AND = {
 					has_completed_focus = AUS_ties_with_napoleon
@@ -5746,6 +5746,14 @@ weltkrieg_decisions = {
 				}
 			}
 			has_completed_focus = AUS_ensure_intervention
+			NOT = {
+				has_war_with = FRA
+			}
+			FRA = {
+				NOT = {
+					has_war_with = GER
+				}
+			}
 		}
 
 		visible = {
@@ -5784,10 +5792,6 @@ weltkrieg_decisions = {
 		}
 
 		available = {
-			has_completed_focus = AUS_ensure_intervention
-		}
-
-		visible = {
 			OR = {
 				AND = {
 					has_completed_focus = AUS_remember_rudolfs_pact
@@ -5798,6 +5802,18 @@ weltkrieg_decisions = {
 					has_war_with = SOV
 				}
 			}
+			NOT = {
+				has_war_with = ENG
+			}
+			ENG = {
+				NOT = {
+					has_war_with = GER
+				}
+			}
+		}
+
+		visible = {
+			has_war_with = GER
 		}
 
 		fire_only_once = yes
