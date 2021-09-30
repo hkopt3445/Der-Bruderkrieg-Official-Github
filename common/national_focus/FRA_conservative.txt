@@ -5762,11 +5762,12 @@ instant_build = yes
 					NOT = {
 						country_exists = GER
 					}
-					
 					GER = {
-						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+						is_in_faction_with = FRA
 					}
-					has_country_flag = FRA_chose_intervention_against_prussia
+					GER = {
+						is_puppet_of = FRA
+					}
 				}
 			}
 		
@@ -5983,7 +5984,7 @@ instant_build = yes
 			x = 1
 			y = 1
 			relative_position_id = FRA_invade_britain
-			cost = 5
+			cost = 10
 			ai_will_do = {
 				factor = 2000
 			}
@@ -6008,6 +6009,11 @@ instant_build = yes
 						add_idea = Bonapartist_Ambition_2
 						remove_idea = Bonapartist_Ambition
 					}
+				}
+
+				create_wargoal = {
+					target = SOV
+					type = topple_government
 				}
 			}
 		}
