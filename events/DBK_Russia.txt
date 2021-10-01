@@ -1,4 +1,4 @@
-﻿###########################
+###########################
 # Russian Events
 ###########################
 
@@ -4775,5 +4775,42 @@ country_event = {
                                 id = KLV_kornilov_tree_events.3
                         }
                 }
+	}
+}
+
+#########################
+#Ottoman Turanist Revolt#
+#########################
+
+add_namespace = TUR_turan_anti_SOV_revolt_event
+
+#Revolt
+country_event = {
+	id = TUR_turan_anti_SOV_revolt_event.1
+	title = TUR_turan_anti_SOV_revolt_event.t
+	desc = TUR_turan_anti_SOV_revolt_event.d
+	#picture = 
+	trigger = {
+		tag = SOV
+		check_variable = { SOV_turan_popularity_in_TUR > 90 }
+	}
+	fire_only_once = yes
+	option = {
+		name = TUR_turan_anti_SOV_revolt_event.a
+		TUR = {
+			set_politics = {
+				ruling_party = fascism
+			}
+		}
+		SOV = {
+			set_autonomy = {
+				target = TUR
+				autonomous_state = autonomy_free
+			}
+			declare_war_on = {
+				target = TUR
+				type = puppet_wargoal_focus
+			}
+		}
 	}
 }

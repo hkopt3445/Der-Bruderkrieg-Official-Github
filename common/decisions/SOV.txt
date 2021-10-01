@@ -10899,3 +10899,163 @@ SOV_transylvanian_rebel_contacts = {
 	}
 
 }
+
+SOV_crushing_turan_sympathies = {
+	
+	SOV_turan_sympathies_growing = {
+
+		days_mission_timeout = 50
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SOV_turan_less_than_25
+				check_variable = { SOV_turan_popularity_in_TUR < 25 }
+			}
+		}
+
+		activation = {
+			TUR = {
+				is_subject_of = SOV
+			}
+			NOT = {
+				has_country_flag = SOV_crushed_turanism
+			}
+		}
+
+		is_good = no
+
+		timeout_effect = {
+			add_to_variable = { SOV_turan_popularity_in_TUR = 3 }
+			clamp_variable = {
+				var = SOV_turan_popularity_in_TUR
+				min = 0
+				max = 100
+			}
+			custom_effect_tooltip = SOV_increase_turan_strength
+			hidden_effect = {
+				activate_mission = SOV_turan_sympathies_growing
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = SOV_crushed_turanism
+		}
+
+	}
+
+	SOV_recruit_turkish_collaborators = {
+
+		icon = generic_political_discourse
+
+		cost = 30
+
+		days_remove = 20
+
+		modifier = {
+			political_power_cost = 0.1
+		}
+
+		days_re_enable = 50
+
+		complete_effect = {
+			add_to_variable = { SOV_turan_popularity_in_TUR = -5 }
+			clamp_variable = {
+				var = SOV_turan_popularity_in_TUR
+				min = 0
+				max = 100
+			}
+			custom_effect_tooltip = SOV_medium_turan_decrease
+		}
+
+	}
+
+	SOV_raid_turan_safehouses = {
+
+		cost = 25
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 99
+			}
+		}
+
+		days_re_enable = 70
+
+		fixed_random_seed = no
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -100
+			}
+			hidden_effect = {
+				random_list = {
+					50 = {
+						TUR = {
+							add_stability = 0.005
+						}
+					}
+					50 = {
+						TUR = {
+							add_stability = -0.005
+						}
+					}
+				}
+			}
+			add_to_variable = { SOV_turan_popularity_in_TUR = -5 }
+			clamp_variable = {
+				var = SOV_turan_popularity_in_TUR
+				min = 0
+				max = 100
+			}
+			custom_effect_tooltip = SOV_medium_turan_decrease
+		}
+
+	}
+
+	SOV_execute_turan_leaders = {
+
+		cost = 50
+
+		days_re_enable = 70
+
+		complete_effect = {
+			add_to_variable = { SOV_turan_popularity_in_TUR = -5 }
+			clamp_variable = {
+				var = SOV_turan_popularity_in_TUR
+				min = 0
+				max = 100
+			}
+			custom_effect_tooltip = SOV_medium_turan_decrease
+		}
+
+	}
+
+	SOV_military_parade_in_istanbul = {
+
+		cost = 25
+
+		available = {
+			divisions_in_state = {
+				size > 2
+				state = TUR.capital
+			}
+		}
+
+		highlight_state_targets = { state = TUR.capital }
+
+		days_re_enable = 70
+
+		complete_effect = {
+			add_to_variable = { SOV_turan_popularity_in_TUR = -5 }
+			clamp_variable = {
+				var = SOV_turan_popularity_in_TUR
+				min = 0
+				max = 100
+			}
+			custom_effect_tooltip = SOV_medium_turan_decrease
+		}
+
+	}
+
+}
