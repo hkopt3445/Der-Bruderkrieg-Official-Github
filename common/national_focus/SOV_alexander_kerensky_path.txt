@@ -28,7 +28,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_kerenskys_presidency
 	text = SOV_kerenskys_presidency
 	x = 11
-	y = 0
+	y = 0 
 	cost = 1
 	ai_will_do = {
 	  factor = 2000
@@ -1820,7 +1820,7 @@ shared_focus = {
 	icon = GFX_goal_Generic_Blue_Democracy
 	x = 25 
 	y = 0
-	cost = 2
+	cost = 5
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 	ai_will_do = {
@@ -1831,6 +1831,7 @@ shared_focus = {
 			has_completed_focus = SOV_a_democracy_only_in_name
 			has_completed_focus = SOV_liberty_above_all_else
 		}
+		has_completed_focus = SOV_kerenskys_dream
 	}
   
 	completion_reward = {
@@ -1849,7 +1850,7 @@ shared_focus = {
 	relative_position_id = SOV_great_beacon_democracy
 	x = 4
 	y = 1
-	cost = 3
+	cost = 4
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
@@ -1880,7 +1881,7 @@ shared_focus = {
 	relative_position_id = SOV_great_beacon_democracy
 	x = 0
 	y = 1
-	cost = 2
+	cost = 5
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
@@ -1907,6 +1908,13 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1000
 	}
+	available = {
+		NOT = {
+			PER = {
+				has_war_with = TUR
+			}
+		}
+	}
 	completion_reward = {
 		PER = {
 			country_event = { id = SOV_lenin_tree_events.10 }
@@ -1929,6 +1937,13 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1000
 	}
+	available = {
+		NOT = {
+			PER = {
+				has_war_with = TUR
+			}
+		}
+	}
 	completion_reward = {
 		create_wargoal = {
 			target = PER
@@ -1950,17 +1965,28 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	bypass = {
-		ETR = {
-			exists = no
-		}
+		
 	}
   
 	ai_will_do = {
 		factor = 1000
 	}
 	completion_reward = {
-		ETR = {
+		if = {
+			limit = {
+				ETR = {
+					exists = yes
+				}
+			}
+			ETR = {
 			country_event = { id = SOV_kerensky_tree_events.4 hours = 3 }
+			}
+		}
+		else = {
+			create_wargoal = {
+				target = NRX
+				type = puppet_wargoal_focus
+			}
 		}
 	}
 }
@@ -1978,15 +2004,18 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	available = {
-		ETR = {
+		ORX = {
+			ETR = {
 			is_subject_of = SOV
+		}
+		NRX = {
+			is_subject_of = SOV
+		}
 		}
 	}
 
 	bypass = {
-		ETR = {
-			exists = no
-		}
+		
 	}
   
 	ai_will_do = {
@@ -1994,7 +2023,13 @@ shared_focus = {
 	}
 	completion_reward = {
 		#no idea what states have oil, so I'm just gonna go with this. Hope it works
-		ETR = {
+		if = {
+			limit = {
+				ETR = {
+					exists = yes
+				}
+			}
+			ETR = {
 		every_owned_state = {
 			
 			ETR = {
@@ -2003,6 +2038,25 @@ shared_focus = {
 					state = PREV
 				}
 			}
+		}
+		}
+		}
+		if = {
+			limit = {
+				NRX = {
+					exists = yes
+				}
+			}
+			NRX = {
+		every_owned_state = {
+			
+			NRX = {
+				give_resource_rights = {
+					receiver = SOV
+					state = PREV
+				}
+			}
+		}
 		}
 		}
 	}
@@ -2052,6 +2106,37 @@ shared_focus = {
 	completion_reward = {
 		JAP = {
 			country_event = { id = SOV_kerensky_tree_events.5 days = 2 }
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_asian_allies
+	icon = GFX_goal_SOV_watch_the_manchurian_front
+	prerequisite = { focus = SOV_retake_islands }
+	relative_position_id = SOV_retake_islands
+	x = 2
+	y = 1
+	cost = 6
+	available_if_capitulated = yes
+	#search_filters = { FOCUS_FILTER_RESEARCH }
+
+	available = {
+		controls_state = 537	
+	}
+  
+	ai_will_do = {
+		factor = 1000
+	}
+	completion_reward = {
+		MAN = {
+			country_event = { id = russia.22 hours = 3 }
+		}
+		ANH = {
+			country_event = { id = russia.22 hours = 3 }
+		}
+		MON = {
+			country_event = { id = russia.22 hours = 3 }
 		}
 	}
 }
@@ -2218,7 +2303,7 @@ shared_focus = {
 	relative_position_id = SOV_worlds_oil_titan
 	x = 2
 	y = 1
-	cost = 3
+	cost = 5
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -2354,12 +2439,15 @@ shared_focus = {
 	relative_position_id = SOV_worlds_oil_titan
 	x = 0
 	y = 1
-	cost = 3
+	cost = 5
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
 	ai_will_do = {
 		factor = 1000
+	}
+	available = {
+		has_war_with = AUS
 	}
 	completion_reward = {
 		AUS = {
@@ -2377,7 +2465,7 @@ shared_focus = {
 	relative_position_id = SOV_connecting_eastern_europe
 	x = 0
 	y = 2
-	cost = 5
+	cost = 6
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
@@ -2391,6 +2479,7 @@ shared_focus = {
 		ROM = {
 			country_event = { id = russia.22 }
 		}
+		set_global_flag = ROM_cancel_iron_guard_coup
 	}
 }
 
@@ -2401,7 +2490,7 @@ shared_focus = {
 	relative_position_id = SOV_connecting_eastern_europe
 	x = -1
 	y = 1
-	cost = 3
+	cost = 5
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
@@ -2636,12 +2725,7 @@ shared_focus = {
 		factor = 1000
 	}
 	completion_reward = {
-		MAN = {
-			country_event = { id = russia.22 hours = 3 }
-		}
-		ANH = {
-			country_event = { id = russia.22 hours = 3 }
-		}
+		
 		create_wargoal = {
 			type = puppet_wargoal_focus
 			target = CHI
