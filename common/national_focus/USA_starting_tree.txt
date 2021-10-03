@@ -4,7 +4,7 @@ focus_tree = {
         tag = USA
         add = 12
     }}
-	continuous_focus_position = {
+	continuous_focus_position = { 
 		x = 0
 		y = 4000
 	}
@@ -31,12 +31,33 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_the_situation_in_liberia
-		icon = GFX_goal_USA_the_situation_in_liberia
+		id = USA_teddys_legacy
+		icon = GFX_goal_USA_teddys_legacy
 		prerequisite = { focus = USA_the_end_of_the_first_four }
-		x = -3
+		x = 0
 		y = 1
 		relative_position_id = USA_the_end_of_the_first_four
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			country_event = USA_starting_events.9
+		}
+	}
+	focus = {
+		id = USA_the_situation_in_liberia
+		icon = GFX_goal_USA_the_situation_in_liberia
+		prerequisite = { focus = USA_teddys_legacy }
+		x = -3
+		y = 1
+		relative_position_id = USA_teddys_legacy
 		cost = 3
 		ai_will_do = {
 			factor = 1
@@ -158,7 +179,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_defender_of_liberty
-		icon = GFX_goal_USA_defender_of_liberty
+		icon = GFX_goal_Generic_Blue_Democracy
 		prerequisite = { focus = USA_governor_general_patton focus = USA_governor_general_roosevelt focus = USA_governor_general_truman }
 		x = -2
 		y = 1
@@ -180,10 +201,10 @@ focus_tree = {
 	focus = {
 		id = USA_operation_bolivar
 		icon = GFX_goal_USA_operation_bolivar
-		prerequisite = { focus = USA_the_end_of_the_first_four }
+		prerequisite = { focus = USA_teddys_legacy }
 		x = 3
 		y = 1
-		relative_position_id = USA_the_end_of_the_first_four
+		relative_position_id = USA_teddys_legacy
 		cost = 4
 		ai_will_do = {
 			factor = 1
