@@ -648,9 +648,9 @@ country_event = {
 		name = USA_democratic_national_convention.12.a
 		
 		hidden_effect = {
-		news_event = {
+		country_event = {
 			id = USA_democratic_national_convention.13
-			days = 1
+			days = 25
 		}	
 		country_event = {
 			id = USA_democratic_national_convention.14
@@ -660,16 +660,26 @@ country_event = {
 	}
 }
 ##long leavs the democratic parrty
-news_event = {
+country_event = {
 	id = USA_democratic_national_convention.13
 	title = USA_democratic_national_convention.13.t
 	desc = USA_democratic_national_convention.13.d
 	picture = GFX_alsmithinaugaration
 	is_triggered_only = yes
-	major = yes
+	fire_only_once = yes
 	option = {
 		name = USA_democratic_national_convention.13.a
+		trigger = {
+			has_country_flag = USA_fdr_wins_dnc
+		}
 	}
+	option = {
+		name = USA_democratic_national_convention.13.b
+		trigger = {
+			has_country_flag = USA_smith_wins_dnc
+		}
+	}
+	
 }
 ##the smoke filled room
 country_event = {
@@ -720,11 +730,13 @@ country_event = {
 		name = USA_democratic_national_convention.16.a
 		news_event = USA_democratic_national_convention.17
 		set_country_flag = USA_dnc_has_ended
+		set_country_flag = USA_fdr_wins_dnc
 	}
 	option = {
 		name = USA_democratic_national_convention.16.b
 		news_event = USA_democratic_national_convention.18
 		set_country_flag = USA_dnc_has_ended
+		set_country_flag = USA_smith_wins_dnc
 	}
 }
 ##FDR wins the nomination
@@ -1103,18 +1115,18 @@ news_event = {
 }
 
 
-add_namespace = USA_borah_victory
+add_namespace = USA_warren_victory
 
 ##borah inaugartion
 news_event = {
-	id = USA_borah_victory.1
-	title = USA_borah_victory.1.t
-	desc = USA_borah_victory.1.d
+	id = USA_warren_victory.1
+	title = USA_warren_victory.1.t
+	desc = USA_warren_victory.1.d
 	picture = GFX_williamborahinaugaration
 	major = yes
 	is_triggered_only = yes
 	option = {
-		name = USA_borah_victory.1.a
+		name = USA_warren_victory.1.a
 		set_country_flag = USA_1936_elections_over
 	}
 }
