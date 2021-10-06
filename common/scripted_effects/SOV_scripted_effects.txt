@@ -149,35 +149,35 @@ SOV_level_up_lenin_economic_reforms = {
 }
 
 
-# SOV_level_up_workers_idea = {
-# 	if = {
-# 		limit = {
-# 			NOT = {
-# 				has_idea = SOV_workers_idea
-# 			}
-# 		}
-# 		add_ideas = SOV_workers_idea
-# 	}
-#     if = {
-#         limit = {
-#             has_idea = SOV_workers_idea
-#         }
-#         swap_ideas = {
-# 				add_idea = SOV_workers_idea_2
-# 				remove_idea = SOV_workers_idea
-# 		}
-#     }
+SOV_level_up_workers_idea = { 
+	if = {
+		limit = {
+			NOT = {
+				has_idea = SOV_workers_idea
+			}
+		}
+		add_ideas = SOV_workers_idea
+	}
+    if = {
+        limit = {
+            has_idea = SOV_workers_idea
+        }
+        swap_ideas = {
+				add_idea = SOV_workers_idea_2
+				remove_idea = SOV_workers_idea
+		}
+    }
 
-#     if = {
-#         limit = {
-#             has_idea = SOV_workers_idea_2
-#         }
-#         swap_ideas = {
-# 				add_idea = SOV_workers_idea_3
-# 				remove_idea = SOV_workers_idea_2
-# 		}
-#     }
-# }
+    if = {
+        limit = {
+            has_idea = SOV_workers_idea_2
+        }
+        swap_ideas = {
+				add_idea = SOV_workers_idea_3
+				remove_idea = SOV_workers_idea_2
+		}
+    }
+}
 
 SOV_calculate_tsar_popularity_effect = {
 	set_variable = {
@@ -200,6 +200,7 @@ SOV_calculate_tsar_popularity_effect = {
 ##Civil War release stiff
 SOV_release_YAK = {
 	hidden_effect = {
+		
 		YAK = {
 			add_state_core = 644
 			add_state_core = 562
@@ -216,6 +217,7 @@ SOV_release_YAK = {
 		
 		YAK = {
 			set_country_flag = is_russian_collapse_nation
+			set_country_flag = is_core_russian_collapse_nation
 			set_country_flag = general_state_russian_collapse
 			load_oob = SOV_civil_war
 			every_owned_state = {
@@ -246,6 +248,7 @@ SOV_release_ZMU = {
 			}
 			ZMU = {
 				set_country_flag = is_russian_collapse_nation
+				set_country_flag = is_core_russian_collapse_nation
 				set_country_flag = general_state_russian_collapse
 				load_oob = SOV_civil_war
 				every_owned_state = {
@@ -291,6 +294,7 @@ SOV_release_KRK = {
 			}
 			KRK = {
 				set_country_flag = is_russian_collapse_nation
+				set_country_flag = is_core_russian_collapse_nation
 				set_country_flag = general_state_russian_collapse
 				load_oob = SOV_civil_war
 				every_owned_state = {
@@ -330,6 +334,7 @@ SOV_release_SRG = {
 			}
 			SRG = {
 				set_country_flag = is_russian_collapse_nation
+				set_country_flag = is_core_russian_collapse_nation
 				set_country_flag = general_state_russian_collapse
 				load_oob = SOV_civil_war
 				every_owned_state = {
@@ -368,6 +373,7 @@ SOV_release_PRM = {
 			}
 			PRM = {
 				set_country_flag = is_russian_collapse_nation
+				set_country_flag = is_core_russian_collapse_nation
 				set_country_flag = general_state_russian_collapse
 				load_oob = SOV_civil_war
 				every_owned_state = {
@@ -398,6 +404,7 @@ SOV_release_CHE = {
 			}
 			CHE = {
 				set_country_flag = is_russian_collapse_nation
+				set_country_flag = is_core_russian_collapse_nation
 				set_country_flag = revolutionary_state_russian_collapse
 				load_oob = SOV_civil_war
 				every_owned_state = {
@@ -426,6 +433,7 @@ SOV_release_GRN = {
 			}
 			GRN = {
 				set_country_flag = is_russian_collapse_nation
+				set_country_flag = is_core_russian_collapse_nation
 				set_country_flag = revolutionary_state_russian_collapse
 				load_oob = SOV_civil_war
 				every_owned_state = {
@@ -474,6 +482,7 @@ SOV_release_KLV = {
 			}
 			KLV = {
 				load_oob = KLV_1936
+				
 			}
 		
 	}
@@ -569,6 +578,38 @@ SOV_release_central_asia = {
 	}
 }
 
+SOV_release_just_central_asia = {
+	hidden_effect = {
+		
+		KAZ = {
+			remove_state_core = 583
+			remove_state_core = 590
+			remove_state_core = 588
+			remove_state_core = 587
+		#	remove_state_core = 402
+			#remove_state_core = 583
+			remove_state_core = 582
+			remove_state_core = 407
+			remove_state_core = 406
+		}
+		TMS = {
+			add_state_core = 587
+			add_state_core = 585
+			add_state_core = 405
+		}
+		TAJ = {
+			add_state_core = 586
+			add_state_core = 732
+			add_state_core = 742
+		}
+		release = KAZ
+		release = TMS
+		release = TAJ
+	
+		
+	}
+}
+
 SOV_release_NYK = {
 	hidden_effect = {
 		NYK = {
@@ -586,6 +627,8 @@ SOV_release_NYK = {
 			}
 			NYK = {
 				set_country_flag = is_russian_collapse_nation
+				set_country_flag = is_core_russian_collapse_nation
+
 				set_country_flag = revolutionary_state_russian_collapse
 				load_oob = SOV_civil_war
 				every_owned_state = {
@@ -627,9 +670,7 @@ SOV_release_djbouti = {
 
 SOV_release_UGL = {
 	hidden_effect = {
-		SOV = {
-			release = FOB	
-		}
+		
 		FOB = {
 			set_cosmetic_tag = independent_baltic_states
 			add_popularity = { ideology = authoritarian_democratic popularity = 0.5 }
@@ -678,7 +719,6 @@ SOV_release_UGL = {
 		
 		}
 		release =  UGL 
-		puppet = FOB
 			teleport_armies = {
 				limit = { tag = SOV }
 				to_state_array = owned_controlled_states
@@ -686,6 +726,14 @@ SOV_release_UGL = {
 			UGL = {
 				set_country_flag = is_russian_collapse_nation
 				load_oob = SOV_civil_war
+				every_owned_state = {
+					log = "[THIS.GetName]"
+					create_unit = {
+						division = "name = \"Russian Civil War Division\" division_template = \"Generic Civil War Unit\" start_experience_factor = 0.5 start_equipment_factor = 1"
+	
+						owner = PREV
+					}
+				}
 				every_owned_state = {
 					log = "[THIS.GetName]"
 					create_unit = {
@@ -785,9 +833,7 @@ SOV_release_eastern_europe = {
 			add_state_core = 137
 			add_state_core = 196
 			add_state_core = 200
-			add_state_core = 227
-			add_state_core = 228
-			add_state_core = 218
+			
 			
 		}
 		ROM = {
@@ -804,9 +850,6 @@ SOV_release_eastern_europe = {
 			transfer_state = 137
 			transfer_state = 196
 			transfer_state = 200
-			transfer_state = 227
-			transfer_state = 228
-			transfer_state = 218
 		}
 		release = POL
 		release = BLR
@@ -1267,21 +1310,119 @@ SOV_tsar_level_up_duma_small_decision = {
 	}
 }
 
+
+
 SOV_elections_completion_effect = {
 	if = {
 		limit = {
 			kerensky_wins_elections = yes
 		}
 		load_focus_tree = SOV_kerensky_presidency_path
+		add_popularity = {
+			ideology = socialism_democratic
+			popularity = 0.1
+		}
+		hidden_effect = {
+            if = {
+                limit = {
+					is_ai = yes
+                    has_country_flag = SOV_chose_lenin
+                }
+				load_focus_tree = SOV_lenin_presidency_path
+				remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
+				add_popularity = {
+					ideology = socialism_democratic
+					popularity = -0.1
+				}
+				set_politics = {
+					ruling_party = communism
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.15
+				}
+            }
+			if = {
+                limit = {
+					is_ai = yes
+                    has_country_flag = SOV_sided_with_pavel_campaign
+                }
+				load_focus_tree = SOV_pavel_milyukov_presidency_tree
+				remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
+				add_popularity = {
+					ideology = socialism_democratic
+					popularity = -0.1
+				}
+				set_politics = {
+					ruling_party = democratic_liberalism
+				}
+				add_popularity = {
+					ideology = democratic_liberalism
+					popularity = 0.15
+				}
+            }
+			if = {
+                limit = {
+					is_ai = yes
+                    has_country_flag = SOV_sided_with_belogurov_campaign
+                }
+				load_focus_tree = SOV_the_return_of_the_tsar_tree
+				remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
+				add_popularity = {
+					ideology = socialism_democratic
+					popularity = -0.1
+				}
+				set_politics = {
+					ruling_party = democratic
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.1
+				}
+            }
+        }
 	}
 	if = {
 		limit = {
 			pavel_wins_elections = yes
 		}
 		load_focus_tree = SOV_pavel_milyukov_presidency_tree
+		remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
 
 		set_politics = {
 			ruling_party = democratic_liberalism
+		}
+		add_popularity = {
+			ideology = democratic_liberalism
+			popularity = 0.15
 		}
 	}
 	if = {
@@ -1289,8 +1430,20 @@ SOV_elections_completion_effect = {
 			lenin_wins_elections = yes
 		}
 		load_focus_tree = SOV_lenin_presidency_path
+		remove_ideas = {
+			mikhail_bernatsky
+			aleksandr_konovalov
+			aleksandr_konovalov_two
+			mikhail_tereshchenko
+			sergey_salazkin
+			aleksey_nikitin
+		}
 		set_politics = {
-			ruling_party = democratic_communism
+			ruling_party = communism
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.15
 		}
 	}
 	if = {
@@ -1298,8 +1451,20 @@ SOV_elections_completion_effect = {
 			tsar_wins_elections = yes
 		}
 		load_focus_tree = SOV_the_return_of_the_tsar_tree
+		remove_ideas = {
+					mikhail_bernatsky
+					aleksandr_konovalov
+					aleksandr_konovalov_two
+					mikhail_tereshchenko
+					sergey_salazkin
+					aleksey_nikitin
+				}
 		set_politics = {
 			ruling_party = democratic
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
 		}
 	}
 }
@@ -1321,7 +1486,7 @@ d_reduce_russian_civil_election_mission_by_all = {
 }
 SOV_should_russia_collapse_lenin = {
 	random_list = { 
-		10 = {
+		0 = {
 			set_country_flag = SOV_collapse_russia_lenin
 		}
 		40 = {
@@ -1602,5 +1767,58 @@ SOV_check_if_person_is_found_in_southern_russia = {
 		country_event = SOV_pavel_okhrana_operation_events.3
 	}
 }
+
+
+SOV_calculate_political_support_modifier = {
+	set_temp_variable = {
+		SOV_peoples_support_for_current_regime_minus50 = SOV_peoples_support_for_current_regime
+	}
+	subtract_from_temp_variable = {
+		SOV_peoples_support_for_current_regime_minus50 = 50
+	}
+	set_variable = { SOV_peoples_support_for_current_regime_stability_factor = SOV_peoples_support_for_current_regime_minus50 }
+	divide_variable = { SOV_peoples_support_for_current_regime_stability_factor = 200 }
+	set_variable = { SOV_peoples_support_for_current_regime_political_power_gain = SOV_peoples_support_for_current_regime_minus50 }
+	divide_variable = { SOV_peoples_support_for_current_regime_political_power_gain = 100 }
+	set_variable = { SOV_peoples_support_for_current_regime_drift_defence_factor = SOV_peoples_support_for_current_regime_minus50 }
+	divide_variable = { SOV_peoples_support_for_current_regime_drift_defence_factor = 50 }
+
+
+	set_variable = { SOV_peoples_support_for_current_regime_stability_factor_loc = SOV_peoples_support_for_current_regime_stability_factor }
+	multiply_variable = { SOV_peoples_support_for_current_regime_stability_factor_loc = 100 }
+	set_variable = { SOV_peoples_support_for_current_regime_political_power_gain_loc = SOV_peoples_support_for_current_regime_political_power_gain }
+	multiply_variable = { SOV_peoples_support_for_current_regime_political_power_gain_loc = 100 }
+	set_variable = { SOV_peoples_support_for_current_regime_drift_defence_factor_loc = SOV_peoples_support_for_current_regime_drift_defence_factor }
+	multiply_variable = { SOV_peoples_support_for_current_regime_drift_defence_factor_loc = 100 }
+}
+
+ 
+SOV_increase_support_among_people_small = {
+	add_to_variable = {
+		tooltip = SOV_increase_support_among_people_small_tt
+		SOV_peoples_support_for_current_regime = 2
+	}
+	SOV_calculate_political_support_modifier = yes
+
+}
+
+SOV_increase_support_among_people_medium = {
+	add_to_variable = {
+		tooltip = SOV_increase_support_among_people_medium_tt
+		SOV_peoples_support_for_current_regime = 4
+	}
+	SOV_calculate_political_support_modifier = yes
+
+}
+
+SOV_increase_support_among_people_large = {
+	add_to_variable = {
+		tooltip = SOV_increase_support_among_people_large_tt
+		SOV_peoples_support_for_current_regime = 6
+	}
+	SOV_calculate_political_support_modifier = yes
+
+}
+
 
 

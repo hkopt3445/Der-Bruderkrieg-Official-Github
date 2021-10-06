@@ -25,17 +25,10 @@ GER_german_sphere = {
 	scripted_gui = DBK_german_sphere_scripted_gui
 	visible_when_empty = yes
 	allowed = {
-	OR = {
-    tag = GER
-	AND = {
-		tag = AUS
-		has_completed_focus = AUS_war_of_ideology
+		tag = GER
 	}
-	AND = {
-		tag = FRA
-		has_completed_focus = FRA_the_french_imperium
-	}
-	}
+	visible = {
+		always = no
 	}
 }
 
@@ -90,7 +83,7 @@ GER_operations =  {
 GER_french_resistance =  {
 	icon = army_reform
 	visible = {
-		has_completed_focus = GER_la_resistance
+		has_completed_focus = GER_age_of_the_eagle
 	}
 	visible_when_empty = yes
 	allowed = {
@@ -101,7 +94,7 @@ GER_french_resistance =  {
 GER_austrian_resistance =  {
 	icon = army_reform
 	visible = {
-		has_completed_focus = GER_an_inherited_problem
+		has_completed_focus = GER_age_of_the_eagle
 	}
 	visible_when_empty = yes
 	allowed = {
@@ -120,6 +113,8 @@ GER_goering_succession = {
 	}
 }
 GER_anti_spartakus_category = {
+	picture = GFX_decision_cat_GER_anti_spartakus
+	icon = generic_communism
 	allowed = {
 		tag = GER
 	}
@@ -128,6 +123,20 @@ GER_anti_spartakus_category = {
 		NOT = { has_country_flag = GER_spartakus_crushed }
 		has_completed_focus = GER_consolidating_power
 	}
+	priority = 100
+}
+GER_spartakus_hotspots = {
+	picture = GFX_decision_cat_GER_anti_spartakus
+	icon = generic_communism
+	allowed = {
+		tag = GER
+	}
+	visible = {
+		#whatever thing it is for the coup
+		NOT = { has_country_flag = GER_spartakus_crushed }
+		has_completed_focus = GER_consolidating_power
+	}
+	priority = 100
 }
 GER_nordicist_decisions = {
 	picture = GFX_decision_cat_nordic_god_worship
@@ -136,5 +145,33 @@ GER_nordicist_decisions = {
 	}
 	visible = {
 		has_completed_focus = GER_nordicist_teaching
+	}
+}
+
+GER_industrial_expansion = {
+	allowed = {
+		tag = GER
+	}
+	visible = {
+		has_completed_focus = GER_goerings_industrial_plan
+	}
+}
+
+GER_caucusus_offensive = {
+	allowed = {
+		tag = GER
+	}
+	visible = {
+		#has_completed_focus = GER_securing_the_south
+		always = no
+	}
+}
+GER_moskowien_offensive = {
+	allowed = {
+		tag = GER
+	}
+	visible = {
+		#has_completed_focus = GER_moskowien_awaits
+		always = no
 	}
 }

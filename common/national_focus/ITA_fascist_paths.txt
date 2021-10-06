@@ -2,7 +2,7 @@
 
 
 focus_tree = {
-	id = ITA_mussolini_tree
+	id = ITA_fascist_tree
 
 	country = {
 		factor = 0
@@ -14,6 +14,7 @@ focus_tree = {
 	} 
 
 	default = no
+	shared_focus = ITA_evolas_regime
 	shared_focus = ITA_we_keep_moving
 	shared_focus = ITA_begin_the_recovery_process
 	shared_focus = ITA_LOOK_AT_ARMY
@@ -27,7 +28,7 @@ focus_tree = {
 shared_focus = {
 	id = ITA_we_keep_moving
 	icon = unkown 
-	x = 5
+	x = -8
 	y = 0
 	cost = 12
 	available_if_capitulated = yes
@@ -392,37 +393,12 @@ shared_focus = {
 
 
 
-
-focus_tree = {
-	id = ITA_evola_tree
-
-	country = {
-		factor = 0
-
-		modifier = {
-			add = 11
-			tag = ITA
-		}
-	} 
-
-	default = no
-	shared_focus = ITA_evolas_regime
-	shared_focus =ITA_evolaism
-	shared_focus = ITA_begin_the_recovery_process
-	shared_focus = ITA_LOOK_AT_ARMY
-	shared_focus = ITA_MAFIA_FOCUS
-	shared_focus = ITA_ITALIAN_FLEET
-	shared_focus = ITA_BUILD_AIR
-	continuous_focus_position = { x = 5000 y = 2000 }
-
-}
-
 shared_focus = {
-	id = ITA_evolas_regime
+	id = ITA_evolas_regime 
 	icon = GFX_goal_ITA_evolas_regime 
 	x = 5
 	y = 0
-	cost = 5
+	cost = 1
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 1
@@ -436,7 +412,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_strengthen_the_regime 
 	x = 0
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_evolas_regime }
 	relative_position_id = ITA_evolas_regime
@@ -452,7 +428,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_the_three_ideals 
 	x = -3
 	y = 1
-	cost = 5
+	cost = 3.5
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_strengthen_the_regime }
 	relative_position_id = ITA_strengthen_the_regime
@@ -468,16 +444,16 @@ shared_focus = {
 	icon = GFX_goal_ITA_populism 
 	x = -2
 	y = 1
-	cost = 2.5
+	cost = 1.5
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_adopt_the_three_ideals }
 	relative_position_id = ITA_adopt_the_three_ideals
-	# mutually_exclusive = {
-	# 	focus = ITA_nationalism
-	# }
-	# mutually_exclusive = {
-	# 	focus = ITA_spiratualism
-	# }
+	mutually_exclusive = {
+		focus = ITA_nationalism
+	}
+	mutually_exclusive = {
+		focus = ITA_spiratualism
+	}
 	ai_will_do = {
 		factor = 1
 	}
@@ -494,19 +470,19 @@ shared_focus = {
 	icon = GFX_ITA_nationalism 
 	x = 0
 	y = 1
-	cost = 2.5
+	cost = 1.5
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_adopt_the_three_ideals }
 	relative_position_id = ITA_adopt_the_three_ideals
 	ai_will_do = {
 		factor = 1
 	}
-	# mutually_exclusive = {
-	# 	focus = ITA_populism
-	# }
-	# mutually_exclusive = {
-	# 	focus = ITA_spiratualism
-	# }
+	mutually_exclusive = {
+		focus = ITA_populism
+	}
+	mutually_exclusive = {
+		focus = ITA_spiratualism
+	}
 	completion_reward = {
 		swap_ideas = {
 			remove_idea = ITA_three_ideals
@@ -521,19 +497,19 @@ shared_focus = {
 	icon = GFX_goal_ITA_spiritualism 
 	x = 2
 	y = 1
-	cost = 2.5
+	cost = 1.5
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_adopt_the_three_ideals }
 	relative_position_id = ITA_adopt_the_three_ideals
 	ai_will_do = {
 		factor = 1
 	}
-	# mutually_exclusive = {
-	# 	focus = ITA_nationalism
-	# }
-	# mutually_exclusive = {
-	# 	focus = ITA_populism
-	# }
+	mutually_exclusive = {
+		focus = ITA_nationalism
+	}
+	mutually_exclusive = {
+		focus = ITA_populism
+	}
 	completion_reward = {
 		swap_ideas = {
 			remove_idea = ITA_three_ideals
@@ -548,7 +524,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_brotherhood_of_chivelry 
 	x = 0
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_populism focus = ITA_nationalism focus = ITA_spiratualism }
 	relative_position_id = ITA_nationalism
@@ -556,7 +532,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		custom_effect_tooltip = ITA_the_brotherhood_of_chivelry_tt
 	}
 }
 shared_focus = {
@@ -580,7 +556,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_religious_intolerance 
 	x = 1
 	y = 1
-	cost = 6
+	cost = 3
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_spiritual_racism }
 	relative_position_id = ITA_spiritual_racism
@@ -588,7 +564,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		custom_effect_tooltip = ITA_religious_intolerance_tt
 	}
 }
 
@@ -597,7 +573,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_national_mysticism 
 	x = 2
 	y = 1
-	cost = 4
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = {  focus = ITA_spiratualism }
 	relative_position_id = ITA_nationalism
@@ -605,7 +581,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-			add_ideas = ITA_uri_group
+		add_ideas = ITA_uri_group
 	}
 }
 shared_focus = {
@@ -613,7 +589,7 @@ shared_focus = {
 	icon = GFX_goal_FRA_autocracy 
 	x = -1
 	y = 1
-	cost = 4
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_national_mystacism focus = ITA_the_brotherhood_of_chivelry }
 	relative_position_id = ITA_national_mystacism
@@ -629,7 +605,7 @@ shared_focus = {
 	icon = GFX_goal_landlordism 
 	x = -1
 	y = 1
-	cost = 4
+	cost = 3
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_order_of_purity }
 	prerequisite = {
@@ -654,7 +630,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_the_supremacy_of_tradition 
 	x = 0
 	y = 1
-	cost = 5
+	cost = 3
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_true_feudalism }
 	
@@ -676,7 +652,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_continuing_the_reforms 
 	x = 3
 	y = 1
-	cost = 5
+	cost = 1
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_strengthen_the_regime }
 	relative_position_id = ITA_strengthen_the_regime
@@ -692,7 +668,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_appoint_badoglio 
 	x = -1
 	y = 1
-	cost = 5
+	cost = 0
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_appointing_a_successor }
 	mutually_exclusive = {
@@ -703,10 +679,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		set_country_flag = ITA_appointed_badoglio_to_quad_seat
-		custom_effect_tooltip = ITA_piedro_badolgio_tt
-		
-		set_country_flag = { flag = ITA_increase_royalist_influence_monthly_by_5 value = 240 }
+
 	}
 }
 shared_focus = {
@@ -714,7 +687,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_assert_the_kings_authority 
 	x = -1
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_piedro_badoglio }
 	relative_position_id = ITA_piedro_badoglio
@@ -722,7 +695,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		country_event = ITA_evola_tree.3
+		country_event = ITA_evola_tree.2
 	}
 }
 shared_focus = {
@@ -730,7 +703,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_for_the_king_for_the_country 
 	x = 1
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_assert_the_kings_authority }
 	relative_position_id = ITA_assert_the_kings_authority
@@ -746,7 +719,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_appoint_pavolini 
 	x = 1
 	y = 1
-	cost = 5
+	cost = 0
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_appointing_a_successor }
 	relative_position_id = ITA_appointing_a_successor
@@ -765,7 +738,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_strengthening_mvsn_control 
 	x = 1
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_alessandro_pavolini }
 	relative_position_id = ITA_alessandro_pavolini
@@ -773,7 +746,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		country_event = ITA_evola_tree.4
+		country_event = ITA_evola_tree.3
 	}
 }
 shared_focus = {
@@ -781,7 +754,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_hierarchy_of_loyalty 
 	x = -1
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_strengthening_mvsn_control }
 	relative_position_id = ITA_strengthening_mvsn_control
@@ -798,7 +771,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_silencing_the_loyalists 
 	x = 1
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_piedro_badoglio focus = ITA_alessandro_pavolini }
 	relative_position_id = ITA_piedro_badoglio
@@ -810,10 +783,8 @@ shared_focus = {
 			ideology = fascism
 			popularity = -0.08
 		}
-		custom_effect_tooltip = ITA_silencing_the_loyalists_tt
-		add_to_variable = {
-			ITA_MVSN_radar_0 = -0.2
-		}
+		ITA_decrease_party_stability_medium = yes
+	
 		# ITA_NFP_convert_axes_values_to_frames = yes
 		# ITA_NFP_radar_graph_set_up = yes
 	}
@@ -824,7 +795,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_demand_debono_resign 
 	x = 0
 	y = 2
-	cost = 5
+	cost = 1.5
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_for_the_king_for_italia focus = ITA_promoting_militarism }
 	prerequisite = {
@@ -836,6 +807,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		set_country_flag = ITA_remove_de_bono_from_gui
+		ITA_decrease_party_stability_large = yes
 	}
 }
 
@@ -844,7 +816,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_a_unified_party 
 	x = 0 
 	y = 1
-	cost = 5
+	cost = 3
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_demanding_de_bonos_resignation }
 	relative_position_id = ITA_demanding_de_bonos_resignation
@@ -852,6 +824,8 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
+		country_event = ITA_evola_tree.4
+		ITA_decrease_party_stability_large = yes
 		add_political_power = 100
 	}
 }
@@ -862,14 +836,17 @@ shared_focus = {
 	id = ITA_evolaism
 	icon = GFX_goal_ITA_evolaism 
 	x = 16
-	y = 0
-	cost = 5
+	y = 1
+	cost = 3.5
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 1
 	}
+	prerequisite = {
+		focus = ITA_evolas_regime
+	}
 	completion_reward = {
-		
+		add_war_support = 0.1
 	}
 }
 shared_focus = {
@@ -877,12 +854,16 @@ shared_focus = {
 	icon = GFX_goal_ITA_establish_a_neo_feudalist_society 
 	x = -2
 	y = 1
-	cost = 5
+	cost = 4
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_evolaism }
 	relative_position_id = ITA_evolaism
 	ai_will_do = {
 		factor = 1
+	}
+	available = {
+		has_completed_focus = ITA_the_supremacy_of_tradition
+
 	}
 	completion_reward = {
 		unlock_decision_category_tooltip = ITA_evola_neo_feudalist_reforms
@@ -913,7 +894,10 @@ shared_focus = {
 		random_owned_controlled_state = {
 			add_extra_state_shared_building_slots = 1
 		}
-		
+		swap_ideas = {
+			add_idea = ITA_mass_economic_instability_2
+			remove_idea = ITA_mass_economic_instability
+		}
 	}
 }
 shared_focus = {
@@ -921,7 +905,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_pavels_army_reforms 
 	x = -1
 	y = 1
-	cost = 5
+	cost = 1
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_our_restored_economy }
 	mutually_exclusive = {
@@ -940,7 +924,7 @@ shared_focus = {
 	icon = GFX_goal_AUS_the_final_language_decree 
 	x = 1
 	y = 1
-	cost = 5
+	cost = 1
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_our_restored_economy }
 	mutually_exclusive = {
@@ -961,7 +945,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_the_first_of_the_camps 
 	x = -1
 	y = 2
-	cost = 5
+	cost = 4
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_take_some_measures focus = ITA_fullfill_the_legacy_of_our_ancestors }
 	prerequisite = {focus = ITA_aryan_work_culture }
@@ -970,8 +954,8 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
-	}
+		custom_effect_tooltip = ITA_the_first_of_the_camps_tt
+	} 
 }
 shared_focus = {
 	id = ITA_our_romano_germanic_identity
@@ -994,7 +978,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_aryan_work_culture 
 	x = 0
 	y = 2
-	cost = 5
+	cost = 6
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_our_romano_germanic_identity }
 	relative_position_id = ITA_our_romano_germanic_identity
@@ -1002,7 +986,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		add_ideas = ITA_aryan_work_culture_idea
+		remove_ideas = ITA_mass_economic_instability_2
 	}
 }
 shared_focus = {
@@ -1010,7 +994,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_invite_german_settlers 
 	x = 1
 	y = 1
-	cost = 2.5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_our_romano_germanic_identity }
 	relative_position_id = ITA_our_romano_germanic_identity
@@ -1050,7 +1034,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		add_ideas = ITA_roman_military_ethos
 	}
 }
 shared_focus = {
@@ -1058,7 +1042,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_mobilize_the_cossacks 
 	x = 0
 	y = 1
-	cost = 5
+	cost = 3
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_our_military_ethos }
 	relative_position_id = ITA_our_military_ethos
@@ -1082,7 +1066,7 @@ shared_focus = {
 		instant_build = yes
 
 	}
-	add_extra_state_shared_building_slots = 1
+	add_extra_state_shared_building_slots = 1 
 }
 	}
 }
@@ -1092,7 +1076,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_recruit_heinrich_himmler 
 	x = -1
 	y = 2
-	cost = 5
+	cost = 1.5
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_our_military_ethos }
 	prerequisite = { 
@@ -1122,7 +1106,7 @@ shared_focus = {
 	icon = GFX_goal_ITA_the_greatest_threat 
 	x = 2
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_our_military_ethos }
 	
@@ -1136,15 +1120,70 @@ shared_focus = {
 	}
 }
 shared_focus = {
-	id = ITA_break_the_mountain_line
-	icon = GFX_goal_SOV_hierarchy_of_skill 
-	x = -1
+	id = ITA_fund_legionaires_in_romania
+	icon = GFX_goal_ITA_a_route_through_romania 
+	x = 0
 	y = 1
-	cost = 5
+	cost = 4
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_the_greatest_threat }
 	
 	relative_position_id = ITA_the_greatest_threat
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		unlock_decision_category_tooltip = ITA_iron_guard
+	}
+}
+shared_focus = {
+	id = ITA_continue_the_brothers_coalition
+	icon = unkown 
+	x = -1
+	y = 1
+	cost = 1.5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_fund_legionaires_in_romania }
+	mutually_exclusive = {
+		focus = ITA_form_the_legionaries_pact
+	}
+	relative_position_id = ITA_fund_legionaires_in_romania
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		country_event = ITA_evola_tree.9
+	}
+}
+shared_focus = {
+	id = ITA_form_the_legionaries_pact
+	icon = GFX_goal_ITA_a_useful_ally 
+	x = 1
+	y = 1
+	cost = 1.5
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_fund_legionaires_in_romania }
+	mutually_exclusive = {
+		focus = ITA_continue_the_brothers_coalition
+	}
+	relative_position_id = ITA_fund_legionaires_in_romania
+	ai_will_do = {
+		factor = 0
+	}
+	completion_reward = {
+		country_event = ITA_evola_tree.12
+	}
+}
+shared_focus = {
+	id = ITA_break_the_mountain_line
+	icon = GFX_goal_SOV_hierarchy_of_skill 
+	x = 3
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	prerequisite = { focus = ITA_continue_the_brothers_coalition focus = ITA_form_the_legionaries_pact }
+	
+	relative_position_id = ITA_continue_the_brothers_coalition
 	ai_will_do = {
 		factor = 1
 	}
@@ -1157,17 +1196,14 @@ shared_focus = {
 	icon = GFX_goal_ITA_the_balkan_opportunity 
 	x = -1
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_break_the_mountain_line }
-	prerequisite = {
-		focus = ITA_recruit_heinrich_himmler
-	}
+	prerequisite = { focus = ITA_continue_the_brothers_coalition 		focus = ITA_form_the_legionaries_pact }
 	
-	relative_position_id = ITA_break_the_mountain_line
+	relative_position_id = ITA_continue_the_brothers_coalition
 	ai_will_do = {
 		factor = 1
-	}
+	} 
 	available = {
 		is_in_faction_with = ROM
 	}
@@ -1181,16 +1217,17 @@ shared_focus = {
 shared_focus = {
 	id = ITA_slavic_work_camps
 	icon = GFX_goal_ITA_slavic_work_camps 
-	x = -2
+	x = 0
 	y = 1
-	cost = 5
+	cost = 1.5
 	available_if_capitulated = yes
 	prerequisite = { focus = ITA_secure_slavic_territory }
-	prerequisite = {
-		focus = ITA_the_first_of_the_camps
-	}
+
 	
 	relative_position_id = ITA_secure_slavic_territory
+	available = {
+		has_completed_focus = ITA_the_first_of_the_camps
+	}
 	ai_will_do = {
 		factor = 1
 	}
@@ -1203,69 +1240,113 @@ shared_focus = {
 	icon = GFX_goal_ITA_control_of_the_adriatic 
 	x = 1
 	y = 1
-	cost = 5
+	cost = 2
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_secure_slavic_territory }
-	prerequisite = {
-		focus = ITA_the_first_of_the_camps
-	}
+	prerequisite = { focus = ITA_continue_the_brothers_coalition focus = ITA_form_the_legionaries_pact }
 	
-	relative_position_id = ITA_secure_slavic_territory
+	relative_position_id = ITA_continue_the_brothers_coalition
 	ai_will_do = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		country_event = italy.3
+	}
+}
+
+
+##POST VICTORY TREE
+shared_focus = {
+	id = ITA_a_peaceful_walk
+	icon = GFX_goal_ITA_a_peaceful_walk
+	x = 11
+	y = 7
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	available = {
+		always = no
+	}
+
+	completion_reward = {
+		country_event = ITA_evola_post_victory.1
 	}
 }
 shared_focus = {
-	id = ITA_fund_legionaires_in_romania
-	icon = GFX_goal_ITA_a_route_through_romania 
-	x = 2
+	id = ITA_going_backwards
+	icon = GFX_goal_ITA_going_backwards 
+	x = -2
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_the_greatest_threat }
-	
-	relative_position_id = ITA_the_greatest_threat
 	ai_will_do = {
 		factor = 1
 	}
+	prerequisite = {
+		focus = ITA_a_peaceful_walk
+	}
+	available = {
+		has_country_flag = ITA_going_backwards_unlocked
+	}
+	relative_position_id = ITA_a_peaceful_walk
+	mutually_exclusive = {
+		focus = ITA_going_forwards
+	}
 	completion_reward = {
-		unlock_decision_category_tooltip = ITA_iron_guard
+		country_event = ITA_evola_post_victory.2
 	}
 }
 shared_focus = {
-	id = ITA_romanian_work_camps
-	icon = GFX_goal_ITA_romanian_work_camps 
+	id = ITA_recruit_einstien
+	icon = GFX_goal_ITA_recruit_einstien 
 	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_fund_legionaires_in_romania }
-	mutually_exclusive = {
-		focus = ITA_leave_it_to_their_own_will
+	prerequisite = {
+		focus = ITA_going_backwards
 	}
-	relative_position_id = ITA_fund_legionaires_in_romania
+	relative_position_id = ITA_going_backwards
 	ai_will_do = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		country_event = ITA_evola_post_victory.3
 	}
 }
 shared_focus = {
-	id = ITA_leave_it_to_their_own_will
-	icon = GFX_goal_ITA_a_useful_ally 
+	id = ITA_final_plans
+	icon = GFX_goal_ITA_final_plans 
 	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
-	prerequisite = { focus = ITA_fund_legionaires_in_romania }
-	mutually_exclusive = {
-		focus = ITA_romanian_work_camps
+	prerequisite = {
+		focus = ITA_going_backwards
 	}
-	relative_position_id = ITA_fund_legionaires_in_romania
+	relative_position_id = ITA_going_backwards
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		country_event = ITA_evola_post_victory.4
+	}
+}
+shared_focus = {
+	id = ITA_to_the_past
+	icon = GFX_goal_ITA_to_the_past 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_final_plans
+	}
+	prerequisite = {
+		focus = ITA_recruit_einstien
+	}
+	relative_position_id = ITA_final_plans
 	ai_will_do = {
 		factor = 1
 	}
@@ -1273,3 +1354,116 @@ shared_focus = {
 		
 	}
 }
+
+
+shared_focus = {
+	id = ITA_going_forwards
+	icon = GFX_goal_ITA_going_forwards 
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1
+	}
+	mutually_exclusive = {
+		focus = ITA_going_backwards
+	}
+	available = {
+		has_country_flag = ITA_going_forwards_unlocked
+	}
+	prerequisite = {
+		focus = ITA_a_peaceful_walk
+	}
+	relative_position_id = ITA_a_peaceful_walk
+	completion_reward = {
+		country_event = ITA_evola_post_victory.5	
+	}
+}
+shared_focus = {
+	id = ITA_a_latin_speech
+	icon = GFX_goal_ITA_a_latin_speech 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_going_forwards
+	}
+	relative_position_id = ITA_going_forwards
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		country_event = ITA_evola_post_victory.6
+		
+	}
+}
+shared_focus = {
+	id = ITA_evolas_dream_of_europe
+	icon = GFX_goal_ITA_evolas_dream_of_europe 
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_going_forwards
+	}
+	relative_position_id = ITA_going_forwards
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		every_country = {
+			limit = {
+				OR = {
+					tag = ITA
+					is_puppet_of = ITA
+				}
+			}
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_political_power = 100
+		}
+	}
+}
+shared_focus = {
+	id = ITA_to_the_futuree
+	icon = GFX_goal_ITA_to_the_futuree 
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	prerequisite = {
+		focus = ITA_evolas_dream_of_europe
+	}
+	prerequisite = {
+		focus = ITA_a_latin_speech
+	}
+	relative_position_id = ITA_evolas_dream_of_europe
+	ai_will_do = {
+		factor = 1
+	}
+	completion_reward = {
+		create_wargoal = {
+			target = GER
+			type = topple_government
+		}	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

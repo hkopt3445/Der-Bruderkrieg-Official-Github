@@ -25,7 +25,8 @@ set_autonomy = {
 set_research_slots = 2
 
 add_ideas = {
-	POR_instability1
+	POR_french_dockyard_capital
+	POR_growing_corporatist_movement
 }
 
 set_technology = {
@@ -57,35 +58,18 @@ if = {
 		basic_ship_hull_light = 1
 		early_ship_hull_submarine = 1
 		basic_ship_hull_submarine = 1
+		early_ship_hull_heavy = 1
+		pre_dreadnoughts = 1
 		basic_battery = 1
+		basic_light_battery = 1
 		basic_torpedo = 1
 		basic_depth_charges = 1
+		basic_secondary_battery = 1
 		mtg_transport = 1
 	}
 }
 
-if = {
-	limit = { has_dlc = "La Resistance" }	
 
-	ENG = {
-		add_opinion_modifier = {
-			target = POR 
-			modifier  = POR_anglo_portuguese_alliance
-		}
-	}
-
-	POR = {
-		add_opinion_modifier = {
-			target = ENG 
-			modifier  = POR_anglo_portuguese_alliance
-		}
-	}
-	
-}
-
-
-
-		
 
 set_convoys = 50
 set_politics = {
@@ -178,23 +162,59 @@ set_war_support = 0.30
 	
 	
 	create_field_marshal = {
+		name = "Norton Matos"
+		gfx = ""
+		traits = { old_guard career_officer defensive_doctrine }
+		skill = 2
+		id = 19000
+		attack_skill = 2
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 2
+	}
+
+	create_corps_commander = {
 		name = "José Vicente de Freitas"
-		gfx = "GFX_portrait_por_jose_vicente_de_freitas"
-		traits = { old_guard politically_connected }
+		portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+		traits = { old_guard career_officer war_hero }
 		skill = 3
-	
+		id = 19001
 		attack_skill = 4
 		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 3
+	}
+
+	create_corps_commander = {
+		name = "José Augusto Alves Roçadas"
+		gfx = ""
+		traits = { inflexible_strategist trait_engineer }
+		skill = 3
+		id = 19002
+		attack_skill = 4
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 2
+	}
+
+	create_corps_commander = {
+		name = "António Oscar de Fragoso Carmona"
+		gfx = ""
+		traits = { old_guard politically_connected }
+		skill = 2
+		id = 19003
+		attack_skill = 1
+		defense_skill = 1
 		planning_skill = 2
 		logistics_skill = 3
 	}
 	
 	create_corps_commander = {
 		name = "Luís Augusto Ferreira Martins"
-		gfx = "GFX_portrait_por_luis_augusto_ferreira_martins"
+		gfx = ""
 		traits = { infantry_officer }
 		skill = 3
-	
+		id = 19004
 		attack_skill = 2
 		defense_skill = 4
 		planning_skill = 3
@@ -204,24 +224,97 @@ set_war_support = 0.30
 	create_corps_commander = {
 		name = "Raul Augusto Esteves"
 		portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
-		traits = { cavalry_officer }
+		traits = { cavalry_officer trait_engineer war_hero }
 		skill = 3
-	
+		id = 19005
 		attack_skill = 4
 		defense_skill = 2
 		planning_skill = 2
 		logistics_skill = 3
 	}
+
+	create_corps_commander = {
+		name = "António Vitorino da França Borges"
+		gfx = ""
+		traits = { career_officer politically_connected infantry_officer }
+		skill = 3
+		id = 19006
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 3
+		logistics_skill = 4
+	}
+
+	create_corps_commander = {
+		name = "João de Almeida"
+		gfx = ""
+		traits = { war_hero jungle_rat }
+		skill = 2
+		id = 19007
+		attack_skill = 3
+		defense_skill = 1
+		planning_skill = 2
+		logistics_skill = 1
+	}
+
+	create_corps_commander = {
+		name = "João Estêvão Águas"
+		gfx = ""
+		traits = { infantry_officer }
+		skill = 1
+		id = 19008
+		attack_skill = 1
+		defense_skill = 1
+		planning_skill = 1
+		logistics_skill = 1
+	}
 	
 	create_navy_leader = {
 		name = "José Mendes Cabeçadas"
-		gfx = "GFX_portrait_por_jose_mendes_cabecadas"
+		gfx = ""
 		traits = { gentlemanly old_guard_navy }
 		skill = 4
+		id = 19100
 		attack_skill = 3
 		defense_skill = 2
 		maneuvering_skill = 4
 		coordination_skill = 4
+	}
+
+	create_navy_leader = {
+		name = "Manuel Ortnis Torres de Bettencourt"
+		gfx = ""
+		traits = { blockade_runner air_controller }
+		skill = 2
+		id = 19101
+		attack_skill = 2
+		defense_skill = 2
+		maneuvering_skill = 2
+		coordination_skill = 1
+	}
+
+	create_navy_leader = {
+		name = "Manuel Sarmento Rodrigues"
+		gfx = ""
+		traits = { gentlemanly spotter }
+		skill = 2
+		id = 19102
+		attack_skill = 1
+		defense_skill = 2
+		maneuvering_skill = 2
+		coordination_skill = 2
+	}
+
+	create_navy_leader = {
+		name = "Americo Thomaz"
+		gfx = ""
+		traits = { craven }
+		skill = 1
+		id = 19103
+		attack_skill = 1
+		defense_skill = 1
+		maneuvering_skill = 1
+		coordination_skill = 1
 	}
 
 
@@ -280,5 +373,56 @@ if = {
 			mid_1_custom_slot = ship_mine_layer_1
 			rear_1_custom_slot = ship_depth_charge_1
 		}
+	}
+	create_equipment_variant = {
+		name = "Le Fantasque Class"
+		type = ship_hull_light_1
+		name_group = POR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_3
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Mogador Class"
+		type = ship_hull_light_2
+		name_group = POR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			mid_1_custom_slot = ship_light_battery_2
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Liberté Class"
+		type = ship_hull_pre_dreadnought
+		name_group = POR_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = ship_anti_air_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
 	}
 }

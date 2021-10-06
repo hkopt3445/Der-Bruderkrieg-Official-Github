@@ -29,7 +29,7 @@
 # 		  factor = 20
 # 		  modifier = {
 # 			has_war = yes
-# 			factor = 0
+# 			factor = 1
 # 		  }
 # 		}
 # 		remove_effect = {
@@ -71,7 +71,7 @@
 # 		  factor = 20
 # 		  modifier = {
 # 			has_war = yes
-# 			factor = 0
+# 			factor = 1
 # 		  }
 # 		}
 # 		remove_effect = {
@@ -81,7 +81,7 @@
 # 			add_state_modifier = {
 # 				modifier = {
 # 					local_building_slots_factor	= 0.2
-# 					production_speed_industrial_complex_factor = 0.05
+# 					production_speed_industrial_complex_factor = 1.05
 # 				}
 # 				days = 30
 # 			}
@@ -112,7 +112,7 @@
 # 		  factor = 20
 # 		  modifier = {
 # 			has_war = yes
-# 			factor = 0
+# 			factor = 1
 # 		  }
 # 		}
 # 		remove_effect = {
@@ -173,6 +173,35 @@
 
 FRA_worker_strikes = {
 
+	FRA_lyon_strike = {
+
+		icon = generic_crisis #merry chrysler
+
+		allowed = {
+			tag = FRA
+		}
+		fire_only_once = yes
+		available = {
+			#OR = {
+			#strikers murdered = yes
+			#strikers eat the rich = yes
+			#}
+			has_country_flag = FRA_the_strikes_crushed
+		}
+		activation = {
+			has_country_flag = FRA_lyon_strike_start
+		}
+		days_mission_timeout = 120
+		timeout_effect = {
+			country_event = { id = FRA_vienna_crash.3 }
+			set_country_flag = FRA_strikes_have_gone_national
+			effect_tooltip = {
+				add_ideas = FRA_national_strikes
+			}
+		}
+
+	}
+
   FRA_crush_the_strikers = {
 
 	icon = eng_trade_unions_demand
@@ -181,10 +210,11 @@ FRA_worker_strikes = {
 	}
 
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
+		has_idea = FRA_the_lyon_general_strike
 	}
 	available = {
-		has_completed_focus = FRA_crush_revolting_peasents
+		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	days_remove = 10
@@ -202,22 +232,20 @@ FRA_worker_strikes = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { tooltip = FRA_increase_progress_to_crushing_strikes_by_5 FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
  }
 FRA_set_up_guards_around_factories = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
+		has_idea = FRA_the_lyon_general_strike
 	}
 	available = {
-		has_completed_focus = FRA_crush_revolting_peasents
+		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	days_remove = 15
@@ -235,22 +263,20 @@ FRA_set_up_guards_around_factories = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { tooltip = FRA_increase_progress_to_crushing_strikes_by_5 FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 FRA_threaten_their_pensions = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
+		has_idea = FRA_the_lyon_general_strike
 	}
 	available = {
-		has_completed_focus = FRA_crush_revolting_peasents
+		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	days_remove = 10
@@ -268,22 +294,20 @@ FRA_threaten_their_pensions = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { tooltip = FRA_increase_progress_to_crushing_strikes_by_5 FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 FRA_round_up_the_leaders = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
+		has_idea = FRA_the_lyon_general_strike
 	}
 	available = {
-		has_completed_focus = FRA_crush_revolting_peasents
+		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	days_remove = 20
@@ -299,24 +323,22 @@ FRA_round_up_the_leaders = {
 
 	complete_effect = {
 	}
-
+ 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { tooltip = FRA_increase_progress_to_crushing_strikes_by_5 FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 FRA_factory_occupation_initiation = {
 
 	icon = eng_trade_unions_demand
-
-	allowed = {
-	}
 	available = {
-		has_completed_focus = FRA_reestablish_feudalism
+		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
+		has_idea = FRA_the_lyon_general_strike
 	}
 
 	days_remove = 25
@@ -334,8 +356,8 @@ FRA_factory_occupation_initiation = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { tooltip = FRA_increase_progress_to_crushing_strikes_by_5 FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 
@@ -343,14 +365,12 @@ FRA_factory_occupation_large = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
+		has_idea = FRA_the_lyon_general_strike
 	}
 	available = {
-		has_completed_focus = FRA_reestablish_feudalism
+		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	days_remove = 40
@@ -377,14 +397,12 @@ FRA_send_in_the_military_forces = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
+		has_idea = FRA_the_lyon_general_strike
 	}
 	available = {
-		has_completed_focus = FRA_reestablish_feudalism
+		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	days_remove = 50
@@ -411,14 +429,12 @@ FRA_declare_a_state_of_emergency = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	visible = {
-		#has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
+		has_idea = FRA_the_lyon_general_strike
 	}
 	available = {
-		has_completed_focus = FRA_reestablish_feudalism
+		has_completed_focus = FRA_the_strikers_hit
 	}
 
 	days_remove = 10
@@ -436,8 +452,8 @@ FRA_declare_a_state_of_emergency = {
 	}
 
 	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -5 }
-		update_french_strike_vars = yes
+		add_to_variable = { tooltip = FRA_increase_progress_to_crushing_strikes_by_5 FRA_progress_to_crushing_strikes = 5 }
+		#update_french_strike_vars = yes
 	}
 }
 
@@ -445,15 +461,16 @@ FRA_declare_the_strikes_cleared = {
 
 	icon = eng_trade_unions_demand
 
-	allowed = {
-	}
-
 	available = {
-		check_variable = {global.france_strikes_ref_var < -25}
+		custom_trigger_tooltip = {
+			tooltip = FRA_declare_the_strikes_cleared_tt
+			check_variable = { FRA_progress_to_crushing_strikes > 49 }
+
+		}
 	}
 
 	visible = {
-		has_country_flag = FRA_strikes_begin_weekly
+		has_country_flag = FRA_lyon_strike_start
 		
 	}
 
@@ -472,8 +489,8 @@ FRA_declare_the_strikes_cleared = {
 	}
 
 	remove_effect = {
-		complete_national_focus = FRA_the_workers_crushed
 		set_country_flag = FRA_the_strikes_crushed
+		remove_ideas = FRA_the_lyon_general_strike
 	}
 }
 
@@ -1019,7 +1036,7 @@ FRA_the_issue_of_refugees = {
 		}
 	
 		remove_effect = {
-		complete_national_focus = FRA_the_bill_was_approved
+		complete_national_focus = FRA_liberal_victory_in_elections
 		}
 	}
 
@@ -1061,12 +1078,46 @@ FRA_the_issue_of_refugees = {
 		}
 	
 		remove_effect = {	
-		complete_national_focus = FRA_the_bill_was_rejected
+		complete_national_focus = FRA_conservative_victory_in_elections
 		}
 	}
 }
 
 FRA_balancing_the_autocracy = {
+	FRA_unrest_in_the_mobility = {
+
+		priority = 10
+	  
+		icon = generic_ignite_civil_war
+	  
+		available = {
+		  hidden_trigger = { always = no }
+		}
+	  
+		days_mission_timeout = 100
+	  
+		fire_only_once = yes 
+	  
+		activation = {
+		  tag = FRA
+		  has_country_flag = FRA_sided_with_the_military
+		}
+	  
+		visible = {
+		  NOT = {
+			has_completed_focus = FRA_MILITARY_HIEARCHY
+		  }
+		} 
+	  
+		cancel_if_not_visible = yes
+	  
+		is_good = yes
+	  
+		timeout_effect = {
+		 add_stability = -0.15
+		 add_political_power = -100
+		}
+	  }
   FRA_promote_enlisted_officers = {
 
 		icon = eng_trade_unions_demand
@@ -1075,6 +1126,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_military
 		}
 
 		days_remove = 10 
@@ -1084,7 +1136,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_fascist_this_game
@@ -1110,6 +1162,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_military
 		}
 
 		days_remove = 15 
@@ -1119,7 +1172,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_fascist_this_game
@@ -1145,6 +1198,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_military
 		}
 
 		days_remove = 5 
@@ -1154,7 +1208,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_fascist_this_game
@@ -1179,6 +1233,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_military
 		}
 
 		days_remove = 35 
@@ -1188,7 +1243,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
  
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_fascist_this_game
@@ -1221,6 +1276,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_military
 		}
 
 		days_remove = 15
@@ -1230,7 +1286,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_fascist_this_game
@@ -1253,10 +1309,39 @@ FRA_balancing_the_autocracy = {
 
 
   ###nobility
-  FRA_blank_1 = {
-	  available = {
-		   always = no
+  FRA_unrest_in_the_military = {
+
+	priority = 10
+  
+	icon = generic_ignite_civil_war
+  
+	available = {
+	  hidden_trigger = { always = no }
+	}
+  
+	days_mission_timeout = 100
+  
+	fire_only_once = yes 
+  
+	activation = {
+	  tag = FRA
+	  has_country_flag = FRA_sided_with_the_nobility
+	}
+  
+	visible = {
+	  NOT = {
+		has_completed_focus = FRA_CLASS_HIERARCHY
 	  }
+	} 
+  
+	cancel_if_not_visible = yes
+  
+	is_good = yes
+  
+	timeout_effect = {
+	 add_war_support = -0.15
+	 add_political_power = -100
+	}
   }
   
   FRA_appoint_noblility_to_government = {
@@ -1267,6 +1352,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_nobility
 		}
 
 		days_remove = 20 
@@ -1276,7 +1362,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_monarchist_this_game
@@ -1303,6 +1389,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_nobility
 		}
 
 		days_remove = 15 
@@ -1312,7 +1399,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_monarchist_this_game
@@ -1340,6 +1427,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_nobility
 		}
 
 		days_remove = 20 
@@ -1349,7 +1437,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_monarchist_this_game
@@ -1377,6 +1465,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_nobility
 		}
 
 		days_remove = 20 
@@ -1386,7 +1475,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_monarchist_this_game
@@ -1414,6 +1503,7 @@ FRA_balancing_the_autocracy = {
 		}
 
 		visible = {
+			has_country_flag = FRA_sided_with_the_nobility
 		}
 
 		days_remove = 10 
@@ -1423,7 +1513,7 @@ FRA_balancing_the_autocracy = {
 		fire_only_once = no
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
 				has_country_flag = FRA_go_monarchist_this_game
@@ -1486,7 +1576,7 @@ FRA_balancing_the_autocracy = {
 #       factor = 20
 #       modifier = {
 #         has_war = yes
-#         factor = 0
+#         factor = 1
 #       }
 #     }
 #     remove_effect = {
@@ -1744,7 +1834,9 @@ FRA_hunting_westfalen_nationalists = {
 		is_good = yes
 	 
 		timeout_effect = {
-			
+			FGD = {
+				country_event = westfalen_subtree_events.3
+			}
 
 		}
 	}
@@ -1756,7 +1848,7 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
-			has_event_target = current_westfalen_gui_state
+			#has_event_target = current_westfalen_gui_state
 		}
 		complete_effect = {
 			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
@@ -1766,40 +1858,20 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		custom_cost_text = FRA_westflen_cost_text_tt
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = greater_than_or_equals
-					}
-				}
 			}
 			modifier = {
 				add = 500
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 4
-						compare = greater_than_or_equals
-					}
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = less_than
-					}
-				}
 			}
 		}
 		fire_only_once = no
 		days_remove = 10
 		remove_effect = {
-			event_target:current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -1
-				}	
+			add_to_variable = {
+				tooltip = FRA_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
 			}
 			hidden_effect = {
 				add_command_power = -10
@@ -1813,47 +1885,27 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
-			has_event_target = current_westfalen_gui_state
+			#has_event_target = current_westfalen_gui_state
 		}
 		complete_effect = {
 			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = greater_than_or_equals
-					}
-				}
 			}
 			modifier = {
 				add = 500
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 4
-						compare = greater_than_or_equals
-					}
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = less_than
-					}
-				}
 			}
 		}
 		fire_only_once = no
 		cost = 25
 		days_remove = 10
 		remove_effect = {
-			event_target:current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -1
-				}	
+			add_to_variable = {
+				tooltip = FRA_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
 			}
 		}
 	}
@@ -1864,47 +1916,27 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
-			has_event_target = current_westfalen_gui_state
+			#has_event_target = current_westfalen_gui_state
 		}
 		complete_effect = {
 			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = greater_than_or_equals
-					}
-				}
 			}
 			modifier = {
 				add = 500
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 4
-						compare = greater_than_or_equals
-					}
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = less_than
-					}
-				}
 			}
 		}
 		fire_only_once = no
 		cost = 10
 		days_remove = 10
 		remove_effect = {
-			event_target:current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -1
-				}	
+			add_to_variable = {
+				tooltip = FRA_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
 			}
 		}
 	}
@@ -1916,47 +1948,27 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
-			has_event_target = current_westfalen_gui_state
+			#has_event_target = current_westfalen_gui_state
 		}
 		complete_effect = {
 			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = greater_than_or_equals
-					}
-				}
 			}
 			modifier = {
 				add = 500
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 4
-						compare = greater_than_or_equals
-					}
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = less_than
-					}
-				}
 			}
 		}
 		fire_only_once = no
 		cost = 15
 		days_remove = 10
 		remove_effect = {
-			event_target:current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -1
-				}	
+			add_to_variable = {
+				tooltip = FRA_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
 			}
 		}
 	}
@@ -1969,37 +1981,18 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
-			has_event_target = current_westfalen_gui_state
+			#has_event_target = current_westfalen_gui_state
 		}
 		complete_effect = {
 			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = greater_than_or_equals
-					}
-				}
 			}
 			modifier = {
 				add = 500
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 4
-						compare = greater_than_or_equals
-					}
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = less_than
-					}
-				}
 			}
 		}
 	
@@ -2007,10 +2000,9 @@ FRA_hunting_westfalen_nationalists = {
 		cost = 30
 		days_remove = 15
 		remove_effect = {
-			event_target:current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -1
-				}	
+			add_to_variable = {
+				tooltip = FRA_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
 			}
 			
 		}
@@ -2026,37 +2018,18 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
-			has_event_target = current_westfalen_gui_state
+			#has_event_target = current_westfalen_gui_state
 		}
 		complete_effect = {
 			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = greater_than_or_equals
-					}
-				}
 			}
 			modifier = {
 				add = 500
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 4
-						compare = greater_than_or_equals
-					}
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = less_than
-					}
-				}
 			}
 		}
 		cost = 20
@@ -2069,10 +2042,9 @@ FRA_hunting_westfalen_nationalists = {
 		fire_only_once = no
 		days_remove = 10
 		remove_effect = {
-			event_target:current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -1
-				}	
+			add_to_variable = {
+				tooltip = FRA_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
 			}
 			hidden_effect = {
 				add_manpower = -100
@@ -2089,37 +2061,18 @@ FRA_hunting_westfalen_nationalists = {
 		}
 		visible = {
 			tag = FRA
-			has_event_target = current_westfalen_gui_state
+			#has_event_target = current_westfalen_gui_state
 		}	
 		complete_effect = {
 			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 1
 			modifier = {
 				add = 1000
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = greater_than_or_equals
-					}
-				}
 			}
 			modifier = {
 				add = 500
-				event_target:current_westfalen_gui_state = {
-					check_variable = {
-						var = nationalist_influence 
-						value = 4
-						compare = greater_than_or_equals
-					}
-					check_variable = {
-						var = nationalist_influence 
-						value = 7
-						compare = less_than
-					}
-				}
 			}
 		}
 		custom_cost_trigger = {
@@ -2132,10 +2085,9 @@ FRA_hunting_westfalen_nationalists = {
 		cost = 10
 		days_remove = 5
 		remove_effect = {
-			event_target:current_westfalen_gui_state = {
-				add_to_variable = {
-					nationalist_influence = -1
-				}	
+			add_to_variable = {
+				tooltip = FRA_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
 			}
 		}
 	}
@@ -2144,16 +2096,15 @@ FRA_hunting_westfalen_nationalists = {
 		available = {
 			custom_trigger_tooltip = {
 			tooltip = FRA_all_states_have_been_pacified
-				all_of_scopes = {
-				array = FGD.nationalist_states_array	
-				check_variable = { nationalist_influence < 4 }
+			check_variable = {
+				var = westfalen_coup_probability value = 20 compare = less_than_or_equals
 			}
 		}
 
 		}
 		visible = {
 			tag = FRA
-			has_event_target = current_westfalen_gui_state
+			#has_event_target = current_westfalen_gui_state
 		}	
 		complete_effect = {
 			set_country_flag = FRA_currently_doing_westfalen_operation_in_state
@@ -2555,7 +2506,7 @@ FRA_stir_up_war_sentiments = {
 			}
 		}
 
-		days_re_enable = 50
+		fire_only_once = yes
 
 		days_remove = 50
 
@@ -2576,7 +2527,7 @@ FRA_stir_up_war_sentiments = {
 
 		cost = 25
 
-		days_re_enable = 50
+		fire_only_once = yes
 
 		days_remove = 50
 
@@ -2596,7 +2547,7 @@ FRA_stir_up_war_sentiments = {
 
 		cost = 50
 
-		days_re_enable = 70
+		fire_only_once = yes
 
 		days_remove = 35
 
@@ -2617,7 +2568,7 @@ FRA_stir_up_war_sentiments = {
 
 		cost = 50
 
-		days_re_enable = 120
+		fire_only_once = yes
 
 		days_remove = 60
 
@@ -2638,7 +2589,8 @@ FRA_stir_up_war_sentiments = {
 
 		cost = 75
 
-		days_re_enable = 180
+		days_remove = 75
+		fire_only_once = yes
 
 		available = {
 			has_war = no
@@ -2681,7 +2633,21 @@ FRA_stir_up_war_sentiments = {
 	
 
 		remove_effect = {
-			remove_ideas = FRA_wiltkrieg_neutrality
+			if = {
+				limit = {
+					has_idea = FRA_wiltkrieg_neutrality
+				}
+				swap_ideas = {
+					add_idea = FRA_wiltkrieg_neutrality_2
+					remove_idea = FRA_wiltkrieg_neutrality
+				}
+			}
+			if = {
+				limit = {
+					has_idea = FRA_wiltkrieg_neutrality_3
+				}
+				remove_ideas = FRA_wiltkrieg_neutrality_3
+			}
 		}
 
 	}
@@ -2695,13 +2661,20 @@ FRA_stir_up_war_sentiments = {
 
 		available = {
 			has_war = yes
+			NOT = {
+				OR = {
+					has_idea = FRA_wiltkrieg_neutrality
+					has_idea = FRA_wiltkrieg_neutrality_2
+					has_idea = FRA_wiltkrieg_neutrality_3
+				}
+			}
 		}
 
 		days_remove = 100
 
 		modifier = {
-			army_core_defence_factor = 0.05
-			army_core_attack_factor = 0.05
+			army_core_defence_factor = 1.05
+			army_core_attack_factor = 1.05
 		}
 
 		complete_effect = {
@@ -2778,7 +2751,7 @@ FRA_danube_campaign = {
 		days_remove = 45
 
 		modifier = {
-			army_attack_factor = 0.1
+			army_attack_factor = 1.1
 		}
 
 	}
@@ -2937,4 +2910,44 @@ FRA_expanding_civil_rights = {
 
 	}
 
+}
+
+
+weltkrieg_decisions = {
+	FRA_complete_mobilization = {
+
+		priority = 10
+
+		icon = generic_ignite_civil_war
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = 25
+
+		fire_only_once = yes 
+
+		activation = {
+			tag = FRA
+			has_country_flag = FRA_activation_complete_mobilization_flag
+		}
+
+		visible = {
+			has_idea = SOV_the_mobilized_forces
+		} 
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+
+		timeout_effect = {
+			remove_ideas = SOV_the_mobilized_forces
+			create_wargoal = {
+				target = GER
+				type = topple_government
+			}
+			add_war_support = 0.15
+		}
+	}
 }

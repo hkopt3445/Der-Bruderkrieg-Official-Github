@@ -277,35 +277,65 @@ ITA_named_vars_NFP_graph_set_up = {
 
 
 ITA_calc_party_stability_var = { #average
-	set_variable = { ITA_NFP_party_stability = 0 }
-
-	add_to_variable = {
-		ITA_NFP_party_stability = ITA_mussolini_influence_in_NFP
-	}
-	add_to_variable = {
-		ITA_NFP_party_stability = ITA_evola_influence_in_NFP
-	}
-	add_to_variable = {
-		ITA_NFP_party_stability = ITA_conservative_influence_in_NFP
-	}
-	add_to_variable = {
-		ITA_NFP_party_stability = ITA_futurist_influence_in_NFP
-	}
-	add_to_variable = {
-		ITA_NFP_party_stability = ITA_mvsn_influence_in_NFP
-	}
-
-	divide_variable = {
-		ITA_NFP_party_stability = 5
-	}
 
 	set_variable = {
 		ITA_NFP_party_stability_political_power_gain = ITA_NFP_party_stability
 	}
 	divide_variable = {
-		ITA_NFP_party_stability_political_power_gain = -100
+		ITA_NFP_party_stability_political_power_gain = -300
+	}
+	set_variable = {
+		ITA_NFP_party_stability_political_power_gain_loc = ITA_NFP_party_stability_political_power_gain
+	}
+	multiply_variable = {
+		ITA_NFP_party_stability_political_power_gain_loc = 100
 	}
 	
+}
+
+ITA_decrease_party_stability_small = {
+	add_to_variable = {
+		tooltip = ITA_NFP_party_stability_decrease_small_tt
+		ITA_NFP_party_stability = -2
+	}
+	ITA_calc_party_stability_var = yes
+}
+ITA_decrease_party_stability_medium = {
+	add_to_variable = {
+		tooltip = ITA_NFP_party_stability_decrease_medium_tt
+		ITA_NFP_party_stability = -4
+	}
+	ITA_calc_party_stability_var = yes
+}
+ITA_decrease_party_stability_large = {
+	add_to_variable = {
+		tooltip = ITA_NFP_party_stability_decrease_large_tt
+		ITA_NFP_party_stability = -6
+	}
+	ITA_calc_party_stability_var = yes
+}
+
+
+ITA_increase_party_stability_small = {
+	add_to_variable = {
+		tooltip = ITA_NFP_party_stability_increase_small_tt
+		ITA_NFP_party_stability = 2
+	}
+	ITA_calc_party_stability_var = yes
+}
+ITA_increase_party_stability_medium = {
+	add_to_variable = {
+		tooltip = ITA_NFP_party_stability_increase_medium_tt
+		ITA_NFP_party_stability = 4
+	}
+	ITA_calc_party_stability_var = yes
+}
+ITA_increase_party_stability_large = {
+	add_to_variable = {
+		tooltip = ITA_NFP_party_stability_increase_large_tt
+		ITA_NFP_party_stability = 6
+	}
+	ITA_calc_party_stability_var = yes
 }
 
 # ITA_NFP_radar_graph_set_up = {

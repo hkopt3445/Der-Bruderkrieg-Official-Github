@@ -133,13 +133,13 @@ if = {
 
 
 set_politics = {
-	ruling_party = communism
+	ruling_party = democratic_communism
 	last_election = "1935.10.22"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	communism = 37
+	democratic_communism = 37
 	socialism_democratic  = 35
 	ultranationalism = 2
 	fascism = 2
@@ -179,7 +179,7 @@ create_country_leader = {
 	desc = "POLITICS_THORVALD_STAUNING_DESC"
 	picture = "gfx/leaders/mariesophienielsen.dds"
 	expire = "1965.1.1"
-	ideology = leninism
+	ideology = radical_socialism
 	traits = {
 		
 	}
@@ -208,16 +208,7 @@ create_country_leader = {
 }
 
 
-create_corps_commander = {
-	name = "Wilhelm Wain Prior"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
-	traits = { trickster }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 2
-}
+
 
 ### VARIANTS ###
 # 1936 Start #
@@ -279,25 +270,3 @@ if = {
 	}
 }
 
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Submarines #
-		create_equipment_variant = {
-			name = "Havmanden Class"
-			type = ship_hull_submarine_1
-			name_group = DEN_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_1
-				fixed_ship_engine_slot = sub_ship_engine_2
-				rear_1_custom_slot = empty
-			}
-		}
-	}
-}

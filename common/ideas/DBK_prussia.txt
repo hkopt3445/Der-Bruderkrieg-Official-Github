@@ -18,6 +18,7 @@ ideas = {
         conscription = 0.025
         war_support_factor = 0.15
         ultranationalism_drift = 0.05
+		ai_focus_aggressive_factor =0.5
       }
     }
 
@@ -39,6 +40,7 @@ ideas = {
         ultranationalism_drift = 0.05
         army_org_factor = 0.08
         army_attack_factor = 0.1
+		ai_focus_aggressive_factor =0.5
       }
     }
     Mackensen_Reforms = {
@@ -75,10 +77,12 @@ ideas = {
       modifier = {
         stability_factor = -0.2
         war_support_factor  = -0.15
-        communism_drift = 0.05
+        communism_drift = 0.03
+		democratic_communism_drift = 0.03
         political_power_gain = -0.25
       }
     }
+	
 
 		Prussian_Glory = {
 			allowed = {
@@ -650,6 +654,23 @@ ideas = {
 				army_core_attack_factor = 0.1
 				army_core_defence_factor = 0.1
 			}
+		}
+		GER_prepared_for_war = {
+			allowed = {
+				always = yes
+				}
+	
+				allowed_civil_war = {
+				always = yes
+				}
+	
+				removal_cost = -1
+	
+				modifier = {
+					
+					army_core_attack_factor = 0.1
+					army_core_defence_factor = 0.1
+				}
 		}
 
 		GER_german_powerhouse = {
@@ -1328,7 +1349,8 @@ ideas = {
 		modifier = {
 			political_power_gain = 0.2
 			stability_factor = 0.1
-			political_power_factor = 0.1
+			surrender_limit = 0.2
+			army_morale_factor = 0.1
 		}
 	}
 	GER_death_to_traitors = {
@@ -1340,32 +1362,22 @@ ideas = {
 		}
 		removal_cost = -1
 		modifier = {
-			ultranationalism_drift = 0.05
-			fascism_drift = -0.02
-			authoritarian_democratic_drift = -0.02
 			democratic_drift = -0.02
 			democratic_liberalism_drift = -0.02
 			socialism_democratic_drift = -0.02
 			communism_drift = -0.02
-			neutrality_drift = -0.02
 		}
 	}
 	GER_pact_with_britain = {
 		allowed = {
 			always = no
 		}
-		cancel = {
-			has_completed_focus = GER_unternehmen_attila
-			NOT = {
-				has_war_with = FRA
-			}
-		}
 		allowed_civil_war = {
 			always = yes
 		}
 		removal_cost = -1
 		modifier = {
-			industrial_capacity_dockyard = -0.3
+			industrial_capacity_dockyard = -0.15
 		}
 	}
 	GER_fortbuster = {
@@ -1455,11 +1467,37 @@ ideas = {
 		removal_cost = -1
 		modifier = {
 			defence = 0.1
+			
 		}
 		targeted_modifier = {
 			tag = AUS
 			defense_bonus_against = 0.1
 		}
+
+	}
+	GER_defending_the_fatherland_2 = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			defence = 0.1
+			army_org_regain = 0.1
+			
+		}
+		equipment_bonus = {
+			infantry_equipment = {
+				build_cost_ic = -0.1
+			}
+		}
+		targeted_modifier = {
+			tag = AUS
+			defense_bonus_against = 0.1
+		}
+
 	}
 	GER_vorwarts = {
 		allowed = {
@@ -1603,7 +1641,7 @@ ideas = {
 		}
 		removal_cost = -1
 		modifier = {
-			## No effect listed
+			no_compliance_gain = 1
 		}
 	}
 
@@ -1646,6 +1684,52 @@ ideas = {
 			industrial_capacity_factory = 0.1
 		}
 	}
+	GER_preparing_for_operation_walross = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			industrial_capacity_dockyard = 0.1
+			production_speed_dockyard_factor = 0.1
+		}
+	}
+
+	GER_preparing_for_operation_walross_2 = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			industrial_capacity_dockyard = 0.1
+			production_speed_dockyard_factor = 0.1
+			naval_damage_factor = 0.15
+			naval_defense_factor = 0.1
+			naval_speed_factor = 0.2
+		}
+	}
+
+	GER_british_advisors = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		removal_cost = -1
+		modifier = {
+			army_speed_factor = 0.15
+		}
+	}
+
+
+
 
 
 
@@ -2698,20 +2782,6 @@ air_chief = {
 			factor = 0.5
 		}
 	}
-
-	albert_kesselring = {
-
-
-		allowed = {
-			original_tag = GER
-		}
-
-		traits = { air_chief_reform_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
 }
 
 navy_chief = { #CHIEF OF NAVY
@@ -2762,23 +2832,7 @@ high_command = {
 		}
 	}
 
-	# erwin_rommel = {
-	# 	ledger = army
-
-
-	# 	allowed = {
-	# 		original_tag = GER
-	# 	}
-	# 	available = {
-	# 			#has_completed_focus = GER_army_innovation
-	# 		}
-
-	# 	traits = { army_armored_3 }
-
-	# 	ai_will_do = {
-	# 		factor = 8
-	# 	}
-	# }
+	 
 
 	gerd_von_rundstedt = {
 		ledger = army
@@ -2879,6 +2933,10 @@ high_command = {
 
 		allowed = {
 			original_tag = GER
+		}
+
+		available = {
+			has_completed_focus = GER_improve_the_naval_academies
 		}
 
 		traits = { navy_fleet_logistics_2 }

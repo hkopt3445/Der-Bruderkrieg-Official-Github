@@ -1,4 +1,4 @@
-﻿###########################
+###########################
 # Russian Events
 ###########################
 
@@ -598,6 +598,7 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.3.a
 		ai_chance = { factor = 1}
+		set_cosmetic_tag = SOV_imperial_russian_republic
 	}
 }
 
@@ -791,7 +792,7 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.10.a 
 		ai_chance = { factor = 1}
-		unlock_decision_category_tooltip = SOV_crackdowns_on_the_military
+		country_event = SOV_return_of_the_tsar_path.14
 	}
 }
 
@@ -818,11 +819,191 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.12.a 
 		ai_chance = { factor = 1}
-		set_cosmetic_tag = SOV_imperial_russian_republic
-		add_political_power = 100
+		
+		add_political_power = 100 
+		set_politics = {
+			ruling_party = authoritarian_democratic
+		}
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democratic
+				popularity = 0.35
+			}
+		}
+		set_cosmetic_tag = SOV_russian_empire
+		
 	}
 }
 
+##left menace
+country_event = {
+	id = SOV_return_of_the_tsar_path.13
+	title = SOV_return_of_the_tsar_path.13.t
+	desc = SOV_return_of_the_tsar_path.13.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.13.a 
+		ai_chance = { factor = 1}
+		
+		
+	}
+}
+
+###the white purge
+country_event = {
+	id = SOV_return_of_the_tsar_path.14
+	title = SOV_return_of_the_tsar_path.14.t
+	desc = SOV_return_of_the_tsar_path.14.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.14.a 
+		ai_chance = { factor = 1}
+		country_event = SOV_return_of_the_tsar_path.15
+		
+	}
+}
+###night has commenced
+country_event = {
+	id = SOV_return_of_the_tsar_path.15
+	title = SOV_return_of_the_tsar_path.15.t
+	desc = SOV_return_of_the_tsar_path.15.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.15.a 
+		ai_chance = { factor = 1}
+		country_event = SOV_return_of_the_tsar_path.16
+		
+	}
+}
+
+##conclusion of the purge
+country_event = {
+	id = SOV_return_of_the_tsar_path.16
+	title = SOV_return_of_the_tsar_path.16.t
+	desc = SOV_return_of_the_tsar_path.16.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.16.a 
+		ai_chance = { factor = 1}
+		set_country_flag = SOV_white_purge_over
+		
+	}
+}
+
+country_event = { #issue of Southern Dobruja
+	id = SOV_return_of_the_tsar_path.17
+	title = SOV_return_of_the_tsar_path.17.t
+	desc = SOV_return_of_the_tsar_path.17.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.17.a #romania
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_Favor_Romania
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.17.b #bulgaria
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_Favor_Bulgaria
+	}
+}
+
+country_event = { #We've been Dobruja Blocked
+	id = SOV_return_of_the_tsar_path.18
+	title = SOV_return_of_the_tsar_path.18.t
+	desc = SOV_return_of_the_tsar_path.18.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.18.a #No it's my precioussss
+		ai_chance = { factor = 2 }
+		SOV = {
+			create_wargoal = {
+				target = BUL
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.18.b #:(
+		ai_chance = { factor = 5 }
+		ROM = {
+			transfer_state = 77
+		}
+	}
+}
+
+country_event = { #Russian Alignment?
+	id = SOV_return_of_the_tsar_path.19
+	title = SOV_return_of_the_tsar_path.19.t
+	desc = SOV_return_of_the_tsar_path.19.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.19.a #Yeah boi
+		ai_chance = { factor = 5 }
+		SOV = {
+			add_to_faction = ROOT
+		}
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.19.b #Hmmmm, maybe
+		ai_chance = { factor = 3 }
+		diplomatic_relation = {
+            country = SOV
+            relation = non_aggression_pact
+            active = yes
+        }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.19.c #No
+		ai_chance = { factor = 1 }
+	}
+}
+
+news_event = { #Eurasian Menace
+	id = SOV_return_of_the_tsar_path.20
+	title = SOV_return_of_the_tsar_path.20.t
+	desc = SOV_return_of_the_tsar_path.20.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.20.a
+	}
+}
+
+news_event = { #Russia recognizes Romanian claims
+	id = SOV_return_of_the_tsar_path.21
+	title = SOV_return_of_the_tsar_path.21.t
+	desc = SOV_return_of_the_tsar_path.21.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	is_major = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.21.a #outrageous
+		trigger = { OR = { is_subject_of = AUS original_tag = AUS } }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.21.b #habsburg hate club <3
+		trigger = { original_tag = SOV }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.21.f #habsburg hate club <3
+		trigger = { original_tag = ROM }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.21.c #another threat to AH
+		trigger = { OR = { original_tag = AUS original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } }
+	}
+	option = {
+		name = SOV_return_of_the_tsar_path.21.e #powderkeg closer to going off
+		trigger = { NOT = { OR = { original_tag = ROM is_subject_of = AUS original_tag = AUS original_tag = SOV original_tag = AUS original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } } }
+	}
+}
 
 ##commie hideout raids :bruh:
 add_namespace = SOV_commie_hideout_raids
@@ -971,13 +1152,188 @@ country_event = {
 
 	option = {
 		name = russia.21.a
+		FROM = {
+			set_country_flag = refused_russian_invite
+		}
 	}
 }
 
 
+add_namespace = SOV_kerensky_tree_events
+
+##DUMA
+country_event = {
+	id = SOV_kerensky_tree_events.1
+	title = SOV_kerensky_tree_events.1.t
+	desc = SOV_kerensky_tree_events.1.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.1.a
+		ai_chance = { factor = 1}
+		##let them in
+		
+	}
+	option = {
+		name = SOV_kerensky_tree_events.1.b
+		ai_chance = { factor = 1}
+		##let some in
+	}
+	option = {
+		name = SOV_kerensky_tree_events.1.c
+		ai_chance = { factor = 1}
+		##none at all
+	}
+} 
+
+country_event = { #Transylvanian uprising
+	id = SOV_kerensky_tree_events.2
+	title = SOV_kerensky_tree_events.2.t
+	desc = SOV_kerensky_tree_events.2.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.2.a
+		ai_chance = { factor = 1}
+		##sponsor uprisings in Transylvania (gotta try and help our Romanian broskis)
+		every_state = {
+			limit = { is_core_of = TRA is_owned_by = AUS }
+			TRA = {
+				transfer_state = PREV
+			}
+		}
+		hidden_effect = {
+			AUS = {
+				transfer_units_fraction = {
+					target = TRA
+					size = 0.1
+					stockpile_ratio = 0.1
+					army_ratio = 0.1
+					navy_ratio = 0
+					air_ratio = 0
+				}
+			}
+		}
+		TRA = {
+			declare_war_on = { target = AUS type = topple_government }
+		}
+	}
+} 
+
+country_event = { #JAP event for Kerensky denouncing their imperialism
+	id = SOV_kerensky_tree_events.3
+	title = SOV_kerensky_tree_events.3.t
+	desc = SOV_kerensky_tree_events.3.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.3.a #That's not very cash money of you
+		ai_chance = { factor = 1}
+	}
+} 
+
+country_event = { #SOV demanding ETR overlordship
+	id = SOV_kerensky_tree_events.4
+	title = SOV_kerensky_tree_events.4.t
+	desc = SOV_kerensky_tree_events.4.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.4.a #sure
+		ai_chance = { factor = 5 }
+		SOV = {
+			puppet = ETR
+		}
+	}
+	option = {
+		name = SOV_kerensky_tree_events.4.b #nah fam
+		ai_chance = { factor = 1}
+		SOV = {
+			create_wargoal = {
+				target = ETR
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+} 
+
+country_event = { #Kerensky humiliates japan
+	id = SOV_kerensky_tree_events.5
+	title = SOV_kerensky_tree_events.5.t
+	desc = SOV_kerensky_tree_events.5.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.5.a #That's not very cash money of you
+		ai_chance = { factor = 1}
+		add_political_power = -25
+		add_popularity = { ideology = ROOT popularity = -0.02 }
+	}
+} 
+
+country_event = { #Kerensky proposes white peace
+	id = SOV_kerensky_tree_events.6
+	title = SOV_kerensky_tree_events.6.t
+	desc = SOV_kerensky_tree_events.6.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.6.a #Peace would be best
+		ai_chance = { factor = 1 }
+		white_peace = SOV
+		SOV = {
+			transfer_state = 537 #dunno other islands, should be added later
+		}
+	}
+	option = {
+		name = SOV_kerensky_tree_events.6.b #Nah fam
+		ai_chance = { factor = 1}
+		add_war_support = -0.01
+	}
+}
 
 
+country_event = { #the crossroads
+	id = SOV_kerensky_tree_events.7
+	title = SOV_kerensky_tree_events.7.t
+	desc = SOV_kerensky_tree_events.7.d
+	#picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.7.a #Peace would be best
+		ai_chance = { factor = 1 }
+		complete_national_focus = SOV_Democratically_Fighting_Opposition
+	}
+	option = {
+		name = SOV_kerensky_tree_events.7.b #Nah fam
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_Suppression_of_Opposition
+	}
+}
 
+
+country_event = { #the post war choice
+	id = SOV_kerensky_tree_events.8
+	title = SOV_kerensky_tree_events.8.t
+	desc = SOV_kerensky_tree_events.8.d
+	#picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.8.a #own path
+		ai_chance = { factor = 1 }
+		complete_national_focus = SOV_forge_our_own_path
+	}
+	option = {
+		name = SOV_kerensky_tree_events.8.b #UK
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_across_the_channel
+	}
+	option = {
+		name = SOV_kerensky_tree_events.8.c #US
+		ai_chance = { factor = 1}
+		complete_national_focus = SOV_reach_out_to_america
+	}
+}
 
 add_namespace = SOV_pavel_tree_events
 ##The Question of the Okhrana
@@ -993,13 +1349,33 @@ country_event = {
 		add_political_power = -25
 		add_stability = -0.02
 		complete_national_focus = SOV_promoting_the_okhrana
-	}
+		trigger = {
+			OR = {
+				AND = {
+				
+						has_government = socialism_democratic
+						has_completed_focus = SOV_Suppression_of_Opposition
+					}
+					has_government = democratic_liberalism
+				}
+			}
+		}
 	option = {
 		name = SOV_pavel_tree_events.1.b
 		ai_chance = { factor = 1}
 		add_political_power = 15
 		add_stability = 0.03
 		complete_national_focus = SOV_denouncing_the_okhrana
+		trigger = {
+			OR = {
+				AND = {
+				
+						has_government = socialism_democratic
+						has_completed_focus = SOV_Democratically_Fighting_Opposition
+					}
+					has_government = democratic_liberalism
+				}
+			}
 	}
 } 
 
@@ -1045,7 +1421,8 @@ country_event = {
 		add_popularity = {
 			ideology = socialism_democratic
 			popularity = -0.1
-		}
+		} 
+		SOV_increase_support_among_people_small = yes
 		clr_country_flag = SOV_okhrana_operation_arresting_kerensky_currently_flag
 	}
 }
@@ -1069,19 +1446,20 @@ country_event = {
 			ideology = communism
 			popularity = -0.05
 		}
+		SOV_increase_support_among_people_small = yes
 		clr_country_flag = SOV_okhrana_operation_arresting_lenin_currently_flag
 	}
 }
 
 ###Tsertelli found
 country_event = {
-	id = SOV_pavel_okhrana_operation_events.2
-	title = SOV_pavel_okhrana_operation_events.2.t
-	desc = SOV_pavel_okhrana_operation_events.2.d
+	id = SOV_pavel_okhrana_operation_events.3
+	title = SOV_pavel_okhrana_operation_events.3.t
+	desc = SOV_pavel_okhrana_operation_events.3.d
 	picture = GFX_SOV_okhranaquestion 
 	is_triggered_only = yes
 	option = {
-		name = SOV_pavel_okhrana_operation_events.2.a
+		name = SOV_pavel_okhrana_operation_events.3.a
 		ai_chance = { factor = 1}		
 		add_political_power = 100
 		add_popularity = {
@@ -1092,7 +1470,54 @@ country_event = {
 			ideology = socialism_democratic
 			popularity = -0.05
 		}
+		SOV_increase_support_among_people_small = yes
 		clr_country_flag = SOV_okhrana_operation_arresting_tsertelli_currently_flag
+	}
+}
+
+#bgorv
+country_event = {
+	id = SOV_pavel_okhrana_operation_events.4
+	title = SOV_pavel_okhrana_operation_events.4.t
+	desc = SOV_pavel_okhrana_operation_events.4.d
+	picture = GFX_SOV_okhranaquestion 
+	is_triggered_only = yes
+	option = { 
+		name = SOV_pavel_okhrana_operation_events.4.a
+		ai_chance = { factor = 1}		
+		add_political_power = 100
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.05
+		}
+		SOV_increase_support_among_people_small = yes
+	}
+}
+
+##zhitomorsky
+country_event = {
+	id = SOV_pavel_okhrana_operation_events.5
+	title = SOV_pavel_okhrana_operation_events.5.t
+	desc = SOV_pavel_okhrana_operation_events.5.d
+	picture = GFX_SOV_okhranaquestion 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_okhrana_operation_events.5.a
+		ai_chance = { factor = 1}		
+		add_political_power = 100
+		add_popularity = {
+			ideology = authoritarian_democratic
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+		SOV_increase_support_among_people_small = yes
 	}
 }
 
@@ -1261,7 +1686,7 @@ country_event = { #ETR unified
 		name = SOV_lenin_tree_events.8.a
 		ai_chance = { factor = 1 }
 		SOV = {
-			set_autonomy = { target = ETR autonomy_state = autonomy_satellite }
+			set_autonomy = { target = NRX autonomy_state = autonomy_satellite }
 		}
 	}
 	option = {
@@ -1269,7 +1694,7 @@ country_event = { #ETR unified
 		ai_chance = { factor = 0 }
 		SOV = {
 			create_wargoal = {
-				target = ETR
+				target = NRX
 				type = puppet_wargoal_focus
 			}
 		}
@@ -1351,12 +1776,12 @@ country_event = { #Ally with Prussia or no?:thonk:
 	option = {
 		name = SOV_lenin_tree_events.11.a
 		ai_chance = { factor = 3 }
-		complete_national_focus = SOV_they_can_be_allies
+		set_country_flag = SOV_they_can_be_allies_unlocked
 	}
 	option = {
 		name = SOV_lenin_tree_events.11.b
 		ai_chance = { factor = 3 }
-		complete_national_focus = SOV_no_they_are_insane
+		set_country_flag = SOV_no_they_are_insane_unlocked
 	}
 }
 
@@ -1412,6 +1837,7 @@ country_event = { #dealing with food shortages, dealing with it themselves
 	option = {
 		name = SOV_lenin_tree_events.14.a #agricultural infra
 		ai_chance = { factor = 3 }
+		SOV_increase_support_among_people_small = yes
 		random_owned_controlled_state = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
@@ -1492,7 +1918,7 @@ country_event = { #contact young italy
 		}
 	}
 	option = {
-		name = SOV_lenin_tree_events.16.a #fund austrian-wide activity
+		name = SOV_lenin_tree_events.16.b #fund austrian-wide activity
 		ai_chance = { factor = 3 }
 		add_political_power = -50
 		every_state = {
@@ -1537,7 +1963,7 @@ country_event = { #contact hungarian communists
 		}
 	}
 	option = {
-		name = SOV_lenin_tree_events.17.a #fund austrian-wide activity
+		name = SOV_lenin_tree_events.17.b #fund austrian-wide activity
 		ai_chance = { factor = 3 }
 		add_political_power = -50
 		every_state = {
@@ -1629,6 +2055,136 @@ country_event = { #Meeting with Tsertelli
 		
 	}
 }
+
+
+country_event = { #Demand [ROOT] Subjugation
+	id = SOV_lenin_tree_events.23
+	title = SOV_lenin_tree_events.23.t
+	desc = SOV_lenin_tree_events.23.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.23.a #yes
+		ai_chance = { factor = 3 }
+		SOV = {
+			country_event = SOV_lenin_tree_events.24
+		}
+	}
+	option = {
+		name = SOV_lenin_tree_events.23.b #oh no
+		ai_chance = { factor = 1 }
+		SOV = {
+			country_event = SOV_lenin_tree_events.25
+		}
+	}
+}
+
+country_event = { #accept 
+	id = SOV_lenin_tree_events.24
+	title = SOV_lenin_tree_events.24.t
+	desc = SOV_lenin_tree_events.24.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.24.a #oh no
+		ai_chance = { factor = 3 }
+		SOV = {
+			puppet = FROM
+		}
+	}
+}
+
+country_event = { #deny
+	id = SOV_lenin_tree_events.25
+	title = SOV_lenin_tree_events.25.t
+	desc = SOV_lenin_tree_events.25.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.25.a #oh no
+		ai_chance = { factor = 3 }
+		SOV = {
+			create_wargoal = {
+				target = FROM
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+}
+
+country_event = { #end of the right wing movement
+	id = SOV_lenin_tree_events.26
+	title = SOV_lenin_tree_events.26.t
+	desc = SOV_lenin_tree_events.26.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.26.a #oh no
+		ai_chance = { factor = 3 }
+		SOV_increase_support_among_people_small = yes
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = authoritarian_democratic
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = { #end of the tsar
+	id = SOV_lenin_tree_events.27
+	title = SOV_lenin_tree_events.27.t
+	desc = SOV_lenin_tree_events.27.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.27.a #oh no
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.05
+		}
+		SOV_increase_support_among_people_small = yes
+		hidden_effect = {
+			news_event = SOV_lenin_tree_events.28
+		}
+	}
+}
+##end of the tsar
+news_event = {
+	id = SOV_lenin_tree_events.28
+	title = SOV_lenin_tree_events.28.t
+	desc = SOV_lenin_tree_events.28.d
+	picture = GFX_tsarnick
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_lenin_tree_events.28.a
+	
+	}
+}
+
+##socialist internationale
+news_event = {
+	id = SOV_lenin_tree_events.29
+	title = SOV_lenin_tree_events.29.t
+	desc = SOV_lenin_tree_events.29.d
+	picture = GFX_leninspeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_lenin_tree_events.29.a
+	
+	}
+}
+
+
 
 add_namespace = SOV_lenin_social_reforms_events
 
@@ -2305,15 +2861,10 @@ country_event = {
 	title = SOV_lenin_rsdlp_events.10.t
 	desc = SOV_lenin_rsdlp_events.10.d
 	#picture = GFX_hitlerartisteventpic
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	fire_only_once = yes
-	trigger = { 
-		tag = SOV
-		has_completed_focus = SOV_uniting_the_parties_of_the_rsdlp
-		SOV = {
-			SOV_lenin_fire_coalition_collapse = yes
-		}
-	}
+	
+
 	option = {
 		name = SOV_lenin_rsdlp_events.10.a
 		ai_chance = { factor = 1}
@@ -2336,6 +2887,22 @@ country_event = {
 				}
 			}
 		}
+	}
+}
+country_event = {
+	id = SOV_lenin_rsdlp_events.12
+	title = SOV_lenin_rsdlp_events.12.t
+	desc = SOV_lenin_rsdlp_events.12.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = {
+		name = SOV_lenin_rsdlp_events.12.a
+		ai_chance = { factor = 1}
+		add_political_power = 50
+		SOV_increase_support_among_people_large = yes
 	}
 }
 ###Tsertelli influence event
@@ -2668,6 +3235,32 @@ country_event = {
 		
 	}
 }
+country_event = {
+	id = SOV_rsdlp_forceful_unification.21
+	title = SOV_rsdlp_forceful_unification.21.t
+	desc = SOV_rsdlp_forceful_unification.21.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_rsdlp_forceful_unification.21.a
+		ai_chance = { factor = 1}
+		set_country_flag = SOV_trotsky_assisinated_successfully
+		add_to_variable = {
+			tooltip = SOV_huge_decrease_in_tsertelli_influence
+			SOV_tsertelli_influence_in_party = -10
+		}
+		add_to_variable = {
+			SOV_lenin_influence_in_party = 7
+		}
+		add_to_variable = {
+			SOV_mezhraionstyists_influence_in_party = 2
+		}
+		add_to_variable = {
+			SOV_trotsky_influence_in_party = 1
+		}
+		SOV_modify_rsdlp_progressbar = yes 
+	}
+}
 
 
 add_namespace = SOV_rsdlp_peaceful_unification
@@ -2889,46 +3482,46 @@ country_event = {
 		name = SOV_duma_voting_events.1.a
 		ai_chance = { factor = 1}
 
-			set_variable = {
-				SOV_cdp_support_for_current_bill = cdp_seats
-			}
-			divide_variable = {
-				SOV_cdp_support_for_current_bill = 2
-			}
+			# set_variable = {
+			# 	SOV_cdp_support_for_current_bill = cdp_seats
+			# }
+			# divide_variable = {
+			# 	SOV_cdp_support_for_current_bill = 2
+			# }
 
-			round_variable = SOV_cdp_support_for_current_bill
+			# round_variable = SOV_cdp_support_for_current_bill
 
-			set_variable = {
-				SOV_trudovik_support_for_current_bill = trudovik_seats
-			}
-			divide_variable = {
-				SOV_trudovik_support_for_current_bill = 4
-			}
+			# set_variable = {
+			# 	SOV_trudovik_support_for_current_bill = trudovik_seats
+			# }
+			# divide_variable = {
+			# 	SOV_trudovik_support_for_current_bill = 4
+			# }
 
-			round_variable = SOV_trudovik_support_for_current_bill
+			# round_variable = SOV_trudovik_support_for_current_bill
 
-			set_variable = {
-				SOV_rsdlp_support_for_current_bill = rsdlp_seats
-			}
-			divide_variable = {
-				SOV_rsdlp_support_for_current_bill = 4
-			}
+			# set_variable = {
+			# 	SOV_rsdlp_support_for_current_bill = rsdlp_seats
+			# }
+			# divide_variable = {
+			# 	SOV_rsdlp_support_for_current_bill = 4
+			# }
 
-			round_variable = SOV_rsdlp_support_for_current_bill
+			# round_variable = SOV_rsdlp_support_for_current_bill
 
-			set_variable = {
-				SOV_urp_support_for_current_bill = urp_seats
-			}
-			divide_variable = {
-				SOV_urp_support_for_current_bill = 2
-			}
-			round_variable = SOV_urp_support_for_current_bill
+			# set_variable = {
+			# 	SOV_urp_support_for_current_bill = urp_seats
+			# }
+			# divide_variable = {
+			# 	SOV_urp_support_for_current_bill = 2
+			# }
+			# round_variable = SOV_urp_support_for_current_bill
 
-			SOV_modify_current_duma_total_support_for_bill = yes
+			# SOV_modify_current_duma_total_support_for_bill = yes
 
-			set_country_flag = SOV_vote_for_pavels_okrana_bill_going_on
+			# set_country_flag = SOV_vote_for_pavels_okrana_bill_going_on
 
-			activate_mission = SOV_duma_votes_on_the_okhrana
+			# activate_mission = SOV_duma_votes_on_the_okhrana
 	}
 	option = {
 		name = SOV_duma_voting_events.1.b
@@ -2960,13 +3553,13 @@ country_event = {
 		
 		set_country_flag = SOV_okhrana_duma_vote_passes
 
-		hidden_effect = {
-			country_event = {
-				id = SOV_duma_voting_events.4
-				days = 1
-			}
-			complete_national_focus = SOV_the_duma_votes
-		}
+		# hidden_effect = {
+		# 	country_event = {
+		# 		id = SOV_duma_voting_events.4
+		# 		days = 1
+		# 	}
+		# 	complete_national_focus = SOV_the_duma_votes
+		# }
 	}
 
 }
@@ -3019,6 +3612,18 @@ country_event = { # Yakutia Declares Independence
 		ai_chance = {
 			factor = 100
 		}
+		for_each_loop = {
+			array = controlled_states
+			value = controlled_state
+		
+			SOV = {
+				delete_unit = {
+					state = var:controlled_state
+					disband = yes # or no
+				}
+			}    
+		}
+		
 		YAK = {
 			set_country_flag = choice_made
 		}
@@ -3306,6 +3911,9 @@ country_event = { # Urangel's Clique Declares Independence
 			set_country_flag = choice_made
 		}
 		hidden_effect = {
+			SOV = {
+				release = FOB	
+			}
 			country_event = { id = SOV_russian_collapse_events.12 } #Adjust this to what you want
 			#  #Adjust this to what you want
 		}
@@ -3404,12 +4012,13 @@ country_event = { # Western Europe Declares Independence
 			set_country_flag = choice_made
 		}
 		hidden_effect = {
-			country_event = { id = SOV_russian_collapse_events.16 } #Adjust this to what you want
 			# POL = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}#Adjust this to what you want
 			# UKR = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}
 			# BLR = { country_event = { id = SOV_russian_collapse_events.14 hours = 3 }}
-			
-
+			country_event = { id = SOV_russian_collapse_events.16 } #Adjust this to what you want
+			NYK = { country_event = { id = SOV_russian_collapse_events.17 days = 5 } }
+			SRG = { country_event = { id = SOV_russian_collapse_events.18 days = 5 } }			
+			KRK = { country_event = { id = SOV_russian_collapse_events.19 days = 10 } }
 		}
 	}
 }
@@ -3434,7 +4043,7 @@ country_event = { #The choice must be made
 		}
 		UGL = { change_tag_from = ROOT  }
 		
-		play_song = "Russian_Collapse_Song"
+		#play_song = "Russian_Collapse_Song"
 		UGL = { change_tag_from = ROOT }
 	}
 	option = {
@@ -3444,7 +4053,7 @@ country_event = { #The choice must be made
 		}
 		KLV = { change_tag_from = ROOT  }
 		
-		play_song = "Russian_Collapse_Song"
+		#play_song = "Russian_Collapse_Song"
 		KLV = { change_tag_from = ROOT }
 	}
 	option = {
@@ -3454,11 +4063,111 @@ country_event = { #The choice must be made
 		}
 		DJI = { change_tag_from = ROOT  }
 		
-		play_song = "Russian_Collapse_Song"
+		#play_song = "Russian_Collapse_Song"
 		DJI = { change_tag_from = ROOT }
 	}
 }
 
+country_event = { #NYK vs GRN
+	id = SOV_russian_collapse_events.17
+	title = SOV_russian_collapse_events.17.t
+	desc = SOV_russian_collapse_events.17.d
+	
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOV_russian_collapse_events.17.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = GRN
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #SRG vs PRM
+	id = SOV_russian_collapse_events.18
+	title = SOV_russian_collapse_events.18.t
+	desc = SOV_russian_collapse_events.18.d
+	
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOV_russian_collapse_events.18.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = PRM
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #KRK vs ZMU
+	id = SOV_russian_collapse_events.19
+	title = SOV_russian_collapse_events.19.t
+	desc = SOV_russian_collapse_events.19.d
+	
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOV_russian_collapse_events.19.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = ZMU
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #KRK vs MON
+	id = SOV_russian_collapse_events.20
+	title = SOV_russian_collapse_events.20.t
+	desc = SOV_russian_collapse_events.20.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = SOV_russian_collapse_events.20.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = MON
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #NYK vs PRM and SRG
+	id = SOV_russian_collapse_events.21
+	title = SOV_russian_collapse_events.21.t
+	desc = SOV_russian_collapse_events.21.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = SOV_russian_collapse_events.21.a
+		ai_chance = {
+			factor = 100
+		}
+		create_wargoal = {
+			target = PRM
+			type = annex_everything
+		}
+		create_wargoal = {
+			target = SRG
+			type = annex_everything
+		}
+	}
+}
 
 add_namespace = SOV_russian_collapse_leadup
 country_event = {
@@ -3478,49 +4187,33 @@ country_event = {
 			}
 			has_country_flag = SOV_rsdlp_collapse_fire_russian_collapse
 		}
-		else_if = {
+		if = {
 			limit = {
-				has_government = socialism_democratic
+				OR = {
+					has_government = socialism_democratic
+					has_government = democratic_liberalism
+				}
 			}
+			check_variable = {
+				var = SOV_peoples_support_for_current_regime value = 25 compare = less_than
+			} 
 			OR = {
-				AND = {
-					check_variable = {
-						var = SOV_peoples_support_for_current_regime value = 30 compare = less_than_or_equals
-					}
-					check_variable = {
-						var = SOV_military_support_for_current_regime value = 20 compare = less_than_or_equals
-					}
-				}
-				AND = {
-					check_variable = {
-						var = SOV_peoples_support_for_current_regime value = 20 compare = less_than_or_equals
-					}
-					check_variable = {
-						var = SOV_military_support_for_current_regime value = 40 compare = less_than_or_equals
-					}
-				}
+				has_idea = SOV_conservative_high_command
+				has_idea = SOV_conservative_high_command_2
+				has_idea = SOV_conservative_high_command_3
 			}
 		}
-	
-		else = {
-			OR = {
-				AND = {
-					check_variable = {
-						var = SOV_peoples_support_for_current_regime value = 30 compare = less_than_or_equals
-					}
-					check_variable = {
-						var = SOV_military_support_for_current_regime value = 20 compare = less_than_or_equals
-					}
-				}
-				AND = {
-					check_variable = {
-						var = SOV_peoples_support_for_current_regime value = 20 compare = less_than_or_equals
-					}
-					check_variable = {
-						var = SOV_military_support_for_current_regime value = 40 compare = less_than_or_equals
-					}
+		if = {
+			limit = {
+				OR = {
+					has_government = democratic
 				}
 			}
+			always = no
+			##fire_belogurov_collapse = yes
+		}
+		else = {
+			always = no
 		}
 		tag = SOV
 	}
@@ -3904,6 +4597,167 @@ country_event = {
 	}
 }
 
+##Demand South Sakhalin and Kurl and Korea
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.4
+	title = SOV_pavel_foriegn_policy_tree.4.t
+	desc = SOV_pavel_foriegn_policy_tree.4.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.4.a
+		SOV = {
+			country_event = {
+				id = SOV_pavel_foriegn_policy_tree.5
+				days = 2
+			}
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.4.b
+		SOV = {
+			country_event = {
+				id = SOV_pavel_foriegn_policy_tree.6
+				days = 2
+			}
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+}
+
+##JAPAN ACCEPTS
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.5
+	title = SOV_pavel_foriegn_policy_tree.5.t
+	desc = SOV_pavel_foriegn_policy_tree.5.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.5.a
+		transfer_state = 537
+		transfer_state = 555
+		hidden_effect = {
+			JAP = {
+				release = KOR
+			}
+		}
+		SOV = {
+			puppet = KOR
+		}
+	}
+
+}
+
+##japen denies
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.6
+	title = SOV_pavel_foriegn_policy_tree.6.t
+	desc = SOV_pavel_foriegn_policy_tree.6.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.6.a
+		declare_war_on = {
+			target = JAP
+			type = puppet_wargoal_focus
+		}	
+	}
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.6.b
+		add_war_support = -0.15
+		add_political_power = -100
+		add_stability = -0.1
+	}	
+}
+
+##Demand Constantinople
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.7
+	title = SOV_pavel_foriegn_policy_tree.7.t
+	desc = SOV_pavel_foriegn_policy_tree.7.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.7.a
+		SOV = {
+			country_event = {
+				id = SOV_pavel_foriegn_policy_tree.8
+				days = 2
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.7.b
+		SOV = {
+			country_event = {
+				id = SOV_pavel_foriegn_policy_tree.9
+				days = 2
+			}
+		}
+		ai_chance = {
+			factor = 99
+		}
+	}
+}
+
+##ottoman ACCEPTS
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.8
+	title = SOV_pavel_foriegn_policy_tree.8.t
+	desc = SOV_pavel_foriegn_policy_tree.8.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.8.a
+		transfer_state = 341
+	}
+
+}
+
+##ottoman denies
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.9
+	title = SOV_pavel_foriegn_policy_tree.9.t
+	desc = SOV_pavel_foriegn_policy_tree.9.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.9.a
+		declare_war_on = {
+			target = TUR
+			type = puppet_wargoal_focus
+		}	
+	}
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.9.b
+		add_war_support = -0.15
+		add_political_power = -100
+		add_stability = -0.1
+	}	
+}
+
+###russia sends support to carols government
+country_event = {
+	id = SOV_pavel_foriegn_policy_tree.10
+	title = SOV_pavel_foriegn_policy_tree.10.t
+	desc = SOV_pavel_foriegn_policy_tree.10.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_pavel_foriegn_policy_tree.10.a
+	}
+
+}
+
+
 add_namespace = SOV_Second_Rus_Jap_War_Events
 
 #Russia asks for Lend Lease 
@@ -3921,13 +4775,45 @@ country_event = {
 				amount = 10000
 				producer = USA
 			}
+			country_event = SOV_Second_Rus_Jap_War_Events.2
 		}
 	}
 	option = {
 		name = SOV_Second_Rus_Jap_War_Events.1.b
 		SOV = { 
 			add_opinion_modifier = { target = USA modifier = SOV_America_Declines_Lend_Lease } 
+			country_event = SOV_Second_Rus_Jap_War_Events.3
 		}
+	}
+}
+
+##america acceps
+country_event = {
+	id = SOV_Second_Rus_Jap_War_Events.2
+	title = SOV_Second_Rus_Jap_War_Events.2.t
+	desc = SOV_Second_Rus_Jap_War_Events.2.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_Second_Rus_Jap_War_Events.2.a
+	unlock_decision_category_tooltip = SOV_American_Support_in_the_Second_Russo_Japanese_War
+		hidden_effect = {
+			set_country_flag = SOV_American_Support_Unlock
+
+		}
+	}
+}
+
+##america denies
+country_event = {
+	id = SOV_Second_Rus_Jap_War_Events.3
+	title = SOV_Second_Rus_Jap_War_Events.3.t
+	desc = SOV_Second_Rus_Jap_War_Events.3.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_Second_Rus_Jap_War_Events.3.a
+	
 	}
 }
 
@@ -4004,5 +4890,42 @@ country_event = {
                                 id = KLV_kornilov_tree_events.3
                         }
                 }
+	}
+}
+
+#########################
+#Ottoman Turanist Revolt#
+#########################
+
+add_namespace = TUR_turan_anti_SOV_revolt_event
+
+#Revolt
+country_event = {
+	id = TUR_turan_anti_SOV_revolt_event.1
+	title = TUR_turan_anti_SOV_revolt_event.t
+	desc = TUR_turan_anti_SOV_revolt_event.d
+	#picture = 
+	trigger = {
+		tag = SOV
+		check_variable = { SOV_turan_popularity_in_TUR > 90 }
+	}
+	fire_only_once = yes
+	option = {
+		name = TUR_turan_anti_SOV_revolt_event.a
+		TUR = {
+			set_politics = {
+				ruling_party = fascism
+			}
+		}
+		SOV = {
+			set_autonomy = {
+				target = TUR
+				autonomous_state = autonomy_free
+			}
+			declare_war_on = {
+				target = TUR
+				type = puppet_wargoal_focus
+			}
+		}
 	}
 }

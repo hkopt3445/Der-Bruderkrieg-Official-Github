@@ -33,13 +33,13 @@ tag = SOV
 }
 }
 
-SOV_the_duma = {
-	allowed = {
-		tag = SOV
-	}
-	scripted_gui =  parliament_russian_duma_scripted_gui
-	visible_when_empty =  yes
-}
+# SOV_the_duma = {
+# 	allowed = {
+# 		tag = SOV
+# 	}
+# 	scripted_gui =  parliament_russian_duma_scripted_gui
+# 	visible_when_empty =  yes
+# }
 
 SOV_presidential_elections = {
 	allowed = {
@@ -53,14 +53,14 @@ SOV_presidential_elections = {
 	#scripted_gui = russian_duma_elections_scripted_gui
 }
 
-SOV_political_instability = {
-	allowed = {
-		tag = SOV
-	}
-	visible = {
-	}
-	visible_when_empty = yes
-}
+# SOV_political_instability = {
+# 	allowed = {
+# 		tag = SOV
+# 	}
+# 	visible = {
+# 	}
+# 	visible_when_empty = yes
+# }
 
 SOV_urp_development_scheme = {
 	allowed = {
@@ -90,14 +90,14 @@ SOV_the_extermination_of_the_communists = {
 	}
 }
 
-SOV_crackdowns_on_the_military = {
-	allowed = {
-		tag = SOV
-	}
-	visible = {
-		has_completed_focus = SOV_military_crackdowns
-	}
-}
+# SOV_crackdowns_on_the_military = {
+# 	allowed = {
+# 		tag = SOV
+# 	}
+# 	visible = {
+# 		has_completed_focus = SOV_military_crackdowns
+# 	}
+# }
 
 SOV_expand_the_russian_sphere_tsar = {
 	allowed = {
@@ -105,7 +105,7 @@ SOV_expand_the_russian_sphere_tsar = {
 	}
 	visible_when_empty = yes
 	visible = {
-		has_completed_focus = SOV_expand_the_russian_sphere
+		always = no
 	}
 
 	scripted_gui = DBK_russian_sphere_scripted_gui
@@ -158,7 +158,7 @@ SOV_Integration_of_Trapezountos = {
 }
 
 SOV_balancing_the_rsdlp = {
-	allowed = {
+	allowed = { 
 		tag = SOV
 	}
 	visible = {
@@ -168,7 +168,11 @@ SOV_balancing_the_rsdlp = {
 				has_country_flag = SOV_the_rsdlp_has_collapsed
 			}
 			NOT = {
-				has_country_flag = SOV_rsdlp_unified
+				has_completed_focus = SOV_our_rule_reigns_supreme
+				
+			}
+			NOT = {
+				has_completed_focus = SOV_the_russian_social_democratic_labour_party_reformed
 			}
 		}
 	}
@@ -193,7 +197,10 @@ SOV_lenins_infra_plan =  {
 		tag = SOV
 	}
 	visible = {
-		has_completed_focus = SOV_announcing_lenins_infrastructure_plans
+		OR = {
+			has_completed_focus = SOV_funding_infrastructure
+			has_completed_focus = SOV_improve_our_infrastructure
+		}
 	}
 
 }
@@ -203,7 +210,10 @@ SOV_lenins_social_reforms =  {
 		tag = SOV
 	}
 	visible = {
-		has_completed_focus = SOV_expanding_the_lefts_grip
+		OR = {
+			has_completed_focus = SOV_expand_the_duma
+			has_completed_focus = SOV_expanding_the_lefts_grip 
+		}
 	}
 }
 
@@ -234,6 +244,15 @@ SOV_prussian_russian_industry = {
 	}
 	visible = {
 		has_country_flag = GER_agree_SOV_industrial_zone
+	}
+}
+
+SOV_subjugating_the_balkans = {
+	allowed = {
+		tag = SOV
+	}
+	visible = {
+		has_completed_focus = SOV_subjugate_the_balkans
 	}
 }
 
@@ -321,7 +340,7 @@ SOV_future_okhrana = {
 		has_completed_focus = SOV_the_question_of_the_okhrana
 	}
 	visible_when_empty = yes
-	scripted_gui = SOV_pavel_hunting_map_scripted_gui
+	#scripted_gui = SOV_pavel_hunting_map_scripted_gui
 }
 
 SOV_Forming_Turkestan = {
@@ -330,7 +349,7 @@ SOV_Forming_Turkestan = {
 	}
 	visible = {
 		tag = SOV 
-		has_country_flag = SOV_Forming_Turkestan_Unlock
+		always = no
 	}
 }
 
@@ -361,6 +380,57 @@ SOV_european_development = {
 		OR = {
 			has_completed_focus = SOV_western_development
 			has_completed_focus = SOV_funding_civilian_industry
+		}
+	}
+}
+SOV_flourishing_oil_industry = {
+	allowed = { tag = SOV }
+	visible = {
+		OR = {
+			has_completed_focus = SOV_relying_on_ourselves
+		}
+	}
+}
+
+SOV_solving_the_ethnic_conflicts = {
+	allowed = { tag = SOV }
+	visible = {
+		OR = {
+			has_completed_focus = SOV_unify_the_duma
+			has_completed_focus = SOV_continuing_russification
+			has_completed_focus = SOV_pro_rsdlp_agenda
+		}
+	}
+}
+
+SOV_election_verification = {
+	allowed = {
+		tag = SOV
+	}
+	visible = {
+		has_completed_focus = SOV_Verifying_Election_Results
+	}
+}
+
+SOV_transylvanian_rebel_contacts = {
+	allowed = {
+		tag = SOV
+	}
+	visible = {
+		has_completed_focus = SOV_Contract_Transylvanian_Rebels
+	}
+}
+
+SOV_crushing_turan_sympathies = {
+	allowed = {
+		tag = SOV
+	}
+	visible = {
+		TUR = {
+			is_subject_of = SOV
+		}
+		NOT = {
+			has_country_flag = SOV_crushed_turanism
 		}
 	}
 }

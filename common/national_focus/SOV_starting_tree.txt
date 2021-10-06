@@ -50,13 +50,7 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-        modifier = {
-            add = 10000
-            has_country_flag = SOV_go_down_lenin
-        }
-    }
+   
 
     mutually_exclusive = {
         focus = SOV_side_with_the_trudoviks
@@ -70,6 +64,7 @@ shared_focus = {
     
     completion_reward = {
         set_country_flag = SOV_chose_lenin
+        log = "SOV_chose_lenin"
     }
 }
 
@@ -287,24 +282,24 @@ shared_focus = {
         }
     }
 }
-shared_focus = {
-    id = SOV_announcing_lenins_infrastructure_plans
-    icon = GFX_goal_SOV_announcing_lenins_infrastructure_plan
-	prerequisite = { focus = SOV_prioritizing_farmers focus = SOV_prioritizing_workers }
-    x = -1
-    y = 1
-    relative_position_id = SOV_prioritizing_farmers
+# shared_focus = {
+#     id = SOV_announcing_lenins_infrastructure_plans
+#     icon = GFX_goal_SOV_announcing_lenins_infrastructure_plan
+# 	prerequisite = { focus = SOV_prioritizing_farmers focus = SOV_prioritizing_workers }
+#     x = -1
+#     y = 1
+#     relative_position_id = SOV_prioritizing_farmers
     
-    cost = 1
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
+#     cost = 1
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
         
         
-    }
-}
+#     }
+# }
 
 shared_focus = {
     id = SOV_the_martov_worshippers
@@ -400,6 +395,7 @@ shared_focus = {
     
     completion_reward = {
       set_country_flag = SOV_sided_with_kerensky_campaign
+      log = "SOV_sided_with_kerensky_campaign"
     }
 }
 
@@ -488,7 +484,14 @@ shared_focus = {
     }
     completion_reward = {
      ###compromising with tsertelli, not lenin   
-        
+        add_to_variable = {
+			tooltip = SOV_increase_kerenskys_support_by_4
+			kerensky_support = 4
+		}
+        add_to_variable = {
+			tooltip = SOV_decrease_lenins_support_by_4
+			lenin_support = -4
+		}
     }
 }
 
@@ -506,8 +509,10 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
-    }
+        unlock_decision_tooltip = SOV_denouncing_pavel_as_an_autocrat
+        unlock_decision_tooltip = SOV_condemn_his_okhrana_ties
+        unlock_decision_tooltip = SOV_attacking_his_liberal_policies
+    } 
 }
 
 
@@ -524,44 +529,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        set_variable = {
-            SOV_cdp_support_for_current_bill = cdp_seats
-        }
-        divide_variable = {
-            SOV_cdp_support_for_current_bill = 2
-        }
-
-        round_variable = SOV_cdp_support_for_current_bill
-
-        set_variable = {
-            SOV_trudovik_support_for_current_bill = trudovik_seats
-        }
-        divide_variable = {
-            SOV_trudovik_support_for_current_bill = 4
-        }
-
-        round_variable = SOV_trudovik_support_for_current_bill
-
-        set_variable = {
-            SOV_rsdlp_support_for_current_bill = rsdlp_seats
-        }
-        divide_variable = {
-            SOV_rsdlp_support_for_current_bill = 4
-        }
-
-        round_variable = SOV_rsdlp_support_for_current_bill
-
-        set_variable = {
-            SOV_urp_support_for_current_bill = urp_seats
-        }
-        divide_variable = {
-            SOV_urp_support_for_current_bill = 2
-        }
-        round_variable = SOV_urp_support_for_current_bill
-
-        set_country_flag = SOV_vote_for_kerenskys_social_reform_bill_going_on
-        activate_mission = SOV_kerensky_final_social_reform_bill
         
+        add_political_power = 35
+        SOV_kerensky_level_up_duma_small_decision = yes
     }
 }
 
@@ -632,7 +602,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        
+        SOV_kerensky_level_up_duma_large_decision = yes
         
     }
 }
@@ -668,6 +638,7 @@ shared_focus = {
     
     completion_reward = {
         set_country_flag = SOV_sided_with_pavel_campaign
+        log = "SOV_sided_with_pavel_campaign"
     }
 }
 
@@ -688,8 +659,8 @@ shared_focus = {
         has_country_flag = SOV_sided_with_pavel_campaign
     }
     completion_reward = {
-        
-        
+        add_political_power = 40
+        SOV_pavel_level_up_duma_small_decision = yes
     }
 }
 shared_focus = {
@@ -768,12 +739,7 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-        subtract_from_variable = {
-            city_campaign_cost = 10
-        }
-        subtract_from_variable = {
-            farm_campaign_cost = 10
-        }
+        add_political_power = 50
         
     }
 }
@@ -925,7 +891,7 @@ shared_focus = {
     
     completion_reward = {
         set_country_flag = SOV_sided_with_belogurov_campaign
-        
+        log = "SOV_sided_with_belogurov_campaign"
     }
 }
 
@@ -984,23 +950,22 @@ shared_focus = {
         
     }
 }
-shared_focus = {
-    id = SOV_promises_of_a_greater_russia
-    icon = GFX_goal_SOV_dreams_of_a_greater_russia
-	prerequisite = {focus = SOV_promoting_tsar_nicholas}
-    x = 0
-    y = 1
-    relative_position_id = SOV_promoting_tsar_nicholas
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    completion_reward = {
+# shared_focus = {
+#     id = SOV_promises_of_a_greater_russia
+#     icon = GFX_goal_SOV_dreams_of_a_greater_russia
+# 	prerequisite = {focus = SOV_promoting_tsar_nicholas}
+#     x = 0
+#     y = 1
+#     relative_position_id = SOV_promoting_tsar_nicholas
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     completion_reward = {
         
-        
-    }
-}
+#     }
+# }
 shared_focus = {
     id = SOV_begin_belogurovs_campaign
     icon = GFX_goal_SOV_begin_belogurovs_campaign
@@ -1032,7 +997,14 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-       
+       add_to_variable = {
+           tsar_support = 3
+           tooltip = SOV_increase_tsars_support_by_3
+       }
+       add_to_variable = {
+           pavel_support = -3
+           tooltip = SOV_decrease_pavels_support_by_3
+       }
     }
 }
 
@@ -1073,7 +1045,9 @@ shared_focus = {
         factor = 1
     }
     completion_reward = {
-       
+       unlock_decision_tooltip = SOV_campaign_against_prohibition
+        unlock_decision_tooltip = SOV_reopening_shutdown_newspapers
+        unlock_decision_tooltip = SOV_lessening_kerenskys_anti_corruption_policies
     }
 }
 shared_focus = {
@@ -1133,9 +1107,21 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+    available = {
+        always = no
+    }
     completion_reward = {
         
         load_focus_tree = SOV_lenin_presidency_path
+           ##vars setup
+           set_variable = {
+            SOV_peoples_support_for_current_regime = lenin_support
+        }
+        add_to_variable = {
+            SOV_peoples_support_for_current_regime = 7
+        }
+        
+      
        
     }
 }
@@ -1152,9 +1138,13 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+    available = {
+        always = no
+    }
     completion_reward = {
         
         #load_focus_tree = SOV_kerensky_presidency_path
+       
     }
 }
 
@@ -1169,6 +1159,9 @@ shared_focus = {
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
+    }
+    available = {
+        always = no
     }
     completion_reward = {
         
@@ -1188,10 +1181,14 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+    available = {
+        always = no
+    }
     completion_reward = {
         load_focus_tree = SOV_the_return_of_the_tsar_tree
         hidden_effect = {
             news_event = SOV_starting_events_belogurov.7
+            set_country_flag = SOV_move_military_air_tree_for_belogurov
         }
     }
 }

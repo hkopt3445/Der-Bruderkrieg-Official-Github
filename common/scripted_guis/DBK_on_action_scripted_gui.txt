@@ -66,6 +66,10 @@ scripted_gui = {
 			}
 		}
 	}
+	visible = {
+		always = no
+	}
+
   }
 
   DBK_on_startup_alert_window = {
@@ -73,21 +77,24 @@ scripted_gui = {
 	  window_name = "DBK_welcome_window"
 
 	  visible = {
-		  has_country_flag = open_startup_window_flag
-		  is_ai = no
+		  always = no
 	  }
 
 	  effects = {
 		exit_click = {
 			clr_country_flag = open_startup_window_flag
-			if = {
-				limit = {
-					tag = AUS
-				}
-				AUS_create_pie_chart = yes
-			}
+
 		}
 	  }
-	  
+
+	  triggers = {
+		AUS_specialart_visible = {
+			tag = AUS
+		}
+		GER_specialart_visible = {
+			tag = GER
+		}
+	  }
+
   }
 }

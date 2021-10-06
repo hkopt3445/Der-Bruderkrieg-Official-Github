@@ -14,6 +14,102 @@ country_event = {
 	}
 }
 
+##the hamburg conference
+country_event = {
+	id = ENG_Goering.2
+	title = ENG_Goering.2.t
+	desc = ENG_Goering.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_Goering.2.a
+		
+
+		GER = {
+			country_event = ENG_Goering.5
+		}
+
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = ENG_Goering.2.b
+		add_political_power = -100
+	}
+}
+
+country_event = {
+	id = ENG_Goering.4
+	title = ENG_Goering.4.t
+	desc = ENG_Goering.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_Goering.4.a
+	
+		ENG = {
+			country_event = ENG_Goering.2
+		}
+
+		ai_chance = {
+			factor = 1000
+		}
+	}
+
+}
+
+country_event = {
+	id = ENG_Goering.5
+	title = ENG_Goering.5.t
+	desc = ENG_Goering.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_Goering.5.a
+		ENG = {
+			diplomatic_relation = {
+				country = HAN
+				relation = guarantee
+				active = no
+			}
+		}
+		GER = {
+			create_wargoal = {
+				target = HAN
+				type = annex_everything
+			}
+		}
+		add_threat = 5
+		add_timed_idea = {
+			idea = GER_pact_with_britain
+			days = 200
+		}		
+		hidden_effect = {
+			news_event = ENG_Goering.3
+		}
+
+		ai_chance = {
+			factor = 1000
+		}
+	}
+
+}
+
+news_event = {
+	id = ENG_Goering.3
+	title = ENG_Goering.3.t
+	desc = ENG_Goering.3.d
+	picture = GFX_hannoverbetrayal
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_Goering.3.a
+	}
+}
+
 add_namespace = ENG_elections
 
 ##Halifax victory
@@ -21,9 +117,9 @@ news_event = {
 	id = ENG_elections.1
 	title = ENG_elections.1.t
 	desc = ENG_elections.1.d
-	picture = GFX_report_event_hitler_handshake
-	
-
+	picture = GFX_halifaxvictory
+	major = yes
+	fire_only_once = no
 	is_triggered_only = yes
 
     option = {
@@ -36,9 +132,10 @@ news_event = {
 	id = ENG_elections.2
 	title = ENG_elections.2.t
 	desc = ENG_elections.2.d
-	picture = GFX_report_event_hitler_handshake
+	picture = GFX_churchillvictory
 	
-
+	major = yes
+	fire_only_once = no
 	is_triggered_only = yes
 
     option = {
@@ -51,12 +148,45 @@ news_event = {
 	id = ENG_elections.3
 	title = ENG_elections.3.t
 	desc = ENG_elections.3.d
-	picture = GFX_report_event_hitler_handshake
-	
+	picture = GFX_mosleyvictory
+	major = yes
+	fire_only_once = no
 
 	is_triggered_only = yes
 
     option = {
 		name = ENG_elections.3.a
+	}
+}
+
+##attlee victory
+news_event = {
+	id = ENG_elections.4
+	title = ENG_elections.4.t
+	desc = ENG_elections.4.d
+	picture = GFX_attleevictory
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.4.a
+	}
+}
+
+##benett-eden victory
+news_event = {
+	id = ENG_elections.5
+	title = ENG_elections.5.t
+	desc = ENG_elections.5.d
+	picture = GFX_attleevictory
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.5.a
 	}
 }

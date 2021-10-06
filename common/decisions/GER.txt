@@ -22,6 +22,13 @@ GER_ss_waffen_cat = {
 
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 
 		fire_only_once = no
@@ -60,6 +67,13 @@ GER_ss_waffen_cat = {
 		cost = 40
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 	
 		complete_effect = {
@@ -104,6 +118,13 @@ GER_ss_waffen_cat = {
 
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 
 		remove_effect = {
@@ -136,6 +157,13 @@ GER_ss_waffen_cat = {
 
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 
 		remove_effect = {
@@ -165,6 +193,13 @@ GER_ss_waffen_cat = {
 
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 
 		remove_effect = {
@@ -193,6 +228,13 @@ GER_ss_waffen_cat = {
 		days_remove = 15
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 
 		remove_effect = {
@@ -221,6 +263,13 @@ GER_ss_waffen_cat = {
 		cost = 50
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 	
 		complete_effect = {
@@ -264,6 +313,13 @@ GER_ss_waffen_cat = {
 		days_remove = 25
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 
 		remove_effect = {
@@ -290,6 +346,13 @@ GER_ss_waffen_cat = {
 
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 
 		fire_only_once = no
@@ -319,6 +382,13 @@ GER_ss_waffen_cat = {
 
 		ai_will_do = {
 			factor = 1000	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
 		}
 
 		fire_only_once = no
@@ -329,7 +399,7 @@ GER_ss_waffen_cat = {
 		remove_effect = {
 			subtract_from_variable = { ss_power = 10 }
 			custom_effect_tooltip = GER_infiltrate_radical_regiments_tt
-		}
+		} 
 	}
 	GER_freikorps_revolt_imminent_mission_trigger = {
 		allowed = { tag = GER }
@@ -344,7 +414,7 @@ GER_ss_waffen_cat = {
 			}
 		}
 		activation = {	has_completed_focus = GER_crush_the_freikorps	}
-		days_mission_timeout = 175
+		days_mission_timeout = 250
 		is_good = no
 		selectable_mission = no
 		fire_only_once = yes
@@ -366,7 +436,7 @@ GER_ss_waffen_cat = {
 			}
 		}
 		activation = {	has_completed_focus = GER_crush_the_sa	}
-		days_mission_timeout = 175
+		days_mission_timeout = 250
 		selectable_mission = no
 		cancel_if_not_visible = yes
 		fire_only_once = yes
@@ -716,6 +786,99 @@ GER_operations = {
 	}
 }
 
+
+###RUSSIA
+GER_moskowien_offensive = {
+	GER_moskowien_offensive_targeted = {
+		available = {
+			tag = GER	
+		}
+		state_target = yes
+		icon = generic_construction
+		visible = {
+			FROM = {
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = GER_plan_moskowien_modifier
+					}
+				}
+				OR = {
+					id = 219
+					id = 242
+					id = 205
+					id = 243
+					id = 224
+					id = 241
+			
+				}
+			}
+			
+		}
+		target_trigger = {
+			
+		}
+		cost = 50
+		days_remove = 100
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			add_dynamic_modifier = {
+				modifier = GER_plan_moskowien_modifier
+				days = 50
+			}
+		}
+	}
+}
+
+GER_caucusus_offensive = {
+	GER_caucusus_offensive_targeted = {
+		available = {
+			tag = GER	
+		}
+		state_target = yes
+		icon = generic_construction
+		visible = {
+			FROM = {
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = GER_plan_caucusus_modifier
+					}
+				}
+				OR = {
+					id = 196
+					id = 200
+					id = 227
+					id = 218
+					id = 238
+					id = 234
+					id = 1065
+					id = 217
+					id = 236
+					id = 235
+				}
+			}
+			
+		}
+		target_trigger = {
+			
+		}
+		cost = 50
+		days_remove = 100
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			add_dynamic_modifier = {
+				modifier = GER_plan_caucusus_modifier
+				days = 50
+			}
+		}
+	}
+}
+
+##RESISTANCE
+
 GER_french_resistance = {
 	GER_french_resistance_placeholder = {
 		available = {
@@ -733,6 +896,73 @@ GER_french_resistance = {
 		days_remove = 15
 
 		remove_effect = {
+			add_to_variable = {
+				tooltip = GER_decrease_french_resistance_by_5
+				GER_french_resistance = -5
+			}
+		}
+	}
+
+	GER_consolidate_power_with_the_gestapo = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_form_the_okf
+		}
+
+		visible = {
+			has_completed_focus = GER_form_the_okf
+		}
+ 
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 15
+
+		remove_effect = {
+			annex_country = {
+				target = COR
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = FRA
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = BEL
+				transfer_troops = yes
+			}
+		}
+	}
+	GER_establish_collaborationist_governments = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_cagoule_loyalty
+		}
+
+		visible = {
+			has_completed_focus = GER_cagoule_loyalty
+		}
+ 
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 15
+
+		remove_effect = {
+			GER = {
+				release = OCC
+				add_to_faction = OCC
+			}
+			OCC = {
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = prussian_rk
+			}
+			FRA = {
+				annex_country = {
+					target = COR
+					transfer_troops = yes
+				}
+			}
 		}
 	}
 }
@@ -754,6 +984,59 @@ GER_austrian_resistance = {
 		days_remove = 15
 
 		remove_effect = {
+			add_to_variable = {
+				tooltip = GER_decrease_austrian_resistance_by_5
+				GER_austrian_resistance = -5
+			}
+		}
+	}
+	GER_autonomy_for_ethnic_militias = {
+		available = {
+			tag = GER
+			has_completed_focus = GER_support_ethnic_militias
+		}
+
+		visible = {
+			has_completed_focus = GER_support_ethnic_militias
+		}
+ 
+		fire_only_once = no
+
+		cost = 50
+		days_remove = 15
+
+		remove_effect = {
+			release_puppet = CZE
+			release_puppet = AUS
+
+			CZE = {
+				set_cosmetic_tag = prussian_rk
+			}
+			AUS = {
+				set_cosmetic_tag = prussian_rk
+			}
+
+			hidden_effect = {
+				AUS = {
+					create_country_leader = {
+						name = "Ernst Rüdiger Starhemberg"
+						picture = "gfx/leaders/ErnstStarhemberg.dds"
+						ideology = ultranationalist
+					}
+				}
+				CZE = {
+					create_country_leader = {
+						name = "Radola Gajda"
+						picture = "gfx/leaders/RadolaGajda.dds"
+						ideology = ultranationalist
+					}
+				}
+				GER = {
+					transfer_state = 950
+					transfer_state = 66
+					transfer_state = 67
+				}
+			}
 		}
 	}
 }
@@ -927,6 +1210,7 @@ GER_goering_succession = {
 
 GER_anti_spartakus_category = {
 	GER_the_revolutionary_plot = {
+		icon = generic_ignite_civil_war
 		allowed = { tag = GER }
 		available = {
 			hidden_trigger = {
@@ -954,9 +1238,13 @@ GER_anti_spartakus_category = {
 
 		icon = generic_prepare_civil_war
 
-		cost = 50
+		cost = 30
 		days_re_enable = 80
 		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 		complete_effect = {
 			add_to_variable = { var = GER_anti_spartakus value = 5 }
@@ -977,6 +1265,10 @@ GER_anti_spartakus_category = {
 		cost = 25
 
 		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 		days_remove = 35
 
@@ -1003,9 +1295,13 @@ GER_anti_spartakus_category = {
 
 		icon = eng_trade_unions_demand
 
-		cost = 30
+		cost = 20
 
 		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 		
 
@@ -1036,9 +1332,13 @@ GER_anti_spartakus_category = {
 
 		icon = generic_industry
 
-		cost = 50
+		cost = 35
 
 		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 
 		available = {
@@ -1080,6 +1380,10 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
+		ai_will_do = {
+			factor = 1000
+		}
+
 		days_remove = 90
 
 		modifier = {
@@ -1110,12 +1414,16 @@ GER_anti_spartakus_category = {
 
 		icon = eng_propaganda_campaigns
 
-		cost = 40
+		cost = 15
 
 		fire_only_once = no
-		available = {
+		available = {	
+
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_10
 			check_variable = { GER_anti_spartakus > 10 } }
+		}
+		ai_will_do = {
+			factor = 1000
 		}
 
 		days_remove = 100
@@ -1141,7 +1449,11 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = no
 
-		cost = 30
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 25
 
 		visible = {
 		}
@@ -1175,7 +1487,11 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
-		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 10
 
 		available = {
 			custom_trigger_tooltip = { tooltip =  GER_anti_spartakus_var_greater_than_30
@@ -1201,7 +1517,11 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
-		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 30
 
 		available = {
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_60
@@ -1226,7 +1546,11 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
-		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 10
 
 		available = {
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_60
@@ -1252,24 +1576,120 @@ GER_anti_spartakus_category = {
 
 		fire_only_once = yes
 
+		ai_will_do = {
+			factor = 1000
+		}
+
 		cost = 0
 
 		available = {
-			check_variable = { GER_anti_spartakus > 80 }
+			check_variable = { GER_anti_spartakus > 99 }
 		}
 
 		complete_effect = {
-			add_to_variable = { var = GER_anti_spartakus value = 10 tooltip = GER_anti_spartakus_value_increase_by_10 }
 			set_country_flag = GER_spartakus_crushed
-			clamp_variable = {
-				var = GER_anti_spartakus
-				min = 0
-				max = 100
+			remove_ideas = Revolutionary_Treason
+		}
+
+	}
+
+	
+ 
+}
+
+GER_spartakus_hotspots = {
+	GER_targeted_crush_spartakus_riots = {
+
+		icon = generic_prepare_civil_war
+
+		days_re_enable = 0
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+
+		target_array = owned_states
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			FROM = {
+				has_state_flag = GER_spartakus_rioting_inbound_state
+			}
+		}
+
+		available = {
+			divisions_in_state = {
+				size > 3
+				state = FROM
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				custom_effect_tooltip = GER_prevent_local_spartakus_riots
+				clr_state_flag = GER_spartakus_rioting_inbound_state
 			}
 		}
 
 	}
- 
+
+	GER_spartakus_riot_mission = {
+		icon = generic_civil_support
+		allowed = { tag = GER 
+		
+		}
+		available = {
+			NOT = {
+				any_state = {
+					has_state_flag = GER_spartakus_rioting_inbound_state
+				}
+			}
+			
+		}
+		visible = {
+			NOT = {
+				has_country_flag = GER_spartakus_crushed
+			}
+		}
+		priority = 100
+		activation = {	has_country_flag = GER_spartakus_rioting_inbound_country NOT = {
+			has_country_flag = GER_spartakus_crushed
+		}  }
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			custom_effect_tooltip = GER_lower_spartakus_progress_5_every_state_not_crushed
+			#probably some kinda array loop shit that I am too tired to figure out rn
+			every_state = {
+				limit = { has_state_flag = GER_spartakus_rioting_inbound_state }
+				clr_state_flag = GER_spartakus_rioting_inbound_state
+				add_dynamic_modifier = {
+					modifier = GER_spartakus_riot_modifier 
+				}
+			}
+			every_state = {
+				if = {
+					limit = {
+						is_core_of = GER
+						is_owned_by = GER
+						has_state_flag = GER_spartakus_rioting_inbound_state
+					}
+					add_to_temp_variable = { GER_temp_spartakus_value = 5 }
+				}
+			}
+			subtract_from_variable = { GER_anti_spartakus = GER_temp_spartakus_value }
+			
+		}
+		
+	}
 }
 
 GER_nordicist_decisions = {
@@ -1285,6 +1705,18 @@ GER_nordicist_decisions = {
 		}
 
 		days_remove = 90
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+				OR = {
+					has_war_with = AUS
+					has_war_with = FRA
+					has_war_with = SOV
+				}
+			}
+		}
 
 		modifier = {
 			army_armor_attack_factor = 0.1
@@ -1309,6 +1741,18 @@ GER_nordicist_decisions = {
 		available = {
 			NOT = {
 				has_country_flag = GER_already_chose_worship
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+				OR = {
+					has_war_with = AUS
+					has_war_with = FRA
+					has_war_with = SOV
+				}
 			}
 		}
 
@@ -1341,6 +1785,10 @@ GER_nordicist_decisions = {
 		}
 
 		days_remove = 90
+
+		ai_will_do = {
+			factor = 100
+		}
 
 		modifier = {
 			monthly_population = 0.1
@@ -1375,6 +1823,10 @@ GER_nordicist_decisions = {
 			political_power_cost = 0.25
 		}
 
+		ai_will_do = {
+			factor = 100
+		}
+
 		complete_effect = {
 			set_country_flag = GER_already_chose_worship
 		}
@@ -1401,7 +1853,9 @@ GER_nordicist_decisions = {
 			industrial_capacity_factory = 0.2
 			political_power_cost = 0.25
 		}
-
+		ai_will_do = {
+			factor = 100
+		}
 		complete_effect = {
 			set_country_flag = GER_already_chose_worship
 		}
@@ -1432,11 +1886,199 @@ GER_nordicist_decisions = {
 		complete_effect = {
 			set_country_flag = GER_already_chose_worship
 		}
-
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			clr_country_flag = GER_already_chose_worship
 		}
 
 	}
 
+}
+
+GER_industrial_expansion = {
+	GER_industrial_expansion_in_FROM = {
+		available = {
+			tag = GER	
+		}
+		state_target = yes
+		icon = generic_construction
+		visible = {
+			tag = GER
+			has_completed_focus = GER_goerings_industrial_plan
+			FROM = { is_owned_and_controlled_by = GER }
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = GER
+			}
+		}
+		cost = 50
+		days_remove = 100
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+	
+			FROM = { add_extra_state_shared_building_slots = 1 }
+		}
+	}
+}
+
+
+weltkrieg_decisions = {
+	GER_pressure_russia_to_intervene_against_austria = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+		}
+
+		visible = {
+			has_war_with = AUS
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 20
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			SOV = {
+				country_event = {
+					id = russian_inteverntion_in_europakrieg.2
+					days = 2
+				}
+			}
+		}
+	}
+	GER_invite_sweden = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_completed_focus = GER_secure_the_baltic_front
+		}
+
+		visible = {
+			has_war_with = AUS
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			SWE = {
+				country_event = {
+					id = germanyfaction.17
+					days = 2
+				}
+			}
+		}
+	}
+	GER_invade_denmark = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_completed_focus = GER_secure_the_baltic_front
+			is_in_faction_with = SWE
+		}
+
+		visible = {
+			has_war_with = AUS
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			create_wargoal = {
+				target = DEN
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+
+	GER_invite_aipg = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			AIG = {
+				exists = yes
+				has_war_with = ENG
+			}
+		}
+
+		visible = {
+			has_war_with = ENG
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			add_to_faction = AIG
+		}
+	}
 }

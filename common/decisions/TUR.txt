@@ -3,6 +3,80 @@ TUR_arab_tension = {
 }
 
 
+TUR_ottoman_persian_war = {
+	TUR_ottoman_persian_war_mission_timeout = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		  hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 50
+	
+		fire_only_once = yes 
+	
+		activation = {
+		  OR = { tag = TUR tag = PER }
+		  has_global_flag = persian_ottoman_war_activation
+		}
+	
+		visible = {
+		  OR = { tag = TUR tag = PER }
+		  has_global_flag = persian_ottoman_war_activation
+		} 
+	
+		#cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = TUR.surrender_progress 
+						value = PER.surrender_progress
+						compare = greater_than
+					}
+				}
+				PER = {
+					transfer_state = 656
+					transfer_state = 855
+					transfer_state = 291
+					transfer_state = 853
+					transfer_state = 852
+					transfer_state = 851
+					transfer_state = 869
+					transfer_state = 676
+					transfer_state = 650
+					transfer_state = 854
+					transfer_state = 850
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = PER.surrender_progress 
+						value = TUR.surrender_progress
+						compare = greater_than
+					}
+				}
+				TUR = {
+					transfer_state = 413
+					transfer_state = 419
+					transfer_state = 421
+					transfer_state = 1084
+				}
+			}
+			TUR = {
+				white_peace = PER
+			}
+		}
+	  }
+}
+
 # TUR_plans_against_our_enemies = {
 # 	TUR_plans_against_BUL = {
 # 		icon = generic_operation

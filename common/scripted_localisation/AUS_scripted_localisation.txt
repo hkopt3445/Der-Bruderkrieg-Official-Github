@@ -589,6 +589,19 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetThirdHungarianRevolutionNemzetiDalDesc
+	text = {
+		trigger = {
+			has_country_flag = AUS_make_nemzeti_dal_720_days_timeout
+		}
+		localization_key = "AUS_this_spirit_will_be_removed_after_720_days"
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
 	name = GetAustrianBohemianDesc
 	
 	text = {
@@ -611,7 +624,33 @@ defined_text = {
 defined_text = {
 	name = GetAustrianCroatDesc
 	text = {
+		trigger = {
+			has_country_flag = AUS_croat_support_to_high_croat_support
+		}
+		localization_key = AUS_high_croat_support 
+	}
+	text = {
 		localization_key = AUS_croat_support
+	}
+}
+
+defined_text = {
+	name = GetAustrianGalicianDesc
+	
+	text = {
+		trigger = {
+			has_country_flag = AUS_high_polish_support_to_very_high_polish_support
+		}
+		localization_key = AUS_very_high_polish_support
+	}
+	text = {
+		trigger = {
+			has_country_flag = AUS_high_polish_support_to_neutral_polish_support
+		}
+		localization_key = AUS_neutral_polish_support
+	}
+	text = {
+		localization_key = AUS_high_polish_support
 	}
 }
 
@@ -627,13 +666,13 @@ defined_text = {
 		trigger = {
 			has_country_flag = AUS_imperial_diet_galicia_click_flag
 		}
-		localization_key = "Crown of Galicia-Lodomeria"
+		localization_key = "     Crown of Galicia-Lodomeria"
 	}
 	text = {
 		trigger = {
 			has_country_flag = AUS_imperial_diet_bohemia_click_flag
 		}
-		localization_key = "Crown of Bohemia"
+		localization_key = "Crown of St. Wencelaus"
 	}
 	text = {
 		trigger = {
@@ -667,7 +706,7 @@ defined_text = {
 		trigger = {
 			has_country_flag = AUS_imperial_diet_galicia_click_flag
 		}
-		localization_key = ""
+		localization_key = "[GetAustrianGalicianDesc]"
 	}
 	text = {
 		trigger = {
@@ -707,7 +746,7 @@ defined_text = {
 		trigger = {
 			has_country_flag = AUS_imperial_diet_galicia_click_flag
 		}
-		localization_key = ""
+		localization_key = "GFX_goal_AUS_galician_support"
 	}
 	text = {
 		trigger = {
@@ -725,7 +764,7 @@ defined_text = {
 		trigger = {
 			has_country_flag = AUS_imperial_diet_austria_click_flag
 		}
-		localization_key = "Select A State"
+		localization_key = "GFX_goal_AUS_state_of_parliament"
 	}
 	text = {
 		trigger = {
@@ -751,7 +790,7 @@ defined_text = {
 		trigger = {
 			has_country_flag = AUS_Giovane_Italia_to_Venetian_autonomy
 		}
-		localization_key = GFX_goal_AUS_autonomy_for_the_italians
+		localization_key = GFX_goal_AUS_intervene_in_veneto
 	}
 	text = {
 		localization_key = GFX_goal_AUS_giovane_italia
@@ -809,5 +848,48 @@ defined_text = {
 	name = GetAustrianGalicianDescIcon
 	text = {
 		localization_key = GFX_goal_AUS_galician_support
+	}
+}
+
+
+defined_text = {
+	name = GetImperialDietDesc
+	text = {
+		trigger = {
+			has_country_flag = AUS_diet_dissolved
+		}
+		localization_key = AUS_imperial_senate_insane_desc
+	}
+	text = {
+		localization_key = AUS_imperial_senate_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetViennaAward
+	if = {
+		limit = {
+			has_completed_focus = AUS_support_greek_claim_on_thrace
+			NOT = {
+				has_completed_focus = AUS_give_them_macedonia
+			}
+		}
+		localization_key = "First"
+	}
+	if = {
+		limit = {
+			has_completed_focus = AUS_give_them_macedonia
+			NOT = {
+				has_completed_focus = AUS_support_greek_claim_on_thrace
+			}
+		}
+		localization_key = "First"
+	}
+	if = {
+		limit = {
+			has_completed_focus = AUS_give_them_macedonia
+			has_completed_focus = AUS_support_greek_claim_on_thrace
+		}
+		localization_key = "Second"
 	}
 }

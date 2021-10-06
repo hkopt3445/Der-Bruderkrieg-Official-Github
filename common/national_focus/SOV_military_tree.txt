@@ -1,4 +1,6 @@
 
+
+
 shared_focus = {
     id = SOV_kovankos_influence
     icon = GFX_goal_generic_air_fighter2
@@ -14,6 +16,35 @@ shared_focus = {
         	date > 1937.1.1
         }
     }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_the_return_of_the_tsar_tree
+        }
+         x = 14
+        y = -2
+    }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_pavel_milyukov_presidency_tree
+        }
+         x = -12
+        y = 0
+    }
+     offset = {
+        trigger = {
+            has_focus_tree	= SOV_lenin_presidency_path
+        }
+         x = -11
+        y = 0
+    }
+	offset = {
+        trigger = {
+            has_focus_tree	= SOV_kerensky_presidency_path
+        }
+         x = 10
+        y = -3
+    }
+	
     
     completion_reward = {
         air_experience = 10
@@ -47,6 +78,35 @@ shared_focus = {
         	date > 1937.1.1
         }
     }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_the_return_of_the_tsar_tree
+        }
+         x = 14
+        y = -2
+    }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_pavel_milyukov_presidency_tree
+        }
+         x = -12
+        y = 0
+    }
+     offset = {
+        trigger = {
+            has_focus_tree	= SOV_lenin_presidency_path
+        }
+         x = -11
+        y = 0
+    }
+	offset = {
+        trigger = {
+            has_focus_tree	= SOV_kerensky_presidency_path
+        }
+         x = 10
+        y = -3
+    }
+    
     
     completion_reward = {
         air_experience = 10
@@ -352,7 +412,7 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_the_grand_fleet
+    id = SOV_the_grand_fleet 
     icon = GFX_goal_generic_navy_doctrines_tactics 
     x = 33
     y = 8
@@ -361,9 +421,37 @@ shared_focus = {
     ai_will_do = {
         factor = 0
         modifier = {
-        	add = 1
+        	add = 1 
         	date > 1937.1.1
         }
+    }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_the_return_of_the_tsar_tree
+        }
+         x = 12
+        y = 0
+    }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_pavel_milyukov_presidency_tree
+        }
+         x = -12
+        y = 0
+    }
+     offset = {
+        trigger = {
+            has_focus_tree	= SOV_lenin_presidency_path
+        }
+         x = -11
+        y = 0
+    }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_kerensky_presidency_path
+        }
+         x = 0
+        y = 1
     }
     
     completion_reward = {
@@ -533,9 +621,322 @@ shared_focus = {
 		}
 		add_tech_bonus = {
 			name = nav_bomber_bonus
-			bonus = 1.0
+			bonus = 1.0 
 			uses = 1
 			category = naval_bomber
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_devloping_knowledge_europakrieg
+    icon = GFX_focus_generic_military_mission
+    x = 38
+    y = 8
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_the_return_of_the_tsar_tree
+        }
+        x = 7
+        y = -8
+    }
+    offset = {
+        trigger = {
+            has_focus_tree	= SOV_pavel_milyukov_presidency_tree
+        }
+         x = -12
+        y = 0
+    }
+     offset = {
+        trigger = {
+            has_focus_tree	= SOV_lenin_presidency_path
+        }
+         x = -11
+        y = 0
+    }
+	offset = {
+        trigger = {
+            has_focus_tree	= SOV_kerensky_presidency_path
+        }
+         x = 0
+        y = 1
+    }
+    
+    completion_reward = {
+        army_experience = 10
+        add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 1.0
+			uses = 1
+			category = land_doctrine
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_long_range_engagements
+    icon = GFX_focus_generic_military_mission
+    prerequisite = { focus = SOV_devloping_knowledge_europakrieg }
+    relative_position_id = SOV_devloping_knowledge_europakrieg
+    x = -1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        add_tech_bonus = {
+			name = infantry_artillery_bonus
+			bonus = 1.0
+			uses = 2
+			category = artillery
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_competitive_equipment_development
+    icon = GFX_goal_generic_small_arms
+    prerequisite = { focus = SOV_devloping_knowledge_europakrieg }
+    relative_position_id = SOV_devloping_knowledge_europakrieg
+    x = 1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        add_tech_bonus = {
+			name = infantry_artillery_bonus
+			bonus = 1.0
+			uses = 2
+			category = infantry_weapons
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_utilizing_new_technology_warfare
+    icon = GFX_focus_generic_military_mission
+    prerequisite = { focus = SOV_long_range_engagements }
+    prerequisite = { focus = SOV_competitive_equipment_development }
+    relative_position_id = SOV_devloping_knowledge_europakrieg
+    x = 0
+    y = 2
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 1.0
+			uses = 1
+			category = land_doctrine
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_motorization_effort
+    icon = GFX_focus_generic_military_mission
+    prerequisite = { focus = SOV_utilizing_new_technology_warfare }
+    relative_position_id = SOV_utilizing_new_technology_warfare
+    x = 0
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        add_tech_bonus = {
+			name = motorized_bonus
+			ahead_reduction = 2
+			bonus = 0.5
+			uses = 1
+			category = motorized_equipment
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_light_tank_focus
+    icon = GFX_goal_generic_army_tanks
+    prerequisite = { focus = SOV_motorization_effort }
+    relative_position_id = SOV_motorization_effort
+    mutually_exclusive = { focus = SOV_heavy_tank_focus }
+    x = -1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        add_tech_bonus = {
+			name = armor_bonus
+			bonus = 0.75
+			uses = 2
+			category = cat_light_armor
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_heavy_tank_focus
+    icon = GFX_goal_generic_army_tanks
+    prerequisite = { focus = SOV_motorization_effort }
+    relative_position_id = SOV_motorization_effort
+    mutually_exclusive = { focus = SOV_light_tank_focus }
+    x = 1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        add_tech_bonus = {
+			name = armor_bonus
+			bonus = 0.75
+			uses = 2
+			category = cat_heavy_armor
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_mechanized_warfare_doctrine
+    icon = GFX_goal_generic_army_tanks
+    prerequisite = { focus = SOV_heavy_tank_focus focus = SOV_light_tank_focus }
+    relative_position_id = SOV_light_tank_focus
+    x = 1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        army_experience = 5
+		add_tech_bonus = {
+			name = land_doc_bonus
+			bonus = 1.0
+			uses = 1
+			category = land_doctrine
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_swift_troops
+    icon = GFX_goal_generic_army_tanks
+    prerequisite = { focus = SOV_heavy_tank_focus }
+    relative_position_id = SOV_light_tank_focus
+    x = -1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        add_tech_bonus = {
+			name = motorized_bonus
+			bonus = 0.75
+			uses = 2
+			category = motorized_equipment
+			category = infantry_weapons
+		}
+    }
+}
+
+shared_focus = {
+    id = SOV_cannon_troops
+    icon = GFX_goal_generic_army_tanks
+    prerequisite = { focus = SOV_heavy_tank_focus }
+    relative_position_id = SOV_heavy_tank_focus
+    x = 1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+        	add = 1
+        	date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        add_tech_bonus = {
+			name = infantry_artillery_bonus
+			bonus = 0.75
+			uses = 2
+			category = infantry_weapons
+			category = artillery
 		}
     }
 }

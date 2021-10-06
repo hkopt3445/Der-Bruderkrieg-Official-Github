@@ -1,0 +1,709 @@
+focus_tree = {
+    id = usa_starting_tree
+    country = { factor = 0 modifier = {
+        tag = USA
+        add = 12
+    }}
+	continuous_focus_position = { 
+		x = 0
+		y = 4000
+	}
+
+	focus = {
+		id = USA_the_end_of_the_first_four
+		icon = GFX_goal_USA_end_of_the_first_four
+		#prerequisite = { focus = USA_longs_campaign_speech }
+		x = 0
+		y = 0
+		#relative_position_id = USA_longs_campaign_speech
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			country_event = USA_starting_events.9
+		}
+	}
+	focus = {
+		id = USA_teddys_legacy
+		icon = GFX_goal_USA_teddys_legacy
+		prerequisite = { focus = USA_the_end_of_the_first_four }
+		x = 0
+		y = 1
+		relative_position_id = USA_the_end_of_the_first_four
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = USA_the_situation_in_liberia
+		icon = GFX_goal_USA_the_situation_in_liberia
+		prerequisite = { focus = USA_teddys_legacy }
+		x = -3
+		y = 1
+		relative_position_id = USA_teddys_legacy
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			country_event = USA_starting_events.2
+		}
+	}
+	focus = {
+		id = USA_governor_general_roosevelt
+		icon = GFX_goal_USA_governor_general_roosevelt
+		prerequisite = { focus = USA_the_situation_in_liberia }
+		mutually_exclusive = {
+			focus = USA_governor_general_truman
+		}
+		mutually_exclusive = {
+			focus = USA_governor_general_patton
+		}
+		x = -2
+		y = 1
+		relative_position_id = USA_the_situation_in_liberia
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = USA_operation_emancipation_a_success
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			LIB = {
+				create_country_leader = {
+					name = "Theodore Roosevelt Jr."
+					desc = ""
+					picture = "gfx/leaders/RooseveltJr.dds"
+					ideology = despotic
+				}
+			}
+		}
+	}
+	focus = {
+		id = USA_governor_general_truman
+		icon = GFX_goal_USA_governor_general_truman
+		prerequisite = { focus = USA_the_situation_in_liberia }
+		x = 0
+		y = 1
+		relative_position_id = USA_the_situation_in_liberia
+		mutually_exclusive = {
+			focus = USA_governor_general_roosevelt
+		}
+		mutually_exclusive = {
+			focus = USA_governor_general_patton
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = USA_operation_emancipation_a_success
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			LIB = {
+				create_country_leader = {
+					name = "Harry Truman"
+					desc = ""
+					picture = "gfx/leaders/Truman.dds"
+					ideology = despotic
+				}
+			}
+		}
+	}
+	focus = {
+		id = USA_governor_general_patton
+		icon = GFX_goal_USA_governor_general_patton
+		prerequisite = { focus = USA_the_situation_in_liberia }
+		x = 2
+		y = 1
+		relative_position_id = USA_the_situation_in_liberia
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = USA_operation_emancipation_a_success
+		}
+		mutually_exclusive = {
+			focus = USA_governor_general_roosevelt
+		}
+		mutually_exclusive = {
+			focus = USA_governor_general_truman
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			LIB = {
+				create_country_leader = {
+					name = "George Patton"
+					desc = ""
+					picture = "gfx/leaders/Patton.dds"
+					ideology = despotic
+				}
+			}
+		}
+	}
+	focus = {
+		id = USA_defender_of_liberty
+		icon = GFX_goal_Generic_Blue_Democracy
+		prerequisite = { focus = USA_governor_general_patton focus = USA_governor_general_roosevelt focus = USA_governor_general_truman }
+		x = -2
+		y = 1
+		relative_position_id = USA_governor_general_patton
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = USA_operation_bolivar
+		icon = GFX_goal_USA_operation_bolivar
+		prerequisite = { focus = USA_teddys_legacy }
+		x = 3
+		y = 1
+		relative_position_id = USA_teddys_legacy
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			COL = {
+				declare_war_on = {
+					target = VEN
+					type = topple_government
+				}
+			}
+			create_wargoal = {
+				target = VEN
+				type = topple_government
+			}
+			
+		}
+	}
+	focus = {
+		id = USA_the_caracas_conference
+		icon = GFX_goal_USA_the_caracas_conference
+		prerequisite = { focus = USA_operation_bolivar }
+		x = -1
+		y = 1
+		relative_position_id = USA_operation_bolivar
+		mutually_exclusive = {
+			focus = USA_the_venezuelan_disaster
+		}
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			VEN = {
+				is_puppet_of = USA
+			}
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_venezuelan_disaster
+		icon = GFX_goal_USA_the_venezuelan_disaster
+		prerequisite = { focus = USA_operation_bolivar }
+		x = 1
+		y = 1
+		relative_position_id = USA_operation_bolivar
+		mutually_exclusive = {
+			focus = USA_the_caracas_conference
+		}
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = USA_veneuelan_disaster_unlock
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = USA_bulwark_against_socialism
+		icon = GFX_goal_USA_bulwark_against_socialism
+		prerequisite = { focus = USA_the_venezuelan_disaster focus = USA_the_caracas_conference }
+		x = 1
+		y = 1
+		relative_position_id = USA_the_caracas_conference
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		} 
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = USA_1936_DNC
+		icon = GFX_goal_USA_1936_DNC
+		prerequisite = { focus = USA_bulwark_against_socialism }
+		prerequisite = {
+			focus = USA_defender_of_liberty
+		}
+		x = 3
+		y = 1
+		relative_position_id = USA_defender_of_liberty
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			always = no
+		}
+		bypass = {
+			has_country_flag = USA_dnc_has_ended
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			
+		}
+	}
+	
+
+    focus = { 
+		id = USA_longs_campaign_speech
+		icon = GFX_goal_USA_longs_relection_speech
+		prerequisite = { focus = USA_1936_DNC }
+		x = -3
+		y = 1
+		relative_position_id = USA_1936_DNC
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			focus = USA_smith_campaign_placeholder
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_political_power = 20
+			country_event = USA_election_leadup.1
+		#	load_focus_tree = usa_long_new_deal_tree
+		}
+	}
+    focus = {
+		id = USA_denounce_conservativetism
+		icon = GFX_goal_USA_denounce_conservativism
+		prerequisite = { focus = USA_longs_campaign_speech }
+		x = 0
+		y = 1
+		relative_position_id = USA_longs_campaign_speech
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			country_event = USA_election_leadup.3
+		}
+	}
+	focus = {
+		id = USA_a_fresh_start
+		icon = GFX_goal_USA_time_for_a_fresh_start
+		prerequisite = { focus = USA_denounce_conservativetism }
+		x = 0
+		y = 1
+		relative_position_id = USA_denounce_conservativetism
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag = USA_a_fresh_start_flag_unlock
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_stability = 0.03
+			set_party_name = { 
+				ideology = socialism_democratic  
+				name = USA_bull_moose_party 
+			}
+		}
+	}
+	focus = {
+		id = USA_longs_tour_of_america
+		icon = GFX_goal_USA_longs_great_tour_of_america
+		prerequisite = { focus = USA_a_fresh_start }
+		x = 0
+		y = 1
+		relative_position_id = USA_a_fresh_start
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			unlock_decision_tooltip = USA_campaign_in_new_york_and_new_england
+			unlock_decision_tooltip = USA_campaign_in_the_mid_atlantic
+			unlock_decision_tooltip = USA_campaign_in_the_deep_south
+			unlock_decision_tooltip = USA_campaign_in_the_south
+			unlock_decision_tooltip = USA_campaign_in_pacific
+			unlock_decision_tooltip = USA_campaign_the_pacific_northwest
+			unlock_decision_tooltip = USA_campaign_in_the_rockies
+			unlock_decision_tooltip = USA_campaign_in_the_great_plains
+			unlock_decision_tooltip = USA_campaign_in_the_rustbelt
+			
+		}
+	}
+    focus = {
+		id = USA_california_workers
+		icon = GFX_goal_USA_meeting_with_california_dock_workers
+		prerequisite = { focus = USA_longs_tour_of_america }
+		x = -1
+		y = 1
+		relative_position_id = USA_longs_tour_of_america
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			378 = {
+				add_to_variable = {
+				  long_support = 2
+				}
+				usa_modify_electoral_college_effect = yes
+				custom_effect_tooltip = USA_increase_long_support_by_two
+			}
+		}
+	}
+    focus = {
+		id = USA_missouri_farmers
+		icon = GFX_goal_USA_and_missouri_dock_workers
+		prerequisite = { focus = USA_longs_tour_of_america }
+		x = 1
+		y = 1
+		relative_position_id = USA_longs_tour_of_america
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			362 = {
+				add_to_variable = {
+				  long_support = 2
+				}
+				usa_modify_electoral_college_effect = yes
+				custom_effect_tooltip = USA_increase_long_support_by_two
+			}
+		}
+	}
+    focus = {
+		id = USA_lousiana_visit
+		icon = GFX_goal_USA_fund_public_universities
+		prerequisite = { focus = USA_missouri_farmers }
+        prerequisite = { focus = USA_california_workers }
+		x = -1
+		y = 1
+		relative_position_id = USA_missouri_farmers
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_political_power = 20
+			371 = {
+				add_to_variable = {
+				  long_support = 2
+				}
+				usa_modify_electoral_college_effect = yes
+				custom_effect_tooltip = USA_increase_long_support_by_two
+			}
+		}
+	}
+    focus = {
+		id = USA_promoting_longs_economic_policies
+		icon = GFX_goal_USA_promoting_longs_economic_policy
+		prerequisite = { focus = USA_lousiana_visit }
+		x = -2
+		y = 1
+		relative_position_id = USA_lousiana_visit
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		} 
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+	
+		}
+	}
+    focus = {
+		id = USA_promise_great_depression_stimulus
+		icon = GFX_goal_USA_promising_great_depression_stimulus
+		prerequisite = { focus = USA_promoting_longs_economic_policies }
+		x = 0
+		y = 1
+		relative_position_id = USA_promoting_longs_economic_policies
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+	
+		}
+	}
+
+
+     focus = {
+		id = USA_denouncing_republican_candidate
+		icon = GFX_goal_USA_smashing_conservative_democrats
+		prerequisite = { focus = USA_lousiana_visit }
+		x = 2
+		y = 1
+		relative_position_id = USA_lousiana_visit
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_smith_state = yes
+				}
+				add_to_variable = {
+					long_support = 2
+				  }
+				  usa_modify_electoral_college_effect = yes
+				  custom_effect_tooltip = USA_increase_long_support_by_two
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_smith_state = yes
+				}
+				add_to_variable = {
+					long_support = 2
+				  }
+				  usa_modify_electoral_college_effect = yes
+				  custom_effect_tooltip = USA_increase_long_support_by_two
+			}
+		}
+	}
+    focus = {
+		id = USA_but_promoting_unity
+		icon = GFX_goal_USA_reaching_out_to_progressives
+		prerequisite = { focus = USA_denouncing_republican_candidate }
+		x = 0
+		y = 1
+		relative_position_id = USA_denouncing_republican_candidate
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_borah_state = yes
+				}
+				add_to_variable = {
+					long_support = 2
+				  }
+				  usa_modify_electoral_college_effect = yes
+				  custom_effect_tooltip = USA_increase_long_support_by_two
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_borah_state = yes
+				}
+				add_to_variable = {
+					long_support = 2
+				  }
+				  usa_modify_electoral_college_effect = yes
+				  custom_effect_tooltip = USA_increase_long_support_by_two
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_borah_state = yes
+				}
+				add_to_variable = {
+					long_support = 2
+				  }
+				  usa_modify_electoral_college_effect = yes
+				  custom_effect_tooltip = USA_increase_long_support_by_two
+			}
+		}
+	}
+    focus = {
+		id = USA_nov_3_1936
+		icon = GFX_goal_USA_election_day_arrives
+		prerequisite = { focus = USA_but_promoting_unity }
+        prerequisite = {focus = USA_promise_great_depression_stimulus}
+		x = -2
+		y = 1
+		relative_position_id = USA_but_promoting_unity
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			always = no
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+	
+		}
+	}
+
+
+	###smith
+	focus = { 
+		id = USA_smith_campaign_placeholder
+		icon = GFX_goal_USA_longs_relection_speech
+		prerequisite = { focus = USA_1936_DNC }
+		x = 3
+		y = 1
+		relative_position_id = USA_1936_DNC
+		mutually_exclusive = {
+			focus = USA_longs_campaign_speech
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+	
+}
+
+
+
+
+
+

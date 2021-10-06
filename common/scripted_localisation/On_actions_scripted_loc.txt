@@ -1,4 +1,27 @@
 defined_text = {
+	name = GetEuropeanFrontWeltkriegDesc
+	text = {
+		trigger = {
+			has_global_flag = prussia_has_beaten_austria
+			has_global_flag = prussia_has_beaten_france
+		}
+		localization_key = revolutionaries
+	}
+	text = {
+		trigger = {
+			GER = {
+				is_puppet = yes
+			}
+		}
+		localization_key = traditionalists
+	}
+	text = {
+		localization_key = "no one"
+	}
+}
+
+
+defined_text = {
 	name = GetOnAnnexDesc
 	text = {
 		trigger = {
@@ -11,19 +34,86 @@ defined_text = {
 	}
 
 	text = {
-		trigger = {
-			event_target:person_being_annexed = {
-				OR = {
-					tag = BEL
-                    tag = LUX
-                    tag = HOL
+			trigger = {
+				event_target:person_being_annexed = {
+					OR = {
+						tag = BEL
+						tag = LUX
+						tag = HOL
+					}
+				}
+				event_target:annexer = {
+					tag = FRA
 				}
 			}
-		}
 		localization_key = french_expansionism_benelux
 	}
 	text = {
-		localization_key = DB_on_annex_desc_default
+		trigger = {
+			event_target:person_being_annexed = {
+				OR = {
+					tag = ITA
+					tag = CMI
+				}
+			}
+			event_target:annexer = {
+				OR = {
+					tag = ITA
+					tag = CMI
+				}
+			}
+		}
+		localization_key = italian_civil_war_end
+	}
+	text = {
+		trigger = {
+			event_target:person_being_annexed = {
+				tag = GER
+			}
+			event_target:annexer = {
+				OR = {
+					tag = HAN
+					tag = SAX
+				}
+			}
+		}
+		localization_key = prussian_expansion_continues
+	}
+	text = {
+		localization_key = ""
+	}
+	
+} 
+
+defined_text = {
+	name = GetOnPuppetDesc
+	text = {
+		trigger = {
+			event_target:puppeter = {
+				tag = AUS
+			}
+			event_target:person_being_puppeted = { tag = GER }
+		}
+		localization_key = DB_on_annex_desc_austria_beats_prussia
+	}
+
+	text = {
+			trigger = {
+				event_target:person_being_puppeted = {
+					OR = {
+						tag = BEL
+						tag = LUX
+						tag = HOL
+					}
+				}
+				event_target:puppeter = {
+					tag = FRA
+				}
+			}
+		localization_key = french_expansionism_benelux
+	}
+	text = {
+		localization_key = ""
 	}
 	
 } 
@@ -43,4 +133,11 @@ defined_text = {
 		}
 		localization_key = AUSTRIA_WELCOME_SCREEN_DESC
 	}
+	text = {
+		trigger = {
+			tag = GER
+		}
+		localization_key = PRUSSIA_WELCOME_SCREEN_DESC
+	}
 }
+

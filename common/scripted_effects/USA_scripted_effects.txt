@@ -92,6 +92,9 @@ progressbar_calc_usa_election_stuff = {
 	
 	set_variable = {borah_progressbar_var = borah_electoral}
 	divide_variable = {borah_progressbar_var = 5.31}
+
+	set_variable = {undecided_progressbar_var = undecided_electoral}
+	divide_variable = {undecided_progressbar_var = 5.31}
 }
 
 d_long_test_stuff = {
@@ -118,172 +121,71 @@ d_borah_test_stuff = {
 		  borah_support = 3
 		}
 		usa_borah_modify_electoral_college_effect = yes
-		custom_effect_tooltip = USA_increase_borah_support_by_three
+		custom_effect_tooltip = USA_increase_borah_support_by_three  
 	}
 }
 
 usa_modify_electoral_college_effect ={
-	set_temp_variable = {temp_long_var = long_support}
-	subtract_from_temp_variable = {temp_long_var= 3}
 	if = {
 		limit = {
-			check_variable = {var = temp_long_var value = borah_support compare = less_than}
-			check_variable = {var = long_support value = borah_support compare = greater_than_or_equals}
-			NOT = {
-				check_variable = {var = temp_long_var value = smith_support compare = less_than}
-			}
+			has_completed_focus = USA_longs_campaign_speech
 		}
-		add_to_variable = {USA.long_electoral = electoral_college_value}
-		subtract_from_variable = {USA.borah_electoral = electoral_college_value}
+		usa_long_modify_electoral_college_effect = yes
 	}
 	if = {
 		limit = {
-			check_variable = {var = temp_long_var value = smith_support compare = less_than}
-			check_variable = {var = long_support value = smith_support compare = greater_than_or_equals}
-			NOT = {
-				check_variable = {var = temp_long_var value = borah_support compare = less_than}
-			}
+			has_completed_focus = USA_smith_campaign_placeholder
 		}
-		add_to_variable = {USA.long_electoral = electoral_college_value}
-		subtract_from_variable = {USA.smith_electoral = electoral_college_value}
+		usa_smith_modify_electoral_college_effect = yes
 	}
-	if = {
-		limit = {
-			check_variable = {var = temp_long_var value = smith_support compare = less_than}
-			check_variable = {var = temp_long_var value = borah_support compare = less_than}
-			
-			
-		}
-		if = {
-			limit = {
-				check_variable = {var = long_support value = smith_support compare = greater_than_or_equals}
-				check_variable = {var = smith_support value = borah_support compare = greater_than}
-			}
-			add_to_variable = {USA.long_electoral = electoral_college_value}
-			subtract_from_variable = {USA.smith_electoral = electoral_college_value}
-		}
-		if = {
-			limit = {
-				check_variable = {var = long_support value = borah_support compare = greater_than_or_equals}
-				check_variable = {var = borah_support value = smith_support compare = greater_than}
-			}
-			add_to_variable = {USA.long_electoral = electoral_college_value}
-			subtract_from_variable = {USA.borah_electoral = electoral_college_value}
-		}
-			
-	}
+}
 
-	USA = {
-	progressbar_calc_usa_election_stuff = yes
+usa_long_modify_electoral_college_effect = {
+	custom_effect_tooltip = usa_modify_electoral_college_effect_tt
+	add_to_variable = {
+		long_electoral = 3
+	}
+	add_to_variable = {
+		smith_electoral = -1
+	}
+	add_to_variable = {
+		borah_electoral = -1
+	}
+	add_to_variable = {
+		undecided_electoral = -1
 	}
 }
 
 usa_smith_modify_electoral_college_effect ={
-	set_temp_variable = {temp_smith_var = smith_support}
-	subtract_from_temp_variable = {temp_smith_var= 3}
-	if = {
-		limit = {
-			check_variable = {var = temp_smith_var value = borah_support compare = less_than}
-			check_variable = {var = smith_support value = borah_support compare = greater_than}
-			NOT = {
-				check_variable = {var = temp_smith_var value = long_support compare = less_than}
-			}
-		}
-		add_to_variable = {USA.smith_electoral = electoral_college_value}
-		subtract_from_variable = {USA.borah_electoral = electoral_college_value}
+	custom_effect_tooltip = usa_smith_modify_electoral_college_effect_tt
+	add_to_variable = {
+		long_electoral = -1
 	}
-	if = {
-		limit = {
-			check_variable = {var = temp_smith_var value = long_support compare = less_than}
-			check_variable = {var = smith_support value = long_support compare = greater_than}
-			NOT = {
-				check_variable = {var = temp_smith_var value = borah_support compare = less_than}
-				
-			}
-		}
-		add_to_variable = {USA.smith_electoral = electoral_college_value}
-		subtract_from_variable = {USA.long_electoral = electoral_college_value}
+	add_to_variable = {
+		smith_electoral = 3
 	}
-	if = {
-		limit = {
-			check_variable = {var = temp_smith_var value = long_support compare = less_than}
-			check_variable = {var = temp_smith_var value = borah_support compare = less_than}
-		}
-		if = {
-			limit = {
-				check_variable = {var = long_support value = borah_support compare = greater_than}
-				check_variable = {var = smith_support value = long_support compare = greater_than}
-			}
-			add_to_variable = {USA.smith_electoral = electoral_college_value}
-			subtract_from_variable = {USA.long_electoral = electoral_college_value}
-		}
-		if = {
-			limit = {
-				check_variable = {var = borah_support value = long_support compare = greater_than}
-				check_variable = {var = smith_support value = borah_support compare = greater_than}
-			}
-			add_to_variable = {USA.smith_electoral = electoral_college_value}
-			subtract_from_variable = {USA.borah_electoral = electoral_college_value}
-		}
-			
+	add_to_variable = {
+		borah_electoral = -1
 	}
-
-	USA = {
-		progressbar_calc_usa_election_stuff = yes
-		}
+	add_to_variable = {
+		undecided_electoral = -1
+	}
 }
 
 usa_borah_modify_electoral_college_effect ={
-	set_temp_variable = {temp_borah_var = borah_support}
-	subtract_from_temp_variable = {temp_borah_var= 3}
-	if = {
-		limit = {
-			check_variable = {var = temp_borah_var value = smith_support compare = less_than}
-			check_variable = {var = borah_support value = smith_support compare = greater_than}
-			NOT = {
-				check_variable = {var = temp_borah_var value = long_support compare = less_than}
-			}
-		}
-		add_to_variable = {USA.borah_electoral = electoral_college_value}
-		subtract_from_variable = {USA.smith_electoral = electoral_college_value}
+	custom_effect_tooltip = usa_borah_modify_electoral_college_effect_tt
+	add_to_variable = {
+		long_electoral = -1
 	}
-	if = {
-		limit = {
-			check_variable = {var = temp_borah_var value = long_support compare = less_than}
-			check_variable = {var = borah_support value = long_support compare = greater_than}
-			NOT = {
-				check_variable = {var = temp_borah_var value = smith_support compare = less_than}
-			}
-		}
-		add_to_variable = {USA.borah_electoral = electoral_college_value}
-		subtract_from_variable = {USA.long_electoral = electoral_college_value}
+	add_to_variable = {
+		smith_electoral = -1
 	}
-	if = {
-		limit = {
-			check_variable = {var = temp_borah_var value = long_support compare = less_than}
-			check_variable = {var = temp_borah_var value = smith_support compare = less_than}
-		}
-		if = {
-			limit = {
-				check_variable = {var = long_support value = smith_support compare = greater_than}
-				check_variable = {var = borah_support value = long_support compare = greater_than}
-			}
-			add_to_variable = {USA.borah_electoral = electoral_college_value}
-			subtract_from_variable = {USA.long_electoral = electoral_college_value}
-		}
-		if = {
-			limit = {
-				check_variable = {var = smith_support value = long_support compare = greater_than}
-				check_variable = {var = borah_support value = smith_support compare = greater_than_or_equals}
-			}
-			add_to_variable = {USA.borah_electoral = electoral_college_value}
-			subtract_from_variable = {USA.smith_electoral = electoral_college_value}
-		}
-			
+	add_to_variable = {
+		borah_electoral = 3
 	}
-	USA = {
-		progressbar_calc_usa_election_stuff = yes
-		}
+	add_to_variable = {
+		undecided_electoral = -1
+	}
 }
 
 d_us_election_debug = {
@@ -295,12 +197,12 @@ d_us_election_debug = {
 }
 
 USA_electoral_vars_setup = { 
-		set_variable = { long_electoral = 217}
-		set_variable = { borah_electoral = 117}
-		set_variable = { smith_electoral = 197}
-
+		set_variable = { long_electoral = 160}
+		set_variable = { borah_electoral = 153}
+		set_variable = { smith_electoral = 160}
+		set_variable = { undecided_electoral = 58}
 		progressbar_calc_usa_election_stuff = yes
-	
+		
 }
 
 USA_election_timeout_effect = {
