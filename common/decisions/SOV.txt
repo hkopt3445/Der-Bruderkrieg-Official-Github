@@ -4733,115 +4733,120 @@ SOV_pavel_russification = {
 }
 SOV_Integration_of_Trapezountos = {
 	SOV_Expanding_Russian_Influence = {
-		available = { NOT = { has_country_flag = Influencing } }
-		cost = 15
+		icon = generic_propaganda
+		available = {  }
+		cost = 10
 		fire_only_once = no
 		ai_will_do = { factor = 1 }
 		days_remove = 15
 		visible = { 
 			tag = SOV
-			NOT = { check_variable = { SOV.integration_process_trapezountos > 4 } }
+			#NOT = { check_variable = { SOV.integration_process_trapezountos > 4 } }
 		}
 		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
 		remove_effect = {
 			custom_effect_tooltip = SOV_increase_intergration_trapezountos
+			TRB = {
+				add_political_power = 25
+			}
 			hidden_effect = {
 				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 1 }
+				add_to_variable = { SOV.integration_process_trapezountos = 2 tooltip = SOV_increase_integration_process_trebizond_by_2 }
 			}
 		}
 	}
 	SOV_Inviting_Russian_Investors = {
-		available = { NOT = { has_country_flag = Influencing } }
-		cost = 15
+		icon = generic_civil_support
+		available = {  }
+		cost = 25
 		fire_only_once = no
 		ai_will_do = { factor = 1 }
 		days_remove = 20
 		visible = { 
 			tag = SOV
-			NOT = { check_variable = { SOV.integration_process_trapezountos > 4 } }
+			#NOT = { check_variable = { SOV.integration_process_trapezountos > 4 } }
 		}
 		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
 		remove_effect = {
 			custom_effect_tooltip = SOV_increase_intergration_trapezountos
 			hidden_effect = {
 				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 2 }
+				add_to_variable = { SOV.integration_process_trapezountos = 2 tooltip = SOV_increase_integration_process_trebizond_by_2 }
+			}
+			swap_ideas = {
+				add_idea = TRB_weak_economy_2
+				remove_idea = TRB_weak_economy
 			}
 		}
 	}
 	SOV_Increasing_Russian_Prescense = {
-		available = { NOT = { has_country_flag = Influencing } }
+		icon = generic_army_support
+		available = {  }
 		cost = 15
 		fire_only_once = no
-		ai_will_do = { factor = 1 }
-		days_remove = 20
+		ai_will_do = { factor = 1 } 
+		days_remove = 20 
 		visible = { 
 			tag = SOV
-			NOT = { check_variable = { SOV.integration_process_trapezountos > 4 } }
+			#NOT = { check_variable = { SOV.integration_process_trapezountos > 4 } }
 		}
 		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
 		remove_effect = {
 			custom_effect_tooltip = SOV_increase_intergration_trapezountos
+			TRB = {
+				add_war_support = 0.05
+				swap_ideas = {
+					add_idea = TRB_tainted_relations_2
+					remove_idea = TRB_tainted_relations
+				}
+			}
 			hidden_effect = {
 				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 1 }
+				add_to_variable = { SOV.integration_process_trapezountos = 2 tooltip = SOV_increase_integration_process_trebizond_by_2 }
 			}
 		}
 	}
 	SOV_Sending_Russian_Migrants = {
-		available = { NOT = { has_country_flag = Influencing } }
+		icon = generic_political_discourse
+		available = {  }
 		cost = 15
 		fire_only_once = no
 		ai_will_do = { factor = 1 }
 		days_remove = 20
 		visible = { 
 			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 4 }
-			check_variable = { SOV.integration_process_trapezountos < 16 }
+		#	check_variable = { SOV.integration_process_trapezountos > 4 }
+			#check_variable = { SOV.integration_process_trapezountos < 16 }
 		}
 		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
 		remove_effect = {
-			custom_effect_tooltip = SOV_increase_intergration_trapezountos
-			hidden_effect = {
-				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 2 }
+			TRB = {
+				add_manpower = 10000
 			}
-		}
-	}
-	SOV_Growing_Economic_Influence = {
-		available = { NOT = { has_country_flag = Influencing } }
-		cost = 15
-		fire_only_once = no
-		ai_will_do = { factor = 1 }
-		days_remove = 20
-		visible = { 
-			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 4 }
-			check_variable = { SOV.integration_process_trapezountos < 16 }
-		}
-		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
-		remove_effect = {
 			custom_effect_tooltip = SOV_increase_intergration_trapezountos
 			hidden_effect = {
 				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 2 }
+				add_to_variable = { SOV.integration_process_trapezountos = 2 tooltip = SOV_increase_integration_process_trebizond_by_2 }
 			}
 		}
 	}
 	SOV_Trapezuntine_Russian_Free_Trade_Agreement = {
-		available = { NOT = { has_country_flag = Influencing } }
+		icon = generic_industry
+		available = {  TRB = { has_idea = TRB_weak_economy_2 } }
 		cost = 15
 		fire_only_once = yes
 		ai_will_do = { factor = 1 }
 		days_remove = 30
 		visible = { 
 			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 4 }
-			check_variable = { SOV.integration_process_trapezountos < 15 }
+		#	check_variable = { SOV.integration_process_trapezountos > 4 }
+		#	check_variable = { SOV.integration_process_trapezountos < 15 }
 		}
 		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
 		remove_effect = {
+			TRB = {
+				remove_ideas = TRB_weak_economy_2
+			}
 			custom_effect_tooltip = SOV_increase_intergration_trapezountos
 			hidden_effect = {
 				clr_country_flag = Influencing
@@ -4850,18 +4855,28 @@ SOV_Integration_of_Trapezountos = {
 		}
 	}
 	SOV_Building_Russian_Steel_Mills_in_Trapezountos = {
-		available = { NOT = { has_country_flag = Influencing } }
+		icon = generic_steel
+		available = {  }
 		cost = 15
 		fire_only_once = no
 		ai_will_do = { factor = 1 }
 		days_remove = 20
 		visible = { 
 			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 14 }
-			check_variable = { SOV.integration_process_trapezountos < 30 }
+		#	check_variable = { SOV.integration_process_trapezountos > 14 }
+		#	check_variable = { SOV.integration_process_trapezountos < 30 }
 		}
 		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
 		remove_effect = {
+			TRB = {
+				random_owned_controlled_state = {
+					add_resource = {
+						type = steel
+						amount = 12
+						state = THIS
+					}
+				}
+			}
 			custom_effect_tooltip = SOV_increase_intergration_trapezountos
 			hidden_effect = {
 				clr_country_flag = Influencing
@@ -4869,141 +4884,44 @@ SOV_Integration_of_Trapezountos = {
 			}
 		}
 	}
-	SOV_Trapezuntine_Russian_Defensive_Alliance = {
-		available = { NOT = { has_country_flag = Influencing } }
-		cost = 15
-		fire_only_once = yes
-		ai_will_do = { factor = 1 }
-		days_remove = 30
-		visible = { 
-			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 14 }
-			check_variable = { SOV.integration_process_trapezountos < 30 }
-		}
-		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
-		remove_effect = {
-			custom_effect_tooltip = SOV_increase_intergration_trapezountos
-			give_guarantee = TRB
-			diplomatic_relation = {
-				country = TRB
-				relation = non_aggression_pact
-				active = yes
-			}
-			hidden_effect = {
-				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 5 }
-			}
-		}
-	}
 	SOV_Petrograd_Declaraction = {
-		available = { NOT = { has_country_flag = Influencing } }
+		icon = generic_tank
+		available = {  TRB = {
+			 has_idea = TRB_tainted_relations_2
+		} }
 		cost = 15
 		fire_only_once = yes
 		ai_will_do = { factor = 1 }
 		days_remove = 30
 		visible = { 
 			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 14 }
-			check_variable = { SOV.integration_process_trapezountos < 30 }
+		#	check_variable = { SOV.integration_process_trapezountos > 14 }
+		#	check_variable = { SOV.integration_process_trapezountos < 30 }
 		}
 		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
 		remove_effect = {
 			custom_effect_tooltip = SOV_increase_intergration_trapezountos
 			#Event here
+			SOV = {
+				add_state_core = 843
+				add_state_core = 355
+				add_state_core = 354
+			}
+			TRB = {
+				remove_ideas = TRB_turkish_minority
+				remove_ideas = TRB_tainted_relations_2
+			}
 			hidden_effect = {
 				clr_country_flag = Influencing
 				add_to_variable = { SOV.integration_process_trapezountos = 5 }
 			}
-		}
-	}
-	SOV_Continue_Intergration = {
-		available = { NOT = { has_country_flag = Influencing } }
-		cost = 15
-		fire_only_once = no
-		ai_will_do = { factor = 1 }
-		days_remove = 30
-		visible = { 
-			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 30 }
-			check_variable = { SOV.integration_process_trapezountos < 100 }
-		}
-		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
-		remove_effect = {
-			custom_effect_tooltip = SOV_increase_intergration_trapezountos
-			#Event here
-			hidden_effect = {
-				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 5 }
-			}
-		}
-	}
-	SOV_Forcing_our_Hand = {
-		available = { NOT = { has_country_flag = Influencing } }
-		cost = 15
-		fire_only_once = no
-		ai_will_do = { factor = 1 }
-		days_remove = 30
-		visible = { 
-			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 30 }
-			check_variable = { SOV.integration_process_trapezountos < 100 }
-		}
-		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
-		remove_effect = {
-			custom_effect_tooltip = SOV_increase_intergration_trapezountos
-			#Event here
-			hidden_effect = {
-				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 5 }
-			}
-		}
-	}
-	SOV_Seizing_Control = {
-		available = { NOT = { has_country_flag = Influencing } }
-		cost = 15
-		fire_only_once = no
-		ai_will_do = { factor = 1 }
-		days_remove = 30
-		visible = { 
-			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 30 }
-			check_variable = { SOV.integration_process_trapezountos < 100 }
-		}
-		complete_effect = { hidden_effect = { set_country_flag = Influencing } }
-		remove_effect = {
-			custom_effect_tooltip = SOV_increase_intergration_trapezountos
-			#Event here
-			hidden_effect = {
-				clr_country_flag = Influencing
-				add_to_variable = { SOV.integration_process_trapezountos = 5 }
-			}
-		}
-	}
-	SOV_Russian_Occupation = {
-		available = { 
-			custom_trigger_tooltip = {
-				tooltip = SOV_Russian_Occupation_Requirement
-				check_variable = { SOV.integration_process_trapezountos > 99 }
-			}
-		}
-		cost = 15
-		fire_only_once = yes
-		ai_will_do = { factor = 1 }
-		days_remove = 40
-		visible = { 
-			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 30 }
-		}
-		complete_effect = {
-			puppet = TRB
-		}
-		remove_effect = {
-			set_global_flag = SOV_Russian_Occupation_of_Trapezountos
 		}
 	}
 	SOV_Official_Annexation = {
+		icon = generic_independence
 		available = { 
 			has_global_flag = SOV_Russian_Occupation_of_Trapezountos
+			check_variable = { SOV.integration_process_trapezountos > 30 }
 		}
 		cost = 15
 		fire_only_once = yes
@@ -5011,7 +4929,7 @@ SOV_Integration_of_Trapezountos = {
 		days_remove = 40
 		visible = { 
 			tag = SOV
-			check_variable = { SOV.integration_process_trapezountos > 30 }
+			
 		}
 		remove_effect = {
 			annex_country = {
@@ -9906,355 +9824,127 @@ SOV_Forming_Turkestan = {
 	
 }
 SOV_Russo_Japanese_Naval_Arms_Race = {
-	SOV_Increasing_Funding_for_the_Ministry_of_War = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Funding_Increased
-		}
-	}
-	SOV_Founding_the_MMTA = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = MMTA_Founded
-		}
-	}
 	SOV_Rebuilding_the_Pacific_Navy = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
+		icon = generic_naval
+		#available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
 		fire_only_once = yes
-		cost = 50
-		days_remove = 20
+		cost = 25
+		days_remove = 75
 		complete_effect = { set_country_flag = Occupied_with_Other_Things }
+		modifier = {
+			production_speed_dockyard_factor = 0.15
+			industrial_capacity_dockyard = 0.15
+		}
 		remove_effect = { 
 			clr_country_flag = Occupied_with_Other_Things
 			set_country_flag = Pacific_Navy_Rebuilt
 		}
 	}
 	SOV_Building_Kamchatkas_Ports = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
+		icon = generic_construction
+		#available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
 		fire_only_once = yes
-		cost = 50
-		days_remove = 20
+		cost = 45
+		days_remove = 50
 		complete_effect = { set_country_flag = Occupied_with_Other_Things }
 		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Kamchatkas_Ports_Built
+			637 = {
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	SOV_Expanding_Influence_over_the_Kuril_Islands = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
+		icon = generic_propoganda
+		#available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
 		fire_only_once = yes
-		cost = 50
-		days_remove = 20
+		cost = 35
+		days_remove = 100
 		complete_effect = { set_country_flag = Occupied_with_Other_Things }
 		remove_effect = { 
+			555 = {
+				add_core_of = SOV
+			}
 			clr_country_flag = Occupied_with_Other_Things
 			set_country_flag = Influence_Expanded_over_Kuril_Islands
 		}
 	}
 	SOV_Sea_of_Okhotsk_Naval_Exercises = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
+		icon = generic_naval
+		#available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
 		fire_only_once = yes
-		cost = 50
-		days_remove = 20
+		cost = 60
+		days_remove = 35
 		complete_effect = { set_country_flag = Occupied_with_Other_Things }
 		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Naval_Exercises_Complete
+			navy_experience = 25
 		}
 	}
 	SOV_Inviting_Defective_Japanese_Scientists = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
+		icon = generic_research
+		#available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
 		fire_only_once = yes
 		cost = 50
-		days_remove = 20
+		days_remove = 80
 		complete_effect = { set_country_flag = Occupied_with_Other_Things }
+		modifier = {
+			research_speed_factor = 0.1
+		}
 		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Japanese_Scientists
+			
 		}
 	}
 	SOV_Funneling_Fund_into_the_Pacific_Flot = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
+		icon = generic_army_support
+		#available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
 		fire_only_once = yes
 		cost = 50
 		days_remove = 20
 		complete_effect = { set_country_flag = Occupied_with_Other_Things }
+		modifier = {
+			industrial_capacity_dockyard = 0.2
+		}
 		remove_effect = { 
 			clr_country_flag = Occupied_with_Other_Things
 			set_country_flag = Fund_into_Pacific_Flot
 		}
 	}
 	SOV_Founding_Magadan_Naval_Base = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
+		icon = generic_naval
+		#available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
 		fire_only_once = yes
-		cost = 50
-		days_remove = 20
+		cost = 25
+		days_remove = 35
 		complete_effect = { set_country_flag = Occupied_with_Other_Things }
 		remove_effect = { 
 			clr_country_flag = Occupied_with_Other_Things
 			set_country_flag = Magadan_Base_Founded
-		}
-	}
-	SOV_Fortifying_the_Amur = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Amur_Fortified 
-		}
-	}
-	SOV_Expanding_Influence_over_Manchuria = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Influence_Over_Manchuria
-		}
-	}
-	SOV_Competing_with_Japan = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Competed_with_Japan
-		}
-	}
-	SOV_The_Pacific_Flot_Rebuilt = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Pacific_Flot_Rebuilt
-		}
-	}
-	SOV_Readying_for_Revenge = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Revenge_Ready
-		}
-	}
-	SOV_Propaganda_Campaign_in_Amur_and_Siberia = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Propaganda_in_Amur_Siberia
-		}
-	}
-	SOV_Increased_Agitation_efforts = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Agitation_Efforts
-		}
-	}
-	SOV_Preparations_Finalized = {
-		available = { NOT = { has_country_flag = Occupied_with_Other_Things } }	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Occupied_with_Other_Things }
-		remove_effect = { 
-			clr_country_flag = Occupied_with_Other_Things
-			set_country_flag = Preparations_Done
-		}
-	}
-	SOV_The_Second_Russo_Japanese_War = {
-		available = { 
-			custom_trigger_tooltip = {
-				tooltip = SOV_all_preparations_are_ready
-				has_country_flag = Funding_Increased
-				has_country_flag = MMTA_Founded
-				has_country_flag = Pacific_Navy_Rebuilt
-				has_country_flag = Kamchatkas_Ports_Built
-				has_country_flag = Influence_Expanded_over_Kuril_Islands
-				has_country_flag = Naval_Exercises_Complete
-				has_country_flag = Japanese_Scientists
-				has_country_flag = Fund_into_Pacific_Flot	
-				has_country_flag = Magadan_Base_Founded
-				has_country_flag = Amur_Fortified
-				has_country_flag = Influence_Over_Manchuria
-				has_country_flag = Competed_with_Japan
-				has_country_flag = Pacific_Flot_Rebuilt
-				has_country_flag = Revenge_Ready
-				has_country_flag = Propaganda_in_Amur_Siberia
-				has_country_flag = Agitation_Efforts
-				has_country_flag = Preparations_Done
+			562 = {
+				
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					
+				}
 			}
-		}	
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		remove_effect = { 
-			create_wargoal = {
-    			type = take_state_focus
-    			target = JAP
-				generator = { 555 537 }
-			}
-			add_state_core = 555
-			add_state_core = 537
 		}
 	}
+	
 	
 }
 
 SOV_American_Support_in_the_Second_Russo_Japanese_War = {
-	SOV_Sending_Russian_Diplomats_to_Washington = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Diplomats_Sent
-		}
-	}
-	SOV_Improving_Relations = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Improved_Relations
-			USA = { 
-				add_opinion_modifier = { target = SOV modifier = SOV_American_Improving_Relations } 
-			}
-			add_opinion_modifier = { target = USA modifier = SOV_American_Improving_Relations }
-		}
-	}
-	SOV_Khabarovsk_Trade_Agreement = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Khabarovsk_Trade
-			USA = { 
-				add_opinion_modifier = { target = SOV modifier = SOV_Khabarovsk_Trade_Agreement_With_Americans } 
-			}
-			add_opinion_modifier = { target = USA modifier = SOV_Khabarovsk_Trade_Agreement_With_Americans }
-		}
-	}
-	SOV_Plea_for_Washingtons_Support = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Support_Plead
-		}
-	}
-	SOV_Showing_our_Strength = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Showing_our_Strength
-		}
-	}
-	SOV_Russo_American_Friendship_Treaty = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Russo_American_Friendship_Treaty
-		}
-	}
-	SOV_Asking_for_Lend_Lease = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Lend_Lease_Asked
-		}
-	}
-	SOV_Russo_American_Alliance = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Attempting_to_get_Support
+	
 
-			set_country_flag = Alliance_with_Americans
-		}
-	}
-	#SOV_American_Support_Secured = {
-	#	fire_only_once = yes
-	#	cost = 50
-	#	days_remove = 20
-	#	remove_effect = { 
-    #
-	#	}
-	#}
-	#idk what to do with this one ill think of something later 
-# }
-# 			set_country_flag = 
-# 		}
-# 	}
-	SOV_American_Support_Secured = {
-		available = { NOT = { has_country_flag = Attempting_to_get_Support } }
-		fire_only_once = yes
-		cost = 50
-		days_remove = 20
-		complete_effect = { set_country_flag = Attempting_to_get_Support }
-		remove_effect = { 
-			clr_country_flag = Attempting_to_get_Support
-			set_country_flag = Attempting_to_get_Support
-		}
-	}
 }
 
 SOV_european_development = {
