@@ -899,7 +899,7 @@ shared_focus = {
     id = SOV_Western_Balkan_Threat
     icon = GFX_goal_AUS_absolutism 
 	prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = -8
+	x = -6
 	y = 1
     relative_position_id = SOV_expand_the_russian_sphere
     cost = 2
@@ -1101,7 +1101,7 @@ shared_focus = {
     id = SOV_The_Issue_Southern_Dobruja
     icon = GFX_goal_GovernmentIcon 
    prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = -2
+	x = 0
 	y = 1
     relative_position_id = SOV_expand_the_russian_sphere
     cost = 2
@@ -1808,7 +1808,7 @@ shared_focus = {
     id = SOV_persian_submission
     icon = GFX_goal_SOV_operation_aryan
 	prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = 4
+	x = 6
 	y = 1
     relative_position_id = SOV_expand_the_russian_sphere
     cost = 2
@@ -1857,7 +1857,7 @@ shared_focus = {
     id = SOV_afghan_policing
     icon = GFX_goal_SOV_recruit_afghani_militants
 	prerequisite = {focus = SOV_expand_the_russian_sphere}
-	x = 6
+	x = 8
 	y = 1
     relative_position_id = SOV_expand_the_russian_sphere
     cost = 2
@@ -2020,13 +2020,61 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_the_far_east
-    icon = GFX_goal_SOV_curb_japanese_influence
+    id = SOV_prussian_ally
+    icon = GFX_goal_SOV_the_prussian_question
     prerequisite = {focus = SOV_russian_glory }
-   
-	x = 5
+  
+	x = -1
 	y = 1
     relative_position_id = SOV_russian_glory 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    mutually_exclusive = {
+        focus = SOV_prussian_russian_war_games
+    }
+    completion_reward = {
+     GER = {
+         add_opinion_modifier = {
+             target = SOV
+             modifier = small_increase
+         }
+     }
+     create_faction = "Silver Entente"
+    }
+}
+shared_focus = {
+    id = SOV_prussian_russian_war_games
+    icon = GFX_goal_SOV_no_they_are_insane
+    prerequisite = {focus = SOV_russian_glory }
+  
+	x = 1
+	y = 1
+    relative_position_id = SOV_russian_glory 
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    mutually_exclusive = {
+        focus = SOV_prussian_ally
+    }
+    completion_reward = {
+     GER = {
+         country_event = Generic.2
+     }
+    }
+}
+shared_focus = {
+    id = SOV_the_far_east
+    icon = GFX_goal_SOV_curb_japanese_influence
+    prerequisite = {focus = SOV_prussian_ally focus = SOV_prussian_russian_war_games }
+  
+	x = 5
+	y = 1
+    relative_position_id = SOV_prussian_ally  
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
@@ -2174,10 +2222,11 @@ shared_focus = {
 shared_focus = {
     id = SOV_the_austrians
     icon = GFX_goal_AUS_Centralised_Government
-	prerequisite = {focus = SOV_russian_glory }
-	x = 0
+	prerequisite = {focus = SOV_prussian_ally focus = SOV_prussian_russian_war_games }
+  
+	x = 1
 	y = 1
-    relative_position_id = SOV_russian_glory 
+    relative_position_id = SOV_prussian_ally  
     cost = 3
     available_if_capitulated = yes
     ai_will_do = {
@@ -2193,7 +2242,7 @@ shared_focus = {
     id = SOV_high_altitude_combat_trainings
     icon = GFX_goal_SOV_hierarchy_of_skill
 	prerequisite = {focus = SOV_the_austrians }
-	x = -2
+	x = -1
 	y = 1
     relative_position_id = SOV_the_austrians 
     cost = 4
@@ -2226,7 +2275,7 @@ shared_focus = {
     id = SOV_prepare_the_balkans
     icon = GFX_goal_SOV_hierarchy_of_loyalty
 	prerequisite = {focus = SOV_the_austrians }
-	x = 2
+	x = 1
 	y = 1
     relative_position_id = SOV_the_austrians 
     cost = 5
@@ -2250,7 +2299,10 @@ shared_focus = {
     id = SOV_polish_preperations
     icon = GFX_goal_SOV_fortify_polish_border
 	prerequisite = {focus = SOV_prepare_the_balkans }
-	x = 0
+    prerequisite = {
+        focus = SOV_high_altitude_combat_trainings
+    }
+	x = -1
 	y = 1
     relative_position_id = SOV_prepare_the_balkans 
     cost = 4.5
@@ -2278,58 +2330,15 @@ shared_focus = {
         }
     }
 }
-shared_focus = {
-    id = SOV_prussian_ally
-    icon = GFX_goal_SOV_the_prussian_question
-    prerequisite = {focus = SOV_the_austrians }
-  
-	x = 0
-	y = 1
-    relative_position_id = SOV_the_austrians 
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-     GER = {
-         add_opinion_modifier = {
-             target = SOV
-             modifier = small_increase
-         }
-     }
-    }
-}
-shared_focus = {
-    id = SOV_prussian_russian_war_games
-    icon = GFX_goal_SOV_no_they_are_insane
-    prerequisite = {focus = SOV_prussian_ally } 
-    prerequisite = {
-        focus = SOV_high_altitude_combat_trainings
-    }
-	x = -1
-	y = 1
-    relative_position_id = SOV_prussian_ally 
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-     GER = {
-         country_event = Generic.2
-     }
-    }
-}
+
 
 shared_focus = {
     id = SOV_operation_third_rome
     icon = GFX_goal_ITA_the_greatest_threat
-    prerequisite = {focus = SOV_prussian_russian_war_games focus = SOV_polish_preperations }
-
-	x = 1
-	y = 1
-    relative_position_id = SOV_prussian_russian_war_games 
+    prerequisite = {focus = SOV_polish_preperations }
+    relative_position_id = SOV_polish_preperations
+    x = 0
+    y= 1
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
@@ -2347,12 +2356,12 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_the_southern_menace
-    icon = GFX_goal_SOV_the_southern_menace
-    prerequisite = {focus = SOV_russian_glory }
+    icon = GFX_goal_SOV_the_southern_menace 
+    prerequisite = {focus = SOV_prussian_ally focus = SOV_prussian_russian_war_games }
   
-	x = -5
+	x = -3
 	y = 1
-    relative_position_id = SOV_russian_glory 
+    relative_position_id = SOV_prussian_ally  
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
