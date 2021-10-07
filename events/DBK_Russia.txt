@@ -947,12 +947,16 @@ country_event = { #Russian Alignment?
 		name = SOV_return_of_the_tsar_path.19.a #Yeah boi
 		ai_chance = { factor = 5 }
 		SOV = {
-			add_to_faction = ROOT
+			puppet = ROOT
 		}
+		ROOT = {
+			save_global_event_target_as = RussianAllianceEmpireInviter
+		}
+		news_event = SOV_return_of_the_tsar_path.22
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.19.b #Hmmmm, maybe
-		ai_chance = { factor = 3 }
+		ai_chance = { factor = 0 }
 		diplomatic_relation = {
             country = SOV
             relation = non_aggression_pact
@@ -961,7 +965,7 @@ country_event = { #Russian Alignment?
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.19.c #No
-		ai_chance = { factor = 1 }
+		ai_chance = { factor = 0 }
 	}
 }
 
@@ -997,11 +1001,23 @@ news_event = { #Russia recognizes Romanian claims
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.21.c #another threat to AH
-		trigger = { OR = { original_tag = AUS original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } }
+		trigger = { OR = { original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } }
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.21.e #powderkeg closer to going off
 		trigger = { NOT = { OR = { original_tag = ROM is_subject_of = AUS original_tag = AUS original_tag = SOV original_tag = AUS original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } } }
+	}
+}
+
+news_event = { #X submits to Russian Empire protection
+	id = SOV_return_of_the_tsar_path.22
+	title = SOV_return_of_the_tsar_path.22.t
+	desc = SOV_return_of_the_tsar_path.22.d
+	#picture = GFX_hitlerartisteventpic
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.22.a
 	}
 }
 
