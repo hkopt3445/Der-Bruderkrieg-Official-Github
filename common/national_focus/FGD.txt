@@ -1,6 +1,6 @@
 focus_tree = {
 	id = FGD_westfalen_tree
-	country = {
+	country = { 
 		factor = 0
 		modifier = {
 			add = 11
@@ -9,4 +9,251 @@ focus_tree = {
 	}
 	
 	continuous_focus_position = { x = -50 y = 2400 } 
+}
+
+shared_focus = {
+    id = FGD_the_chaotic_westfalen
+    icon = GFX_goal_FGD_the_chaotic_westfalen
+    x = 5
+    y = 0
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+    }
+}
+
+###BONAPARTIST
+shared_focus = {
+    id = FGD_loyalty_to_the_bonapartes
+    icon = GFX_focus_FGD_loyalty_to_the_bonapartes
+	prerequisite = {focus = FGD_the_chaotic_westfalen}
+    x = 0
+    y = 1
+    relative_position_id = FGD_the_chaotic_westfalen
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_marshal_leclercs_rule
+    icon = GFX_focus_FGD_marshal_leclercs_rule
+	prerequisite = {focus = FGD_loyalty_to_the_bonapartes}
+    x = -2
+    y = 1
+    relative_position_id = FGD_loyalty_to_the_bonapartes
+    cost = 5
+    available_if_capitulated = yes
+    mutually_exclusive = {
+		focus = FGD_strengthen_karl_josefs_power
+	}
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_absolute_control_of_state
+    icon = GFX_focus_FGD_absolute_control_of_state
+	prerequisite = {focus = FGD_marshal_leclercs_rule}
+    x = -2
+    y = 1
+    relative_position_id = FGD_marshal_leclercs_rule
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_the_figurehead_king
+    icon = GFX_focus_FGD_the_figurehead_king
+	prerequisite = {focus = FGD_marshal_leclercs_rule}
+    x = 0
+    y = 1
+    relative_position_id = FGD_marshal_leclercs_rule
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_crush_the_rhine_homefront
+    icon = GFX_focus_FGD_crush_the_rhine_homefront
+	prerequisite = {focus = FGD_the_figurehead_king}
+    x = 0
+    y = 1
+    relative_position_id = FGD_the_figurehead_king
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_strengthen_karl_josefs_power
+    icon = GFX_focus_FGD_strengthen_karl_josefs_power
+	prerequisite = {focus = FGD_loyalty_to_the_bonapartes}
+    x = 2
+    y = 1
+    relative_position_id = FGD_loyalty_to_the_bonapartes
+	mutually_exclusive = {
+		focus = FGD_marshal_leclercs_rule
+	}
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_military_recruitment_program
+    icon = GFX_focus_FGD_military_recruitment_program
+	prerequisite = {focus = FGD_strengthen_karl_josefs_power focus = FGD_marshal_leclercs_rule }
+    x = -2
+    y = 1
+    relative_position_id = FGD_strengthen_karl_josefs_power
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+
+###adeneuar
+shared_focus = {
+    id = FGD_adenaurs_proposal
+    icon = GFX_focus_FGD_adenaurs_proposal
+	prerequisite = {focus = FGD_the_chaotic_westfalen}
+    x = -5
+    y = 1
+    relative_position_id = FGD_the_chaotic_westfalen
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_create_the_bundestag
+    icon = GFX_focus_FGD_create_the_bundestag
+	prerequisite = {focus = FGD_adenaurs_proposal}
+    x = -2
+    y = 1
+    relative_position_id = FGD_adenaurs_proposal
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_seperation_but_loyalty
+    icon = GFX_focus_FGD_seperation_but_loyalty
+	prerequisite = {focus = FGD_create_the_bundestag}
+    x = 0
+    y = 1
+    relative_position_id = FGD_create_the_bundestag
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_a_rhinish_state
+    icon = GFX_focus_FGD_a_rhinish_state
+	prerequisite = {focus = FGD_seperation_but_loyalty}
+    x = -1
+    y = 1
+    relative_position_id = FGD_seperation_but_loyalty
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_german_revanchism
+    icon = GFX_focus_FGD_german_revanchism
+	prerequisite = {focus = FGD_seperation_but_loyalty}
+    x = 1
+    y = 1
+    relative_position_id = FGD_seperation_but_loyalty
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_transition_to_a_republic
+    icon = GFX_focus_FGD_transition_to_a_republic
+	prerequisite = {focus = FGD_a_rhinish_state focus = FGD_german_revanchism}
+    x = 1
+    y = 1
+    relative_position_id = FGD_a_rhinish_state
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+
+###rhine homefront
+
+shared_focus = {
+    id = FGD_the_rhine_homefront
+    icon = GFX_focus_FGD_the_rhine_homefront
+	prerequisite = {focus = FGD_the_chaotic_westfalen}
+    x = 5
+    y = 1
+    relative_position_id = FGD_the_chaotic_westfalen
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_speer
+    icon = GFX_focus_FGD_speer
+	prerequisite = {focus = FGD_the_rhine_homefront}
+    x = -1
+    y = 1
+    relative_position_id = FGD_the_rhine_homefront
+    cost = 5
+    available_if_capitulated = yes
+    mutually_exclusive = {
+		focus = FGD_heydrich
+	}
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_heydrich
+    icon = GFX_focus_FGD_heydrich
+	prerequisite = {focus = FGD_the_rhine_homefront}
+    x = 1
+    y = 1
+    relative_position_id = FGD_the_rhine_homefront
+	mutually_exclusive = {
+		focus = FGD_speer
+	}
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
 }
