@@ -18,7 +18,7 @@
 # 	continuous_focus_position = { x = 12000 y = 1000 }
 # }	
 
-
+ 
 # shared_focus = {
 # 	id = GER_gorings_speech
 # 	icon = unkown
@@ -552,7 +552,6 @@ shared_focus = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			add_stability = 0.05
 		}
 		ai_will_do = {
 			factor = 60
@@ -800,10 +799,7 @@ shared_focus = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = GER_protestant_state
-				add_idea = GER_protestant_state1
-			}
+			country_event = GER_goering_internal_stabilization.5
 		}
 		ai_will_do = {
 			factor = 60
@@ -893,12 +889,7 @@ shared_focus = {
 			#relative_position_id = GER_herman_goering_werke
 			#search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 			completion_reward = { 
-				add_tech_bonus = {
-					name = GER_goerings_industrial_plan
-					bonus = 1.0
-					uses = 2
-					category = industry
-				} 
+				
 				#how_ideas_tooltip = hjalmar_schacht
 				unlock_decision_category_tooltip = GER_industrial_expansion
 			}
@@ -1487,16 +1478,14 @@ shared_focus = {
 	}
     #search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
     completion_reward = {
-        add_tech_bonus = {
-            name = GER_autarky
-            bonus = 1.0
-            uses = 2
-            technology = excavation1
-            technology = excavation2
-            technology = excavation3
-            technology = excavation4
-            technology = excavation5
-        }
+        
+
+		add_tech_bonus = {
+					name = GER_goerings_industrial_plan
+					bonus = 1.0
+					uses = 2
+					category = industry
+				} 
     }
 }
 
@@ -1520,24 +1509,25 @@ shared_focus = {
     #search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
     completion_reward = {
         add_tech_bonus = {
-            name = GER_coal_production
-            bonus = 3.0
-            uses = 1
-            category = synth_resources
+            name = GER_autarky
+            bonus = 1.0
+            uses = 2
+            technology = excavation1
+            technology = excavation2
+            technology = excavation3
+            technology = excavation4
+            technology = excavation5
         }
-        if = {
-            limit = {
-                has_full_control_of_state = 65
-            }
-            65 = {
-                add_extra_state_shared_building_slots = 1
-                add_building_construction = {
-                    type = synthetic_refinery
-                    level = 1
-                    instant_build = yes
-                }
-            }
-        }
+        
+		random_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+        
     }
 }
 
@@ -1560,6 +1550,11 @@ shared_focus = {
            resource = rubber
            amount = 2
         }
+		add_tech_bonus = {
+			category = synth_resources
+			uses = 1
+			bonus = 1
+		}
     }
 }
 
@@ -1680,32 +1675,31 @@ shared_focus = {
     available = {
         OR = {
             has_full_control_of_state = 64
-            has_full_control_of_state = 59
+            has_full_control_of_state = 61
             has_full_control_of_state = 60
-            has_full_control_of_state = 54
+            has_full_control_of_state = 62
         }
     }
     #search_filters = { FOCUS_FILTER_INDUSTRY }
     completion_reward = {
-        custom_effect_tooltip = GER_autobahn_tt
-        hidden_effect = {
+
             64 = {
                 if = {
                     limit = { is_controlled_by = ROOT }
                     add_building_construction = {
                         type = infrastructure
-                        level = 10
+                        level = 6
                         instant_build = yes
                     }
                 }
             }
-            59 = {
+            61 = {
                 if = {
                     limit = { is_controlled_by = ROOT }
 
                     add_building_construction = {
                         type = infrastructure
-                        level = 10
+                        level = 6
                         instant_build = yes
                     }
                 }
@@ -1715,22 +1709,22 @@ shared_focus = {
                     limit = { is_controlled_by = ROOT }
                     add_building_construction = {
                         type = infrastructure 
-                        level = 10
+                        level = 6
                         instant_build = yes
                     }
                 }
             }
-            54 = {
+            62 = {
                 if = {
                     limit = { is_controlled_by = ROOT }
                     add_building_construction = {
                         type = infrastructure
-                        level = 10
+                        level = 6
                         instant_build = yes
                     }
                 }
             }
-        }
+        
     }
 }
 
@@ -3424,11 +3418,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = air_doctrine
-			 }
+			air_experience = 50
 		}
 		ai_will_do = {
 			factor = 1
