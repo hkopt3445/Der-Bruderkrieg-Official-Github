@@ -68,9 +68,9 @@ shared_focus = {
     id = FGD_absolute_control_of_state
     icon = GFX_focus_FGD_absolute_control_of_state
 	prerequisite = {focus = FGD_strengthen_karl_josefs_power focus = FGD_marshal_leclercs_rule }
-    x = -2
+    x = 2
     y = 1
-    relative_position_id = FGD_strengthen_karl_josefs_power
+    relative_position_id = FGD_marshal_leclercs_rule
     cost = 5
     available_if_capitulated = yes
     
@@ -91,12 +91,29 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = FGD_crush_the_rhine_homefront
-    icon = GFX_focus_FGD_crush_the_rhine_homefront
+    id = FGD_centralize_the_military
+    icon = GFX_focus_FGD_centralize_the_military
 	prerequisite = {focus = FGD_the_figurehead_king}
     x = 0
     y = 1
     relative_position_id = FGD_the_figurehead_king
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_crush_the_rhine_homefront
+    icon = GFX_focus_FGD_crush_the_rhine_homefront
+	prerequisite = {focus = FGD_absolute_control_of_state  }
+  prerequisite = {
+    focus = FGD_centralize_the_military
+    focus = FGD_reinforce_nueue_code_napoleon
+  }
+    x = 0
+    y = 2
+    relative_position_id = FGD_absolute_control_of_state
     cost = 5
     available_if_capitulated = yes
     
@@ -114,6 +131,48 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = FGD_marshal_leclercs_rule
 	}
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_model_bonapartist_absolutism
+    icon = GFX_focus_FGD_model_bonapartist_absolutism
+	prerequisite = {focus = FGD_strengthen_karl_josefs_power}
+    x = 0
+    y = 1
+    relative_position_id = FGD_strengthen_karl_josefs_power
+
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_reinforce_catholic_ideals
+    icon = GFX_focus_FGD_reinforce_catholic_ideals
+	prerequisite = {focus = FGD_strengthen_karl_josefs_power}
+    x = 2
+    y = 1
+    relative_position_id = FGD_strengthen_karl_josefs_power
+
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_reinforce_nueue_code_napoleon
+    icon = GFX_focus_FGD_reinforce_nueue_code_napoleon
+	prerequisite = {focus = FGD_model_bonapartist_absolutism}
+    x = 0
+    y = 1
+    relative_position_id = FGD_model_bonapartist_absolutism
+
     cost = 5
     available_if_capitulated = yes
     
@@ -155,12 +214,26 @@ shared_focus = {
     completion_reward = {
     }
 }
+shared_focus = {
+    id = FGD_force_karl_josefs_hand
+    icon = GFX_focus_FGD_force_karl_josefs_hand
+		prerequisite = {focus = FGD_adenaurs_proposal}
+    x = 1
+    y = 1
+    relative_position_id = FGD_adenaurs_proposal
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
 
 shared_focus = {
     id = FGD_create_the_bundestag
     icon = GFX_focus_FGD_create_the_bundestag
 	prerequisite = {focus = FGD_adenaurs_proposal}
-    x = 0
+    x = -1
     y = 1
     relative_position_id = FGD_adenaurs_proposal
     cost = 5
@@ -170,12 +243,28 @@ shared_focus = {
     }
 }
 shared_focus = {
+    id = FGD_the_abdication
+    icon = GFX_focus_FGD_the_abdication
+	prerequisite = {focus = FGD_force_karl_josefs_hand }
+  prerequisite = {
+    focus = FGD_create_the_bundestag
+  }
+    x = -1
+    y = 1
+    relative_position_id = FGD_force_karl_josefs_hand
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    } 
+}
+shared_focus = {
     id = FGD_seperation_but_loyalty
     icon = GFX_focus_FGD_seperation_but_loyalty
-	prerequisite = {focus = FGD_create_the_bundestag}
-    x = 0
+	prerequisite = {focus = FGD_the_abdication }
+    x = -2
     y = 1
-    relative_position_id = FGD_create_the_bundestag
+    relative_position_id = FGD_the_abdication
     cost = 5
     available_if_capitulated = yes
     
@@ -198,6 +287,19 @@ shared_focus = {
     completion_reward = {
     }
 }
+shared_focus = {
+    id = FGD_end_the_nationalist_threat
+    icon = GFX_focus_FGD_end_the_nationalist_threat
+	prerequisite = {focus = FGD_a_rhinish_state}
+    x = 0
+    y = 1
+    relative_position_id = FGD_a_rhinish_state
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
 
 shared_focus = {
     id = FGD_german_revanchism
@@ -215,12 +317,116 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = FGD_transition_to_a_republic
-    icon = GFX_focus_FGD_transition_to_a_republic
-	prerequisite = {focus = FGD_a_rhinish_state focus = FGD_german_revanchism}
+    id = FGD_incorporate_moderate_nationalists
+    icon = GFX_focus_FGD_incorporate_moderate_nationalists
+	prerequisite = {focus = FGD_german_revanchism}
+    x = 0
+    y = 1
+    relative_position_id = FGD_german_revanchism
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_the_prussian_threat
+    icon = GFX_focus_FGD_the_prussian_threat
+	prerequisite = {focus = FGD_incorporate_moderate_nationalists}
+  prerequisite = {
+    focus = FGD_end_the_nationalist_threat
+  }
+    x = -1
+    y = 1
+    relative_position_id = FGD_incorporate_moderate_nationalists
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_the_dawn_of_the_republic
+    icon = GFX_focus_FGD_the_dawn_of_the_republic
+	prerequisite = {focus = FGD_the_abdication }
+    x = 2
+    y = 1
+    relative_position_id = FGD_the_abdication
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_invest_in_welfare
+    icon = GFX_focus_FGD_invest_in_welfare
+	prerequisite = {focus = FGD_the_dawn_of_the_republic }
+    x = -1
+    y = 1
+    relative_position_id = FGD_the_dawn_of_the_republic
+    cost = 5
+    available_if_capitulated = yes
+    mutually_exclusive = {
+      focus = FGD_economic_austerity
+    }
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_economic_austerity
+    icon = GFX_focus_FGD_economic_austerity
+	prerequisite = {focus = FGD_the_dawn_of_the_republic }
     x = 1
     y = 1
-    relative_position_id = FGD_a_rhinish_state
+    relative_position_id = FGD_the_dawn_of_the_republic
+    cost = 5
+    available_if_capitulated = yes
+     mutually_exclusive = {
+      focus = FGD_invest_in_welfare
+    }
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_deploy_the_secret_police
+    icon = GFX_focus_FGD_deploy_the_secret_police
+	prerequisite = {focus = FGD_invest_in_welfare focus = FGD_economic_austerity }
+    x = 0
+    y = 1
+    relative_position_id = FGD_invest_in_welfare
+    cost = 5
+    available_if_capitulated = yes
+    mutually_exclusive = {
+      focus = FGD_strengthen_democratic_control
+    }
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_strengthen_democratic_control
+    icon = GFX_focus_FGD_strengthen_democratic_control
+	prerequisite = {focus = FGD_invest_in_welfare focus = FGD_economic_austerity }
+    x = 2
+    y = 1
+    relative_position_id = FGD_invest_in_welfare
+    cost = 5
+    available_if_capitulated = yes
+    mutually_exclusive = {
+      focus = FGD_deploy_the_secret_police
+    }
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_political_stability_ensured
+    icon = GFX_focus_FGD_political_stability_ensured
+	prerequisite = {focus = FGD_strengthen_democratic_control focus = FGD_deploy_the_secret_police }
+    x = -1
+    y = 1
+    relative_position_id = FGD_strengthen_democratic_control
     cost = 5
     available_if_capitulated = yes
     
