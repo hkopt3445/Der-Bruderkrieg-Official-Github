@@ -22,6 +22,51 @@
 
 #This is going to give misleading and ugly tooltips. Making it nice will take effort. TODO_WTT_CD make nice or ignore and remove comment. Easiest solution is just making a custom tooltip that says "5 civilian factories will be converted to military factories" and ignore telling the player the states where it will happen.
 
+level_up_conscription_law = {
+	if = {
+		limit = {
+			has_idea = disarmed_nation
+		}
+		add_ideas = volunteer_only 
+	}
+	if = {
+		limit = {
+			has_idea = volunteer_only 
+		}
+		add_ideas = limited_conscription
+	}
+	if = {
+		limit = {
+			has_idea = limited_conscription
+		}
+		add_ideas = extensive_conscription
+	}
+	if = {
+		limit = {
+			has_idea = limited_conscription
+		}
+		add_ideas = extensive_conscription
+	}
+	if = {
+		limit = {
+			has_idea = extensive_conscription
+		}
+		add_ideas = service_by_requirement
+	}
+	if = {
+		limit = {
+			has_idea = service_by_requirement
+		}
+		add_ideas = all_adults_serve
+	}
+	if = {
+		limit = {
+			has_idea = all_adults_serve
+		}
+		add_ideas = scraping_the_barrel
+	}
+}
+
 replace_civ_with_arms_factories = {	
 
 	random_owned_controlled_state = {

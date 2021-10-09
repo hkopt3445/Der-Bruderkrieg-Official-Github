@@ -51,6 +51,12 @@ cost = 2
 ai_will_do = {
 factor = 1
 }
+mutually_exclusive = {
+  focus = GPU_appoint_von_rundstent
+}
+mutually_exclusive = {
+  focus = GPU_appoint_franz_ferdinand
+}
 
 available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
@@ -131,6 +137,12 @@ cost = 2
 ai_will_do = {
 factor = 1
 }
+mutually_exclusive = {
+  focus = GPU_appoint_von_rundstent
+}
+mutually_exclusive = {
+  focus = GPU_keep_vohn_car
+}
 
 available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
@@ -210,6 +222,12 @@ relative_position_id = GPU_the_ministry_question
 cost = 2
 ai_will_do = {
 factor = 1
+}
+mutually_exclusive = {
+  focus = GPU_appoint_franz_ferdinand
+}
+mutually_exclusive = {
+  focus = GPU_keep_vohn_car
 }
 
 available_if_capitulated = yes
@@ -296,7 +314,7 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+  remove_ideas = GPU_court_factionalism
 }
 }
 
@@ -327,7 +345,7 @@ prerequisite = { focus = GPU_a_unified_army focus = GPU_a_pacificed_ministry  }
 x = 1
 y = 1
 relative_position_id = GPU_a_pacificed_ministry
-cost = 2
+cost = 1
 ai_will_do = {
 factor = 1
 }
@@ -336,7 +354,7 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+  
 }
 }
 
@@ -353,6 +371,10 @@ shared_focus = {
   cost = 10
   ai_will_do = {
     factor = 1
+  }
+  available = {
+    has_completed_focus = GPU_appoint_franz_ferdinand
+     has_completed_focus = GPU_moving_forward
   }
 
   available_if_capitulated = yes
@@ -379,6 +401,11 @@ shared_focus = {
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
+
+  available = {
+    has_completed_focus = GPU_keep_vohn_car
+     has_completed_focus = GPU_moving_forward
+  }
 
   completion_reward = {
 
@@ -528,6 +555,7 @@ shared_focus = {
 
   completion_reward = {
     remove_ideas = GPU_unstable_nation_3
+      GPU_increase_confederation_unity_large = yes
   }
 }
 
@@ -617,7 +645,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-  
+    add_ideas = GPU_farming_subsidies
   }
 }
 shared_focus = {
@@ -668,6 +696,7 @@ shared_focus = {
 
   completion_reward = {
     remove_ideas = GPU_growing_nationalist_movement_3
+    GPU_increase_confederation_unity_large = yes
   }
 }
 
@@ -817,9 +846,9 @@ shared_focus = {
   id = GPU_continue_the_dual_system
   icon = GFX_goal_support_democracy
   prerequisite = { focus = GPU_franz_ferdinand_reforms focus = GPU_austrian_ally}
-  x = -4
+  x = 4
   y = 1
-  relative_position_id = GPU_franz_ferdinand_reforms
+  relative_position_id = GPU_austrian_ally
   cost = 10
   ai_will_do = {
     factor = 1
@@ -921,7 +950,10 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    remove_ideas = GPU_growing_nationalist_movement_2
+    swap_ideas = {
+      add_idea = GPU_growing_nationalist_movement_3
+      remove_idea = GPU_growing_nationalist_movement_2
+    }
 }
 }
 
@@ -947,6 +979,7 @@ shared_focus = {
       target = GER
       modifier = mortal_enemies
     }
+    remove_ideas = GPU_growing_nationalist_movement_3
 }
 }
 
@@ -1719,7 +1752,10 @@ shared_focus = {
     y = 0
     cost = 5
     available_if_capitulated = yes
-  
+     available = {
+    has_completed_focus = GPU_appoint_von_rundstent
+     has_completed_focus = GPU_moving_forward
+  }
     completion_reward = {
     }
 }
@@ -1767,7 +1803,9 @@ shared_focus = {
 	prerequisite = {
 		focus = GPU_stay_with_kroprinz
 	}
-  
+  available = {
+    has_completed_focus = GPU_fan_nationalism
+  }
     completion_reward = {
     }
 }
@@ -2599,7 +2637,7 @@ shared_focus = {
   icon = GFX_goal_generic_army_doctrines
   text = GPU_FOCUS_ON_BATTLEPLAN
   prerequisite = { focus = GPU_austrian_generals_corp }
-  mutually_exclusive = { focus = GPU_FOCUS_ON_BATTLEPLAN }
+  mutually_exclusive = { focus = GPU_FOCUS_ON_FIREPOWER }
   x = -1
   y = 1
   relative_position_id = GPU_austrian_generals_corp
