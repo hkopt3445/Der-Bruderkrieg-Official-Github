@@ -742,22 +742,112 @@ news_event = {
 }
 
 
+	news_event = {
+		id = french_inteverntion_in_prussian_expansion.10
+		title = french_inteverntion_in_prussian_expansion.10.t
+		desc = french_inteverntion_in_prussian_expansion.10.d
+		picture = GFX_frenchintervention2
+		major = yes
+
+		is_triggered_only = yes
+
+		option = {
+			name = french_inteverntion_in_prussian_expansion.10.a
+		}
+	}
+
+##frnech intervention against russia
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.11
+	title = french_inteverntion_in_prussian_expansion.11.t
+	desc = french_inteverntion_in_prussian_expansion.11.d
+	#picture = GFX_report_event_czech_soldiers_011.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.11.a
+		ai_chance = {factor = 30}
+		FRA = { country_event = {
+			id = french_inteverntion_in_prussian_expansion.12
+			days = 2
+		} }
+	}
+}
+##offer to france
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.12
+	title = french_inteverntion_in_prussian_expansion.12.t
+	desc = french_inteverntion_in_prussian_expansion.12.d
+	#picture = GFX_report_event_czech_soldiers_012.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.12.a
+		ai_chance = {factor = 30}
+		create_wargoal = {
+			target = SOV
+			type = topple_government
+		}
+		add_war_support = 0.05
+		news_event = french_inteverntion_in_prussian_expansion.15
+		AUS = {
+			country_event = french_inteverntion_in_prussian_expansion.13
+		}
+	}
+	option = {
+		name = french_inteverntion_in_prussian_expansion.12.b
+		ai_chance = {factor = 1}
+		AUS = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = large_decrease
+			}
+		}
+		AUS = {
+			country_event = french_inteverntion_in_prussian_expansion.14
+		}
+	}
+
+}
+##french acceps
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.13
+	title = french_inteverntion_in_prussian_expansion.13.t
+	desc = french_inteverntion_in_prussian_expansion.13.d
+	#picture = GFX_report_event_czech_soldiers_013.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.13.a
+		ai_chance = {factor = 30}
+	}
+}
+##french denies
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.14
+	title = french_inteverntion_in_prussian_expansion.14.t
+	desc = french_inteverntion_in_prussian_expansion.14.d
+	#picture = GFX_report_event_czech_soldiers_014.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.14.a
+		ai_chance = {factor = 30}
+	}
+}
 news_event = {
-	id = french_inteverntion_in_prussian_expansion.10
-	title = french_inteverntion_in_prussian_expansion.10.t
-	desc = french_inteverntion_in_prussian_expansion.10.d
+	id = french_inteverntion_in_prussian_expansion.15
+	title = french_inteverntion_in_prussian_expansion.15.t
+	desc = french_inteverntion_in_prussian_expansion.15.d
 	picture = GFX_frenchintervention2
 	major = yes
 
 	is_triggered_only = yes
 
 	option = {
-		name = french_inteverntion_in_prussian_expansion.10.a
+		name = french_inteverntion_in_prussian_expansion.15.a
 	}
 }
-
-
-
 
 add_namespace = british_inteverntion_in_prussian_expansion
 
