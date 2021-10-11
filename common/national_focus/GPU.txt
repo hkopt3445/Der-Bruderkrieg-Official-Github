@@ -1771,10 +1771,27 @@ shared_focus = {
 		focus = GPU_the_marshals_coup
 	}
 	mutually_exclusive = {
-		focus = GPU_deutchsland_uber_allies
+		focus = GPU_deutchsland_uber_allies 
 	}
   
     completion_reward = {
+      create_country_leader = {
+				name = "Wilhelm III"
+				desc = ""
+				picture = "gfx/leaders/Wilhelm_III_Portrait.dds"
+				expire = "1965.1.1"
+				ideology = monarchist_fascism
+				traits = {
+
+				}
+			}
+      set_politics = {
+        ruling_party = fascism
+      }
+      add_popularity = {
+        ideology = fascism
+        popularity = 0.1
+      }
     }
 }
 shared_focus = {
@@ -1782,7 +1799,7 @@ shared_focus = {
     icon = GFX_focus_GPU_fan_nationalism
     x = -1
     y = 1
-    cost = 5
+    cost = 8
     available_if_capitulated = yes
 	relative_position_id = GPU_stay_with_kroprinz
 	prerequisite = {
@@ -1790,6 +1807,14 @@ shared_focus = {
 	}
   
     completion_reward = {
+      add_popularity = {
+        ideology = neutrality
+        popularity = 0.1
+      }
+      swap_ideas = {
+        add_idea = GPU_unstable_nation_4
+        remove_idea = GPU_unstable_nation
+      }
     }
 }
 shared_focus = {
@@ -1807,6 +1832,10 @@ shared_focus = {
     has_completed_focus = GPU_fan_nationalism
   }
     completion_reward = {
+      swap_ideas = {
+        add_idea = GPU_unstable_nation_5
+        remove_idea = GPU_unstable_nation_4
+      }
     }
 }
 shared_focus = {
@@ -1825,6 +1854,15 @@ shared_focus = {
 	}
   
     completion_reward = {
+      remove_ideas = GPU_unstable_nation_5
+
+      add_stability = 0.1
+      AUS = {
+        add_opinion_modifier = {
+          target = GPU
+          modifier = faction_traitor
+        }
+      }
     }
 }
 
@@ -1843,6 +1881,7 @@ shared_focus = {
 		focus = GPU_the_break
 	}
     completion_reward = {
+      country_event = GPU_von_rundstent_path.1
     }
 }
 
@@ -1862,6 +1901,7 @@ shared_focus = {
 	}
   
     completion_reward = {
+      country_event = GPU_von_rundstent_path.4
     }
 }
 
@@ -1880,18 +1920,49 @@ shared_focus = {
 	}
 	mutually_exclusive = {
 	}
+  NOT = {
+    is_puppet_of = AUS
+  }
+    completion_reward = {
+      GPU = {
+			annex_country = { target = WUR transfer_troops = yes }
+			annex_country = { target = BAD transfer_troops = yes }
+			annex_country = { target = HES transfer_troops = yes }
+		}
+    add_country_leader_trait = kroprinz
+    }
+}
+shared_focus = {
+    id = GPU_the_waystation
+    icon = GFX_focus_GPU_the_waystation
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+	relative_position_id = GPU_prepare_for_restoration
+	prerequisite = {
+		focus = GPU_prepare_for_restoration
+
+	}
+	mutually_exclusive = {
+	}
   
     completion_reward = {
+      create_wargoal = {
+        target = SAX
+        type = annex_everything
+      }
     }
 }
 shared_focus = {
     id = GPU_unite_the_exiles
     icon = GFX_focus_GPU_unite_the_exiles
-    x = -1
+    x = 1
     y = 1
     cost = 5
     available_if_capitulated = yes
-	relative_position_id = GPU_prepare_for_restoration
+
+  relative_position_id = GPU_prepare_for_restoration
 	prerequisite = {
 		focus = GPU_prepare_for_restoration
 
@@ -1900,30 +1971,39 @@ shared_focus = {
 	}
   
     completion_reward = {
+      add_ideas = GPU_the_exiles_mustered
     }
 }
 shared_focus = {
     id = GPU_zum_sieg
     icon = GFX_focus_GPU_zum_sieg
-    x = 1
+    x = -1
     y = 1
     cost = 5
     available_if_capitulated = yes
-	relative_position_id = GPU_prepare_for_restoration
-	prerequisite = {
-		focus = GPU_prepare_for_restoration
-
-	}
+	
 	mutually_exclusive = {
 	}
-  
+  	relative_position_id = GPU_unite_the_exiles
+	prerequisite = {
+		focus = GPU_unite_the_exiles
+
+	}
+	prerequisite = {
+		focus = GPU_the_waystation
+	}
     completion_reward = {
+      create_wargoal = {
+        target = GER
+        type = annex_everything
+      }
     }
 }
+
 shared_focus = {
     id = GPU_einheit
     icon = GFX_focus_GPU_einheit
-    x = -1
+    x = 0
     y = 2
     cost = 5
     available_if_capitulated = yes
@@ -1932,9 +2012,7 @@ shared_focus = {
 		focus = GPU_zum_sieg
 
 	}
-	prerequisite = {
-		focus = GPU_unite_the_exiles
-	}
+
 	mutually_exclusive = {
 	}
   
@@ -1958,6 +2036,14 @@ shared_focus = {
 		focus = GPU_stay_with_kroprinz
 	}
     completion_reward = {
+      set_politics = {
+        ruling_party = ultranationalism
+      }
+      add_popularity = {
+        ideology = ultranationalism
+        popularity = 0.1
+      }
+      add_politcal_power = 50
     }
 }
 shared_focus = {
