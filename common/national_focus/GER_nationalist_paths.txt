@@ -124,7 +124,7 @@ focus_tree = {
  
 
 	continuous_focus_position = { x = 12000 y = 1000 }
-}	
+}
 shared_focus = {
 	id = GER_the_issue_of_the_militias
 	icon = GFX_goal_GER_issueofthemilitias
@@ -1258,8 +1258,237 @@ shared_focus = {
 			}
 		}
 
-	
+		shared_focus = {
+			id = GER_schleichers_final_plan
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_the_businessmans_prussia
+			}
+			relative_position_id = GER_the_businessmans_prussia
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				add_dynamic_modifier = { modifier = GER_querfront_modifier }
+				set_variable = { GER_political_power_gain_var = 0.1 }
+				custom_effect_tooltip = GER_schleichers_final_plan_tt
+			}
+		}
 
+		shared_focus = {
+			id = GER_a_real_union
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_schleichers_final_plan
+			}
+			mutually_exclusive = {
+				focus = GER_no_more_proletarians
+			}
+			relative_position_id = GER_schleichers_final_plan
+			x = -1
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				set_variable = { GER_industrial_capacity_factory_var = 0.15 }
+				custom_effect_tooltip = GER_a_real_union_tt
+			}
+		}
+		
+		shared_focus = {
+			id = GER_no_more_proletarians
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_schleichers_final_plan
+			}
+			mutually_exclusive = {
+				focus = GER_a_real_union
+			}
+			relative_position_id = GER_schleichers_final_plan
+			x = 1
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				set_variable = { GER_compliance_growth_on_our_occupied_states_var = 0.05 }
+				custom_effect_tooltip = GER_no_more_proletarians_tt
+			}
+		}
+		
+		shared_focus = {
+			id = GER_maintain_revolutionary_principles
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_a_real_union
+				focus = GER_no_more_proletarians
+			}
+			mutually_exclusive = {
+				focus = GER_for_god_and_kaiser
+			}
+			relative_position_id = GER_a_real_union
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				set_variable = { GER_stability_factor_var1 = 0.1 }
+				custom_effect_tooltip = GER_maintain_revolutionary_principles_tt
+			}
+		}
+
+		shared_focus = {
+			id = GER_for_god_and_kaiser
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_a_real_union
+				focus = GER_no_more_proletarians
+			}
+			mutually_exclusive = {
+				focus = GER_maintain_revolutionary_principles
+			}
+			relative_position_id = GER_no_more_proletarians
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				set_variable = { GER_stability_factor_var1 = -0.075 }
+				set_variable = { GER_conscription_var = 0.01 }
+				custom_effect_tooltip = GER_for_god_and_kaiser_tt
+			}
+		}
+
+		shared_focus = {
+			id = GER_maintain_the_nation_at_arms
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_maintain_revolutionary_principles
+				focus = GER_for_god_and_kaiser
+			}
+			mutually_exclusive = {
+				focus = GER_the_professional_core
+			}
+			relative_position_id = GER_maintain_revolutionary_principles
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				set_variable = { GER_production_speed_buildings_factor_var = 0.1 }
+				set_variable = { GER_army_org_regain_var = 0.1 }
+				custom_effect_tooltip = GER_maintain_the_nation_at_arms_tt
+			}
+		}
+
+		shared_focus = {
+			id = GER_the_professional_core
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_maintain_revolutionary_principles
+				focus = GER_for_god_and_kaiser
+			}
+			mutually_exclusive = {
+				focus = GER_maintain_the_nation_at_arms
+			}
+			relative_position_id = GER_for_god_and_kaiser
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				set_variable = { GER_army_org_factor_var1 = 0.1 }
+				if = {
+					limit = { 
+						has_completed_focus = GER_no_more_proletarians
+					}
+					add_to_variable = { GER_compliance_growth_on_our_occupied_states_var = 0.025 }
+					else = {
+						set_variable = { GER_compliance_growth_on_our_occupied_states_var = 0.025 }
+					}
+				}
+				custom_effect_tooltip = GER_the_professional_core_tt
+			}
+		}
+
+		shared_focus = {
+			id = GER_guard_the_emigres
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_maintain_the_nation_at_arms
+				focus = GER_the_professional_core
+			}
+			mutually_exclusive = {
+				focus = GER_full_amnesty
+			}
+			relative_position_id = GER_maintain_the_nation_at_arms
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				set_variable = { GER_stability_weekly_factor_var = 0.003 }
+				custom_effect_tooltip = GER_guard_the_emigres_tt
+			}
+		}
+
+		shared_focus = {
+			id = GER_full_amnesty
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_maintain_the_nation_at_arms
+				focus = GER_the_professional_core
+			}
+			mutually_exclusive = {
+				focus = GER_guard_the_emigres
+			}
+			relative_position_id = GER_the_professional_core
+			x = 0
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				set_variable = { GER_monthly_population_var = 0.2 }
+				custom_effect_tooltip = GER_full_amnesty_tt
+			}
+		}
+
+		shared_focus = {
+			id = GER_the_regency_debate
+			#icon =
+			cost = 5
+			prerequisite = {
+				focus = GER_guard_the_emigres
+				focus = GER_full_amnesty
+			}
+			relative_position_id = GER_full_amnesty
+			x = -1
+			y = 1
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				country_event = GER_schleicher_events.1
+			}
+		}
 
 		shared_focus = {
 		cancelable = no
@@ -5250,5 +5479,4 @@ shared_focus = {
 			add_ideas = GER_death_to_partisans_idea
 		}
 	}
-	
 
