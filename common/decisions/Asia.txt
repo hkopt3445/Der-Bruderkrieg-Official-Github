@@ -424,12 +424,12 @@ china_worldbuilding_decisions = {
 		fire_only_once = yes 
 	
 		activation = {
-		  OR = { tag = CHI tag = JAP tag = BEI tag = GUC }
+		  OR = { tag = CHI tag = JAP tag = BEI tag = GZC }
 		  has_global_flag = kmt_collapse_activation
 		}
 	
 		visible = {
-		  OR = { tag = CHI tag = JAP tag = BEI tag = GUC }
+		  OR = { tag = CHI tag = JAP tag = BEI tag = GZC }
 		  has_global_flag = kmt_collapse_activation
 		} 
 	
@@ -457,6 +457,111 @@ china_worldbuilding_decisions = {
 			}
 			BEI = {
 				white_peace = CHI
+			}
+		}
+	}
+
+	###prc expansion
+	peoples_great_qing_expansion_timeout = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		  hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 120
+	
+		fire_only_once = yes 
+	
+		activation = {
+		  OR = { tag = PRC tag = SHC tag = SIC }
+		  has_global_flag = peoples_great_qing_expansion_activation
+		}
+	
+		visible = {
+		  OR = { tag = PRC tag = SHC tag = SIC }
+		  has_global_flag = peoples_great_qing_expansion_activation
+		} 
+	
+		#cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = SIC.surrender_progress 
+						value = 51
+						compare = less_than
+					}
+				}
+				SHC = {
+					country_event = peoples_great_qing_expansion.3
+				}
+			}
+			else = {
+				PRC = {
+					country_event = peoples_great_qing_expansion.2
+				}
+			}
+			SIC = {
+				white_peace = PRC
+			}
+		}
+	}
+
+	peoples_great_qing_expansion_ma_timeout = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		  hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 120
+	
+		fire_only_once = yes 
+	
+		activation = {
+		  OR = { tag = PRC tag = XSM tag = GUO }
+		  has_global_flag = peoples_great_qing_expansion_ma_activation
+		}
+	
+		visible = {
+		  OR = { tag = PRC tag = XSM tag = GUO }
+		  has_global_flag = peoples_great_qing_expansion_ma_activation
+		} 
+	
+		#cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = PRC.surrender_progress 
+						value = XSM.surrender_progress
+						compare = greater_than
+					}
+				}
+				XSM = {
+					country_event = peoples_great_qing_expansion.6
+				}
+			}
+			else = {
+				PRC = {
+					country_event = peoples_great_qing_expansion.5
+				}
+			}
+			XSM = {
+				white_peace = PRC
 			}
 		}
 	}
