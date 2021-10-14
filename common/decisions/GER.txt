@@ -421,6 +421,7 @@ GER_ss_waffen_cat = {
 		timeout_effect = {
 			country_event = militia_revolts.1 
 		}
+		priority = 100
 		
 	}
 	GER_sa_revolt_imminent_mission_trigger = {
@@ -443,6 +444,8 @@ GER_ss_waffen_cat = {
 		timeout_effect = {
 			country_event = militia_revolts.4 
 		}
+
+		priority = 100
 		
 	}
 	
@@ -482,6 +485,7 @@ GER_ss_waffen_cat = {
 			remove_ideas = GER_Clash_Of_The_Militias
 			country_event = militia_revolts.2
 		}
+		priority = 100
 	}
 	GER_freikorps_influencing_states = {
 		allowed = { tag = GER }
@@ -586,6 +590,7 @@ GER_ss_waffen_cat = {
 				country_event = militia_revolts.6
 			}
 		}
+		priority = 100
 		complete_effect = {
 			clr_country_flag = chose_wermacht
 			clr_country_flag = chose_sa
@@ -610,6 +615,220 @@ GER_ss_waffen_cat = {
 		}
 		complete_effect = {
 			country_event = militia_revolts.6
+		}
+	}
+	GER_blank_1 = {
+		available = {
+			always = no
+		}
+
+		visible = {
+			always = yes
+		}
+	}
+	##assist decisions
+	GER_assisting_the_sa_revolt = {
+		icon = eng_install_government
+
+		available = {
+			always = no
+		}
+
+		visible = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+		ai_will_do = {
+			factor = 0	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
+		}
+
+		remove_effect = {
+					
+		}
+	}
+	GER_provide_weapons_to_sa_militias = {
+		icon = eng_install_government
+
+		available = {
+			
+		}
+
+		visible = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 15
+		ai_will_do = {
+			factor = 0	
+			modifier = {
+				add = 100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
+		}
+
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = GER_sa_revolt_imminent_mission_trigger
+				days = -50
+			}
+			custom_effect_tooltip = GER_provide_weapons_to_sa_militias_tt
+			set_country_flag = GER_provide_weapons_to_sa_militias_completed
+		}
+	}
+	GER_assisting_secret_sa_plots = {
+		icon = eng_install_government
+
+		available = {
+		}
+
+		visible = {
+			tag = GER
+			has_completed_focus = GER_crush_the_sa
+		}
+
+		fire_only_once = yes
+
+		cost = 35
+		days_remove = 25
+		ai_will_do = {
+			factor = 0	
+			modifier = {
+				add = 100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
+		}
+
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = GER_sa_revolt_imminent_mission_trigger
+				days = -50
+			}
+			custom_effect_tooltip = GER_assisting_secret_sa_plots_tt
+			set_country_flag = GER_assisting_secret_sa_plots_completed
+		}
+	}
+
+	GER_assisting_the_freikorps_revolt = {
+		icon = eng_install_government
+
+		available = {
+			always = no
+		}
+
+		visible = {
+			tag = GER
+			has_completed_focus = GER_crush_the_freikorps
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+		ai_will_do = {
+			factor = 0	
+			modifier = {
+				add = -100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
+		}
+
+		remove_effect = {
+			
+		}
+	}
+	GER_provide_weapons_to_freikorps_militias = {
+		icon = eng_install_government
+
+		available = {
+		}
+
+		visible = {
+			tag = GER
+			has_completed_focus = GER_crush_the_freikorps
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 15
+		ai_will_do = {
+			factor = 0	
+			modifier = {
+				add = 100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
+		}
+
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = GER_freikorps_revolt_imminent_mission_trigger
+				days = -50
+			}
+			custom_effect_tooltip = GER_provide_weapons_to_freikorps_militias_tt
+			set_country_flag = GER_provide_weapons_to_freikorps_militias
+		}
+	}
+	GER_assisting_secret_freikorps_plots = {
+		icon = eng_install_government
+
+		available = {
+		}
+
+		visible = {
+			tag = GER
+			has_completed_focus = GER_crush_the_freikorps
+		}
+
+		fire_only_once = yes
+
+		cost = 30
+		days_remove = 25
+		ai_will_do = {
+			factor = 0	
+			modifier = {
+				add = 100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+				}
+			}
+		}
+
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = GER_freikorps_revolt_imminent_mission_trigger
+				days = -50
+			}
+			custom_effect_tooltip = GER_assisting_secret_freikorps_plots_tt
+			set_country_flag = GER_assisting_secret_freikorps_plots_completed
 		}
 	}
 }

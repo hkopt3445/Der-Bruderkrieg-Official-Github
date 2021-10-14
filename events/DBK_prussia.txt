@@ -16,7 +16,7 @@ add_namespace = germany
 	}
 	
  }
-
+ 
  country_event = {
 	id = GER_goering_internal_stabilization.2 # Rachekreig
 	title = GER_goering_internal_stabilization.2.t
@@ -757,6 +757,32 @@ add_namespace = militia_revolts
 				}
 			}
 			custom_effect_tooltip = GER_will_play_as_the_freikorps
+			if = {
+					limit = {
+						has_country_flag = GER_provide_weapons_to_freikorps_militias_completed
+					}
+					GER = {
+						add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 5000
+							producer = GER
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = GER_assisting_secret_freikorps_plots_completed
+					}
+					GER = {
+						add_manpower = 20000
+						random_owned_controlled_state = {
+						  create_unit = {
+							division = "name = \"Elite Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = GER
+						  }	
+						}
+					}
+				}
 			hidden_effect = {
 				for_each_loop = {
 					array = controlled_states
@@ -1047,6 +1073,32 @@ add_namespace = militia_revolts
 				remove_ideas = Mackensen_Reforms
 				remove_ideas = GER_Clash_Of_The_Militias
 				custom_effect_tooltip = GER_will_play_as_the_sa
+				if = {
+					limit = {
+						has_country_flag = GER_provide_weapons_to_sa_militias_completed
+					}
+					GER = {
+						add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 5000
+							producer = GER
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = GER_assisting_secret_sa_plots_completed
+					}
+					GER = {
+						add_manpower = 20000
+						random_owned_controlled_state = {
+						  create_unit = {
+							division = "name = \"Elite Milita\" division_template = \"Milita Division\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+							owner = GER
+						  }	
+						}
+					}
+				}
 				hidden_effect = {
 					for_each_loop = {
 						array = controlled_states
