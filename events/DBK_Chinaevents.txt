@@ -1,5 +1,96 @@
-add_namespace = south_china_war
+add_namespace = china_in_the_world_war
 
+##Beyaing declaring on qiannixgan or cantonia
+country_event = {
+	id = china_in_the_world_war.1
+	title = china_in_the_world_war.1.t
+	desc = china_in_the_world_war.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = china_in_the_world_war.1.a
+		if = {
+			limit = {
+				GZC = {
+					exists = yes
+				}
+			}
+			create_wargoal = {
+				target = GZC
+				type = annex_everything
+			}
+			BEI = {
+				country_event = china_in_the_world_war.3
+			}
+			GZC = {
+				country_event = china_in_the_world_war.2
+			}
+		}
+		if = {
+			limit = {
+				YUN = {
+					exists = yes
+				}
+			}
+			create_wargoal = {
+				target = YUN
+				type = annex_everything
+			}
+			BEI = {
+				country_event = china_in_the_world_war.2
+			}
+			YUN = {
+				country_event = china_in_the_world_war.3
+			}
+		}
+		
+	}
+}
+##Beiang russia
+country_event = {
+	id = china_in_the_world_war.2
+	title = china_in_the_world_war.2.t
+	desc = china_in_the_world_war.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = china_in_the_world_war.2.a
+		
+		SOV = {
+			country_event = {
+				id = generic.2
+				days = 3
+			}
+		}
+	}
+}
+
+
+##Beiang jap
+country_event = {
+	id = china_in_the_world_war.3
+	title = china_in_the_world_war.3.t
+	desc = china_in_the_world_war.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = china_in_the_world_war.3.a
+		
+		AUS = {
+			country_event = {
+				id = generic.2
+				days = 3
+			}
+		}
+	}
+}
+
+
+
+add_namespace = south_china_war
 ###event for ZHC 
  country_event = {
  	id = south_china_war.1
@@ -199,6 +290,27 @@ country_event = {
 				days = 20
 			}
 		}
+
+		PRC = {
+			country_event = {
+				id = chinese_annex_event.1
+				days = 70
+			}
+		}
+
+		SHC = {
+			country_event = {
+				id = chinese_annex_event.1
+				days = 120
+			}
+		}
+
+		SIC = {
+			country_event = {
+				id = chinese_annex_event.1
+				days = 170
+			}
+		}
  	}
 }
 
@@ -218,12 +330,20 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 1000
+			modifier = {
+				add = -1000
+				has_war = yes
+			}
 		}
  	}
 	 option = {
  		name = chinese_annex_event.1.b
 		 ai_chance = {
-			factor = 1 ##change later
+			factor = 500 ##change later
+			modifier = {
+				add = 100000
+				tag = PRC
+			}
 		}
 		event_target:chinese_annex_event_annexer = {
 			country_event = chinese_annex_event.3

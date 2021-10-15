@@ -17,7 +17,18 @@ weltkrieg_decisions = {
 	icon = generic_political_actions
 	
 	visible = {
-		has_global_flag = wiltkrieg 
+		if = {
+			limit = {
+				OR = {
+					tag = AUS
+					tag = GER
+				}
+			}
+			always = yes
+		} 
+		else = {
+			has_global_flag = wiltkrieg
+		}
 	}
 	visible_when_empty = yes
 	priority = 100000
