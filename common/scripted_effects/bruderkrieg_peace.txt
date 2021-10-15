@@ -28,16 +28,48 @@ austria_loses_peace_deal = {
     }
 }
 prussia_russia_wins_states = {
-    set_global_flag = austria_defeated
-    AUS = {country_event = wiltkrieg.2}
-    GER = {country_event = wiltkrieg.3}
-    news_event = {id = wiltkrieg.4 days = 2}
+     if = {
+        limit = {
+            JAP = {
+                is_in_faction_with = AUS
+            }
+        }
+        AUS = {
+            set_faction_leader = JAP
+        }
+    }
+    else_if = {
+        limit = {
+            TUR = {
+                is_in_faction_with = AUS
+            }
+        }
+        AUS = {
+            set_faction_leader = TUR
+        }
+    }
+    else = {
+        any_random_country = {
+            limit = {
+                is_in_faction_with = AUS
+            }
+            save_global_event_target_as = new_pakt_faction_leader
+        }
+        AUS = {
+            set_faction_leader = event_target:new_pakt_faction_leader
+        }
+    }
     SOV = {
         white_peace = AUS
     }
     GER = {
         white_peace = AUS
     }
+    set_global_flag = austria_defeated
+    AUS = {country_event = wiltkrieg.2}
+    GER = {country_event = wiltkrieg.3}
+    news_event = {id = wiltkrieg.4 days = 2}
+   
 
     GER = {
         transfer_state = 66
@@ -918,6 +950,9 @@ france_beats_netherlands = {
 
 
 russia_beats_ottoman_peace_deal = {
+    TUR = {
+        white_peace = SOV
+    }
     TRB = {
         transfer_state = 1041
 
@@ -941,7 +976,6 @@ russia_beats_ottoman_peace_deal = {
     release = HEJ
     release = TUR
     TUR = {
-        white_peace = SOV
         set_cosmetic_tag = russian_occupied_ottomans
         set_politics = {
             ruling_party = democratic
