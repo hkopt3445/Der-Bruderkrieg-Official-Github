@@ -1649,7 +1649,7 @@ shared_focus = {
 		icon = GFX_focus_generic_home_defense
 		x = -4
 		y = 1
-		cost = 5
+		cost = 0
 		
 		mutually_exclusive = {
 			focus = ITA_balbo_seizes_the_power
@@ -1671,10 +1671,10 @@ shared_focus = {
 		icon = GFX_goal_generic_political_pressure
 		x = 0
 		y = 1
-		cost = 5
+		cost = 0
 		
 		mutually_exclusive = {
-			focus = ITA_mussolini_seizes_the_power
+			focus = ITA_de_vecchi_seizes_the_power
 			focus = ITA_de_bono_seizes_the_power
 		}
 		
@@ -1694,11 +1694,11 @@ shared_focus = {
 		icon = GFX_focus_generic_commonwealth_build_infantry
 		x = 4
 		y = 1
-		cost = 5
+		cost = 0
 		
 		mutually_exclusive = {
 			focus = ITA_balbo_seizes_the_power
-			focus = ITA_mussolini_seizes_the_power
+			focus = ITA_de_vecchi_seizes_the_power
 		}
 		
 		
@@ -1723,7 +1723,12 @@ shared_focus = {
 		
 
 		completion_reward = {
-			ITA_increase_party_stability_medium = yes
+			ITA_decrease_party_stability_medium = yes
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			add_political_power = 50
 		}
 	}
 	
@@ -1755,7 +1760,7 @@ shared_focus = {
 		
 
 		completion_reward = {
-			add_country_leader_trait = papal_fascism
+			##treaty of lateran
 		}
 	}
 	
@@ -1825,7 +1830,10 @@ shared_focus = {
 		
 
 		completion_reward = {
-			ITA_increase_party_stability_large = yes
+			swap_ideas = {
+				add_idea = Vendetta_Nazionale_2
+				remove_idea = Vendetta_Nazionale
+			}
 		}
 	}
 	
@@ -1842,6 +1850,8 @@ shared_focus = {
 		
 
 		completion_reward = {
+			ITA_decrease_party_stability_large = yes
+			add_war_support = 0.1
 			
 		}
 	}
@@ -1858,7 +1868,8 @@ shared_focus = {
 		
 
 		completion_reward = {
-			ITA_increase_party_stability_medium = yes
+			ITA_decrease_party_stability_medium = yes
+			add_ideas = ITA_blackshirt_run_government
 		}
 	}
 	
@@ -1874,7 +1885,7 @@ shared_focus = {
 		
 
 		completion_reward = {
-			ITA_increase_party_stability_small = yes
+			ITA_decrease_party_stability_small = yes
 			add_tech_bonus = {
 				name = land_doc_bonus
 				bonus = 0.5
@@ -1896,7 +1907,10 @@ shared_focus = {
 		
 
 		completion_reward = {
-			add_country_leader_trait = msvn
+			swap_ideas = {
+				add_idea = ITA_blackshirt_run_government_2
+				remove_idea = ITA_blackshirt_run_government
+			}
 		}
 	}
 	
@@ -1913,10 +1927,8 @@ shared_focus = {
 		
 
 		completion_reward = {
-			swap_ruler_traits = {
-				remove = msvn
-				add = italian_militarism
-			}
+			add_country_leader_trait =  italian_militarism
+			
 		}
 	}
 	
@@ -1937,7 +1949,12 @@ shared_focus = {
 		
 
 		completion_reward = {
-			ITA_increase_party_stability_small = yes
+			ITA_decrease_party_stability_small = yes
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+			add_stability = 0.05
 		}
 	}
 	
@@ -1953,7 +1970,15 @@ shared_focus = {
 		
 
 		completion_reward = {
-			ITA_increase_party_stability_small = yes
+			ITA_decrease_party_stability_small = yes
+			add_popularity = {
+				ideology = socialism_democratic
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = democratic_communism
+				popularity = -0.05
+			}
 		}
 	}
 	
@@ -1970,7 +1995,7 @@ shared_focus = {
 		
 
 		completion_reward = {
-			ITA_increase_party_stability_small = yes
+			ITA_decrease_party_stability_medium = yes
 		}
 	}
 	
@@ -2024,11 +2049,10 @@ shared_focus = {
 		prerequisite = { focus = ITA_control_the_ovra }
 		relative_position_id = ITA_control_the_ovra
 		available = {
-			always = shared_no
 		}
 
 		completion_reward = {
-			ITA_increase_party_stability_medium = yes
+			ITA_decrease_party_stability_medium = yes
 		}
 	}
 	
@@ -2048,10 +2072,17 @@ shared_focus = {
 		prerequisite = { focus = ITA_the_true_enemy }
 		relative_position_id = ITA_eliminate_the_radicals
 		
-		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ITA_party_division_is_less_than_25
+				check_variable = {
+					ITA_NFP_party_stability < 26
+				}
+			}
+		}
 
 		completion_reward = {
-			
+			remove_ideas = ITA_victor_emmanuel
 		}
 	}
 
@@ -2788,7 +2819,6 @@ shared_focus = {
 	}
 	completion_reward = {
 		unlock_decision_tooltip = ITA_anti_habsburg_propoganda
-		unlock_decision_tooltip = ITA_contact_young_italy
 	}
 }
 shared_focus = {
