@@ -1708,6 +1708,8 @@ country_event = {
 		add_ideas = AUS_post_war_occupation
 
 		GER = {
+			transfer_state = 64
+			transfer_state = 61
 			set_cosmetic_tag = RAU_prussia
 		}
  
@@ -1716,22 +1718,41 @@ country_event = {
 		 GPU = {
 			 transfer_state = 60
 			 transfer_state = 65
+			 transfer_state = 949
 		 }
 		 58 = {
-			 add_core_of = SHL
-		 }
-		 SHL = {
+			 add_core_of = AUS
+		 } 
+		 AUS = {
 			 transfer_state = 58
 		 }
 		
-		 HAN = {
+		 if = {
+			 limit = {
+				 has_global_flag = france_austria_split_deal
+			 }
+			 FGD = {
+				 transfer_state = 56
+				transfer_state = 59
+				transfer_state = 817
+				transfer_state = 962
+				add_state_core = 56
+				add_state_core = 59
+				add_state_core = 817
+				add_state_core = 962
+				add_state_core = 960
+			 }
+		 }
+		 else = {
+			  HAN = {
 			 transfer_state = 56
 			 transfer_state = 59
 			 transfer_state = 817
 			 transfer_state = 962
 			 set_cosmetic_tag = RAU_hannover
+		 	}
+			release_puppet = HAN
 		 }
-		 release_puppet = HAN
 		 puppet = GER
 		
 		hidden_effect = {

@@ -34,8 +34,8 @@ prussia_russia_wins_states = {
                 is_in_faction_with = AUS
             }
         }
-        AUS = {
-            set_faction_leader = JAP
+        JAP = {
+            set_faction_leader = yes
         }
     }
     else_if = {
@@ -44,19 +44,19 @@ prussia_russia_wins_states = {
                 is_in_faction_with = AUS
             }
         }
-        AUS = {
-            set_faction_leader = TUR
+        TUR = {
+            set_faction_leader = yes
         }
     }
     else = {
-        any_random_country = {
+        every_country = {
             limit = {
                 is_in_faction_with = AUS
             }
             save_global_event_target_as = new_pakt_faction_leader
         }
-        AUS = {
-            set_faction_leader = event_target:new_pakt_faction_leader
+        event_target:new_pakt_faction_leader = {
+            set_faction_leader = yes
         }
     }
     SOV = {
@@ -406,7 +406,14 @@ austrian_civil_war_effect = {
 
 prussia_loses_peace_deal = {
     
-        
+        if = {
+            limit = {
+                FRA = {
+                    has_war_with = GER
+                }
+            }
+            set_global_flag = france_austria_split_deal
+        }
        AUS = { country_event = second_treaty_of_vienna.1 }
        ITA = {
         set_faction_leader = yes
@@ -698,7 +705,19 @@ france_loses_peace_deal = {
 }
 
 france_beats_prussia_peace_deal = {
-    FRA = { white_peace = GER white_peace = ITA  set_country_flag = FRA_has_beaten_prussia }
+    if = {
+            limit = {
+                AUS = {
+                    is_subject = no
+                    has_war_with = GER
+                }
+            }
+            set_global_flag = france_austria_split_deal
+        }
+    ITA = {
+        set_faction_leader = yes
+       }
+    FRA = { white_peace = GER  set_country_flag = FRA_has_beaten_prussia }
 
     
     FRA = {
@@ -711,12 +730,33 @@ france_beats_prussia_peace_deal = {
         add_state_core = 58
         add_state_core = 61
         }
-    MAS = {
+    if = {
+        limit = {
+            has_global_flag = france_austria_split_deal
+        }
+        MAS = {
+            add_state_core = 188
+            add_state_core = 763
+            add_state_core = 5
+            add_state_core = 85
+            add_state_core = 86
+            add_state_core = 950
+        }
+         AUS = {
+            puppet = MAS
+        }
+    }
+    else = {
+        MAS = {
         set_cosmetic_tag = austrian_french_puppet
         add_state_core = 188
         add_state_core = 763
         add_state_core = 5
         add_state_core = 85
+        }
+        FRA = {
+            puppet = MAS
+        }
     }
     GER = {
         release = SAX
@@ -739,7 +779,19 @@ france_beats_prussia_peace_deal = {
         transfer_state = 56
         transfer_state = 59
         transfer_state = 817
-        transfer_state = 60
+    }
+    if = {
+        limit = {
+            has_global_flag = france_austria_split_deal
+        }
+        GPU = {
+            transfer_state = 60
+        }
+    }
+    else = {
+        FGD = {
+            transfer_state = 60
+        }
     }
     ITA = {
         set_politics = {
@@ -747,13 +799,25 @@ france_beats_prussia_peace_deal = {
         }
     }
     FRA = {
-        puppet = SAX
         puppet = SHL
-        puppet = MAS
     }
-    SAX = {
-        set_cosmetic_tag = mandat_du_saxony
+    if = {
+        limit = {
+            has_global_flag = france_austria_split_deal
+        }
+        AUS = {
+            puppet = SAX
+        }
     }
+    else = {
+        FRA = {
+            puppet = SAX
+        }
+        SAX = {
+            set_cosmetic_tag = mandat_du_saxony
+        }
+    }
+   
     SHL = {
         set_cosmetic_tag = mandat_du_schelswig
     }

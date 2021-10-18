@@ -432,6 +432,17 @@ china_worldbuilding_decisions = {
 		  OR = { tag = CHI tag = JAP tag = BEI tag = GZC }
 		  has_global_flag = kmt_collapse_activation
 		} 
+
+		available = {
+			OR = {
+				CHI = {
+					surrender_progress > 0.99
+				}
+				CHI = {
+					exists = no
+				}
+			}
+		}
 	
 		#cancel_if_not_visible = yes
 	
@@ -459,6 +470,16 @@ china_worldbuilding_decisions = {
 				white_peace = CHI
 			}
 		}
+		complete_effect = {
+			BEI = {
+				white_peace = CHI
+			}
+			BEI = {
+				country_event = kmt_collapse.2
+			}
+			
+			
+		}
 	}
 
 	###prc expansion
@@ -485,6 +506,17 @@ china_worldbuilding_decisions = {
 		  OR = { tag = PRC tag = SHC tag = SIC }
 		  has_global_flag = peoples_great_qing_expansion_activation
 		} 
+
+		available = {
+			OR = {
+				SIC = {
+					surrender_progress > 0.99
+				}
+				SIC = {
+					exists = no
+				}
+			}
+		}
 	
 		#cancel_if_not_visible = yes
 	
@@ -512,6 +544,16 @@ china_worldbuilding_decisions = {
 				white_peace = PRC
 			}
 		}
+		complete_effect = {
+			SIC = {
+				white_peace = PRC
+			}
+			
+				PRC = {
+					country_event = peoples_great_qing_expansion.2
+				}
+			
+		}
 	}
 
 	peoples_great_qing_expansion_ma_timeout = {
@@ -537,6 +579,17 @@ china_worldbuilding_decisions = {
 		  OR = { tag = PRC tag = XSM tag = GUO }
 		  has_global_flag = peoples_great_qing_expansion_ma_activation
 		} 
+
+		available = {
+			OR = {
+				GUO = {
+					surrender_progress > 0.99
+				}
+				GUO = {
+					exists = no
+				}
+			}
+		}
 	
 		#cancel_if_not_visible = yes
 	
@@ -564,6 +617,15 @@ china_worldbuilding_decisions = {
 				white_peace = PRC
 			}
 		}
+		complete_effect = {
+			XSM = {
+				white_peace = PRC
+			}
+			PRC = {
+				country_event = peoples_great_qing_expansion.5
+			}
+		
+		}
 	}
 
 	##south china war mission
@@ -574,7 +636,24 @@ china_worldbuilding_decisions = {
 		icon = generic_ignite_civil_war
 	
 		available = {
-		  hidden_trigger = { always = no }
+		 # hidden_trigger = { always = no }
+		 #NOT = {
+			 OR = {
+				GZC = {
+					surrender_progress > 0.99
+				}
+				GZC = {
+					exists = no
+				}
+				YUN = {
+					surrender_progress > 0.99
+				}
+				YUN = {
+					exists = no
+				}
+			 }
+		# }
+
 		}
 	
 		days_mission_timeout = 80
@@ -623,6 +702,47 @@ china_worldbuilding_decisions = {
 			GZC = {
 				white_peace = YUN
 			}
+		}
+		complete_effect = {
+			GZC = {
+				white_peace = YUN
+			}
+			if = {
+				limit = {
+					OR = {
+							check_variable = {
+								var = GZC.surrender_progress 
+								value = YUN.surrender_progress
+								compare = greater_than
+							}
+							YUN = {
+								exists = no
+							}
+						}
+				}
+				YUN = {
+					country_event = south_china_war.3
+				}
+			}
+			if = {
+				limit = {
+						OR = {
+							check_variable = {
+								var = YUN.surrender_progress 
+								value = GZC.surrender_progress
+								compare = greater_than
+							}
+							GZC = {
+								exists = no
+							}
+						}
+					}
+				}
+				GZC = {
+					country_event = south_china_war.2
+				}
+			}
+			
 		}
 	}
 }
