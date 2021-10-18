@@ -2086,6 +2086,491 @@ shared_focus = {
 		}
 	}
 
+	shared_focus = {
+		id = ITA_national_mobilization_act
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_end_the_rivalry
+		}
+		relative_position_id = ITA_end_the_rivalry
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = all_adults_serve }
+				swap_ideas = {
+					remove_idea = all_adults_serve 
+					add_idea = scraping_the_barrel
+				}
+			}
+			if = {
+				limit = { has_idea = service_by_requirement }
+				swap_ideas = {
+					remove_idea = service_by_requirement 
+					add_idea = all_adults_serve
+				}
+			}
+			if = {
+				limit = { has_idea = extensive_conscription }
+				swap_ideas = {
+					remove_idea = extensive_conscription 
+					add_idea = service_by_requirement
+				}
+			}
+			if = {
+				limit = { has_idea = limited_conscription }
+				swap_ideas = {
+					remove_idea = limited_conscription 
+					add_idea = extensive_conscription
+				}
+			}
+			if = {
+				limit = { has_idea = volunteer_only }
+				swap_ideas = {
+					remove_idea = volunteer_only 
+					add_idea = limited_conscription
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_roman_warmongers
+		icon = GFX_goal_generic_allies_build_infantry
+		mutually_exclusive = { focus = ITA_built_for_defense }
+		x = -2
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_national_mobilization_act
+		}
+		relative_position_id = ITA_national_mobilization_act
+
+		completion_reward = {
+
+		}
+	}
+
+	shared_focus = {
+		id = ITA_built_for_defense
+		icon = GFX_goal_generic_allies_build_infantry
+		mutually_exclusive = { focus = ITA_roman_warmongers }
+		x = 2
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_national_mobilization_act
+		}
+		relative_position_id = ITA_national_mobilization_act
+
+		completion_reward = {
+
+		}
+	}
+
+	shared_focus = {
+		id = ITA_reaffirm_prussian_ties
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 2
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_built_for_defense
+			focus = ITA_roman_warmongers
+		}
+		relative_position_id = ITA_national_mobilization_act
+
+		completion_reward = {
+			GER = {
+				country_event=  { id = italy.5 hours = 2 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_north_african_ambitions
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+
+		bypass = {
+			LBA = {
+				OR = {
+					exists = no
+					has_war_with = ITA
+					is_subject = yes
+				}
+			}
+		}
+		
+		prerequisite = { 
+			focus = ITA_reaffirm_prussian_ties
+		}
+		relative_position_id = ITA_reaffirm_prussian_ties
+
+		completion_reward = {
+			LBA = {
+				country_event = { id = generic.20 hours = 2 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_lybian_integration
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+			LBA = {
+				OR = {
+					is_subject_of = ITA
+					AND = {
+						any_state = {
+							is_core_of = LBA
+							is_owned_by = ITA
+						}
+						exists = no
+					}
+				}
+			}
+		}
+		
+		prerequisite = { 
+			focus = ITA_north_african_ambitions
+		}
+		relative_position_id = ITA_north_african_ambitions
+
+		completion_reward = {
+			if = {
+				limit = { LBA = { is_subject_of = ITA } }
+				annex_country = {
+					target = LBA
+					transfer_troops = yes
+				}
+			}
+			every_state = {
+				limit = { is_core_of = LBA }
+				add_core_of = ITA
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = { is_core_of = LBA OR = { is_owned_by = LBA is_owned_by = ITA } }
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_the_lombardy_line
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_built_for_defense
+		}
+		relative_position_id = ITA_built_for_defense
+
+		completion_reward = {
+			every_owned_state = {
+				limit = { any_neighbor_state = { is_owned_by = AUS } }
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_contacts_with_young_italy
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_the_lombardy_line
+		}
+		relative_position_id = ITA_the_lombardy_line
+
+		completion_reward = {
+			805 = {
+				add_dynamic_modifier = {
+					modifier = SOV_young_italy_activities
+					days = 180
+				}
+			}
+			160 = {
+				add_dynamic_modifier = {
+					modifier = SOV_young_italy_activities
+					days = 180
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_alliance_with_switzerland
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_contacts_with_young_italy
+		}
+		relative_position_id = ITA_contacts_with_young_italy
+
+		completion_reward = {
+			SWI = {
+				country_event = { id = generic.5 hours = 2 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_the_alpine_line
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 2
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_built_for_defense
+		}
+		relative_position_id = ITA_built_for_defense
+
+		completion_reward = {
+			every_owned_state = {
+				limit = { any_neighbor_state = { is_owned_by = FRA } }
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_invest_piedmont
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+			owns_state = 158
+		}
+		
+		prerequisite = { 
+			focus = ITA_the_alpine_line
+		}
+		relative_position_id = ITA_the_alpine_line
+
+		completion_reward = {
+			158 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 4
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_fortify_west_coast
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_invest_piedmont
+		}
+		relative_position_id = ITA_invest_piedmont
+
+		completion_reward = {
+			every_owned_state = {
+				limit = { OR = { state = 158 state = 162 state = 2 state = 117 state = 115 state = 156 state = 114 } }
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_claim_dalmatia
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_roman_warmongers
+		}
+		relative_position_id = ITA_roman_warmongers
+
+		completion_reward = {
+			add_state_core = 103
+		}
+	}
+
+	shared_focus = {
+		id = ITA_albanian_expansion
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_claim_dalmatia
+		}
+		relative_position_id = ITA_claim_dalmatia
+
+		completion_reward = {
+			ALB = {
+				country_event = {
+					id = italy.3 hours = 2
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_a_route_through_romania
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_albanian_expansion
+		}
+		relative_position_id = ITA_albanian_expansion
+
+		completion_reward = {
+			#romanian iron guard coup decisions. Someone else's job, Raj said :trolled:
+		}
+	}
+
+	shared_focus = {
+		id = ITA_memories_of_the_gallic_wars #LARPers, more like LOSERS
+		icon = GFX_goal_generic_allies_build_infantry
+		x = -2
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_roman_warmongers
+		}
+		relative_position_id = ITA_roman_warmongers
+
+		completion_reward = {
+			#add an idea that gives 10% attack bonus against france and 15% planning speed
+		}
+	}
+
+	shared_focus = {
+		id = ITA_break_savoy_line
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_memories_of_the_gallic_wars
+		}
+		relative_position_id = ITA_memories_of_the_gallic_wars
+
+		completion_reward = {
+			#modify previous idea by adding 15% breakthrough
+		}
+	}
+
+	shared_focus = {
+		id = ITA_prepare_mediterranean_fleet
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_break_savoy_line
+		}
+		relative_position_id = ITA_break_savoy_line
+
+		completion_reward = {
+			#modify previous idea by reducing ship cost (or I'll just be lazy and increase dockyard production :thonk:)
+		}
+	}
+
+	shared_focus = {
+		id = ITA_tend_to_the_sick_man_of_europe
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { 
+			focus = ITA_lybian_integration
+		}
+		prerequisite = {
+			focus = ITA_fortify_west_coast
+			focus = ITA_alliance_with_switzerland
+			focus = ITA_a_route_through_romania
+			focus = ITA_prepare_mediterranean_fleet
+		}
+		relative_position_id = ITA_lybian_integration
+
+		completion_reward = {
+			add_state_claim = 342
+			add_state_claim = 345
+			add_state_claim = 346
+			add_state_claim = 343
+		}
+	}
 
 	###evola
 	shared_focus = {
