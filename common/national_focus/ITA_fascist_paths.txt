@@ -18,7 +18,7 @@
 	shared_focus = ITA_INVEST_IN_SOUTH
 	shared_focus = ITA_begin_the_recovery_process
 	shared_focus = ITA_italys_destiny
-	continuous_focus_position = { x = 5000 y = 2000 }
+	continuous_focus_position = { x = 5300 y = 2000 }
 }
 
 # shared_focus = {
@@ -547,6 +547,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
+		country_event = ITA_starting_tree_events.2
 		add_political_power = 50
 	}
 }
@@ -573,7 +574,7 @@ shared_focus = {
 # }
 shared_focus = {
 	id = ITA_He_doesnt_need_to_know_or
-	icon = GFX_goal_ITA_he_doesnt_need_to_know_or 
+	icon = GFX_goal_GovernmentIcon 
 	x = 0
 	y = 1
 	cost = 2.5
@@ -594,7 +595,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = ITA_In_the_Shadows
-	icon = GFX_goal_SOV_gain_support 
+	icon = GFX_goal_SOV_second_battle_of_kreshnatchyk_street 
 	x = -1
 	y = 1
 	cost = 0
@@ -676,7 +677,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		army_experience = 10
 	}
 }
 # shared_focus = {
@@ -767,7 +768,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = ITA_In_The_Open
-	icon = GFX_goal_ITA_in_the_open 
+	icon = GFX_goal_USA_some_acceptance 
 	x = 1
 	y = 1
 	cost = 0
@@ -827,7 +828,7 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		country_event = ITA_starting_tree_events.4
 	}
 }
 shared_focus = {
@@ -880,7 +881,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = ITA_Jail_the_Leaders
-	icon = GFX_goal_ITA_jail_the_leaders 
+	icon = GFX_goal_FRA_reinforcing_neue_code_napoleon 
 	x = 1
 	y = 1
 	cost = 2.5
@@ -896,12 +897,12 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		country_event = ITA_starting_tree_events.5
 	}
 }
 shared_focus = {
 	id = ITA_Control_the_Economic_DMG
-	icon = GFX_goal_deregulate_the_banking_industury 
+	icon = GFX_USA_trust_busting 
 	x = 1
 	y = 1
 	cost = 2.5
@@ -939,12 +940,17 @@ shared_focus = {
 		factor = 1
 	}
 	completion_reward = {
-		
+		add_stability = 0.1
+		hidden_effect = {
+			country_event = {
+				id = ITA_socialist_revolution_events.8
+			}	
+		}
 	}
 }
 shared_focus = {
 	id = ITA_A_Risky_Plan
-	icon = GFX_goal_ITA_a_risky_plan 
+	icon = GFX_goal_ITA_distribute_weapons 
 	x = -2
 	y = 1
 	cost = 2.5
@@ -969,7 +975,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = ITA_Keep_the_Others_Out_of_It
-	icon = GFX_goal_ITA_keep_the_others_out_of_it 
+	icon = GFX_goal_SOV_anti_left_propoganda 
 	x = 0
 	y = 1
 	cost = 2.5
@@ -990,7 +996,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = ITA_Show_no_Weakness
-	icon = GFX_goal_ITA_show_no_weakness 
+	icon = GFX_goal_FRA_autocracy 
 	x = -1
 	y = 1
 	cost = 2.5
@@ -1041,6 +1047,9 @@ shared_focus = {
 		relative_position_id = ITA_italys_destiny
 		mutually_exclusive = {
 			focus = ITA_evolas_regime
+		}
+		available = {
+			has_country_flag = ITA_evolas_coup_destoryed
 		}
 		
 
@@ -2403,6 +2412,9 @@ shared_focus = {
 
 		completion_reward = {
 			add_state_core = 103
+			add_state_core = 816
+			add_state_core = 815
+
 		}
 	}
 
@@ -2545,6 +2557,9 @@ shared_focus = {
 	mutually_exclusive = {
 			focus = ITA_continue_dannunzios_rule
 		}
+		available = {
+			has_country_flag = ITA_evolas_coup_done
+		}
 	completion_reward = {
 		
 	}
@@ -2552,7 +2567,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_strengthen_the_regime
 	icon = GFX_goal_ITA_strengthen_the_regime 
-	x = -3
+	x = -2
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
@@ -3665,6 +3680,9 @@ shared_focus = {
 	prerequisite = {
 		focus = ITA_Wait_our_Time
 		focus = ITA_A_Crisis_Avoided
+	}
+	available = {
+		has_country_flag = ITA_fascist_or_neutral_win_civil_war
 	}
 	relative_position_id = ITA_A_Crisis_Avoided
 	completion_reward = {

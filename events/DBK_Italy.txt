@@ -670,10 +670,49 @@ country_event = {
 	option = { 
 		name = ITA_starting_tree_events.3.a 
 		ai_chance = { factor = 90 } 
-		add_stability = 0.1
+		add_stability = 0.05
 
 	}
 	
+}
+
+##the great compromise?
+country_event = {
+	id = ITA_starting_tree_events.4
+	title = ITA_starting_tree_events.4.t
+	desc = ITA_starting_tree_events.4.d
+	picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_starting_tree_events.4.a 
+		ai_chance = { factor = 90 } 
+		add_stability = 0.05
+
+	}
+}
+
+##gramsci's arrest
+country_event = {
+	id = ITA_starting_tree_events.5
+	title = ITA_starting_tree_events.5.t
+	desc = ITA_starting_tree_events.5.d
+	picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_starting_tree_events.5.a 
+		ai_chance = { factor = 90 } 
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+
+	}
 }
 
 add_namespace = ITA_socialist_revolution_events
@@ -842,6 +881,8 @@ country_event = {
 }
 
 
+
+
 country_event = {
 	id = ITA_socialist_revolution_events.7
 	title = ITA_socialist_revolution_events.7.t
@@ -854,15 +895,43 @@ country_event = {
 	option = { 
 		name = ITA_socialist_revolution_events.7.a 
 		ai_chance = { factor = 90 } 
-		hidden_effect = {
-			country_event = ITA_evola_coup_events.1
-		}
-		load_focus_tree = ITA_fascist_tree
+		# hidden_effect = {
+		# 	country_event = ITA_evola_coup_events.1
+		# }
+		#load_focus_tree = ITA_fascist_tree
 		add_ideas = ITA_legacy_of_the_civil_war
 	}
 }
 
+##hardliner minor revolt
+country_event = {
+	id = ITA_socialist_revolution_events.8
+	title = ITA_socialist_revolution_events.8.t
+	desc = ITA_socialist_revolution_events.8.d
+	#picture = GFX_report_event_eng_dambuster2
 
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+
+	option = { 
+		name = ITA_socialist_revolution_events.8.a 
+		ai_chance = { factor = 90 } 
+
+	}
+	option = { 
+		name = ITA_socialist_revolution_events.8.b 
+		ai_chance = { factor = 0 } 
+		CMI = {
+			change_tag_from = ITA
+		}
+	}
+}
 
 add_namespace = ITA_evola_coup_events
 
@@ -926,7 +995,25 @@ country_event = {
 	option = { 
 		name = ITA_evola_coup_events.3.a 
 		ai_chance = { factor = 90 } 
-		load_focus_tree = ITA_fascist_tree
+		set_country_flag = ITA_evolas_coup_done
+	}
+}
+
+
+##evolas crushed
+country_event = {
+	id = ITA_evola_coup_events.4 
+	title = ITA_evola_coup_events.4.t 
+	desc = ITA_evola_coup_events.4.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_coup_events.4.a 
+		ai_chance = { factor = 90 } 
+		set_country_flag = ITA_evolas_coup_destoryed
 	}
 }
 
