@@ -678,6 +678,20 @@ shared_focus = {
 	}
 	completion_reward = {
 		army_experience = 10
+		every_owned_state = {
+        add_to_variable = {
+        tooltip = ITA_increase_fasicst_influence_by_5_in_state
+        socialist_influence = -5
+        }
+        set_variable = {fascist_influence = 0}
+        set_temp_variable = {
+          socialist_temp_var = socialist_influence
+        }
+        subtract_from_temp_variable  = {socialist_temp_var = 100}
+        multiply_temp_variable = {socialist_temp_var = -1}
+
+        add_to_variable = {fascist_influence = socialist_temp_var}
+      } 
 	}
 }
 # shared_focus = {

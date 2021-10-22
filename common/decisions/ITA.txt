@@ -60,89 +60,84 @@ ITA_incoming_socialist_revolution = {
   ITA_send_in_shocktroopers_to_FROM = {
     available = {
       tag = ITA
-      NOT = {
-        has_country_flag = ITA_currently_doing_shocktrooper_operation_deicision
-      }
     }
     visible = {
-      has_country_flag = open_civil_war_sidebar
       has_completed_focus = ITA_Send_in_the_Shocktroopers
     }
 
-    cost = 20
-    days_remove = 10
+    cost = 35
+    days_remove = 50
 
     fire_only_once = no
     days_re_enable = 10
 
     complete_effect = {
-       set_country_flag = ITA_currently_doing_shocktrooper_operation_deicision
-       event_target:italian_civil_war_state = {
-         save_global_event_target_as = ITA_shocktrooper_civil_war_state
-       }
+       
+    }
+
+     modifier = {
+      experience_gain_army_factor = 0.01
+      democratic_communism_drift = -0.05
+      communism_drift = -0.05
     }
 
     remove_effect = {
-      event_target:ITA_shocktrooper_civil_war_state = {
-      add_to_variable = {
+      every_owned_state = {
+        add_to_variable = {
         tooltip = ITA_increase_fasicst_influence_by_5_in_state
         socialist_influence = -5
-      }
-      set_variable = {fascist_influence = 0}
-				set_temp_variable = {
-					socialist_temp_var = socialist_influence
-				}
+        }
+        set_variable = {fascist_influence = 0}
+        set_temp_variable = {
+          socialist_temp_var = socialist_influence
+        }
+        subtract_from_temp_variable  = {socialist_temp_var = 100}
+        multiply_temp_variable = {socialist_temp_var = -1}
 
-				subtract_from_temp_variable  = {socialist_temp_var = 100}
-				multiply_temp_variable = {socialist_temp_var = -1}
-
-				add_to_variable = {fascist_influence = socialist_temp_var}
-    }
-      clr_country_flag =ITA_currently_doing_shocktrooper_operation_deicision
+        add_to_variable = {fascist_influence = socialist_temp_var}
+      } 
     }
   }
   ITA_socialist_torture_campaign_in_FROM = {
     available = {
       tag = ITA
-      NOT = {
-        has_country_flag = ITA_currently_doing_socialist_torture_campaign_operation_deicision
-      }
     }
     visible = {
-      has_country_flag = open_civil_war_sidebar
       has_completed_focus = ITA_They_arent_Italians
     }
 
-    cost = 25
-    days_remove = 15
+    cost = 60
+    days_remove = 75
 
     fire_only_once = no
     days_re_enable = 10
 
     complete_effect = {
-       set_country_flag = ITA_currently_doing_socialist_torture_campaign_operation_deicision
-       event_target:italian_civil_war_state = {
-         save_global_event_target_as = ITA_socialist_torture_campaign_civil_war_state
-       }
+     
+    }
+
+    modifier = {
+      political_power_gain = -0.05
+      production_speed_industrial_complex_factor = -0.05
+      democratic_communism_drift = -0.05
+      communism_drift = -0.05
     }
 
     remove_effect = {
-      event_target:ITA_socialist_torture_campaign_civil_war_state = {
-      add_to_variable = {
+      every_owned_state = {
+        add_to_variable = {
         tooltip = ITA_increase_fasicst_influence_by_5_in_state
         socialist_influence = -5
-      }
-      set_variable = {fascist_influence = 0}
-				set_temp_variable = {
-					socialist_temp_var = socialist_influence
-				}
+        }
+        set_variable = {fascist_influence = 0}
+        set_temp_variable = {
+          socialist_temp_var = socialist_influence
+        }
+        subtract_from_temp_variable  = {socialist_temp_var = 100}
+        multiply_temp_variable = {socialist_temp_var = -1}
 
-				subtract_from_temp_variable  = {socialist_temp_var = 100}
-				multiply_temp_variable = {socialist_temp_var = -1}
-
-				add_to_variable = {fascist_influence = socialist_temp_var}
-    }
-      clr_country_flag =ITA_currently_doing_socialist_torture_campaign_operation_deicision
+        add_to_variable = {fascist_influence = socialist_temp_var}
+      } 
     }
   }
 
