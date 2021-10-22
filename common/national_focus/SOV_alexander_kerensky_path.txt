@@ -639,10 +639,8 @@ shared_focus = {
 		#search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-	swap_ideas = {
-		 remove_idea = Agrarian-Industrial_Divide
-		 add_idea = Industrializing
-}
+		 add_ideas = Industrializing
+
 		}
 	}
 
@@ -1093,6 +1091,9 @@ shared_focus = {
 		ai_will_do = {
 			factor = 25
 		}
+		available = {
+			has_idea = Industrializing
+		}
 
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -1350,6 +1351,7 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
+		remove_ideas = SOV_beacon_of_democracy
 		add_ideas = SOV_the_birth_of_an_authoritarian_state
 		}
 }
@@ -1995,6 +1997,10 @@ shared_focus = {
 				target = NRX
 				type = puppet_wargoal_focus
 			}
+			create_wargoal = {
+				target = KUL
+				type = puppet_wargoal_focus
+			}
 		}
 	}
 }
@@ -2017,6 +2023,9 @@ shared_focus = {
 			is_subject_of = SOV
 		}
 		NRX = {
+			is_subject_of = SOV
+		}
+		MUL = {
 			is_subject_of = SOV
 		}
 		}
@@ -2059,6 +2068,24 @@ shared_focus = {
 		every_owned_state = {
 			
 			NRX = {
+				give_resource_rights = {
+					receiver = SOV
+					state = PREV
+				}
+			}
+		}
+		}
+		}
+		if = {
+			limit = {
+				KUL = {
+					exists = yes
+				}
+			}
+			KUL = {
+		every_owned_state = {
+			
+			KUL = {
 				give_resource_rights = {
 					receiver = SOV
 					state = PREV
@@ -2253,7 +2280,7 @@ shared_focus = {
 		factor = 1000
 	}
 	completion_reward = {
-		create_wargoal = {
+		create_wargoal = { 
 			target = TUR
 			type = topple_government
 		}
