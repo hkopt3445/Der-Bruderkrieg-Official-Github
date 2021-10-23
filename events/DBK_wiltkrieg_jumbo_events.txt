@@ -1531,13 +1531,17 @@ country_event = {
 add_namespace = wiltkrieg
 
 news_event = {
-	id = wiltkrieg.1
+	id = wiltkrieg.1 
 	title = wiltkrieg.1.t
 	desc = wiltkrieg.1.d
 	picture = GFX_secondeuropakrieg
 	is_triggered_only = yes
-	#fire_only_once = yes
+	fire_only_once = yes
 	major = yes
+
+	trigger = {
+		if = { limit = { is_ai = no } NOT = { has_country_flag = dont_fire_wiltkrieg_event_twice } }
+	}
 
 
 

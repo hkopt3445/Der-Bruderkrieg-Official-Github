@@ -1000,13 +1000,56 @@ france_beats_netherlands = {
     HOL = {
         white_peace = FRA
     }
-    FRA = {
-        add_state_core = 35
-        transfer_state = 35
-        puppet = HOL
+    if = {
+        limit = {
+            FRA = {
+                owns_state = 6
+            }
+        }
+        FRA = {
+            add_state_core = 35
+            transfer_state = 35
+            puppet = HOL
+        }
+        HOL = {
+            set_cosmetic_tag = austrian_french_puppet
+        }
     }
-    HOL = {
-        set_cosmetic_tag = austrian_french_puppet
+    else = {
+        HOL = {
+            set_cosmetic_tag = austrian_french_puppet
+        }
+        FRA = {
+            puppet = HOL
+        }
+    }
+}
+france_beats_netherlands_commie = {
+    JNE = {
+        white_peace = FRA
+    }
+    if = {
+        limit = {
+            FRA = {
+                owns_state = 6
+            }
+        }
+        FRA = {
+            add_state_core = 35
+            transfer_state = 35
+            puppet = JNE
+        }
+        JNE = {
+            set_cosmetic_tag = austrian_french_puppet
+        }
+    }
+    else = {
+        JNE = {
+            set_cosmetic_tag = austrian_french_puppet
+        }
+        FRA = {
+            puppet = JNE
+        }
     }
 }
 
