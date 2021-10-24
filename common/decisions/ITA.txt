@@ -1224,6 +1224,64 @@ ITA_balkan_decision_cat = {
       }
     }
   }
+
+  ITA_promote_chetnik_resistance = {
+
+  	icon = generic_industry
+
+  	visible = {
+  		CRO = {
+  			OR = {
+  				exists = no
+  				is_subject_of = AUS
+  			}
+  		}
+  	}
+
+  	cost = 50
+
+  	complete_effect = {
+  		set_variable = { var_chetnik_resistance = -0.25 }
+  		every_state = {
+  			limit = {
+  				is_core_of = CRO
+  			}
+  			add_dynamic_modifier = {
+  				modifier = ITA_chetnik_resistance_modifier
+  			}
+  		}
+  	}
+
+  }
+
+  ITA_promote_bosniak_resistance = {
+
+  	icon = generic_industry
+
+  	visible = {
+  		BOS = {
+  			OR = {
+  				exists = no
+  				is_subject_of = AUS
+  			}
+  		}
+  	}
+
+  	cost = 50
+
+  	complete_effect = {
+  		set_variable = { var_bosniak_resistance = -0.15 }
+  		every_state = {
+  			limit = {
+  				is_core_of = BOS
+  			}
+  			add_dynamic_modifier = {
+  				modifier = ITA_bosniak_resistance_modifier
+  			}
+  		}
+  	}
+
+  }
   
 }
 
