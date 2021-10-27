@@ -110,6 +110,7 @@ ITA_calc_economic_recovery = {
 }
 
 ITA_civil_war_fire_effect = {
+	leave_faction = yes
 	ITA = {
 		every_owned_state = {
 			limit = {
@@ -269,6 +270,28 @@ ITA_civil_war_fire_effect = {
 	}
 }
 
+ITA_minor_hardliner_revolt = {
+	leave_faction = yes
+	CMI = {
+		set_cosmetic_tag = CMI_hardliner_revolt
+		add_state_core = 886
+		add_state_core = 882
+		add_state_core = 156
+		add_state_core = 880
+		add_state_core = 115
+		
+	}
+	ITA = {
+		release = CMI
+	}
+	CMI = {
+		declare_war_on = {
+			target = ITA
+			type = civil_war
+		}
+	}
+}
+
 ITA_give_italian_cores = {
 	CMI = {
 		every_owned_state = {
@@ -283,7 +306,10 @@ ITA_gerarchi_elections_timeout_effect = {
 				has_country_flag = ITA_evolas_coup_first_part_done
 				has_country_flag = ITA_the_mvsn_is_on_evolas_side
 		}
-		country_event = ITA_evola_coup_events.3
+		country_event = ITA_evola_coup_events.3 
+	}
+	else = {
+		set_country_flag = ITA_evolas_coup_destoryed
 	}
 }
 
