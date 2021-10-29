@@ -2293,7 +2293,7 @@ shared_focus = {
 		id = ITA_roman_warmongers
 		icon = GFX_goal_ITA_form_the_legio_hispania
 		mutually_exclusive = { focus = ITA_built_for_defense }
-		x = -2
+		x = 2
 		y = 1
 		cost = 1
 		
@@ -2301,7 +2301,12 @@ shared_focus = {
 			focus = ITA_end_the_rivalry
 		}
 		relative_position_id = ITA_end_the_rivalry
-
+		available = {
+			OR = {
+				has_completed_focus = ITA_balbo_seizes_the_power
+				has_completed_focus = ITA_de_bono_seizes_the_power
+			}
+		}
 		ai_will_do = {
 			factor = 1000
 		}
@@ -2314,7 +2319,7 @@ shared_focus = {
 		id = ITA_built_for_defense
 		icon = GFX_goal_AUS_anti_expansionist_bulwark
 		mutually_exclusive = { focus = ITA_roman_warmongers }
-		x = 2
+		x = -2
 		y = 1
 		cost = 1
 		
@@ -2322,7 +2327,12 @@ shared_focus = {
 			focus = ITA_end_the_rivalry
 		}
 		relative_position_id = ITA_end_the_rivalry
-
+		available = {
+			OR = {
+				has_completed_focus = ITA_de_vecchi_seizes_the_power
+				has_completed_focus = ITA_balbo_seizes_the_power
+			}
+		}
 		ai_will_do = {
 			factor = 1000
 		}
@@ -2532,7 +2542,7 @@ shared_focus = {
 	shared_focus = {
 		id = ITA_the_alpine_line
 		icon = GFX_goal_FRA_imperial_glory
-		x = 2
+		x = -2
 		y = 1
 		cost = 5
 		
@@ -2698,7 +2708,7 @@ shared_focus = {
 	shared_focus = {
 		id = ITA_memories_of_the_gallic_wars #LARPers, more like LOSERS
 		icon = GFX_goal_ITA_spread_propoganda
-		x = -2
+		x = 2
 		y = 1
 		cost = 5
 		
@@ -3452,7 +3462,7 @@ shared_focus = {
 shared_focus = {
 	id = ITA_arm_the_exercitus_romanus
 	icon = GFX_goal_SOV_mobilize_the_cossacks 
-	x = 0
+	x = 2
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -3483,40 +3493,40 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = ITA_recruit_heinrich_himmler
-	icon = GFX_goal_ITA_recruit_heinrich_himmler 
-	x = -1
-	y = 2
-	cost = 1.5
-	available_if_capitulated = yes
-	prerequisite = { focus = ITA_our_military_ethos }
-	prerequisite = { 
-		focus = ITA_invite_german_settlers
-	}
-	relative_position_id = ITA_our_military_ethos
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		create_corps_commander = {
-			name = "Heinrich Himmler"
-			picture = "Portrait_Germany_Erich_von_Manstein.dds"
-			traits = { trickster armor_officer brilliant_strategist trait_engineer }
-			skill = 4
-			id = 5
-			attack_skill = 2
-			defense_skill = 4
-			planning_skill = 3
-			logistics_skill = 4
-		}
-	}
-}
+# shared_focus = {
+# 	id = ITA_recruit_heinrich_himmler
+# 	icon = GFX_goal_ITA_recruit_heinrich_himmler 
+# 	x = -1
+# 	y = 2
+# 	cost = 1.5
+# 	available_if_capitulated = yes
+# 	prerequisite = { focus = ITA_our_military_ethos }
+# 	prerequisite = { 
+# 		focus = ITA_invite_german_settlers
+# 	}
+# 	relative_position_id = ITA_our_military_ethos
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		create_corps_commander = {
+# 			name = "Heinrich Himmler"
+# 			picture = "Portrait_Germany_Erich_von_Manstein.dds"
+# 			traits = { trickster armor_officer brilliant_strategist trait_engineer }
+# 			skill = 4
+# 			id = 5
+# 			attack_skill = 2
+# 			defense_skill = 4
+# 			planning_skill = 3
+# 			logistics_skill = 4
+# 		}
+# 	}
+# }
 
 shared_focus = {
 	id = ITA_the_greatest_threat
 	icon = GFX_goal_ITA_the_greatest_threat 
-	x = 2
+	x = 0
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
@@ -3625,27 +3635,7 @@ shared_focus = {
 		}
 	}
 }
-shared_focus = {
-	id = ITA_slavic_work_camps
-	icon = GFX_goal_ITA_slavic_work_camps 
-	x = 0
-	y = 1
-	cost = 1.5
-	available_if_capitulated = yes
-	prerequisite = { focus = ITA_secure_slavic_territory }
 
-	
-	relative_position_id = ITA_secure_slavic_territory
-	available = {
-		has_completed_focus = ITA_the_first_of_the_camps
-	}
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		
-	}
-}
 shared_focus = {
 	id = ITA_control_of_the_adriatic
 	icon = GFX_goal_ITA_control_of_the_adriatic 
