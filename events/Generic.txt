@@ -80,11 +80,19 @@ country_event = {
 	desc = { # FROM and ROOT are Fascist
 		text = generic.2.d.b
 		trigger = {
-			AND = {
-				FROM = {
+			OR = {
+				AND = {
+					FROM = {
+						has_government = fascism
+					}
 					has_government = fascism
 				}
-				has_government = fascism
+				AND = {
+					FROM = {
+						has_government = ultranationalism
+					}
+					has_government = ultranationalism
+				}
 			}
 		}
 	}
@@ -268,7 +276,7 @@ country_event = {
 	option = { #Reject
 		name = generic.2.f
 		ai_chance = {
-			factor = 50
+			factor = 0
 			
 			modifier = {
 				factor = 0.5
