@@ -5437,7 +5437,7 @@ instant_build = yes
 			}
 			cost = 4
 			ai_will_do = {
-				factor = 0
+				factor = 2000
 			}
 			mutually_exclusive = {
 				focus = FRA_law_on_the_country_in_danger
@@ -5471,9 +5471,18 @@ instant_build = yes
 			#search_filters = { FOCUS_FILTER_RESEARCH }
 		
 			completion_reward = {
-				add_war_support = 0.05
+				add_war_support = 0.1
+				set_faction_name = FRA_greater_france
 		
-				
+				every_country = {
+					limit = {
+						NOT = {
+							tag = FRA
+						}
+						is_in_faction_with = FRA
+					}
+					add_ideas = FRA_french_military_advisors
+				}
 			}
 		}
 		
@@ -5502,7 +5511,6 @@ instant_build = yes
 			}
 		}
 		
-		#Focus for Keep out the Reichsmarshall
 		shared_focus = {
 			id = FRA_keep_out_the_reichsmarshall
 			icon = GFX_goal_FRA_keep_out_the_reichmarshall
@@ -5516,24 +5524,40 @@ instant_build = yes
 				factor = 2000
 			}
 			completion_reward = {
-				FGD = {
-					every_owned_state = {
-						limit = {
-							any_neighbor_state = {
-								OR = { is_controlled_by = GER 
-								is_controlled_by = HAN }
-							}
+				every_state = {
+					limit = {
+						any_neighbor_state = {
+							OR = {
+								is_controlled_by = GER
+								THIS.owner = {
+									is_in_faction_with = GER
+									NOT = {
+										tag = ITA
+									}
+								}
+							} 
+							
 						}
-						add_building_construction = {
-							type = bunker
-							level = 3
-							instant_build = yes
-							province = {
-								all_provinces = yes
-								limit_to_border = yes
+						owner = {
+							OR = {
+								tag = FRA
+								is_in_faction_with = FRA
 							}
 						}
 					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				swap_ideas = {
+					add_idea = La_Patrie_En_Danger_2
+					remove_idea = La_Patrie_En_Danger
 				}
 			}
 		}
@@ -5551,25 +5575,41 @@ instant_build = yes
 			ai_will_do = {
 				factor = 1000
 			}
+			available = {
+				has_completed_focus = FRA_hold_back_the_duce
+			}
 			completion_reward = {
-				FGD = {
-					every_owned_state = {
-						limit = {
-							any_neighbor_state = {
-								OR = { is_controlled_by = GPU 
-								is_controlled_by = AUS }
-							}
+				every_state = {
+					limit = {
+						any_neighbor_state = {
+							OR = {
+								is_controlled_by = AUS
+								THIS.owner = {
+									is_in_faction_with = AUS
+								}
+							} 
+							
 						}
-						add_building_construction = {
-							type = bunker
-							level = 3
-							instant_build = yes
-							province = {
-								all_provinces = yes
-								limit_to_border = yes
+						owner = {
+							OR = {
+								tag = FRA
+								is_in_faction_with = FRA
 							}
 						}
 					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				swap_ideas = {
+					add_idea = La_Patrie_En_Danger_4
+					remove_idea = La_Patrie_En_Danger_3
 				}
 			}
 		}
@@ -5588,24 +5628,31 @@ instant_build = yes
 				factor = 1000
 			}
 			completion_reward = {
-				FRA = {
-					every_owned_state = {
-						limit = {
-							any_neighbor_state = {
-								
-								is_controlled_by = ITA 
-							}
+				every_state = {
+					limit = {
+						any_neighbor_state = {
+							is_controlled_by = ITA 
 						}
-						add_building_construction = {
-							type = bunker
-							level = 3
-							instant_build = yes
-							province = {
-								all_provinces = yes
-								limit_to_border = yes
+						owner = {
+							OR = {
+								tag = FRA
+								is_in_faction_with = FRA
 							}
 						}
 					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				swap_ideas = {
+					add_idea = La_Patrie_En_Danger_3
+					remove_idea = La_Patrie_En_Danger_2
 				}
 			}
 		}
@@ -5626,7 +5673,7 @@ instant_build = yes
 			}
 			completion_reward = {
 				swap_ideas= {
-		remove_idea = La_Patrie_En_Danger
+		remove_idea = La_Patrie_En_Danger_4
 		add_idea = FRA_Ils_Ne_Passeront_Pas
 		}
 			}
@@ -5806,7 +5853,7 @@ instant_build = yes
 			relative_position_id = FRA_DANUBE_CAMPAIGN
 			cost = 5
 			ai_will_do = {
-				factor = 200000
+				factor = 20000
 			}
 		
 			bypass = {
