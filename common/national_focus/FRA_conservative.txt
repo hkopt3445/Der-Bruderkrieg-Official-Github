@@ -5442,6 +5442,9 @@ instant_build = yes
 			mutually_exclusive = {
 				focus = FRA_law_on_the_country_in_danger
 			}
+			available = {
+				has_completed_focus = FRA_DOCTRINAIRE_RIGHT
+			}
 		
 			available_if_capitulated = yes
 			#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -5755,6 +5758,7 @@ instant_build = yes
 				891 = {
 					add_core_of = FRA
 				}
+				add_threat = 3
 			}
 		}
 		
@@ -6280,6 +6284,9 @@ instant_build = yes
 			mutually_exclusive = {
 				focus = FRA_our_crown_jewel
 			}
+			available = {
+				has_completed_focus = FRA_DOCTRINAIRE_RIGHT
+			}
 		
 			available_if_capitulated = yes
 			#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6542,7 +6549,7 @@ instant_build = yes
 					factor = 200
 				}
 				available = {
-				
+					has_completed_focus = FRA_DOCTRINAIRE_RIGHT
 				}
 				bypass = {
 					OR = {
@@ -6562,10 +6569,18 @@ instant_build = yes
 				#search_filters = { FOCUS_FILTER_RESEARCH }
 			
 				completion_reward = {
-					country_event = napoleanfrance.26
+					BEL = {country_event = {id = napoleanfrance.4}}
+					add_threat = 8
+					ENG = {
+						add_opinion_modifier = {
+							target = FRA
+							modifier = large_decrease
+						}
+					}	
 					add_state_core = 34
 					add_state_core = 6
 					add_state_core = 800
+					
 				}
 			}
 			
@@ -6646,9 +6661,6 @@ instant_build = yes
 				
 			
 				available = {
-					NOT = {
-						has_global_flag = degrelle_loses_electionns
-					}
 					country_exists = BEL
 					NOT = {
 						FRA = {
@@ -6818,6 +6830,9 @@ instant_build = yes
 			
 				completion_reward = {
 					add_state_core = 35
+					hidden_effect = {
+						add_threat = 2
+					}
 				}
 			}
 			shared_focus = {
