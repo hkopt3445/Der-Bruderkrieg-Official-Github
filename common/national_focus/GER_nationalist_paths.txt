@@ -1481,13 +1481,19 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
+				add_to_variable = { GER_army_defence_factor_var2 = 0.1 }
+				set_variable = { GER_consumer_goods_factor_var = -0.05 }
+				set_variable = { GER_production_speed_bunker_factor_var = 0.2 }
+				set_variable = { GER_production_speed_coastal_bunker_factor_var = 0.2 }
+				add_to_variable = { GER_stability_weekly_factor_var2 = -0.005 }
+				custom_effect_tooltip = GER_eternal_vigilance_tt
 			}
 		}
 
 		shared_focus = {
 			id = GER_rally_the_people
 			icon = unkown
-			cost = 5
+			cost = 15
 			prerequisite = {
 				focus = GER_eternal_vigilance
 			}
@@ -1504,6 +1510,8 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
+				add_to_variable = { GER_stability_weekly_factor_var2 = 0.02 }
+				custom_effect_tooltip = GER_rally_the_people_tt
 			}
 		}
 		
@@ -1527,6 +1535,10 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
+				add_political_power = 200
+				add_stability = 0.1
+				add_war_support = 0.1
+				country_event = GER_rohm_events.1
 			}
 		}
 
@@ -3526,6 +3538,36 @@ shared_focus = {
   		  type = topple_government
   		  target = ENG
 		}
+	}
+}
+
+shared_focus = {
+	id = GER_support_the_cult_of_kali
+	icon = unkown
+	cost = 5
+	x = 0
+	y = 1
+	
+	relative_position_id = GER_germania_rules_the_seas
+	ai_will_do = {
+		factor = 60
+	}
+
+	prerequisite = {
+		focus = GER_germania_rules_the_seas
+	}
+
+	prerequisite = {
+		focus = GER_germania_rules_the_seas
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = GER_support_the_cult_of_kali_tt
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -5000
+		}
+		add_political_power = -50
 	}
 }
 
