@@ -832,7 +832,35 @@ france_beats_prussia_peace_deal = {
     
 }
 france_beats_austria = {
-    
+    random_country = {
+        limit = {
+            is_in_faction_with = AUS
+            NOT = {
+                tag = AUS
+            }
+            NOT = {
+                is_puppet = yes
+            }
+        }
+        set_faction_leader = yes
+    }
+    every_country = {
+        limit = {
+            is_puppet_of = AUS
+        }
+        AUS = {
+            set_autonomy = {
+                target = PREV
+                autonomy_state = autonomy_free
+            }
+        }
+        FRA = {
+            set_autonomy = {
+                target = PREV
+                autonomy_state = autonomy_puppet
+            }
+        }
+    }
     FRA = {
         white_peace = AUS 
     }
@@ -845,6 +873,7 @@ france_beats_austria = {
         transfer_state = 50  
         transfer_state = 52  
         transfer_state = 53  
+        transfer_state = 60
         set_cosmetic_tag = FGD_RHE
     }
     if = {
@@ -856,6 +885,8 @@ france_beats_austria = {
         GER = {
             transfer_state = 67
             transfer_state = 66
+            transfer_state = 65
+            transfer_state = 949
         }
     }
     if = {
