@@ -1440,7 +1440,7 @@ country_event = {
 } 
 
 ###plan for disarmenent
-country_event = {
+country_event = { 
 	id = SOV_pavel_tree_events.2
 	title = SOV_pavel_tree_events.2.t
 	desc = SOV_pavel_tree_events.2.d
@@ -2206,11 +2206,7 @@ country_event = { #end of the tsar
 	option = {
 		name = SOV_lenin_tree_events.27.a #oh no
 		ai_chance = { factor = 3 }
-		add_popularity = {
-			ideology = ROOT
-			popularity = 0.05
-		}
-		SOV_increase_support_among_people_small = yes
+		
 		hidden_effect = {
 			news_event = SOV_lenin_tree_events.28
 		}
@@ -2226,7 +2222,16 @@ news_event = {
 	major = yes
 	option = {
 		name = SOV_lenin_tree_events.28.a
-	
+		if = {
+			limit = {
+				tag = SOV
+			}
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			SOV_increase_support_among_people_small = yes
+		}
 	}
 }
 
