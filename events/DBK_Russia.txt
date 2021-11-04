@@ -27,7 +27,7 @@ country_event = {
 	}
 }
 country_event = {
-	id = SOV_starting_events.3
+	id = SOV_starting_events.3 
 	title = SOV_starting_events.3.t
 	desc = SOV_starting_events.3.d
 	#picture = GFX_hitlerartisteventpic
@@ -245,13 +245,12 @@ news_event = {
 	id = SOV_starting_events_belogurov.7
 	title = SOV_starting_events_belogurov.7.t
 	desc = SOV_starting_events_belogurov.7.d
-	#picture = GFX_hitlerartisteventpic
+	picture = GFX_urpwinselections
 	is_triggered_only = yes
 	major = yes
 	option = {
 		name = SOV_starting_events_belogurov.7.a
 		ai_chance = { factor = 1}
-		add_political_power = 10
 		
 	}
 }
@@ -296,7 +295,10 @@ country_event = {
 	option = {
 		name = SOV_starting_events_lenin.3.a
 		ai_chance = { factor = 1}
-		country_event = { id = SOV_starting_events_lenin.4 days = 2 }
+		add_days_mission_timeout = {
+			mission = SOV_duma_elections_mission
+			days = 20
+		}
 	}
 }
 
@@ -310,12 +312,25 @@ country_event = {
 	option = {
 		name = SOV_starting_events_lenin.4.a
 		ai_chance = { factor = 1}
-		add_days_mission_timeout = {
-			mission = SOV_duma_elections_mission
-			days = 20
-		}
+		
 	}
 }
+
+###lenin Victory
+news_event = {
+	id = SOV_starting_events_lenin.5
+	title = SOV_starting_events_lenin.5.t
+	desc = SOV_starting_events_lenin.5.d
+	picture = GFX_leninwinselections
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_starting_events_lenin.5.a
+		ai_chance = { factor = 1}
+		
+	}
+}
+
 
 add_namespace = SOV_starting_events_pavel
 ##A Liberal Russia
@@ -360,6 +375,20 @@ country_event = {
 	option = {
 		name = SOV_starting_events_pavel.3.a
 		ai_chance = { factor = 1}
+	}
+}
+##vic for cdp
+news_event = {
+	id = SOV_starting_events_pavel.4
+	title = SOV_starting_events_pavel.4.t
+	desc = SOV_starting_events_pavel.4.d
+	picture = GFX_pavelwinselections
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_starting_events_pavel.4.a
+		ai_chance = { factor = 1}
+		
 	}
 }
 
@@ -420,6 +449,21 @@ country_event = {
 		add_political_power = -50
 	}
 }
+news_event = {
+	id = SOV_starting_events_kerensky.5
+	title = SOV_starting_events_kerensky.5.t
+	desc = SOV_starting_events_kerensky.5.d
+	picture = GFX_kerenskyelectionwin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_starting_events_kerensky.5.a
+		ai_chance = { factor = 1}
+		
+	}
+}
+
+
 
 
 ###political instability events
@@ -1396,7 +1440,7 @@ country_event = {
 } 
 
 ###plan for disarmenent
-country_event = {
+country_event = { 
 	id = SOV_pavel_tree_events.2
 	title = SOV_pavel_tree_events.2.t
 	desc = SOV_pavel_tree_events.2.d
@@ -2162,11 +2206,7 @@ country_event = { #end of the tsar
 	option = {
 		name = SOV_lenin_tree_events.27.a #oh no
 		ai_chance = { factor = 3 }
-		add_popularity = {
-			ideology = ROOT
-			popularity = 0.05
-		}
-		SOV_increase_support_among_people_small = yes
+		
 		hidden_effect = {
 			news_event = SOV_lenin_tree_events.28
 		}
@@ -2182,7 +2222,16 @@ news_event = {
 	major = yes
 	option = {
 		name = SOV_lenin_tree_events.28.a
-	
+		if = {
+			limit = {
+				tag = SOV
+			}
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			SOV_increase_support_among_people_small = yes
+		}
 	}
 }
 

@@ -1099,7 +1099,7 @@ shared_focus = {
 	#prerequisite = {focus = SOV_path_to_former_glory focus = SOV_path_to_liberal_society focus =  SOV_the_path_to_true_democracy focus = SOV_path_to_social_revolution }
     x = 2
     y = 2
-    cost = 1
+    cost = 0
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -1120,7 +1120,7 @@ shared_focus = {
     x = -3
     y = 1
     relative_position_id = SOV_the_elections 
-    cost = 1
+    cost = 0
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -1129,7 +1129,7 @@ shared_focus = {
         always = no
     }
     completion_reward = {
-        
+        log = "russian election focus complete"
         load_focus_tree = SOV_lenin_presidency_path
            ##vars setup
            set_variable = {
@@ -1139,7 +1139,9 @@ shared_focus = {
             SOV_peoples_support_for_current_regime = 7
         }
         
-      
+      hidden_effect = {
+          news_event = SOV_starting_events_lenin.5 
+      }
        
     }
 }
@@ -1151,7 +1153,7 @@ shared_focus = {
     x = -1
     y = 1
     relative_position_id = SOV_the_elections          
-    cost = 1
+    cost = 0
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -1160,9 +1162,11 @@ shared_focus = {
         always = no
     }
     completion_reward = {
-        
+        log = "russian election focus complete"
         load_focus_tree = SOV_kerensky_presidency_path
-       
+        hidden_effect = {
+            news_event = SOV_starting_events_kerensky.5
+        }  
     }
 }
 
@@ -1173,7 +1177,7 @@ shared_focus = {
     x = 1
     y = 1
     relative_position_id = SOV_the_elections 
-    cost = 1
+    cost = 0
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -1182,8 +1186,11 @@ shared_focus = {
         always = no
     }
     completion_reward = {
-        
-        load_focus_tree = SOV_pavel_milyukov_presidency_tree  
+        log = "russian election focus complete"
+        load_focus_tree = SOV_pavel_milyukov_presidency_tree
+        hidden_effect = {
+            news_event = SOV_starting_events_pavel.4
+        }  
     }
 }
 
@@ -1194,7 +1201,7 @@ shared_focus = {
     x = 3
     y = 1
     relative_position_id = SOV_the_elections 
-    cost = 1
+    cost = 0
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -1203,6 +1210,7 @@ shared_focus = {
         always = no
     }
     completion_reward = {
+        log = "russian election focus complete"
         load_focus_tree = SOV_the_return_of_the_tsar_tree
         hidden_effect = {
             news_event = SOV_starting_events_belogurov.7
