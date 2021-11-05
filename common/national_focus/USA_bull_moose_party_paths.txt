@@ -180,7 +180,20 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
-			add_stability = 0.05
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_3
+				global.usa_senate_seat_array^0 = 3
+			}
+			add_to_variable = {
+				global.usa_senate_seat_array^1 = -1
+			}
+			add_to_variable = {
+				global.usa_senate_seat_array^2 = -1
+			}
+			add_to_variable = {
+				global.usa_senate_seat_array^3 = -1
+			}
+			
 		}
 	}
 	shared_focus = {
@@ -203,41 +216,19 @@ focus_tree = {
 		}
 	}
 	
-	shared_focus = {
-		id = USA_encourage_charity
-		icon = GFX_goal_USA_encourage_charity
-		x = 0
-		y = 1
-		cost = 2
-		available_if_capitulated = yes
-		prerequisite = { 
-			focus = USA_take_down_standard_oil
-	
-		}
-		relative_position_id = USA_take_down_standard_oil
-		ai_will_do = {
-			factor = 100
-		}
-		completion_reward = {
-			add_political_power = 75
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-			}
-			
-		}
-	}
+
 	shared_focus = {
 		id = USA_republican_bipartisanship
 		icon = GFX_goal_USA_republican_bipartisanship
-		x = 0
+		x = 1
 		y = 1
 		cost = 1
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_encourage_charity
+			focus = USA_literacy_programs
 	
 		}
-		relative_position_id = USA_encourage_charity
+		relative_position_id = USA_literacy_programs
 		ai_will_do = {
 			factor = 100
 		}
@@ -310,13 +301,16 @@ focus_tree = {
 	shared_focus = {
 		id = USA_literacy_programs
 		icon = GFX_goal_USA_literacy_programs
-		x = 0
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = {
 			focus = USA_free_polio_vaccines
 
+		}
+		prerequisite = {
+			focus = USA_take_down_standard_oil
 		}
 		# available = {
 		# 	USA_has_congress_majority = yes
@@ -332,7 +326,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_fund_public_universities
 		icon = GFX_goal_USA_fund_public_universities
-		x = 0
+		x = -1
 		y = 1
 		cost = 3
 		available_if_capitulated = yes
@@ -355,7 +349,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_the_wallace_plan
 		icon = GFX_goal_USA_the_wallace_plan
-		x = -6
+		x = -5
 		y = 1
 		cost = 1
 		available_if_capitulated = yes
@@ -570,7 +564,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_economic_reform_plan
 		icon = GFX_goal_USA_economic_reform_plan
-		x = 6
+		x = 5
 		y = 1
 		cost = 1
 		available_if_capitulated = yes
@@ -657,13 +651,16 @@ focus_tree = {
 	shared_focus = {
 		id = USA_grub_for_the_poor
 		icon = GFX_goal_USA_grub_for_the_poor
-		x = 0
+		x = 1
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
 		prerequisite = {
 			focus = USA_create_social_security
 	
+		}
+		prerequisite = {
+			focus = USA_government_work_programs
 		}
 		relative_position_id = USA_create_social_security
 		ai_will_do = {
@@ -738,15 +735,15 @@ focus_tree = {
 	shared_focus = {
 		id = USA_jobs_for_the_middle_class
 		icon = GFX_goal_USA_jobs_for_the_middle_class
-		x = 0
+		x = 2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_government_work_programs
+			focus = USA_lower_taxes_on_small_businesses
 	
 		}
-		relative_position_id = USA_government_work_programs
+		relative_position_id = USA_lower_taxes_on_small_businesses
 		ai_will_do = {
 			factor = 100
 		}
@@ -776,7 +773,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_deify_the_common_man
 		icon = GFX_goal_USA_deify_the_common_man
-		x = -13
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -787,7 +784,7 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_reinforce_the_breadbasket_of_america
 		}
-		relative_position_id = USA_jobs_for_the_middle_class
+		relative_position_id = USA_agriculture_minimum_wage
 		ai_will_do = {
 			factor = 100
 		}
@@ -799,19 +796,16 @@ focus_tree = {
 	shared_focus = {
 		id = USA_work_with_the_unions
 		icon = GFX_goal_USA_work_with_unions
-		x = -1
+		x = 0
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
-		prerequisite = {
-			focus = USA_jobs_for_the_middle_class
-	
-		}
+
 		prerequisite = {
 			focus = USA_grub_for_the_poor
 		}
 		
-		relative_position_id = USA_jobs_for_the_middle_class
+		relative_position_id = USA_grub_for_the_poor
 		ai_will_do = {
 			factor = 100
 		}
@@ -824,7 +818,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_an_educated_america
 		icon = GFX_goal_USA_an_educated_america
-		x = 2
+		x = 1
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
@@ -846,7 +840,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_no_more_slums
 		icon = GFX_goal_USA_no_more_slums
-		x = 2
+		x = 1
 		y = 1
 		cost = 3
 		available_if_capitulated = yes
@@ -860,7 +854,7 @@ focus_tree = {
 		relative_position_id = USA_republican_bipartisanship
 		ai_will_do = {
 			factor = 100
-		}
+		} 
 		completion_reward = {
 			swap_ideas = {
 				add_idea = USA_great_depression_5
@@ -901,7 +895,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_united_as_americans
 		icon = GFX_goal_USA_united_as_americans
-		x = 0
+		x = 1
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
@@ -924,7 +918,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_the_american_dream_reborn
 		icon = GFX_goal_USA_the_american_dream_reborn
-		x = 2
+		x = 1
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
@@ -1010,7 +1004,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_all_hail_the_kingfish
 		icon = GFX_goal_USA_god_bless_the_kingfish
-		x = 4
+		x = 3
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
@@ -1034,7 +1028,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_large_and_prosperous_middle_class
 		icon = GFX_goal_USA_large_and_prosperous_middle_class
-		x = 2
+		x = 1
 		y = 1
 		cost = 2
 		available_if_capitulated = yes
@@ -1115,7 +1109,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_lead_to_a_better_world
-    icon = unkown
+    icon = GFX_goal_Internationalism
     x = 0
     y = 1
     cost = 2
@@ -1193,7 +1187,19 @@ shared_focus = {
                 target = ENG
                 modifier = imperialist_scum_modifier
             }
+			add_opinion_modifier = {
+                target = ENG
+                modifier = mortal_enemies
+            }
+			add_war_support = 0.1
         }
+		ENG = {
+			add_opinion_modifier = {
+                target = USA
+                modifier = mortal_enemies
+            }
+		}
+		add_threat = 5
     }
 }
 shared_focus = {
@@ -1250,7 +1256,9 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        FRA = {
+			country_event = USA_american_french_demands.10
+		}
     }
 }
 shared_focus = {
@@ -1442,7 +1450,11 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        release = PHI
+		PHI = {
+			add_ideas = PHI_a_filipino_national_identity
+		}
+
     }
 }
 
@@ -1474,9 +1486,15 @@ shared_focus = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 2
+					level = 5
 					instant_build = yes
 				  }
+				add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
 		}
 		627 = {
 			add_building_construction = {
@@ -1490,11 +1508,160 @@ shared_focus = {
 			}
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 5
 				instant_build = yes
 			  }
+
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
 	}
 
+    }
+}
+
+shared_focus = {
+    id = USA_plunge_into_china
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_phillipines_forward_operating_base
+
+    }
+	mutually_exclusive = {
+		focus = USA_intervention_in_india
+	}
+    relative_position_id = USA_phillipines_forward_operating_base
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+		BEI = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = large_increase
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000 
+			}
+
+		}
+    }
+}
+shared_focus = {
+    id = USA_intervention_in_india
+    icon = unkown
+    x = -1
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_phillipines_forward_operating_base
+
+    }
+    relative_position_id = USA_phillipines_forward_operating_base
+    ai_will_do = {
+        factor = 1000
+    }
+	mutually_exclusive = {
+		focus = USA_plunge_into_china
+	}
+	available = {
+		AIG = {
+			has_country_flag = AIG_chose_united_front_path
+			has_war_with = RAJ
+		}
+	}
+    completion_reward = {
+        if = {
+			limit = {
+				AIG = {
+					exists = yes
+					NOT = { is_puppet_of = ENG }
+				}
+			}
+			AIG = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000 
+				}
+			}
+		}
+		if = {
+			limit = {
+				INC = {
+					exists = yes
+					NOT = { is_puppet_of = ENG }
+				}
+			}
+			INC = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000 
+				}
+			}
+		}
+		if = {
+			limit = {
+				DRA = {
+					exists = yes
+					NOT = { is_puppet_of = ENG }
+				}
+			}
+			DRA = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 250 
+				}
+			}
+		}
+		if = {
+			limit = {
+				PAK = {
+					exists = yes
+					NOT = { is_puppet_of = ENG }
+				}
+			}
+			PAK = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 250 
+				}
+			}
+		}
+		add_political_power = -50
+
+    }
+}
+
+shared_focus = {
+    id = USA_reinforce_the_naval_command
+    icon = unkown
+    x = 1
+    y = 1
+    cost = 2
+    available_if_capitulated = yes
+    prerequisite = {
+        focus = USA_intervention_in_india
+		focus = USA_plunge_into_china
+    }
+    relative_position_id = USA_intervention_in_india
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        ANC = {
+			add_war_support = 0.2
+		}
+		##decisions
     }
 }
 
@@ -1515,6 +1682,9 @@ shared_focus = {
     prerequisite = {
          focus = USA_prepare_the_defenses
     }
+	prerequisite = {
+		focus = USA_reinforce_the_naval_command
+	}
     relative_position_id = USA_prepare_the_defenses
     ai_will_do = {
         factor = 1000
@@ -1584,7 +1754,9 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        COL = {
+			add_ideas = USA_american_military_advisors
+		}
     }
 }
 
@@ -1604,7 +1776,9 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        COL = {
+			add_ideas = USA_naval_assistance_to_colombia
+		}
     }
 }
 shared_focus = {
@@ -1635,6 +1809,13 @@ shared_focus = {
                 }
             }
             random_owned_controlled_state = {
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+			 random_owned_controlled_state = {
                 add_building_construction = {
                     type = arms_factory
                     level = 1
@@ -1722,7 +1903,10 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        swap_ideas = {
+			add_idea = USA_naval_assistance_to_colombia_2
+			remove_idea = USA_naval_assistance_to_colombia
+		}
     }
 }
 
@@ -1743,7 +1927,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        puppet = COL
     }
 }
 
@@ -1780,12 +1964,16 @@ shared_focus = {
         focus = USA_the_argentinian_threat
 
     }
+	bypass = {
+		PAR = {
+			exists = no
+		}
+	}
     relative_position_id = USA_the_argentinian_threat
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        give_guarantee = PAR
         country_event = USA_argentinian_events.2
     }
 }
@@ -1800,6 +1988,11 @@ shared_focus = {
         focus = USA_guarantee_paraguay
 
     }
+	bypass = {
+		PAR = {
+			exists = no
+		}
+	}
     relative_position_id = USA_guarantee_paraguay
     ai_will_do = {
         factor = 1000
@@ -1832,6 +2025,11 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+	bypass = {
+		PAR = {
+			exists = no
+		}
+	}
     completion_reward = {
         PAR = {
             every_owned_state = {
@@ -1873,7 +2071,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        country_event = USA_argentinian_events.3
+        PBC = { country_event = USA_argentinian_events.3 }
     }
 }
 
@@ -1894,7 +2092,10 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        create_wargoal = {
+			target = ARG
+			type = topple_government
+		}
     }
 }
 
