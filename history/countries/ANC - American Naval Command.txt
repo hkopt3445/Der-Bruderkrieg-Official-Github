@@ -1,13 +1,10 @@
 ﻿capital = 737
 
-#oob = "USA_1936"
-#if = {
-#	limit = { has_dlc = "Man the Guns" }
-#		set_naval_oob = "USA_1936_naval_mtg"
-#	else = {
-#		set_naval_oob = "USA_1936_naval_legacy"
-#	}
-#} 
+oob = "ANC_1936"
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "ANC_1936_naval_mtg"
+} 
 
 USA = {
 	puppet = ANC
@@ -32,6 +29,8 @@ add_offsite_building = {
 set_research_slots = 3
 set_stability = 0.75
 set_war_support = 0.5
+
+add_ideas = ANC_usn
 
 
 # Starting tech
@@ -88,7 +87,7 @@ if = {
 		basic_ship_hull_cruiser = 1
 		coastal_defense_ships = 1
 		early_ship_hull_heavy = 1
-		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
 		ship_hull_super_heavy = 1
 		early_ship_hull_carrier = 1
 		basic_ship_hull_carrier = 1
@@ -131,6 +130,105 @@ create_country_leader = {
 	traits = {
 		
 	}
+}
+
+create_field_marshal = {
+	name = "Alexander Vandegrift"
+	portrait_path = "gfx/leaders/USA/portrait_usa_alexander_vandegrift"
+	skill = 3
+	attack_skill = 3
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 3
+	traits = { naval_invader }
+}
+
+create_corps_commander = {
+	name = "Robert Blake"
+	portrait_path = ""
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 1
+	traits = { naval_invader }
+}
+
+create_corps_commander = {
+	name = "Dudely S. Brown"
+	portrait_path = ""
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 1
+	traits = { naval_invader }
+}
+
+create_corps_commander = {
+	name = "Clifton B. Cates"
+	portrait_path = ""
+	skill = 4
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+	traits = { naval_invader }
+}
+
+create_corps_commander = {
+	name = "Oscar Ray Caludwell"
+	portrait_path = ""
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 2
+	traits = { naval_invader }
+}
+
+create_navy_leader = {
+	name = "Chester W. Nimitz"
+		portrait_path = "gfx/leaders/USA/Portrait_USA_Chester_W_Nimitz.dds"
+	traits = { gentlemanly blue_water_expert naval_lineage superior_tactician spotter }
+	skill = 5
+	attack_skill = 3
+	defense_skill = 3
+	maneuvering_skill = 5
+	coordination_skill = 5
+}
+
+create_navy_leader = {
+	name = "William Halsey, Jr."
+		portrait_path = "gfx/leaders/USA/Portrait_USA_William_Halsey_Jr.dds"
+	traits = { bold aviation_enthusiast superior_tactician spotter }
+	skill = 4
+	attack_skill = 5
+	defense_skill = 3
+	maneuvering_skill = 3
+	coordination_skill = 2
+}
+
+create_navy_leader = {
+	name = "Frank Jack Fletcher"
+		portrait_path = "gfx/leaders/USA/Portrait_USA_Frank_Jack_Fletcher.dds"
+	traits = { gunnery_expert superior_tactician spotter }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 3
+	coordination_skill = 3
+}
+
+create_navy_leader = {
+	name = "Husband E. Kimmel"
+		picture = ""
+	traits = { navy_career_officer }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 2
+	coordination_skill = 1
 }
 
 
@@ -638,6 +736,28 @@ if = {
 		}
 		obsolete = yes
 	}
+
+	create_equipment_variant = {
+		name = "New Mexico Class"				
+		type = ship_hull_heavy_1
+		name_group = USA_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_2
+			fixed_ship_armor_slot = ship_armor_bb_2
+			front_1_custom_slot = ship_anti_air_1
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+		obsolete = yes
+	}
+
 	create_equipment_variant = {
 		name = "Tennessee Class"
 		type = ship_hull_heavy_1
