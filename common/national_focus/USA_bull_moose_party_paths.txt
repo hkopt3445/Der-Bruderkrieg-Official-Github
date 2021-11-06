@@ -1102,8 +1102,7 @@ shared_focus = {
 		has_country_flag = USA_unlock_long_foriegn_policy
 	}
     completion_reward = {
-        add_political_power = 50
-        
+        country_event = USA_long_events.17
     }
 }
 
@@ -1123,7 +1122,8 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        add_political_power = 50
+		add_war_support = 0.05
     }
 }
 shared_focus = {
@@ -1142,7 +1142,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        country_event = USA_long_events.18
     }
 }
 shared_focus = {
@@ -1218,7 +1218,9 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        FRA = {
+			country_event = generic.27
+		}
     }
 }
 shared_focus = {
@@ -1298,8 +1300,28 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-		custom_effect_tooltip = USA_fortification_commission_unlocked_tt
-		set_country_flag = USA_fortification_commission_unlocked
+		every_state = {
+					limit = {
+						any_neighbor_state = {
+							is_controlled_by = CAN 
+						}
+						owner = {
+							OR = {
+								tag = USA
+								is_in_faction_with = USA
+							}
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
 	}
                     
 }
@@ -1322,6 +1344,7 @@ shared_focus = {
     }
     completion_reward = {
         set_variable = { IRA_ability_to_revolt = 0 }
+		country_event = USA_long_events.19
     }
 }
 
@@ -1702,7 +1725,7 @@ shared_focus = {
 
 shared_focus = {
     id = USA_the_continent_down_south
-    icon = GFX_focus_por_recover_latin_america
+    icon = GFX_goal_USA_mexico_diplo
     x = -5
     y = 1
     cost = 2
@@ -1716,7 +1739,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        country_event = USA_long_events.20
     }
 }
 shared_focus = {
@@ -1735,7 +1758,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        country_event = USA_long_events.21
     }
 }
 
@@ -2009,7 +2032,15 @@ shared_focus = {
                     state = THIS
                 }
             }
-            add_political_power = 30
+			random_owned_controlled_state = {
+                add_resource = {
+                    type = oil
+                    amount = 12
+                    state = THIS
+                }
+            }
+            add_political_power = 100
+			add_war_support = 0.05
         }
     }
 }
@@ -2043,7 +2074,7 @@ shared_focus = {
                 }
                 add_building_construction = {
                     type = bunker
-                    level = 3
+                    level = 5
                     instant_build = yes
                     province = {
                         all_provinces = yes

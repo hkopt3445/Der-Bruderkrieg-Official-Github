@@ -53,7 +53,7 @@
 
 	shared_focus = {
 		id = USA_bigger_is_better
-		icon = unkown
+		icon = GFX_goal_USA_bigger_is_better
 		x = -2
 		y = 1
 		cost = 6
@@ -172,7 +172,7 @@
 
 	shared_focus = {
 		id = USA_flexibility_is_key
-		icon = unkown
+		icon = GFX_goal_USA_flex_is_key
 		x = 2
 		y = 1
 		cost = 6
@@ -310,7 +310,7 @@
 	
 	shared_focus = {
 		id = USA_battle_for_the_air
-		icon = unkown
+		icon = GFX_goal_generic_air_fighter
 		x = -2
 		y = 1
 		cost = 6
@@ -335,7 +335,7 @@
 	
 	shared_focus = {
 		id = USA_increase_fighter_production
-		icon = GFX_goal_generic_air_fighter
+		icon = GFX_goal_AUS_planes
 		x = -1
 		y = 1
 		cost = 6
@@ -417,7 +417,7 @@
 	
 	shared_focus = {
 		id = USA_terror_raining_down
-		icon = unkown
+		icon = GFX_goal_ITA_the_power_struggle
 		x = 2
 		y = 1
 		cost = 6
@@ -467,7 +467,7 @@
 	
 	shared_focus = {
 		id = USA_focusing_on_civilian_targets
-		icon = unkown
+		icon = GFX_goal_ITA_found_the_ainc2
 		x = 0
 		y = 1
 		cost = 6
@@ -513,7 +513,7 @@
 	
 	shared_focus = {
 		id = USA_focusing_on_military_targets
-		icon = unkown
+		icon = GFX_goal_FRA_military_domination
 		x = 0
 		y = 1
 		cost = 6
@@ -534,7 +534,7 @@
 
 	shared_focus = {
 		id = USA_british_air_cooperation
-		icon = unkown
+		icon = GFX_goal_Womeninmil
 		x = -3
 		y = 1
 		cost = 6
@@ -551,7 +551,7 @@
 			factor = 1
 		}
 		completion_reward = {
-			
+			set_rule = { can_generate_female_aces = yes }
 		}
 	}
 	
@@ -577,7 +577,7 @@
 	}
 	shared_focus = {
 	    id = USA_the_marshall_plan
-	    icon = unkown
+	    icon = GFX_ITA_militarism
 	    x = -2
 	    y = 1
 	    cost = 6
@@ -586,6 +586,12 @@
 		focus = USA_state_of_the_army
 
 	    }
+		mutually_exclusive = {
+			focus = USA_the_macarthur_plan
+		}
+		mutually_exclusive = {
+			focus = USA_the_eisenhower_plan
+		}
 
 	    relative_position_id = USA_state_of_the_army
 	    ai_will_do = {
@@ -621,7 +627,7 @@
 	}
 	shared_focus = {
 	    id = USA_the_eisenhower_plan
-	    icon = unkown
+	    icon = GFX_goal_mil_equipment
 	    x = 2
 	    y = 1
 	    cost = 6
@@ -630,6 +636,12 @@
 		focus = USA_state_of_the_army
 
 	    }
+		mutually_exclusive = {
+			focus = USA_the_macarthur_plan
+		}
+		mutually_exclusive = {
+			focus = USA_the_eisenhower_plan
+		}
 
 	    relative_position_id = USA_state_of_the_army
 	    ai_will_do = {
@@ -693,15 +705,20 @@
 	}
 	shared_focus = {
 	    id = USA_the_macarthur_plan
-	    icon = unkown
+	    icon = GFX_ITA_militarism2
 	    x = 0
 	    y = 1
 	    cost = 6
 	    available_if_capitulated = yes
 	    prerequisite = {
 		focus = USA_state_of_the_army
-
 	    }
+		mutually_exclusive = {
+			focus = USA_the_marshall_plan
+		}
+		mutually_exclusive = {
+			focus = USA_the_eisenhower_plan
+		}
 
 	    relative_position_id = USA_state_of_the_army
 	    ai_will_do = {
@@ -854,7 +871,7 @@
 
 	shared_focus = {
 	    id = USA_american_military_supremacy
-	    icon = unkown
+	    icon = GFX_GenericMilitaryMan
 	    x = 7
 	    y = 1
 	    cost = 6
@@ -886,6 +903,9 @@
 	  
 		available = {
 			has_country_flag = USA_fortification_commission_unlocked
+		}
+		allow_branch = {
+			always = no
 		}
 		offset = {
 			x = 13
