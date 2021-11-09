@@ -338,6 +338,32 @@ scripted_gui = {
     }
   }
 
+  ##DAS
+   USA_das_problem_scripted_gui = {
+    window_name = "USA_Scales_GUI"
+    context_type = decision_category
+    
+    visible = {
+    }
+    triggers = {
+      USA_Scale_Neu_visible = {
+        check_variable = {
+          USA_Military_Power = USA_DAS_Power
+        }
+      }
+      USA_Scale_Pos_visible = {
+        check_variable = {
+          USA_Military_Power > USA_DAS_Power
+        }
+      }
+      USA_Scale_Neg_visible = {
+        check_variable = {
+          USA_Military_Power < USA_DAS_Power
+        }
+      }
+    }
+  }
+
   ##mafia
   DBK_usa_nyc_mafia_gui = {
     window_name = "mafia_container"
@@ -345,7 +371,9 @@ scripted_gui = {
 
     visible = {
       
-	}
+	  }
+
+ 
 	
 	##Rgb levels
 	#1. 165, 128, 128

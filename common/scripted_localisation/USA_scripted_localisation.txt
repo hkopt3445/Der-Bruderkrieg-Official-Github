@@ -365,6 +365,50 @@ defined_text = {
 	}
 }
 
+##diplo
+defined_text = {
+	name = get_USA_Scale
+	text = {
+		trigger = {
+			check_variable = {
+				USA_Military_Power = USA_DAS_Power
+			}
+		}
+		localization_key = USA_DAS_balanced
+	}
+	text = {
+		trigger = {
+			check_variable = {
+			USA_Military_Power > USA_DAS_Power
+			}
+		}
+		localization_key = USA_DAS_military
+	}
+	text = {
+		trigger = {
+			set_temp_variable = {
+				USA_DAS_Power_check_high = USA_DAS_Power
+			}
+			subtract_from_temp_variable = {
+				USA_DAS_Power_check_high = 24
+			}
+			check_variable = {
+				USA_Military_Power < USA_DAS_Power_check_high
+			}
+		}
+		localization_key = USA_DAS_high_das
+	}
+	text = {
+		trigger = {
+			check_variable = {
+			USA_Military_Power < USA_DAS_Power
+			}
+		}
+		localization_key = USA_DAS_das
+	}
+	
+}
+
 #Created by Tsar Giraldo
 defined_text = {
 	name = USAINF_HAITI
