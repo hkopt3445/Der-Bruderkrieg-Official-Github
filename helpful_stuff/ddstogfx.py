@@ -2,7 +2,7 @@
 import glob
 import os
 
-path = r"gfx\interface\goals"
+path = r"gfx\interface\usa_diplo_gui\mexicorebels"
 
 os.chdir(path)
 print(os.listdir())
@@ -15,7 +15,7 @@ for filename in files:
    filenamestorage = filename[:-4]
    if filename.endswith(".dds"):
     print("spriteType = {")
-    print(" " + "name =" + '"' + "GFX_goal_" + filenamestorage + '"') 
+    print(" " + "name =" + '"' + "GFX_" + filenamestorage + '"') 
     print(" " + "texturefile = " + '"' + "gfx/interface/goals/" + filename + '"')
     print("}")
     print("")
