@@ -27,7 +27,6 @@ DBK_USA_house = {
 		}
 		remove_effect = {
 			clr_country_flag = USA_already_campainging_senate
-			clear_array = global.usa_senate_main_array
 			add_to_variable = {
 				tooltip = USA_increase_progressive_senator_by_1
 				global.usa_senate_seat_array^0 = 1
@@ -35,7 +34,6 @@ DBK_USA_house = {
 			add_to_variable = {
 				global.usa_senate_seat_array^2 = -1
 			}
-			modify_senate_seats = yes
 		}
 	}
 	
@@ -65,7 +63,6 @@ DBK_USA_house = {
 		}
 		remove_effect = {
 			clr_country_flag = USA_already_campainging_senate
-			clear_array = global.usa_senate_main_array
 			add_to_variable = {
 				tooltip = USA_increase_progressive_senator_by_3
 				global.usa_senate_seat_array^0 = 3
@@ -73,7 +70,6 @@ DBK_USA_house = {
 			add_to_variable = {
 				global.usa_senate_seat_array^2 = -3
 			}
-			modify_senate_seats = yes
 		}
 	}
 	
@@ -103,10 +99,14 @@ DBK_USA_house = {
 			set_country_flag = USA_already_campainging_senate
 		}
 		remove_effect = {
-			random_list = {
-				40 = { country_event = USA_congress_lobbying.1 }
-				60 = { country_event = USA_congress_lobbying.2 }
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_1
+				global.usa_senate_seat_array^0 = 1
 			}
+			add_to_variable = {
+				global.usa_senate_seat_array^1 = -1
+			}
+			clr_country_flag = USA_already_campainging_senate
 		}
 	}
 	
@@ -135,102 +135,23 @@ DBK_USA_house = {
 			set_country_flag = USA_already_campainging_senate
 		}
 		remove_effect = {
-			random_list = {
-				40 = { country_event = USA_congress_lobbying.3 }
-				60 = { country_event = USA_congress_lobbying.4 }
-			}
-		}
-	}
-
-	USA_blank_1 = {
-		available = {
-			always = no
-		}
-	}
-
-	USA_lobby_for_liberals_house_small = {
-
-		available = {
-			tag = USA
-			NOT = {
-				has_country_flag = USA_already_campainging_house
-			}
-		}
-		allowed = {
-			tag = USA
-		}
-	
-		visible = {
-		 
-		}
-		icon = GFX_decision_eng_propaganda_campaigns
-		cost = 10
-		days_remove = 20
-		ai_will_do = {
-		  factor = 20
-		}
-		complete_effect = {
-			set_country_flag = USA_already_campainging_house
-		}
-		remove_effect = {
-			clr_country_flag = USA_already_campainging_house
-			clear_array = global.usa_house_main_array
-			add_to_variable = {
-				tooltip = USA_increase_progressive_senator_by_1
-				global.usa_house_seat_array^0 = 5
-			}
-			add_to_variable = {
-				global.usa_house_seat_array^2 = -5
-			}
-			modify_house_seats = yes
-		}
-	}
-	
-	USA_lobby_for_liberals_house_large = {
-	
-		available = {
-			tag = USA
-			NOT = {
-				has_country_flag = USA_already_campainging_house
-			}
-		}
-		allowed = {
-			tag = USA
-		}
-	
-		visible = {
-		 
-		}
-		icon = GFX_decision_eng_propaganda_campaigns
-		cost = 30
-		days_remove = 60
-		ai_will_do = {
-		  factor = 20
-		}
-		complete_effect = {
-			set_country_flag = USA_already_campainging_house
-		}
-		remove_effect = {
-			clr_country_flag = USA_already_campainging_house
-			clear_array = global.usa_house_main_array
 			add_to_variable = {
 				tooltip = USA_increase_progressive_senator_by_3
-				global.usa_house_seat_array^0 = 10
+				global.usa_senate_seat_array^0 = 3
 			}
 			add_to_variable = {
-				global.usa_house_seat_array^2 = -10
+				global.usa_senate_seat_array^1 = -3
 			}
-			modify_house_seats = yes
+			clr_country_flag = USA_already_campainging_senate
 		}
 	}
-	
-	
-	USA_lobby_for_conservatives_house_small = {
+
+	USA_lobby_for_wilsonians_senate_small = {
 	
 		available = {
 			tag = USA
 			NOT = {
-				has_country_flag = USA_already_campainging_house
+				has_country_flag = USA_already_campainging_senate
 			}
 		}
 		allowed = {
@@ -247,22 +168,26 @@ DBK_USA_house = {
 		  factor = 20
 		}
 		complete_effect = {
-			set_country_flag = USA_already_campainging_house
+			set_country_flag = USA_already_campainging_senate
 		}
 		remove_effect = {
-			random_list = {
-				40 = { country_event = USA_congress_lobbying.5 }
-				60 = { country_event = USA_congress_lobbying.6 }
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_1
+				global.usa_senate_seat_array^0 = 1
 			}
+			add_to_variable = {
+				global.usa_senate_seat_array^2 = -1
+			}
+			clr_country_flag = USA_already_campainging_senate			
 		}
 	}
 	
-	USA_lobby_for_conservatives_house_large = {
+	USA_lobby_for_wilsonians_senate_large = {
 	
 		available = {
 			tag = USA
 			NOT = {
-				has_country_flag = USA_already_campainging_house
+				has_country_flag = USA_already_campainging_senate
 			}
 		}
 		allowed = {
@@ -279,15 +204,166 @@ DBK_USA_house = {
 		  factor = 20
 		}
 		complete_effect = {
-			set_country_flag = USA_already_campainging_house
+			set_country_flag = USA_already_campainging_senate
 		}
 		remove_effect = {
-			random_list = {
-				40 = { country_event = USA_congress_lobbying.7 }
-				60 = { country_event = USA_congress_lobbying.8 }
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_3
+				global.usa_senate_seat_array^0 = 3
 			}
+			add_to_variable = {
+				global.usa_senate_seat_array^2 = -3
+			}
+			clr_country_flag = USA_already_campainging_senate
 		}
 	}
+
+	# USA_blank_1 = {
+	# 	available = {
+	# 		always = no
+	# 	}
+	# }
+
+	# USA_lobby_for_liberals_house_small = {
+
+	# 	available = {
+	# 		tag = USA
+	# 		NOT = {
+	# 			has_country_flag = USA_already_campainging_house
+	# 		}
+	# 	}
+	# 	allowed = {
+	# 		tag = USA
+	# 	}
+	
+	# 	visible = {
+		 
+	# 	}
+	# 	icon = GFX_decision_eng_propaganda_campaigns
+	# 	cost = 10
+	# 	days_remove = 20
+	# 	ai_will_do = {
+	# 	  factor = 20
+	# 	}
+	# 	complete_effect = {
+	# 		set_country_flag = USA_already_campainging_house
+	# 	}
+	# 	remove_effect = {
+	# 		clr_country_flag = USA_already_campainging_house
+	# 		clear_array = global.usa_house_main_array
+	# 		add_to_variable = {
+	# 			tooltip = USA_increase_progressive_senator_by_1
+	# 			global.usa_house_seat_array^0 = 5
+	# 		}
+	# 		add_to_variable = {
+	# 			global.usa_house_seat_array^2 = -5
+	# 		}
+	# 		modify_house_seats = yes
+	# 	}
+	# }
+	
+	# USA_lobby_for_liberals_house_large = {
+	
+	# 	available = {
+	# 		tag = USA
+	# 		NOT = {
+	# 			has_country_flag = USA_already_campainging_house
+	# 		}
+	# 	}
+	# 	allowed = {
+	# 		tag = USA
+	# 	}
+	
+	# 	visible = {
+		 
+	# 	}
+	# 	icon = GFX_decision_eng_propaganda_campaigns
+	# 	cost = 30
+	# 	days_remove = 60
+	# 	ai_will_do = {
+	# 	  factor = 20
+	# 	}
+	# 	complete_effect = {
+	# 		set_country_flag = USA_already_campainging_house
+	# 	}
+	# 	remove_effect = {
+	# 		clr_country_flag = USA_already_campainging_house
+	# 		clear_array = global.usa_house_main_array
+	# 		add_to_variable = {
+	# 			tooltip = USA_increase_progressive_senator_by_3
+	# 			global.usa_house_seat_array^0 = 10
+	# 		}
+	# 		add_to_variable = {
+	# 			global.usa_house_seat_array^2 = -10
+	# 		}
+	# 		modify_house_seats = yes
+	# 	}
+	# }
+	
+	
+	# USA_lobby_for_conservatives_house_small = {
+	
+	# 	available = {
+	# 		tag = USA
+	# 		NOT = {
+	# 			has_country_flag = USA_already_campainging_house
+	# 		}
+	# 	}
+	# 	allowed = {
+	# 		tag = USA
+	# 	}
+	
+	# 	visible = {
+		 
+	# 	}
+	# 	icon = GFX_decision_eng_propaganda_campaigns
+	# 	cost = 10
+	# 	days_remove = 20
+	# 	ai_will_do = {
+	# 	  factor = 20
+	# 	}
+	# 	complete_effect = {
+	# 		set_country_flag = USA_already_campainging_house
+	# 	}
+	# 	remove_effect = {
+	# 		random_list = {
+	# 			40 = { country_event = USA_congress_lobbying.5 }
+	# 			60 = { country_event = USA_congress_lobbying.6 }
+	# 		}
+	# 	}
+	# }
+	
+	# USA_lobby_for_conservatives_house_large = {
+	
+	# 	available = {
+	# 		tag = USA
+	# 		NOT = {
+	# 			has_country_flag = USA_already_campainging_house
+	# 		}
+	# 	}
+	# 	allowed = {
+	# 		tag = USA
+	# 	}
+	
+	# 	visible = {
+		 
+	# 	}
+	# 	icon = GFX_decision_eng_propaganda_campaigns
+	# 	cost = 30
+	# 	days_remove = 60
+	# 	ai_will_do = {
+	# 	  factor = 20
+	# 	}
+	# 	complete_effect = {
+	# 		set_country_flag = USA_already_campainging_house
+	# 	}
+	# 	remove_effect = {
+	# 		random_list = {
+	# 			40 = { country_event = USA_congress_lobbying.7 }
+	# 			60 = { country_event = USA_congress_lobbying.8 }
+	# 		}
+	# 	}
+	# }
 }
 
  
