@@ -3164,6 +3164,62 @@ country_event = {
 	}
 }
 
+#policy on brazil
+country_event = {
+	id = USA_mcadoo_tree.14
+	title = USA_mcadoo_tree.14.t
+	desc = USA_mcadoo_tree.14.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_mcadoo_tree.14.a	
+		UBR = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2500 
+			}
+			add_ideas = USA_american_military_advisors
+		}		
+	}
+	option = {
+		name = USA_mcadoo_tree.14.b
+		if = {
+			limit = {
+				BRE = {
+					exists = yes
+				}
+			}
+			create_wargoal = {
+				target = BRE
+				type = topple_government
+			}
+		}
+		if = {
+			limit = {
+				BRS = {
+					exists = yes
+				}
+			}
+			create_wargoal = {
+				target = BRS
+				type = topple_government
+			}
+		}	
+		if = {
+			limit = {
+				SRB = {
+					exists = yes
+				}
+			}
+			create_wargoal = {
+				target = SRB
+				type = topple_government
+			}
+		}
+	}
+}
+
 
 add_namespace = USA_warren_tree
 #interniro
