@@ -345,15 +345,13 @@ focus_tree = {
 		available = {
 		}
 		mutually_exclusive = {
-			focus = USA_smith_campaign_placeholder
+			focus = USA_smith_campaign
 		}
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			add_political_power = 20
-			country_event = USA_election_leadup.1
-		#	load_focus_tree = usa_long_new_deal_tree
+					#	load_focus_tree = usa_long_new_deal_tree
 		}
 	}
  
@@ -361,7 +359,7 @@ focus_tree = {
 		id = USA_a_fresh_start
 		icon = GFX_goal_USA_time_for_a_fresh_start
 		prerequisite = { focus = USA_longs_campaign_speech }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = USA_longs_campaign_speech
 		cost = 2
@@ -376,20 +374,23 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			add_stability = 0.03
 			set_party_name = { 
-				ideology = socialism_democratic  
+				ideology = socialism_democratic
+				long_name = USA_bull_moose_party  
 				name = USA_bull_moose_party 
 			}
+			add_political_power = 20
+			country_event = USA_election_leadup.1
+
 		}
 	}
 	focus = {
 		id = USA_longs_tour_of_america
 		icon = GFX_goal_USA_longs_great_tour_of_america
-		prerequisite = { focus = USA_a_fresh_start }
-		x = 0
+		prerequisite = { focus = USA_longs_campaign_speech }
+		x = 1
 		y = 1
-		relative_position_id = USA_a_fresh_start
+		relative_position_id = USA_longs_campaign_speech
 		cost = 2
 		ai_will_do = {
 			factor = 1
@@ -544,6 +545,9 @@ focus_tree = {
 		id = USA_denouncing_republican_candidate
 		icon = GFX_goal_USA_smashing_conservative_democrats
 		prerequisite = { focus = USA_longs_tour_of_america }
+		prerequisite = {
+			focus = USA_a_fresh_start
+		}
 		x = -1
 		y = 1
 		relative_position_id = USA_longs_tour_of_america
@@ -583,10 +587,10 @@ focus_tree = {
     focus = {
 		id = USA_but_promoting_unity
 		icon = GFX_goal_USA_reaching_out_to_progressives
-		prerequisite = { focus = USA_longs_tour_of_america }
-		x = 1
+		prerequisite = { focus = USA_denouncing_republican_candidate }
+		x = 0
 		y = 1
-		relative_position_id = USA_longs_tour_of_america
+		relative_position_id = USA_denouncing_republican_candidate
 		cost = 2
 		ai_will_do = {
 			factor = 1
@@ -633,9 +637,10 @@ focus_tree = {
     focus = {
 		id = USA_nov_3_1936
 		icon = GFX_goal_USA_election_day_arrives
-		prerequisite = { focus = USA_but_promoting_unity }
-        prerequisite = {focus = USA_denouncing_republican_candidate }
-		x = -1
+		prerequisite = { focus = USA_but_promoting_unity focus = USA_gain_fdrs_support }
+		prerequisite = {
+		}
+		x = 2
 		y = 1
 		relative_position_id = USA_but_promoting_unity
 		cost = 2
@@ -657,8 +662,8 @@ focus_tree = {
 
 	###smith
 	focus = { 
-		id = USA_smith_campaign_placeholder
-		icon = GFX_goal_USA_longs_relection_speech
+		id = USA_smith_campaign
+		icon = GFX_goal_USA_smith_campaign
 		prerequisite = { focus = USA_1936_DNC }
 		x = 2
 		y = 1
@@ -666,6 +671,124 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = USA_longs_campaign_speech
 		}
+		cost = 2
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 10000
+				has_country_flag = USA_go_down_mcadoo
+			}
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+	focus = { 
+		id = USA_ensure_mcadoos_loyalty
+		icon = GFX_goal_USA_ensure_mcadoos_loyalty
+		prerequisite = { focus = USA_smith_campaign }
+		x = -1
+		y = 1
+		relative_position_id = USA_smith_campaign
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+	focus = { 
+		id = USA_promises_to_the_south
+		icon = GFX_goal_USA_promises_to_the_south
+		prerequisite = { focus = USA_ensure_mcadoos_loyalty }
+		x = 0
+		y = 1
+		relative_position_id = USA_ensure_mcadoos_loyalty
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+
+	focus = { 
+		id = USA_attack_longs_treachery
+		icon = GFX_goal_USA_attack_longs_treachery
+		prerequisite = { focus = USA_smith_campaign }
+		x = 1
+		y = 1
+		relative_position_id = USA_smith_campaign
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+	focus = { 
+		id = USA_rally_the_northern_base
+		icon = GFX_goal_USA_rally_the_northern_base
+		prerequisite = { focus = USA_attack_longs_treachery }
+		x = 0
+		y = 1
+		relative_position_id = USA_attack_longs_treachery
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+	focus = { 
+		id = USA_gain_fdrs_support
+		icon = GFX_goal_USA_gain_fdrs_support
+		prerequisite = { focus = USA_rally_the_northern_base }
+		prerequisite = {
+			focus = USA_promises_to_the_south
+		}
+		x = -1
+		y = 1
+		relative_position_id = USA_rally_the_northern_base
+	
 		cost = 2
 		ai_will_do = {
 			factor = 1
