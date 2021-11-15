@@ -2527,10 +2527,24 @@ country_event = {
 	option = {
 		name = USA_democratic_schism_events.4.a
 			country_event = USA_democratic_schism_events.5
+			ai_chance = {
+				factor = 1
+				modifier = {
+					add = 10000
+					has_country_flag = USA_go_down_mcadoo
+				}
+			}
 	}	
 	option = {
 		name = USA_democratic_schism_events.4.b
 			country_event = USA_democratic_schism_events.6
+			ai_chance = {
+				factor = 1
+				modifier = {
+					add = 0
+					has_country_flag = USA_go_down_mcadoo
+				}
+			}
 	}
 }
 
@@ -2899,7 +2913,10 @@ country_event = {
 	
 	option = {
 		name = USA_smith_tree.10.a
-		remove_ideas = USA_fragile_support_3
+		swap_ideas = {
+			add_idea = USA_fragile_support_4
+			remove_idea = USA_fragile_support_3
+		}
 		
 	}
 }
@@ -3031,7 +3048,15 @@ country_event = {
 			transfer_state = 482
 			transfer_state = 480
 			transfer_state = 481
+			transfer_state = 479
 		}	
+		puppet = NMA
+		NMA = {
+			add_ideas = NMA_military_gov
+			set_politics = {
+				ruling_party = neutrality
+			}
+		}
 	}
 }
 
@@ -3103,7 +3128,7 @@ country_event = {
 	option = {
 		name = USA_mcadoo_tree.10.a	
 		USA = {
-			add_guarantee = ENG
+			give_guarantee = ENG
 		}		
 		ENG = {
 			country_event = USA_mcadoo_tree.11
@@ -3124,7 +3149,7 @@ country_event = {
 	option = {
 		name = USA_mcadoo_tree.11.a	
 		ENG = {
-			add_guarantee = USA
+			give_guarantee = USA
 		}		
 	}
 }
@@ -3140,7 +3165,7 @@ country_event = {
 	option = {
 		name = USA_mcadoo_tree.12.a	
 		USA = {
-			add_guarantee = FRA
+			give_guarantee = FRA
 		}		
 		FRA = {
 			country_event = USA_mcadoo_tree.13
@@ -3159,8 +3184,64 @@ country_event = {
 	option = {
 		name = USA_mcadoo_tree.13.a	
 		FRA = {
-			add_guarantee = USA
+			give_guarantee = USA
 		}		
+	}
+}
+
+#policy on brazil
+country_event = {
+	id = USA_mcadoo_tree.14
+	title = USA_mcadoo_tree.14.t
+	desc = USA_mcadoo_tree.14.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_mcadoo_tree.14.a	
+		UBR = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2500 
+			}
+			add_ideas = USA_american_military_advisors
+		}		
+	}
+	option = {
+		name = USA_mcadoo_tree.14.b
+		if = {
+			limit = {
+				BRE = {
+					exists = yes
+				}
+			}
+			create_wargoal = {
+				target = BRE
+				type = topple_government
+			}
+		}
+		if = {
+			limit = {
+				BRS = {
+					exists = yes
+				}
+			}
+			create_wargoal = {
+				target = BRS
+				type = topple_government
+			}
+		}	
+		if = {
+			limit = {
+				SRB = {
+					exists = yes
+				}
+			}
+			create_wargoal = {
+				target = SRB
+				type = topple_government
+			}
+		}
 	}
 }
 

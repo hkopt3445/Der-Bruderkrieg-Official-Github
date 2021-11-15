@@ -5155,7 +5155,7 @@ shared_focus = {
 				remove_idea = ITA_andante_reforms_4
 			}
 		}
-		else_aif = {
+		else_if = {
 			limit = {
 				has_idea = ITA_andante_reforms_5
 			}
@@ -5794,33 +5794,7 @@ shared_focus = {
 	  }
   }
 
-  shared_focus = {
-	  id = ITA_carriers_for_planes
-	  icon = GFX_goal_generic_secret_weapon
-	  text = ITA_carriers_for_planes
-	  prerequisite = { focus = ITA_radar_on_coast }
-	  prerequisite = {
-		  focus = ITA_fighter_effort
-	  }
-	  x = -1
-	  y = 1
-	  relative_position_id = ITA_radar_on_coast
-	  cost = 5
-	  ai_will_do = {
-		  factor = 1
-	  } 
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-		  add_tech_bonus =  {
-			  bonus = 1
-			  uses = 1
-			  category = cv_tech
-		  }
-	  }
-  }
+ 
 
 
   ############AF
@@ -5927,30 +5901,7 @@ shared_focus = {
 	  }
   }
 
-  shared_focus = {
-	  id = ITA_fighter_effort
-	  icon = GFX_goal_generic_air_fighter2
-	  text = ITA_fighter_effort
-	  prerequisite = { focus = ITA_BUILD_AIRFIELDS }
-	  x = -2
-	  y = 1
-	  relative_position_id = ITA_BUILD_AIRFIELDS
-	  cost = 5
-	  ai_will_do = {
-		  factor = 1
-	  }
-
-	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
-
-	  completion_reward = {
-		  add_tech_bonus =  {
-			  bonus = 1
-			  uses = 1
-			  category = light_fighter
-		  }
-	  }
-  }
+  
 
 #   shared_focus = {
 # 	  id = ITA_fighter_escorts
@@ -6021,6 +5972,31 @@ shared_focus = {
   }
 
   shared_focus = {
+	  id = ITA_fighter_effort
+	  icon = GFX_goal_generic_air_fighter2
+	  text = ITA_fighter_effort
+	  prerequisite = { focus = ITA_BUILD_AIRFIELDS }
+	  x = -2
+	  y = 1
+	  relative_position_id = ITA_BUILD_AIRFIELDS
+	  cost = 5
+	  ai_will_do = {
+		  factor = 1
+	  }
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+		  add_tech_bonus =  {
+			  bonus = 1
+			  uses = 1
+			  category = light_fighter
+		  }
+	  }
+  }
+
+  shared_focus = {
 	  id = ITA_radar_on_coast
 	  icon = GFX_goal_generic_radar
 	  text = ITA_radar_on_coast
@@ -6054,6 +6030,34 @@ shared_focus = {
 				  level = 1
 				  instant_build = yes
 			  }
+		  }
+	  }
+  }
+
+   shared_focus = {
+	  id = ITA_carriers_for_planes
+	  icon = GFX_goal_generic_secret_weapon
+	  text = ITA_carriers_for_planes
+	  prerequisite = { focus = ITA_radar_on_coast }
+	  prerequisite = {
+		  focus = ITA_fighter_effort
+	  }
+	  x = -1
+	  y = 1
+	  relative_position_id = ITA_radar_on_coast
+	  cost = 5
+	  ai_will_do = {
+		  factor = 1
+	  } 
+
+	  available_if_capitulated = yes
+	  search_filters = { FOCUS_FILTER_RESEARCH }
+
+	  completion_reward = {
+		  add_tech_bonus =  {
+			  bonus = 1
+			  uses = 1
+			  category = cv_tech
 		  }
 	  }
   }

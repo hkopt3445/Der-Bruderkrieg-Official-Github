@@ -848,6 +848,21 @@ USA_the_tamany_hall_machine = {
 
 }
 
+USA_presidency_in_crisis_initial = {
+  allowed = {
+    always = no
+  }
+
+  allowed_civil_war = {
+    always = yes
+  }
+  modifier = {
+    stability_factor = -0.25
+    war_support_factor = -0.15
+    political_power_gain = -0.1
+    industrial_capacity_factory = -0.05
+  }
+}
 USA_presidency_in_crisis = {
   allowed = {
     always = no
@@ -902,6 +917,18 @@ USA_fragile_support_3 = {
   modifier = {
     stability_factor = -0.05
     political_power_gain = -0.05
+  }
+}
+USA_fragile_support_4 = {
+  allowed = {
+    always = no
+  }
+
+  allowed_civil_war = {
+    always = yes
+  }
+  modifier = {
+    stability_factor = -0.05
   }
 }
 USA_democratic_return_to_normalcy = {
@@ -1238,8 +1265,7 @@ USA_the_american_empire_4 = {
     min_export = -0.05
     local_resources_factor = 0.10
     consumer_goods_factor = -0.05
-    concscription = 0.015
-    consumer_goods_factor = -0.05
+    conscription = 0.015
     industrial_capacity_dockyard = 0.05
   }
 }
@@ -1615,22 +1641,40 @@ USA_isolationism_2 = {
 
 ANC_usn = {
       
-      allowed = {
-        always = no
-      }
+  allowed = {
+    always = no
+  }
 
-      allowed_civil_war = {
-        always = yes
-      }
+  allowed_civil_war = {
+    always = yes
+  }
+  
+  removal_cost = -1
+  
+  modifier = {
+    amphibious_invasion = 0.10
+    weekly_manpower = 500
+    conscription = 0.05
+  }
+}
+NMA_military_gov = {
       
-      removal_cost = -1
-      
-      modifier = {
-        amphibious_invasion = 0.10
-        weekly_manpower = 500
-        conscription = 0.05
-      }
-    }
+  allowed = {
+    always = no
+  }
+
+  allowed_civil_war = {
+    always = yes
+  }
+  
+  removal_cost = -1
+  
+  modifier = {
+    weekly_manpower = -100
+    conscription = 0.05
+    war_support_factor = 0.05
+  }
+}
 
 USA_democratic_dictator = {
   allowed = {
@@ -1822,7 +1866,7 @@ USA_democratic_dictator = {
 
       modifier = {
         convoy_raiding_efficiency_factor = 0.5
-        naval_attack_factor = 0.25
+        naval_damage_factor = 0.25
       }
     }
 
