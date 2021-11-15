@@ -2015,9 +2015,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 484
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2050,9 +2055,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 483
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2085,9 +2095,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 482
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2120,9 +2135,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 481
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2157,9 +2177,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 480
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2192,9 +2217,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 478
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2227,9 +2257,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 478
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2262,9 +2297,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 277
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2297,9 +2337,14 @@ USA_mexico_rebels = {
 		days_re_enable = 35
 
 		available = {
+			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 477
 				size > 2
+			}
+			}
+			else = {
+				always = yes
 			}
 		}
 
@@ -2391,12 +2436,16 @@ USA_mexico_rebels = {
 		}
 	
 		remove_effect = {
-			477 = {
-				add_to_variable = {
-					tooltip = "USA_mexican_rebels_lose_5_resistance"
-					MEX_rebel_resistance = -5
+			MEX = { remove_ideas = MEX_mass_banditry }
+			USA = {
+				if = {
+					limit = {
+						has_completed_focus = USA_the_continent_down_south
+					}
+					add_to_faction = MEX
 				}
 			}
+				
 		}
 	}
 	
