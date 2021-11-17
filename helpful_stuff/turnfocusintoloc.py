@@ -3,7 +3,7 @@
 import sys
 #myFile = open(r"C:\Users\17138\Documents\Paradox Interactive\Hearts of Iron IV\mod\dbkgithub\common\national_focus\ITA_socialist_paths.txt") ##file path
 
-myFile = open(r"C:\Users\Arj\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\common\national_focus\USA_democratic_party_paths.txt") ##file path
+myFile = open(r"C:\Users\Arj\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\common\national_focus\USA_starting_tree.txt") ##file path
 #myFile = open("common\national_focus\USA_warren_path.txt") ##file path")
 substring = "id ="
 substring2 = "relative"

@@ -311,17 +311,21 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
-			always = no
+			date > 1936.6.1
+		}
+		mutually_exclusive = {
+			focus = USA_1936_RNC
 		}
 		bypass = {
-			has_country_flag = USA_dnc_has_ended
 		}
 
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				 id = USA_democratic_national_convention.1
+			}
 		}
 	}
 	
@@ -629,30 +633,175 @@ focus_tree = {
 			}
 		}
 	}
-    focus = {
-		id = USA_nov_3_1936
-		icon = GFX_goal_USA_election_day_arrives
-		prerequisite = { focus = USA_but_promoting_unity focus = USA_gain_fdrs_support }
-		prerequisite = {
-		}
-		x = 2
-		y = 1
-		relative_position_id = USA_but_promoting_unity
+
+
+	focus = {
+		id = USA_1936_RNC
+		icon = GFX_goal_USA_1936_RNC
+		x = 17
+		y = 0
 		cost = 2
 		ai_will_do = {
-			factor = 1
+			factor = 0
 		}
 		available = {
-			always = no
+			date > 1936.6.1
+		}
+		bypass = {
+		}
+		mutually_exclusive = {
+			focus = USA_1936_DNC
 		}
 
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-	
+			country_event = USA_republican_national_convention.1
 		}
 	}
+	focus = {
+		id = USA_the_warren_campaign
+		icon = GFX_goal_USA_the_warren_campaign
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		prerequisite = {
+			focus = USA_1936_RNC
+		}
+		relative_position_id = USA_1936_RNC
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			country_event = USA_republican_national_convention.1
+		}
+	}
+	focus = { 
+		id = USA_model_teddys_runs
+		icon = GFX_goal_USA_model_teddys_runs
+		prerequisite = { focus = USA_the_warren_campaign }
+		x = -1
+		y = 1
+		relative_position_id = USA_the_warren_campaign
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+	focus = { 
+		id = USA_the_bull_moose_on_our_side
+		icon = GFX_goal_USA_teddys_legacy
+		prerequisite = { focus = USA_model_teddys_runs }
+		x = 0
+		y = 1
+		relative_position_id = USA_model_teddys_runs
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+
+	focus = { 
+		id = USA_continue_the_taft_pact
+		icon = GFX_goal_USA_continue_the_taft_pact
+		prerequisite = { focus = USA_the_warren_campaign }
+		x = 1
+		y = 1
+		relative_position_id = USA_the_warren_campaign
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+	focus = { 
+		id = USA_the_conservatives_appeased
+		icon = GFX_goal_Cabinet
+		prerequisite = { focus = USA_continue_the_taft_pact }
+		x = 0
+		y = 1
+		relative_position_id = USA_continue_the_taft_pact
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+	focus = { 
+		id = USA_the_great_western_push
+		icon = GFX_goal_USA_promoting_longs_economic_policy
+		prerequisite = { focus = USA_the_conservatives_appeased }
+		prerequisite = {
+			focus = USA_the_bull_moose_on_our_side
+		}
+		x = -1
+		y = 1
+		relative_position_id = USA_the_conservatives_appeased
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			
+		}
+	}
+
+    
 
 
 	###smith
@@ -675,6 +824,7 @@ focus_tree = {
 			}
 		}
 		available = {
+			has_country_flag = USA_smith_wins_dnc
 		}
 	
 		available_if_capitulated = yes
@@ -775,7 +925,7 @@ focus_tree = {
 	}
 	focus = { 
 		id = USA_gain_fdrs_support
-		icon = GFX_goal_USA_promoting_longs_economic_policy
+		icon = GFX_goal_USA_gain_fdrs_support
 		prerequisite = { focus = USA_rally_the_northern_base }
 		prerequisite = {
 			focus = USA_promises_to_the_south
