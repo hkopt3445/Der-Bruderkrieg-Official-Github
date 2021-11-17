@@ -10,7 +10,7 @@ guiTypes = {
 		}
 		iconType = {
 			name ="Senate_Support_icon"
-			spriteType = "GFX_pol_power_icon"
+			spriteType = "GFX_usasenatetopbar"
 			position = { x = -80 y = 1 }
 			scale = 0.7
 		}
@@ -18,13 +18,12 @@ guiTypes = {
 			name ="Senate_Support_text"
 			position = { x = -62 y = 4 }
 			font = "hoi_18mbs"
-			text = "[?global.usa_senate_seat_array^0]%"
+			text = "[GetSenateSupport]%"
 			format = center
 			maxWidth = 46
 			maxHeight = 24
 			fixedsize = yes
-			pdx_tooltip = "Senate_Support_tt"
-			pdx_tooltip_delayed = "Senate_Support_tt_delayed"
+			pdx_tooltip = "Senate_Support_tt_desc"
 		}
 	}
 
@@ -109,7 +108,7 @@ guiTypes = {
 	##new election GUI
 	containerWindowType = {
 		name = "USA_open_presidential_election_window"
-		position = { x = 450 y = 315}
+		position = { x = 250 y = 390}
 		iconType = {
 			name = "USA_openelectionsbutton"
 			position = {
@@ -118,7 +117,7 @@ guiTypes = {
 			}
 			spriteType = "GFX_openelectionsbutton"
 			pdx_tooltip = "United States Elections"
-		}
+		} 
 	}
 	
 	containerWindowType = {
@@ -1039,6 +1038,238 @@ guiTypes = {
 		}
 	}
 
+
+	###DAS Loyalty
+	containerWindowType = {
+		name = "USA_Scales_GUI"
+		position = { x = 0 y = 100 }
+		size = { width = 100% height= 200 }
+
+        iconType = {
+			name = "USA_Scale_Neu"
+			spriteType = "GFX_USA_DAS_Scale_Neu"
+			position = { x= 10 y = -10 }
+		}
+
+        iconType = { 
+			name = "USA_Scale_Pos" 
+			spriteType = "GFX_USA_DAS_Scale_Pos"
+			position = { x= 10 y = -10 }
+		}
+
+        iconType = {
+			name = "USA_Scale_Neg"
+			spriteType = "GFX_USA_DAS_Scale_Neg"
+			position = { x= 10 y = -10 }
+		}
+
+        instantTextBoxType = {
+			name = "USA_Scale"
+			position = { x= 150 y = 160 }
+			font = "hoi_16mbs"
+			text = "DAS-Military Power is currently: [get_USA_Scale]"
+			format = center
+			maxHeight = 24
+		}
+	}
+
+	##avacados from mexico
+	containerWindowType = {
+		name = "USA_Mexico_Rebels_GUI"
+		position = { x = 0 y = 100 }
+		size = { width = 100% height= 400 }
+
+		iconType = {
+			name = "background"
+			spriteType = "GFX_USA_mexico_rebels_bg"
+			position = {
+				x = 7
+				y = 10
+			}
+		}
+
+		containerWindowType = {
+			name = "states"
+			position = {
+				x = 7
+				y = 10
+			}
+			iconType = {
+				name = "USA_mexico_rebels_baja_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_baja_resistance_high"
+				position = {
+					x = 4
+					y = 4
+				}
+				pdx_tooltip = "USA_mexico_rebels_baja_resistance_tt"
+			}
+			iconType = {
+				name = "USA_mexico_rebels_baja_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_baja_resistance_low"
+				position = {
+					x = 4
+					y = 4
+				}
+				pdx_tooltip = "USA_mexico_rebels_baja_resistance_tt"
+			}
+
+
+			iconType = {
+				name = "USA_mexico_rebels_sonora_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_sonora_resistance_high"
+				position = {
+					x = 47
+					y = 12
+				}
+				pdx_tooltip = "USA_mexico_rebels_sonora_resistance_tt"
+			}
+			iconType = {
+				name = "USA_mexico_rebels_sonora_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_sonora_resistance_low"
+				position = {
+					x = 47
+					y = 12
+				}
+				pdx_tooltip = "USA_mexico_rebels_sonora_resistance_tt"
+			}
+
+			iconType = {
+				name = "USA_mexico_rebels_chihuahua_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_chihuahua_resistance_high"
+				position = {
+					x = 183
+					y = 22
+				}
+				pdx_tooltip = "USA_mexico_rebels_chihuahua_resistance_tt"
+			}
+			iconType = {
+				name = "USA_mexico_rebels_chihuahua_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_chihuahua_resistance_low"
+				position = {
+					x = 183
+					y = 22
+				}
+				pdx_tooltip = "USA_mexico_rebels_chihuahua_resistance_tt"
+			}
+
+			iconType = {
+				name = "USA_mexico_rebels_durango_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_durango_resistance_high"
+				position = {
+					x = 167
+					y = 145
+				}
+				pdx_tooltip = "USA_mexico_rebels_durango_resistance_tt"
+			}
+			iconType = {
+				name = "USA_mexico_rebels_durango_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_durango_resistance_low"
+				position = {
+					x = 167
+					y = 145
+				}
+				pdx_tooltip = "USA_mexico_rebels_durango_resistance_tt"
+			}
+
+			iconType = {
+				name = "USA_mexico_rebels_coahulta_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_coahulta_resistance_high"
+				position = {
+					x = 291
+					y = 75
+				}
+				pdx_tooltip = "USA_mexico_rebels_coahulta_resistance_tt"
+			}
+			iconType = {
+				name = "USA_mexico_rebels_coahulta_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_coahulta_resistance_low"
+				position = {
+					x = 291
+					y = 75
+				}
+				pdx_tooltip = "USA_mexico_rebels_coahulta_resistance_tt"
+			}
+
+			iconType = {
+				name = "USA_mexico_rebels_jalisca_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_jalisca_resistance_high"
+				position = {
+					x = 253
+					y = 245
+				}
+				pdx_tooltip = "USA_mexico_rebels_jalisca_resistance_tt"
+			}
+			iconType = {
+				name = "USA_mexico_rebels_jalisca_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_jalisca_resistance_low"
+				position = {
+					x = 253
+					y = 245
+				}
+				pdx_tooltip = "USA_mexico_rebels_jalisca_resistance_tt"
+			}
+
+			iconType = {
+				name = "USA_mexico_rebels_tamamulipas_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_tamamulipas_resistance_high"
+				position = {
+					x = 332
+					y = 165
+				}
+				pdx_tooltip = "USA_mexico_rebels_tamamulipas_resistance_tt"
+			}
+			iconType = {
+				name = "USA_mexico_rebels_tamamulipas_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_tamamulipas_resistance_low"
+				position = {
+					x = 332
+					y = 165
+				}
+				pdx_tooltip = "USA_mexico_rebels_tamamulipas_resistance_tt"
+			}
+
+			iconType = {
+				name = "USA_mexico_rebels_mexico_city_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_mexico_city_resistance_high"
+				position = {
+					x = 336
+					y = 274
+				}
+				pdx_tooltip = "USA_mexico_rebels_mexico_city_resistance_tt"
+			}
+			iconType = {
+				name = "USA_mexico_rebels_mexico_city_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_mexico_city_resistance_low"
+				position = {
+					x = 336
+					y = 274
+				}
+				pdx_tooltip = "USA_mexico_rebels_mexico_city_resistance_tt"
+			}
+
+			iconType = {
+				name = "USA_mexico_rebels_veracruz_resistance_high"
+				spriteType = "GFX_USA_mexico_rebels_veracruz_resistance_high"
+				position = {
+					x = 399
+					y = 272
+				}
+				pdx_tooltip = "USA_mexico_rebels_veracruz_resistance_tt" 
+			}
+			iconType = {
+				name = "USA_mexico_rebels_veracruz_resistance_low"
+				spriteType = "GFX_USA_mexico_rebels_veracruz_resistance_low"
+				position = {
+					x = 399
+					y = 272
+				}
+				pdx_tooltip = "USA_mexico_rebels_veracruz_resistance_tt"
+			}
+		}
+
+		
+        
+	}
 
 
 	containerWindowType = { 

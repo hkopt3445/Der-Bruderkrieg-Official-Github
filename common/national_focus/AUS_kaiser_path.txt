@@ -466,7 +466,7 @@ shared_focus = {
 	  #search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	    AUS = { country_event = DBK_austria_start.9 }
+	    AUS = { country_event = DBK_austria_start.11 }
 	    hidden_effect = {
 			
 		}
@@ -514,7 +514,7 @@ shared_focus = {
     factor = 2000 
   }
 
-  available_if_capitulated = yes
+  available_if_capitulated = yes 
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
@@ -525,7 +525,7 @@ shared_focus = {
   }
 }
 
-
+ 
 
 
 shared_focus = {
@@ -708,9 +708,8 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_political_power = 40
-    add_stability = 0.03
-    add_war_support = 0.03
+    add_political_power = 50
+    unlock_decision_category_tooltip = AUS_cult_of_karl_i
 
     ##replace with Karls Cult of Personality!!!
   }
@@ -792,7 +791,7 @@ shared_focus = {
 
   completion_reward = {
     add_war_support = 0.1
-    add_political_power = 50
+    add_political_power = 75
   }
 }
 
@@ -913,7 +912,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_stability = 0.05
+    add_political_power = 75
   }
 }
 
@@ -935,7 +934,10 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_political_power = 75
+    swap_ideas = {
+      add_idea = Constitutionalism_2
+      remove_idea = Constitutionalism
+    }
     add_popularity = {
       ideology = democratic
       popularity = 0.05
@@ -1748,7 +1750,7 @@ shared_focus = {
 
   shared_focus = {
     id = AUS_form_the_ork
-    icon = GFX_goal_generic_construction2
+    icon = GFX_goal_GenericResourceExtraction
     relative_position_id = AUS_recover_from_black_monday
     prerequisite = {
       focus = AUS_recover_from_black_monday
@@ -1768,7 +1770,7 @@ shared_focus = {
   
   shared_focus = {
     id = AUS_sponsor_voestalpine
-    icon = GFX_goal_generic_trade
+    icon = GFX_goal_USA_economic_reform_plan
     relative_position_id = AUS_form_the_ork
     x = -3
     y = 1
@@ -2309,6 +2311,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_INDUSTRY } 
 
   completion_reward = {
+    add_ideas = AUS_austrian_school_of_economics
     random_owned_controlled_state = {
               add_building_construction = {
                   type = industrial_complex 
@@ -2326,6 +2329,31 @@ shared_focus = {
 
               }
               add_extra_state_shared_building_slots = 1
+    }
+
+   }
+}
+
+shared_focus = {
+  id = AUS_for_the_working_man
+  icon = GFX_USA_trust_busting
+  text = AUS_for_the_working_man 
+  prerequisite = { focus = AUS_civilian_economics }
+  x = 0
+  y = 1
+  relative_position_id = AUS_civilian_economics
+  cost = 5
+   ai_will_do = {
+    factor = 100
+  }
+
+  available_if_capitulated = yes
+  #search_filters = { FOCUS_FILTER_INDUSTRY } 
+
+  completion_reward = {
+    swap_ideas = {
+      add_idea = AUS_austrian_school_of_economics_2
+      remove_idea = AUS_austrian_school_of_economics
     }
 
    }
@@ -2452,7 +2480,10 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+    add_timed_idea = {
+      idea = SOV_military_subsidies
+      days = 100
+    }
     random_owned_controlled_state = {
               add_building_construction = {
                   type = arms_factory
@@ -2472,6 +2503,30 @@ shared_focus = {
               add_extra_state_shared_building_slots = 1
     } 
    }
+}
+shared_focus = {
+  id = AUS_improve_national_identity
+  icon = GFX_goal_GovernmentIcon
+  text = AUS_improve_national_identity
+  prerequisite = { focus = AUS_lisence_military_industries }
+
+  x = 0
+  y = 1
+  relative_position_id = AUS_lisence_military_industries
+  cost = 5
+   ai_will_do = {
+    factor = 100
+  }
+
+  available_if_capitulated = yes
+  #search_filters = { FOCUS_FILTER_INDUSTRY }
+
+  completion_reward = {
+   add_timed_idea = {
+     idea = AUS_higher_national_spirit
+     days = 400
+   }
+  }
 }
 
 shared_focus = {
@@ -2504,15 +2559,25 @@ shared_focus = {
 		cost = 4
 		available_if_capitulated = yes 
 		prerequisite = { focus = AUS_austrian_capitalism }
+    prerequisite = {
+      focus = AUS_improve_national_identity
+      focus = AUS_for_the_working_man
+    }
     relative_position_id = AUS_austrian_capitalism
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = { 
 			factor = 1000
 		}
 		completion_reward = {
-      add_ideas= AUS_austrian_capitalism
 
        remove_ideas = AUS_stagnant_economic_growth_2
+
+
+      add_timed_idea = {
+        idea = AUS_austrian_capitalism_idea
+        days = 365
+      }
+
        random_owned_controlled_state = {
               add_building_construction = {
                   type = infrastructure
@@ -3032,6 +3097,9 @@ shared_focus = {
     add_war_support = 0.05
     add_offsite_building = { type = arms_factory level = 1 }
     add_offsite_building = { type = arms_factory level = 1 }
+    add_offsite_building = { type = arms_factory level = 1 }
+    add_offsite_building = { type = arms_factory level = 1 }
+
    # unlock_decision_category_tooltip = AUS_preperation_for_the_second_bruderkrieg_infil
 
    }
@@ -3047,7 +3115,7 @@ shared_focus = {
   relative_position_id = AUS_the_next_bruderkrieg_is_coming
   cost = 3
   ai_will_do = {
-    factor = 1
+    factor = 90
   }
 
   bypass = {
@@ -3087,7 +3155,7 @@ shared_focus = {
   relative_position_id = AUS_a_war_of_battleplans
   cost = 5
   ai_will_do = {
-    factor = 200
+    factor = 0
   }
 
   bypass = {
@@ -3165,7 +3233,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_looking_for_defense_contractors
-  icon = GFX_goal_generic_construct_mil_factory
+  icon = GFX_goal_ITA_contacts_with_confindustria
   prerequisite = {
     focus = AUS_the_next_bruderkrieg_is_coming
   }
@@ -3186,7 +3254,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_man
-  icon = GFX_goal_generic_army_tanks
+  icon = GFX_ITA_militarism2
   x = -1
   y = 1
   cost = 5
@@ -3236,7 +3304,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_messerschmitt
-  icon = GFX_goal_generic_air_fighter2
+  icon = GFX_goal_AUS_planes
   x = 0
   y = 1
   cost = 5
@@ -3285,7 +3353,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_koda_works
-  icon = GFX_goal_generic_army_artillery2
+  icon = GFX_goal_mil_equipment
   x = 1
   y = 1
   cost = 5
@@ -3334,7 +3402,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_rag
-  icon = GFX_goal_generic_oil_refinery
+  icon = GFX_goal_SOV_oil_titan
   x = 1
   y = 1
   cost = 5
@@ -3383,7 +3451,7 @@ shared_focus = {
 
 shared_focus = {
 	id = AUS_bmw
-	icon = GFX_goal_generic_air_bomber
+	icon = GFX_goal_AUS_crazy_arms
 	x = -1
 	y = 1
 	cost = 5
@@ -3432,7 +3500,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_koda_naval_yards
-  icon = GFX_goal_generic_occupy_states_coastal
+  icon = GFX_DBK_generic_build_navy
   x = 0
   y = 1
   cost = 5
@@ -3461,7 +3529,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_counter_the_blockade
-  icon = GFX_goal_generic_occupy_states_coastal
+  icon = GFX_goal_ITA_industry
   x = 0
   y = 2
   cost = 5
@@ -3520,8 +3588,8 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_reinforce_the_sgc_garrison
-  icon = GFX_goal_AUS_reinforcing_the_sgc_garrissons
-  text = AUS_reinforce_the_sgc_garrison
+  icon = GFX_ITA_purchase_small_arms
+  text = AUS_reinforce_the_sgc_garrison 
   prerequisite = { focus = AUS_war_of_ideology }
   mutually_exclusive = {focus = AUS_recalling_franz_ferdinand}
   x = -1
@@ -3571,7 +3639,7 @@ shared_focus = {
 }
 shared_focus = {
   id = AUS_they_are_our_puppet
-  icon = GFX_goal_AUS_they_will_always_be_our_puppet
+  icon = GFX_USA_the_great_scare
   text = AUS_they_are_our_puppet
   prerequisite = { focus = AUS_reinforce_the_sgc_garrison }
   x = 0
@@ -3639,7 +3707,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_supporting_ohv_autonomy
-  icon = GFX_goal_AUS_OKH_autonomy
+  icon = GFX_goal_Cabinet
   text = AUS_supporting_ohv_autonomy
   prerequisite = { focus = AUS_recalling_franz_ferdinand }
   x = 0
@@ -3798,7 +3866,7 @@ shared_focus = {
 # }
 shared_focus = {
   id = AUS_the_final_showdown
-  icon = GFX_goal_FRA_keep_out_the_reichmarshall
+  icon = GFX_goal_stabprussia
   text = AUS_the_final_showdown
   prerequisite = {focus = AUS_on_the_offensive}
   x = 0
@@ -4786,11 +4854,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_tech_bonus = {
-      bonus = 1
-      uses = 1
-      category = cas_bomber
-    }
+   set_rule =  { can_generate_female_aces = yes }
   }
 }
 
@@ -4906,6 +4970,11 @@ shared_focus = {
       }
       add_extra_state_shared_building_slots = 1
     }
+    add_tech_bonus = {
+      bonus = 1
+      uses = 1
+      category = air_doctrine
+    }
   }
 }
 shared_focus = {
@@ -4986,7 +5055,11 @@ shared_focus = {
   cost = 5
 
   available = {
-    has_global_flag = wiltkrieg
+    OR = {
+      has_war_with = GER
+      has_war_with = SOV
+      has_war_with = ITA
+    }
   }
 
   ai_will_do = {
@@ -5695,6 +5768,7 @@ shared_focus = {
   completion_reward = {
       add_state_core = 814
       add_state_core = 818
+      add_threat = 5  
       every_state = {
         limit = {
           OR = {
@@ -5792,7 +5866,7 @@ shared_focus = {
 }
 
 
-shared_focus = {
+shared_focus = { 
   id = AUS_secure_krakow
   icon = GFX_goal_SOV_greater_russia
   text = AUS_secure_krakow

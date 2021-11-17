@@ -69,18 +69,21 @@ HUN_dont_fucking_join_GER = {
 }
 
 GER_unit_production = {
-	enable = {
+	allowed = {
 		original_tag = GER
+	}
+	enable = {
+		always = yes
 	}
 	abort = {
 		always = no
 	}
-
+	
 	ai_strategy = {
 		type = role_ratio
 		id = garrison
-		value = 4 
-	} 
+		value = 4
+	}
 
 	# Old garrison system against resistance
 	# ai_strategy = {
@@ -88,7 +91,7 @@ GER_unit_production = {
 	# 	id = suppression
 	# 	value = 6
 	# }
-
+	
 	ai_strategy = {
 		type = role_ratio
 		id = paratroopers
@@ -109,7 +112,7 @@ GER_unit_production = {
 
 	ai_strategy = {
 		type = role_ratio
-		id = cavalry
+		id = cavalry 
 		value = -100
 	}
 
@@ -134,41 +137,41 @@ GER_unit_production = {
 	ai_strategy = {
 		type = role_ratio
 		id = infantry
-		value = 70 #88 to 70
+		value = 75 #88 to 70
 	}
-
+	
 	#Air unit factors
 	ai_strategy = {
 		type = unit_ratio
 		id = fighter
 		value = 100
 	}
-
+	
 	ai_strategy = {
 		type = unit_ratio
 		id = cas
 		value = -35 #because doctrine this = 15
 	}
-
+	
 	ai_strategy = {
 		type = unit_ratio
 		id = tactical_bomber
 		value = -40
 	}
-
+	
 	ai_strategy = {
 		type = unit_ratio
 		id = strategic_bomber
 		value = -10
 	}
-
+	
 	ai_strategy = {
 		type = unit_ratio
 		id = naval_bomber
 		value = 5
 	}
-
-
+	
+	
 	# Naval unit factors
 	ai_strategy = {
 		type = unit_ratio
@@ -193,11 +196,11 @@ GER_unit_production = {
 		id = convoy
 		value = 20
 	}
-
+	
 	ai_strategy = {
 		type = equipment_production_factor
 		id = fighter
-		value = 180
+		value = 175
 	}
 
 	ai_strategy = {
@@ -223,11 +226,11 @@ GER_unit_production = {
 		id = strategic_bomber
 		value = -200
 	}
-
+	
 	ai_strategy = {
 		type = equipment_production_factor
 		id = infantry
-		value = 0 #30 to 50
+		value = 10 #30 to 50
 	}
 
 	ai_strategy = {
@@ -241,18 +244,18 @@ GER_unit_production = {
 		id = anti_air
 		value = 50
 	}
-
+	
 	ai_strategy = {
 		type = equipment_production_factor
 		id = artillery
 		value = 85 #20 to 40
 	}
-
+	
 	ai_strategy = {
 		type = equipment_production_factor
 		id = armor
-		value = -10
-	}
+		value = -10 
+	} 
 	ai_strategy = {
 		type = equipment_production_factor
 		id = motorized
@@ -278,14 +281,14 @@ GER_unit_production = {
 		id = support_equipment
 		value = 30
 	}
-}
+}	
 
 GER_armored_production = {
 	allowed = {
 		original_tag = GER
 	}
 	enable = {
-		date > 1939.1.1
+		date > 1941.1.1
 		ai_wants_divisions > 24 #Decreasing the amount of tanks the AI wants
 	}
 	abort = {
@@ -307,7 +310,7 @@ GER_halt_light_armor_production_in_transitioning = {
 		has_template_majority_unit = medium_armor
 		OR = {
 			has_equipment = { light_tank_equipment > 600 }
-			date > 1939.1.1
+			date > 1941.1.1
 		}		
 	}
 	abort = {
@@ -347,7 +350,9 @@ GER_build_units_dumbfucks = {
 	}
 
 	ai_strategy = {
-		type = force_build_armies
+		type = build_army
+		id = "infantry"
+		value = 10000
 	}
 }
 
@@ -550,6 +555,21 @@ GER_declare_war_on_austria = {
         value = 6969
     }
 }
+GER_declare_war_on_england = {
+    allowed = {
+        tag = GER
+    }
+    enable = {
+        tag = GER
+    }
+    abort_when_not_enabled = yes
+    
+    ai_strategy = {
+        type = declare_war
+        id = "ENG"            
+        value = 6969
+    }
+}
 
 GER_build_civs_till_1938 = {
     allowed = {
@@ -602,5 +622,167 @@ prussia_send_volunteers_to_karadordevic = {
 		type = send_volunteers_desire	
 		id = SER
 		value = 6060
+	}
+}	
+
+prussia_send_volunteers_to_hungary = {
+	enable = {
+		has_idea = Intervention_in_Hungary
+	}
+	allowed = {
+		tag = GER
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = HUN
+		value = 6060
+	}
+}	
+
+GER_build_motherfucking_army = { #hopefully the expletive makes it work better :)
+    enable = {
+        tag = GER
+    }
+
+    ai_strategy = {
+        type = force_build_armies
+        value = 6969
+    }
+    
+  
+}
+
+
+prussia_dont_send_volunteers_to_france_or_austria = {
+	enable = {
+		tag = GER
+	}
+	allowed = {
+		tag = GER
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = FRA
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = AUS
+		value = -6060
+	}
+}	
+
+
+france_dont_send_volunteers_to_prussia_or_russia = {
+	enable = {
+		tag = FRA
+	}
+	allowed = {
+		tag = FRA
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = SOV
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = GER
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = ITA
+		value = -6060
+	}
+	
+}	
+
+austria_dont_send_volunteers_to_prussia_or_russia = {
+	enable = {
+		tag = AUS
+	}
+	allowed = {
+		tag = AUS
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = SOV
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = GER
+		value = -6060
+	}
+}	
+
+
+russia_dont_send_volunteers_to_austria = {
+	enable = {
+		tag = SOV
+	}
+	allowed = {
+		tag = SOV
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = AUS
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = GPU
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = HUN
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = GLC
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = HES
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = BAD
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = WUR
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = CZE
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = ITF
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = CRO
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = TUR
+		value = -6060
 	}
 }	

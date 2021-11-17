@@ -1,0 +1,748 @@
+AIG_worldbuilding_decisions = {
+	AIG_form_the_indian_united_front = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+			NOT = {
+				has_country_flag = AIG_chose_path
+			}
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		complete_effect = {
+			set_country_flag = AIG_chose_path
+			set_country_flag = AIG_chose_united_front_path
+			news_event = {
+				id = USA_flavor_events.1
+				days = 400
+			}
+			news_event = {
+				id = USA_flavor_events.2
+				days = 950
+			}
+		}
+		fire_only_once = yes
+		days_remove = 620
+		remove_effect = {
+			create_faction = "Indian United Front"
+			news_event = indian_civil_war.1 
+			set_country_flag = indian_united_front
+		}
+	
+	}
+	AIG_invite_kashmir = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+			has_country_flag = indian_united_front
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			KAS = {
+				country_event = generic.5
+			}
+		}
+	
+	}
+	AIG_invite_sikh = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+			has_country_flag = indian_united_front
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			KHA = {
+				country_event = generic.5
+			}
+		}
+	
+	}
+	AIG_invite_inc = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+			has_country_flag = indian_united_front
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			INC = {
+				country_event = generic.5
+			}
+		}
+	}
+	AIG_invite_pak = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+			has_country_flag = indian_united_front
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			PAK = {
+				country_event = generic.5
+			}
+		}
+	}
+	AIG_invite_dra = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+			has_country_flag = indian_united_front
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			DRA = {
+				country_event = generic.5
+			}
+		}
+	}
+
+	AIG_path_of_revanchism = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+			NOT = {
+				has_country_flag = AIG_chose_path
+			}
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		complete_effect = {
+			set_country_flag = AIG_chose_path
+			news_event = {
+				id = USA_flavor_events.1
+				days = 400
+			}
+			news_event = {
+				id = USA_flavor_events.2
+				days = 800
+			}
+		}
+		fire_only_once = yes
+		days_remove = 620
+		remove_effect = {
+			create_faction = "Dehli Axis"
+			news_event = indian_civil_war.2 
+			set_country_flag = indian_axis
+		}
+	}
+	AIG_invade_kashmir = {
+		icon = generic_nation
+		available = {
+			NOT = {
+			has_war = yes}
+			has_country_flag = indian_axis
+			NOT = {
+				has_country_flag = AIG_doing_invasion_decision
+			}
+		}
+		visible = {
+		
+		}
+		complete_effect = {
+			set_country_flag = AIG_doing_invasion_decision
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			clr_country_flag = AIG_doing_invasion_decision
+			create_wargoal = { target = KAS type = annex_everything }
+		}
+	
+	}
+	AIG_invade_sikh = {
+		icon = generic_nation
+		available = {
+			NOT = {
+			has_war = yes}
+			has_country_flag = indian_axis
+			NOT = {
+				has_country_flag = AIG_doing_invasion_decision
+			}
+		}
+		visible = {
+		
+		}
+		complete_effect = {
+			set_country_flag = AIG_doing_invasion_decision
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			clr_country_flag = AIG_doing_invasion_decision
+			create_wargoal = { target = KHA type = annex_everything }
+		}
+	
+	}
+	AIG_invade_inc = {
+		icon = generic_nation
+		available = {
+			NOT = {
+			has_war = yes}
+			has_country_flag = indian_axis
+			NOT = {
+				has_country_flag = AIG_doing_invasion_decision
+			}
+		}
+		visible = {
+		
+		}
+		complete_effect = {
+			set_country_flag = AIG_doing_invasion_decision
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			clr_country_flag = AIG_doing_invasion_decision
+			create_wargoal = { target = INC type = annex_everything }
+		}
+	}
+	AIG_invade_pak = {
+		icon = generic_nation
+		available = {
+			NOT = {
+			has_war = yes}
+			has_country_flag = indian_axis
+			NOT = {
+				has_country_flag = AIG_doing_invasion_decision
+			}
+		}
+		visible = {
+		
+		}
+		complete_effect = {
+			set_country_flag = AIG_doing_invasion_decision
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			clr_country_flag = AIG_doing_invasion_decision
+			create_wargoal = { target = PAK type = annex_everything }
+		}
+	}
+	AIG_invade_dra = {
+		icon = generic_nation
+		available = {
+			NOT = {
+			has_war = yes}
+			has_country_flag = indian_axis
+			NOT = {
+				has_country_flag = AIG_doing_invasion_decision
+			}
+		}
+		visible = {
+		
+		}
+		complete_effect = {
+			set_country_flag = AIG_doing_invasion_decision
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			clr_country_flag = AIG_doing_invasion_decision
+			create_wargoal = { target = DRA type = annex_everything }
+		}
+	}
+	AIG_howrah_bridge_incident = {
+		icon = generic_nation
+		available = {
+			is_in_faction = yes
+		}
+		visible = {
+		
+		}
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 300
+		remove_effect = {
+			news_event = indian_civil_war.3
+			RAJ = {
+				country_event = {
+					id = indian_civil_war.4
+					days = 10
+				}
+			}
+		}
+	}
+
+
+	AIG_buff_facories = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = no
+		days_remove = 120
+		days_re_enable = 50
+		remove_effect = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	
+	}
+}
+
+
+china_worldbuilding_decisions = {
+
+	##kmt collapse mission
+	kmt_collapse_timeout = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		  hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes 
+	
+		activation = {
+		  OR = { tag = CHI tag = JAP tag = BEI tag = GZC }
+		  has_global_flag = kmt_collapse_activation
+		}
+	
+		visible = {
+		  OR = { tag = CHI tag = JAP tag = BEI tag = GZC }
+		  has_global_flag = kmt_collapse_activation
+		} 
+
+		available = {
+			OR = {
+				CHI = {
+					surrender_progress > 0.99
+				}
+				CHI = {
+					exists = no
+				}
+			}
+		}
+	
+		#cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = CHI.surrender_progress 
+						value = 51
+						compare = less_than
+					}
+				}
+				BEI = {
+					country_event = kmt_collapse.3
+				}
+			}
+			else = {
+				BEI = {
+					country_event = kmt_collapse.2
+				}
+			}
+			BEI = {
+				white_peace = CHI
+			}
+		}
+		complete_effect = {
+			BEI = {
+				white_peace = CHI
+			}
+			BEI = {
+				country_event = kmt_collapse.2
+			}
+			
+			
+		}
+	}
+
+	###prc expansion
+	peoples_great_qing_expansion_timeout = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		  hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 120
+	
+		fire_only_once = yes 
+	
+		activation = {
+		  OR = { tag = PRC tag = SHC tag = SIC }
+		  has_global_flag = peoples_great_qing_expansion_activation
+		}
+	
+		visible = {
+		  OR = { tag = PRC tag = SHC tag = SIC }
+		  has_global_flag = peoples_great_qing_expansion_activation
+		} 
+
+		available = {
+			OR = {
+				SIC = {
+					surrender_progress > 0.99
+				}
+				SIC = {
+					exists = no
+				}
+			}
+		}
+	
+		#cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = SIC.surrender_progress 
+						value = 51
+						compare = less_than
+					}
+				}
+				SHC = {
+					country_event = peoples_great_qing_expansion.3
+				}
+			}
+			else = {
+				PRC = {
+					country_event = peoples_great_qing_expansion.2
+				}
+			}
+			SIC = {
+				white_peace = PRC
+			}
+		}
+		complete_effect = {
+			SIC = {
+				white_peace = PRC
+			}
+			
+				PRC = {
+					country_event = peoples_great_qing_expansion.2
+				}
+			
+		}
+	}
+
+	peoples_great_qing_expansion_ma_timeout = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		  hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 120
+	
+		fire_only_once = yes 
+	
+		activation = {
+		  OR = { tag = PRC tag = XSM tag = GUO }
+		  has_global_flag = peoples_great_qing_expansion_ma_activation
+		}
+	
+		visible = {
+		  OR = { tag = PRC tag = XSM tag = GUO }
+		  has_global_flag = peoples_great_qing_expansion_ma_activation
+		} 
+
+		available = {
+			OR = {
+				GUO = {
+					surrender_progress > 0.99
+				}
+				GUO = {
+					exists = no
+				}
+			}
+		}
+	
+		#cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = PRC.surrender_progress 
+						value = XSM.surrender_progress
+						compare = greater_than
+					}
+				}
+				XSM = {
+					country_event = peoples_great_qing_expansion.6
+				}
+			}
+			else = {
+				PRC = {
+					country_event = peoples_great_qing_expansion.5
+				}
+			}
+			XSM = {
+				white_peace = PRC
+			}
+		}
+		complete_effect = {
+			XSM = {
+				white_peace = PRC
+			}
+			PRC = {
+				country_event = peoples_great_qing_expansion.5
+			}
+		
+		}
+	}
+
+	##south china war mission
+	south_china_war_timeout = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		 # hidden_trigger = { always = no }
+		 #NOT = {
+			 OR = {
+				GZC = {
+					surrender_progress > 0.99
+				}
+				GZC = {
+					exists = no
+				}
+				YUN = {
+					surrender_progress > 0.99
+				}
+				YUN = {
+					exists = no
+				}
+			 }
+		# }
+
+		}
+	
+		days_mission_timeout = 80
+	
+		fire_only_once = yes 
+	
+		activation = {
+		  OR = { tag = GZC tag = YUN }
+		  has_global_flag = south_china_war_activation
+		}
+	
+		visible = {
+		  OR = { tag = GZC tag = YUN }
+		  has_global_flag = south_china_war_activation
+		} 
+	
+		#cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = GZC.surrender_progress 
+						value = YUN.surrender_progress
+						compare = greater_than
+					}
+				}
+				YUN = {
+					country_event = south_china_war.3
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = YUN.surrender_progress 
+						value = GZC.surrender_progress
+						compare = greater_than
+					}
+				}
+				GZC = {
+					country_event = south_china_war.2
+				}
+			}
+			GZC = {
+				white_peace = YUN
+			}
+		}
+		complete_effect = {
+			GZC = {
+				white_peace = YUN
+			}
+			if = {
+				limit = {
+					OR = {
+							check_variable = {
+								var = GZC.surrender_progress 
+								value = YUN.surrender_progress
+								compare = greater_than
+							}
+							YUN = {
+								exists = no
+							}
+						}
+				}
+				YUN = {
+					country_event = south_china_war.3
+				}
+			}
+			if = {
+				limit = {
+						OR = {
+							check_variable = {
+								var = YUN.surrender_progress 
+								value = GZC.surrender_progress
+								compare = greater_than
+							}
+							GZC = {
+								exists = no
+							}
+						}
+					}
+				GZC = {
+					country_event = south_china_war.2
+				}
+			}
+			
+		}
+	}
+}

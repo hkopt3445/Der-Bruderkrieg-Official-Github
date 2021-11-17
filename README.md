@@ -1,24 +1,26 @@
+# INSTALL USING THIS GUIDE!!! https://docs.google.com/document/u/2/d/1Y-YounEmCfa692C1CH5nxy3cqNzFngrET14O44i6aPI
+
 # Der Bruderkrieg
 Der Bruderkrieg is a Hearts of Iron 4 mod which asks what if Austria won the Austro-Prussian War, leading to a never unified Germany and an Austrian Superpower as well as a survived Ottoman Empire which is very unstable along with many other countries and Lenin not taking power. yet.
 
 
 ## Founder <br />
-Big Floopa <br />
+Arj <br />
 
 ## Lead Developers <br /> 
 Polarn <br />
 Shark28 <br />
-Elysian <br />
 Bruno <br />
 Huey Long <br />
 
 
 ## Contributors  <br />
-Tolz  <br />
+Glugenash  <br />
+Chowder <br />
 Samurai  <br />
+Tolz  <br />
 Jufkenzi <br />
 Asbestosstar <br />
-Chowder <br />
 WorldMapper3 <br />
 
 

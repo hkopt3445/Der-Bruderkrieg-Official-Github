@@ -5809,7 +5809,11 @@ weltkrieg_decisions = {
 				NOT = {
 					has_war_with = GER
 				}
+				NOT = {
+					has_country_flag = UK_chose_mosley
+				}
 			}
+			
 		}
 
 		visible = {
@@ -5875,7 +5879,7 @@ weltkrieg_decisions = {
 		}
 	
 		remove_effect = {
-			JAP = {
+			JAP = { 
 				country_event = austria.17
 			}
 		}
@@ -5964,4 +5968,89 @@ weltkrieg_decisions = {
 		}
 	}
 	
+}
+
+AUS_cult_of_karl_i = {
+	
+	AUS_karl_defender_of_austria = {
+
+		icon = generic_civil_support
+
+		cost = 50
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			add_stability = 0.05
+		}
+
+	}
+
+	AUS_karl_protector_of_minorities = {
+
+		icon = generic_civil_support
+
+		cost = 50
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			add_stability = 0.05
+		}
+
+	}
+
+	AUS_fight_for_karl = {
+
+		icon = generic_industry
+
+		cost = 50
+
+		fire_only_once = yes
+
+		available = {
+			has_war = yes
+		}
+
+		days_remove = 100
+
+		modifier = {
+			weekly_manpower = 100
+			mobilization_speed = 0.1
+		}
+
+	}
+
+	AUS_karls_europakrieg_knowledge = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		fire_only_once = yes
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.25
+				uses = 1
+				category = land_doctrine
+			}
+		}
+
+	}
+
 }

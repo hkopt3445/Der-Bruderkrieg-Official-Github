@@ -120,6 +120,9 @@ shared_focus = {
 	ai_will_do = {
 		factor = 20
 	}
+	available = {
+		has_completed_focus = SOV_promoting_capitalism
+	}
 
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -164,7 +167,7 @@ shared_focus = {
 		focus = SOV_promoting_capitalism
 	}
 	
-	x = 1
+	x = -3
 	y = 1
 	relative_position_id = SOV_consumerist_ideals
 	cost = 5
@@ -223,10 +226,12 @@ shared_focus = {
 		focus = SOV_promoting_capitalism
 	}
 	
-	x = -3
+	x = 1
 	y = 1
 	relative_position_id = SOV_consumerist_ideals
-
+	available = {
+		has_completed_focus = SOV_fund_the_corporations
+	}
 	
 	cost = 5
 	ai_will_do = {
@@ -734,7 +739,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_continuing_russification
-	cost = 2
+	cost = 4.5
 	ai_will_do = {
 		factor = 20
 	}
@@ -755,7 +760,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_continuing_russification
-	cost = 2
+	cost = 4.5
 	ai_will_do = {
 		factor = 20
 	}
@@ -767,7 +772,7 @@ shared_focus = {
 		
 		add_ideas = SOV_pavel_army_minority_reforms
 		}
-}
+} 
 
 # shared_focus = {
 # 	id = SOV_strengthening_press_censorship
@@ -1049,7 +1054,7 @@ shared_focus = {
 
 shared_focus = {
 	id = SOV_dreams_of_a_greater_russia
-	icon = GFX_goal_SOV_greater_russia
+	icon = GFX_goal_SOV_defender_of_eurasian_freedom
 	x = 31
 	y = 0 
 	
@@ -1072,11 +1077,11 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		create_faction = "Russian Sphere"
+		create_faction = "The Federation of Global Authority"
 		add_war_support = 0.1
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 2000
 	}
 }
 
@@ -1135,7 +1140,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 # shared_focus = {
@@ -1194,7 +1206,14 @@ shared_focus = {
         }
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1249,7 +1268,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1280,7 +1306,14 @@ shared_focus = {
 		country_event = { id = SOV_pavel_foriegn_policy_tree.2 }
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -1313,7 +1346,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -1338,9 +1378,8 @@ shared_focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 
-	completion_reward = {
+	completion_reward = { 
 		add_state_core = 352
-		add_state_core = 800
 		add_state_core = 353
 		add_state_core = 354
 		add_state_core = 843
@@ -1348,7 +1387,14 @@ shared_focus = {
 		add_ideas = SOV_Orthodox_Liberation_Campaign
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 # shared_focus = {
@@ -1406,7 +1452,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1479,7 +1532,14 @@ shared_focus = {
 
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1508,43 +1568,17 @@ shared_focus = {
 		TUR = { country_event = SOV_pavel_foriegn_policy_tree.7 }
 	}
 	ai_will_do = {
-		factor = 20
-	}
-}
-shared_focus = {
-	id = SOV_varna_port_lease
-	icon = GFX_goal_SOV_varna_port_lease
-	x = -1
-	y = 1
-	
-	available = {
-		BUL = {
-			is_in_faction = yes
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
 		}
 	}
-	bypass = {
-
-	}
-	prerequisite = { focus = SOV_counteract_the_iron_guard }
-	relative_position_id = SOV_counteract_the_iron_guard
-
-	cost = 5		
-	
-
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-
-	completion_reward = {
-		add_timed_idea = {
-			idea = SOV_varna_port_lease_idea
-			days = 730
-		}
-	}
-	ai_will_do = {
-		factor = 20
-	}
 }
+
 
 shared_focus = {
 	id = SOV_ensure_the_independence_of_romania
@@ -1573,7 +1607,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1608,7 +1649,55 @@ shared_focus = {
 		custom_effect_tooltip = SOV_counteract_the_iron_guard
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
+	}
+}
+shared_focus = {
+	id = SOV_varna_port_lease
+	icon = GFX_goal_SOV_varna_port_lease
+	x = -1
+	y = 1
+	
+	available = {
+		BUL = {
+			is_in_faction = yes
+		}
+	}
+	bypass = {
+
+	}
+	prerequisite = { focus = SOV_counteract_the_iron_guard }
+	relative_position_id = SOV_counteract_the_iron_guard
+
+	cost = 5		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_timed_idea = {
+			idea = SOV_varna_port_lease_idea
+			days = 730
+		}
+	}
+	ai_will_do = {
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1641,7 +1730,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -1695,21 +1791,29 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		unlock_decision_category_tooltip = SOV_Forming_Turkestan
+		#unlock_decision_category_tooltip = SOV_Forming_Turkestan
 		NRX = { 
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = 1000
 				producer = SOV
 			}
+			country_event = russia.22
 		}
-		hidden_effect = {
-			set_variable = { SOV.forming_turkestan_progress = 0 }
-			set_country_flag = SOV_Forming_Turkestan_Unlock
-		}
+		# hidden_effect = {
+		# 	set_variable = { SOV.forming_turkestan_progress = 0 }
+		# 	set_country_flag = SOV_Forming_Turkestan_Unlock
+		# }
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -1744,7 +1848,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -1778,7 +1889,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1811,7 +1929,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1826,9 +1951,7 @@ shared_focus = {
 
 	}
 	prerequisite = { focus = SOV_dreams_of_a_greater_russia }
-	prerequisite = {
-		focus = SOV_target_japan
-	}
+
 	relative_position_id = SOV_dreams_of_a_greater_russia
 
 	cost = 5		
@@ -1845,7 +1968,14 @@ shared_focus = {
 		add_threat = 2
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -1880,7 +2010,14 @@ shared_focus = {
 		add_threat = 2
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -1912,7 +2049,14 @@ shared_focus = {
 	completion_reward = {
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -1970,7 +2114,14 @@ shared_focus = {
 		add_threat = 3
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -2001,7 +2152,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -2066,47 +2224,60 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
-	}
-}
-shared_focus = {
-	id = SOV_gain_american_naval_support
-	icon = GFX_goal_SOV_us_naval_support
-	x = 1
-	y = 1
-	
-	available = {
-	}
-	bypass = {
-
-	}
-	prerequisite = { focus = SOV_naval_arms_race }
-	prerequisite = { focus = SOV_meet_with_the_president }
-	relative_position_id = SOV_naval_arms_race
-
-	cost = 5		
-	
-
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-
-	completion_reward = {
-		unlock_decision_category_tooltip = SOV_American_Support_in_the_Second_Russo_Japanese_War
-		hidden_effect = {
-			set_country_flag = SOV_American_Support_Unlock
-
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
 		}
 	}
-	ai_will_do = {
-		factor = 20
-	}
 }
+# shared_focus = {
+# 	id = SOV_gain_american_naval_support
+# 	icon = GFX_goal_SOV_us_naval_support
+# 	x = 1
+# 	y = 1
+	
+# 	available = {
+# 	}
+# 	bypass = {
+
+# 	}
+# 	prerequisite = { focus = SOV_naval_arms_race }
+# 	#prerequisite = { focus = SOV_meet_with_the_president }
+# 	relative_position_id = SOV_naval_arms_race
+
+# 	cost = 5		
+	
+
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
+
+# 	completion_reward = {
+		
+# 		USA = {
+# 			country_event =  SOV_Second_Rus_Jap_War_Events.1
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		factor = 200
+# 		modifier = {
+# 			add = -200
+# 			NOT = {
+# 				has_completed_focus = SOV_a_united_russia
+# 				has_completed_focus = SOV_a_new_russian_army
+# 			}
+# 		}
+# 	}
+# }
 
 shared_focus = {
 	id = SOV_demand_japanese_lands
 	icon = GFX_goal_SOV_demand_japanese_lands
-	x = -3
+	x = -1
 	y = 1
 	
 	available = {
@@ -2114,10 +2285,9 @@ shared_focus = {
 	bypass = {
 
 	}
-	prerequisite = { focus = SOV_gain_american_naval_support }
 	prerequisite = { focus = SOV_fortress_vladivostok }
 	prerequisite = { focus = SOV_contact_chiang_kai_shek focus = SOV_restoration_of_the_qing_dynasty }
-	relative_position_id = SOV_gain_american_naval_support
+	relative_position_id = SOV_fortress_vladivostok
 
 	cost = 5		
 	
@@ -2130,7 +2300,14 @@ shared_focus = {
 		JAP =  { country_event = SOV_pavel_foriegn_policy_tree.4 }
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	} 
 }
 
@@ -2163,33 +2340,34 @@ shared_focus = {
 # 	}
 # }
 
-shared_focus = {
-	id = SOV_meet_with_the_president
-	icon = GFX_goal_GovernmentIcon
-	x = 3
-	y = 1
+# shared_focus = {
+# 	id = SOV_meet_with_the_president
+# 	icon = GFX_goal_GovernmentIcon
+# 	x = 3
+# 	y = 1
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
-	prerequisite = { focus = SOV_claim_south_sakhalin } 
-	relative_position_id = SOV_claim_south_sakhalin
+# 	}
+# 	prerequisite = { focus = SOV_claim_south_sakhalin } 
+# 	relative_position_id = SOV_claim_south_sakhalin
 
-	cost = 5		
+# 	cost = 5		
 	
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-	}
-	ai_will_do = {
-		factor = 20
-	}
-}
+# 	completion_reward = {
+# 		###code in with US focuses
+# 	}
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
+# }
 
 shared_focus = {
 	id = SOV_intervene_in_austria
@@ -2221,7 +2399,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 shared_focus = {
@@ -2266,7 +2451,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -2303,7 +2495,14 @@ shared_focus = {
 		add_threat = 5
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -2346,7 +2545,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -2382,7 +2588,14 @@ shared_focus = {
 		add_threat = 5
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -2414,9 +2627,19 @@ shared_focus = {
 
 	completion_reward = {
 		##event ig
+		FRA = {
+			country_event = generic.27
+		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 
@@ -2458,7 +2681,14 @@ shared_focus = {
 		}
 	}
 	ai_will_do = {
-		factor = 20
+		factor = 1
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
 	}
 }
 

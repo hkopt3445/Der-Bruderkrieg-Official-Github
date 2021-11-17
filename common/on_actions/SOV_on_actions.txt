@@ -1,12 +1,14 @@
 on_actions = {
     on_startup = {
         effect = {
-		KML = {
+
+            
+		KUL = {
             load_oob = "Xinjiang"
             random_owned_controlled_state = {
                 create_unit = {
                       division = "name = \"Kumul\" division_template = \"Juntuán\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
-                        owner = KML
+                        owner = KUL
                 }
             }
         }
@@ -326,6 +328,17 @@ on_actions = {
                 }
                 hidden_effect = {
                     news_event = russian_expansion.1
+
+                    if = {
+                        limit = {
+                            SOV = {
+                                has_war_with = AUS
+                            }
+                        }
+                        BEI = {
+                            country_event = { id = china_in_the_world_war.1 days = 30 }
+                        }
+                    }
                 }
             }
             if = {
@@ -337,6 +350,16 @@ on_actions = {
                 }
                 hidden_effect = {
                     news_event = russian_expansion.3
+                    if = {
+                        limit = {
+                            SOV = {
+                                has_war_with = JAP
+                            }
+                        }
+                        BEI = {
+                            country_event = { id = china_in_the_world_war.1 days = 30 }
+                        }
+                    }
                 }
             }
         }

@@ -23,7 +23,10 @@ DBK_USA_election = {
 
 	scripted_gui = DBK_electoral_count_decision_container
 	allowed = {
-		original_tag = USA
+		tag = USA
+	}
+	visible = {
+		is_ai = yes
 	}
 
 	priority = {
@@ -57,11 +60,43 @@ USA_the_mafia = {
 
 	visible = {
 		has_completed_focus = USA_the_end_of_prohibition
+		NOT = {
+			has_country_flag = USA_nyc_mafia_crushed
+		}
 	}
 }
 
 
+USA_the_das_problem = {
+	allowed = {
+		tag = USA
+	}
 
+	visible_when_empty = yes
+
+	visible = {
+		has_completed_focus = USA_land_of_the_rising_moon
+	}
+	scripted_gui = USA_das_problem_scripted_gui
+}
+
+USA_mexico_rebels = {
+	allowed = {
+		tag = USA
+	}
+	visible_when_empty =  yes
+	visible = {
+		OR = {
+			has_completed_focus = USA_the_continent_down_south
+			has_completed_focus = USA_crush_mexican_rebels
+		}
+		MEX = {
+			has_idea = MEX_mass_banditry
+		}
+	}
+	scripted_gui = USA_mexico_rebels_scripted_gui
+
+}
 
 USA_the_banana_war = {
 	icon = usa_congress
@@ -77,8 +112,7 @@ USA_the_banana_war = {
 	visible_when_empty = yes
 
 	visible = {
-		tag = USA
-		always = no
+		has_completed_focus = USA_fund_united_fruits_interests
 	}
 }
 

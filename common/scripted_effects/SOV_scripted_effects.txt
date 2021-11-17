@@ -158,7 +158,7 @@ SOV_level_up_workers_idea = {
 		}
 		add_ideas = SOV_workers_idea
 	}
-    if = {
+    else_if = {
         limit = {
             has_idea = SOV_workers_idea
         }
@@ -167,8 +167,7 @@ SOV_level_up_workers_idea = {
 				remove_idea = SOV_workers_idea
 		}
     }
-
-    if = {
+    else_if = {
         limit = {
             has_idea = SOV_workers_idea_2
         }
@@ -1316,8 +1315,14 @@ SOV_elections_completion_effect = {
 	if = {
 		limit = {
 			kerensky_wins_elections = yes
+			NOT = {
+				has_country_flag = SOV_chose_lenin
+				has_country_flag = SOV_sided_with_pavel_campaign
+				has_country_flag = SOV_sided_with_belogurov_campaign
+
+			}
 		}
-		load_focus_tree = SOV_kerensky_presidency_path
+		complete_national_focus = SOV_trudoviks_reelected
 		add_popularity = {
 			ideology = socialism_democratic
 			popularity = 0.1
@@ -1328,7 +1333,7 @@ SOV_elections_completion_effect = {
 					is_ai = yes
                     has_country_flag = SOV_chose_lenin
                 }
-				load_focus_tree = SOV_lenin_presidency_path
+				complete_national_focus = SOV_menshevik_victory
 				remove_ideas = {
 					mikhail_bernatsky
 					aleksandr_konovalov
@@ -1354,7 +1359,7 @@ SOV_elections_completion_effect = {
 					is_ai = yes
                     has_country_flag = SOV_sided_with_pavel_campaign
                 }
-				load_focus_tree = SOV_pavel_milyukov_presidency_tree
+				complete_national_focus = SOV_cdp_elected
 				remove_ideas = {
 					mikhail_bernatsky
 					aleksandr_konovalov
@@ -1380,7 +1385,7 @@ SOV_elections_completion_effect = {
 					is_ai = yes
                     has_country_flag = SOV_sided_with_belogurov_campaign
                 }
-				load_focus_tree = SOV_the_return_of_the_tsar_tree
+				complete_national_focus = SOV_union_of_russian_peoples_elected
 				remove_ideas = {
 					mikhail_bernatsky
 					aleksandr_konovalov
@@ -1407,7 +1412,7 @@ SOV_elections_completion_effect = {
 		limit = {
 			pavel_wins_elections = yes
 		}
-		load_focus_tree = SOV_pavel_milyukov_presidency_tree
+		complete_national_focus = SOV_cdp_elected
 		remove_ideas = {
 					mikhail_bernatsky
 					aleksandr_konovalov
@@ -1429,7 +1434,7 @@ SOV_elections_completion_effect = {
 		limit = {
 			lenin_wins_elections = yes
 		}
-		load_focus_tree = SOV_lenin_presidency_path
+		complete_national_focus = SOV_menshevik_victory
 		remove_ideas = {
 			mikhail_bernatsky
 			aleksandr_konovalov
@@ -1450,7 +1455,7 @@ SOV_elections_completion_effect = {
 		limit = {
 			tsar_wins_elections = yes
 		}
-		load_focus_tree = SOV_the_return_of_the_tsar_tree
+		complete_national_focus = SOV_union_of_russian_peoples_elected
 		remove_ideas = {
 					mikhail_bernatsky
 					aleksandr_konovalov
@@ -1819,6 +1824,5 @@ SOV_increase_support_among_people_large = {
 	SOV_calculate_political_support_modifier = yes
 
 }
-
 
 

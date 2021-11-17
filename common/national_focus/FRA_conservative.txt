@@ -605,7 +605,7 @@ focus_tree = {
     icon = GFX_goal_generic_build_navy
     text = FRA_BUILD_DOCKYARDS
     prerequisite = { focus = FRA_GRANDE_MARINE }
-    x = 3
+    x = 1
     y = 1
     relative_position_id = FRA_GRANDE_MARINE
     cost = 5
@@ -634,7 +634,7 @@ focus_tree = {
     text = FRA_TRUE_NAVY
     prerequisite = { focus = FRA_GRANDE_MARINE }
 
-    x = 0
+    x = -2
     y = 1
     relative_position_id = FRA_GRANDE_MARINE
     cost = 5
@@ -764,7 +764,7 @@ focus_tree = {
     icon = GFX_goal_generic_navy_cruiser
     text = FRA_NAVY_FUTURE
     prerequisite = { focus = FRA_GRANDE_MARINE }
-    x = 5
+    x = 3
     y = 1
     relative_position_id = FRA_GRANDE_MARINE
     cost = 5
@@ -904,7 +904,7 @@ focus_tree = {
     icon = GFX_goal_generic_build_airforce
     text = FRA_GRANDE_AIR
     #prerequisite = { focus = FRA_expand_the_sorbonne_university }
-    x = 20
+    x = 19
     y = 0
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 3
@@ -1161,7 +1161,7 @@ focus_tree = {
     y = 1
 		prerequisite = {focus = FRA_CONSERVATIVES_PREVAIL}
     relative_position_id = FRA_CONSERVATIVES_PREVAIL
-    cost = 2.5
+    cost = 3
     ai_will_do = {
       factor = 2000
     }
@@ -1607,7 +1607,7 @@ shared_focus = {
     completion_reward = {
       add_political_power = 100
 	  remove_ideas = pierre_laval
-		  add_ideas = paul_reynaud
+		  add_ideas = paul_reynaud_hog
 	 
     }
   }
@@ -2413,7 +2413,7 @@ shared_focus = {
 
 	completion_reward = {
 		add_ideas = Path_of_Agression
-		country_event = napoleanfrance.29
+		news_event = napoleanfrance.30
 		set_country_flag = path_of_aggresssion_flag
 		
 	}
@@ -3676,7 +3676,7 @@ shared_focus = {
 				remove_idea = Bonapartist_Ambition
 			}
 
-			country_event = napoleanfrance.27
+			news_event = napoleanfrance.28
 
 			if = {
 				limit = {
@@ -4643,7 +4643,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = FRA_national_development_bureau
-			icon = GFX_goal_tripartite_pact
+			icon = GFX_goal_SOV_eastern_balkan_industry
 			prerequisite = {focus = FRA_the_strikers_hit }
 			relative_position_id = FRA_the_strikers_hit
 			x = 0
@@ -4660,6 +4660,7 @@ shared_focus = {
 
 			#relative_position_id = FRA_BUILD_INDUSTRY
 			completion_reward = {
+				add_political_power = 50
 			}
 		}
 
@@ -4718,7 +4719,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = FRA_in_the_loire
-			icon = GFX_goal_generic_construct_civ_factory
+			icon = GFX_goal_la_grande_ecole_de_armee
 			x = -1
 			y = 1
 			cost = 5
@@ -4758,7 +4759,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = FRA_in_the_south
-			icon = GFX_goal_generic_construct_civ_factory
+			icon = GFX_goal_la_grande_ecole_de_armee
 			x = 1
 			y = 1
 			cost = 5
@@ -4798,7 +4799,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_in_paris
-			icon = GFX_goal_generic_construct_civ_factory
+			icon = GFX_goal_la_grande_ecole_de_armee
 			x = -1
 			y = 1
 			cost = 5
@@ -4888,7 +4889,7 @@ instant_build = yes
 	 size > 0
 	 include_locked = yes
 	 }
-	 any_neighbor_state = {
+	 any_neighbor_state = { 
 	 	OR = { is_controlled_by  = ITA }
 	 }
 
@@ -5001,6 +5002,18 @@ instant_build = yes
 			}
 			completion_reward = {
 				add_stability= 0.05
+				ALG = {
+					add_stability= 0.1
+					add_war_support = 0.1	
+				}
+				FWA = {
+					add_stability= 0.1
+					add_war_support = 0.1	
+				}
+				FEA = {
+					add_stability= 0.1
+					add_war_support = 0.1	
+				}
 			}
 		}
 
@@ -5424,10 +5437,13 @@ instant_build = yes
 			}
 			cost = 4
 			ai_will_do = {
-				factor = 0
+				factor = 2000
 			}
 			mutually_exclusive = {
 				focus = FRA_law_on_the_country_in_danger
+			}
+			available = {
+				has_completed_focus = FRA_DOCTRINAIRE_RIGHT
 			}
 		
 			available_if_capitulated = yes
@@ -5458,9 +5474,18 @@ instant_build = yes
 			#search_filters = { FOCUS_FILTER_RESEARCH }
 		
 			completion_reward = {
-				add_war_support = 0.05
+				add_war_support = 0.1
+				set_faction_name = FRA_greater_france
 		
-				
+				every_country = {
+					limit = {
+						NOT = {
+							tag = FRA
+						}
+						is_in_faction_with = FRA
+					}
+					add_ideas = FRA_french_military_advisors
+				}
 			}
 		}
 		
@@ -5489,7 +5514,6 @@ instant_build = yes
 			}
 		}
 		
-		#Focus for Keep out the Reichsmarshall
 		shared_focus = {
 			id = FRA_keep_out_the_reichsmarshall
 			icon = GFX_goal_FRA_keep_out_the_reichmarshall
@@ -5503,24 +5527,40 @@ instant_build = yes
 				factor = 2000
 			}
 			completion_reward = {
-				FGD = {
-					every_owned_state = {
-						limit = {
-							any_neighbor_state = {
-								OR = { is_controlled_by = GER 
-								is_controlled_by = HAN }
-							}
+				every_state = {
+					limit = {
+						any_neighbor_state = {
+							OR = {
+								is_controlled_by = GER
+								THIS.owner = {
+									is_in_faction_with = GER
+									NOT = {
+										tag = ITA
+									}
+								}
+							} 
+							
 						}
-						add_building_construction = {
-							type = bunker
-							level = 3
-							instant_build = yes
-							province = {
-								all_provinces = yes
-								limit_to_border = yes
+						owner = {
+							OR = {
+								tag = FRA
+								is_in_faction_with = FRA
 							}
 						}
 					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				swap_ideas = {
+					add_idea = La_Patrie_En_Danger_2
+					remove_idea = La_Patrie_En_Danger
 				}
 			}
 		}
@@ -5538,25 +5578,41 @@ instant_build = yes
 			ai_will_do = {
 				factor = 1000
 			}
+			available = {
+				has_completed_focus = FRA_hold_back_the_duce
+			}
 			completion_reward = {
-				FGD = {
-					every_owned_state = {
-						limit = {
-							any_neighbor_state = {
-								OR = { is_controlled_by = GPU 
-								is_controlled_by = AUS }
-							}
+				every_state = {
+					limit = {
+						any_neighbor_state = {
+							OR = {
+								is_controlled_by = AUS
+								THIS.owner = {
+									is_in_faction_with = AUS
+								}
+							} 
+							
 						}
-						add_building_construction = {
-							type = bunker
-							level = 3
-							instant_build = yes
-							province = {
-								all_provinces = yes
-								limit_to_border = yes
+						owner = {
+							OR = {
+								tag = FRA
+								is_in_faction_with = FRA
 							}
 						}
 					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				swap_ideas = {
+					add_idea = La_Patrie_En_Danger_4
+					remove_idea = La_Patrie_En_Danger_3
 				}
 			}
 		}
@@ -5575,24 +5631,31 @@ instant_build = yes
 				factor = 1000
 			}
 			completion_reward = {
-				FRA = {
-					every_owned_state = {
-						limit = {
-							any_neighbor_state = {
-								
-								is_controlled_by = ITA 
-							}
+				every_state = {
+					limit = {
+						any_neighbor_state = {
+							is_controlled_by = ITA 
 						}
-						add_building_construction = {
-							type = bunker
-							level = 3
-							instant_build = yes
-							province = {
-								all_provinces = yes
-								limit_to_border = yes
+						owner = {
+							OR = {
+								tag = FRA
+								is_in_faction_with = FRA
 							}
 						}
 					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				swap_ideas = {
+					add_idea = La_Patrie_En_Danger_3
+					remove_idea = La_Patrie_En_Danger_2
 				}
 			}
 		}
@@ -5613,7 +5676,7 @@ instant_build = yes
 			}
 			completion_reward = {
 				swap_ideas= {
-		remove_idea = La_Patrie_En_Danger
+		remove_idea = La_Patrie_En_Danger_4
 		add_idea = FRA_Ils_Ne_Passeront_Pas
 		}
 			}
@@ -5695,6 +5758,7 @@ instant_build = yes
 				891 = {
 					add_core_of = FRA
 				}
+				add_threat = 3
 			}
 		}
 		
@@ -5750,7 +5814,7 @@ instant_build = yes
 			ai_will_do = {
 				factor = 2000
 				modifier = {
-					add = 1000000000
+					add = 10000
 					has_war_with = GER
 				}
 			}
@@ -5793,7 +5857,7 @@ instant_build = yes
 			relative_position_id = FRA_DANUBE_CAMPAIGN
 			cost = 5
 			ai_will_do = {
-				factor = 200000
+				factor = 20000
 			}
 		
 			bypass = {
@@ -5842,6 +5906,12 @@ instant_build = yes
 			available = {
 				NOT = {
 					has_war_with = GER
+				}
+				OR = {
+					has_army_manpower = {
+					size > 999999
+					}
+					date > 1942.1.1
 				}
 			}
 			bypass = {
@@ -5928,6 +5998,14 @@ instant_build = yes
 			bypass = {
 				
 				
+			}
+			available = {
+				OR = {
+					has_army_manpower = {
+					size > 1499999
+					}
+					date > 1942.9.1
+				}
 			}
 
 			
@@ -6220,6 +6298,9 @@ instant_build = yes
 			mutually_exclusive = {
 				focus = FRA_our_crown_jewel
 			}
+			available = {
+				has_completed_focus = FRA_DOCTRINAIRE_RIGHT
+			}
 		
 			available_if_capitulated = yes
 			#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6308,12 +6389,65 @@ instant_build = yes
 					51 = {
 						add_building_construction = {
 							type = industrial_complex
-							level = 2
+							level = 1
 							instant_build = yes
 		
 						}
-						add_extra_state_shared_building_slots = 2
-			  }
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+		
+						}
+						add_extra_state_shared_building_slots = 3
+			  		}
+					  42 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+		
+						}
+						add_extra_state_shared_building_slots = 3
+			  		}
+					  955 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+					
+						add_extra_state_shared_building_slots = 1
+			  		}
+					  798 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+					
+						add_extra_state_shared_building_slots = 1
+			  		}
 				}
 		}
 		shared_focus = {
@@ -6482,7 +6616,7 @@ instant_build = yes
 					factor = 200
 				}
 				available = {
-				
+					has_completed_focus = FRA_DOCTRINAIRE_RIGHT
 				}
 				bypass = {
 					OR = {
@@ -6502,10 +6636,18 @@ instant_build = yes
 				#search_filters = { FOCUS_FILTER_RESEARCH }
 			
 				completion_reward = {
-					country_event = napoleanfrance.26
+					BEL = {country_event = {id = napoleanfrance.4}}
+					add_threat = 8
+					ENG = {
+						add_opinion_modifier = {
+							target = FRA
+							modifier = large_decrease
+						}
+					}	
 					add_state_core = 34
-				add_state_core = 6
-				add_state_core = 800
+					add_state_core = 6
+					add_state_core = 800
+					
 				}
 			}
 			
@@ -6586,9 +6728,6 @@ instant_build = yes
 				
 			
 				available = {
-					NOT = {
-						has_global_flag = degrelle_loses_electionns
-					}
 					country_exists = BEL
 					NOT = {
 						FRA = {
@@ -6758,6 +6897,9 @@ instant_build = yes
 			
 				completion_reward = {
 					add_state_core = 35
+					hidden_effect = {
+						add_threat = 2
+					}
 				}
 			}
 			shared_focus = {

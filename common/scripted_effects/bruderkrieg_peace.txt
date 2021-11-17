@@ -28,17 +28,54 @@ austria_loses_peace_deal = {
     }
 }
 prussia_russia_wins_states = {
-    set_global_flag = austria_defeated
-    AUS = {country_event = wiltkrieg.2}
-    GER = {country_event = wiltkrieg.3}
-    news_event = {id = wiltkrieg.4 days = 2}
-
-    GER = {
-        transfer_state = 66
+     if = {
+        limit = {
+            JAP = {
+                is_in_faction_with = AUS
+            }
+        }
+        JAP = {
+            set_faction_leader = yes
+        }
+    }
+    else_if = {
+        limit = {
+            TUR = {
+                is_in_faction_with = AUS
+            }
+        }
+        TUR = {
+            set_faction_leader = yes
+        }
+    }
+    else = {
+        every_country = {
+            limit = {
+                is_in_faction_with = AUS
+            }
+            save_global_event_target_as = new_pakt_faction_leader
+        }
+        event_target:new_pakt_faction_leader = {
+            set_faction_leader = yes
+        }
     }
     SOV = {
         white_peace = AUS
     }
+    GER = {
+        white_peace = AUS
+    }
+    set_global_flag = austria_defeated
+    AUS = {country_event = wiltkrieg.2}
+    GER = {country_event = wiltkrieg.3}
+    news_event = {id = wiltkrieg.4 days = 2}
+   
+
+    GER = {
+        transfer_state = 66
+        transfer_state = 67
+    }
+    
 
     set_global_flag = prussia_has_beaten_austria
     GER = {
@@ -109,7 +146,7 @@ prussia_russia_wins_states = {
         serbia_states = yes
     }
     else = {
-        puppet = BOS
+        SOV = { puppet = BOS }
         HUN = {
             transfer_state = 764
             transfer_state = 45
@@ -187,6 +224,7 @@ prussia_wins_states = {
 hungary_states = {
 
     HUN = {
+        drop_cosmetic_tag = yes
         transfer_state = 154
         transfer_state = 155
         transfer_state = 43
@@ -266,6 +304,8 @@ croat_states = {
         transfer_state = 104
         transfer_state = 819
     } 
+
+
     
 }
 
@@ -368,7 +408,14 @@ austrian_civil_war_effect = {
 
 prussia_loses_peace_deal = {
     
-        
+        if = {
+            limit = {
+                FRA = {
+                    has_war_with = GER
+                }
+            }
+            set_global_flag = france_austria_split_deal
+        }
        AUS = { country_event = second_treaty_of_vienna.1 }
        ITA = {
         set_faction_leader = yes
@@ -660,7 +707,19 @@ france_loses_peace_deal = {
 }
 
 france_beats_prussia_peace_deal = {
-    FRA = { white_peace = GER white_peace = ITA  set_country_flag = FRA_has_beaten_prussia }
+    if = {
+            limit = {
+                AUS = {
+                    is_subject = no
+                    has_war_with = GER
+                }
+            }
+            set_global_flag = france_austria_split_deal
+        }
+    ITA = {
+        set_faction_leader = yes
+       }
+    FRA = { white_peace = GER  set_country_flag = FRA_has_beaten_prussia }
 
     
     FRA = {
@@ -673,12 +732,33 @@ france_beats_prussia_peace_deal = {
         add_state_core = 58
         add_state_core = 61
         }
-    MAS = {
+    if = {
+        limit = {
+            has_global_flag = france_austria_split_deal
+        }
+        MAS = {
+            add_state_core = 188
+            add_state_core = 763
+            add_state_core = 5
+            add_state_core = 85
+            add_state_core = 86
+            add_state_core = 950
+        }
+         AUS = {
+            puppet = MAS
+        }
+    }
+    else = {
+        MAS = {
         set_cosmetic_tag = austrian_french_puppet
         add_state_core = 188
         add_state_core = 763
         add_state_core = 5
         add_state_core = 85
+        }
+        FRA = {
+            puppet = MAS
+        }
     }
     GER = {
         release = SAX
@@ -701,7 +781,19 @@ france_beats_prussia_peace_deal = {
         transfer_state = 56
         transfer_state = 59
         transfer_state = 817
-        transfer_state = 60
+    }
+    if = {
+        limit = {
+            has_global_flag = france_austria_split_deal
+        }
+        GPU = {
+            transfer_state = 60
+        }
+    }
+    else = {
+        FGD = {
+            transfer_state = 60
+        }
     }
     ITA = {
         set_politics = {
@@ -709,13 +801,25 @@ france_beats_prussia_peace_deal = {
         }
     }
     FRA = {
-        puppet = SAX
         puppet = SHL
-        puppet = MAS
     }
-    SAX = {
-        set_cosmetic_tag = mandat_du_saxony
+    if = {
+        limit = {
+            has_global_flag = france_austria_split_deal
+        }
+        AUS = {
+            puppet = SAX
+        }
     }
+    else = {
+        FRA = {
+            puppet = SAX
+        }
+        SAX = {
+            set_cosmetic_tag = mandat_du_saxony
+        }
+    }
+   
     SHL = {
         set_cosmetic_tag = mandat_du_schelswig
     }
@@ -728,9 +832,37 @@ france_beats_prussia_peace_deal = {
     
 }
 france_beats_austria = {
-    
+    random_country = {
+        limit = {
+            is_in_faction_with = AUS
+            NOT = {
+                tag = AUS
+            }
+            NOT = {
+                is_puppet = yes
+            }
+        }
+        set_faction_leader = yes
+    }
+    every_country = {
+        limit = {
+            is_puppet_of = AUS
+        }
+        AUS = {
+            set_autonomy = {
+                target = PREV
+                autonomy_state = autonomy_free
+            }
+        }
+        FRA = {
+            set_autonomy = {
+                target = PREV
+                autonomy_state = autonomy_puppet
+            }
+        }
+    }
     FRA = {
-        white_peace = AUS
+        white_peace = AUS 
     }
     FGD = {
         
@@ -741,6 +873,7 @@ france_beats_austria = {
         transfer_state = 50  
         transfer_state = 52  
         transfer_state = 53  
+        transfer_state = 60
         set_cosmetic_tag = FGD_RHE
     }
     if = {
@@ -752,6 +885,8 @@ france_beats_austria = {
         GER = {
             transfer_state = 67
             transfer_state = 66
+            transfer_state = 65
+            transfer_state = 949
         }
     }
     if = {
@@ -852,6 +987,7 @@ france_beats_austria = {
             transfer_state = 951
             transfer_state = 89
             transfer_state = 86
+            transfer_state = 91
         }
         else = {
             AUS = {
@@ -859,6 +995,9 @@ france_beats_austria = {
             }
             FRA = {
                 puppet = GLC
+            }
+            GLC = {
+                transfer_state = 91
             }
         }
     }
@@ -898,26 +1037,102 @@ france_beats_netherlands = {
     HOL = {
         white_peace = FRA
     }
-    FRA = {
-        add_state_core = 35
-        transfer_state = 35
-        puppet = HOL
+    if = {
+        limit = {
+            FRA = {
+                owns_state = 6
+            }
+        }
+        FRA = {
+            add_state_core = 35
+            transfer_state = 35
+            puppet = HOL
+        }
+        HOL = {
+            set_cosmetic_tag = holland
+        }
     }
-    HOL = {
-        set_cosmetic_tag = austrian_french_puppet
+    else = {
+        HOL = {
+            set_cosmetic_tag = holland
+        }
+        FRA = {
+            puppet = HOL
+        }
+    }
+}
+france_beats_netherlands_commie = {
+    JNE = {
+        white_peace = FRA
+    }
+    if = {
+        limit = {
+            FRA = {
+                owns_state = 6
+            }
+        }
+        FRA = {
+            add_state_core = 35
+            transfer_state = 35
+            puppet = JNE
+        }
+        JNE = {
+            set_cosmetic_tag = holland
+        }
+    }
+    else = {
+        JNE = {
+            set_cosmetic_tag = holland
+        }
+        FRA = {
+            puppet = JNE
+        }
     }
 }
 
 
 
+russia_beats_prussia = {
+	SOV = {
+		puppet = GER
+	}
+}
+russia_beats_france = {
+    every_country = {
+        limit = {
+            OR = {
+                tag = FRA
+                is_puppet_of = FRA
+            }
+        }
+        SOV = {
+            puppet = PREV
+        }
+    }
+}
 
 russia_beats_ottoman_peace_deal = {
+    TUR = {
+        white_peace = SOV
+    }
     TRB = {
         transfer_state = 1041
 
     }
     SOV = {
         transfer_state = 341
+    }
+    PER = {
+        transfer_state = 413
+        transfer_state = 419
+        transfer_state = 421
+        transfer_state = 1084
+    }
+    SYR = {
+        add_state_core = 553
+    }
+    IRQ = {
+        add_state_core = 656
     }
     release_byazntium = yes
     release = SYR
@@ -929,7 +1144,6 @@ russia_beats_ottoman_peace_deal = {
     release = HEJ
     release = TUR
     TUR = {
-        white_peace = SOV
         set_cosmetic_tag = russian_occupied_ottomans
         set_politics = {
             ruling_party = democratic
@@ -948,11 +1162,39 @@ russia_beats_ottoman_peace_deal = {
         puppet = SYR
         puppet = ISR
         puppet = LEB
-        puppet = SAU
         puppet = IRQ
         puppet = JOR
         puppet = HEJ
         puppet = TUR
+        puppet = BYZ
+    }
+
+    if = {
+        limit = {
+            SAU = {
+                is_in_faction_with = SOV
+            }
+        }
+        SAU = {
+            white_peace = TUR
+            annex_country = {
+                target = JAB
+                transfer_troops = no
+            }
+            annex_country = {
+                target = BNK
+                transfer_troops = no
+            }
+            annex_country = {
+                target = BTA
+                transfer_troops = no
+            }
+            annex_country = {
+                target = ANA
+                transfer_troops = no
+            }
+            set_cosmetic_tag = united_arabia
+        }
     }
 }
 
@@ -1119,8 +1361,19 @@ russia_loses_peace_deal = {
         puppet = NYK
         puppet = RRR
         puppet = LNU
-        transfer_state = 91
     }
+    if = {
+        limit = {
+            GLC = {
+                exists = yes
+            }
+        }
+        GLC = { transfer_state = 91 }
+    }
+    else = {
+        AUS = { transfer_state = 91 }
+    }
+
     if = {
         limit = {
             TUR = {
@@ -1181,6 +1434,13 @@ ottoman_beats_russia_peace_deal = {
         }
         transfer_state = 230
         transfer_state = 1082
+        set_politics = {
+            ruling_party = neutrality
+        }
+    }
+    random_list = {
+       50 = { ottoman_recentralization_peace_deal = yes }
+       0 = { ottoman_federaralisation_peace_deal = yes }
     }
 }
 
@@ -1606,7 +1866,7 @@ russia_persian_peace_deals = {
                 name = "Ahmed Shah Qajar"
                 desc = "POLITICS_MOHAMMED_ZAHIR_SHAH_DESC"
                 picture = "gfx/leaders/Qajar.dds"
-                expire = "1965.1.1"a
+                expire = "1965.1.1"
                 ideology = social_democratic
                 traits = {
                     #
@@ -1626,4 +1886,52 @@ ira_peace_deal = {
             transfer_troops = no
         }
     }
+}
+
+ottoman_recentralization_peace_deal = {
+    annex_country = {target = SYR transfer_troops = no }
+    annex_country = {target = PAL transfer_troops = no }
+    annex_country = {target = LEB transfer_troops = no }
+    annex_country = {target = IRQ transfer_troops = no }
+    annex_country = {target = JOR transfer_troops = no }
+ annex_country = {target =  BYZ transfer_troops = no }
+}
+
+d_ottoman_recentralization_peace_deal = {
+    annex_country = {target = SYR transfer_troops = no }
+    annex_country = {target = PAL transfer_troops = no }
+    annex_country = {target = LEB transfer_troops = no }
+    annex_country = {target = IRQ transfer_troops = no }
+    annex_country = {target = JOR transfer_troops = no }
+
+}
+
+
+ottoman_federaralisation_peace_deal = {
+    SOV = {
+        release = SYR
+        release = PAL
+        release = LEB
+        release = IRQ
+        release = JOR
+    }
+    puppet = SYR
+    puppet = PAL
+    puppet = LEB
+    puppet = IRQ
+    puppet = JOR
+}
+d_ottoman_federaralisation_peace_deal = {
+    SOV = {
+        release = SYR
+        release = PAL
+        release = LEB
+        release = IRQ
+        release = JOR
+    }
+    puppet = SYR
+    puppet = PAL
+    puppet = LEB
+    puppet = IRQ
+    puppet = JOR
 }

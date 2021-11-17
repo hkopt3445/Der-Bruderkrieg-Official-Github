@@ -336,7 +336,15 @@ shared_focus = {
 		factor = 2000
 	}
     available = {
-        
+        NOT = {
+			has_idea = SOV_ethnic_conflicts
+		}
+		NOT = {
+			AND = {
+				has_idea = SOV_political_divide
+				has_idea = SOV_political_divide_2
+			}
+		}
     }
     completion_reward = {
 		SOV_increase_support_among_people_medium = yes
@@ -574,7 +582,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_nationalize_important_industries
-	cost = 3
+	cost = 6
 	ai_will_do = {
 	  factor = 20
 	}
@@ -583,7 +591,7 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
 	completion_reward = {
-	 
+	 add_political_power = 150
 	}
   }
 
@@ -631,10 +639,8 @@ shared_focus = {
 		#search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-	swap_ideas = {
-		 remove_idea = Agrarian-Industrial_Divide
-		 add_idea = Industrializing
-}
+		 add_ideas = Industrializing
+
 		}
 	}
 
@@ -759,7 +765,7 @@ shared_focus = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_VIRGIN_LAND_INITIATIVE
-		cost = 5
+		cost = 15
 		ai_will_do = {
 			factor = 25
 		}
@@ -858,7 +864,7 @@ shared_focus = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_INDUSTRY_SIBERIA
-		cost = 5
+		cost = 15
 		ai_will_do = {
 			factor = 25
 		}
@@ -1084,6 +1090,9 @@ shared_focus = {
 		cost = 5
 		ai_will_do = {
 			factor = 25
+		}
+		available = {
+			has_idea = Industrializing
 		}
 
 		available_if_capitulated = yes
@@ -1342,6 +1351,7 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
+		remove_ideas = SOV_beacon_of_democracy
 		add_ideas = SOV_the_birth_of_an_authoritarian_state
 		}
 }
@@ -1389,8 +1399,10 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		custom_effect_tooltip = SOV_dearming_the_okhrana_tt
-		}
+		unlock_decision_tooltip = SOV_try_okhrana_members
+		unlock_decision_tooltip = SOV_raid_okhrana_safehouses
+		unlock_decision_tooltip = SOV_request_foreign_countries_turn_over_okhrana
+	}
 }
 shared_focus = {
 	id = SOV_outlawing_espionage
@@ -1706,7 +1718,7 @@ shared_focus = {
 # 	ai_will_do = {
 # 		factor = 2000
 # 	}
-
+ 
 # 	available_if_capitulated = yes
 # 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -1743,6 +1755,7 @@ shared_focus = {
 		custom_effect_tooltip = SOV_a_democracy_only_in_name_tt
 		
 		hidden_effect = {
+			set_cosmetic_tag = russian_state
 			if = {
 				limit = {
 					has_government = democratic_liberalism
@@ -1839,7 +1852,7 @@ shared_focus = {
   			ideology = ROOT
   			popularity = 0.05
   		}
-		create_faction = "Petrograd Circle"
+		create_faction = "Petrograd Defense Circle"
 	}
 }
 
@@ -1987,6 +2000,10 @@ shared_focus = {
 				target = NRX
 				type = puppet_wargoal_focus
 			}
+			create_wargoal = {
+				target = KUL
+				type = puppet_wargoal_focus
+			}
 		}
 	}
 }
@@ -2004,11 +2021,14 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	available = {
-		ORX = {
+		OR = {
 			ETR = {
 			is_subject_of = SOV
 		}
 		NRX = {
+			is_subject_of = SOV
+		}
+		KUL = {
 			is_subject_of = SOV
 		}
 		}
@@ -2051,6 +2071,24 @@ shared_focus = {
 		every_owned_state = {
 			
 			NRX = {
+				give_resource_rights = {
+					receiver = SOV
+					state = PREV
+				}
+			}
+		}
+		}
+		}
+		if = {
+			limit = {
+				KUL = {
+					exists = yes
+				}
+			}
+			KUL = {
+		every_owned_state = {
+			
+			KUL = {
 				give_resource_rights = {
 					receiver = SOV
 					state = PREV
@@ -2122,7 +2160,6 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	available = {
-		controls_state = 537	
 	}
   
 	ai_will_do = {
@@ -2160,7 +2197,7 @@ shared_focus = {
 	}
   
 	ai_will_do = {
-		factor = 1000
+		factor = 0
 	}
 	completion_reward = {
 		JAP = {
@@ -2186,7 +2223,7 @@ shared_focus = {
 	}
   
 	ai_will_do = {
-		factor = 0
+		factor = 1000
 	}
 	completion_reward = {
 		add_war_support = 0.05
@@ -2214,7 +2251,7 @@ shared_focus = {
 		#idea that gives resource extraction bonus? Gib oil? (watch out for America)
 		add_ideas = SOV_the_oil_titan
 		every_country = {
-			limit = { is_neighbor_of = SOV is_major = no }
+			limit = { is_neighbor_of = SOV is_major = no NOT = { is_puppet_of = AUS } }
 			add_opinion_modifier = {
 				target = SOV
 				modifier = small_increase
@@ -2245,7 +2282,7 @@ shared_focus = {
 		factor = 1000
 	}
 	completion_reward = {
-		create_wargoal = {
+		create_wargoal = { 
 			target = TUR
 			type = topple_government
 		}
@@ -2480,6 +2517,7 @@ shared_focus = {
 			country_event = { id = russia.22 }
 		}
 		set_global_flag = ROM_cancel_iron_guard_coup
+		
 	}
 }
 

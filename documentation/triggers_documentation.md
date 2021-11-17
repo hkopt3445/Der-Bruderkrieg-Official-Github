@@ -15,7 +15,7 @@
 
 * [hidden_trigger](#hidden_trigger)
 * [is_female](#is_female)
-* [meta_trigger](#meta_trigger)
+* [meta_trigger](#meta_trigger) 
 
 ## Triggers for scope COMBATANT
 

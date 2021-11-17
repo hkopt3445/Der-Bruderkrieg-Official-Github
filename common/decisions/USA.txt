@@ -9,9 +9,7 @@ DBK_USA_house = {
 				has_country_flag = USA_already_campainging_senate
 			}
 		}
-		allowed = {
-			tag = USA
-		}
+		
 	
 		visible = {
 		 
@@ -27,7 +25,6 @@ DBK_USA_house = {
 		}
 		remove_effect = {
 			clr_country_flag = USA_already_campainging_senate
-			clear_array = global.usa_senate_main_array
 			add_to_variable = {
 				tooltip = USA_increase_progressive_senator_by_1
 				global.usa_senate_seat_array^0 = 1
@@ -35,7 +32,6 @@ DBK_USA_house = {
 			add_to_variable = {
 				global.usa_senate_seat_array^2 = -1
 			}
-			modify_senate_seats = yes
 		}
 	}
 	
@@ -47,9 +43,7 @@ DBK_USA_house = {
 				has_country_flag = USA_already_campainging_senate
 			}
 		}
-		allowed = {
-			tag = USA
-		}
+		
 	
 		visible = {
 		 
@@ -65,7 +59,6 @@ DBK_USA_house = {
 		}
 		remove_effect = {
 			clr_country_flag = USA_already_campainging_senate
-			clear_array = global.usa_senate_main_array
 			add_to_variable = {
 				tooltip = USA_increase_progressive_senator_by_3
 				global.usa_senate_seat_array^0 = 3
@@ -73,7 +66,6 @@ DBK_USA_house = {
 			add_to_variable = {
 				global.usa_senate_seat_array^2 = -3
 			}
-			modify_senate_seats = yes
 		}
 	}
 	
@@ -86,9 +78,7 @@ DBK_USA_house = {
 				has_country_flag = USA_already_campainging_senate
 			}
 		}
-		allowed = {
-			tag = USA
-		}
+		
 	
 		visible = {
 		 
@@ -103,10 +93,14 @@ DBK_USA_house = {
 			set_country_flag = USA_already_campainging_senate
 		}
 		remove_effect = {
-			random_list = {
-				40 = { country_event = USA_congress_lobbying.1 }
-				60 = { country_event = USA_congress_lobbying.2 }
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_1
+				global.usa_senate_seat_array^0 = 1
 			}
+			add_to_variable = {
+				global.usa_senate_seat_array^1 = -1
+			}
+			clr_country_flag = USA_already_campainging_senate
 		}
 	}
 	
@@ -118,9 +112,7 @@ DBK_USA_house = {
 				has_country_flag = USA_already_campainging_senate
 			}
 		}
-		allowed = {
-			tag = USA
-		}
+		
 	
 		visible = {
 		 
@@ -135,107 +127,26 @@ DBK_USA_house = {
 			set_country_flag = USA_already_campainging_senate
 		}
 		remove_effect = {
-			random_list = {
-				40 = { country_event = USA_congress_lobbying.3 }
-				60 = { country_event = USA_congress_lobbying.4 }
-			}
-		}
-	}
-
-	USA_blank_1 = {
-		available = {
-			always = no
-		}
-	}
-
-	USA_lobby_for_liberals_house_small = {
-
-		available = {
-			tag = USA
-			NOT = {
-				has_country_flag = USA_already_campainging_house
-			}
-		}
-		allowed = {
-			tag = USA
-		}
-	
-		visible = {
-		 
-		}
-		icon = GFX_decision_eng_propaganda_campaigns
-		cost = 10
-		days_remove = 20
-		ai_will_do = {
-		  factor = 20
-		}
-		complete_effect = {
-			set_country_flag = USA_already_campainging_house
-		}
-		remove_effect = {
-			clr_country_flag = USA_already_campainging_house
-			clear_array = global.usa_house_main_array
-			add_to_variable = {
-				tooltip = USA_increase_progressive_senator_by_1
-				global.usa_house_seat_array^0 = 5
-			}
-			add_to_variable = {
-				global.usa_house_seat_array^2 = -5
-			}
-			modify_house_seats = yes
-		}
-	}
-	
-	USA_lobby_for_liberals_house_large = {
-	
-		available = {
-			tag = USA
-			NOT = {
-				has_country_flag = USA_already_campainging_house
-			}
-		}
-		allowed = {
-			tag = USA
-		}
-	
-		visible = {
-		 
-		}
-		icon = GFX_decision_eng_propaganda_campaigns
-		cost = 30
-		days_remove = 60
-		ai_will_do = {
-		  factor = 20
-		}
-		complete_effect = {
-			set_country_flag = USA_already_campainging_house
-		}
-		remove_effect = {
-			clr_country_flag = USA_already_campainging_house
-			clear_array = global.usa_house_main_array
 			add_to_variable = {
 				tooltip = USA_increase_progressive_senator_by_3
-				global.usa_house_seat_array^0 = 10
+				global.usa_senate_seat_array^0 = 3
 			}
 			add_to_variable = {
-				global.usa_house_seat_array^2 = -10
+				global.usa_senate_seat_array^1 = -3
 			}
-			modify_house_seats = yes
+			clr_country_flag = USA_already_campainging_senate
 		}
 	}
-	
-	
-	USA_lobby_for_conservatives_house_small = {
+
+	USA_lobby_for_wilsonians_senate_small = {
 	
 		available = {
 			tag = USA
 			NOT = {
-				has_country_flag = USA_already_campainging_house
+				has_country_flag = USA_already_campainging_senate
 			}
 		}
-		allowed = {
-			tag = USA
-		}
+		
 	
 		visible = {
 		 
@@ -247,27 +158,29 @@ DBK_USA_house = {
 		  factor = 20
 		}
 		complete_effect = {
-			set_country_flag = USA_already_campainging_house
+			set_country_flag = USA_already_campainging_senate
 		}
 		remove_effect = {
-			random_list = {
-				40 = { country_event = USA_congress_lobbying.5 }
-				60 = { country_event = USA_congress_lobbying.6 }
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_1
+				global.usa_senate_seat_array^0 = 1
 			}
+			add_to_variable = {
+				global.usa_senate_seat_array^2 = -1
+			}
+			clr_country_flag = USA_already_campainging_senate			
 		}
 	}
 	
-	USA_lobby_for_conservatives_house_large = {
+	USA_lobby_for_wilsonians_senate_large = {
 	
 		available = {
 			tag = USA
 			NOT = {
-				has_country_flag = USA_already_campainging_house
+				has_country_flag = USA_already_campainging_senate
 			}
 		}
-		allowed = {
-			tag = USA
-		}
+		
 	
 		visible = {
 		 
@@ -279,15 +192,166 @@ DBK_USA_house = {
 		  factor = 20
 		}
 		complete_effect = {
-			set_country_flag = USA_already_campainging_house
+			set_country_flag = USA_already_campainging_senate
 		}
 		remove_effect = {
-			random_list = {
-				40 = { country_event = USA_congress_lobbying.7 }
-				60 = { country_event = USA_congress_lobbying.8 }
+			add_to_variable = {
+				tooltip = USA_increase_progressive_senator_by_3
+				global.usa_senate_seat_array^0 = 3
 			}
+			add_to_variable = {
+				global.usa_senate_seat_array^2 = -3
+			}
+			clr_country_flag = USA_already_campainging_senate
 		}
 	}
+
+	# USA_blank_1 = {
+	# 	available = {
+	# 		always = no
+	# 	}
+	# }
+
+	# USA_lobby_for_liberals_house_small = {
+
+	# 	available = {
+	# 		tag = USA
+	# 		NOT = {
+	# 			has_country_flag = USA_already_campainging_house
+	# 		}
+	# 	}
+	# 	allowed = {
+	# 		tag = USA
+	# 	}
+	
+	# 	visible = {
+		 
+	# 	}
+	# 	icon = GFX_decision_eng_propaganda_campaigns
+	# 	cost = 10
+	# 	days_remove = 20
+	# 	ai_will_do = {
+	# 	  factor = 20
+	# 	}
+	# 	complete_effect = {
+	# 		set_country_flag = USA_already_campainging_house
+	# 	}
+	# 	remove_effect = {
+	# 		clr_country_flag = USA_already_campainging_house
+	# 		clear_array = global.usa_house_main_array
+	# 		add_to_variable = {
+	# 			tooltip = USA_increase_progressive_senator_by_1
+	# 			global.usa_house_seat_array^0 = 5
+	# 		}
+	# 		add_to_variable = {
+	# 			global.usa_house_seat_array^2 = -5
+	# 		}
+	# 		modify_house_seats = yes
+	# 	}
+	# }
+	
+	# USA_lobby_for_liberals_house_large = {
+	
+	# 	available = {
+	# 		tag = USA
+	# 		NOT = {
+	# 			has_country_flag = USA_already_campainging_house
+	# 		}
+	# 	}
+	# 	allowed = {
+	# 		tag = USA
+	# 	}
+	
+	# 	visible = {
+		 
+	# 	}
+	# 	icon = GFX_decision_eng_propaganda_campaigns
+	# 	cost = 30
+	# 	days_remove = 60
+	# 	ai_will_do = {
+	# 	  factor = 20
+	# 	}
+	# 	complete_effect = {
+	# 		set_country_flag = USA_already_campainging_house
+	# 	}
+	# 	remove_effect = {
+	# 		clr_country_flag = USA_already_campainging_house
+	# 		clear_array = global.usa_house_main_array
+	# 		add_to_variable = {
+	# 			tooltip = USA_increase_progressive_senator_by_3
+	# 			global.usa_house_seat_array^0 = 10
+	# 		}
+	# 		add_to_variable = {
+	# 			global.usa_house_seat_array^2 = -10
+	# 		}
+	# 		modify_house_seats = yes
+	# 	}
+	# }
+	
+	
+	# USA_lobby_for_conservatives_house_small = {
+	
+	# 	available = {
+	# 		tag = USA
+	# 		NOT = {
+	# 			has_country_flag = USA_already_campainging_house
+	# 		}
+	# 	}
+	# 	allowed = {
+	# 		tag = USA
+	# 	}
+	
+	# 	visible = {
+		 
+	# 	}
+	# 	icon = GFX_decision_eng_propaganda_campaigns
+	# 	cost = 10
+	# 	days_remove = 20
+	# 	ai_will_do = {
+	# 	  factor = 20
+	# 	}
+	# 	complete_effect = {
+	# 		set_country_flag = USA_already_campainging_house
+	# 	}
+	# 	remove_effect = {
+	# 		random_list = {
+	# 			40 = { country_event = USA_congress_lobbying.5 }
+	# 			60 = { country_event = USA_congress_lobbying.6 }
+	# 		}
+	# 	}
+	# }
+	
+	# USA_lobby_for_conservatives_house_large = {
+	
+	# 	available = {
+	# 		tag = USA
+	# 		NOT = {
+	# 			has_country_flag = USA_already_campainging_house
+	# 		}
+	# 	}
+	# 	allowed = {
+	# 		tag = USA
+	# 	}
+	
+	# 	visible = {
+		 
+	# 	}
+	# 	icon = GFX_decision_eng_propaganda_campaigns
+	# 	cost = 30
+	# 	days_remove = 60
+	# 	ai_will_do = {
+	# 	  factor = 20
+	# 	}
+	# 	complete_effect = {
+	# 		set_country_flag = USA_already_campainging_house
+	# 	}
+	# 	remove_effect = {
+	# 		random_list = {
+	# 			40 = { country_event = USA_congress_lobbying.7 }
+	# 			60 = { country_event = USA_congress_lobbying.8 }
+	# 		}
+	# 	}
+	# }
 }
 
  
@@ -372,10 +436,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -415,10 +478,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -461,10 +523,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -504,10 +565,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -547,10 +607,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -590,10 +649,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -634,10 +692,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -676,10 +733,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -720,10 +776,9 @@ DBK_USA_election = {
 		available = {
 			tag = USA
 			NOT = {has_country_flag = USA_already_campaigning_in_state}
+			
 		}
-		allowed = {
-			tag = USA
-		}
+		
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
@@ -908,6 +963,7 @@ USA_the_mafia = {
 	visible = {
 	has_country_flag = nyc_mafia_gui_flag
 	}
+	fire_only_once = yes
 	cost = 0
 	days_remove = 0
 	ai_will_do = {
@@ -980,6 +1036,7 @@ USA_the_venezuelan_issue = {
 	}
 	
 }
+
 
 # USA_the_american_sphere = {
 # 	USA_open_the_sphere = {
@@ -1825,6 +1882,574 @@ USA_huey_longs_road_plan = {
 	}
 }
 
+USA_the_das_problem = {
+	COL_das_operation_mission = {
+		icon = generic_civil_support
+		allowed = { tag = USA 
+		
+		}
+		available = {
+			has_country_flag = USA_crushed_das_operation
+		}
+		visible = {
+			
+		}
+		priority = 100
+		activation = {	
+			has_country_flag = USA_das_operation_activation 
+			NOT = {
+				COL = {
+					is_puppet_of = USA
+				}
+				USA = {
+					is_ai = yes
+				}
+			}  
+		}
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			
+
+			country_event = USA_long_events.22
+		}
+		complete_effect = {
+			
+			country_event = USA_long_events.23
+		}
+		
+	}
+	USA_increase_military_power_over_das = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 25
+		days_remove = 40
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+
+
+	
+		remove_effect = {
+			add_to_variable = {
+				tooltip = USA_increase_mil_power_by_5
+				USA_Military_Power = 5
+			}
+		}
+	}
+	USA_infilitrate_das_hierarchy = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 20
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+
+
+	
+		remove_effect = {
+			add_to_variable = {
+				tooltip = USA_increase_mil_power_by_5
+				USA_Military_Power = 5
+			}
+		}
+	}
+	USA_capture_das_agents = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 10
+		days_remove = 10
+
+		days_re_enable = 70
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+
+
+	
+		remove_effect = {
+			add_to_variable = {
+				tooltip = USA_increase_mil_power_by_5
+				USA_Military_Power = 5
+			}
+		}
+	}
+}
+
+USA_mexico_rebels = {
+	
+	##state specific
+	USA_crush_rebels_in_baja = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 484
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			484 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+					MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+	USA_crush_rebels_in_sonora = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 483
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			483 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+				MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+	USA_crush_rebels_in_chihuahua = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 482
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			482 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+				MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+	USA_crush_rebels_in_durango = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 481
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			481 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+				MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+	
+
+	USA_crush_rebels_in_coahulta = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 480
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			480 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+				MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+	USA_crush_rebels_in_jalisca = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 478
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			478 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+				MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+	USA_crush_rebels_in_tamamlupias = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 478
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			478 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+				MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+	USA_crush_rebels_in_mexico_city = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 277
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			277 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+				MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+	USA_crush_rebels_in_veracruz = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = no
+
+		cost = 5
+		days_remove = 20
+
+		days_re_enable = 35
+
+		available = {
+			if = { limit = { is_ai = no }
+			divisions_in_state = {
+				state = 477
+				size > 2
+			}
+			}
+			else = {
+				always = yes
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			477 = {
+				add_to_variable = {
+					tooltip = "USA_mexican_rebels_lose_5_resistance"
+					MEX_rebel_resistance = -5
+				}
+			}
+		}
+	}
+
+
+	USA_crush_mexican_rebel_movement = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		days_re_enable = 0
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = MEX_all_states_have_low_resistance
+				484 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+				483 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+				482 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+				481 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+				479 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+				480 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+				478 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+				277 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+				477 = {
+					check_variable = {
+						MEX_rebel_resistance < 50
+					}
+				}
+			}
+		}
+
+		visible = {
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			MEX = { remove_ideas = MEX_mass_banditry }
+			USA = {
+				if = {
+					limit = {
+						has_completed_focus = USA_the_continent_down_south
+					}
+					add_to_faction = MEX
+				}
+			}
+				
+		}
+	}
+	
+}
 
 # USA_mobilization_decisions = {
 	

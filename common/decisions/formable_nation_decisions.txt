@@ -828,7 +828,7 @@ form_ngc_category = {
 			add_state_core = 65
 			add_state_core = 59
 			add_state_core = 56
-			controls_state = 817
+			add_state_core = 817
 			hidden_effect = {
 				news_event = { id = prussian_expansion.3 hours = 6 }
 				set_global_flag = form_ngc_flag
@@ -1101,5 +1101,223 @@ form_brazil_category = {
 
 	
 	}	
+
+	form_brazil_annex_puppets = {
 	
+		ai_will_do = { factor = 100 }
+ 
+		icon = generic_form_nation
+
+		
+		available = {
+			has_war = no   
+		}
+
+		visible = {
+			OR = {
+				tag = UBR
+			}
+		}
+
+		complete_effect = {
+
+		UBR = {
+					annex_country = {
+						target = FLF
+						transfer_troops = no
+					}
+				}
+				UBR = {
+					annex_country = {
+						target = GEF
+						transfer_troops = no
+					}
+				}
+
+		}
+
+	
+	}	
+	
+}
+
+form_india_category = {
+
+	form_india_decision = {
+
+		icon = generic_form_nation
+		ai_will_do = { factor = 100 }
+
+		complete_effect = {
+			every_state = {
+				limit = { OR = { is_core_of = KAS is_core_of = KHA is_core_of = PAK is_core_of = AIG is_core_of = INC is_core_of = DRA is_core_of = RAJ } }
+				add_core_of = ROOT
+			}
+			ROOT = {
+				add_state_core = 442
+				add_state_core = 445
+				add_state_core = 321
+				add_state_core = 320
+			}
+			if = { limit = { tag = RAJ } set_cosmetic_tag = british_raj } else = { set_cosmetic_tag = united_india }
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = controls_all_indian_states
+				all_of_scopes = {
+					array = KAS.core_states
+					OR = {
+						is_owned_by = ROOT
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = KHA.core_states
+					OR = {
+						is_owned_by = ROOT
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = PAK.core_states
+					OR = {
+						is_owned_by = ROOT
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = AIG.core_states
+					OR = {
+						is_owned_by = ROOT
+						is_controlled_by = ROOT
+						
+					}
+				}
+				all_of_scopes = {
+					array = INC.core_states
+					OR = {
+						is_owned_by = ROOT
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = DRA.core_states
+					OR = {
+						is_owned_by = ROOT
+						is_controlled_by = ROOT
+					}
+				}
+				all_of_scopes = {
+					array = RAJ.core_states
+					OR = {
+						is_owned_by = ROOT
+						is_controlled_by = ROOT
+					}
+				} 
+			}
+		}
+
+	}
+
+}
+
+
+
+form_china_category = {
+	
+	form_china = {
+	    fire_only_once = yes
+
+		icon = generic_form_nation
+		ai_will_do = { factor = 100 }
+
+		allowed = {
+			OR = {
+				original_tag = SHC
+				original_tag = BEI
+				original_tag = SHX
+				original_tag = XSM
+				original_tag = SIC
+				original_tag = PRC
+				original_tag = YUN
+				original_tag = CHI
+				original_tag = GXC
+				original_tag = ANH
+			}
+		}
+
+		available = {
+			is_subject = no
+			# All clans
+			custom_trigger_tooltip = {
+				tooltip = form_country_china_required_states_tt
+				controls_state = 614
+				controls_state = 607
+				controls_state = 613
+				controls_state = 622
+				controls_state = 898
+				controls_state = 605
+				controls_state = 601
+				controls_state = 604
+				controls_state = 756
+				controls_state = 594
+				controls_state = 593
+				controls_state = 325
+			}
+				
+		}
+
+		visible = {
+			OR = {
+				original_tag = SHC
+				original_tag = BEI
+				original_tag = SHX
+				original_tag = XSM
+				original_tag = SIC
+				original_tag = PRC
+				original_tag = YUN
+				original_tag = CHI
+				original_tag = GXC
+				original_tag = ANH
+			}
+			NOT = { has_global_flag = form_china_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = CHU
+				custom_effect_tooltip = form_country_china_gain_cores_tt
+				custom_effect_tooltip = form_country_china_gain_cores_tibet_tt
+				custom_effect_tooltip = form_country_china_gain_cores_manchuria_tt
+				custom_effect_tooltip = form_country_china_gain_cores_turkistan_tt
+
+			hidden_effect = {
+				set_global_flag = form_china_flag
+				ROOT = {
+					add_state_core  = 614
+					add_state_core  = 917
+					add_state_core  = 607
+					add_state_core  = 613
+					add_state_core  = 622
+					add_state_core  = 898
+					add_state_core  = 605
+					add_state_core  = 601
+					add_state_core  = 604
+					add_state_core  = 756
+					add_state_core  = 594
+					add_state_core  = 593
+					add_state_core  = 325
+				}
+			}
+		}
+
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
 }

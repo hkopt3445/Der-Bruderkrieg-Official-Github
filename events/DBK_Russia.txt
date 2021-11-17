@@ -18,7 +18,7 @@ country_event = {
 	id = SOV_starting_events.2
 	title = SOV_starting_events.2.t
 	desc = SOV_starting_events.2.d
-	#picture = GFX_hitlerartisteventpic
+	#picture = GFX_hitlerartisteventpic 
 	is_triggered_only = yes
 	option = {
 		name = SOV_starting_events.2.a
@@ -27,7 +27,7 @@ country_event = {
 	}
 }
 country_event = {
-	id = SOV_starting_events.3
+	id = SOV_starting_events.3 
 	title = SOV_starting_events.3.t
 	desc = SOV_starting_events.3.d
 	#picture = GFX_hitlerartisteventpic
@@ -245,13 +245,12 @@ news_event = {
 	id = SOV_starting_events_belogurov.7
 	title = SOV_starting_events_belogurov.7.t
 	desc = SOV_starting_events_belogurov.7.d
-	#picture = GFX_hitlerartisteventpic
+	picture = GFX_urpwinselections
 	is_triggered_only = yes
 	major = yes
 	option = {
 		name = SOV_starting_events_belogurov.7.a
 		ai_chance = { factor = 1}
-		add_political_power = 10
 		
 	}
 }
@@ -296,7 +295,10 @@ country_event = {
 	option = {
 		name = SOV_starting_events_lenin.3.a
 		ai_chance = { factor = 1}
-		country_event = { id = SOV_starting_events_lenin.4 days = 2 }
+		add_days_mission_timeout = {
+			mission = SOV_duma_elections_mission
+			days = 20
+		}
 	}
 }
 
@@ -310,12 +312,25 @@ country_event = {
 	option = {
 		name = SOV_starting_events_lenin.4.a
 		ai_chance = { factor = 1}
-		add_days_mission_timeout = {
-			mission = SOV_duma_elections_mission
-			days = 20
-		}
+		
 	}
 }
+
+###lenin Victory
+news_event = {
+	id = SOV_starting_events_lenin.5
+	title = SOV_starting_events_lenin.5.t
+	desc = SOV_starting_events_lenin.5.d
+	picture = GFX_leninwinselections
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_starting_events_lenin.5.a
+		ai_chance = { factor = 1}
+		
+	}
+}
+
 
 add_namespace = SOV_starting_events_pavel
 ##A Liberal Russia
@@ -360,6 +375,20 @@ country_event = {
 	option = {
 		name = SOV_starting_events_pavel.3.a
 		ai_chance = { factor = 1}
+	}
+}
+##vic for cdp
+news_event = {
+	id = SOV_starting_events_pavel.4
+	title = SOV_starting_events_pavel.4.t
+	desc = SOV_starting_events_pavel.4.d
+	picture = GFX_pavelwinselections
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_starting_events_pavel.4.a
+		ai_chance = { factor = 1}
+		
 	}
 }
 
@@ -420,6 +449,21 @@ country_event = {
 		add_political_power = -50
 	}
 }
+news_event = {
+	id = SOV_starting_events_kerensky.5
+	title = SOV_starting_events_kerensky.5.t
+	desc = SOV_starting_events_kerensky.5.d
+	picture = GFX_kerenskyelectionwin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_starting_events_kerensky.5.a
+		ai_chance = { factor = 1}
+		
+	}
+}
+
+
 
 
 ###political instability events
@@ -814,7 +858,7 @@ country_event = {
 	id = SOV_return_of_the_tsar_path.12
 	title = SOV_return_of_the_tsar_path.12.t
 	desc = SOV_return_of_the_tsar_path.12.d
-	#picture = GFX_hitlerartisteventpic
+	picture = GFX_report_event_por_return_of_the_monarchy
 	is_triggered_only = yes
 	option = {
 		name = SOV_return_of_the_tsar_path.12.a 
@@ -947,12 +991,16 @@ country_event = { #Russian Alignment?
 		name = SOV_return_of_the_tsar_path.19.a #Yeah boi
 		ai_chance = { factor = 5 }
 		SOV = {
-			add_to_faction = ROOT
+			puppet = ROOT
 		}
+		ROOT = {
+			save_global_event_target_as = RussianAllianceEmpireInviter
+		}
+		news_event = SOV_return_of_the_tsar_path.22
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.19.b #Hmmmm, maybe
-		ai_chance = { factor = 3 }
+		ai_chance = { factor = 0 }
 		diplomatic_relation = {
             country = SOV
             relation = non_aggression_pact
@@ -961,7 +1009,7 @@ country_event = { #Russian Alignment?
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.19.c #No
-		ai_chance = { factor = 1 }
+		ai_chance = { factor = 0 }
 	}
 }
 
@@ -969,7 +1017,7 @@ news_event = { #Eurasian Menace
 	id = SOV_return_of_the_tsar_path.20
 	title = SOV_return_of_the_tsar_path.20.t
 	desc = SOV_return_of_the_tsar_path.20.d
-	#picture = GFX_hitlerartisteventpic
+	picture = GFX_news_event_006
 	is_triggered_only = yes
 	option = {
 		name = SOV_return_of_the_tsar_path.20.a
@@ -980,9 +1028,9 @@ news_event = { #Russia recognizes Romanian claims
 	id = SOV_return_of_the_tsar_path.21
 	title = SOV_return_of_the_tsar_path.21.t
 	desc = SOV_return_of_the_tsar_path.21.d
-	#picture = GFX_hitlerartisteventpic
+	picture = GFX_news_event_generic_sign_treaty
 	is_triggered_only = yes
-	is_major = yes
+	major = yes
 	option = {
 		name = SOV_return_of_the_tsar_path.21.a #outrageous
 		trigger = { OR = { is_subject_of = AUS original_tag = AUS } }
@@ -997,11 +1045,23 @@ news_event = { #Russia recognizes Romanian claims
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.21.c #another threat to AH
-		trigger = { OR = { original_tag = AUS original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } }
+		trigger = { OR = { original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } }
 	}
 	option = {
 		name = SOV_return_of_the_tsar_path.21.e #powderkeg closer to going off
 		trigger = { NOT = { OR = { original_tag = ROM is_subject_of = AUS original_tag = AUS original_tag = SOV original_tag = AUS original_tag = GER original_tag = FRA original_tag = SER original_tag = BUL original_tag = ENG } } }
+	}
+}
+
+news_event = { #X submits to Russian Empire protection
+	id = SOV_return_of_the_tsar_path.22
+	title = SOV_return_of_the_tsar_path.22.t
+	desc = SOV_return_of_the_tsar_path.22.d
+	picture = GFX_news_event_generic_sign_treaty2
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.22.a
 	}
 }
 
@@ -1119,7 +1179,7 @@ country_event = {
 
 	option = {
 		name = russia.22.b
-		ai_chance = { factor = 10 }
+		ai_chance = { factor = 0 }
 		SOV = { country_event = russia.21 }
 	}
 }
@@ -1380,7 +1440,7 @@ country_event = {
 } 
 
 ###plan for disarmenent
-country_event = {
+country_event = { 
 	id = SOV_pavel_tree_events.2
 	title = SOV_pavel_tree_events.2.t
 	desc = SOV_pavel_tree_events.2.d
@@ -1482,7 +1542,7 @@ country_event = {
 	desc = SOV_pavel_okhrana_operation_events.4.d
 	picture = GFX_SOV_okhranaquestion 
 	is_triggered_only = yes
-	option = {
+	option = { 
 		name = SOV_pavel_okhrana_operation_events.4.a
 		ai_chance = { factor = 1}		
 		add_political_power = 100
@@ -1752,16 +1812,16 @@ country_event = { #RUssia wants Iran Oil
 		ai_chance = { factor = 3 }
 		give_resource_rights = { receiver = SOV state = 266 }
 		SOV = {
-			give_guarantee = PER
+			add_to_faction = PER
 		}
 	}
 	option = {
 		name = SOV_lenin_tree_events.10.b
-		ai_chance = { factor = 2 }
+		ai_chance = { factor = 0 }
 		SOV = {
-			add_opinion_modifier = {
-				modifier = minor_sanctions 
+			create_wargoal = {
 				target = PER
+				type = annex_everything
 			}
 		}
 	}
@@ -2146,11 +2206,7 @@ country_event = { #end of the tsar
 	option = {
 		name = SOV_lenin_tree_events.27.a #oh no
 		ai_chance = { factor = 3 }
-		add_popularity = {
-			ideology = ROOT
-			popularity = 0.05
-		}
-		SOV_increase_support_among_people_small = yes
+		
 		hidden_effect = {
 			news_event = SOV_lenin_tree_events.28
 		}
@@ -2166,7 +2222,16 @@ news_event = {
 	major = yes
 	option = {
 		name = SOV_lenin_tree_events.28.a
-	
+		if = {
+			limit = {
+				tag = SOV
+			}
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			SOV_increase_support_among_people_small = yes
+		}
 	}
 }
 
@@ -4672,6 +4737,9 @@ country_event = {
 		add_war_support = -0.15
 		add_political_power = -100
 		add_stability = -0.1
+		ai_chance = {
+			factor = 0
+		}
 	}	
 }
 
@@ -4741,6 +4809,9 @@ country_event = {
 		add_war_support = -0.15
 		add_political_power = -100
 		add_stability = -0.1
+		ai_chance = {
+			factor = 0
+		}
 	}	
 }
 
@@ -4775,13 +4846,45 @@ country_event = {
 				amount = 10000
 				producer = USA
 			}
+			country_event = SOV_Second_Rus_Jap_War_Events.2
 		}
 	}
 	option = {
 		name = SOV_Second_Rus_Jap_War_Events.1.b
 		SOV = { 
 			add_opinion_modifier = { target = USA modifier = SOV_America_Declines_Lend_Lease } 
+			country_event = SOV_Second_Rus_Jap_War_Events.3
 		}
+	}
+}
+
+##america acceps
+country_event = {
+	id = SOV_Second_Rus_Jap_War_Events.2
+	title = SOV_Second_Rus_Jap_War_Events.2.t
+	desc = SOV_Second_Rus_Jap_War_Events.2.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_Second_Rus_Jap_War_Events.2.a
+	unlock_decision_category_tooltip = SOV_American_Support_in_the_Second_Russo_Japanese_War
+		hidden_effect = {
+			set_country_flag = SOV_American_Support_Unlock
+
+		}
+	}
+}
+
+##america denies
+country_event = {
+	id = SOV_Second_Rus_Jap_War_Events.3
+	title = SOV_Second_Rus_Jap_War_Events.3.t
+	desc = SOV_Second_Rus_Jap_War_Events.3.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_Second_Rus_Jap_War_Events.3.a
+	
 	}
 }
 

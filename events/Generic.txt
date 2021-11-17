@@ -80,11 +80,19 @@ country_event = {
 	desc = { # FROM and ROOT are Fascist
 		text = generic.2.d.b
 		trigger = {
-			AND = {
-				FROM = {
+			OR = {
+				AND = {
+					FROM = {
+						has_government = fascism
+					}
 					has_government = fascism
 				}
-				has_government = fascism
+				AND = {
+					FROM = {
+						has_government = ultranationalism
+					}
+					has_government = ultranationalism
+				}
 			}
 		}
 	}
@@ -268,7 +276,7 @@ country_event = {
 	option = { #Reject
 		name = generic.2.f
 		ai_chance = {
-			factor = 50
+			factor = 0
 			
 			modifier = {
 				factor = 0.5
@@ -1876,14 +1884,12 @@ country_event = { #Generic non-aggression pact offer
 		ai_chance = {
 			factor = 90
 		}
-		diplomatic_relation = {
-		    country = FROM
-		    relation = guarantee
-		    active = no
-		}
+		
 		FROM = {
 			country_event = generic.28
 		}
+
+		
 	}
 
 	option = {
@@ -1891,10 +1897,11 @@ country_event = { #Generic non-aggression pact offer
 		ai_chance = {
 			factor = 0
 		}
+		FROM = {
+			country_event = generic.29
+		}
 	}
-	FROM = {
-		country_event = generic.29
-	}
+	
 }
 
 country_event = { #Generic non-aggression pact offer
@@ -1908,6 +1915,16 @@ country_event = { #Generic non-aggression pact offer
 		name = generic.28.a
 		ai_chance = {
 			factor = 90
+		}
+		diplomatic_relation = {
+		    country = FROM
+		    relation = non_aggression_pact
+		    active = yes
+		}
+		diplomatic_relation = {
+		    country = FROM
+		    relation = military_access
+		    active = yes
 		}
 	}
 }

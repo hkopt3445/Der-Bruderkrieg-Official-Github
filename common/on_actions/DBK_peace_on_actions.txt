@@ -106,7 +106,7 @@ on_actions = {
 			
 					}
 					FROM = {
-						tag = RAJ
+						OR = { tag = RAJ tag = ENG is_in_faction_with = RAJ }
 					}
 				}
 				RAJ = {
@@ -171,7 +171,7 @@ on_actions = {
 							transfer_troops = no
 						}
 					}
-					news_event = dutch_civil_war.3
+					#news_event = dutch_civil_war.3
 				}
 				if = {
 					limit = {
@@ -189,7 +189,7 @@ on_actions = {
 							transfer_troops = no
 						}
 					}
-					news_event = dutch_civil_war.4
+					#news_event = dutch_civil_war.4
 				}
 		}
 	}
@@ -264,7 +264,7 @@ on_actions = {
 						tag = SOV
 					}
 					FROM = {
-						tag = GER
+						OR = { tag = GER is_in_faction_with = GER }
 					}
 				}
 				russia_loses_to_prussia_deal = yes
@@ -272,10 +272,32 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = {
+						tag = GER
+					}
+					FROM = {
+						OR = { tag = SOV is_in_faction_with = SOV }
+					}
+				}
+				russia_beats_prussia = yes
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = FRA
+					}
+					FROM = {
+						OR = { tag = SOV is_in_faction_with = SOV }
+					}
+				}
+				russia_beats_france = yes
+			}
+			if = {
+				limit = {
+					ROOT = {
 						tag = SER
 					}
 					FROM = {
-						tag = AUS
+						OR = { tag = AUS is_in_faction_with = AUS }
 					}
 				}
 				austria_beats_serbia_peace_deal = yes
@@ -286,7 +308,7 @@ on_actions = {
 						tag = YUG
 					}
 					FROM = {
-						tag = AUS
+						OR = { tag = AUS is_in_faction_with = AUS }
 					}
 				}
 				austria_beats_serbia_peace_deal = yes
@@ -297,7 +319,7 @@ on_actions = {
 						tag = ITA
 					}
 					FROM = {
-						tag = AUS
+						OR = { tag = AUS is_in_faction_with = AUS }
 					}
 				}
 				italy_loses_to_austria_peace_deal = yes
@@ -308,7 +330,7 @@ on_actions = {
 						tag = ITA
 					}
 					FROM = {
-						tag = FRA
+						OR = { tag = FRA is_in_faction_with = FRA }
 					}
 				}
 				italy_loses_to_france_peace_deal = yes
@@ -331,7 +353,7 @@ on_actions = {
 						tag = AUS
 					}
 					FROM = {
-						tag = FRA
+						OR = { tag = FRA is_in_faction_with = FRA }
 					}
 				}
 				france_beats_austria = yes
@@ -339,14 +361,46 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = {
+						tag = WFR
+					}
+					FROM = {
+						is_in_faction_with = FRA
+					}
+				}
+				FRA = {
+					white_peace = WFR
+				}
+				FGD = {
+					annex_country = {
+						target = WFR
+						transfer_troops = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
 						tag = HOL
 					}
 					FROM = {
-						tag = FRA
+						OR = { tag = FRA is_in_faction_with = FRA }
 					}
 				}
 				france_beats_netherlands = yes
 			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = JNE
+					}
+					FROM = {
+						OR = { tag = FRA is_in_faction_with = FRA }
+					}
+				}
+				france_beats_netherlands_commie = yes
+			}
+
+			
 			
 	
 			
@@ -360,7 +414,7 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = { tag = FRA }
-					FROM = { tag = GER }
+					FROM = { OR = { tag = GER is_in_faction_with = GER } }
 				}
 				log = "2nd europa ends for france: [GetDateText]"
 				france_loses_peace_deal = yes
@@ -449,7 +503,7 @@ on_actions = {
 						tag = CMI
 					}
 				}
-				ITA = {country_event = ITA_socialist_revolution_events.7} 
+				ITA = {country_event = ITA_socialist_revolution_events.7}  
 
 				ITA = {
 					set_variable = { young_italy_activity_power = -0.2 }
@@ -477,7 +531,7 @@ on_actions = {
                 limit = {
                     tag = TUR
                     FROM = {
-                        tag = SOV
+                        OR = { tag = SOV is_in_faction_with = SOV }
                     }
                 }
                 russia_beats_ottoman_peace_deal = yes
@@ -529,7 +583,7 @@ on_actions = {
                 limit = {
                     tag = SOV
                     FROM = {
-                        tag = AUS
+						OR = { tag = AUS is_in_faction_with = AUS }
                     }
                 }
 				russia_loses_peace_deal = yes	
@@ -540,7 +594,7 @@ on_actions = {
 				limit = {
 					tag = SOV
 					FROM = {
-						tag = FRA
+						OR = { tag = FRA is_in_faction_with = FRA }
 					}
 				}
 				russia_loses_peace_to_france_deal =  yes
@@ -578,6 +632,22 @@ on_actions = {
 						transfer_troops = yes
 					}
 				}
+				if = {
+					limit = {
+						SOV = {
+							has_completed_focus = SOV_turkestan_democracy
+						}
+						NRX = {
+							exists = no
+						}
+						ETR = {
+							exists = no
+						}
+					}
+					SOV = {
+						puppet = KUL
+					}
+				}
 			}
 		}
 		effect = {
@@ -607,6 +677,22 @@ on_actions = {
 					annex_country = {
 						target = ROOT
 						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						SOV = {
+							has_completed_focus = SOV_turkestan_democracy
+						}
+						KUL = {
+							exists = no
+						}
+						ETR = {
+							exists = no
+						}
+					}
+					SOV = {
+						puppet = NRX
 					}
 				}
 			}
@@ -639,6 +725,22 @@ on_actions = {
 					annex_country = {
 						target = ROOT
 						transfer_troops = yes
+					}
+				}
+				if = {
+					limit = {
+						SOV = {
+							has_completed_focus = SOV_turkestan_democracy
+						}
+						NRX = {
+							exists = no
+						}
+						ETR = {
+							exists = no
+						}
+					}
+					SOV = {
+						puppet = ETR
 					}
 				}
 			}
@@ -665,6 +767,125 @@ on_actions = {
 				}
 				russia_persian_peace_deals = yes
 				
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = CHI
+					FROM = {
+						OR = {
+							tag = BEI
+							is_in_faction_with = BEI
+						}
+					}
+				}
+				BEI = {
+				white_peace = CHI
+				}
+				BEI = {
+					country_event = kmt_collapse.2
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = SIC
+					FROM = {
+						OR = {
+							tag = PRC
+							is_in_faction_with = PRC
+						}
+					}
+				}
+				SIC = {
+				white_peace = PRC
+				}
+			
+				PRC = {
+					country_event = peoples_great_qing_expansion.2
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = SIC
+					FROM = {
+						OR = {
+							tag = PRC
+							is_in_faction_with = PRC
+						}
+					}
+				}
+				SIC = {
+				white_peace = PRC
+				}
+			
+				PRC = {
+					country_event = peoples_great_qing_expansion.2
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = XSM
+					FROM = {
+						OR = {
+							tag = PRC
+							is_in_faction_with = PRC
+						}
+					}
+				}
+				XSM = {
+				white_peace = PRC
+				}
+			
+				PRC = {
+					country_event = peoples_great_qing_expansion.5
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = GZC
+					FROM = {
+						OR = {
+							tag = YUN
+							is_in_faction_with = YUN
+						}
+					}
+				}
+				GZC = {
+				white_peace = YUN
+				}
+			
+				YUN = {
+					country_event = south_china_war.3
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = YUN
+					FROM = {
+						OR = {
+							tag = GZC
+							is_in_faction_with = GZC
+						}
+					}
+				}
+				YUN = {
+				white_peace = GZC
+				}
+			
+				GZC = {
+					country_event = south_china_war.2
+				}
 			}
 		}
 
@@ -699,24 +920,15 @@ on_actions = {
 						tag = BRS
 					}
                 }
-                UBR = {
-					annex_country = {
-						target = BRS
-						transfer_troops = no
-					}
-				}
+				log = "brazil test"
+                
 				if = {
 					limit = {
 						BRE = {
 							exists = no
 						}
 					}
-					UBR = {
-						annex_country = {
-							target = FLF
-							transfer_troops = yes
-						}
-					}
+					
 				}
             }
 			if = {

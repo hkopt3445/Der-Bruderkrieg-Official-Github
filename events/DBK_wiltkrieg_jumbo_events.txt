@@ -149,22 +149,7 @@ news_event = {
 	}
 }
 
-##fall of berlin
-news_event = {
-	id = DBK_fall_of_city.9
-	title = DBK_fall_of_city.9.t
-	desc = DBK_fall_of_city.9.d
-	picture = GFX_prussiainvasionsaxony
-	is_triggered_only = yes
-	#fire_only_once = yes
-	major = yes
 
-
-
-	option = { 
-		name = DBK_fall_of_city.9.a
-	}
-}
 
 ##fall of hamburg
 news_event = {
@@ -742,22 +727,112 @@ news_event = {
 }
 
 
+	news_event = {
+		id = french_inteverntion_in_prussian_expansion.10
+		title = french_inteverntion_in_prussian_expansion.10.t
+		desc = french_inteverntion_in_prussian_expansion.10.d
+		picture = GFX_frenchintervention2
+		major = yes
+
+		is_triggered_only = yes
+
+		option = {
+			name = french_inteverntion_in_prussian_expansion.10.a
+		}
+	}
+
+##frnech intervention against russia
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.11
+	title = french_inteverntion_in_prussian_expansion.11.t
+	desc = french_inteverntion_in_prussian_expansion.11.d
+	#picture = GFX_report_event_czech_soldiers_011.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.11.a
+		ai_chance = {factor = 30}
+		FRA = { country_event = {
+			id = french_inteverntion_in_prussian_expansion.12
+			days = 2
+		} }
+	}
+}
+##offer to france
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.12
+	title = french_inteverntion_in_prussian_expansion.12.t
+	desc = french_inteverntion_in_prussian_expansion.12.d
+	#picture = GFX_report_event_czech_soldiers_012.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.12.a
+		ai_chance = {factor = 30}
+		create_wargoal = {
+			target = SOV
+			type = topple_government
+		}
+		add_war_support = 0.05
+		news_event = french_inteverntion_in_prussian_expansion.15
+		AUS = {
+			country_event = french_inteverntion_in_prussian_expansion.13
+		}
+	}
+	option = {
+		name = french_inteverntion_in_prussian_expansion.12.b
+		ai_chance = {factor = 1}
+		AUS = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = large_decrease
+			}
+		}
+		AUS = {
+			country_event = french_inteverntion_in_prussian_expansion.14
+		}
+	}
+
+}
+##french acceps
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.13
+	title = french_inteverntion_in_prussian_expansion.13.t
+	desc = french_inteverntion_in_prussian_expansion.13.d
+	#picture = GFX_report_event_czech_soldiers_013.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.13.a
+		ai_chance = {factor = 30}
+	}
+}
+##french denies
+country_event = {
+	id = french_inteverntion_in_prussian_expansion.14
+	title = french_inteverntion_in_prussian_expansion.14.t
+	desc = french_inteverntion_in_prussian_expansion.14.d
+	#picture = GFX_report_event_czech_soldiers_014.dds
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = french_inteverntion_in_prussian_expansion.14.a
+		ai_chance = {factor = 30}
+	}
+}
 news_event = {
-	id = french_inteverntion_in_prussian_expansion.10
-	title = french_inteverntion_in_prussian_expansion.10.t
-	desc = french_inteverntion_in_prussian_expansion.10.d
+	id = french_inteverntion_in_prussian_expansion.15
+	title = french_inteverntion_in_prussian_expansion.15.t
+	desc = french_inteverntion_in_prussian_expansion.15.d
 	picture = GFX_frenchintervention2
 	major = yes
 
 	is_triggered_only = yes
 
 	option = {
-		name = french_inteverntion_in_prussian_expansion.10.a
+		name = french_inteverntion_in_prussian_expansion.15.a
 	}
 }
-
-
-
 
 add_namespace = british_inteverntion_in_prussian_expansion
 
@@ -1053,7 +1128,7 @@ country_event = {
 		
 		add_political_power = 100
 		hidden_effect = {
-			AUS = {
+			GER = {
 				country_event = { id = russian_inteverntion_in_europakrieg.4 days = 2 }
 			}
 			country_event = { id = russian_inteverntion_in_europakrieg.5 days = 120 }
@@ -1129,7 +1204,7 @@ country_event = {
 		
 		add_political_power = 100
 		hidden_effect = {
-			AUS = {
+			GER = {
 				country_event = { id = russian_inteverntion_in_europakrieg.4 days = 2 }
 			}
 			country_event = { id = russian_inteverntion_in_europakrieg.6 days = 75 }
@@ -1166,7 +1241,7 @@ country_event = {
 		
 		add_political_power = 25
 		hidden_effect = {
-			AUS = {
+			GER = {
 				country_event = { id = russian_inteverntion_in_europakrieg.4 days = 2 }
 			}
 			country_event = { id = russian_inteverntion_in_europakrieg.7 days = 50 }
@@ -1204,7 +1279,7 @@ country_event = {
 		
 		add_political_power = 25
 		hidden_effect = {
-			AUS = {
+			GER = {
 				country_event = { id = russian_inteverntion_in_europakrieg.4 days = 2 }
 			}
 		}
@@ -1441,13 +1516,17 @@ country_event = {
 add_namespace = wiltkrieg
 
 news_event = {
-	id = wiltkrieg.1
+	id = wiltkrieg.1 
 	title = wiltkrieg.1.t
 	desc = wiltkrieg.1.d
 	picture = GFX_secondeuropakrieg
 	is_triggered_only = yes
-	#fire_only_once = yes
+	fire_only_once = yes
 	major = yes
+
+	trigger = {
+		if = { limit = { is_ai = no } NOT = { has_country_flag = dont_fire_wiltkrieg_event_twice } }
+	}
 
 
 
@@ -1618,6 +1697,8 @@ country_event = {
 		add_ideas = AUS_post_war_occupation
 
 		GER = {
+			transfer_state = 64
+			transfer_state = 61
 			set_cosmetic_tag = RAU_prussia
 		}
  
@@ -1626,22 +1707,41 @@ country_event = {
 		 GPU = {
 			 transfer_state = 60
 			 transfer_state = 65
+			 transfer_state = 949
 		 }
 		 58 = {
-			 add_core_of = SHL
-		 }
-		 SHL = {
+			 add_core_of = AUS
+		 } 
+		 AUS = {
 			 transfer_state = 58
 		 }
 		
-		 HAN = {
+		 if = {
+			 limit = {
+				 has_global_flag = france_austria_split_deal
+			 }
+			 FGD = {
+				 transfer_state = 56
+				transfer_state = 59
+				transfer_state = 817
+				transfer_state = 962
+				add_state_core = 56
+				add_state_core = 59
+				add_state_core = 817
+				add_state_core = 962
+				add_state_core = 960
+			 }
+		 }
+		 else = {
+			  HAN = {
 			 transfer_state = 56
 			 transfer_state = 59
 			 transfer_state = 817
 			 transfer_state = 962
 			 set_cosmetic_tag = RAU_hannover
+		 	}
+			release_puppet = HAN
 		 }
-		 release_puppet = HAN
 		 puppet = GER
 		
 		hidden_effect = {

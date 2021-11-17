@@ -3,7 +3,46 @@
 
 
 
+defined_text = {
+	name = GetSenateSupport 
 
+	text = {
+		trigger = {
+			has_country_leader = {
+				name = "Huey Long"
+				ruling_only = yes
+			}
+		}
+		localization_key = LongSenateSupport
+	}
+	text = {
+		trigger = {
+			has_country_leader = {
+				name = "Alfred Smith"
+				ruling_only = yes
+			}
+		}
+		localization_key = SmithSenateSupport
+	}
+	text = {
+		trigger = {
+			has_country_leader = {
+				name = "Earl Warren"
+				ruling_only = yes
+			}
+		}
+		localization_key = WarrenSenateSupport
+	}
+	text = {
+		trigger = {
+			has_country_leader = {
+				name = "William Gibbs McAdoo"
+				ruling_only = yes
+			}
+		}
+		localization_key = McAdooSenateSupport
+	}
+}
 
 
 
@@ -363,6 +402,64 @@ defined_text = {
 	text = {
 		localization_key = USA_highway_not_started
 	}
+}
+
+##diplo
+defined_text = {
+	name = get_USA_Scale
+	text = {
+		trigger = {
+			check_variable = {
+				USA_Military_Power = USA_DAS_Power
+			}
+		}
+		localization_key = USA_DAS_balanced
+	}
+	text = {
+		trigger = {
+			check_variable = {
+			USA_Military_Power > USA_DAS_Power
+			}
+		}
+		localization_key = USA_DAS_military
+	}
+	text = {
+		trigger = {
+			set_temp_variable = {
+				USA_DAS_Power_check_high = USA_DAS_Power
+			}
+			subtract_from_temp_variable = {
+				USA_DAS_Power_check_high = 24
+			}
+			check_variable = {
+				USA_Military_Power < USA_DAS_Power_check_high
+			}
+		}
+		localization_key = USA_DAS_high_das
+	}
+	text = {
+		trigger = {
+			set_temp_variable = {
+				USA_Military_Power_check_high = USA_Military_Power
+			}
+			subtract_from_temp_variable = {
+				USA_Military_Power_check_high = 19
+			}
+			check_variable = {
+				USA_DAS_Power < USA_Military_Power_check_high
+			}
+		}
+		localization_key = USA_DAS_high_military
+	}
+	text = {
+		trigger = {
+			check_variable = {
+			USA_Military_Power < USA_DAS_Power
+			}
+		}
+		localization_key = USA_DAS_das
+	}
+	
 }
 
 #Created by Tsar Giraldo
@@ -888,5 +985,21 @@ defined_text = {
 			}
 		}
 		localization_key = USA_CHL_NON
+	}
+}
+
+defined_text = {
+	name = GetLongWinsDesc
+	text = {
+		trigger = {
+			has_country_flag = USA_fdr_wins_dnc
+		}
+		localization_key = "USA_democratic_national_convention.13.d.a"
+	}
+	text = {
+		trigger = {
+			has_country_flag = USA_smith_wins_dnc
+		}
+		localization_key = "USA_democratic_national_convention.13.d.b"
 	}
 }

@@ -1,0 +1,26 @@
+GER_thugee_revolt_scripted_effect = {
+	GAK = {
+		transfer_state = 426
+		transfer_state = 884
+		every_owned_state = {
+			teleport_armies = {
+				limit = {
+					tag = RAJ
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+		declare_war_on = { type = annex_everything target = RAJ }
+	}
+	RAJ = {
+		transfer_units_fraction = {
+			target = GAK
+			size = 0.5
+			stockpile_ratio = 0.6
+			army_ratio = 0.5
+		}
+		every_owned_state = {
+			add_core_of = GAK
+		}
+	}
+}

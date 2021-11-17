@@ -21,13 +21,12 @@ import re
 ###   goals_shine  Name of the goals_shine file
 ###
 ### optional arguments:
-###   -h, --help   show this help message and exit
+###   -h, --help   show this help message and exit 
 ###
 #############################
 
-goals = open(r"C:\Users\17138\Documents\Paradox Interactive\Hearts of Iron IV\mod\dbkgithub\interface\goals.gfx")
-goals_shine = open(r"C:\Users\17138\Documents\Paradox Interactive\Hearts of Iron IV\mod\dbkgithub\interface\goals_shine.gfx")
-
+goals = open(r"C:\Users\Arjun\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\interface\goals.gfx")
+goals_shine = open(r"C:\Users\Arjun\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\interface\goals_shine.gfx")
 
 def get_shine_def(name, path):
     return """	SpriteType = {
