@@ -393,10 +393,17 @@ DBK_USA_election = {
 	}
 	USA_open_electoral_college = {
 
-		icon = generic_construction
-
+		icon = eng_propaganda_campaigns
+ 
 		available = {
-			
+			 
+		}
+		visible = {
+			always = yes
+			OR = {
+				is_ai = no 
+				is_ai = yes
+			}
 		}
 
 		fire_only_once = no
@@ -417,7 +424,7 @@ DBK_USA_election = {
 		}
 
 		complete_effect = {
-			set_country_flag = open_us_election_container
+			set_country_flag = USA_open_election_view_GUI
 		}
 	}
 	
@@ -442,6 +449,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		icon = GFX_decision_eng_propaganda_campaigns
@@ -484,6 +492,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		cost = 10
@@ -529,6 +538,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		cost = 10
@@ -571,6 +581,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		cost = 10
@@ -613,6 +624,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		cost = 10
@@ -655,6 +667,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		cost = 10
@@ -698,6 +711,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		cost = 10
@@ -739,6 +753,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		cost = 10
@@ -782,6 +797,7 @@ DBK_USA_election = {
 
 		visible = {
 		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
 		 
 		}
 		cost = 10
@@ -803,6 +819,263 @@ DBK_USA_election = {
 					country_event = { id = USA_campaign_decision_events.20 }
 				}
 			}
+		}
+	}
+
+
+	###campaign for ai
+	USA_denounce_longs_populism = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			 set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+        	usa_smith_decrease_long_electoral_college_effect = yes
+		}
+	}
+	USA_call_out_his_governing_incompetence = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+   		set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+        usa_smith_decrease_long_electoral_college_effect = yes	
+		}
+	}
+	USA_questioning_his_extensive_ambitions = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+        	usa_smith_decrease_long_electoral_college_effect = yes
+		}
+	}
+
+	 USA_attack_smiths_catholcism = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+       		USA_long_decrease_smith_electoral_college_effect = yes
+		}
+	}
+	USA_question_his_conservative_loyalties = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			 set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+        	USA_long_decrease_smith_electoral_college_effect = yes
+		}
+	}
+	USA_call_out_his_urban_favoritism = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			 set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+        	USA_long_decrease_smith_electoral_college_effect = yes
+		}
+	}
+
+	USA_critique_warrens_experience = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+        usa_smith_decrease_warren_electoral_college_effect = yes	
+		}
+	}
+	USA_call_out_his_western_favoritism = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+        usa_smith_decrease_warren_electoral_college_effect = yes	
+		}
+	}
+	USA_denounce_warrens_anti_japanese_rhetoric = {
+		
+		available = {
+			tag = USA			
+			NOT = {
+				has_country_flag =  USA_already_doing_anti_campaign_action
+			}
+		}
+		
+
+		visible = {
+		  #has_completed_focus = USA_longs_tour_of_america
+		  	is_ai = yes
+		 
+		}
+		cost = 10
+		days_remove = 20
+		icon = GFX_decision_eng_propaganda_campaigns
+		ai_will_do = { 
+		  factor = 20
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			set_country_flag = { flag = USA_already_doing_anti_campaign_action days = 25 }
+        usa_smith_decrease_warren_electoral_college_effect = yes	
 		}
 	}
 }
