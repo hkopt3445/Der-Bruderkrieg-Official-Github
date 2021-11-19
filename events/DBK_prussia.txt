@@ -629,7 +629,20 @@ country_event = {
 	option = { 
 		name = GER_austrian_ethnic_revolts.3.a
 		ai_chance = { factor = 1000 } 
-		load_oob = "GER_austria_revolt"
+		hidden_effect = {
+			AUS = {
+				every_owned_state = {
+					if = {
+						limit = { is_core_of = HUN }
+						add_dynamic_modifier = {
+							modifier = GER_operation_margarethe_modifier
+						}
+					}
+					set_variable = { GER_army_speed_factor_varOM = -0.15 }
+					set_variable = { GER_army_defence_factor_varOM = -0.1 }
+				}
+			}
+		}
 	}
 }
 
