@@ -364,6 +364,10 @@ shared_focus = {
 	ai_will_do = {
 		factor = 100
 	}
+	mutually_exclusive = {
+		focus = USA_american_jobs_for_americans_only
+	}
+	
 	completion_reward = {
 		add_political_power = 150
 		if = {
@@ -462,6 +466,83 @@ shared_focus = {
 }
 
 shared_focus = {
+	id = USA_american_jobs_for_americans_only
+	icon = GFX_goal_USA_government_work_programs
+	x = 4
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_economic_revitalization
+	prerequisite = { focus = USA_economic_revitalization }
+	ai_will_do = {
+		factor = 100
+	}
+	mutually_exclusive = {
+		focus = USA_raise_taxes_on_the_top_1
+	}
+
+	completion_reward = {
+		
+	}
+
+}
+shared_focus = {
+	id = USA_mexican_repatriation
+	icon = GFX_goal_USA_mexico_diplo
+	x = 0
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_american_jobs_for_americans_only
+	prerequisite = { focus = USA_american_jobs_for_americans_only }
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = { 
+		if = {
+			limit = { has_idea = USA_great_depression_5 }
+			swap_ideas = {
+				remove_idea = USA_great_depression_5
+				add_idea = USA_great_depression_6
+			}
+		}
+		else_if = {
+			limit = { has_idea = USA_great_depression_4 }
+			swap_ideas = {
+				remove_idea = USA_great_depression_4
+				add_idea = USA_great_depression_5
+			}
+		}
+		else_if = {
+			limit = { has_idea = USA_great_depression_3 }
+			swap_ideas = {
+				remove_idea = USA_great_depression_3
+				add_idea = USA_great_depression_4
+			}
+		}
+		else_if = {
+			limit = { has_idea = USA_great_depression_2 }
+			swap_ideas = {
+				remove_idea = USA_great_depression_2
+				add_idea = USA_great_depression_3
+			}
+		}
+		else = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = USA_great_depression_2
+					add_idea = USA_great_depression_3
+				}
+			}
+		}
+		add_timed_idea = {
+			idea = USA_stimulus_check_payments
+			days = 60
+		}
+	}
+}
+
+shared_focus = {
 	id = USA_onto_true_recovery
 	icon = GFX_goal_USA_an_end_to_the_decline
 	x = -2
@@ -469,7 +550,7 @@ shared_focus = {
 	cost = 2
 	available_if_capitulated = yes
 	relative_position_id = USA_issue_stimulus_checks
-	prerequisite = { focus = USA_issue_stimulus_checks }
+	prerequisite = { focus = USA_issue_stimulus_checks focus = USA_mexican_repatriation }
     prerequisite = {
         focus = USA_raise_gas_taxes
     }
@@ -531,6 +612,23 @@ shared_focus = {
 	}
 	completion_reward = {
 		#event where warren announces more public investment
+		if = {
+			limit = {
+				has_idea = herbert_hoover
+			}
+			country_event = USA_warren_tree.4
+		}
+		else_if = {
+			limit = {
+				has_idea = james_j_couzens
+			}
+			country_event = USA_warren_tree.5
+		}
+		else = {
+			effect_tooltip = {
+				country_event = USA_warren_tree.5
+			}
+		}
 	}
 }
 shared_focus = {
@@ -802,14 +900,14 @@ shared_focus = {
 shared_focus = {
 	id = USA_farmer_relocation_program
 	icon = GFX_goal_USA_agricultural_minimum_wage
-	x = -2
+	x = 0
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
-	relative_position_id = USA_prison_reform
-	prerequisite = { focus = USA_prison_reform }
+	relative_position_id = USA_the_great_pacifican
+	prerequisite = { focus = USA_the_great_pacifican }
     prerequisite = {
-        focus = USA_lay_the_foundation
+        focus = USA_the_great_pacifican
     }
 	ai_will_do = {
 		factor = 100
@@ -859,14 +957,14 @@ shared_focus = {
 shared_focus = {
 	id = USA_the_great_pacifican
 	icon = GFX_goal_USA_the_great_pacifican
-	x = -1
+	x = -2
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
-	relative_position_id = USA_support_farmers
-	prerequisite = { focus = USA_support_farmers }
+	relative_position_id = USA_prison_reform
+	prerequisite = { focus = USA_prison_reform }
     prerequisite = {
-        focus = USA_irrigation_and_dams
+        focus = USA_lay_the_foundation
     }
 	ai_will_do = {
 		factor = 100
