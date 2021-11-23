@@ -38,6 +38,27 @@ shared_focus = {
 			id = USA_warren_tree.3
 			days = 5
 		}
+
+		hidden_effect = {
+			remove_ideas = USA_great_depression
+			add_ideas = USA_warren_great_depression_idea
+			set_variable = {
+				USA_warren_great_depression_industrial_capacity_factory = -0.45
+			}
+			set_variable = {
+				USA_warren_great_depression_stability_factor = -0.1
+			}
+			set_variable = {
+				USA_warren_great_depression_consumer_goods_factor = 0.25
+			}
+			set_variable = {
+				USA_warren_great_depression_production_factory_efficiency_gain_factor = -0.1
+			}
+			USA_warren_great_depression_loc = yes
+			add_dynamic_modifier = {
+				modifier = USA_warren_great_depression
+			}
+		}
 	}
 }
 shared_focus = {
@@ -53,6 +74,15 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
+		add_to_variable = {
+			USA_warren_great_depression_industrial_capacity_factory = 0.1
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				add_idea = USA_great_depression_warren_economic_reivlization
+				remove_idea = USA_great_depression
+			}
+		}
 		add_political_power = 100
 		add_ideas = USA_economic_rejuvination_plan
 	}
@@ -69,48 +99,19 @@ shared_focus = {
 	ai_will_do = {
 		factor = 100
 	}
+	mutually_exclusive = {
+		focus = USA_promote_confidence_in_the_market
+	}
 	completion_reward = {
-		if = {
-			limit = { has_idea = USA_great_depression_5 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_5
-				add_idea = USA_great_depression_6
-			}
+		add_to_variable = {
+			USA_warren_great_depression_consumer_goods_factor = -0.05
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_4 }
+		USA_warren_great_depression_loc = yes
+
+		effect_tooltip = {
 			swap_ideas = {
-				remove_idea = USA_great_depression_4
-				add_idea = USA_great_depression_5
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_3 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_3
-				add_idea = USA_great_depression_4
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_2 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_2
-				add_idea = USA_great_depression_3
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression }
-			swap_ideas = {
+				add_idea = USA_great_depression_warren_promote_con_in_market
 				remove_idea = USA_great_depression
-				add_idea = USA_great_depression_2
-			}
-		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_great_depression
-					add_idea = USA_great_depression_2
-				}
 			}
 		}
 		
@@ -125,18 +126,26 @@ shared_focus = {
 				add_idea = USA_economic_rejuvination_plan_2
 			}
 		}
-		if = {
+		else_if = {
 			limit = { has_idea = USA_economic_rejuvination_plan_2_alt }
 			swap_ideas = {
 				remove_idea = USA_economic_rejuvination_plan_2_alt
 				add_idea = USA_economic_rejuvination_plan_3_alt
 			}
 		}
+		else = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = USA_economic_rejuvination_plan_2_alt
+					add_idea = USA_economic_rejuvination_plan_3_alt
+				}
+			}
+		}
 	}
 }
 shared_focus = {
 	id = USA_keep_tarrifs_to_a_minimum
-	icon = GFX_goal_AUS_sign_a_new_constitution
+	icon = GFX_goal_abolish_price_caps
 	x = 0
 	y = 1
 	cost = 2
@@ -147,61 +156,102 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		if = {
-			limit = { has_idea = USA_economic_rejuvination_plan_2 }
-			swap_ideas = {
-				remove_idea = USA_economic_rejuvination_plan_2
-				add_idea = USA_economic_rejuvination_plan_3
+		add_ideas = export_focus
+		ENG = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = lowered_tarrifs
 			}
 		}
-		else_if = {
-			limit = { has_idea = USA_economic_rejuvination_plan_3_alt }
-			swap_ideas = {
-				remove_idea = USA_economic_rejuvination_plan_3_alt
-				add_idea = USA_economic_rejuvination_plan_4_alt
+		FRA = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = lowered_tarrifs
 			}
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_5 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_5
-				add_idea = USA_great_depression_6
+		AUS = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = lowered_tarrifs
 			}
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_4 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_4
-				add_idea = USA_great_depression_5
+		SPR = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = lowered_tarrifs
 			}
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_3 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_3
-				add_idea = USA_great_depression_4
-			}
+	}
+}
+shared_focus = {
+	id = USA_promote_confidence_in_the_market
+	icon = GFX_goal_support_small_bussinesses
+	x = -4
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_economic_revitalization
+	prerequisite = { focus = USA_economic_revitalization }
+	mutually_exclusive = {
+		focus = USA_promote_government_bonds
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		add_to_variable = {
+			USA_warren_great_depression_industrial_capacity_factory = 0.05
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_2 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_2
-				add_idea = USA_great_depression_3
-			}
+		add_to_variable = {
+			USA_warren_great_depression_stability_factor = 0.05
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression }
+		USA_warren_great_depression_loc = yes
+
+		effect_tooltip = {
 			swap_ideas = {
+				add_idea = USA_great_depression_warren_promote_government_bonds
 				remove_idea = USA_great_depression
-				add_idea = USA_great_depression_2
 			}
 		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_great_depression
-					add_idea = USA_great_depression_2
-				}
+	}
+}
+shared_focus = {
+	id = USA_revive_the_smooth_hawley_tarrif_act
+	icon = GFX_goal_AUS_sign_a_new_constitution
+	x = 0
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_promote_confidence_in_the_market
+	prerequisite = { focus = USA_promote_confidence_in_the_market }
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		add_ideas = limited_exports
+
+		ENG = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = tarrifs
+			}
+		}
+		FRA = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = tarrifs
+			}
+		}
+		AUS = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = tarrifs
+			}
+		}
+		SPR = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = tarrifs
 			}
 		}
 	}
@@ -219,49 +269,17 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		if = {
-			limit = { has_idea = USA_great_depression_5 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_5
-				add_idea = USA_great_depression_6
-			}
+		add_to_variable = {
+			USA_warren_great_depression_consumer_goods_factor = -0.05
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_4 }
+		USA_warren_great_depression_loc = yes
+		effect_tooltip = {
 			swap_ideas = {
-				remove_idea = USA_great_depression_4
-				add_idea = USA_great_depression_5
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_3 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_3
-				add_idea = USA_great_depression_4
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_2 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_2
-				add_idea = USA_great_depression_3
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression }
-			swap_ideas = {
+				add_idea = USA_great_depression_cut_sales_taxes
 				remove_idea = USA_great_depression
-				add_idea = USA_great_depression_2
 			}
 		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_great_depression_2
-					add_idea = USA_great_depression_3
-				}
-			}
-		}
+		add_war_support = 0.03
 	}
 }
 shared_focus = {
@@ -306,49 +324,8 @@ shared_focus = {
 				}
 			}
 		}
-		if = {
-			limit = { has_idea = USA_great_depression_5 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_5
-				add_idea = USA_great_depression_6
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_4 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_4
-				add_idea = USA_great_depression_5
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_3 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_3
-				add_idea = USA_great_depression_4
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_2 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_2
-				add_idea = USA_great_depression_3
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_2 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_2
-				add_idea = USA_great_depression_3
-			}
-		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_great_depression_4
-					add_idea = USA_great_depression_5
-				}
-			}
-		}
+		
+
 	}
 }
 
@@ -369,43 +346,20 @@ shared_focus = {
 	}
 	
 	completion_reward = {
-		add_political_power = 150
-		if = {
-			limit = { has_idea = USA_great_depression_4 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_4
-				add_idea = USA_great_depression_5
-			}
+		add_political_power = 100
+		add_to_variable = {
+			USA_warren_great_depression_industrial_capacity_factory = 0.05
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_3 }
+		USA_warren_great_depression_loc = yes
+		effect_tooltip = {
+			
 			swap_ideas = {
-				remove_idea = USA_great_depression_3
-				add_idea = USA_great_depression_4
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_2 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_2
-				add_idea = USA_great_depression_3
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression }
-			swap_ideas = {
+				add_idea = USA_great_depression_warren_raise_taxes_on_the_top_1
 				remove_idea = USA_great_depression
-				add_idea = USA_great_depression_2
 			}
 		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_great_depression_3
-					add_idea = USA_great_depression_4
-				}
-			}
-		}
+
+		
 	}
 
 }
@@ -422,42 +376,18 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = { 
-		if = {
-			limit = { has_idea = USA_great_depression_5 }
+
+		add_to_variable = {
+			USA_warren_great_depression_production_factory_efficiency_gain_factor = 0.05
+		}
+		USA_warren_great_depression_loc = yes
+		effect_tooltip = {
 			swap_ideas = {
-				remove_idea = USA_great_depression_5
-				add_idea = USA_great_depression_6
+				add_idea = USA_great_depression_warren_issue_stimulus_checks
+				remove_idea = USA_great_depression
 			}
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_4 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_4
-				add_idea = USA_great_depression_5
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_3 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_3
-				add_idea = USA_great_depression_4
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_2 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_2
-				add_idea = USA_great_depression_3
-			}
-		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_great_depression_2
-					add_idea = USA_great_depression_3
-				}
-			}
-		}
+		
 		add_timed_idea = {
 			idea = USA_stimulus_check_payments
 			days = 60
@@ -482,7 +412,18 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		
+		add_ideas = USA_hoover_quotas
+		add_to_variable = {
+			USA_warren_great_depression_consumer_goods_factor = -0.05
+		}
+		USA_warren_great_depression_loc = yes
+
+		effect_tooltip = {
+			swap_ideas = {
+				add_idea = USA_great_depression_warren_promote_con_in_market
+				remove_idea = USA_great_depression
+			}
+		}
 	}
 
 }
@@ -499,45 +440,14 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = { 
-		if = {
-			limit = { has_idea = USA_great_depression_5 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_5
-				add_idea = USA_great_depression_6
-			}
+		country_event = USA_warren_tree.6
+		MEX = {
+			country_event = USA_warren_tree.6
+			add_manpower = 25000
 		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_4 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_4
-				add_idea = USA_great_depression_5
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_3 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_3
-				add_idea = USA_great_depression_4
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_great_depression_2 }
-			swap_ideas = {
-				remove_idea = USA_great_depression_2
-				add_idea = USA_great_depression_3
-			}
-		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_great_depression_2
-					add_idea = USA_great_depression_3
-				}
-			}
-		}
-		add_timed_idea = {
-			idea = USA_stimulus_check_payments
-			days = 60
+		CEN = {
+			country_event = USA_warren_tree.6
+			add_manpower = 10000
 		}
 	}
 }
@@ -556,32 +466,20 @@ shared_focus = {
     }
     prerequisite = {
         focus = USA_keep_tarrifs_to_a_minimum
+		focus = USA_revive_the_smooth_hawley_tarrif_act
     }
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
-		 if = {
-		 	limit = { has_idea = USA_great_depression_6 }
-		 	remove_ideas = USA_great_depression_6
-		 }
-		 else_if = {
-		 	limit = { has_idea = USA_great_depression_5 }
-		 	remove_ideas = USA_great_depression_5
-		 }
-		 else_if = {
-		 	limit = { has_idea = USA_great_depression_4 }
-		 	remove_ideas = USA_great_depression_4
-		 }
-		 else_if = {
-		 	limit = { has_idea = USA_great_depression_3 }
-		 	remove_ideas = USA_great_depression_3
-		 }
-		 else = {
-			 effect_tooltip = {
-				remove_ideas = USA_great_depression_3
+		 hidden_effect = {
+			 remove_dynamic_modifier = {
+				 modifier = USA_warren_great_depression
 			 }
 		 }
+		effect_tooltip = {
+		remove_ideas = USA_great_depression_3
+		}
 		 if = {
 		 	limit = { has_idea = james_j_couzens } 
 		 	add_timed_idea = {
@@ -970,6 +868,5 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		remove_ideas = USA_dust_bowl_3
 	}
 }
