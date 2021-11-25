@@ -12,6 +12,8 @@ replace_path="gfx/loadingscreens"
 replace_path="history/countries"
 
 replace_path="history/states"
+replace_path="history/general"
+
 replace_path="common/abilities"
 replace_path="common/ideas"
 replace_path="common/national_focus"
