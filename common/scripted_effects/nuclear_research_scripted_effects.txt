@@ -41,14 +41,14 @@ set_scientist_level = {
 	set_variable = { amount_of_scientists_required = researcher_array^num }
 	#If your researcher array is under the amount of nuclear reactors you have, add 1
 	while_loop_effect  = {
-		limit = { check_variable = { amount_of_scientists_required < modifier@nuclear_scientist_production_modifier } }
+		limit = { check_variable = { amount_of_scientists_required < 0 } }
 		add_to_variable = { amount_of_scientists_required = 1 }
 	}
 	clamp_variable = { var = amount_of_scientists_required min = -6 max = 6 }
 
 	#Just to be sure its not over
 	while_loop_effect  = {
-		limit = { check_variable = { amount_of_scientists_required > modifier@nuclear_scientist_production_modifier } }
+		limit = { check_variable = { amount_of_scientists_required > 0 } }
 		subtract_from_variable = { amount_of_scientists_required = 1 }
 	}
 	clamp_variable = { var = amount_of_scientists_required min = -6 max = 6 }

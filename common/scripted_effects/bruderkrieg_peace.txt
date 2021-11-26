@@ -1202,8 +1202,8 @@ russia_beats_ottoman_peace_deal = {
 release_byazntium = {
     BYZ = { transfer_state = 948 }
     BYZ = { transfer_state = 341 }
-    BYZ = { set_capital = 341 }
-    TUR = { set_capital = 49 }
+    BYZ = { set_capital = { state = 341 } }
+    BYZ = { set_capital = { state = 49 } }
     BYZ = { transfer_state = 347 }
     BYZ = { transfer_state = 340 }
     BYZ = { transfer_state = 834 }
@@ -1213,6 +1213,9 @@ release_byazntium = {
 }
 
 argentina_loses_peace_deal = {
+    PBC = {
+        white_peace = ARG
+    }
 	PBC = { transfer_state = 998 }
 	PBC = {
 		puppet = ARG
@@ -1223,7 +1226,10 @@ argentina_loses_peace_deal = {
 	PAR = { puppet = ERS }
 	ERS = {
 		transfer_state = 1035
-		transfer_state = 510					
+		transfer_state = 510	
+        set_politics = {
+            ruling_party = neutrality
+        }				
 	}
 	PAT = {
 		transfer_state = 512
@@ -1249,6 +1255,84 @@ argentina_loses_peace_deal = {
 	
 }
 
+argentina_beats_bruhzil = {
+    ARG = {
+        transfer_state = 504
+        transfer_state = 1037
+        transfer_state = 503
+        transfer_state = 502
+        transfer_state = 1012
+    }
+    BMJ = {
+        transfer_state = 495
+        transfer_state = 508
+        transfer_state = 967
+        transfer_state = 983
+        transfer_state = 986
+        transfer_state = 991
+        transfer_state = 1004
+        transfer_state = 1016
+        transfer_state = 1020
+        transfer_state = 497
+        transfer_state = 1017
+        transfer_state = 280
+        transfer_state = 505
+    }
+    BRS = {
+        transfer_state = 1011
+        transfer_state = 503
+        transfer_state = 984
+        transfer_state = 501
+        transfer_state = 500
+        transfer_state = 1011
+        transfer_state = 496
+        transfer_state = 1010
+        set_cosmetic_tag = south_syndi_state_of_brazil
+    }
+    BRE = {
+        transfer_state = 1003
+        transfer_state = 1005
+        transfer_state = 1007        
+        transfer_state = 1006
+        transfer_state = 1008
+        transfer_state = 1009
+        transfer_state = 499
+        transfer_state = 989
+        transfer_state = 498
+        set_cosmetic_tag = north_brazilian_occupation_force
+
+        
+    }
+    ARG = {
+        puppet = BRE
+        puppet = BRS
+        puppet = BMJ
+    }
+    BMJ = {
+        set_politics = {
+            ruling_party = neutrality
+        }
+    }
+}
+
+d_brazil_setup = {
+    UBR = {
+        annex_country = {
+            target = BRE
+            transfer_troops = no
+        }
+        annex_country = {
+            target = BRS
+            transfer_troops = no
+        }
+    }
+    ARG = {
+        annex_country = {
+            target = URG
+            transfer_troops = no
+        }
+    }
+}
 
 austria_beats_serbia_peace_deal = {
     if = {

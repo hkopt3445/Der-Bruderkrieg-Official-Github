@@ -304,29 +304,28 @@ focus_tree = {
 	focus = {
 		id = USA_1936_DNC
 		icon = GFX_goal_USA_1936_DNC
-		prerequisite = { focus = USA_bulwark_against_socialism }
-		prerequisite = {
-			focus = USA_defender_of_liberty
-		}
-		x = 3
-		y = 1
-		relative_position_id = USA_defender_of_liberty
+		x = 10
+		y = 0
 		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
 		available = {
-			always = no
+			date > 1936.6.1
+		}
+		mutually_exclusive = {
+			focus = USA_1936_RNC
 		}
 		bypass = {
-			has_country_flag = USA_dnc_has_ended
 		}
 
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			country_event = {
+				 id = USA_democratic_national_convention.1
+			}
 		}
 	}
 	
@@ -343,15 +342,19 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
+			has_country_flag = USA_dnc_has_ended
 		}
 		mutually_exclusive = {
 			focus = USA_smith_campaign
 		}
+
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 					#	load_focus_tree = usa_long_new_deal_tree
+			country_event = USA_election_leadup.1
+
 		}
 	}
  
@@ -380,7 +383,6 @@ focus_tree = {
 				name = USA_bull_moose_party 
 			}
 			add_political_power = 20
-			country_event = USA_election_leadup.1
 
 		}
 	}
@@ -562,26 +564,9 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					is_smith_state = yes
-				}
-				add_to_variable = {
-					long_support = 2
-				  }
-				  usa_modify_electoral_college_effect = yes
-				  custom_effect_tooltip = USA_increase_long_support_by_two
-			}
-			random_owned_controlled_state = {
-				limit = {
-					is_smith_state = yes
-				}
-				add_to_variable = {
-					long_support = 2
-				  }
-				  usa_modify_electoral_college_effect = yes
-				  custom_effect_tooltip = USA_increase_long_support_by_two
-			}
+			unlock_decision_tooltip = USA_attack_smiths_catholcism
+			unlock_decision_tooltip = USA_question_his_conservative_loyalties
+			unlock_decision_tooltip = USA_call_out_his_urban_favoritism
 		}
 	}
     focus = {
@@ -602,68 +587,202 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					is_borah_state = yes
-				}
-				add_to_variable = {
-					long_support = 2
-				  }
-				  usa_modify_electoral_college_effect = yes
-				  custom_effect_tooltip = USA_increase_long_support_by_two
-			}
-			random_owned_controlled_state = {
-				limit = {
-					is_borah_state = yes
-				}
-				add_to_variable = {
-					long_support = 2
-				  }
-				  usa_modify_electoral_college_effect = yes
-				  custom_effect_tooltip = USA_increase_long_support_by_two
-			}
-			random_owned_controlled_state = {
-				limit = {
-					is_borah_state = yes
-				}
-				add_to_variable = {
-					long_support = 2
-				  }
-				  usa_modify_electoral_college_effect = yes
-				  custom_effect_tooltip = USA_increase_long_support_by_two
-			}
+			usa_long_modify_electoral_college_effect = yes
+			usa_long_modify_electoral_college_effect = yes
 		}
 	}
-    focus = {
-		id = USA_nov_3_1936
-		icon = GFX_goal_USA_election_day_arrives
-		prerequisite = { focus = USA_but_promoting_unity focus = USA_gain_fdrs_support }
-		prerequisite = {
-		}
-		x = 2
-		y = 1
-		relative_position_id = USA_but_promoting_unity
+
+
+	focus = {
+		id = USA_1936_RNC
+		icon = GFX_goal_USA_1936_RNC
+		x = 17
+		y = 0
 		cost = 2
 		ai_will_do = {
-			factor = 1
+			factor = 0
 		}
 		available = {
-			always = no
+			date > 1936.6.1
+		}
+		bypass = {
+		}
+		mutually_exclusive = {
+			focus = USA_1936_DNC
 		}
 
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-	
+			country_event = USA_republican_national_convention.1
 		}
 	}
+	focus = {
+		id = USA_the_warren_campaign
+		icon = GFX_goal_USA_the_warren_campaign
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		prerequisite = {
+			focus = USA_1936_RNC
+		}
+		relative_position_id = USA_1936_RNC
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			unlock_decision_tooltip = USA_campaign_in_new_york_and_new_england
+			unlock_decision_tooltip = USA_campaign_in_the_mid_atlantic
+			unlock_decision_tooltip = USA_campaign_in_the_deep_south
+			unlock_decision_tooltip = USA_campaign_in_the_south
+			unlock_decision_tooltip = USA_campaign_in_pacific
+			unlock_decision_tooltip = USA_campaign_the_pacific_northwest
+			unlock_decision_tooltip = USA_campaign_in_the_rockies
+			unlock_decision_tooltip = USA_campaign_in_the_great_plains
+			unlock_decision_tooltip = USA_campaign_in_the_rustbelt
+		}
+
+	}
+	focus = { 
+		id = USA_model_teddys_runs
+		icon = GFX_goal_USA_model_teddys_runs
+		prerequisite = { focus = USA_the_warren_campaign }
+		x = -1
+		y = 1
+		relative_position_id = USA_the_warren_campaign
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			unlock_decision_tooltip = USA_attack_smiths_catholcism
+			unlock_decision_tooltip = USA_question_his_conservative_loyalties
+			unlock_decision_tooltip = USA_call_out_his_urban_favoritism
+			
+		}
+	}
+	focus = { 
+		id = USA_the_bull_moose_on_our_side
+		icon = GFX_goal_USA_teddys_legacy
+		prerequisite = { focus = USA_model_teddys_runs }
+		x = 0
+		y = 1
+		relative_position_id = USA_model_teddys_runs
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			usa_borah_modify_electoral_college_effect = yes
+			usa_borah_modify_electoral_college_effect = yes
+		}
+	}
+
+	focus = { 
+		id = USA_continue_the_taft_pact
+		icon = GFX_goal_USA_continue_the_taft_pact
+		prerequisite = { focus = USA_the_warren_campaign }
+		x = 1
+		y = 1
+		relative_position_id = USA_the_warren_campaign
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			add_political_power = 50	
+			unlock_decision_tooltip = USA_denounce_longs_populism
+			unlock_decision_tooltip = USA_call_out_his_governing_incompetence
+			unlock_decision_tooltip = USA_questioning_his_extensive_ambitions
+		}
+	}
+	focus = { 
+		id = USA_the_conservatives_appeased
+		icon = GFX_goal_Cabinet
+		prerequisite = { focus = USA_continue_the_taft_pact }
+		x = 0
+		y = 1
+		relative_position_id = USA_continue_the_taft_pact
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			usa_borah_modify_electoral_college_effect = yes
+			usa_borah_modify_electoral_college_effect = yes
+		}
+	}
+	focus = { 
+		id = USA_the_great_western_push
+		icon = GFX_goal_USA_promoting_longs_economic_policy
+		prerequisite = { focus = USA_the_conservatives_appeased }
+		prerequisite = {
+			focus = USA_the_bull_moose_on_our_side
+		}
+		x = -1
+		y = 1
+		relative_position_id = USA_the_conservatives_appeased
+	
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+	
+		completion_reward = {
+			##great west push
+		}
+	}
+
+    
 
 
 	###smith
 	focus = { 
 		id = USA_smith_campaign
-		icon = GFX_goal_USA_smith_campaign
+		icon = GFX_goal_USA_smiths_america
 		prerequisite = { focus = USA_1936_DNC }
 		x = 2
 		y = 1
@@ -680,18 +799,28 @@ focus_tree = {
 			}
 		}
 		available = {
+			has_country_flag = USA_dnc_has_ended
+			has_country_flag = USA_smith_wins_dnc
 		}
 	
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			
+			unlock_decision_tooltip = USA_campaign_in_new_york_and_new_england
+			unlock_decision_tooltip = USA_campaign_in_the_mid_atlantic
+			unlock_decision_tooltip = USA_campaign_in_the_deep_south
+			unlock_decision_tooltip = USA_campaign_in_the_south
+			unlock_decision_tooltip = USA_campaign_in_pacific
+			unlock_decision_tooltip = USA_campaign_the_pacific_northwest
+			unlock_decision_tooltip = USA_campaign_in_the_rockies
+			unlock_decision_tooltip = USA_campaign_in_the_great_plains
+			unlock_decision_tooltip = USA_campaign_in_the_rustbelt
 		}
 	}
 	focus = { 
 		id = USA_ensure_mcadoos_loyalty
-		icon = GFX_goal_USA_ensure_mcadoos_loyalty
+		icon = GFX_goal_USA_stolen_no_more
 		prerequisite = { focus = USA_smith_campaign }
 		x = -1
 		y = 1
@@ -708,12 +837,14 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			
+			usa_smith_modify_electoral_college_effect = yes
+			usa_smith_modify_electoral_college_effect = yes
+			add_political_power = 25
 		}
 	}
 	focus = { 
 		id = USA_promises_to_the_south
-		icon = GFX_goal_USA_promises_to_the_south
+		icon = GFX_goal_USA_and_missouri_dock_workers
 		prerequisite = { focus = USA_ensure_mcadoos_loyalty }
 		x = 0
 		y = 1
@@ -730,7 +861,8 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			
+			add_political_power = 25
+			##south campaigning reduce cost
 		}
 	}
 
@@ -753,12 +885,15 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			
+			##long attack
+			unlock_decision_tooltip = USA_denounce_longs_populism
+			unlock_decision_tooltip = USA_call_out_his_governing_incompetence
+			unlock_decision_tooltip = USA_questioning_his_extensive_ambitions
 		}
 	}
 	focus = { 
 		id = USA_rally_the_northern_base
-		icon = GFX_goal_USA_rally_the_northern_base
+		icon = GFX_goal_USA_meeting_with_california_dock_workers
 		prerequisite = { focus = USA_attack_longs_treachery }
 		x = 0
 		y = 1
@@ -775,7 +910,10 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			
+			usa_smith_modify_electoral_college_effect = yes
+			usa_smith_modify_electoral_college_effect = yes
+			usa_smith_modify_electoral_college_effect = yes
+			usa_smith_modify_electoral_college_effect = yes
 		}
 	}
 	focus = { 
@@ -800,7 +938,8 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			
+			usa_smith_modify_electoral_college_effect = yes
+			usa_smith_modify_electoral_college_effect = yes
 		}
 	}
 	
