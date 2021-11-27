@@ -35,6 +35,7 @@ replace_path="map/strategicregions"
 replace_path="common/ai_focuses"
 
 replace_path="events"
+replace_path="localisation/english"
 
 path="mod/Der-Bruderkrieg-Official-Github" 
 
