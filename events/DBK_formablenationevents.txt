@@ -53,3 +53,68 @@ news_event = {
 		name = DBK_formablenations.3
 	}
 }
+
+news_event = { #greece united
+	id = DBK_formablenations.4
+	title = DBK_formablenations.4.t
+	desc = DBK_formablenations.4.d
+	picture = GFX_report_event_czech_soldiers_02
+	is_triggered_only = yes
+	major = yes
+
+
+	option = {
+		name = DBK_formablenations.4.a
+	}
+}
+
+country_event = { #greece united, wants islands back from UK
+	id = DBK_formablenations.5
+	title = DBK_formablenations.5.t
+	desc = DBK_formablenations.5.d
+	picture = GFX_report_event_czech_soldiers_02
+	is_triggered_only = yes
+
+	option = { #sure
+		name = DBK_formablenations.5.a
+		ai_chance = {
+			factor = 4
+			modifier = {
+				has_war = yes
+				factor = 0.5
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value < 0
+				}
+				factor = 0.5
+			}
+		}
+		every_owned_state = {
+			limit = { is_core_of = FROM }
+			FROM = {
+				transfer_state = PREV
+			}
+		}
+	}
+	option = { #no
+		name = DBK_formablenations.5.b
+		ai_chance = {
+			factor = 2
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value < -25
+				}
+				factor = 2
+			}
+		}
+		FROM = {
+			create_wargoal = {
+				type = annex_everything
+				target = ROOT
+			}
+		}
+	}
+}
