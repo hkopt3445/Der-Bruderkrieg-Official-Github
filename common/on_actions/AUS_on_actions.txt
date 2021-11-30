@@ -71,6 +71,26 @@ on_actions = {
             
         }
     }
+     on_offer_join_faction = {
+        effect = {
+            if = {
+                limit = {
+                    FROM = {
+                        tag = GRE
+                    }
+                    is_in_faction_with = AUS
+                    NOT = {
+                        has_country_flag = dont_trigger_greece_faction_event_twice
+                    }
+                }
+                ATH = {
+                    country_event = {id = greece_moment.1 days = 1}
+                }
+                log = "hi"
+                set_country_flag = dont_trigger_greece_faction_event_twice
+            }
+        }
+    }
     on_declare_war = {
         effect = {
             if = {
@@ -121,6 +141,7 @@ on_actions = {
             
         }
     }
+   
     # on_weekly = {
     #     effect = {
     #         if = {
