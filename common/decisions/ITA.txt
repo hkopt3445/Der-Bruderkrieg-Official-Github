@@ -2285,5 +2285,68 @@ ITA_maintaining_unity = {
 
 
 ITA_the_mercenaries = {
+
+  ##mercenary decisions
+  ITA_hire_more_mercenaries = {
+    allowed = {
+      tag = ITA
+    }
+
+    available = {
+     # has_completed_focus = ITA_hire_pirates
+    }
+    custom_cost_trigger = {
+			check_variable = { ITA_mercenary_number < 500 }
+		}
+		custom_cost_text = ITA_hire_more_mercenaries_tt
   
+
+    remove_effect = {
+      add_to_variable = {
+        ITA_mercenary_number = 200
+      }
+    }
+  }
+
+  ITA_raid_on_malta = {
+    allowed = {
+      tag = ITA
+    }
+
+    visible = {
+     has_completed_focus = ITA_the_raid_on_malta
+    }
+    custom_cost_trigger = {
+			check_variable = { ITA_mercenary_number > 299 }
+      check_variable = { ITA_ships_mercenary_number > 2 }
+
+		}
+		custom_cost_text = ITA_mercenary_raid_tt
+
+    days_remove = 10
+    days_re_enable = 50
+  
+
+    remove_effect = {
+      set_variable = {
+        ITA_mercenary_power_fail = ITA_mercenary_power
+      }
+      multiply_variable = {
+        ITA_mercenary_power_fail = -1
+      }
+      add_to_variable = {
+        ITA_mercenary_power_fail = 100
+      }
+      random_list = {
+        var:ITA_mercenary_power = {
+          country_event = ITA_mercenary_events.1
+        }
+        var:ITA_mercenary_power_fail = {
+          country_event = ITA_mercenary_events.2
+        }
+      }
+    }
+  }
+
+
 }
