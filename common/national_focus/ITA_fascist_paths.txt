@@ -17,7 +17,7 @@
 	shared_focus = ITA_BUILD_AIR
 	shared_focus = ITA_INVEST_IN_SOUTH
 	shared_focus = ITA_begin_the_recovery_process
-	shared_focus = ITA_italys_destiny
+	shared_focus = ITA_the_italian_mess
 	continuous_focus_position = { x = 5300 y = 2000 }
 }
 
@@ -1034,19 +1034,83 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = ITA_italys_destiny
+	id = ITA_the_italian_mess
 	icon = unkown 
 	x = 10
 	y = 0
 	cost = 2.5
 	available = {
-		has_completed_focus = ITA_a_nation_reborn
-		has_country_flag = ITA_italys_destiny_unlock
 	}
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
 	}
+	completion_reward = {
+		country_event = ITA_starting_tree_events.1
+	}
+}
+
+shared_focus = {
+	id = ITA_operation_desert_fox
+	icon = unkown 
+	x = 0
+	y = 1
+	cost = 2.5
+	available = {
+	}
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 100
+	}
+	prerequisite = {
+		focus = ITA_the_italian_mess
+	}
+	relative_position_id = ITA_the_italian_mess
+	completion_reward = {
+		declare_war_on = {
+			target = LBA
+			type = puppet_wargoal_focus
+		}
+		ITA = {
+			set_state_controller = 451
+		}
+		451 = {
+			create_unit = {
+				division = "name = \"Libyan Protection Force\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+				owner = ITA
+			}
+			create_unit = {
+				division = "name = \"Libyan Protection Force\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+				owner = ITA
+			}
+		}
+	}
+}
+
+
+
+
+shared_focus = {
+	id = ITA_italys_destiny
+	icon = unkown 
+	x = 0
+	y = 1
+	cost = 2.5
+	available = {
+		LBA = {
+			is_puppet_of = ITA
+		}
+	}
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 100
+	}
+	prerequisite = {
+		focus = ITA_operation_desert_fox
+	}
+	relative_position_id = ITA_operation_desert_fox
 	completion_reward = {
 		country_event = ITA_evola_coup_events.1
 		add_political_power = 100
@@ -5301,7 +5365,7 @@ shared_focus = {
 	text = ITA_LOOK_AT_ARMY
 	#prerequisite = { focus = ITA_MAFIA_FOCUS }
 	x = 0
-	y = 0
+	y = 2
 	relative_position_id = ITA_MAFIA_FOCUS
 	cost = 5
 	ai_will_do = {
@@ -5950,7 +6014,7 @@ shared_focus = {
 	  text = ITA_ITALIAN_FLEET
 	  #prerequisite = { focus = ITA_industrial_effort_2 }
 	  x = 24
-	  y = 12
+	  y = 14
 	  cost = 5
 	  ai_will_do = {
 		  factor = 1
@@ -6224,7 +6288,7 @@ shared_focus = {
 	  text = ITA_BUILD_AIR
 	  #prerequisite = { focus = ITA_industrial_effort_2 }
 	  x = 30
-	  y = 12
+	  y = 14
 	  cost = 5
 	  ai_will_do = {
 		  factor = 1
