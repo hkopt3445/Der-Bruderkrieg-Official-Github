@@ -2106,6 +2106,26 @@ shared_focus = {
 		}
 	}
 
+	shared_focus = {
+		id = ITA_mercenary_coup
+		icon = GFX_goal_generic_political_pressure
+		x = -1
+		y = 1
+		cost = 5
+
+		prerequisite = { focus = ITA_end_asia_minor_autonomy }
+		prerequisite = {
+			focus = ITA_secure_athens
+		}
+		relative_position_id = ITA_end_asia_minor_autonomy
+		ai_will_do = {
+			factor = 500
+		}
+		completion_reward = {
+			
+		}
+	}
+
 	
 	# shared_focus = {
 	# 	id = ITA_prepare_coming_wars
@@ -2868,9 +2888,20 @@ shared_focus = {
 			factor = 1000
 		}
 		completion_reward = {
+			
 			LBA = {
-				country_event = { id = generic.20 hours = 2 }
+				add_state_core = 665
+				add_state_core = 458
+				add_state_claim = 452
+				add_state_claim = 1113
+				add_state_claim = 1088
+				add_state_claim = 1087
+				add_state_claim = 1115
+				add_state_claim = 1114
+				add_state_claim = 1116
+				add_state_claim = 552
 			}
+			
 		}
 	}
 
@@ -2905,6 +2936,15 @@ shared_focus = {
 			factor = 1000
 		}
 		completion_reward = {
+			LBA = {
+				every_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
 			if = {
 				limit = { LBA = { is_subject_of = ITA } }
 				annex_country = {
@@ -2913,13 +2953,9 @@ shared_focus = {
 				}
 			}
 			every_state = {
-				limit = { is_core_of = LBA }
+				limit = { OR = { is_core_of = LBA is_claimed_by = LBA }  }
 				add_core_of = ITA
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
+				
 			}
 			random_state = {
 				limit = { is_core_of = LBA OR = { is_owned_by = LBA is_owned_by = ITA } }
