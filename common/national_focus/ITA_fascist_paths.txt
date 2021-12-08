@@ -1760,6 +1760,18 @@ shared_focus = {
 				ITA_mercenary_power = 35
 			}
 			unlock_decision_category_tooltip = ITA_the_mercenaries
+			
+			hidden_effect = {
+				set_variable = {
+					ITA_mercenary_power_fail = ITA_mercenary_power
+				}		
+				multiply_variable = {
+					ITA_mercenary_power_fail = -1
+				}
+				add_to_variable = {
+					ITA_mercenary_power_fail = 100
+				}
+			}
 		}
 	}
 
@@ -2279,13 +2291,15 @@ shared_focus = {
 			factor = 1000
 		}
 		completion_reward = {
-			
+			hidden_effect = {
+				retire_country_leader = yes
+			}
 			create_country_leader = {
 			name = "Atillio Teruzzi"
 			#desc = "MUSSOLINI_DESC"
 			picture = "gfx/leaders/AttilioTeruzzi.dds"
 			expire = "1965.1.1"
-			ideology = despotic
+			ideology = ultranationalist
 			traits = { 
 				
 			}
@@ -5379,9 +5393,8 @@ shared_focus = {
 	icon = GFX_goal_ITA_seal_off_the_provinces
 	text = ITA_LOOK_AT_ARMY
 	#prerequisite = { focus = ITA_MAFIA_FOCUS }
-	x = 0
-	y = 2
-	relative_position_id = ITA_MAFIA_FOCUS
+	x = 12
+	y = 14
 	cost = 5
 	ai_will_do = {
 	  factor = 1
