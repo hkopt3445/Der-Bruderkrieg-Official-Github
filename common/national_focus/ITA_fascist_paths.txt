@@ -2785,13 +2785,14 @@ shared_focus = {
 				# 	ITA_NFP_party_stability < 26
 				# }
 			}
+			has_idea = ITA_socialist_revolt_2
 		}
 
 		ai_will_do = {
 			factor = 1000
 		}
 		completion_reward = {
-			remove_ideas = ITA_socialist_revolt
+			remove_ideas = ITA_socialist_revolt_2
 		}
 	}
 
@@ -3623,6 +3624,21 @@ shared_focus = {
 			remove_idea = ITA_carlomonic_state
 			add_idea = ITA_carlomonic_state_2
 		}
+		if = {
+			limit = {
+				has_idea = ITA_socialist_revolt
+			}
+			swap_ideas = {
+				add_idea = ITA_socialist_revolt_2
+				remove_idea = ITA_socialist_revolt
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ITA_socialist_revolt_2
+			}
+			remove_ideas = ITA_socialist_revolt_2
+		}
 		country_event = ITA_evola_tree.8
 	}
 }
@@ -3807,6 +3823,23 @@ shared_focus = {
 		country_event = ITA_evola_tree.4
 		ITA_decrease_party_stability_large = yes
 		add_political_power = 100
+
+		if = {
+			limit = {
+				has_idea = ITA_socialist_revolt
+			}
+			swap_ideas = {
+				add_idea = ITA_socialist_revolt_2
+				remove_idea = ITA_socialist_revolt
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ITA_socialist_revolt_2
+			}
+			remove_ideas = ITA_socialist_revolt_2
+		}
+		
 	}
 }
 
@@ -3826,6 +3859,14 @@ shared_focus = {
 		focus = ITA_evolas_regime
 	}
 	relative_position_id = ITA_evolas_regime
+	available = {
+		has_completed_focus = ITA_the_supremacy_of_tradition
+		has_completed_focus = ITA_a_unified_party
+		NOT = {
+			has_idea = ITA_socialist_revolt_2
+			has_idea = ITA_socialist_revolt
+		}
+	}
 	completion_reward = {
 		add_war_support = 0.1
 	}
