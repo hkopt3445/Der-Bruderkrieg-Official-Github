@@ -107,7 +107,7 @@ ITA_incoming_socialist_revolution = {
       tag = ITA
     }
     visible = {
-      has_completed_focus = ITA_Send_in_the_Shocktroopers
+      has_completed_focus = ITA_purge_the_socialist_remnants
     }
 
     cost = 35
@@ -148,7 +148,7 @@ ITA_incoming_socialist_revolution = {
       tag = ITA
     }
     visible = {
-      has_completed_focus = ITA_They_arent_Italians
+      has_completed_focus = ITA_purge_the_socialist_remnants
     }
 
     cost = 60
@@ -183,6 +183,161 @@ ITA_incoming_socialist_revolution = {
 
         add_to_variable = {fascist_influence = socialist_temp_var}
       } 
+    }
+  }
+  ITA_curb_socialist_intellegence = {
+    available = {
+      tag = ITA
+    }
+    visible = {
+      has_completed_focus = ITA_purge_the_socialist_remnants
+    }
+
+    cost = 60
+    days_remove = 75
+
+    fire_only_once = no
+    days_re_enable = 10
+
+    complete_effect = {
+     
+    }
+
+    modifier = {
+      political_power_gain = -0.1
+      decryption_factor = -0.05
+      democratic_communism_drift = -0.03
+      communism_drift = -0.03
+    }
+
+    remove_effect = {
+      every_owned_state = {
+        add_to_variable = {
+        tooltip = ITA_increase_fasicst_influence_by_5_in_state
+        socialist_influence = -5
+        }
+        set_variable = {fascist_influence = 0}
+        set_temp_variable = {
+          socialist_temp_var = socialist_influence
+        }
+        subtract_from_temp_variable  = {socialist_temp_var = 100}
+        multiply_temp_variable = {socialist_temp_var = -1}
+
+        add_to_variable = {fascist_influence = socialist_temp_var}
+      } 
+    }
+  }
+  ITA_jail_parri = {
+    available = {
+      tag = ITA
+    }
+    visible = {
+      has_completed_focus = ITA_purge_the_socialist_remnants
+    }
+
+    cost = 75
+    days_remove = 5
+
+    fire_only_once = yes
+
+    complete_effect = {
+     
+    }
+
+    modifier = {
+      conscription_factor = -0.03
+    }
+
+    remove_effect = {
+      every_owned_state = {
+        add_to_variable = {
+        tooltip = ITA_increase_fasicst_influence_by_5_in_state
+        socialist_influence = -5
+        }
+        set_variable = {fascist_influence = 0}
+        set_temp_variable = {
+          socialist_temp_var = socialist_influence
+        }
+        subtract_from_temp_variable  = {socialist_temp_var = 100}
+        multiply_temp_variable = {socialist_temp_var = -1}
+
+        add_to_variable = {fascist_influence = socialist_temp_var}
+      } 
+    }
+  }
+  ITA_jail_gramsci = {
+    available = {
+      tag = ITA
+    }
+    visible = {
+      has_completed_focus = ITA_purge_the_socialist_remnants
+    }
+
+    cost = 75
+    days_remove = 5
+
+    fire_only_once = yes
+
+    complete_effect = {
+     
+    }
+
+    modifier = {
+      conscription_factor = -0.03
+    }
+
+    remove_effect = {
+      every_owned_state = {
+        add_to_variable = {
+        tooltip = ITA_increase_fasicst_influence_by_5_in_state
+        socialist_influence = -5
+        }
+        set_variable = {fascist_influence = 0}
+        set_temp_variable = {
+          socialist_temp_var = socialist_influence
+        }
+        subtract_from_temp_variable  = {socialist_temp_var = 100}
+        multiply_temp_variable = {socialist_temp_var = -1}
+
+        add_to_variable = {fascist_influence = socialist_temp_var}
+      } 
+    }
+  }
+  ITA_crush_the_marxist_menace = {
+    available = {
+      tag = ITA
+    }
+    visible = {
+      has_completed_focus = ITA_purge_the_socialist_remnants
+    }
+
+    cost = 0
+    days_remove = 0
+
+    fire_only_once = yes
+
+    complete_effect = {
+     
+    }
+
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_socialist_influence_less_than_50
+        check_variable = {var = 159.fascist_influence value = 159.socialist_influence compare =  greater_than_or_equals}
+        check_variable = {var = 158.fascist_influence value = 158.socialist_influence compare =  greater_than_or_equals}
+        check_variable = {var = 161.fascist_influence value = 161.socialist_influence compare =  greater_than_or_equals}
+        check_variable = {var = 892.fascist_influence value = 892.socialist_influence compare =  greater_than_or_equals}
+        check_variable = {var = 891.fascist_influence value = 891.socialist_influence compare =  greater_than_or_equals}
+        check_variable = {var = 157.fascist_influence value = 157.socialist_influence compare =  greater_than_or_equals}
+      }
+    }
+
+    modifier = {
+      conscription_factor = -0.03
+    }
+
+    remove_effect = {
+      
     }
   }
 
