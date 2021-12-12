@@ -158,7 +158,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
-		add_to_faction = FROM
+		var:faction_leader = { add_to_faction = FROM }
 		FROM = { country_event = { id = generic.3 hours = 6 } }
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
@@ -179,7 +179,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
-		add_to_faction = FROM
+		var:faction_leader = { add_to_faction = FROM }
 		FROM = { country_event = { id = generic.3 hours = 6 } }
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
@@ -200,7 +200,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
-		add_to_faction = FROM
+		var:faction_leader = { add_to_faction = FROM }
 		FROM = { country_event = { id = generic.3 hours = 6 } }
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
@@ -257,7 +257,7 @@ country_event = {
 				}
 			}
 		}
-		add_to_faction = FROM
+		var:faction_leader = { add_to_faction = FROM }
 		FROM = { country_event = { id = generic.3 hours = 6 } }
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
@@ -504,9 +504,15 @@ country_event = {
 		trigger = {
 			AND = {
 				FROM = {
-					has_government = fascism
+					OR = {
+						has_government = fascism
+						has_government = ultranationalism
+					}
 				}
-				has_government = fascism
+				OR = {
+					has_government = fascism
+					has_government = ultranationalism
+				}
 			}
 		}
 	}
@@ -533,9 +539,17 @@ country_event = {
 				}
 				AND = {
 					FROM = {
-						has_government = fascism
+						OR = {
+							has_government = fascism
+							has_government = ultranationalism
+							has_government = authoritarian_democratic
+						}
 					}
-					has_government = fascism
+					OR = {
+						has_government = fascism
+						has_government = ultranationalism
+						has_government = authoritarian_democratic
+					}
 				}
 				AND = {
 					FROM = {
@@ -573,7 +587,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
-		FROM = { 
+		var:FROM.faction_leader = { 
 			add_to_faction = ROOT
 			country_event = { id = generic.6 hours = 6 } 
 		}
@@ -605,16 +619,27 @@ country_event = {
 			is_in_faction = no
 			AND = {
 				FROM = {
-					has_government = fascism
+					OR = {
+						has_government = fascism
+						has_government = ultranationalism
+						has_government = authoritarian_democratic
+					}
+
 				}
-				has_government = fascism
+				OR = {
+					has_government = fascism
+					has_government = ultranationalism
+					has_government = authoritarian_democratic
+				}
 			}
 		}
 		ai_chance = {
 			base = 100
 		}
-		FROM = { 
+		var:FROM.faction_leader = { 
 			add_to_faction = ROOT
+		}
+		FROM = {
 			country_event = { id = generic.6 hours = 6 } 
 		}
 		add_ai_strategy = {
@@ -642,9 +667,11 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
-		FROM = { 
+		var:FROM.faction_leader = { 
 			add_to_faction = ROOT
-			country_event = { id = generic.6 hours = 6 }
+		}
+		FROM = {
+			country_event = { id = generic.6 hours = 6 } 
 		}
 		add_ai_strategy = {
 			type = alliance
@@ -670,9 +697,17 @@ country_event = {
 				}
 				AND = {
 					FROM = {
-						has_government = fascism
+						OR = {
+							has_government = fascism
+							has_government = ultranationalism
+							has_government = authoritarian_democratic
+						}
 					}
-					has_government = fascism
+					OR = {
+							has_government = fascism
+							has_government = ultranationalism
+							has_government = authoritarian_democratic
+						}
 				}
 				AND = {
 					FROM = {
@@ -707,9 +742,11 @@ country_event = {
 				}
 			}
 		}
-		FROM = { 
+		var:FROM.faction_leader = { 
 			add_to_faction = ROOT
-			country_event = { id = generic.6 hours = 6 }
+		}
+		FROM = {
+			country_event = { id = generic.6 hours = 6 } 
 		}
 		if = {
 			limit = {
@@ -747,7 +784,7 @@ country_event = {
 			is_in_faction = no
 		}
 		ai_chance = {
-			factor = 50
+			factor = -1000
 			
 			modifier = {
 				factor = 0.5
