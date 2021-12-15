@@ -8,10 +8,10 @@ Der Bruderkrieg is a Hearts of Iron 4 mod which asks what if Austria won the Aus
 Arj <br />
 
 ## Lead Developers <br /> 
-Polarn <br />
 Shark28 <br />
 Bruno <br />
 Huey Long <br />
+Polish Lib <br />
 
 
 ## Contributors  <br />
@@ -19,10 +19,12 @@ Glugenash  <br />
 Chowder <br />
 Samurai  <br />
 Tolz  <br />
-Jufkenzi <br />
 Asbestosstar <br />
 WorldMapper3 <br />
 
+## Special Thanks to: <br />
+Polarn <br />
+Elysian <br />
 
 # Website
 https://arjthegreat.github.io/ 
