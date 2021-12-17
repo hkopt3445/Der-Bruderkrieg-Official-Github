@@ -329,6 +329,122 @@ scripted_map_modes = {
 		update_daily = no
 	}
 
+	more_mapmodes_global_influence_map_mode = {
+		top = {
+			type = country
+
+			color = {
+				FROM = {
+					set_temp_variable = { alpha = 1.0 }
+					set_temp_variable = { thickness = 1.0 }
+					if = {
+						limit = {
+							has_country_flag = french_influenced
+						}
+						set_temp_variable = { red = 0.0 }
+						set_temp_variable = { green = 0.0 }
+						set_temp_variable = { blue = 0.35 }
+					}
+					if = {
+						limit = {
+							has_country_flag = austrian_influenced
+						}
+						set_temp_variable = { red = 0.65 }
+						set_temp_variable = { green = 0.65 }
+						set_temp_variable = { blue = 0.65 }
+					}
+					if = {
+						limit = {
+							has_country_flag = prussian_influenced
+						}
+						set_temp_variable = { red = 0.20 }
+						set_temp_variable = { green = 0.20 }
+						set_temp_variable = { blue = 0.20 }
+					}
+					if = {
+						limit = {
+							has_country_flag = russian_influenced
+						}
+						set_temp_variable = { red = 0.20 }
+						set_temp_variable = { green = 0.45 }
+						set_temp_variable = { blue = 0.20 }
+					}
+					if = {
+						limit = {
+							has_country_flag = british_influenced
+						}
+						set_temp_variable = { red = 0.45 }
+						set_temp_variable = { green = 0.20 }
+						set_temp_variable = { blue = 0.20 }
+					}
+					if = {
+						limit = {
+							has_country_flag = american_influenced
+						}
+						set_temp_variable = { red = 0.20 }
+						set_temp_variable = { green = 0.20 }
+						set_temp_variable = { blue = 0.65 }
+					}
+					
+				}
+			}
+
+			targets = {
+				target_array = global.countries
+				target_trigger = {
+					FROM = {
+						OR = {
+							has_country_flag = french_influenced
+							has_country_flag = russian_influenced
+							has_country_flag = prussian_influenced
+							has_country_flag = austrian_influenced
+							has_country_flag = british_influenced
+							has_country_flag = american_influenced
+						}
+					}
+				}
+			}
+
+			thickness = yes
+		}
+
+		bottom = {
+			type = country
+
+			color = {
+				FROM = {
+					set_temp_variable = { alpha = 1.0 }
+					set_temp_variable = { thickness = 10.0 }
+					set_temp_variable = { red = 0.0 }
+					set_temp_variable = { green = 0.0 }
+					set_temp_variable = { blue = 1.0 }
+				}
+			}
+
+			targets = {
+				target_trigger = {
+					FROM = {
+						NOT = {
+							has_country_flag = french_influenced
+							has_country_flag = russian_influenced
+							has_country_flag = prussian_influenced
+							has_country_flag = austrian_influenced
+							has_country_flag = british_influenced
+							has_country_flag = american_influenced
+						}
+					}
+				}
+			}
+
+			thickness = yes
+		}
+
+		far_text = country
+		near_text = state
+
+		update_daily = no
+	}
+
 	
 
 

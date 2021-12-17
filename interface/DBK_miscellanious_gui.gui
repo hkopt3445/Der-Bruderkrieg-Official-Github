@@ -24,7 +24,866 @@ guiTypes = {
     }
 }
 
-#positionType = {
+
+
+  containerWindowType = {
+		name = "DBK_head_of_gov_open"
+		position = { x = 338 y = 300 }
+		
+		buttonType ={ 
+			name ="DBK_head_of_gov_open_button"
+			spriteType = "GFX_dual_leader_politics"
+			position = { x = 0 y = 0 } 
+			pdx_tooltip = dual_leader_button_tt
+      shortcut = "d" 
+		} 
+	}
+
+  containerWindowType = {
+		name = "DBK_faction_icon"
+		position = { x = 430 y = 300 }
+		
+		buttonType ={ 
+			name ="DBK_faction_icon_button"
+			spriteType = "x"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "[GetFactionName]"
+      shortcut = "f" 
+		} 
+	}
+
+  containerWindowType = {
+		name = "DBK_head_of_gov_container"
+		position = {
+			x = 540
+			y = 136 
+		}
+		size = {
+			width = 500
+			height = 300
+		}
+		#movable = yes
+
+		background = {
+			name = "bg"
+			spriteType = "GFX_tiled_window"
+		}
+
+		# buttonType = {
+		# 	name = "exit"
+		# 	position = {x=0 y=0}
+		# 	##Orientation = "UPPER_RIGHT"
+		# 	spriteType = "GFX_closebutton"
+		# 	shortcut = "ESCAPE"
+		#   } 
+
+		containerWindowType = {
+			name = "the leaders"
+			position = {
+				x = 168
+				y = 0
+			}
+
+			##leader of the NFP
+			iconType = {
+				name = "LeaderPortrait"
+				position = {
+					x = 0
+					y = 30
+				}
+        spriteType = ""
+      }
+      iconType = {
+				name = "leader_leader_frame"
+				position = {
+					x = -8
+					y = 16
+				}
+				spriteType = "GFX_pol_leader_frame"
+			}
+      instantTextboxType = {
+				name = "leader_description"
+				position = { x = 0 y = 243 }
+				font = "hoi_18mbs"
+				text = "[GetDualLeaderDesc]"
+				maxWidth = 155
+				maxHeight = 20
+				format = center
+				vertical_alignment = center
+			}
+    }
+  }
+
+  containerWindowType = {
+		name = "DB_party_popularity_number_container"
+		position = { x = 179 y = 5 }
+
+		instantTextBoxType = {
+			name ="party_pop_text"
+			position = { x= 3 y = 4 }
+			font = "hoi_18mbs"
+			text = "[?ROOT.party_popularity@ruling_party|%0]"
+			format = right
+			maxWidth = 60
+			maxHeight = 24
+			fixedsize = yes
+
+			pdx_tooltip = "DB_party_popularity_tooltip"
+			pdx_tooltip_delayed = "DB_party_popularity_delayed_tooltip"
+		}
+  }
+
+  containerWindowType = {
+		name = "DB_number_units_number_container"
+		position = { x = 252 y = 5 }
+
+		instantTextBoxType = {
+			name ="numbers_units_text"
+			position = { x= 3 y = 4 }
+			font = "hoi_18mbs"
+			text = "[?ROOT.num_armies]"
+			format = right
+			maxWidth = 60
+			maxHeight = 24
+			fixedsize = yes
+
+			pdx_tooltip_delayed = "DB_num_units_delayed_tooltip"
+			pdx_tooltip = "DB_num_units_tooltip"
+		}
+  }
+
+	containerWindowType = {
+		name = "DB_show_history_container"
+		position = { x = 260 y = 7 }
+
+    buttonType = {
+      name = "show_history_button"
+      position = { x = 0 y = 0 }
+      quadTextureSprite = "GFX_tiled_window_small" 
+      #size = {width = 172 height =35 }
+      buttonFont = "hoi_16mbs"
+      Orientation = "UPPER_LEFT"
+    }
+
+    instantTextboxType = {
+      name = "show_history_button_text"
+      position = { x = 38 y = 8 }
+      font = "hoi_16mbs"
+      text = "SHOW_HISTORY_BUTTON_TEXT" 
+      maxWidth = 122
+      alwaystransparent = yes
+    }
+
+    iconType = {
+			name = "flag_entry_thing"
+			position = { x = 4 y = 1 }
+			quadTextureSprite ="GFX_flag_small"
+      Orientation = "LOWER_LEFT"
+      alwaystransparent = yes
+
+      pdx_tooltip = "colonial_powerhouse_flag_entry_name"
+		}
+  } 
+
+
+  containerWindowType = {
+				name = "countryrank"
+				position = { x = 45 y = 430 }
+
+				instantTextboxType = {
+				name = "ranking"
+				position = { x = 0 y = 0 }
+				font = "hoi_18mbs"
+				text = "ROOT_GET_RANKING"
+				maxWidth = 270
+				maxHeight = 20
+				format = centre				
+			}
+  }
+  
+
+  containerWindowType = {
+    name = "national_missions_open_container"
+    position = { 
+      x = 440
+      y = 450
+    }
+
+    # buttonType = { 
+    #   name = "national_missions_open_container_button"
+    #   position = { x = 0 y = 0 }
+    #   quadTextureSprite = "GFX_national_missions_button" 
+    #   #size = {width = 270 height =20 }
+    #   buttonFont = "hoi_16mbs"
+    #   Orientation = "UPPER_LEFT"
+    # }
+    # instantTextboxType = {
+    #   name = "national_missions_open_container_button_text"
+    #   position = { x = 0 y = 12 }
+    #   font = "hoi_18mbs"
+    #   text = "Open National Missions"
+    #   maxWidth = 250
+    #   format = center				
+    # }
+    
+
+  }
+ 
+  
+
+  containerWindowType = {
+    name = "AUS_national_missions_container"
+    position = {
+      x = 540
+      y = 430
+    }
+    size = {
+      width = 500 
+      height = 200
+    }
+
+    # buttonType = {
+    #   name = "exit"
+    #   position = {x=0 y=0}
+    #   ##Orientation = "UPPER_RIGHT"
+    #   spriteType = "GFX_closebutton"
+    #   shortcut = "ESCAPE"
+    #   }
+     
+
+    background = {
+      name = "bg"
+      spriteType = "GFX_national_missions_bg"
+    }
+
+    instantTextBoxType = {
+      name = "titke"
+      position = {
+        x = 0
+        y = 0
+      }
+      font = "hoi_36header"
+      text = "National Missions"
+      maxWidth = 500
+      format = center
+    }
+
+    containerWindowType = {
+      name = "icon buttons"
+      position = {
+        x = 0
+        y = 50
+      }
+
+      buttonType = { 
+				name = "AUS_national_mission_1"
+				spriteType = "GFX_AUS_national_mission_1"
+				position = {
+					x = 50
+					y = 0
+        }
+        pdx_tooltip = AUS_national_mission_1_tt
+      }
+      
+      buttonType = { 
+				name = "AUS_national_mission_2"
+				spriteType = "GFX_AUS_national_mission_2"
+				position = {
+					x = 150
+					y = 0
+        }
+        pdx_tooltip = AUS_national_mission_2_tt
+      }
+      
+      buttonType = { 
+				name = "AUS_national_mission_3"
+				spriteType = "GFX_AUS_national_mission_3"
+				position = {
+					x = 250
+					y = 0
+        }
+        pdx_tooltip = AUS_national_mission_3_tt
+      }
+      
+      buttonType = { 
+				name = "AUS_national_mission_4"
+				spriteType = "GFX_AUS_national_mission_4"
+				position = {
+					x = 350
+					y = 0
+        }
+        pdx_tooltip = AUS_national_mission_4_tt
+			}
+
+
+
+      ##cover
+      buttonType = { 
+				name = "AUS_national_mission_1_cover"
+				spriteType = "GFX_AUS_national_mission_1"
+				position = {
+					x = 50
+					y = 0
+        }
+        pdx_tooltip = AUS_national_mission_1_tt
+      }
+      
+      buttonType = { 
+				name = "AUS_national_mission_2_cover"
+				spriteType = "GFX_AUS_national_mission_2"
+				position = {
+					x = 150
+					y = 0
+        }
+        pdx_tooltip = AUS_national_mission_2_tt
+      }
+      
+      buttonType = { 
+				name = "AUS_national_mission_3_cover"
+				spriteType = "GFX_AUS_national_mission_3"
+				position = {
+					x = 250
+					y = 0
+        }
+        pdx_tooltip = AUS_national_mission_3_tt
+      }
+      
+      buttonType = { 
+				name = "AUS_national_mission_4_cover"
+				spriteType = "GFX_AUS_national_mission_4"
+				position = {
+					x = 350
+					y = 0
+        }
+        pdx_tooltip = AUS_national_mission_4_tt
+			}
+
+    }                             
+
+  }
+
+  containerWindowType = {
+    name = "SOV_national_missions_container"
+    position = {
+      x = 540
+      y = 430
+    }
+    size = {
+      width = 500
+      height = 200
+    }
+  
+    # buttonType = {
+    #   name = "exit"
+    #   position = {x=0 y=0}
+    #   ##Orientation = "UPPER_RIGHT"
+    #   spriteType = "GFX_closebutton"
+    #   shortcut = "ESCAPE"
+    #   }
+     
+  
+    background = {
+      name = "bg"
+      spriteType = "GFX_national_missions_bg"
+    }
+  
+    instantTextBoxType = {
+      name = "titke"
+      position = {
+        x = 0
+        y = 0
+      }
+      font = "hoi_36header"
+      text = "National Missions"
+      maxWidth = 500
+      format = center
+    } 
+  
+    containerWindowType = {
+      name = "icon buttons"
+      position = {
+        x = 0
+        y = 50
+      }
+  
+      buttonType = { 
+        name = "SOV_national_mission_1"
+        spriteType = "GFX_SOV_national_mission_1"
+        position = {
+          x = 50
+          y = 0
+        }
+        pdx_tooltip = SOV_national_mission_1_tt
+      }
+      
+      buttonType = { 
+        name = "SOV_national_mission_2"
+        spriteType = "GFX_SOV_national_mission_2"
+        position = {
+          x = 150
+          y = 0
+        }
+        pdx_tooltip = SOV_national_mission_2_tt
+      }
+      
+      buttonType = { 
+        name = "SOV_national_mission_3"
+        spriteType = "GFX_SOV_national_mission_3"
+        position = {
+          x = 250
+          y = 0
+        }
+        pdx_tooltip = SOV_national_mission_3_tt
+      }
+      
+      buttonType = { 
+        name = "SOV_national_mission_4"
+        spriteType = "GFX_SOV_national_mission_4"
+        position = {
+          x = 350
+          y = 0
+        }
+        pdx_tooltip = SOV_national_mission_4_tt
+      }
+  
+  
+  
+      ##cover
+      buttonType = { 
+        name = "SOV_national_mission_1_cover"
+        spriteType = "GFX_SOV_national_mission_1"
+        position = {
+          x = 50
+          y = 0
+        }
+        pdx_tooltip = SOV_national_mission_1_tt
+      }
+      
+      buttonType = { 
+        name = "SOV_national_mission_2_cover"
+        spriteType = "GFX_SOV_national_mission_2"
+        position = {
+          x = 150
+          y = 0
+        }
+        pdx_tooltip = SOV_national_mission_2_tt
+      }
+      
+      buttonType = { 
+        name = "SOV_national_mission_3_cover"
+        spriteType = "GFX_SOV_national_mission_3"
+        position = {
+          x = 250
+          y = 0
+        }
+        pdx_tooltip = SOV_national_mission_3_tt
+      }
+      
+      buttonType = { 
+        name = "SOV_national_mission_4_cover"
+        spriteType = "GFX_SOV_national_mission_4"
+        position = {
+          x = 350
+          y = 0
+        }
+        pdx_tooltip = SOV_national_mission_4_tt
+      }
+  
+    }                             
+  
+  }
+
+  containerWindowType = { 
+    name = "FRA_national_missions_container"
+    position = {
+      x = 540
+      y = 430
+    }
+    size = {
+      width = 500
+      height = 200
+    }
+  
+    # buttonType = { 
+    #   name = "exit"
+    #   position = {x=0 y=0}
+    #   ##Orientation = "UPPER_RIGHT"
+    #   spriteType = "GFX_closebutton"
+    #   shortcut = "ESCAPE"
+    #   }
+     
+  
+    background = {
+      name = "bg"
+      spriteType = "GFX_national_missions_bg"
+    }
+  
+    instantTextBoxType = {
+      name = "titke"
+      position = {
+        x = 0
+        y = 0
+      }
+      font = "hoi_36header"
+      text = "National Missions"
+      maxWidth = 500
+      format = center
+    }
+  
+    containerWindowType = {
+      name = "icon buttons"
+      position = {
+        x = 0
+        y = 50
+      }
+  
+      buttonType = { 
+        name = "FRA_national_mission_1"
+        spriteType = "GFX_FRA_national_mission_1"
+        position = {
+          x = 50
+          y = 0
+        }
+        pdx_tooltip = FRA_national_mission_1_tt
+      }
+      
+      buttonType = { 
+        name = "FRA_national_mission_2"
+        spriteType = "GFX_FRA_national_mission_2"
+        position = {
+          x = 150
+          y = 0
+        }
+        pdx_tooltip = FRA_national_mission_2_tt
+      }
+      
+      buttonType = { 
+        name = "FRA_national_mission_3"
+        spriteType = "GFX_FRA_national_mission_3"
+        position = {
+          x = 250
+          y = 0
+        }
+        pdx_tooltip = FRA_national_mission_3_tt
+      }
+      
+      buttonType = { 
+        name = "FRA_national_mission_4"
+        spriteType = "GFX_FRA_national_mission_4"
+        position = {
+          x = 350
+          y = 0
+        }
+        pdx_tooltip = FRA_national_mission_4_tt
+      }
+  
+  
+  
+      ##cover
+      buttonType = { 
+        name = "FRA_national_mission_1_cover"
+        spriteType = "GFX_FRA_national_mission_1"
+        position = {
+          x = 50
+          y = 0
+        }
+        pdx_tooltip = FRA_national_mission_1_tt
+      }
+      
+      buttonType = { 
+        name = "FRA_national_mission_2_cover"
+        spriteType = "GFX_FRA_national_mission_2"
+        position = {
+          x = 150
+          y = 0
+        }
+        pdx_tooltip = FRA_national_mission_2_tt
+      }
+      
+      buttonType = { 
+        name = "FRA_national_mission_3_cover"
+        spriteType = "GFX_FRA_national_mission_3"
+        position = {
+          x = 250
+          y = 0
+        }
+        pdx_tooltip = FRA_national_mission_3_tt
+      }
+      
+      buttonType = { 
+        name = "FRA_national_mission_4_cover"
+        spriteType = "GFX_FRA_national_mission_4"
+        position = {
+          x = 350
+          y = 0
+        }
+        pdx_tooltip = FRA_national_mission_4_tt
+      }
+  
+    }                             
+  
+  }
+
+  containerWindowType = {
+    name = "GER_national_missions_container"
+    position = {
+      x = 540
+      y = 430
+    }
+    size = {
+      width = 500
+      height = 200
+    }
+  
+    # buttonType = {
+    #   name = "exit"
+    #   position = {x=0 y=0}
+    #   ##Orientation = "UPPER_RIGHT"
+    #   spriteType = "GFX_closebutton"
+    #   shortcut = "ESCAPE"
+    #   }
+    
+  
+    background = {
+      name = "bg"
+      spriteType = "GFX_national_missions_bg"
+    }
+  
+    instantTextBoxType = {
+      name = "titke"
+      position = {
+        x = 0
+        y = 0
+      }
+      font = "hoi_36header"
+      text = "National Missions"
+      maxWidth = 500
+      format = center
+    }
+  
+    containerWindowType = {
+      name = "icon buttons"
+      position = {
+        x = 0
+        y = 50
+      }
+  
+      buttonType = { 
+        name = "GER_national_mission_1"
+        spriteType = "GFX_GER_national_mission_1"
+        position = {
+          x = 50
+          y = 0
+        }
+        pdx_tooltip = GER_national_mission_1_tt
+      }
+      
+      buttonType = { 
+        name = "GER_national_mission_2"
+        spriteType = "GFX_GER_national_mission_2"
+        position = {
+          x = 150
+          y = 0
+        }
+        pdx_tooltip = GER_national_mission_2_tt
+      }
+      
+      buttonType = { 
+        name = "GER_national_mission_3"
+        spriteType = "GFX_GER_national_mission_3"
+        position = {
+          x = 250
+          y = 0
+        }
+        pdx_tooltip = GER_national_mission_3_tt
+      }
+      
+      buttonType = { 
+        name = "GER_national_mission_4"
+        spriteType = "GFX_GER_national_mission_4"
+        position = {
+          x = 350
+          y = 0
+        }
+        pdx_tooltip = GER_national_mission_4_tt
+      }
+
+
+      ###cover ones
+      buttonType = { 
+        name = "GER_national_mission_1_cover"
+        spriteType = "GFX_GER_national_mission_1"
+        position = {
+          x = 50
+          y = 0
+        }
+        pdx_tooltip = GER_national_mission_1_tt
+      }
+      
+      buttonType = { 
+        name = "GER_national_mission_2_cover"
+        spriteType = "GFX_GER_national_mission_2"
+        position = {
+          x = 150
+          y = 0
+        }
+        pdx_tooltip = GER_national_mission_2_tt
+      }
+      
+      buttonType = { 
+        name = "GER_national_mission_3_cover"
+        spriteType = "GFX_GER_national_mission_3"
+        position = {
+          x = 250
+          y = 0
+        }
+        pdx_tooltip = GER_national_mission_3_tt
+      }
+      
+      buttonType = { 
+        name = "GER_national_mission_4_cover"
+        spriteType = "GFX_GER_national_mission_4"
+        position = {
+          x = 350
+          y = 0
+        }
+        pdx_tooltip = GER_national_mission_4_tt
+      }
+  
+    }
+  
+  }
+  containerWindowType = {
+    name = "ITA_national_missions_container"
+    position = {
+      x = 540
+      y = 430
+    }
+    size = {
+      width = 500
+      height = 200
+    }
+  
+    # buttonType = {
+    #   name = "exit"
+    #   position = {x=0 y=0}
+    #   ##Orientation = "UPPER_RIGHT"
+    #   spriteType = "GFX_closebutton"
+    #   shortcut = "ESCAPE"
+    #   }
+    
+  
+    background = {
+      name = "bg"
+      spriteType = "GFX_national_missions_bg"
+    }
+  
+    instantTextBoxType = {
+      name = "titke"
+      position = {
+        x = 0
+        y = 0
+      }
+      font = "hoi_36header"
+      text = "National Missions"
+      maxWidth = 500
+      format = center
+    }
+  
+    containerWindowType = {
+      name = "icon buttons"
+      position = {
+        x = 0
+        y = 50
+      }
+  
+      buttonType = { 
+        name = "ITA_national_mission_1"
+        spriteType = "GFX_ITA_national_mission_1"
+        position = {
+          x = 50
+          y = 0
+        }
+        pdx_tooltip = ITA_national_mission_1_tt
+      }
+      
+      buttonType = { 
+        name = "ITA_national_mission_2"
+        spriteType = "GFX_ITA_national_mission_2"
+        position = {
+          x = 150
+          y = 0
+        }
+        pdx_tooltip = ITA_national_mission_2_tt
+      }
+      
+      buttonType = { 
+        name = "ITA_national_mission_3"
+        spriteType = "GFX_ITA_national_mission_3"
+        position = {
+          x = 250
+          y = 0
+        }
+        pdx_tooltip = ITA_national_mission_3_tt
+      }
+      
+      buttonType = { 
+        name = "ITA_national_mission_4"
+        spriteType = "GFX_ITA_national_mission_4"
+        position = {
+          x = 350
+          y = 0
+        }
+        pdx_tooltip = ITA_national_mission_4_tt
+      }
+  
+  
+      ###cover ones
+      buttonType = { 
+        name = "ITA_national_mission_1_cover"
+        spriteType = "GFX_ITA_national_mission_1"
+        position = {
+          x = 50
+          y = 0
+        }
+        pdx_tooltip = ITA_national_mission_1_tt
+      }
+      
+      buttonType = { 
+        name = "ITA_national_mission_2_cover"
+        spriteType = "GFX_ITA_national_mission_2"
+        position = {
+          x = 150
+          y = 0
+        }
+        pdx_tooltip = ITA_national_mission_2_tt
+      }
+      
+      buttonType = { 
+        name = "ITA_national_mission_3_cover"
+        spriteType = "GFX_ITA_national_mission_3"
+        position = {
+          x = 250
+          y = 0
+        }
+        pdx_tooltip = ITA_national_mission_3_tt
+      }
+      
+      buttonType = { 
+        name = "ITA_national_mission_4_cover"
+        spriteType = "GFX_ITA_national_mission_4"
+        position = {
+          x = 350
+          y = 0
+        }
+        pdx_tooltip = ITA_national_mission_4_tt
+      }
+  
+    }
+  
+  }
+
+  #positionType = {
 	#	name = "MapmodesInterface_marker_offset"
 	#	position = { x=41 y=0 }
 	#}
@@ -1036,8 +1895,7 @@ guiTypes = {
 			clicksound = click_default
 			oversound = ui_menu_over
 			pdx_tooltip = "TOGGLE_NIGHT_ENABLED"
-			pdx_tooltip_anchor =
-			{
+			pdx_tooltip_anchor = {
 				x = -284
 				y = 0
 				relative = yes #It is default set to yes ( to the gui object )
@@ -1336,862 +2194,5 @@ guiTypes = {
 			max_slots_horizontal = 1
 		}
 	}	
-
-  containerWindowType = {
-		name = "DBK_head_of_gov_open"
-		position = { x = 338 y = 300 }
-		
-		buttonType ={ 
-			name ="DBK_head_of_gov_open_button"
-			spriteType = "GFX_dual_leader_politics"
-			position = { x = 0 y = 0 } 
-			pdx_tooltip = dual_leader_button_tt
-      shortcut = "d" 
-		} 
-	}
-
-  containerWindowType = {
-		name = "DBK_faction_icon"
-		position = { x = 430 y = 300 }
-		
-		buttonType ={ 
-			name ="DBK_faction_icon_button"
-			spriteType = "x"
-			position = { x = 0 y = 0 }
-			pdx_tooltip = "[GetFactionName]"
-      shortcut = "f" 
-		} 
-	}
-
-  containerWindowType = {
-		name = "DBK_head_of_gov_container"
-		position = {
-			x = 540
-			y = 136 
-		}
-		size = {
-			width = 500
-			height = 300
-		}
-		#movable = yes
-
-		background = {
-			name = "bg"
-			spriteType = "GFX_tiled_window"
-		}
-
-		# buttonType = {
-		# 	name = "exit"
-		# 	position = {x=0 y=0}
-		# 	##Orientation = "UPPER_RIGHT"
-		# 	spriteType = "GFX_closebutton"
-		# 	shortcut = "ESCAPE"
-		#   } 
-
-		containerWindowType = {
-			name = "the leaders"
-			position = {
-				x = 168
-				y = 0
-			}
-
-			##leader of the NFP
-			iconType = {
-				name = "LeaderPortrait"
-				position = {
-					x = 0
-					y = 30
-				}
-        spriteType = ""
-      }
-      iconType = {
-				name = "leader_leader_frame"
-				position = {
-					x = -8
-					y = 16
-				}
-				spriteType = "GFX_pol_leader_frame"
-			}
-      instantTextboxType = {
-				name = "leader_description"
-				position = { x = 0 y = 243 }
-				font = "hoi_18mbs"
-				text = "[GetDualLeaderDesc]"
-				maxWidth = 155
-				maxHeight = 20
-				format = center
-				vertical_alignment = center
-			}
-    }
-  }
-
-  containerWindowType = {
-		name = "DB_party_popularity_number_container"
-		position = { x = 179 y = 5 }
-
-		instantTextBoxType = {
-			name ="party_pop_text"
-			position = { x= 3 y = 4 }
-			font = "hoi_18mbs"
-			text = "[?ROOT.party_popularity@ruling_party|%0]"
-			format = right
-			maxWidth = 60
-			maxHeight = 24
-			fixedsize = yes
-
-			pdx_tooltip = "DB_party_popularity_tooltip"
-			pdx_tooltip_delayed = "DB_party_popularity_delayed_tooltip"
-		}
-  }
-
-  containerWindowType = {
-		name = "DB_number_units_number_container"
-		position = { x = 252 y = 5 }
-
-		instantTextBoxType = {
-			name ="numbers_units_text"
-			position = { x= 3 y = 4 }
-			font = "hoi_18mbs"
-			text = "[?ROOT.num_armies]"
-			format = right
-			maxWidth = 60
-			maxHeight = 24
-			fixedsize = yes
-
-			pdx_tooltip_delayed = "DB_num_units_delayed_tooltip"
-			pdx_tooltip = "DB_num_units_tooltip"
-		}
-  }
-
-	containerWindowType = {
-		name = "DB_show_history_container"
-		position = { x = 260 y = 7 }
-
-    buttonType = {
-      name = "show_history_button"
-      position = { x = 0 y = 0 }
-      quadTextureSprite = "GFX_tiled_window_small" 
-      #size = {width = 172 height =35 }
-      buttonFont = "hoi_16mbs"
-      Orientation = "UPPER_LEFT"
-    }
-
-    instantTextboxType = {
-      name = "show_history_button_text"
-      position = { x = 38 y = 8 }
-      font = "hoi_16mbs"
-      text = "SHOW_HISTORY_BUTTON_TEXT" 
-      maxWidth = 122
-      alwaystransparent = yes
-    }
-
-    iconType = {
-			name = "flag_entry_thing"
-			position = { x = 4 y = 1 }
-			quadTextureSprite ="GFX_flag_small"
-      Orientation = "LOWER_LEFT"
-      alwaystransparent = yes
-
-      pdx_tooltip = "colonial_powerhouse_flag_entry_name"
-		}
-  } 
-
-
-  containerWindowType = {
-				name = "countryrank"
-				position = { x = 45 y = 430 }
-
-				instantTextboxType = {
-				name = "ranking"
-				position = { x = 0 y = 0 }
-				font = "hoi_18mbs"
-				text = "ROOT_GET_RANKING"
-				maxWidth = 270
-				maxHeight = 20
-				format = centre				
-			}
-  }
-  
-
-  containerWindowType = {
-    name = "national_missions_open_container"
-    position = { 
-      x = 440
-      y = 450
-    }
-
-    # buttonType = { 
-    #   name = "national_missions_open_container_button"
-    #   position = { x = 0 y = 0 }
-    #   quadTextureSprite = "GFX_national_missions_button" 
-    #   #size = {width = 270 height =20 }
-    #   buttonFont = "hoi_16mbs"
-    #   Orientation = "UPPER_LEFT"
-    # }
-    # instantTextboxType = {
-    #   name = "national_missions_open_container_button_text"
-    #   position = { x = 0 y = 12 }
-    #   font = "hoi_18mbs"
-    #   text = "Open National Missions"
-    #   maxWidth = 250
-    #   format = center				
-    # }
-    
-
-  }
- 
-  
-
-  containerWindowType = {
-    name = "AUS_national_missions_container"
-    position = {
-      x = 540
-      y = 430
-    }
-    size = {
-      width = 500 
-      height = 200
-    }
-
-    # buttonType = {
-    #   name = "exit"
-    #   position = {x=0 y=0}
-    #   ##Orientation = "UPPER_RIGHT"
-    #   spriteType = "GFX_closebutton"
-    #   shortcut = "ESCAPE"
-    #   }
-     
-
-    background = {
-      name = "bg"
-      spriteType = "GFX_national_missions_bg"
-    }
-
-    instantTextBoxType = {
-      name = "titke"
-      position = {
-        x = 0
-        y = 0
-      }
-      font = "hoi_36header"
-      text = "National Missions"
-      maxWidth = 500
-      format = center
-    }
-
-    containerWindowType = {
-      name = "icon buttons"
-      position = {
-        x = 0
-        y = 50
-      }
-
-      buttonType = { 
-				name = "AUS_national_mission_1"
-				spriteType = "GFX_AUS_national_mission_1"
-				position = {
-					x = 50
-					y = 0
-        }
-        pdx_tooltip = AUS_national_mission_1_tt
-      }
-      
-      buttonType = { 
-				name = "AUS_national_mission_2"
-				spriteType = "GFX_AUS_national_mission_2"
-				position = {
-					x = 150
-					y = 0
-        }
-        pdx_tooltip = AUS_national_mission_2_tt
-      }
-      
-      buttonType = { 
-				name = "AUS_national_mission_3"
-				spriteType = "GFX_AUS_national_mission_3"
-				position = {
-					x = 250
-					y = 0
-        }
-        pdx_tooltip = AUS_national_mission_3_tt
-      }
-      
-      buttonType = { 
-				name = "AUS_national_mission_4"
-				spriteType = "GFX_AUS_national_mission_4"
-				position = {
-					x = 350
-					y = 0
-        }
-        pdx_tooltip = AUS_national_mission_4_tt
-			}
-
-
-
-      ##cover
-      buttonType = { 
-				name = "AUS_national_mission_1_cover"
-				spriteType = "GFX_AUS_national_mission_1"
-				position = {
-					x = 50
-					y = 0
-        }
-        pdx_tooltip = AUS_national_mission_1_tt
-      }
-      
-      buttonType = { 
-				name = "AUS_national_mission_2_cover"
-				spriteType = "GFX_AUS_national_mission_2"
-				position = {
-					x = 150
-					y = 0
-        }
-        pdx_tooltip = AUS_national_mission_2_tt
-      }
-      
-      buttonType = { 
-				name = "AUS_national_mission_3_cover"
-				spriteType = "GFX_AUS_national_mission_3"
-				position = {
-					x = 250
-					y = 0
-        }
-        pdx_tooltip = AUS_national_mission_3_tt
-      }
-      
-      buttonType = { 
-				name = "AUS_national_mission_4_cover"
-				spriteType = "GFX_AUS_national_mission_4"
-				position = {
-					x = 350
-					y = 0
-        }
-        pdx_tooltip = AUS_national_mission_4_tt
-			}
-
-    }                             
-
-  }
-
-  containerWindowType = {
-    name = "SOV_national_missions_container"
-    position = {
-      x = 540
-      y = 430
-    }
-    size = {
-      width = 500
-      height = 200
-    }
-  
-    # buttonType = {
-    #   name = "exit"
-    #   position = {x=0 y=0}
-    #   ##Orientation = "UPPER_RIGHT"
-    #   spriteType = "GFX_closebutton"
-    #   shortcut = "ESCAPE"
-    #   }
-     
-  
-    background = {
-      name = "bg"
-      spriteType = "GFX_national_missions_bg"
-    }
-  
-    instantTextBoxType = {
-      name = "titke"
-      position = {
-        x = 0
-        y = 0
-      }
-      font = "hoi_36header"
-      text = "National Missions"
-      maxWidth = 500
-      format = center
-    } 
-  
-    containerWindowType = {
-      name = "icon buttons"
-      position = {
-        x = 0
-        y = 50
-      }
-  
-      buttonType = { 
-        name = "SOV_national_mission_1"
-        spriteType = "GFX_SOV_national_mission_1"
-        position = {
-          x = 50
-          y = 0
-        }
-        pdx_tooltip = SOV_national_mission_1_tt
-      }
-      
-      buttonType = { 
-        name = "SOV_national_mission_2"
-        spriteType = "GFX_SOV_national_mission_2"
-        position = {
-          x = 150
-          y = 0
-        }
-        pdx_tooltip = SOV_national_mission_2_tt
-      }
-      
-      buttonType = { 
-        name = "SOV_national_mission_3"
-        spriteType = "GFX_SOV_national_mission_3"
-        position = {
-          x = 250
-          y = 0
-        }
-        pdx_tooltip = SOV_national_mission_3_tt
-      }
-      
-      buttonType = { 
-        name = "SOV_national_mission_4"
-        spriteType = "GFX_SOV_national_mission_4"
-        position = {
-          x = 350
-          y = 0
-        }
-        pdx_tooltip = SOV_national_mission_4_tt
-      }
-  
-  
-  
-      ##cover
-      buttonType = { 
-        name = "SOV_national_mission_1_cover"
-        spriteType = "GFX_SOV_national_mission_1"
-        position = {
-          x = 50
-          y = 0
-        }
-        pdx_tooltip = SOV_national_mission_1_tt
-      }
-      
-      buttonType = { 
-        name = "SOV_national_mission_2_cover"
-        spriteType = "GFX_SOV_national_mission_2"
-        position = {
-          x = 150
-          y = 0
-        }
-        pdx_tooltip = SOV_national_mission_2_tt
-      }
-      
-      buttonType = { 
-        name = "SOV_national_mission_3_cover"
-        spriteType = "GFX_SOV_national_mission_3"
-        position = {
-          x = 250
-          y = 0
-        }
-        pdx_tooltip = SOV_national_mission_3_tt
-      }
-      
-      buttonType = { 
-        name = "SOV_national_mission_4_cover"
-        spriteType = "GFX_SOV_national_mission_4"
-        position = {
-          x = 350
-          y = 0
-        }
-        pdx_tooltip = SOV_national_mission_4_tt
-      }
-  
-    }                             
-  
-  }
-
-  containerWindowType = { 
-    name = "FRA_national_missions_container"
-    position = {
-      x = 540
-      y = 430
-    }
-    size = {
-      width = 500
-      height = 200
-    }
-  
-    # buttonType = { 
-    #   name = "exit"
-    #   position = {x=0 y=0}
-    #   ##Orientation = "UPPER_RIGHT"
-    #   spriteType = "GFX_closebutton"
-    #   shortcut = "ESCAPE"
-    #   }
-     
-  
-    background = {
-      name = "bg"
-      spriteType = "GFX_national_missions_bg"
-    }
-  
-    instantTextBoxType = {
-      name = "titke"
-      position = {
-        x = 0
-        y = 0
-      }
-      font = "hoi_36header"
-      text = "National Missions"
-      maxWidth = 500
-      format = center
-    }
-  
-    containerWindowType = {
-      name = "icon buttons"
-      position = {
-        x = 0
-        y = 50
-      }
-  
-      buttonType = { 
-        name = "FRA_national_mission_1"
-        spriteType = "GFX_FRA_national_mission_1"
-        position = {
-          x = 50
-          y = 0
-        }
-        pdx_tooltip = FRA_national_mission_1_tt
-      }
-      
-      buttonType = { 
-        name = "FRA_national_mission_2"
-        spriteType = "GFX_FRA_national_mission_2"
-        position = {
-          x = 150
-          y = 0
-        }
-        pdx_tooltip = FRA_national_mission_2_tt
-      }
-      
-      buttonType = { 
-        name = "FRA_national_mission_3"
-        spriteType = "GFX_FRA_national_mission_3"
-        position = {
-          x = 250
-          y = 0
-        }
-        pdx_tooltip = FRA_national_mission_3_tt
-      }
-      
-      buttonType = { 
-        name = "FRA_national_mission_4"
-        spriteType = "GFX_FRA_national_mission_4"
-        position = {
-          x = 350
-          y = 0
-        }
-        pdx_tooltip = FRA_national_mission_4_tt
-      }
-  
-  
-  
-      ##cover
-      buttonType = { 
-        name = "FRA_national_mission_1_cover"
-        spriteType = "GFX_FRA_national_mission_1"
-        position = {
-          x = 50
-          y = 0
-        }
-        pdx_tooltip = FRA_national_mission_1_tt
-      }
-      
-      buttonType = { 
-        name = "FRA_national_mission_2_cover"
-        spriteType = "GFX_FRA_national_mission_2"
-        position = {
-          x = 150
-          y = 0
-        }
-        pdx_tooltip = FRA_national_mission_2_tt
-      }
-      
-      buttonType = { 
-        name = "FRA_national_mission_3_cover"
-        spriteType = "GFX_FRA_national_mission_3"
-        position = {
-          x = 250
-          y = 0
-        }
-        pdx_tooltip = FRA_national_mission_3_tt
-      }
-      
-      buttonType = { 
-        name = "FRA_national_mission_4_cover"
-        spriteType = "GFX_FRA_national_mission_4"
-        position = {
-          x = 350
-          y = 0
-        }
-        pdx_tooltip = FRA_national_mission_4_tt
-      }
-  
-    }                             
-  
-  }
-
-  containerWindowType = {
-    name = "GER_national_missions_container"
-    position = {
-      x = 540
-      y = 430
-    }
-    size = {
-      width = 500
-      height = 200
-    }
-  
-    # buttonType = {
-    #   name = "exit"
-    #   position = {x=0 y=0}
-    #   ##Orientation = "UPPER_RIGHT"
-    #   spriteType = "GFX_closebutton"
-    #   shortcut = "ESCAPE"
-    #   }
-    
-  
-    background = {
-      name = "bg"
-      spriteType = "GFX_national_missions_bg"
-    }
-  
-    instantTextBoxType = {
-      name = "titke"
-      position = {
-        x = 0
-        y = 0
-      }
-      font = "hoi_36header"
-      text = "National Missions"
-      maxWidth = 500
-      format = center
-    }
-  
-    containerWindowType = {
-      name = "icon buttons"
-      position = {
-        x = 0
-        y = 50
-      }
-  
-      buttonType = { 
-        name = "GER_national_mission_1"
-        spriteType = "GFX_GER_national_mission_1"
-        position = {
-          x = 50
-          y = 0
-        }
-        pdx_tooltip = GER_national_mission_1_tt
-      }
-      
-      buttonType = { 
-        name = "GER_national_mission_2"
-        spriteType = "GFX_GER_national_mission_2"
-        position = {
-          x = 150
-          y = 0
-        }
-        pdx_tooltip = GER_national_mission_2_tt
-      }
-      
-      buttonType = { 
-        name = "GER_national_mission_3"
-        spriteType = "GFX_GER_national_mission_3"
-        position = {
-          x = 250
-          y = 0
-        }
-        pdx_tooltip = GER_national_mission_3_tt
-      }
-      
-      buttonType = { 
-        name = "GER_national_mission_4"
-        spriteType = "GFX_GER_national_mission_4"
-        position = {
-          x = 350
-          y = 0
-        }
-        pdx_tooltip = GER_national_mission_4_tt
-      }
-
-
-      ###cover ones
-      buttonType = { 
-        name = "GER_national_mission_1_cover"
-        spriteType = "GFX_GER_national_mission_1"
-        position = {
-          x = 50
-          y = 0
-        }
-        pdx_tooltip = GER_national_mission_1_tt
-      }
-      
-      buttonType = { 
-        name = "GER_national_mission_2_cover"
-        spriteType = "GFX_GER_national_mission_2"
-        position = {
-          x = 150
-          y = 0
-        }
-        pdx_tooltip = GER_national_mission_2_tt
-      }
-      
-      buttonType = { 
-        name = "GER_national_mission_3_cover"
-        spriteType = "GFX_GER_national_mission_3"
-        position = {
-          x = 250
-          y = 0
-        }
-        pdx_tooltip = GER_national_mission_3_tt
-      }
-      
-      buttonType = { 
-        name = "GER_national_mission_4_cover"
-        spriteType = "GFX_GER_national_mission_4"
-        position = {
-          x = 350
-          y = 0
-        }
-        pdx_tooltip = GER_national_mission_4_tt
-      }
-  
-    }
-  
-  }
-  containerWindowType = {
-    name = "ITA_national_missions_container"
-    position = {
-      x = 540
-      y = 430
-    }
-    size = {
-      width = 500
-      height = 200
-    }
-  
-    # buttonType = {
-    #   name = "exit"
-    #   position = {x=0 y=0}
-    #   ##Orientation = "UPPER_RIGHT"
-    #   spriteType = "GFX_closebutton"
-    #   shortcut = "ESCAPE"
-    #   }
-    
-  
-    background = {
-      name = "bg"
-      spriteType = "GFX_national_missions_bg"
-    }
-  
-    instantTextBoxType = {
-      name = "titke"
-      position = {
-        x = 0
-        y = 0
-      }
-      font = "hoi_36header"
-      text = "National Missions"
-      maxWidth = 500
-      format = center
-    }
-  
-    containerWindowType = {
-      name = "icon buttons"
-      position = {
-        x = 0
-        y = 50
-      }
-  
-      buttonType = { 
-        name = "ITA_national_mission_1"
-        spriteType = "GFX_ITA_national_mission_1"
-        position = {
-          x = 50
-          y = 0
-        }
-        pdx_tooltip = ITA_national_mission_1_tt
-      }
-      
-      buttonType = { 
-        name = "ITA_national_mission_2"
-        spriteType = "GFX_ITA_national_mission_2"
-        position = {
-          x = 150
-          y = 0
-        }
-        pdx_tooltip = ITA_national_mission_2_tt
-      }
-      
-      buttonType = { 
-        name = "ITA_national_mission_3"
-        spriteType = "GFX_ITA_national_mission_3"
-        position = {
-          x = 250
-          y = 0
-        }
-        pdx_tooltip = ITA_national_mission_3_tt
-      }
-      
-      buttonType = { 
-        name = "ITA_national_mission_4"
-        spriteType = "GFX_ITA_national_mission_4"
-        position = {
-          x = 350
-          y = 0
-        }
-        pdx_tooltip = ITA_national_mission_4_tt
-      }
-  
-  
-      ###cover ones
-      buttonType = { 
-        name = "ITA_national_mission_1_cover"
-        spriteType = "GFX_ITA_national_mission_1"
-        position = {
-          x = 50
-          y = 0
-        }
-        pdx_tooltip = ITA_national_mission_1_tt
-      }
-      
-      buttonType = { 
-        name = "ITA_national_mission_2_cover"
-        spriteType = "GFX_ITA_national_mission_2"
-        position = {
-          x = 150
-          y = 0
-        }
-        pdx_tooltip = ITA_national_mission_2_tt
-      }
-      
-      buttonType = { 
-        name = "ITA_national_mission_3_cover"
-        spriteType = "GFX_ITA_national_mission_3"
-        position = {
-          x = 250
-          y = 0
-        }
-        pdx_tooltip = ITA_national_mission_3_tt
-      }
-      
-      buttonType = { 
-        name = "ITA_national_mission_4_cover"
-        spriteType = "GFX_ITA_national_mission_4"
-        position = {
-          x = 350
-          y = 0
-        }
-        pdx_tooltip = ITA_national_mission_4_tt
-      }
-  
-    }
-  
-  }
 
 }
