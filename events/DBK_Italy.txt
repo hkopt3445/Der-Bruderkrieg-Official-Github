@@ -948,20 +948,49 @@ country_event = {
 	option = { 
 		name = ITA_evola_coup_events.1.a 
 		ai_chance = { factor = 90 } 
-		set_country_flag = ITA_active_the_geracha_elections
-		unlock_decision_category_tooltip = ITA_the_kings_men
-		set_country_flag = ITA_chose_benito_kings_men
-		activate_mission = ITA_gerarchi_elections
-		custom_effect_tooltip = ITA_we_will_play_as_benito
+		# set_country_flag = ITA_active_the_geracha_elections
+		# unlock_decision_category_tooltip = ITA_the_kings_men
+		# set_country_flag = ITA_chose_benito_kings_men
+		# activate_mission = ITA_gerarchi_elections
+		# custom_effect_tooltip = ITA_we_will_play_as_benito
+		complete_national_focus = ITA_continue_cianos_rule
+
 	}
 	option = { 
 		name = ITA_evola_coup_events.1.b 
 		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
-		set_country_flag = ITA_active_the_geracha_elections
-		unlock_decision_category_tooltip = ITA_the_kings_men
-		set_country_flag = ITA_chose_evola_kings_men
-		activate_mission = ITA_gerarchi_elections
-		custom_effect_tooltip = ITA_we_will_play_as_evola
+		# set_country_flag = ITA_active_the_geracha_elections
+		# unlock_decision_category_tooltip = ITA_the_kings_men
+		# set_country_flag = ITA_chose_evola_kings_men
+		# activate_mission = ITA_gerarchi_elections
+		# custom_effect_tooltip = ITA_we_will_play_as_evola
+
+				complete_national_focus = ITA_roccos_conspiracy
+
+	}
+	option = { 
+		name = ITA_evola_coup_events.1.c 
+		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
+		# set_country_flag = ITA_active_the_geracha_elections
+		# unlock_decision_category_tooltip = ITA_the_kings_men
+		# set_country_flag = ITA_chose_evola_kings_men
+		# activate_mission = ITA_gerarchi_elections
+		# custom_effect_tooltip = ITA_we_will_play_as_evola
+
+				complete_national_focus = ITA_the_dawn_of_the_blueshirts
+
+	}
+	option = { 
+		name = ITA_evola_coup_events.1.e
+		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
+		# set_country_flag = ITA_active_the_geracha_elections
+		# unlock_decision_category_tooltip = ITA_the_kings_men
+		# set_country_flag = ITA_chose_evola_kings_men
+		# activate_mission = ITA_gerarchi_elections
+		# custom_effect_tooltip = ITA_we_will_play_as_evola
+
+				complete_national_focus = ITA_evolas_regime
+
 	}
 }
 
@@ -1493,12 +1522,12 @@ country_event = {
 	option = { 
 		name = ITA_fascist_tree_events.1.b 
 		ai_chance = { factor = 90 } 
-		complete_national_focus = ITA_balbo_seizes_the_power
+		complete_national_focus = ITA_roccos_conspiracy
 	}
 	option = { 
 		name = ITA_fascist_tree_events.1.c
 		ai_chance = { factor = 90 } 		
-		complete_national_focus = ITA_de_bono_seizes_the_power
+		complete_national_focus = ITA_the_dawn_of_the_blueshirts
 
 	}
 }
@@ -1516,12 +1545,12 @@ country_event = {
 	option = { 
 		name = ITA_fascist_tree_events.2.a 
 		ai_chance = { factor = 90 } 
-		country_event = ITA_fascist_tree_events.3
+		ITA = { country_event = ITA_fascist_tree_events.3 }
 	}
 	option = { 
 		name = ITA_fascist_tree_events.2.b 
 		ai_chance = { factor = 90 } 
-		country_event = ITA_fascist_tree_events.4
+		ITA = { country_event = ITA_fascist_tree_events.4 }
 	}
 }
 
@@ -1635,6 +1664,113 @@ news_event = {
 		ai_chance = { factor = 90 } 
 
 	}
+}
+##the italian worker
+country_event = {
+	id = ITA_fascist_tree_events.9
+	title = ITA_fascist_tree_events.9.t
+	desc = ITA_fascist_tree_events.9.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_fascist_tree_events.9.a 
+		ai_chance = { factor = 0 } 
+	}
+}
+
+##the marixst problem
+country_event = {
+	id = ITA_fascist_tree_events.10
+	title = ITA_fascist_tree_events.10.t
+	desc = ITA_fascist_tree_events.10.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_fascist_tree_events.10.a 
+		ai_chance = { factor = 0 } 
+	}
+}
+
+add_namespace = ITA_mercenary_events
+
+#malta
+country_event = {
+	id = ITA_mercenary_events.1
+	title = ITA_mercenary_events.1.t
+	desc = ITA_mercenary_events.1.d
+	#picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_mercenary_events.1.a 
+		ai_chance = { factor = 90 } 
+		ITA = {
+			transfer_state = event_target:ITA_target_mercenary_state
+		}
+		add_to_variable = {
+			ITA_mercenary_power = 5
+			tooltip = ITA_mercenary_power_plus_5
+		}
+	}
+	
+}
+country_event = {
+	id = ITA_mercenary_events.2
+	title = ITA_mercenary_events.2.t
+	desc = ITA_mercenary_events.2.d
+	#picture = GFX_report_event_eng_dambuster2
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_mercenary_events.2.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+
+}
+country_event = {
+	id = ITA_mercenary_events.3
+	title = ITA_mercenary_events.3.t
+	desc = ITA_mercenary_events.3.d
+	#picture = GFX_report_event_eng_dambuster3
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_mercenary_events.3.a 
+		ai_chance = { factor = 90 } 
+		
+		set_politics = {
+			ruling_party = neutrality
+		}
+		hidden_effect = {
+			retire_country_leader = yes
+		}
+		create_country_leader = {
+			name = "Rodolfo Graziani"
+			picture = "gfx/leaders/Rodolfo_Graziani2.dds"
+			ideology = despotic
+			desc = ""
+		}
+		set_cosmetic_tag = ITA_mercenary_italy
+	}
+	option = { 
+		name = ITA_mercenary_events.3.b
+		ai_chance = { factor = 90 } 
+		add_stability = 0.05
+	}
+
 }
 
 
@@ -2679,3 +2815,6 @@ country_event = {
 	# 		}
 	# 	}
 	# }
+
+
+ 

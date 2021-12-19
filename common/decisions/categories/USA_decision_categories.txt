@@ -26,6 +26,17 @@ DBK_USA_election = {
 		tag = USA
 	}
 	visible = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			USA = {
+				OR = {
+					has_completed_focus = USA_1936_DNC
+					has_completed_focus = USA_1936_RNC
+				}
+			}
+		}
 	}
 
 	priority = {
@@ -147,18 +158,30 @@ USA_decision_electoral_ai_smith = {
 		NOT = {
 			has_country_flag = USA_1936_elections_over
 		}
+		USA = {
+			OR = {
+				has_completed_focus = USA_1936_DNC
+				has_completed_focus = USA_1936_RNC
+			}
+		}
 	}
 }
 
 
 USA_decision_electoral_ai_borah = {
 	allowed = {
-		original_tag = BOT
+		tag = BOT
 	}
 	visible = {
 		tag = BOT
 		NOT = {
 			has_country_flag = USA_1936_elections_over
+		}
+		USA = {
+			OR = {
+				has_completed_focus = USA_1936_DNC
+				has_completed_focus = USA_1936_RNC
+			}
 		}
 	}
 }
@@ -177,6 +200,12 @@ USA_decision_electoral_ai_long = {
 				has_country_leader = {
 					name = "Huey Long"
 				}
+			}
+		}
+		USA = {
+			OR = {
+				has_completed_focus = USA_1936_DNC
+				has_completed_focus = USA_1936_RNC
 			}
 		}
 	}

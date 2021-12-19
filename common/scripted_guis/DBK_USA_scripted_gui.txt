@@ -151,7 +151,19 @@ scripted_gui = {
           clr_country_flag = USA_republican_party_selected_in_gui
         }
       }
-
+      USA_election_map_new_york_button_click = {
+        set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
+        add_political_power = -20
+        random_list = {
+          75 = {
+            country_event = { id = USA_campaign_decision_events.21 }
+          }
+          25 = {
+            country_event = { id = USA_campaign_decision_events.22 }
+          }
+        }
+      }
+      
 
       USA_election_map_new_england_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
@@ -318,6 +330,17 @@ scripted_gui = {
     }
 
     triggers = {
+      USA_election_map_new_york_button_click_enabled = {
+        NOT = {
+          has_country_flag = USA_already_campaigning_in_state
+        }
+        OR = {
+          has_completed_focus = USA_longs_tour_of_america
+          has_completed_focus = USA_smith_campaign
+          has_completed_focus = USA_the_warren_campaign
+        }
+        has_political_power > 19
+      }
       USA_election_map_new_england_button_click_enabled = {
         NOT = {
           has_country_flag = USA_already_campaigning_in_state
@@ -484,18 +507,24 @@ scripted_gui = {
           has_completed_focus = USA_model_teddys_runs
           has_completed_focus = USA_attack_longs_treachery
         }
+        has_country_flag = USA_bull_moose_party_selected_in_gui
+
       }
       USA_call_out_his_governing_incompetence_visible = {
         OR = {
           has_completed_focus = USA_model_teddys_runs
           has_completed_focus = USA_attack_longs_treachery
         }
+        has_country_flag = USA_bull_moose_party_selected_in_gui
+
       }
       USA_questioning_his_extensive_ambitions_visible = {
         OR = {
           has_completed_focus = USA_model_teddys_runs
           has_completed_focus = USA_attack_longs_treachery
         }
+        has_country_flag = USA_bull_moose_party_selected_in_gui
+
       }
 
 
@@ -504,18 +533,24 @@ scripted_gui = {
           has_completed_focus = USA_denouncing_republican_candidate
           has_completed_focus = USA_continue_the_taft_pact
         }
+        has_country_flag = USA_democratic_party_selected_in_gui
+
       }
       USA_call_out_his_urban_favoritism_visible = {
         OR = {
           has_completed_focus = USA_denouncing_republican_candidate
           has_completed_focus = USA_continue_the_taft_pact
         }
+        has_country_flag = USA_democratic_party_selected_in_gui
+
       }
       USA_question_his_conservative_loyalties_visible = {
         OR = {
           has_completed_focus = USA_denouncing_republican_candidate
           has_completed_focus = USA_continue_the_taft_pact
         }
+        has_country_flag = USA_democratic_party_selected_in_gui
+
       }
 
       USA_critique_warrens_experience_visible = {
@@ -523,18 +558,21 @@ scripted_gui = {
           has_completed_focus = USA_denouncing_republican_candidate
           has_completed_focus = USA_gain_fdrs_support
         }
+        has_country_flag = USA_republican_party_selected_in_gui
       }
       USA_call_out_his_western_favoritism_visible = {
         OR = {
           has_completed_focus = USA_denouncing_republican_candidate
           has_completed_focus = USA_gain_fdrs_support
         }
+        has_country_flag = USA_republican_party_selected_in_gui
       }
       USA_denounce_warrens_anti_japanese_rhetoric_visible = {
         OR = {
           has_completed_focus = USA_denouncing_republican_candidate
           has_completed_focus = USA_gain_fdrs_support
         }
+        has_country_flag = USA_republican_party_selected_in_gui
       }
       
     }

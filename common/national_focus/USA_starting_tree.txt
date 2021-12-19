@@ -30,33 +30,33 @@ focus_tree = {
 			country_event = USA_starting_events.9
 		}
 	}
-	focus = {
-		id = USA_teddys_legacy
-		icon = GFX_goal_USA_teddys_legacy
-		prerequisite = { focus = USA_the_end_of_the_first_four }
-		x = 0
-		y = 1
-		relative_position_id = USA_the_end_of_the_first_four
-		cost = 2
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-		}
+	# focus = {
+	# 	id = USA_teddys_legacy
+	# 	icon = GFX_goal_USA_teddys_legacy
+	# 	prerequisite = { focus = USA_the_end_of_the_first_four }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = USA_the_end_of_the_first_four
+	# 	cost = 2
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# 	available = {
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_POLITICAL }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_POLITICAL }
 
-		completion_reward = {
-		}
-	}
+	# 	completion_reward = {
+	# 	}
+	# }
 	focus = {
 		id = USA_the_situation_in_liberia
 		icon = GFX_goal_USA_the_situation_in_liberia
-		prerequisite = { focus = USA_teddys_legacy }
+		prerequisite = { focus = USA_the_end_of_the_first_four }
 		x = -3
 		y = 1
-		relative_position_id = USA_teddys_legacy
+		relative_position_id = USA_the_end_of_the_first_four
 		cost = 3
 		ai_will_do = {
 			factor = 1
@@ -97,7 +97,18 @@ focus_tree = {
 
 		completion_reward = {
 			LIB = {
-				recruit_character = LIB_teddy_roosevelt_second
+				create_country_leader = {
+  					name = "Teddy Roosevelt Jr."
+					picture = "gfx/leaders/TRII.dds"
+					ideology = despotic
+				}
+			}
+			hidden_effect = {
+				LIB = {
+					set_politics = {
+						ruling_party = neutrality
+					}
+				}
 			}
 		}
 	}
@@ -127,7 +138,18 @@ focus_tree = {
 
 		completion_reward = {
 			LIB = {
-				recruit_character = LIB_harry_truman
+				create_country_leader = {
+  					name = "Harry Truman"
+					picture = "gfx/leaders/Harry_Truman.dds"
+					ideology = despotic
+				}
+			}
+			hidden_effect = {
+				LIB = {
+					set_politics = {
+						ruling_party = neutrality
+					}
+				}
 			}
 		}
 	}
@@ -157,8 +179,20 @@ focus_tree = {
 
 		completion_reward = {
 			LIB = {
-				recruit_character = LIB_george_patton
+				create_country_leader = {
+  					name = "George Patton"
+					picture = "gfx/leaders/George_Patton.dds"
+					ideology = despotic
+				}
 			}
+			hidden_effect = {
+				LIB = {
+					set_politics = {
+						ruling_party = neutrality
+					}
+				}
+			}
+			
 		}
 	}
 	focus = {
@@ -185,10 +219,10 @@ focus_tree = {
 	focus = {
 		id = USA_operation_bolivar
 		icon = GFX_goal_USA_operation_bolivar
-		prerequisite = { focus = USA_teddys_legacy }
+		prerequisite = { focus = USA_the_end_of_the_first_four }
 		x = 3
 		y = 1
-		relative_position_id = USA_teddys_legacy
+		relative_position_id = USA_the_end_of_the_first_four
 		cost = 4
 		ai_will_do = {
 			factor = 1

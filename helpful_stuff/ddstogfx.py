@@ -2,7 +2,7 @@
 import glob
 import os
 
-path = r"gfx\interface\usa_diplo_gui\mexicorebels"
+path = r"gfx\interface\goals"
 
 os.chdir(path)
 print(os.listdir())

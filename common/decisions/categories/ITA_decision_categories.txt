@@ -7,10 +7,17 @@ ITA_incoming_socialist_revolution = {
 	scripted_gui = italy_civil_war_decision_gui
 
 	visible = {
-    tag = ITA
-	has_idea = ITA_socialist_revolt
+		OR = {
+			has_completed_focus = ITA_purge_the_socialist_remnants
+		}
+		NOT = {
+			OR = {
+				has_completed_focus = ITA_resources_in_ethiopia 
+				has_completed_focus = ITA_end_the_rivalry
+			}
+		}
 	}
-	priority = 100
+	priority = 100 
 }
 
 ITA_risorgemento_decisions = {
@@ -51,7 +58,7 @@ ITA_the_geracha_elections = {
 		 tag = ITA
 	}
 	visible = {
-		 has_country_flag = ITA_active_the_geracha_elections
+		has_country_flag = ITA_active_the_geracha_elections
 	}
 }
 
@@ -181,8 +188,12 @@ ITA_maintaining_unity = {
 		tag = ITA
 	}
 	visible = {
-		has_completed_focus = ITA_power_struggle
+		OR = {
+			has_idea = ITA_socialist_revolt
+			has_idea = ITA_socialist_revolt_2
+		}
 	}
+	priority = 250
 }
 
 ITA_balkan_decision_cat = {
@@ -194,4 +205,15 @@ ITA_balkan_decision_cat = {
 		has_completed_focus = ITA_albanian_expansion
 	}
 	priority = 20
+}
+
+ITA_the_mercenaries = {
+	icon = border_war
+	allowed = {
+		tag = ITA
+	}
+	visible = {
+		has_completed_focus = ITA_the_mercenary_military
+	}
+	priority = 200
 }
