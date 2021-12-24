@@ -39,5 +39,5 @@ replace_path="events"
 path="mod/Der-Bruderkrieg-Official-Github" 
 
 
-supported_version="1.11"
+supported_version="1.11.4"
 remote_file_id="2112802713"
