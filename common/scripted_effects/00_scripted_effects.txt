@@ -23,15 +23,89 @@
 #This is going to give misleading and ugly tooltips. Making it nice will take effort. TODO_WTT_CD make nice or ignore and remove comment. Easiest solution is just making a custom tooltip that says "5 civilian factories will be converted to military factories" and ignore telling the player the states where it will happen.
 
 spheres_of_influence_setup = {
-
+	every_country = {
+		if = {
+			limit = {
+				check_variable = {
+					influence_variable = 1
+				}
+			}
+			FRA = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 2
+				}
+			}
+			AUS = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 3
+				}
+			}
+			SOV = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 4
+				}
+			}
+			ENG = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 5
+				}
+			}
+			USA = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 6
+				}
+			}
+			GER = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+		}
+	}
 }
 d_check_thing = {
-	if = {
-		limit = {
-			has_relation_modifier = { modifier = sphere_of_influence_modifier target = FRA }
-		}
-		log = "joe mama"
-	}
+	spheres_of_influence_setup = yes
 }
 
 show_flag_icons = {
