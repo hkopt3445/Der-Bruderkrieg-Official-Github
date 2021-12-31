@@ -1593,7 +1593,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_restoration_day
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
+			icon = unkown
 			x = 0
 			y = 1
 	
@@ -1611,7 +1611,43 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				set_politics = {
+					ruling_party = authoritarian_democratic
+				}
+
+				create_country_leader = {
+					name = "Wilhelm II"
+					desc = "POLITICS_ADOLF_HITLER_DESC"
+					picture = "gfx/leaders/Kaiser_Wilhelm_II.dds"
+					expire = "1965.1.1"
+					ideology = authoritarian_democrat
+					traits = {
+						
+					}
+				}
+
+				hidden_effect = {
+					create_country_leader = {
+						name = "Wilhelm II"
+						desc = "POLITICS_ADOLF_HITLER_DESC"
+						picture = "gfx/leaders/Kaiser_Wilhelm_II.dds"
+						expire = "1965.1.1"
+						ideology = despotic
+						traits = {
+							
+						}
+					}
+					create_country_leader = {
+						name = "Wilhelm II"
+						desc = "POLITICS_ADOLF_HITLER_DESC"
+						picture = "gfx/leaders/Kaiser_Wilhelm_II.dds"
+						expire = "1965.1.1"
+						ideology = democratic_conservative
+						traits = {
+							
+						}
+					}
+				}
 			}
 
 			ai_will_do = {
@@ -1621,8 +1657,8 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_wilhelm_the_uniter
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
-			x = -2
+			icon = unkown
+			x = -1
 			y = 1
 	
 			prerequisite = {
@@ -1642,7 +1678,14 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.25
+				}
+				set_politics = {
+					ruling_party = democratic
+				}
+				add_country_leader_trait = GER_wilhelm_constitutionalist_trait
 			}
 
 			ai_will_do = {
@@ -1652,7 +1695,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_revive_1850_constitution
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
+			icon = unkown
 			x = -1
 			y = 1
 	
@@ -1669,7 +1712,10 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				swap_ruler_traits = {
+					remove = GER_wilhelm_constitutionalist_trait
+					add = GER_wilhelm_constitutionalist_trait_2
+				}
 			}
 
 			ai_will_do = {
@@ -1679,8 +1725,8 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_einigkeit_recht_ordnung
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
-			x = -1
+			icon = unkown
+			x = 0
 			y = 1
 	
 			prerequisite = {
@@ -1696,7 +1742,10 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				swap_ruler_traits = {
+					remove = GER_wilhelm_constitutionalist_trait_2
+					add = GER_wilhelm_constitutionalist_trait_3
+				}
 			}
 
 			ai_will_do = {
@@ -1706,8 +1755,8 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_absolutist_resurgence
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
-			x = 2
+			icon = unkown
+			x = 1
 			y = 1
 	
 			prerequisite = {
@@ -1727,7 +1776,14 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.25
+				}
+				set_politics = {
+					ruling_party = neutrality
+				}
+				add_country_leader_trait = GER_wilhelm_new_absolutist_trait
 			}
 
 			ai_will_do = {
@@ -1737,7 +1793,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_eliminate_radicals
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
+			icon = unkown
 			x = 0
 			y = 2
 			
@@ -1755,7 +1811,14 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.15
+				}
+				add_popularity = {
+					ideology = ultranationalism
+					popularity = -0.15
+				}
 			}
 
 			ai_will_do = {
@@ -1765,7 +1828,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_destroy_the_murder_factories
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
+			icon = unkown
 			x = 0
 			y = 1
 			
@@ -1782,7 +1845,20 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				add_manpower = 50000
+				add_ideas = Kleine_Deutschland
+				USA = {
+					add_opinion_modifier = {
+						target = GER
+						modifier = large_increase
+					}
+				}
+				ISR = {
+					add_opinion_modifier = {
+						target = GER
+						modifier = large_increase
+					}
+				}
 			}
 
 			ai_will_do = {
@@ -1792,7 +1868,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_full_control
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
+			icon = unkown
 			x = 1
 			y = 1
 	
@@ -1809,7 +1885,10 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				swap_ruler_traits = {
+					remove = GER_wilhelm_new_absolutist_trait
+					add = GER_wilhelm_new_absolutist_trait_2
+				}
 			}
 
 			ai_will_do = {
@@ -1819,7 +1898,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_gott_kaiser_deutschland
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
+			icon = unkown
 			x = 0
 			y = 1
 	
@@ -1836,7 +1915,10 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				swap_ruler_traits = {
+					remove = GER_wilhelm_new_absolutist_trait_2
+					add = GER_wilhelm_new_absolutist_trait_3
+				}
 			}
 
 			ai_will_do = {
@@ -1846,7 +1928,7 @@ shared_focus = {
 
 		shared_focus = {
 			id = GER_the_empire_reborn
-			icon = GFX_goal_GER_thereichsmarshall_sprussia
+			icon = unkown
 			x = 0
 			y = 1
 			
@@ -1868,7 +1950,10 @@ shared_focus = {
 			cancel_if_invalid = yes
 	
 			completion_reward = {
-				custom_effect_tooltip = skeleton_tree_because_toozer_mod
+				swap_ideas = {
+					add_idea = Kleine_Deutschland_2
+					remove_idea = Kleine_Deutschland
+				}
 			}
 
 			ai_will_do = {
