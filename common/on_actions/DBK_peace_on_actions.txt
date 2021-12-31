@@ -176,6 +176,42 @@ on_actions = {
 				if = {
 					limit = {
 						ROOT = {
+							tag = ATH
+	
+						}
+						FROM = {
+							tag = GRE
+						}
+					}
+					ATH = {
+						annex_country = {
+							target = GRE
+							transfer_troops = no
+						}
+					}
+					#news_event = dutch_civil_war.3
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = GRE
+	
+						}
+						FROM = {
+							tag = ATH
+						}
+					}
+					GRE = {
+						annex_country = {
+							target = ATH
+							transfer_troops = no
+						}
+					}
+					#news_event = dutch_civil_war.3
+				}
+				if = {
+					limit = {
+						ROOT = {
 							tag = HOL
 	
 						}
@@ -184,10 +220,18 @@ on_actions = {
 						}
 					}
 					JNE = {
-						annex_country = {
-							target = HOL
-							transfer_troops = no
-						}
+						transfer_state = 7
+						transfer_state = 35
+						transfer_state = 36
+						add_state_core = 7
+						add_state_core = 35
+						add_state_core = 36
+					}
+					HOL = {
+						transfer_state = 309
+						transfer_state = 966
+						transfer_state = 695
+						set_cosmetic_tag = dutch_govenrment_in_exile
 					}
 					#news_event = dutch_civil_war.4
 				}
@@ -216,6 +260,24 @@ on_actions = {
 				}
 				austria_loses_peace_deal = yes
 				log = "2nd europa ends: [GetDateText]"
+			}
+			if = {
+				limit = {
+					ROOT = { tag = HAN }
+					OR = {
+						FROM = {
+							tag = GER
+						}
+						FROM = {
+							is_in_faction_with = GER
+						}
+					}
+				}
+				HAN = {
+					transfer_navy = {
+						target = GER
+					}
+				}
 			}
 			if = {
 				limit = {

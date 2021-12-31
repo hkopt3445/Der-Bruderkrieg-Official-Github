@@ -22,13 +22,318 @@
 
 #This is going to give misleading and ugly tooltips. Making it nice will take effort. TODO_WTT_CD make nice or ignore and remove comment. Easiest solution is just making a custom tooltip that says "5 civilian factories will be converted to military factories" and ignore telling the player the states where it will happen.
 
+
+spheres_of_influence_setup = {
+	every_country = {
+		if = {
+			limit = {
+				check_variable = {
+					influence_variable = 1
+				}
+			}
+			keep_current_politics = yes
+			FRA = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+			reset_government = yes
+			leave_faction = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 2
+				}
+			}
+			keep_current_politics = yes
+			AUS = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+			reset_government = yes
+			leave_faction = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 3
+				}
+			}
+			keep_current_politics = yes
+			SOV = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+			reset_government = yes
+			leave_faction = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 4
+				}
+			}
+			keep_current_politics = yes
+			ENG = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+			reset_government = yes
+			leave_faction = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 5
+				}
+			}
+			keep_current_politics = yes
+			USA = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+			reset_government = yes
+			leave_faction = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					influence_variable = 6
+				}
+			}
+			keep_current_politics = yes
+			GER = {
+				set_autonomy = {
+					target = PREV
+					autonomous_state = autonomy_influenced_state
+				}
+			}
+			reset_government = yes
+			leave_faction = yes
+		}
+	}
+}
+d_check_thing = {
+	spheres_of_influence_setup = yes
+}
+# SCRIPTED EFFECT
+keep_current_politics = {
+	log = "[THIS.GetName]"
+	set_variable = { save_democratic = party_popularity@democratic }
+	set_variable = { save_fascism = party_popularity@fascism }
+	set_variable = { save_neutrality = party_popularity@neutrality }
+	set_variable = { save_communism = party_popularity@communism }
+	set_variable = { save_democratic_liberalism = party_popularity@democratic_liberalism }
+	set_variable = { save_ultranationalism = party_popularity@ultranationalism }
+	set_variable = { save_authoritarian_democratic = party_popularity@authoritarian_democratic }
+	set_variable = { save_democratic_communism = party_popularity@democratic_communism }
+	set_variable = { save_socialism_democratic = party_popularity@socialism_democratic }
+
+	multiply_variable = { save_democratic = 100 }
+	multiply_variable = { save_fascism = 100 }
+	multiply_variable = { save_neutrality = 100 }
+	multiply_variable = { save_communism = 100 }
+	multiply_variable = { save_democratic_liberalism = 100 }
+	multiply_variable = { save_ultranationalism = 100 }
+	multiply_variable = { save_authoritarian_democratic = 100 }
+	multiply_variable = { save_democratic_communism = 100 }
+	multiply_variable = { save_socialism_democratic = 100 }
+
+	puppet_saving_flag_checker = yes
+
+	set_temp_variable = { total_ideology_score = 100 }
+	subtract_from_temp_variable = { total_ideology_score = save_democratic }
+	subtract_from_temp_variable = { total_ideology_score = save_fascism }
+	subtract_from_temp_variable = { total_ideology_score = save_neutrality }
+	subtract_from_temp_variable = { total_ideology_score = save_communism }
+	subtract_from_temp_variable = { total_ideology_score = save_democratic_liberalism }
+	subtract_from_temp_variable = { total_ideology_score = save_ultranationalism }
+	subtract_from_temp_variable = { total_ideology_score = save_authoritarian_democratic }
+	subtract_from_temp_variable = { total_ideology_score = save_democratic_communism }
+	subtract_from_temp_variable = { total_ideology_score = save_socialism_democratic }
+
+	if = {
+		limit = { NOT = { check_variable = { total_ideology_score = 0 } } }
+		if = {
+			limit = { has_government = democratic }
+			add_to_variable = { save_democratic = total_ideology_score }
+		}
+		else_if = {
+			limit = { has_government = fascism }
+			add_to_variable = { save_fascism = total_ideology_score }
+		}
+		else_if = {
+			limit = { has_government = communism }
+			add_to_variable = { save_communism = total_ideology_score }
+		}
+		else_if = {
+			limit = { has_government = democratic_communism }
+			add_to_variable = { save_democratic_communism = total_ideology_score }
+		}
+		else_if = {
+			limit = { has_government = democratic_liberalism }
+			add_to_variable = { save_democratic_communism = total_ideology_score }
+		}
+		else_if = {
+			limit = { has_government = ultranationalism }
+			add_to_variable = { save_democratic_communism = total_ideology_score }
+		}
+		else_if = {
+			limit = { has_government = authoritarian_democratic }
+			add_to_variable = { save_democratic_communism = total_ideology_score }
+		}
+		else_if = {
+			limit = { has_government = socialism_democratic }
+			add_to_variable = { save_democratic_communism = total_ideology_score }
+		}
+		else = {
+			limit = { has_government = neutrality }
+			add_to_variable = { save_neutrality = total_ideology_score }
+		}
+	}
+
+	
+}
+
+d_check_thing2 = {
+	if = {
+		limit = {
+			has_country_flag = was_neutrality
+		}
+		log = "romania"
+	}
+}
+
+reset_government = {
+	set_popularities = {
+		fascism = save_fascism
+		communism = save_communism
+		neutrality = save_neutrality
+		democratic = save_democratic
+		democratic_liberalism = save_democratic_liberalism
+		socialism_democratic = save_socialism_democratic
+		democratic_communism = save_democratic_communism
+		authoritarian_democratic = save_authoritarian_democratic
+		ultranationalism = save_ultranationalism
+	}
+	if = {
+		limit = { has_country_flag = was_democratic }
+		set_politics = { ruling_party = democratic }
+	}
+	if = {
+		limit = { has_country_flag = was_fascism }
+		set_politics = { ruling_party = fascism }
+	}
+	if = {
+		limit = { has_country_flag = was_communism }
+		set_politics = { ruling_party = communism }
+	}
+	if = {
+		limit = { has_country_flag = was_democratic_liberalism }
+		set_politics = { ruling_party = democratic_liberalism }
+	}
+	if = {
+		limit = { has_country_flag = was_socialism_democratic }
+		set_politics = { ruling_party = socialism_democratic }
+	}
+	if = {
+		limit = { has_country_flag = was_ultranationalism }
+		set_politics = { ruling_party = ultranationalism }
+	}
+	if = {
+		limit = { has_country_flag = was_democratic }
+		set_politics = { ruling_party = democratic }
+	}
+	if = {
+		limit = { has_country_flag = was_neutrality }
+		set_politics = { ruling_party = neutrality }
+		log = "Romania: [THIS.GetName]"
+	}
+	if = {
+		limit = { has_country_flag = was_authoritarian_democratic }
+		set_politics = { ruling_party = authoritarian_democratic }
+	}
+
+	clear_variable = save_fascism
+	clear_variable = save_democratic
+	clear_variable = save_neutrality
+	clear_variable = save_communism
+	clear_variable = save_democratic_liberalism
+	clear_variable = save_socialism_democratic
+	clear_variable = save_democratic_communism
+	clear_variable = save_authoritarian_democratic
+	clear_variable = save_ultranationalism
+}
+
+puppet_saving_flag_checker = {
+	if = {
+		limit = { has_government = democratic }
+		set_country_flag = { flag = was_democratic value = 1 days = 2 }
+	}
+	if = {
+		limit = { has_government = fascism }
+		set_country_flag = { flag = was_fascism value = 1 days = 2 }
+	}
+	if = {
+		limit = { has_government = communism }
+		set_country_flag = { flag = was_communism value = 1 days = 2 }
+	}
+	if = {
+		limit = { has_government = democratic_liberalism }
+		set_country_flag = { flag = was_democratic_liberalism value = 1 days = 2 }
+	}
+	if = {
+		limit = { has_government = socialism_democratic }
+		log = "hi"
+		set_country_flag = { flag = was_socialism_democratic value = 1 days = 2 }
+	}
+	if = {
+		limit = { has_government = ultranationalism }
+		set_country_flag = { flag = was_ultranationalism value = 1 days = 2 }
+	}
+	if = {
+		limit = { has_government = democratic_communism }
+		set_country_flag = { flag = was_democratic_communism value = 1 days = 2 }
+	}
+	if = {
+		limit = { has_government = neutrality }
+		set_country_flag = { flag = was_neutrality value = 1 days = 2 }
+	}
+	if = {
+		limit = { has_government = authoritarian_democratic }
+		set_country_flag = { flag = was_authoritarian_democratic value = 1 days = 2 }
+	}
+}
+
+show_flag_icons = {
+	set_country_flag = show_flag_map_icons
+} 
+clear_flag_icons = {
+	clr_country_flag = show_flag_map_icons
+}
+
+more_mapmodes_update_custom_map_modes_effects = {
+	force_update_map_mode = {
+		mapmode = more_mapmodes_core_map_mode
+	}
+}
+
 level_up_conscription_law = {
 	if = {
 		limit = {
 			has_idea = disarmed_nation
 		}
 		add_ideas = volunteer_only 
-	}
 	if = {
 		limit = {
 			has_idea = volunteer_only 
@@ -66,6 +371,7 @@ level_up_conscription_law = {
 		add_ideas = scraping_the_barrel
 	}
 }
+
 
 replace_civ_with_arms_factories = {	
 

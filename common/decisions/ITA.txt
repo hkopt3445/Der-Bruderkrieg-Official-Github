@@ -2548,6 +2548,7 @@ ITA_the_mercenaries = {
       conscription_factor = -0.1
       political_power_gain = -0.05
     }
+    days_remove = 20
 
     remove_effect = {
     }
@@ -2561,6 +2562,7 @@ ITA_the_mercenaries = {
      has_completed_focus = ITA_expand_scavenging_operations
     }
     cost = 70
+    days_remove = 40
     
     modifier = {
       consumer_goods_factor = -0.1
@@ -2585,6 +2587,7 @@ ITA_the_mercenaries = {
     modifier = {
       consumer_goods_factor = 0.025
     }
+    days_remove = 20
 
     remove_effect = {
       add_tech_bonus = {
@@ -2611,6 +2614,7 @@ ITA_the_mercenaries = {
     modifier = {
       consumer_goods_factor = 0.025
     }
+    days_remove = 40
 
     remove_effect = {
       add_tech_bonus = {
@@ -2700,43 +2704,7 @@ ITA_the_mercenaries = {
       ITA_mercenary_raid_effect = yes
     }
   }
-  ITA_raid_on_corfu = {
-    allowed = {
-      tag = ITA
-    }
 
-    visible = {
-     has_completed_focus = ITA_the_corfu_incident
-    }
-    available = {
-      NOT = {
-        has_country_flag = ITA_currently_doing_mercenary_raid
-      }
-    }
-    complete_effect = {
-      set_country_flag = ITA_currently_doing_mercenary_raid
-    }
-    remove_effect = {
-      clr_country_flag = ITA_currently_doing_mercenary_raid
-    }
-    custom_cost_trigger = {
-			check_variable = { ITA_mercenary_number > 299 }
-      check_variable = { ITA_ships_mercenary_number > 2 }
-
-		}
-		custom_cost_text = ITA_mercenary_raid_tt
-
-    days_remove = 10
-    days_re_enable = 50
-  
-
-    remove_effect = {
-      827 = {
-        save_global_event_target_as = ITA_target_mercenary_state
-      }
-      ITA_mercenary_raid_effect = yes
-    }
-  }
   ITA_raid_on_ionia = {
     allowed = {
       tag = ITA
@@ -2804,50 +2772,14 @@ ITA_the_mercenaries = {
     days_re_enable = 50
   
 
-    remove_effect = {
+    remove_effect = { 
       182 = {
         save_global_event_target_as = ITA_target_mercenary_state
       }
       ITA_mercenary_raid_effect = yes
     }
   }
-  ITA_raid_on_crete = {
-    allowed = {
-      tag = ITA
-    }
-
-    visible = {
-     has_completed_focus = ITA_discover_crete
-    }
-    available = {
-      NOT = {
-        has_country_flag = ITA_currently_doing_mercenary_raid
-      }
-    }
-    complete_effect = {
-      set_country_flag = ITA_currently_doing_mercenary_raid
-    }
-    remove_effect = {
-      clr_country_flag = ITA_currently_doing_mercenary_raid
-    }
-    custom_cost_trigger = {
-			check_variable = { ITA_mercenary_number > 299 }
-      check_variable = { ITA_ships_mercenary_number > 2 }
-
-		}
-		custom_cost_text = ITA_mercenary_raid_tt
-
-    days_remove = 10
-    days_re_enable = 50
   
-
-    remove_effect = {
-      182 = {
-        save_global_event_target_as = ITA_target_mercenary_state
-      }
-      ITA_mercenary_raid_effect = yes
-    }
-  }
   ITA_raid_on_dodecanese = {
     allowed = {
       tag = ITA

@@ -10,6 +10,12 @@
 	
 	FOCUS_FILTER_INDUSTRY = 509
 
+
+	FOCUS_FILTER_PROPAGANDA = 110
+	FOCUS_FILTER_ARMY_XP = 103
+	FOCUS_FILTER_NAVY_XP = 102
+	FOCUS_FILTER_AIR_XP = 101
+
 }
 
 focus_tree = {
@@ -38,9 +44,9 @@ focus_tree = {
 
 		completion_reward = {
 			army_experience = 5
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = land_doc_bonus
-				bonus = 1.0
+				cost_reduction = 0.5
 				uses = 1
 				category = land_doctrine
 			}
@@ -79,7 +85,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = army_effort
-		cost = 10
+		cost = 5
 
 		search_filters = {  FOCUS_FILTER_RESEARCH }
 		
@@ -109,9 +115,9 @@ focus_tree = {
 
 		completion_reward = {
 			army_experience = 5
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = land_doc_bonus
-				bonus = 1.0
+				cost_reduction = 0.5
 				uses = 1
 				category = land_doctrine
 			}
@@ -180,9 +186,9 @@ focus_tree = {
 
 		completion_reward = {
 			army_experience = 5
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = land_doc_bonus
-				bonus = 1.0
+				cost_reduction = 0.5
 				uses = 1
 				category = land_doctrine
 			}
@@ -288,9 +294,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}			
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = air_doc_bonus
-				bonus = 1.0
+				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
 			}			
@@ -343,9 +349,9 @@ focus_tree = {
 					ROOT = { set_country_flag = aviation_effort_AB }
 				}
 			}
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = air_doc_bonus
-				bonus = 1.0
+				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
 			}
@@ -432,9 +438,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name =  air_doc_bonus
-				bonus = 1.0
+				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
 			}
@@ -489,9 +495,9 @@ focus_tree = {
 					ROOT = { set_country_flag = aviation_effort_2_AB }
 				}
 			}
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name =  air_doc_bonus
-				bonus = 1.0
+				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
 			}
@@ -738,9 +744,9 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = sub_op_bonus
-				bonus = 1.0
+				cost_reduction = 0.5
 				uses = 2
 				technology = convoy_interdiction_ti
 				technology = unrestricted_submarine_warfare
@@ -780,9 +786,9 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = fleet_in_being_bonus
-				bonus = 1.0
+				cost_reduction = 0.25
 				uses = 2
 				category = fleet_in_being_tree
 			}
@@ -1625,36 +1631,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = nuclear_effort
-		icon = GFX_focus_wonderweapons
-		prerequisite = { focus = infrastructure_effort_2 }
-		x = -2
-		y = 1
-		relative_position_id = infrastructure_effort_2
-		cost = 10
-		
-		search_filters = { FOCUS_FILTER_RESEARCH } 
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_tech_bonus = {
-				name = nuclear_bonus
-				ahead_reduction = 2
-				category = nuclear
-			}
-		}
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0.25
-				always = yes
-			}
-		}
-	}
-
-	focus = {
 		id = extra_tech_slot
 		icon = GFX_focus_research
 		prerequisite = { focus = infrastructure_effort_2 }
@@ -1697,7 +1673,7 @@ focus_tree = {
 
 	focus = {
 		id = secret_weapons
-		icon = GFX_goal_generic_secret_weapon
+		icon = GFX_goal_generic_radar
 		prerequisite = { focus = infrastructure_effort_2 }
 		x = 2
 		y = 1
@@ -1712,10 +1688,8 @@ focus_tree = {
 			add_tech_bonus = {
 				name = secret_bonus
 				bonus = 1.0
-				uses = 4
+				uses = 3
 				category = electronics
-				category = nuclear
-				category = rocketry
 			}
 		}
 
@@ -1731,7 +1705,7 @@ focus_tree = {
 	focus = {
 		id = political_effort
 		icon = GFX_goal_generic_demand_territory
-		x = 19
+		x = 20
 		y = 0
 		cost = 10
 	
@@ -1751,12 +1725,14 @@ focus_tree = {
 		mutually_exclusive = { focus = liberty_ethos}
 		available = {
 			OR = {
-				has_government = fascism
 				has_government = communism
+				has_government = democratic_communism
 				has_government = neutrality
+				has_government = fascism
+				has_government = ultranationalism
 			}
 		}
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = political_effort
 		cost = 10
@@ -1781,7 +1757,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_timed_idea = { idea = collectivist_ethos_focus days = 1095 }
+			add_ideas = collectivist_ethos_focus
 		}
 	}
 
@@ -1790,13 +1766,15 @@ focus_tree = {
 		icon = GFX_goal_support_fascism #icon = GFX_goal_tripartite_pact
 		prerequisite = { focus = collectivist_ethos }
 		mutually_exclusive = { focus = internationalism_focus }
+		mutually_exclusive = { focus = neutrality_focus }
 		available = {
 			OR = {
-				has_government = fascism
 				has_government = neutrality
+				has_government = fascism
+				has_government = ultranationalism
 			}
 		}
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = collectivist_ethos
 		cost = 10
@@ -1825,10 +1803,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = nationalism
-				days = 720
-			}
+			add_ideas = nationalism
 		}
 	}
 	
@@ -1844,12 +1819,12 @@ focus_tree = {
 				else = {
 					OR = {
 						has_government = communism
-						has_government = neutrality
+						has_government = democratic_communism
 					}
 				}
 			}
 		}
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = collectivist_ethos
 		cost = 10
@@ -1878,10 +1853,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = internationalism
-				days = 720
-			}
+			add_ideas = internationalism
 		}
 	}	
 
@@ -1892,11 +1864,14 @@ focus_tree = {
 		mutually_exclusive = { focus = collectivist_ethos }
 		available = {
 			OR = {
+				has_government = socialism_democratic
+				has_government = democratic_liberalism
 				has_government = democratic
-				has_government = neutrality
+				has_government = authoritarian_democratic
+
 			}
 		}
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = political_effort
 		cost = 10
@@ -1981,9 +1956,19 @@ focus_tree = {
 	focus = {
 		id = neutrality_focus
 		icon = GFX_goal_generic_neutrality_focus
-		prerequisite = { focus = liberty_ethos }
-		mutually_exclusive = { focus = interventionism_focus }
-		x = 0
+		prerequisite = { focus = liberty_ethos focus = collectivist_ethos }
+		mutually_exclusive = { focus = interventionism_focus focus = nationalism_focus }
+		available = {
+			OR = {
+				has_government = socialism_democratic
+				has_government = democratic_liberalism
+				has_government = democratic
+				has_government = authoritarian_democratic
+				has_government = neutrality
+
+			}
+		}
+		x = -2
 		y = 1
 		relative_position_id = liberty_ethos
 		cost = 10
@@ -2014,7 +1999,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = liberty_ethos }
 		mutually_exclusive = { focus = neutrality_focus }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = liberty_ethos
 		cost = 10
@@ -2178,8 +2163,8 @@ focus_tree = {
 
 		continue_if_invalid = yes
 		
-		x = -2
-		y = 1
+		x = -1
+		y = 2
 		relative_position_id = foreign_expeditions
 		cost = 10
 	
@@ -2238,7 +2223,7 @@ focus_tree = {
 		id = ideological_fanaticism
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = paramilitarism focus = political_commissars }
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = paramilitarism
 		cost = 10
@@ -2274,7 +2259,7 @@ focus_tree = {
 				}
 			}
 		}		
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = ideological_fanaticism
 		cost = 10

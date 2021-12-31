@@ -483,6 +483,9 @@ country_event = {
 		
 		hungary_civil_war = yes
 		HUN = {
+			set_politics = {
+				ruling_party = fascism
+			}
 			set_cosmetic_tag = independent_hungary
 			set_rule = {
 				can_join_factions = no
@@ -3197,7 +3200,6 @@ country_event = {
 		
 		GPU = {
 			remove_ideas = GPU_court_factionalism
-			kill_country_leader = yes
 				add_popularity = {
 					popularity = 0.25
 					ideology = neutrality
@@ -3508,7 +3510,10 @@ country_event = {
 		}
 		hidden_effect = {
 			GPU = {
-				kill_country_leader = yes
+				country_event = {
+					id = southgermanconfederationcoup.2
+					days = 2
+				}
 			add_popularity = {
 				popularity = 0.25
 				ideology = neutrality
@@ -3570,20 +3575,23 @@ country_event = {
 		}
 		hidden_effect = {
 			GPU = {
-				kill_country_leader = yes
+				country_event = {
+					id = southgermanconfederationcoup.2
+					days = 2
+				}
 			add_popularity = {
 				popularity = 0.25
-				ideology = ultranationalism
+				ideology = fascism
 			}
 			set_politics = {
-				ruling_party = ultranationalism
+				ruling_party = fascism
 			}
 			create_country_leader = {
 				name = "Count Gerd von Rundstedt"
 				desc = ""
 				picture = "gfx/leaders/vonrundstent.dds"
 				expire = "1965.1.1"
-				ideology = ultranationalist
+				ideology = fascism_ideology
 				traits = {
 					#
 				}
@@ -3610,7 +3618,6 @@ country_event = {
 		}
 		set_country_flag = SGC_court_opposition_crushed
 		hidden_effect = {
-			kill_country_leader = yes
 			 
 		create_country_leader = {
 			name = "Franz Ferdinand"
@@ -3626,6 +3633,29 @@ country_event = {
 	}
 }
 
+add_namespace = austriaprussiaoperations
+country_event = {
+	id = austriaprussiaoperations.1
+	title = austriaprussiaoperations.1.t
+	desc = austriaprussiaoperations.1.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = austriaprussiaoperations.1.a
+		ai_chance = { factor = 1}
+		add_political_power = -100
+		add_stability = -0.03
+		hidden_effect = {
+			
+		}
+	}
+	option = {
+		name = austriaprussiaoperations.1.b
+		ai_chance = { factor = 1}
+
+	
+	}
+}
 
 add_namespace = austrianimperialelections
 
@@ -3749,6 +3779,11 @@ country_event = {
 			add_core_of  = CZE
 		}
 		release = CZE
+		CZE = {
+			set_politics = {
+				ruling_party = democratic_liberalism
+			}
+		}
 			declare_war_on = {
 				target = CZE
 				type = annex_everything
