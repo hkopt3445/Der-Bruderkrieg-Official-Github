@@ -2251,7 +2251,94 @@ GER_rohm_endsieg = {
 }
 
 anthrax_decisions = { 
+	invest_in_anthrax_research = {
+		icon = generic_army_support
+		allowed = {
+		}
+		visible = {
+		}
+		fire_only_once = no
+		days_re_enable = 50
+		cost = 75
+		days_remove = 60
+		ai_will_do = {
+			factor = 1000
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				category = cat_anthrax
+				bonus = 1 
+				uses = 1
+			}
+		}
+	}
+	launch_anthrax_operation = {
+		icon = generic_army_support
+		allowed = {
+		}
+		visible = {
+			NOT = {
+				has_country_flag = anthrax_operation_start
+			}
+		}
+		fire_only_once = no
+		days_re_enable = 20
+		cost = 0
+		days_remove = 0
+		ai_will_do = {
+			factor = 1000
+		}
+		remove_effect = {
+			set_country_flag = anthrax_operation_start
+		}
+	}
 
+	anthrax_bombing_target_state = {
+
+		icon = generic_prepare_civil_war
+
+		days_re_enable = 25
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+
+		
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			has_country_flag = anthrax_operation_start
+			FROM = {
+				owner = {
+					has_war_with = GER
+				}
+			}
+		}
+
+		available = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = anthrax_bomb_modifier
+					days = 150
+				}
+			}
+			clr_contry_flag = anthrax_operation_start
+		}
+
+	}
 }
 
 atomwaffen_decisions = {
