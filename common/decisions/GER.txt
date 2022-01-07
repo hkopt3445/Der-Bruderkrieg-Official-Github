@@ -2251,6 +2251,7 @@ GER_rohm_endsieg = {
 }
 
 anthrax_decisions = { 
+	
 	invest_in_anthrax_research = {
 		icon = generic_army_support
 		allowed = {
@@ -2272,6 +2273,29 @@ anthrax_decisions = {
 			}
 		}
 	}
+	
+
+	# GER_blank_anthrax_1 = {
+		
+	# 	available = {
+	# 		always = no
+	# 	}
+
+	# 	visible = {
+	# 		always = yes
+	# 	}
+	# }
+	GER_blank_anthrax_operations = {
+		icon = generic_operation
+		available = {
+			always = no
+		}
+
+		visible = {
+			always = yes
+		}
+	}
+
 	launch_anthrax_operation = {
 		icon = generic_army_support
 		allowed = {
@@ -2279,6 +2303,16 @@ anthrax_decisions = {
 		visible = {
 			NOT = {
 				has_country_flag = anthrax_operation_start
+			}
+		}
+		available = {
+			has_technology = anthrax_1
+			OR = {
+				has_war_with = AUS
+				has_war_with = FRA
+				has_war_with = SOV
+				has_war_with = ENG
+				has_war_with = USA
 			}
 		}
 		fire_only_once = no
@@ -2303,7 +2337,14 @@ anthrax_decisions = {
 			factor = 1000
 		}
 
-		on_map_mode = map_and_decisions_view
+		available = {
+			any_country = {
+				has_war_with = GER
+				is_major = yes
+			}
+		}
+
+		on_map_mode = map_only
 		highlight_states = {
 			state = FROM
 		}
@@ -2318,12 +2359,14 @@ anthrax_decisions = {
 				owner = {
 					has_war_with = GER
 				}
+				OR = {
+					has_state_category = rural 
+					has_state_category = pastoral 
+					has_state_category = town
+				}
 			}
 		}
 
-		available = {
-			
-		}
 
 		complete_effect = {
 			
@@ -2335,7 +2378,7 @@ anthrax_decisions = {
 					days = 150
 				}
 			}
-			clr_contry_flag = anthrax_operation_start
+			clr_country_flag = anthrax_operation_start
 		}
 
 	}
