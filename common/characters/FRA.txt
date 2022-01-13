@@ -1,5 +1,5 @@
 characters={
-	FRA_Édouard_daladier={
+	FRA_edouard_daladier={
 		name="Édouard Daladier"
 		portraits={
 			civilian={
@@ -43,7 +43,7 @@ characters={
 			id=-1
 		}
 	}
-	FRA_philippe_pétain={
+	FRA_philippe_petain={
 		name="Philippe Pétain"
 		portraits={
 			civilian={
@@ -56,6 +56,13 @@ characters={
 			expire="1965.1.1.1"
 			id=-1
 		}
+		country_leader={
+			#desc="POLITICS_PHILIPPE_PÉTAIN_DESC"
+			ideology=ultranationalist
+			expire="1965.1.1.1"
+			id=-1
+		}
+		
 		
 	}
 	FRA_napoleon_vi={
@@ -118,9 +125,21 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_FRA_maurice_gamelin.dds"
-			}
-			army={
 				large="gfx/leaders/FRA/Portrait_France_Maurice_Gamelin.dds"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = maurice_gamelin
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				army_chief_offensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 3.000
 			}
 		}
 		field_marshal={
@@ -143,6 +162,20 @@ characters={
 				large="gfx/leaders/FRA/Portrait_France_Maxime_Weygand.dds"
 			}
 		}
+		advisor={
+			slot = army_chief
+			idea_token = maxime_weygand
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				army_chief_defensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 0.500
+			}
+		}
 		field_marshal={
 			traits={ old_guard inflexible_strategist career_officer defensive_doctrine }
 			skill=3
@@ -163,6 +196,20 @@ characters={
 				large="gfx/leaders/FRA/Portrait_France_Alphonse_Joseph_Georges.dds"
 			}
 		}
+		advisor={
+			slot = army_chief
+			idea_token = alphonse_georges
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				army_chief_maneuver_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		field_marshal={
 			traits={ old_guard trait_cautious defensive_doctrine }
 			skill=3
@@ -173,7 +220,7 @@ characters={
 			legacy_id=-1
 		}
 	}
-	FRA_antoinemariebenoît_besson={
+	FRA_antoinemariebenoit_besson={
 		name="Antoine-Marie-Benoît Besson"
 		portraits={
 			army={
@@ -193,26 +240,6 @@ characters={
 			legacy_id=-1
 		}
 	}
-	FRA_charles_de_gaulle={
-		name="Charles De Gaulle"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_FRA_charles_de_gaulle.dds"
-			}
-			army={
-				large="gfx/leaders/FRA/Portrait_France_Charles_De_Gaulle.dds"
-			}
-		}
-		corps_commander={
-			traits={ media_personality harsh_leader armor_officer }
-			skill=4
-			attack_skill=4
-			defense_skill=4
-			planning_skill=3
-			logistics_skill=2
-			legacy_id=101
-		}
-	}
 	FRA_philippe_leclerc={
 		name="Philippe Leclerc"
 		portraits={
@@ -221,6 +248,21 @@ characters={
 			}
 			army={
 				large="gfx/leaders/FRA/portrait_france_philippe_leclerc.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = philippe_leclerc
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				army_commando_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
 		corps_commander={
@@ -243,6 +285,21 @@ characters={
 				large="gfx/leaders/FRA/portrait_france_henri_giraud.dds"
 			}
 		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = henri_giraud
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+			traits = {
+				military_theorist
+			}
+		}
 		corps_commander={
 			traits={ career_officer trait_cautious infantry_officer trickster }
 			skill=3
@@ -261,6 +318,21 @@ characters={
 			}
 			army={
 				large="gfx/leaders/FRA/portrait_france_charles_huntziger.dds"
+			}
+		}
+		advisor={	
+			slot = high_command
+			idea_token = charles_huntziger
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				army_logistics_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
 		corps_commander={
@@ -313,7 +385,7 @@ characters={
 			legacy_id=-1
 		}
 	}
-	FRA_rené_olry={
+	FRA_rene_olry={
 		name="René Olry"
 		portraits={
 			army={
@@ -333,7 +405,7 @@ characters={
 			legacy_id=-1
 		}
 	}
-	FRA_françois_darlan={
+	FRA_francois_darlan={
 		name="François Darlan"
 		portraits={
 			army={
@@ -343,13 +415,27 @@ characters={
 				large="gfx/leaders/FRA/Portrait_France_Francois_Darlan.dds"
 			}
 		}
+		advisor={
+			slot = navy_chief
+			idea_token = francois_darlan
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				navy_chief_decisive_battle_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		navy_leader={
 			traits={ bold naval_lineage superior_tactician }
 			skill=3
 			attack_skill=2
 			defense_skill=2
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=3
+			coordination_skill=3
 			legacy_id=102
 		}
 	}
@@ -363,13 +449,27 @@ characters={
 				large="gfx/leaders/FRA/Portrait_France_Jean-Marie_Charles_Abrial.dds"
 			}
 		}
+		advisor={
+			slot = navy_chief
+			idea_token = jean_marie_abrial
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				navy_chief_commerce_raiding_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		navy_leader={
-			traits={ chief_engineer superior_tactician }
+			traits={ chief_engineer superior_tactician seawold }
 			skill=3
 			attack_skill=2
 			defense_skill=3
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=3
+			coordination_skill=2
 			legacy_id=-1
 		}
 	}
@@ -388,12 +488,12 @@ characters={
 			skill=2
 			attack_skill=1
 			defense_skill=2
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=2
+			coordination_skill=2
 			legacy_id=-1
 		}
 	}
-	FRA_renéÉmile_godfroy={
+	FRA_rene_emile_godfroy={
 		name="René-Émile Godfroy"
 		portraits={
 			army={
@@ -403,13 +503,28 @@ characters={
 				large="gfx/leaders/FRA/Portrait_France_Rene-Emile_Godfroy.dds"
 			}
 		}
+		advisor={
+			slot = high_command
+			idea_token = rene_emile_godfroy
+			ledger = navy
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				navy_screen_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		navy_leader={
 			traits={ old_guard_navy gentlemanly battleship_adherent spotter }
 			skill=2
 			attack_skill=2
 			defense_skill=1
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=2
+			coordination_skill=2
 			legacy_id=-1
 		}
 	}
@@ -423,6 +538,21 @@ characters={
 				large="gfx/leaders/FRA/Portrait_France_Jean_de_Laborde.dds"
 			}
 		}
+		advisor={
+			slot = high_command
+			idea_token = jean_de_laborde
+			ledger = navy
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				navy_capital_ship_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		navy_leader={
 			traits={ aviation_enthusiast naval_lineage }
 			skill=1
@@ -433,44 +563,350 @@ characters={
 			legacy_id=-1
 		}
 	}
-	FRA_charles_dorleans={
-		name="Charles d'Orleans"
+	FRA_victor_denain={
+		name= "Victor Denain"
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			army={
+				small="GFX_idea_victor_denain"
 			}
 		}
-		country_leader={
-			ideology=social_democratic
-			expire="1952.1.1.12"
-			id=-1
+		advisor={
+			cost = 150
+			
+			slot = theorist
+			idea_token = victor_denain
+			ledger = air
+			allowed = {
+				original_tag = FRA
+			}
+			
+			traits = {
+				assault_avaition
+			}
 		}
 	}
-	FRA_august_murat={
-		name="August Murat"
+
+	FRA_jean_decoux={
+		name= "Jean Decoux"
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			army={
+				small="GFX_idea_jean_decoux"
+				large="gfx/leaders/FRA/Portrait_France_Jean_Decoux.png"
 			}
 		}
-		country_leader={
-			ideology=social_liberalism
-			expire="1952.1.1.12"
-			id=-1
+		navy_leader={
+			traits={ seawolf }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			maneuvering_skill=2
+			coordination_skill=2
+			legacy_id=-1
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = jean_decoux
+			ledger = navy
+			allowed = {
+				original_tag = FRA
+			}
+			traits = { naval_theorist }
+		}		
+	}
+
+	FRA_jean_marie_bergeret={
+		name= "Jean-Marie Beregeret"
+		portraits={
+			army={
+				small="GFX_idea_jean_marie_bergeret"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = jean_marie_bergeret
+			ledger = air
+			allowed = {
+				original_tag = FRA
+			}
+			traits = { air_warfare_theorist }
 		}
 	}
-	FRA_julien_de_castellane={
-		name="Julien de Castellane"
+
+	FRA_louis_kahn={
+		name= "Louis Kahn"
 		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_4"
+			army={
+				small="GFX_idea_louis_kahn"
 			}
 		}
-		country_leader={
-			ideology=despotic
-			traits={ charismatic_ego }
-			expire="1953.1.1.12"
-			id=-1
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = louis_kahn
+			ledger = navy
+			allowed = {
+				original_tag = FRA
+			}
+			
+			traits = {
+				grand_fleet_proponent
+			}
+		}
+	}
+
+	FRA_frederic_irene_joliot_curie={
+		name= "Irène Joliot-Curie"
+		portraits={
+			army={
+				small="GFX_idea_frederic_irene_joliot_curie"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = frederic_irene_joliot_curie
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			research_bonus = {
+				nuclear = 0.150
+			}
+			traits = {
+				nuclear_scientist
+			}
+		}
+	}
+	FRA_marcel_gensoul={
+		name= "Marcel-Bruno Gensoul"
+		portraits={
+			army={
+				small="GFX_idea_marcel_gensoul"
+				large="gfx/leaders/FRA/Portrait_FRA_Marcel_Gensoul.png"
+			}
+		}
+		navy_leader={
+			traits={ ironside seawolf }
+			skill=2
+			attack_skill=3
+			defense_skill=1
+			maneuvering_skill=2
+			coordination_skill=1
+			legacy_id=-1
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = marcel_gensoul
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				navy_chief_naval_aviation_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	
+	FRA_joseph_vuillemin={
+		name= "Joseph Vuillemin"
+		portraits={
+			army={
+				small="GFX_idea_joseph_vuillemin"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = joseph_vuillemin
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				air_chief_ground_support_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	FRA_robert_odic={
+		name= "Robert Odic"
+		portraits={
+			army={
+				small="GFX_idea_robert_odic"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = robert_odic
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				air_chief_all_weather_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	FRA_philippe_fequant={
+		name= "Philippe Féquant"
+		portraits={
+			army={
+				small="GFX_idea_philippe_fequant"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = philippe_fequant
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				air_chief_reform_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	FRA_martial_valin={
+		name= "Martial Valin"
+		portraits={
+			army={
+				small="GFX_idea_martial_valin"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = martial_valin
+			ledger = air
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				air_air_superiority_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}		
+	}
+	
+	FRA_jean_francois_jannekeyn={
+		name= "Jean-François Jannekeyn"
+		portraits={
+			army={
+				small="GFX_idea_jean_francois_jannekeyn"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = jean_francois_jannekeyn
+			ledger = air
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				air_tactical_bombing_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	FRA_emile_muselier={
+		name= "Émile Muselier"
+		portraits={
+			army={
+				small="GFX_idea_emile_muselier"
+				large="gfx/leaders/FRA/Portrait_France_Emile_Muselier.png"
+			}
+		}
+		navy_leader={
+			traits={  }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=1
+			coordination_skill=2
+			legacy_id=-1
+		}
+		advisor={
+			slot = high_command
+			idea_token = emile_muselier
+			ledger = navy
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				navy_fleet_logistics_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	
+	FRA_alfred_heurtaux={
+		name= "Alfred Heurtaux"
+		portraits={
+			army={
+				small="GFX_idea_alfred_heurtaux"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = alfred_heurtaux
+			ledger = air
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				air_air_combat_training_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	FRA_rene_prioux={
+		name= "René Prioux"
+		portraits={
+			army={
+				small="GFX_idea_rene_prioux"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = rene_prioux
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				army_cavalry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 }
