@@ -200,11 +200,7 @@ country_event = {
 				}
 			}
 		}
-		create_country_leader = {
-			name = "Otto Strasser"
-			ideology = ultranationalist
-			picture = "gfx/leaders/Strasser.dds"
-		}
+		
 		country_event = GER_schleicher_events.2
 		ai_chance = { factor = 1000 } 
 	}
@@ -256,11 +252,7 @@ country_event = {
 				}
 			}
 		}
-		create_country_leader = {
-			name = "Alfred Hugenberg"
-			ideology = fascism_ideology
-			picture = "gfx/leaders/Hugenberg.dds"
-		}
+		
 		country_event = GER_schleicher_events.3
 		ai_chance = { factor = 1000 }
 	}
@@ -330,11 +322,7 @@ country_event = {
 				}
 			}
 		}
-		create_country_leader = {
-			name = "Heinrich Brüning" #republican leader
-			ideology = democratic_liberal
-			picture = "gfx/leaders/Heinreich_brunining.dds"
-		}
+		
 		country_event = GER_schleicher_events.4
 		ai_chance = { factor = 1000 }
 	}
@@ -404,11 +392,7 @@ country_event = {
 				}
 			}
 		}
-		create_country_leader = {
-			name = "Regent Schleicher" 
-			ideology = despotic
-			picture = "gfx/leaders/KurtVonSleicher.dds"
-		}
+		
 		country_event = GER_schleicher_events.5
 		ai_chance = { factor = 1000 }
 	}
@@ -424,6 +408,11 @@ country_event = {
 		option = { 
 			name = GER_schleicher_events.2.a
 			ai_chance = { factor = 1000 } 
+			create_country_leader = {
+				name = "Otto Strasser"
+				ideology = ultranationalist
+				picture = "gfx/leaders/Strasser.dds"
+			}
 			set_politics = {
 				ruling_party = ultranationalism
 			}
@@ -432,6 +421,7 @@ country_event = {
 				popularity = 0.2
 			}
 			set_cosmetic_tag = german_strassereich
+			
 		}
 	}
 
@@ -446,6 +436,11 @@ country_event = {
 		option = { 
 			name = GER_schleicher_events.3.a
 			ai_chance = { factor = 1000 } 
+			create_country_leader = {
+				name = "Alfred Hugenberg"
+				ideology = fascism_ideology
+				picture = "gfx/leaders/Hugenberg.dds"
+			}
 			set_politics = {
 				ruling_party = fascism
 			}
@@ -466,6 +461,11 @@ country_event = {
 	
 		option = { 
 			name = GER_schleicher_events.4.a
+			create_country_leader = {
+				name = "Heinrich Brüning" #republican leader
+				ideology = democratic_liberal
+				picture = "gfx/leaders/Heinreich_brunining.dds"
+			}
 			ai_chance = { factor = 1000 } 
 			set_politics = {
 				ruling_party = democratic_liberalism
@@ -488,6 +488,11 @@ country_event = {
 		option = { 
 			name = GER_schleicher_events.5.a
 			ai_chance = { factor = 1000 }
+			create_country_leader = {
+				name = "Regent Schleicher" 
+				ideology = despotic
+				picture = "gfx/leaders/KurtVonSleicher.dds"
+			}
 			set_politics = {
 				ruling_party = neutrality
 			}
@@ -706,6 +711,27 @@ country_event = {
 
 	option = { 
 		name = GER_goering_post_unification.2.a
+		hidden_effect = {
+			country_event = {
+				id = GER_goering_post_unification.3
+				days = 2
+			}
+		}
+
+		ai_chance = { factor = 1000 } 
+	}
+}
+
+country_event = {
+	id = GER_goering_post_unification.3 # The Convention
+	title = GER_goering_post_unification.3.t
+	desc = GER_goering_post_unification.3.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_post_unification.3.a
 		if = {
 			limit = {
 				check_variable = { GER_idealist_power > GER_pragmatist_power }
