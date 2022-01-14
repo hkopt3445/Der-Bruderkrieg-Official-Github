@@ -24,3 +24,58 @@ GER_thugee_revolt_scripted_effect = {
 		}
 	}
 }
+
+anthrax_setup = {
+	custom_effect_tooltip = unlock_anthrax_tech
+	set_variable = {
+		anthrax_bombs = 0
+	}
+	set_variable = {
+		anthrax_power = 20
+	}	
+}
+
+anthrax_dynamic_modifier_setup = {
+	###DYNAMIC MODIFIER
+	set_variable = {
+		anthrax_bomb_modifier_state_resources_factor = ROOT.anthrax_power
+	}
+	divide_variable = {
+		anthrax_bomb_modifier_state_resources_factor = -40
+	}
+	set_variable = {
+		anthrax_bomb_modifier_state_resources_factor_loc = anthrax_bomb_modifier_state_resources_factor
+	}
+	multiply_variable = {
+		anthrax_bomb_modifier_state_resources_factor_loc = 100
+	}
+}
+
+
+d_check_if_sloc_works = {
+	if = {
+		limit = {
+			OR = {
+				AUS = {
+					exists = no
+				}
+				AUS = {
+					is_subject = yes
+				}
+			}
+			FRA = {
+				exists = yes
+			}
+			FRA = {
+				is_subject = no
+			}
+			GER = {
+				exists = yes
+			}
+			GER = {
+				is_subject = no
+			}
+		}
+		log = "hi"
+	}
+}

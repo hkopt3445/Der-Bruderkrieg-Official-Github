@@ -1,0 +1,40 @@
+on_actions = {
+    #ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+    on_state_control_changed = {
+        effect = {        
+            FROM.FROM = {
+
+                ####################
+                ### EUROPE
+                ####################
+                if = {
+                    limit = { is_on_continent = europe }
+                    if = {
+                        limit = {
+                            ROOT = { tag = FRA }
+                        }
+                        do_french_renames_in_europe = yes
+                    }
+                }
+                if = {
+                    limit = { is_on_continent = europe }
+                    if = {
+                        limit = {
+                            ROOT = { tag = GER }
+                        }
+                        do_prussian_renames_in_europe = yes
+                    }
+                }
+                if = {
+                    limit = { is_on_continent = europe }
+                    if = {
+                        limit = {
+                            ROOT = { tag = AUS }
+                        }
+                        do_austrian_renames_in_europe = yes
+                    }
+                }
+            }
+        }
+    }
+}

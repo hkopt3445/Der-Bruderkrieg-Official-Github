@@ -2231,7 +2231,7 @@ GER_rohm_endsieg = {
 			has_completed_focus = GER_our_sole_purpose
 		}
 		fire_only_once = no
-		days_re_enable = 3
+		days_re_enable = 50
 		cost = 0
 		modifier = {
 			political_power_gain = -1
@@ -2241,11 +2241,240 @@ GER_rohm_endsieg = {
 			factor = 1000
 		}
 		complete_effect = {
-			add_stability = 0.15
+			add_stability = 0.05
 			set_country_flag = GER_unite_the_nation_flag
 		}
 		remove_effect = {
 			clr_country_flag = GER_unite_the_nation_flag
 		}
 	}
+}
+
+anthrax_decisions = { 
+	
+	invest_in_anthrax_research = {
+		icon = generic_army_support
+		allowed = {
+		}
+		visible = {
+		}
+		fire_only_once = no
+		days_re_enable = 50
+		cost = 75
+		days_remove = 60
+		ai_will_do = {
+			factor = 1000
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				category = cat_anthrax
+				bonus = 1 
+				uses = 1
+			}
+		}
+	}
+	
+
+	# GER_blank_anthrax_1 = {
+		
+	# 	available = {
+	# 		always = no
+	# 	}
+
+	# 	visible = {
+	# 		always = yes
+	# 	}
+	# }
+	GER_blank_anthrax_operations = {
+		icon = generic_operation
+		available = {
+			always = no
+		}
+
+		visible = {
+			always = yes
+		}
+	}
+
+	launch_anthrax_operation = {
+		icon = generic_army_support
+		allowed = {
+		}
+		visible = {
+			NOT = {
+				has_country_flag = anthrax_operation_start
+			}
+		}
+		available = {
+			has_tech = anthrax_1
+			OR = {
+				has_war_with = AUS
+				has_war_with = FRA
+				has_war_with = SOV
+				has_war_with = ENG
+				has_war_with = USA
+			}
+		}
+		fire_only_once = no
+		days_re_enable = 20
+		cost = 0
+		days_remove = 0
+		ai_will_do = {
+			factor = 1000
+		}
+		remove_effect = {
+			set_country_flag = anthrax_operation_start
+		}
+	}
+
+	anthrax_bombing_target_state = {
+
+		icon = generic_prepare_civil_war
+
+		days_re_enable = 25
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		available = {
+			any_country = {
+				has_war_with = GER
+				is_major = yes
+			}
+		}
+
+		on_map_mode = map_only
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+
+		
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			has_country_flag = anthrax_operation_start
+			FROM = {
+				owner = {
+					has_war_with = GER
+				}
+				OR = {
+					has_state_category = rural 
+					has_state_category = pastoral 
+					has_state_category = town
+				}
+			}
+		}
+
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = anthrax_bomb_modifier
+					days = 150
+				}
+			}
+			clr_country_flag = anthrax_operation_start
+		}
+
+	}
+}
+
+atomwaffen_decisions = {
+	choose_leader_for_atomwaffen = {
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+		}
+		cost = 15
+		
+		modifier = {
+		}
+		days_remove = 0
+
+		remove_effect = {
+			country_event = austriaprussiaoperations.4
+		}
+  	}
+	
+	##nuke
+	increase_nuke_funding_research = {
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_idea = GER_atomwaffen_heisenberg
+		}
+		cost = 70
+		
+		modifier = {
+		}
+		days_remove = 25
+
+		remove_effect = {
+			add_tech_bonus = {
+				category = nuclear
+				bonus = 1
+				uses = 1
+			}
+		}
+  	}
+
+	##rocket
+	increase_rocket_funding_research = {
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_idea = GER_atomwaffen_von_braun
+		}
+		cost = 70
+		
+		modifier = {
+		}
+		days_remove = 25
+
+		remove_effect = {
+			add_tech_bonus = {
+				category = rocketry
+				bonus = 1
+				uses = 1
+			}
+		}
+  	}
+
+	boost_nuclear_rocket_production = {
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_idea = GER_atomwaffen_goering
+		}
+		cost = 70
+		
+		modifier = {
+			production_speed_air_base_factor = 0.1
+			production_speed_nuclear_reactor_factor = 0.1
+			production_speed_rocket_site_factor = 0.1
+			nuclear_production_factor = 0.4
+		}
+		days_remove = 25
+
+		remove_effect = {
+			add_tech_bonus = {
+				category = industry
+				bonus = 0.5
+				uses = 1
+			}
+		}
+  	}
 }

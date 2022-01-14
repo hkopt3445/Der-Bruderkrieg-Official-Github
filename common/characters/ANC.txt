@@ -10,10 +10,19 @@ characters={
 				large="gfx/leaders/USA/Portrait_USA_Chester_W_Nimitz.dds"
 			}
 		}
-		country_leader={
-			ideology=authoritarian_conservatism
-			expire="1947.1.1.1"
-			id=-1
+		advisor={
+			slot = navy_chief
+			idea_token = chester_nimitz
+			allowed = {
+				original_tag = ANC
+			}
+			traits = {
+				navy_chief_commerce_raiding_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		navy_leader={
 			traits={ gentlemanly naval_lineage superior_tactician spotter blue_water_expert seawolf }
@@ -33,6 +42,21 @@ characters={
 				small="GFX_portrait_USA_alexander_vandegrift_small"
 			}
 		}
+		advisor={
+			slot = high_command
+			idea_token = alexander_vandergrift
+			ledger = army
+			allowed = {
+				original_tag = ANC
+			}
+			traits = {
+				navy_amphibious_assault_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		field_marshal={
 			traits={ naval_invader }
 			skill=3
@@ -43,38 +67,49 @@ characters={
 			legacy_id=-1
 		}
 	}
-	ANC_robert_blake={
-		name="Robert Blake"
+	ANC_delos_carleton={
+		name="Delos Carleton Emmons"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_land_1.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
+				large="gfx/leaders/USA/Portrait_HAW_Delos_Emmons.png"
 			}
 		}
 		corps_commander={
-			traits={ naval_invader }
-			skill=2
-			attack_skill=2
-			defense_skill=2
-			planning_skill=2
+			traits={ politically_connected trait_engineer }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
 			logistics_skill=1
 			legacy_id=-1
 		}
 	}
-	ANC_dudely_s_brown={
-		name="Dudely S. Brown"
+	ANC_robert_richardson={
+		name="Robert C. Richardson Jr."
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_land_2.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
+				large="gfx/leaders/USA/Portrait_HAW_Robert_Richardson.png"
 			}
 		}
+		advisor={
+			slot = high_command
+			idea_token = robert_richardson
+			ledger = army
+				allowed = {
+					original_tag = ANC
+				}
+				traits = {
+					army_infantry_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
 		corps_commander={
-			traits={ naval_invader }
+			traits={ infantry_officer infantry_leader }
 			skill=2
 			attack_skill=2
 			defense_skill=2
@@ -88,38 +123,81 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_land_3.dds"
+				large="gfx/leaders/USA/Portrait_TEX_clifton_cates.png"
 			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
-			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = clifton_cates
+			allowed = {
+					original_tag = ANC
+				}
+				traits = {
+					army_chief_offensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
 		corps_commander={
 			traits={ naval_invader }
 			skill=4
 			attack_skill=4
-			defense_skill=3
-			planning_skill=3
+			defense_skill=2
+			planning_skill=4
 			logistics_skill=3
 			legacy_id=-1
 		}
 	}
-	ANC_oscar_ray_caludwell={
-		name="Oscar Ray Caludwell"
+	ANC_joseph_mcnarney={
+		name="Joseph T. McNarney"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_land_4.dds"
+				large="gfx/leaders/USA/Portrait_HAW_Joseph_MacNarney.png"
 			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_4.dds"
+		}
+		advisor={
+			slot = high_command
+			idea_token = joseph_mcnarney
+			ledger = army
+			allowed = {
+				original_tag = ANC
+			}
+			traits = {
+				army_commando_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
 		corps_commander={
-			traits={ naval_invader }
-			skill=2
+			traits={ career_officer commando }
+			skill=3
 			attack_skill=2
-			defense_skill=1
-			planning_skill=2
+			defense_skill=2
+			planning_skill=4
 			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	ANC_walter_short={
+		name="Walter Short"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_europe_generic_land_1.dds"
+				large="gfx/leaders/USA/Portrait_HAW_Walter_Short.png"
+			}
+		}
+		corps_commander={
+			traits={ trait_cautious }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=1
+			logistics_skill=3
 			legacy_id=-1
 		}
 	}
@@ -128,8 +206,6 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_USA_william_halsey_jr.dds"
-			}
-			army={
 				large="gfx/leaders/USA/Portrait_USA_William_Halsey_Jr.dds"
 			}
 		}
@@ -142,15 +218,42 @@ characters={
 			coordination_skill=1
 			legacy_id=-1
 		}
+		advisor={
+			slot = navy_chief
+			idea_token = william_halsey
+			allowed = {
+				original_tag = ANC
+			}
+			traits = {
+				navy_chief_naval_aviation_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 	}
 	ANC_frank_jack_fletcher={
 		name="Frank Jack Fletcher"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_USA_frank_jack_fletcher.dds"
-			}
-			army={
 				large="gfx/leaders/USA/Portrait_USA_Frank_Jack_Fletcher.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = frank_jack_fletcher
+			ledger = air
+			allowed = {
+				original_tag = ANC
+			}
+			traits = {
+				navy_carrier_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
 		navy_leader={
@@ -168,10 +271,16 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_navy_1.dds"
+				large="gfx/leaders/USA/Portrait_HAW_Husband_Kimmel.png"
 			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_navy_1.dds"
+			civilian={
+				large="gfx/leaders/USA/Portrait_HAW_Husband_Kimmel.png"
 			}
+		}
+		country_leader={
+			ideology=authoritarian_conservatism
+			expire="1938.1.1.1"
+			id=-1
 		}
 		navy_leader={
 			traits={ navy_career_officer }
@@ -183,113 +292,37 @@ characters={
 			legacy_id=-1
 		}
 	}
-	ANC_bob_wilson={
-		name="Bob Wilson"
+	ANC_luke_mcnamee={
+		name="Luke McNamee"
 		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_8"
+			army={
+				small="gfx/interface/ideas/idea_europe_generic_navy_1.dds"
+				large="gfx/leaders/USA/Portrait_HAW_Luke_McNamee.png"
 			}
 		}
-		country_leader={
-			ideology=anarcho_communism
-			traits={ financial_expert }
-			expire="1943.1.1.12"
-			id=-1
-		}
-	}
-	ANC_jonas_evans={
-		name="Jonas Evans"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+		advisor={
+			slot = high_command
+			idea_token = luke_mcnamee
+			ledger = navy
+			allowed = {
+				original_tag = ANC
+			}
+			traits = {
+				navy_chief_decisive_battle_1
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
-		country_leader={
-			ideology=syndicalism
-			traits={ lead_court_artist friend_of_the_unions }
-			expire="1944.1.1.12"
-			id=-1
-		}
-	}
-	ANC_john_evans={
-		name="John Evans"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=market_socialism
-			expire="1944.1.1.12"
-			id=-1
-		}
-	}
-	ANC_jim_walker={
-		name="Jim Walker"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=centrism
-			expire="1945.1.1.12"
-			id=-1
-		}
-	}
-	ANC_johannes_walker={
-		name="Johannes Walker"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_8"
-			}
-		}
-		country_leader={
-			ideology=paternalistic_conservatism
-			traits={ economist }
-			expire="1946.1.1.12"
-			id=-1
-		}
-	}
-	ANC_lucas_smith={
-		name="Lucas Smith"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_4"
-			}
-		}
-		country_leader={
-			ideology=despotic
-			traits={ tenacious_negotiator longist_puppet }
-			expire="1947.1.1.12"
-			id=-1
-		}
-	}
-	ANC_peter_jones={
-		name="Peter Jones"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=clerical_fascism
-			expire="1947.1.1.12"
-			id=-1
-		}
-	}
-	ANC_alex_williams={
-		name="Alex Williams"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=ultranationalist
-			traits={ economic_statistician }
-			expire="1948.1.1.12"
-			id=-1
+		navy_leader={
+			traits={ ironside old_guard_navy } 
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=1
+			coordination_skill=1
+			legacy_id=-1
 		}
 	}
 }

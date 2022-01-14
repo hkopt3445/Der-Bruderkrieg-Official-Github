@@ -648,7 +648,17 @@ on_actions = {
 						OR = { tag = AUS is_in_faction_with = AUS }
                     }
                 }
-				russia_loses_peace_deal = yes	
+				if = {
+					limit = {
+						AUS = {
+							is_puppet_of = GER
+						}
+					}
+					russia_loses_to_prussia_deal = yes
+				}
+				else = {
+					russia_loses_peace_deal = yes	
+				}
             }
         }
 		effect = {
@@ -659,7 +669,17 @@ on_actions = {
 						OR = { tag = FRA is_in_faction_with = FRA }
 					}
 				}
-				russia_loses_peace_to_france_deal =  yes
+				if = {
+					limit = {
+						FRA = {
+							is_puppet_of = GER
+						}
+					}
+					russia_loses_to_prussia_deal = yes
+				}
+				else = {
+					russia_loses_peace_to_france_deal =  yes
+				}
 			}
 		}
 		
